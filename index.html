@@ -142,45 +142,60 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 .theme-toggle.snapping{pointer-events:none}
 .theme-toggle:focus-visible{outline:3px solid rgba(var(--accent-rgb),.28);outline-offset:3px}
 
-.settings-menu{
-  position:fixed;z-index:1100;width:min(250px,calc(100vw - 28px));
-  padding:12px;background:var(--card);color:var(--text);
-  border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 44px rgba(0,0,0,.22)
+
+.floating-actions{
+  position:fixed;inset:0;z-index:1090;pointer-events:none
 }
-.settings-menu-title{
-  font-size:.78rem;font-weight:850;text-transform:uppercase;letter-spacing:.08em;
-  color:var(--muted);padding:2px 4px 9px
+.floating-action-btn,
+.timer-preset-floating{
+  position:fixed;
+  display:grid;place-items:center;
+  border:1px solid var(--line);
+  background:var(--card);color:var(--text);
+  box-shadow:0 8px 24px rgba(0,0,0,.16);
+  opacity:0;transform:scale(.72);
+  pointer-events:none;
+  transition:
+    left .24s cubic-bezier(.22,.8,.25,1),
+    top .24s cubic-bezier(.22,.8,.25,1),
+    opacity .16s ease,
+    transform .2s cubic-bezier(.22,.8,.25,1),
+    border-color .16s ease,
+    box-shadow .16s ease,
+    background .16s ease
 }
-.settings-icon-btn{
-  width:48px;height:48px;padding:0;display:grid;place-items:center;
-  border:1px solid var(--line);border-radius:14px;background:var(--tile);color:var(--text);
-  font-size:1.45rem
+.floating-actions.open .floating-action-btn{
+  opacity:1;transform:scale(1);pointer-events:auto
 }
-.settings-icon-btn:hover{border-color:rgba(var(--accent-rgb),.5)}
-.settings-divider{height:1px;background:var(--line);margin:11px 2px}
-.settings-timer-toggle{
-  width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;
-  padding:11px 12px;border:1px solid var(--line);border-radius:12px;
-  background:var(--tile);color:var(--text);font-weight:780;text-align:left
+.floating-action-btn{
+  width:50px;height:50px;padding:0;border-radius:50%;
+  font-size:1.32rem
 }
-.settings-timer-toggle.active{
-  border-color:rgba(var(--accent-rgb),.70);
-  box-shadow:0 0 14px rgba(var(--accent-rgb),.12)
+.floating-action-btn:hover,
+.timer-preset-floating:hover{
+  border-color:rgba(var(--accent-rgb),.55);
+  box-shadow:0 10px 28px rgba(0,0,0,.20)
 }
-.settings-status{font-size:.78rem;color:var(--muted);font-weight:700}
-.settings-timer-toggle.active .settings-status{color:var(--accent)}
-.settings-timer{margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--pane)}
-.timer-presets{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
-.timer-preset{
-  padding:9px 4px;border:1px solid var(--line);border-radius:10px;
-  background:var(--tile);color:var(--text);font-weight:800
-}
-.timer-preset:hover{border-color:rgba(var(--accent-rgb),.45)}
-.timer-preset.selected{
-  border-color:rgba(var(--accent-rgb),.76);
+#timerToggleBtn.active{
+  border-color:rgba(var(--accent-rgb),.78);
   background:rgba(var(--accent-rgb),.10);
-  box-shadow:0 0 12px rgba(var(--accent-rgb),.14);
-  color:var(--accent)
+  box-shadow:0 0 18px rgba(var(--accent-rgb),.18)
+}
+.timer-presets-floating{
+  position:fixed;inset:0;pointer-events:none
+}
+.timer-presets-floating.open .timer-preset-floating{
+  opacity:1;transform:scale(1);pointer-events:auto
+}
+.timer-preset-floating{
+  width:42px;height:42px;padding:0;border-radius:50%;
+  font-size:.78rem;font-weight:850
+}
+.timer-preset-floating.selected{
+  border-color:rgba(var(--accent-rgb),.82);
+  background:rgba(var(--accent-rgb),.12);
+  color:var(--accent);
+  box-shadow:0 0 16px rgba(var(--accent-rgb),.18)
 }
 
 
@@ -238,30 +253,25 @@ body.sheet-open{overflow:hidden}
 </style>
 </head>
 <body>
-<button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir les réglages" title="Réglages">⚙</button>
-<div id="settingsMenu" class="settings-menu hidden" role="dialog" aria-label="Réglages rapides">
-  <div class="settings-menu-title">Menu</div>
+<button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir le menu" title="Menu">☰</button>
 
-  <button id="themeMenuBtn" class="settings-icon-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
+<div id="floatingActions" class="floating-actions" aria-hidden="true">
+  <button id="themeMenuBtn" class="floating-action-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
     <span id="themeMenuIcon">☾</span>
   </button>
 
-  <div class="settings-divider"></div>
-
-  <button id="timerToggleBtn" class="settings-timer-toggle" type="button" aria-pressed="false">
-    <span>Timer</span>
-    <span id="timerToggleState" class="settings-status">Désactivé</span>
+  <button id="timerToggleBtn" class="floating-action-btn" type="button" aria-label="Activer le minuteur" title="Timer" aria-pressed="false">
+    ⏱
   </button>
 
-  <div id="timerSettings" class="settings-timer hidden">
-    <div class="timer-presets" role="group" aria-label="Temps maximum par question">
-      <button class="timer-preset" type="button" data-seconds="15">15 s</button>
-      <button class="timer-preset" type="button" data-seconds="30">30 s</button>
-      <button class="timer-preset" type="button" data-seconds="45">45 s</button>
-      <button class="timer-preset" type="button" data-seconds="60">60 s</button>
-    </div>
+  <div id="timerPresets" class="timer-presets-floating" aria-hidden="true">
+    <button class="timer-preset-floating" type="button" data-seconds="15">15</button>
+    <button class="timer-preset-floating" type="button" data-seconds="30">30</button>
+    <button class="timer-preset-floating" type="button" data-seconds="45">45</button>
+    <button class="timer-preset-floating" type="button" data-seconds="60">60</button>
   </div>
 </div>
+
 <main>
 <header class="card hero">
   <h1>QCM BTS Diététique</h1>
@@ -377,13 +387,13 @@ body.sheet-open{overflow:hidden}
   </div>
 </section>
 
-<footer>Menu flottant • thème rapide • timer 15/30/45/60 s • sélection visuelle sans coches.</footer>
+<footer>Menu flottant radial • thème en un clic • timer 15/30/45/60 s • aucune fenêtre de réglages.</footer>
 </main>
 
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_4";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_5";
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,session:[],index:0,score:0,errors:[],answered:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
@@ -422,28 +432,103 @@ function toggleTheme(){
   applyTheme(next);
 }
 
-function positionSettingsMenu(){
-  const btn=$("themeToggle"),menu=$("settingsMenu");
-  if(!btn||!menu||menu.classList.contains("hidden"))return;
-  const r=btn.getBoundingClientRect(),gap=10,pad=10;
-  const w=menu.offsetWidth||250,h=menu.offsetHeight||220;
-  let left=(r.left+r.width/2<window.innerWidth/2)?r.left:r.right-w;
-  let top=(r.top+r.height/2<window.innerHeight/2)?r.bottom+gap:r.top-h-gap;
-  left=Math.max(pad,Math.min(left,window.innerWidth-w-pad));
-  top=Math.max(pad,Math.min(top,window.innerHeight-h-pad));
-  menu.style.left=left+"px";menu.style.top=top+"px";
+let floatingMenuOpen=false;
+
+function setFloatingButtonPosition(el,left,top){
+  if(!el)return;
+  el.style.left=Math.round(left)+"px";
+  el.style.top=Math.round(top)+"px";
 }
-function openSettingsMenu(){
-  const menu=$("settingsMenu");if(!menu)return;
-  menu.classList.remove("hidden");
-  positionSettingsMenu();
+
+function floatingDirection(){
+  const btn=$("themeToggle");
+  const r=btn.getBoundingClientRect();
+  const horizontal=r.left+r.width/2 < window.innerWidth/2 ? 1 : -1;
+  const vertical=r.top+r.height/2 < window.innerHeight/2 ? 1 : -1;
+  return {horizontal,vertical,rect:r};
 }
-function closeSettingsMenu(){
-  $("settingsMenu")?.classList.add("hidden");
+
+function layoutFloatingActions(){
+  const btn=$("themeToggle");
+  if(!btn)return;
+
+  const themeBtn=$("themeMenuBtn");
+  const timerBtn=$("timerToggleBtn");
+  const presetButtons=[...document.querySelectorAll(".timer-preset-floating")];
+  const {horizontal,vertical,rect:r}=floatingDirection();
+
+  const mainSize=r.width;
+  const actionSize=50;
+  const presetSize=42;
+  const gap=12;
+
+  // Les 2 actions se déploient vers l'intérieur de l'écran.
+  // L'une suit l'axe horizontal, l'autre l'axe vertical.
+  const themeLeft = horizontal===1 ? r.right+gap : r.left-gap-actionSize;
+  const themeTop = r.top+(mainSize-actionSize)/2;
+  const timerLeft = r.left+(mainSize-actionSize)/2;
+  const timerTop = vertical===1 ? r.bottom+gap : r.top-gap-actionSize;
+
+  setFloatingButtonPosition(themeBtn,themeLeft,themeTop);
+  setFloatingButtonPosition(timerBtn,timerLeft,timerTop);
+
+  // Les durées se déploient depuis le timer sur l'axe horizontal opposé au bord.
+  const timerRect = {left:timerLeft,top:timerTop,width:actionSize,height:actionSize,right:timerLeft+actionSize,bottom:timerTop+actionSize};
+  presetButtons.forEach((p,i)=>{
+    const distance=(i+1)*(presetSize+8);
+    let left = horizontal===1
+      ? timerRect.left + (actionSize-presetSize)/2
+      : timerRect.left + (actionSize-presetSize)/2;
+    let top;
+
+    // On empile les durées dans la direction verticale qui rentre dans l'écran.
+    if(vertical===1){
+      top=timerRect.bottom+8+i*(presetSize+8);
+    }else{
+      top=timerRect.top-8-presetSize-i*(presetSize+8);
+    }
+
+    // Si l'empilement risque de sortir de l'écran, basculer horizontalement.
+    const projectedBottom=top+presetSize;
+    if(top<10||projectedBottom>window.innerHeight-10){
+      top=timerRect.top+(actionSize-presetSize)/2;
+      left=horizontal===1
+        ? timerRect.right+8+i*(presetSize+8)
+        : timerRect.left-8-presetSize-i*(presetSize+8);
+    }
+
+    left=Math.max(10,Math.min(left,window.innerWidth-presetSize-10));
+    top=Math.max(10,Math.min(top,window.innerHeight-presetSize-10));
+    setFloatingButtonPosition(p,left,top);
+  });
 }
-function toggleSettingsMenu(){
-  const menu=$("settingsMenu");if(!menu)return;
-  if(menu.classList.contains("hidden"))openSettingsMenu();else closeSettingsMenu();
+
+function openFloatingMenu(){
+  floatingMenuOpen=true;
+  $("floatingActions").classList.add("open");
+  $("floatingActions").setAttribute("aria-hidden","false");
+  layoutFloatingActions();
+}
+
+function closeFloatingMenu(){
+  floatingMenuOpen=false;
+  $("floatingActions").classList.remove("open");
+  $("floatingActions").setAttribute("aria-hidden","true");
+  $("timerPresets").classList.remove("open");
+  $("timerPresets").setAttribute("aria-hidden","true");
+}
+
+function toggleFloatingMenu(){
+  if(floatingMenuOpen)closeFloatingMenu();else openFloatingMenu();
+}
+
+function syncTimerPresetVisibility(){
+  const presets=$("timerPresets");
+  if(!presets)return;
+  const show=floatingMenuOpen&&state.timerEnabled;
+  presets.classList.toggle("open",show);
+  presets.setAttribute("aria-hidden",show?"false":"true");
+  if(show)layoutFloatingActions();
 }
 function normalizeTimerDurationMs(ms){
   const options=[15000,30000,45000,60000];
@@ -451,19 +536,21 @@ function normalizeTimerDurationMs(ms){
   return options.reduce((best,current)=>Math.abs(current-value)<Math.abs(best-value)?current:best,30000);
 }
 function syncTimerSettingsUI(){
-  const btn=$("timerToggleBtn"),stateLabel=$("timerToggleState"),settings=$("timerSettings");
-  if(!btn||!stateLabel||!settings)return;
+  const btn=$("timerToggleBtn");
+  if(!btn)return;
   btn.classList.toggle("active",state.timerEnabled);
   btn.setAttribute("aria-pressed",state.timerEnabled?"true":"false");
-  stateLabel.textContent=state.timerEnabled?"Activé":"Désactivé";
-  settings.classList.toggle("hidden",!state.timerEnabled);
+  btn.setAttribute("aria-label",state.timerEnabled?"Désactiver le minuteur":"Activer le minuteur");
+  btn.title=state.timerEnabled?"Timer activé":"Timer désactivé";
 
   const selectedSeconds=Math.round(normalizeTimerDurationMs(state.timerDurationMs)/1000);
-  document.querySelectorAll(".timer-preset").forEach(preset=>{
+  document.querySelectorAll(".timer-preset-floating").forEach(preset=>{
     const active=Number(preset.dataset.seconds)===selectedSeconds;
     preset.classList.toggle("selected",active);
     preset.setAttribute("aria-pressed",active?"true":"false");
   });
+
+  syncTimerPresetVisibility();
 }
 function applyTimerSettingsToCurrentQuestion(restartCurrent=true){
   state.timerDurationMs=normalizeTimerDurationMs(state.timerDurationMs);
@@ -497,6 +584,8 @@ function applyTimerSettingsToCurrentQuestion(restartCurrent=true){
 function toggleTimer(){
   state.timerEnabled=!state.timerEnabled;
   applyTimerSettingsToCurrentQuestion(true);
+  syncTimerPresetVisibility();
+  layoutFloatingActions();
 }
 function selectTimerPreset(seconds){
   state.timerDurationMs=normalizeTimerDurationMs(Number(seconds)*1000);
@@ -551,6 +640,7 @@ function snapThemeButtonToNearestCorner(){
     btn.classList.remove("snapping");
     btn.removeEventListener("transitionend",done);
     saveThemeButtonPosition();
+    if(floatingMenuOpen)layoutFloatingActions();
   };
   btn.addEventListener("transitionend",done);
   setTimeout(done,420);
@@ -586,7 +676,7 @@ function enableThemeButtonDrag(){
 
   const start=(clientX,clientY,id=null)=>{
     const rect=btn.getBoundingClientRect();
-    closeSettingsMenu();
+    closeFloatingMenu();
     dragging=true;moved=false;themeDragged=false;pointerId=id;
     startX=clientX;startY=clientY;startLeft=rect.left;startTop=rect.top;
     btn.classList.add("dragging");
@@ -656,11 +746,11 @@ function enableThemeButtonDrag(){
     if(themeDragged){
       e.preventDefault();e.stopPropagation();themeDragged=false;return;
     }
-    toggleSettingsMenu();
+    toggleFloatingMenu();
   });
 
   window.addEventListener("resize",()=>{
-    if(btn.style.left)snapThemeButtonToNearestCorner();positionSettingsMenu();
+    if(btn.style.left)snapThemeButtonToNearestCorner();if(floatingMenuOpen)layoutFloatingActions();
   });
 }
 
@@ -1044,15 +1134,16 @@ document.addEventListener("keydown",e=>{
   if(e.key==="Escape"&&$("mobileSheetOverlay").classList.contains("open"))closeMobileSheet();
 });
 document.addEventListener("pointerdown",e=>{
-  const menu=$("settingsMenu"),btn=$("themeToggle");
-  if(!menu||menu.classList.contains("hidden"))return;
-  if(menu.contains(e.target)||btn.contains(e.target))return;
-  closeSettingsMenu();
+  if(!floatingMenuOpen)return;
+  const main=$("themeToggle");
+  const actionRoot=$("floatingActions");
+  if(main.contains(e.target)||actionRoot.contains(e.target))return;
+  closeFloatingMenu();
 });
 
 $("themeMenuBtn").addEventListener("click",toggleTheme);
 $("timerToggleBtn").addEventListener("click",toggleTimer);
-document.querySelectorAll(".timer-preset").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
+document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",validate);$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
 $("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
@@ -1114,7 +1205,7 @@ restoreThemeButtonPosition();
 enableThemeButtonDrag();
 
 window.addEventListener("resize",()=>{
-  if(!isMobileSelectionUI()&&$("mobileSheetOverlay").classList.contains("open"))closeMobileSheet();positionSettingsMenu();
+  if(!isMobileSelectionUI()&&$("mobileSheetOverlay").classList.contains("open"))closeMobileSheet();if(floatingMenuOpen)layoutFloatingActions();
 });
 document.addEventListener("keydown",handleQuizKeyboard);
 window.addEventListener("beforeunload",()=>{if(!$("quiz").classList.contains("hidden"))saveProgress();});
