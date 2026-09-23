@@ -1,0 +1,788 @@
+{
+  "version": 3,
+  "title": "Le milieu intérieur",
+  "subject": "BPADN",
+  "chapter": "Chapitre 7",
+  "questions": [
+    {
+      "id": "mil-001",
+      "category": "Homéostasie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le milieu intérieur correspond principalement :",
+      "choices": [
+        {
+          "text": "Aux liquides extracellulaires entourant les cellules",
+          "correct": true
+        },
+        {
+          "text": "Uniquement au cytosol",
+          "correct": false
+        },
+        {
+          "text": "Uniquement au contenu digestif",
+          "correct": false
+        },
+        {
+          "text": "À l'intérieur du noyau",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit le milieu intérieur comme l'ensemble des liquides extracellulaires."
+    },
+    {
+      "id": "mil-002",
+      "category": "Homéostasie",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels liquides sont cités comme appartenant au milieu intérieur ?",
+      "choices": [
+        {
+          "text": "Plasma sanguin",
+          "correct": true
+        },
+        {
+          "text": "Liquide interstitiel",
+          "correct": true
+        },
+        {
+          "text": "Lymphe",
+          "correct": true
+        },
+        {
+          "text": "Suc gastrique",
+          "correct": false
+        }
+      ],
+      "explanation": "Plasma, liquide interstitiel et lymphe font partie des liquides extracellulaires du milieu intérieur."
+    },
+    {
+      "id": "mil-003",
+      "category": "Homéostasie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'homéostasie est :",
+      "choices": [
+        {
+          "text": "Un processus permanent de régulation maintenant les constantes du milieu intérieur dans des limites normales",
+          "correct": true
+        },
+        {
+          "text": "Une destruction des globules rouges",
+          "correct": false
+        },
+        {
+          "text": "Une coagulation uniquement",
+          "correct": false
+        },
+        {
+          "text": "Une digestion enzymatique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit l'homéostasie comme un processus de régulation des constantes internes."
+    },
+    {
+      "id": "mil-004",
+      "category": "Osmose",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "L'osmose correspond au transfert d'eau :",
+      "choices": [
+        {
+          "text": "D'une solution hypotonique vers une solution hypertonique à travers une membrane semi-perméable",
+          "correct": true
+        },
+        {
+          "text": "D'une solution hypertonique vers une solution hypotonique sans membrane",
+          "correct": false
+        },
+        {
+          "text": "Uniquement du sang vers l'air",
+          "correct": false
+        },
+        {
+          "text": "Contre un gradient avec consommation obligatoire d'ATP",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit l'osmose comme le déplacement de l'eau du milieu dilué vers le milieu concentré à travers une membrane semi-perméable."
+    },
+    {
+      "id": "mil-005",
+      "category": "Sang",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le sang est classé comme :",
+      "choices": [
+        {
+          "text": "Un tissu conjonctif liquide",
+          "correct": true
+        },
+        {
+          "text": "Un tissu musculaire",
+          "correct": false
+        },
+        {
+          "text": "Un tissu nerveux",
+          "correct": false
+        },
+        {
+          "text": "Une sécrétion digestive",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours présente le sang comme le seul tissu liquide de l'organisme, appartenant aux tissus conjonctifs."
+    },
+    {
+      "id": "mil-006",
+      "category": "Sang",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles sont les deux grandes composantes du sang ?",
+      "choices": [
+        {
+          "text": "Plasma et éléments figurés",
+          "correct": true
+        },
+        {
+          "text": "Lymphe et bile",
+          "correct": false
+        },
+        {
+          "text": "Cytosol et noyau",
+          "correct": false
+        },
+        {
+          "text": "Eau et os uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le sang comprend une partie liquide, le plasma, et une partie cellulaire, les éléments figurés."
+    },
+    {
+      "id": "mil-007",
+      "category": "Sang",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le volume sanguin moyen représente environ :",
+      "choices": [
+        {
+          "text": "8 % de la masse corporelle",
+          "correct": true
+        },
+        {
+          "text": "50 % de la masse corporelle",
+          "correct": false
+        },
+        {
+          "text": "1 % de la masse corporelle",
+          "correct": false
+        },
+        {
+          "text": "30 % de la masse corporelle",
+          "correct": false
+        }
+      ],
+      "explanation": "La diapositive indique environ 8 % de la masse corporelle, soit autour de 5 L."
+    },
+    {
+      "id": "mil-008",
+      "category": "Sang",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le pH sanguin normal indiqué est :",
+      "choices": [
+        {
+          "text": "7,35 à 7,45",
+          "correct": true
+        },
+        {
+          "text": "5,0 à 5,5",
+          "correct": false
+        },
+        {
+          "text": "8,5 à 9,5",
+          "correct": false
+        },
+        {
+          "text": "6,0 à 6,2",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique un pH sanguin entre 7,35 et 7,45."
+    },
+    {
+      "id": "mil-009",
+      "category": "Fonctions du sang",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles fonctions sont attribuées au sang ?",
+      "choices": [
+        {
+          "text": "Transport",
+          "correct": true
+        },
+        {
+          "text": "Régulation homéostatique",
+          "correct": true
+        },
+        {
+          "text": "Protection contre hémorragies et infections",
+          "correct": true
+        },
+        {
+          "text": "Digestion mécanique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours distingue notamment transport, régulation et protection."
+    },
+    {
+      "id": "mil-010",
+      "category": "Plasma",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le plasma est composé approximativement de :",
+      "choices": [
+        {
+          "text": "90 % d'eau",
+          "correct": true
+        },
+        {
+          "text": "10 % d'eau",
+          "correct": false
+        },
+        {
+          "text": "50 % de lipides",
+          "correct": false
+        },
+        {
+          "text": "100 % de cellules",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique environ 90 % d'eau dans le plasma."
+    },
+    {
+      "id": "mil-011",
+      "category": "Plasma",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle protéine représente environ 60 % des protéines plasmatiques et contribue à la pression osmotique ?",
+      "choices": [
+        {
+          "text": "Albumine",
+          "correct": true
+        },
+        {
+          "text": "Collagène",
+          "correct": false
+        },
+        {
+          "text": "Kératine",
+          "correct": false
+        },
+        {
+          "text": "Actine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que l'albumine représente environ 60 % des protéines plasmatiques et participe au transport et à la pression osmotique."
+    },
+    {
+      "id": "mil-012",
+      "category": "Tampons",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel système tampon est particulièrement important dans le liquide extracellulaire ?",
+      "choices": [
+        {
+          "text": "Acide carbonique / bicarbonate",
+          "correct": true
+        },
+        {
+          "text": "Cellulose / glucose",
+          "correct": false
+        },
+        {
+          "text": "ATP / ADP",
+          "correct": false
+        },
+        {
+          "text": "Triglycéride / glycérol",
+          "correct": false
+        }
+      ],
+      "explanation": "Le système acide carbonique-bicarbonate est présenté comme le principal tampon du LEC."
+    },
+    {
+      "id": "mil-013",
+      "category": "Hématies",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle protéine des hématies assure le transport de l'oxygène ?",
+      "choices": [
+        {
+          "text": "Hémoglobine",
+          "correct": true
+        },
+        {
+          "text": "Albumine",
+          "correct": false
+        },
+        {
+          "text": "Insuline",
+          "correct": false
+        },
+        {
+          "text": "Collagène",
+          "correct": false
+        }
+      ],
+      "explanation": "L'hémoglobine des globules rouges fixe et transporte l'oxygène."
+    },
+    {
+      "id": "mil-014",
+      "category": "Hématies",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Les hématies matures possèdent-elles un noyau et des mitochondries ?",
+      "choices": [
+        {
+          "text": "Non, ni noyau ni mitochondries",
+          "correct": true
+        },
+        {
+          "text": "Oui, les deux",
+          "correct": false
+        },
+        {
+          "text": "Un noyau mais pas de mitochondries",
+          "correct": false
+        },
+        {
+          "text": "Des mitochondries mais pas de noyau",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours précise que les hématies n'ont ni noyau ni mitochondries."
+    },
+    {
+      "id": "mil-015",
+      "category": "Hématies",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle proportion du CO2 est transportée par les hématies selon le cours ?",
+      "choices": [
+        {
+          "text": "Environ 20 %",
+          "correct": true
+        },
+        {
+          "text": "100 %",
+          "correct": false
+        },
+        {
+          "text": "0 %",
+          "correct": false
+        },
+        {
+          "text": "80 %",
+          "correct": false
+        }
+      ],
+      "explanation": "La diapositive indique le transport d'environ 20 % du CO2 par les globules rouges."
+    },
+    {
+      "id": "mil-016",
+      "category": "Érythropoïèse",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'érythropoïèse est :",
+      "choices": [
+        {
+          "text": "La fabrication des hématies dans la moelle osseuse",
+          "correct": true
+        },
+        {
+          "text": "La destruction du fibrinogène",
+          "correct": false
+        },
+        {
+          "text": "La formation de lymphe",
+          "correct": false
+        },
+        {
+          "text": "La synthèse des lipides",
+          "correct": false
+        }
+      ],
+      "explanation": "Érythropoïèse = production des globules rouges dans la moelle osseuse."
+    },
+    {
+      "id": "mil-017",
+      "category": "Érythropoïèse",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle hormone produite par les reins stimule la production de globules rouges ?",
+      "choices": [
+        {
+          "text": "Érythropoïétine (EPO)",
+          "correct": true
+        },
+        {
+          "text": "Insuline",
+          "correct": false
+        },
+        {
+          "text": "Glucagon",
+          "correct": false
+        },
+        {
+          "text": "Adrénaline uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours attribue la régulation de l'érythropoïèse à l'EPO produite par les reins."
+    },
+    {
+      "id": "mil-018",
+      "category": "Hématies",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle durée de vie est donnée pour un globule rouge ?",
+      "choices": [
+        {
+          "text": "100 à 120 jours",
+          "correct": true
+        },
+        {
+          "text": "1 à 2 jours",
+          "correct": false
+        },
+        {
+          "text": "10 ans",
+          "correct": false
+        },
+        {
+          "text": "6 heures",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique une durée de vie d'environ 100 à 120 jours."
+    },
+    {
+      "id": "mil-019",
+      "category": "Hématies",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où les hématies vieillissantes sont-elles notamment phagocytées ?",
+      "choices": [
+        {
+          "text": "Dans la rate",
+          "correct": true
+        },
+        {
+          "text": "Dans l'estomac",
+          "correct": false
+        },
+        {
+          "text": "Dans la peau uniquement",
+          "correct": false
+        },
+        {
+          "text": "Dans la thyroïde",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit la rétention puis la phagocytose des hématies âgées notamment dans les capillaires de la rate."
+    },
+    {
+      "id": "mil-020",
+      "category": "Hématies",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "En quoi l'hème est-il notamment dégradé ?",
+      "choices": [
+        {
+          "text": "Bilirubine",
+          "correct": true
+        },
+        {
+          "text": "Glucose",
+          "correct": false
+        },
+        {
+          "text": "Cholestérol",
+          "correct": false
+        },
+        {
+          "text": "Lactose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que l'hème est dégradé en bilirubine, tandis que le fer est recyclé."
+    },
+    {
+      "id": "mil-021",
+      "category": "Lymphe",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le système lymphatique transporte :",
+      "choices": [
+        {
+          "text": "La lymphe",
+          "correct": true
+        },
+        {
+          "text": "Le suc gastrique",
+          "correct": false
+        },
+        {
+          "text": "L'urine",
+          "correct": false
+        },
+        {
+          "text": "La bile uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le système lymphatique est constitué d'organes, ganglions, tissus et vaisseaux qui transportent la lymphe."
+    },
+    {
+      "id": "mil-022",
+      "category": "Hémostase",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'hémostase désigne :",
+      "choices": [
+        {
+          "text": "Les mécanismes permettant d'arrêter un saignement",
+          "correct": true
+        },
+        {
+          "text": "La digestion des protéines",
+          "correct": false
+        },
+        {
+          "text": "La production d'ATP",
+          "correct": false
+        },
+        {
+          "text": "La transcription",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit l'hémostase comme l'ensemble des mécanismes qui arrêtent un saignement."
+    },
+    {
+      "id": "mil-023",
+      "category": "Hémostase",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles sont les trois étapes essentielles de l'hémostase ?",
+      "choices": [
+        {
+          "text": "Spasme vasculaire",
+          "correct": true
+        },
+        {
+          "text": "Clou plaquettaire",
+          "correct": true
+        },
+        {
+          "text": "Coagulation",
+          "correct": true
+        },
+        {
+          "text": "Osmose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours distingue spasme vasculaire, formation du clou plaquettaire puis coagulation."
+    },
+    {
+      "id": "mil-024",
+      "category": "Coagulation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La coagulation aboutit à la formation de fibrine à partir :",
+      "choices": [
+        {
+          "text": "Du fibrinogène",
+          "correct": true
+        },
+        {
+          "text": "De l'hémoglobine",
+          "correct": false
+        },
+        {
+          "text": "Du glucose",
+          "correct": false
+        },
+        {
+          "text": "Du cholestérol",
+          "correct": false
+        }
+      ],
+      "explanation": "L'activation en cascade des facteurs de coagulation conduit à la polymérisation de fibrine à partir du fibrinogène."
+    },
+    {
+      "id": "mil-025",
+      "category": "Coagulation",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel élément figuré joue un rôle fondamental dans le clou plaquettaire ?",
+      "choices": [
+        {
+          "text": "Les plaquettes / thrombocytes",
+          "correct": true
+        },
+        {
+          "text": "Les adipocytes",
+          "correct": false
+        },
+        {
+          "text": "Les neurones",
+          "correct": false
+        },
+        {
+          "text": "Les hépatocytes",
+          "correct": false
+        }
+      ],
+      "explanation": "Les plaquettes sont essentielles à l'hémostase primaire."
+    },
+    {
+      "id": "mil-026",
+      "category": "Cicatrisation",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La cicatrisation est définie comme :",
+      "choices": [
+        {
+          "text": "Un processus de restauration de l'intégrité cutanée",
+          "correct": true
+        },
+        {
+          "text": "Une synthèse d'ADN uniquement",
+          "correct": false
+        },
+        {
+          "text": "Une digestion du collagène",
+          "correct": false
+        },
+        {
+          "text": "Une baisse du pH sanguin",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit la cicatrisation comme la restauration de l'intégrité de la peau et des tissus endommagés."
+    },
+    {
+      "id": "mil-027",
+      "category": "Cicatrisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle durée globale est indiquée pour la cicatrisation complète ?",
+      "choices": [
+        {
+          "text": "Environ 12 à 18 mois",
+          "correct": true
+        },
+        {
+          "text": "2 heures",
+          "correct": false
+        },
+        {
+          "text": "3 jours maximum",
+          "correct": false
+        },
+        {
+          "text": "10 ans",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que le processus complet peut durer 12 à 18 mois."
+    },
+    {
+      "id": "mil-028",
+      "category": "Cicatrisation",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles phases sont citées ?",
+      "choices": [
+        {
+          "text": "Phase vasculaire et inflammatoire",
+          "correct": true
+        },
+        {
+          "text": "Phase de réparation tissulaire",
+          "correct": true
+        },
+        {
+          "text": "Phase de maturation et remodelage",
+          "correct": true
+        },
+        {
+          "text": "Phase de digestion gastrique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours distingue une phase vasculaire/inflammatoire, une phase réparative puis une phase de maturation/remodelage."
+    },
+    {
+      "id": "mil-029",
+      "category": "Nutrition et cicatrisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi les protéines sont-elles importantes pendant la cicatrisation ?",
+      "choices": [
+        {
+          "text": "Elles fournissent des AA nécessaires notamment au collagène et à la prolifération cellulaire",
+          "correct": true
+        },
+        {
+          "text": "Elles remplacent toutes les vitamines",
+          "correct": false
+        },
+        {
+          "text": "Elles empêchent la coagulation",
+          "correct": false
+        },
+        {
+          "text": "Elles transforment l'hémoglobine en glucose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours souligne leur rôle dans la synthèse du collagène, l'angiogenèse et la prolifération de cellules réparatrices."
+    },
+    {
+      "id": "mil-030",
+      "category": "Nutrition et cicatrisation",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle vitamine est présentée comme cofacteur indispensable de la synthèse du collagène ?",
+      "choices": [
+        {
+          "text": "Vitamine C",
+          "correct": true
+        },
+        {
+          "text": "Vitamine K",
+          "correct": false
+        },
+        {
+          "text": "Vitamine D uniquement",
+          "correct": false
+        },
+        {
+          "text": "Vitamine B12 uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "La vitamine C est citée comme cofacteur indispensable à la synthèse du collagène."
+    }
+  ]
+}

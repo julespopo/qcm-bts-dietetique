@@ -1,0 +1,788 @@
+{
+  "version": 3,
+  "title": "Les glucides",
+  "subject": "Biochimie",
+  "chapter": "Chapitre 1",
+  "questions": [
+    {
+      "id": "glu-001",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quels éléments chimiques constituent les glucides selon le cours ?",
+      "choices": [
+        {
+          "text": "Carbone, hydrogène et oxygène",
+          "correct": true
+        },
+        {
+          "text": "Carbone, hydrogène, oxygène et azote",
+          "correct": false
+        },
+        {
+          "text": "Carbone et phosphore uniquement",
+          "correct": false
+        },
+        {
+          "text": "Azote, soufre et oxygène",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit les glucides comme des biomolécules organiques constituées de C, H et O."
+    },
+    {
+      "id": "glu-002",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle formule générale est associée aux glucides dans le cours ?",
+      "choices": [
+        {
+          "text": "Cn(H2O)n",
+          "correct": true
+        },
+        {
+          "text": "CnH2n+2",
+          "correct": false
+        },
+        {
+          "text": "CnH2nO2",
+          "correct": false
+        },
+        {
+          "text": "C6H12O6 pour tous les glucides",
+          "correct": false
+        }
+      ],
+      "explanation": "La formule générale donnée est Cn(H2O)n. Elle ne signifie pas que les glucides sont littéralement du carbone hydraté."
+    },
+    {
+      "id": "glu-003",
+      "category": "Classification",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle proposition décrit correctement un ose ?",
+      "choices": [
+        {
+          "text": "Un glucide à une seule unité, non hydrolysable",
+          "correct": true
+        },
+        {
+          "text": "Un glucide contenant obligatoirement deux oses",
+          "correct": false
+        },
+        {
+          "text": "Un glucide toujours associé à une protéine",
+          "correct": false
+        },
+        {
+          "text": "Un polymère de plus de 10 unités",
+          "correct": false
+        }
+      ],
+      "explanation": "Un ose est une forme monomérique, constituée d'une seule unité et non hydrolysable."
+    },
+    {
+      "id": "glu-004",
+      "category": "Classification",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Un holoside contient :",
+      "choices": [
+        {
+          "text": "Uniquement des oses",
+          "correct": true
+        },
+        {
+          "text": "Des oses et une partie non glucidique",
+          "correct": false
+        },
+        {
+          "text": "Uniquement des acides aminés",
+          "correct": false
+        },
+        {
+          "text": "Uniquement des lipides",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans le cours, holoside = uniquement des oses ; hétéroside = ose(s) + aglycone."
+    },
+    {
+      "id": "glu-005",
+      "category": "Classification",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Un diholoside est :",
+      "choices": [
+        {
+          "text": "Un oligoside constitué de 2 oses",
+          "correct": true
+        },
+        {
+          "text": "Un polyholoside constitué de 20 oses",
+          "correct": false
+        },
+        {
+          "text": "Un ose à 2 carbones",
+          "correct": false
+        },
+        {
+          "text": "Un hétéroside sans ose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours donne comme exemples de diholosides le saccharose, le lactose et le maltose."
+    },
+    {
+      "id": "glu-006",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle valeur énergétique est attribuée à 1 g de glucides ?",
+      "choices": [
+        {
+          "text": "4 kcal",
+          "correct": true
+        },
+        {
+          "text": "9 kcal",
+          "correct": false
+        },
+        {
+          "text": "7 kcal",
+          "correct": false
+        },
+        {
+          "text": "2 kcal",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique 4 kcal par gramme de glucides."
+    },
+    {
+      "id": "glu-007",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles réserves glucidiques sont indiquées chez l'humain ?",
+      "choices": [
+        {
+          "text": "Environ 100 g de glycogène hépatique et 400 g musculaire",
+          "correct": true
+        },
+        {
+          "text": "Environ 400 g hépatique et 100 g musculaire",
+          "correct": false
+        },
+        {
+          "text": "Uniquement 50 g dans le foie",
+          "correct": false
+        },
+        {
+          "text": "Aucune réserve glucidique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique environ 100 g dans le foie et 400 g dans les muscles."
+    },
+    {
+      "id": "glu-008",
+      "category": "Oses",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Un pentose possède combien d'atomes de carbone ?",
+      "choices": [
+        {
+          "text": "3",
+          "correct": false
+        },
+        {
+          "text": "5",
+          "correct": true
+        },
+        {
+          "text": "6",
+          "correct": false
+        },
+        {
+          "text": "10",
+          "correct": false
+        }
+      ],
+      "explanation": "Pentose signifie ose à 5 carbones."
+    },
+    {
+      "id": "glu-009",
+      "category": "Oses",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Parmi ces molécules, lesquelles sont des hexoses cités dans le cours ?",
+      "choices": [
+        {
+          "text": "Glucose",
+          "correct": true
+        },
+        {
+          "text": "Fructose",
+          "correct": true
+        },
+        {
+          "text": "Galactose",
+          "correct": true
+        },
+        {
+          "text": "Ribose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le glucose, le fructose et le galactose sont des hexoses ; le ribose est un pentose."
+    },
+    {
+      "id": "glu-010",
+      "category": "Oses",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le glucose est classé comme :",
+      "choices": [
+        {
+          "text": "Aldohexose",
+          "correct": true
+        },
+        {
+          "text": "Cétohexose",
+          "correct": false
+        },
+        {
+          "text": "Aldopentose",
+          "correct": false
+        },
+        {
+          "text": "Cétopentose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le glucose possède une fonction aldéhyde et 6 carbones : c'est un aldohexose."
+    },
+    {
+      "id": "glu-011",
+      "category": "Oses",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le fructose est classé comme :",
+      "choices": [
+        {
+          "text": "Aldohexose",
+          "correct": false
+        },
+        {
+          "text": "Cétohexose",
+          "correct": true
+        },
+        {
+          "text": "Aldopentose",
+          "correct": false
+        },
+        {
+          "text": "Cétopentose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le fructose possède une fonction cétone et 6 carbones : c'est un cétohexose."
+    },
+    {
+      "id": "glu-012",
+      "category": "Glucose",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle glycémie normale est donnée dans le cours ?",
+      "choices": [
+        {
+          "text": "0,7 à 1,1 g/L",
+          "correct": true
+        },
+        {
+          "text": "0,1 à 0,3 g/L",
+          "correct": false
+        },
+        {
+          "text": "1,8 à 2,5 g/L",
+          "correct": false
+        },
+        {
+          "text": "3 à 4 g/L",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique une glycémie normale de 0,7 à 1,1 g/L."
+    },
+    {
+      "id": "glu-013",
+      "category": "Diholosides",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "De quels oses est constitué le saccharose ?",
+      "choices": [
+        {
+          "text": "Glucose + fructose",
+          "correct": true
+        },
+        {
+          "text": "Glucose + glucose",
+          "correct": false
+        },
+        {
+          "text": "Galactose + glucose",
+          "correct": false
+        },
+        {
+          "text": "Fructose + galactose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le saccharose est constitué de glucose et de fructose."
+    },
+    {
+      "id": "glu-014",
+      "category": "Diholosides",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle liaison caractérise le lactose dans le cours ?",
+      "choices": [
+        {
+          "text": "β(1→4)",
+          "correct": true
+        },
+        {
+          "text": "α(1→4)",
+          "correct": false
+        },
+        {
+          "text": "α(1→2)β",
+          "correct": false
+        },
+        {
+          "text": "β(1→6)",
+          "correct": false
+        }
+      ],
+      "explanation": "Le lactose associe galactose + glucose par une liaison β(1→4)."
+    },
+    {
+      "id": "glu-015",
+      "category": "Diholosides",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle enzyme hydrolyse le lactose ?",
+      "choices": [
+        {
+          "text": "Lactase",
+          "correct": true
+        },
+        {
+          "text": "Maltase",
+          "correct": false
+        },
+        {
+          "text": "Sucrase",
+          "correct": false
+        },
+        {
+          "text": "Lipase",
+          "correct": false
+        }
+      ],
+      "explanation": "Le lactose est hydrolysé par la lactase en glucose et galactose."
+    },
+    {
+      "id": "glu-016",
+      "category": "Diholosides",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le maltose est composé de :",
+      "choices": [
+        {
+          "text": "Glucose + glucose",
+          "correct": true
+        },
+        {
+          "text": "Glucose + fructose",
+          "correct": false
+        },
+        {
+          "text": "Galactose + glucose",
+          "correct": false
+        },
+        {
+          "text": "Galactose + fructose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le maltose est un diholoside constitué de deux molécules de glucose."
+    },
+    {
+      "id": "glu-017",
+      "category": "Diholosides",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel diholoside est non réducteur dans le tableau du cours ?",
+      "choices": [
+        {
+          "text": "Saccharose",
+          "correct": true
+        },
+        {
+          "text": "Lactose",
+          "correct": false
+        },
+        {
+          "text": "Maltose",
+          "correct": false
+        },
+        {
+          "text": "Les trois",
+          "correct": false
+        }
+      ],
+      "explanation": "Le saccharose est non réducteur, contrairement au lactose et au maltose."
+    },
+    {
+      "id": "glu-018",
+      "category": "Amidon",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles sont les deux fractions principales de l'amidon ?",
+      "choices": [
+        {
+          "text": "Amylose et amylopectine",
+          "correct": true
+        },
+        {
+          "text": "Cellulose et glycogène",
+          "correct": false
+        },
+        {
+          "text": "Lactose et maltose",
+          "correct": false
+        },
+        {
+          "text": "Pectine et chitine",
+          "correct": false
+        }
+      ],
+      "explanation": "L'amidon est constitué d'amylose et d'amylopectine."
+    },
+    {
+      "id": "glu-019",
+      "category": "Amidon",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "L'amylose est principalement :",
+      "choices": [
+        {
+          "text": "Une chaîne linéaire en α(1→4)",
+          "correct": true
+        },
+        {
+          "text": "Une chaîne en β(1→4)",
+          "correct": false
+        },
+        {
+          "text": "Une chaîne très ramifiée en β(1→6)",
+          "correct": false
+        },
+        {
+          "text": "Un disaccharide",
+          "correct": false
+        }
+      ],
+      "explanation": "L'amylose est une chaîne linéaire de glucose en liaisons α(1→4)."
+    },
+    {
+      "id": "glu-020",
+      "category": "Amidon",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "L'amylopectine possède :",
+      "choices": [
+        {
+          "text": "Des liaisons α(1→4) et des branchements α(1→6)",
+          "correct": true
+        },
+        {
+          "text": "Uniquement des liaisons β(1→4)",
+          "correct": false
+        },
+        {
+          "text": "Uniquement des liaisons α(1→2)",
+          "correct": false
+        },
+        {
+          "text": "Aucune ramification",
+          "correct": false
+        }
+      ],
+      "explanation": "L'amylopectine est ramifiée : chaîne α(1→4) et branchements α(1→6)."
+    },
+    {
+      "id": "glu-021",
+      "category": "Glycogène",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le rôle principal du glycogène hépatique ?",
+      "choices": [
+        {
+          "text": "Maintenir la glycémie entre les repas",
+          "correct": true
+        },
+        {
+          "text": "Former la paroi végétale",
+          "correct": false
+        },
+        {
+          "text": "Digérer le lactose",
+          "correct": false
+        },
+        {
+          "text": "Former les membranes",
+          "correct": false
+        }
+      ],
+      "explanation": "Le glycogène du foie sert notamment à maintenir la glycémie entre les repas."
+    },
+    {
+      "id": "glu-022",
+      "category": "Fibres",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi la cellulose n'est-elle pas hydrolysée par l'humain ?",
+      "choices": [
+        {
+          "text": "L'humain ne possède pas de β-glucosidase adaptée aux liaisons β(1→4)",
+          "correct": true
+        },
+        {
+          "text": "Elle ne contient pas de glucose",
+          "correct": false
+        },
+        {
+          "text": "Elle est constituée de protéines",
+          "correct": false
+        },
+        {
+          "text": "Elle ne contient aucune liaison chimique",
+          "correct": false
+        }
+      ],
+      "explanation": "La cellulose est un polymère de glucose en β(1→4), et l'humain ne possède pas l'enzyme permettant de l'hydrolyser."
+    },
+    {
+      "id": "glu-023",
+      "category": "Fibres",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles propriétés sont attribuées aux fibres dans le cours ?",
+      "choices": [
+        {
+          "text": "Régulation du transit",
+          "correct": true
+        },
+        {
+          "text": "Nourrissent le microbiote",
+          "correct": true
+        },
+        {
+          "text": "Atténuation du pic glycémique",
+          "correct": true
+        },
+        {
+          "text": "Augmentation obligatoire du cholestérol",
+          "correct": false
+        }
+      ],
+      "explanation": "Les fibres participent au transit, nourrissent le microbiote et contribuent à diminuer le pic glycémique."
+    },
+    {
+      "id": "glu-024",
+      "category": "Fibres",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel apport quotidien en fibres est indiqué par le cours ?",
+      "choices": [
+        {
+          "text": "Environ 25 à 30 g/j",
+          "correct": true
+        },
+        {
+          "text": "5 g/j",
+          "correct": false
+        },
+        {
+          "text": "100 g/j",
+          "correct": false
+        },
+        {
+          "text": "1 g/j",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique environ 25 à 30 g de fibres par jour."
+    },
+    {
+      "id": "glu-025",
+      "category": "Application diététique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle part de l'AET les glucides devraient-ils représenter selon la diapositive ANSES ?",
+      "choices": [
+        {
+          "text": "45 à 55 %",
+          "correct": true
+        },
+        {
+          "text": "5 à 10 %",
+          "correct": false
+        },
+        {
+          "text": "70 à 80 %",
+          "correct": false
+        },
+        {
+          "text": "20 à 25 %",
+          "correct": false
+        }
+      ],
+      "explanation": "La diapositive indique 45 à 55 % de l'apport énergétique total."
+    },
+    {
+      "id": "glu-026",
+      "category": "Index glycémique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment est défini l'index glycémique ?",
+      "choices": [
+        {
+          "text": "Capacité d'un aliment à élever la glycémie, comparée au glucose pur",
+          "correct": true
+        },
+        {
+          "text": "Quantité totale de fibres d'un aliment",
+          "correct": false
+        },
+        {
+          "text": "Quantité de lipides d'un aliment",
+          "correct": false
+        },
+        {
+          "text": "Vitesse de vidange gastrique uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "L'IG compare l'élévation de la glycémie provoquée par un aliment à celle du glucose pur, fixé à 100."
+    },
+    {
+      "id": "glu-027",
+      "category": "Index glycémique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Un IG inférieur à 55 est classé comme :",
+      "choices": [
+        {
+          "text": "Bas",
+          "correct": true
+        },
+        {
+          "text": "Moyen",
+          "correct": false
+        },
+        {
+          "text": "Élevé",
+          "correct": false
+        },
+        {
+          "text": "Non mesurable",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours classe IG < 55 comme bas."
+    },
+    {
+      "id": "glu-028",
+      "category": "Intolérance au lactose",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'intolérance au lactose est principalement due à :",
+      "choices": [
+        {
+          "text": "Un déficit en lactase intestinale",
+          "correct": true
+        },
+        {
+          "text": "Une allergie IgE au glucose",
+          "correct": false
+        },
+        {
+          "text": "Un excès de maltase",
+          "correct": false
+        },
+        {
+          "text": "Un déficit en lipase",
+          "correct": false
+        }
+      ],
+      "explanation": "L'intolérance au lactose résulte d'un déficit en lactase de la bordure en brosse."
+    },
+    {
+      "id": "glu-029",
+      "category": "Intolérance au lactose",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que se passe-t-il lorsque le lactose non digéré atteint le côlon ?",
+      "choices": [
+        {
+          "text": "Il attire l'eau et est fermenté par le microbiote",
+          "correct": true
+        },
+        {
+          "text": "Il est transformé directement en protéine",
+          "correct": false
+        },
+        {
+          "text": "Il empêche toute fermentation",
+          "correct": false
+        },
+        {
+          "text": "Il est absorbé intact sans conséquence",
+          "correct": false
+        }
+      ],
+      "explanation": "Le lactose non hydrolysé attire l'eau par osmose puis est fermenté, produisant notamment des gaz et des symptômes digestifs."
+    },
+    {
+      "id": "glu-030",
+      "category": "Intolérance au lactose",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle différence essentielle distingue intolérance au lactose et allergie aux protéines de lait ?",
+      "choices": [
+        {
+          "text": "L'intolérance est un déficit enzymatique, l'allergie est immunitaire",
+          "correct": true
+        },
+        {
+          "text": "Les deux sont des réactions IgE",
+          "correct": false
+        },
+        {
+          "text": "L'allergie ne concerne jamais les protéines",
+          "correct": false
+        },
+        {
+          "text": "L'intolérance est toujours mortelle",
+          "correct": false
+        }
+      ],
+      "explanation": "L'intolérance au lactose est liée à la lactase ; l'allergie aux protéines de lait implique une réaction immunitaire."
+    }
+  ]
+}

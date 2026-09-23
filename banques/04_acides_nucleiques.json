@@ -1,0 +1,796 @@
+{
+  "version": 3,
+  "title": "Les acides nucléiques",
+  "subject": "BPADN",
+  "chapter": "Chapitre 6",
+  "questions": [
+    {
+      "id": "nuc-001",
+      "category": "Généralités",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel acide nucléique est présenté comme support de l'information génétique ?",
+      "choices": [
+        {
+          "text": "ADN",
+          "correct": true
+        },
+        {
+          "text": "ARNt",
+          "correct": false
+        },
+        {
+          "text": "ATP",
+          "correct": false
+        },
+        {
+          "text": "FAD",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours présente l'ADN comme le support de l'information génétique."
+    },
+    {
+      "id": "nuc-002",
+      "category": "Généralités",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie ADN ?",
+      "choices": [
+        {
+          "text": "Acide DésoxyriboNucléique",
+          "correct": true
+        },
+        {
+          "text": "Acide DiNucléique",
+          "correct": false
+        },
+        {
+          "text": "Adénosine Diphosphate",
+          "correct": false
+        },
+        {
+          "text": "Acide DésoxyNutritionnel",
+          "correct": false
+        }
+      ],
+      "explanation": "ADN signifie Acide DésoxyriboNucléique."
+    },
+    {
+      "id": "nuc-003",
+      "category": "Généralités",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie ARN ?",
+      "choices": [
+        {
+          "text": "Acide RiboNucléique",
+          "correct": true
+        },
+        {
+          "text": "Acide RiboNutritionnel",
+          "correct": false
+        },
+        {
+          "text": "Adénosine RiboNoyau",
+          "correct": false
+        },
+        {
+          "text": "Acide Réducteur Nucléique",
+          "correct": false
+        }
+      ],
+      "explanation": "ARN signifie Acide RiboNucléique."
+    },
+    {
+      "id": "nuc-004",
+      "category": "Nucléotides",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels sont les trois constituants d'un nucléotide ?",
+      "choices": [
+        {
+          "text": "Phosphate",
+          "correct": true
+        },
+        {
+          "text": "Pentose",
+          "correct": true
+        },
+        {
+          "text": "Base azotée",
+          "correct": true
+        },
+        {
+          "text": "Acide aminé",
+          "correct": false
+        }
+      ],
+      "explanation": "Un nucléotide contient un phosphate, un pentose et une base azotée."
+    },
+    {
+      "id": "nuc-005",
+      "category": "Nucléotides",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel sucre est présent dans l'ADN ?",
+      "choices": [
+        {
+          "text": "Désoxyribose",
+          "correct": true
+        },
+        {
+          "text": "Ribose",
+          "correct": false
+        },
+        {
+          "text": "Glucose",
+          "correct": false
+        },
+        {
+          "text": "Fructose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le désoxyribose est le pentose de l'ADN."
+    },
+    {
+      "id": "nuc-006",
+      "category": "Nucléotides",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel sucre est présent dans l'ARN ?",
+      "choices": [
+        {
+          "text": "Ribose",
+          "correct": true
+        },
+        {
+          "text": "Désoxyribose",
+          "correct": false
+        },
+        {
+          "text": "Galactose",
+          "correct": false
+        },
+        {
+          "text": "Glycogène",
+          "correct": false
+        }
+      ],
+      "explanation": "Le ribose est le pentose de l'ARN."
+    },
+    {
+      "id": "nuc-007",
+      "category": "Nucléotides",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Ribose et désoxyribose diffèrent notamment au niveau du carbone :",
+      "choices": [
+        {
+          "text": "2'",
+          "correct": true
+        },
+        {
+          "text": "1'",
+          "correct": false
+        },
+        {
+          "text": "3'",
+          "correct": false
+        },
+        {
+          "text": "5'",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique une différence de substituant en 2'."
+    },
+    {
+      "id": "nuc-008",
+      "category": "Nucléotides",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La base azotée est reliée au pentose par le carbone :",
+      "choices": [
+        {
+          "text": "1'",
+          "correct": true
+        },
+        {
+          "text": "2'",
+          "correct": false
+        },
+        {
+          "text": "3'",
+          "correct": false
+        },
+        {
+          "text": "5'",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique une liaison de la base au carbone 1' du pentose."
+    },
+    {
+      "id": "nuc-009",
+      "category": "Nucléotides",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le phosphate est relié au pentose au niveau du carbone :",
+      "choices": [
+        {
+          "text": "5'",
+          "correct": true
+        },
+        {
+          "text": "1'",
+          "correct": false
+        },
+        {
+          "text": "2'",
+          "correct": false
+        },
+        {
+          "text": "4'",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique une liaison au carbone 5'."
+    },
+    {
+      "id": "nuc-010",
+      "category": "Bases azotées",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles bases sont présentes dans l'ADN ?",
+      "choices": [
+        {
+          "text": "Adénine",
+          "correct": true
+        },
+        {
+          "text": "Thymine",
+          "correct": true
+        },
+        {
+          "text": "Cytosine",
+          "correct": true
+        },
+        {
+          "text": "Guanine",
+          "correct": true
+        },
+        {
+          "text": "Uracile",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ADN contient A, T, C et G."
+    },
+    {
+      "id": "nuc-011",
+      "category": "Bases azotées",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles bases sont présentes dans l'ARN ?",
+      "choices": [
+        {
+          "text": "Adénine",
+          "correct": true
+        },
+        {
+          "text": "Uracile",
+          "correct": true
+        },
+        {
+          "text": "Cytosine",
+          "correct": true
+        },
+        {
+          "text": "Guanine",
+          "correct": true
+        },
+        {
+          "text": "Thymine",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ARN contient A, U, C et G ; l'uracile remplace la thymine."
+    },
+    {
+      "id": "nuc-012",
+      "category": "Complémentarité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Dans l'ADN, l'adénine s'apparie avec :",
+      "choices": [
+        {
+          "text": "Thymine",
+          "correct": true
+        },
+        {
+          "text": "Uracile",
+          "correct": false
+        },
+        {
+          "text": "Cytosine",
+          "correct": false
+        },
+        {
+          "text": "Guanine",
+          "correct": false
+        }
+      ],
+      "explanation": "La complémentarité des bases de l'ADN est A-T et C-G."
+    },
+    {
+      "id": "nuc-013",
+      "category": "ATP",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "De quoi est constitué l'ATP ?",
+      "choices": [
+        {
+          "text": "Adénine, ribose et trois phosphates",
+          "correct": true
+        },
+        {
+          "text": "Thymine, désoxyribose et deux phosphates",
+          "correct": false
+        },
+        {
+          "text": "Glucose et trois phosphates",
+          "correct": false
+        },
+        {
+          "text": "Glycérol et acides gras",
+          "correct": false
+        }
+      ],
+      "explanation": "ATP = adénosine triphosphate : adénine + ribose + 3 phosphates."
+    },
+    {
+      "id": "nuc-014",
+      "category": "ATP",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Les trois phosphates de l'ATP sont reliés entre eux par :",
+      "choices": [
+        {
+          "text": "Deux liaisons phosphoanhydrides",
+          "correct": true
+        },
+        {
+          "text": "Deux liaisons peptidiques",
+          "correct": false
+        },
+        {
+          "text": "Deux liaisons osidiques",
+          "correct": false
+        },
+        {
+          "text": "Trois ponts disulfure",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours mentionne deux liaisons phosphoanhydrides."
+    },
+    {
+      "id": "nuc-015",
+      "category": "ATP",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'hydrolyse de l'ATP :",
+      "choices": [
+        {
+          "text": "Libère de l'énergie utilisable par la cellule",
+          "correct": true
+        },
+        {
+          "text": "Empêche toute réaction métabolique",
+          "correct": false
+        },
+        {
+          "text": "Transforme l'ATP en ADN",
+          "correct": false
+        },
+        {
+          "text": "Produit du glycogène uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "L'hydrolyse d'une ou deux liaisons phosphoanhydrides libère beaucoup d'énergie."
+    },
+    {
+      "id": "nuc-016",
+      "category": "ATP",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie ADP ?",
+      "choices": [
+        {
+          "text": "Adénosine Diphosphate",
+          "correct": true
+        },
+        {
+          "text": "Adénine Désoxyribose Phosphate",
+          "correct": false
+        },
+        {
+          "text": "Acide Diphosphorique",
+          "correct": false
+        },
+        {
+          "text": "Adénosine DésoxyProtéine",
+          "correct": false
+        }
+      ],
+      "explanation": "ADP signifie Adénosine Diphosphate."
+    },
+    {
+      "id": "nuc-017",
+      "category": "ADN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Dans une cellule eucaryote, l'ADN est principalement situé :",
+      "choices": [
+        {
+          "text": "Dans le noyau",
+          "correct": true
+        },
+        {
+          "text": "Uniquement dans la membrane plasmique",
+          "correct": false
+        },
+        {
+          "text": "Dans le lysosome uniquement",
+          "correct": false
+        },
+        {
+          "text": "À l'extérieur de la cellule",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours situe l'ADN dans le noyau des cellules eucaryotes."
+    },
+    {
+      "id": "nuc-018",
+      "category": "ADN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Les nucléotides d'un même brin d'ADN sont reliés par des liaisons :",
+      "choices": [
+        {
+          "text": "Phosphodiester",
+          "correct": true
+        },
+        {
+          "text": "Peptidiques",
+          "correct": false
+        },
+        {
+          "text": "Disulfure",
+          "correct": false
+        },
+        {
+          "text": "Hydrogène uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ADN est un polymère de nucléotides reliés par des liaisons phosphodiester 5'P-3'OH."
+    },
+    {
+      "id": "nuc-019",
+      "category": "ADN",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles caractéristiques décrivent la double hélice d'ADN dans le cours ?",
+      "choices": [
+        {
+          "text": "Antiparallèle",
+          "correct": true
+        },
+        {
+          "text": "Complémentaire",
+          "correct": true
+        },
+        {
+          "text": "Hélicoïdale",
+          "correct": true
+        },
+        {
+          "text": "Toujours monocaténaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit les deux brins comme antiparallèles, complémentaires et hélicoïdaux."
+    },
+    {
+      "id": "nuc-020",
+      "category": "ADN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien de liaisons hydrogène relient A et T ?",
+      "choices": [
+        {
+          "text": "2",
+          "correct": true
+        },
+        {
+          "text": "1",
+          "correct": false
+        },
+        {
+          "text": "3",
+          "correct": false
+        },
+        {
+          "text": "4",
+          "correct": false
+        }
+      ],
+      "explanation": "A et T sont reliées par deux liaisons hydrogène."
+    },
+    {
+      "id": "nuc-021",
+      "category": "ADN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien de liaisons hydrogène relient C et G ?",
+      "choices": [
+        {
+          "text": "3",
+          "correct": true
+        },
+        {
+          "text": "2",
+          "correct": false
+        },
+        {
+          "text": "1",
+          "correct": false
+        },
+        {
+          "text": "4",
+          "correct": false
+        }
+      ],
+      "explanation": "C et G sont reliées par trois liaisons hydrogène."
+    },
+    {
+      "id": "nuc-022",
+      "category": "ARN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'ARN est le plus souvent :",
+      "choices": [
+        {
+          "text": "Monocaténaire",
+          "correct": true
+        },
+        {
+          "text": "Bicaténaire obligatoire",
+          "correct": false
+        },
+        {
+          "text": "Sans pentose",
+          "correct": false
+        },
+        {
+          "text": "Constitué d'acides gras",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que l'ARN est le plus souvent monocaténaire."
+    },
+    {
+      "id": "nuc-023",
+      "category": "ARN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel ARN transporte l'information génétique vers le ribosome ?",
+      "choices": [
+        {
+          "text": "ARNm",
+          "correct": true
+        },
+        {
+          "text": "ARNt",
+          "correct": false
+        },
+        {
+          "text": "ARNr",
+          "correct": false
+        },
+        {
+          "text": "ADN",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ARN messager transporte l'information issue de la transcription vers le ribosome."
+    },
+    {
+      "id": "nuc-024",
+      "category": "ARN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel ARN apporte un acide aminé au ribosome ?",
+      "choices": [
+        {
+          "text": "ARNt",
+          "correct": true
+        },
+        {
+          "text": "ARNm",
+          "correct": false
+        },
+        {
+          "text": "ARNr",
+          "correct": false
+        },
+        {
+          "text": "ATP",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ARN de transfert apporte l'acide aminé correspondant à la séquence de l'ARNm."
+    },
+    {
+      "id": "nuc-025",
+      "category": "ARN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel ARN, associé à des protéines, constitue le ribosome ?",
+      "choices": [
+        {
+          "text": "ARNr",
+          "correct": true
+        },
+        {
+          "text": "ARNm",
+          "correct": false
+        },
+        {
+          "text": "ARNt",
+          "correct": false
+        },
+        {
+          "text": "ADP",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ARN ribosomique associé à des protéines forme le ribosome."
+    },
+    {
+      "id": "nuc-026",
+      "category": "Organisation ADN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'ADN s'associe à quelles protéines pour former des nucléosomes ?",
+      "choices": [
+        {
+          "text": "Histones",
+          "correct": true
+        },
+        {
+          "text": "Actines",
+          "correct": false
+        },
+        {
+          "text": "Amylases",
+          "correct": false
+        },
+        {
+          "text": "Lipases",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans le noyau, l'ADN est associé à des histones."
+    },
+    {
+      "id": "nuc-027",
+      "category": "Organisation ADN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'ensemble des nucléosomes constitue :",
+      "choices": [
+        {
+          "text": "La chromatine",
+          "correct": true
+        },
+        {
+          "text": "Le glycogène",
+          "correct": false
+        },
+        {
+          "text": "Le cytosol",
+          "correct": false
+        },
+        {
+          "text": "Le plasma",
+          "correct": false
+        }
+      ],
+      "explanation": "Les nucléosomes forment la chromatine."
+    },
+    {
+      "id": "nuc-028",
+      "category": "Organisation ADN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Les chromosomes correspondent à :",
+      "choices": [
+        {
+          "text": "La condensation maximale de la chromatine lors de la mitose",
+          "correct": true
+        },
+        {
+          "text": "Un type d'ARN",
+          "correct": false
+        },
+        {
+          "text": "Une enzyme digestive",
+          "correct": false
+        },
+        {
+          "text": "Une bicouche lipidique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours relie les chromosomes à la condensation maximale de la chromatine pendant la mitose."
+    },
+    {
+      "id": "nuc-029",
+      "category": "Contexte professionnel",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels micronutriments sont cités comme intervenant dans la synthèse, réplication et réparation de l'ADN ?",
+      "choices": [
+        {
+          "text": "Folates B9",
+          "correct": true
+        },
+        {
+          "text": "Vitamine B12",
+          "correct": true
+        },
+        {
+          "text": "Zinc",
+          "correct": true
+        },
+        {
+          "text": "Vitamine K uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite les folates, la vitamine B12 et le zinc."
+    },
+    {
+      "id": "nuc-030",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le préfixe « poly- » signifie :",
+      "choices": [
+        {
+          "text": "Plusieurs",
+          "correct": true
+        },
+        {
+          "text": "Un seul",
+          "correct": false
+        },
+        {
+          "text": "Autour",
+          "correct": false
+        },
+        {
+          "text": "Eau",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans la terminologie du chapitre, poly- signifie plusieurs."
+    }
+  ]
+}

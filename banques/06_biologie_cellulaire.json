@@ -1,0 +1,788 @@
+{
+  "version": 3,
+  "title": "La biologie cellulaire",
+  "subject": "BPADN",
+  "chapter": "Chapitre 8",
+  "questions": [
+    {
+      "id": "cel-001",
+      "category": "Définitions",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La cellule est :",
+      "choices": [
+        {
+          "text": "L'unité structurale et fonctionnelle des êtres vivants",
+          "correct": true
+        },
+        {
+          "text": "Un organe entier",
+          "correct": false
+        },
+        {
+          "text": "Un tissu uniquement",
+          "correct": false
+        },
+        {
+          "text": "Une molécule",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit la cellule comme l'unité structurale et fonctionnelle de tous les êtres vivants."
+    },
+    {
+      "id": "cel-002",
+      "category": "Cellules",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Une cellule eucaryote se distingue d'une cellule procaryote par :",
+      "choices": [
+        {
+          "text": "La présence d'un vrai noyau entourant l'information génétique",
+          "correct": true
+        },
+        {
+          "text": "L'absence totale d'ADN",
+          "correct": false
+        },
+        {
+          "text": "L'absence de membrane plasmique",
+          "correct": false
+        },
+        {
+          "text": "La présence obligatoire d'une paroi",
+          "correct": false
+        }
+      ],
+      "explanation": "Les cellules eucaryotes possèdent un noyau délimité ; les procaryotes ont leur information génétique libre dans le cytoplasme."
+    },
+    {
+      "id": "cel-003",
+      "category": "Structure cellulaire",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels sont les trois compartiments principaux visibles au microscope optique selon le cours ?",
+      "choices": [
+        {
+          "text": "Membrane plasmique",
+          "correct": true
+        },
+        {
+          "text": "Noyau",
+          "correct": true
+        },
+        {
+          "text": "Cytoplasme",
+          "correct": true
+        },
+        {
+          "text": "Chromosome isolé",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite membrane plasmique, noyau et cytoplasme."
+    },
+    {
+      "id": "cel-004",
+      "category": "Structure cellulaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le cytosol est :",
+      "choices": [
+        {
+          "text": "Le liquide du cytoplasme dans lequel baignent les organites",
+          "correct": true
+        },
+        {
+          "text": "La membrane du noyau",
+          "correct": false
+        },
+        {
+          "text": "Un chromosome",
+          "correct": false
+        },
+        {
+          "text": "Une protéine membranaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cytoplasme comprend le cytosol et les organites."
+    },
+    {
+      "id": "cel-005",
+      "category": "Ultrastructure",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'ultrastructure cellulaire est principalement observée grâce :",
+      "choices": [
+        {
+          "text": "À la microscopie électronique",
+          "correct": true
+        },
+        {
+          "text": "À l'œil nu",
+          "correct": false
+        },
+        {
+          "text": "À une balance",
+          "correct": false
+        },
+        {
+          "text": "À un thermomètre",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours associe l'ultrastructure à la haute résolution de la microscopie électronique."
+    },
+    {
+      "id": "cel-006",
+      "category": "Organites",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Un organite est :",
+      "choices": [
+        {
+          "text": "Un compartiment intracellulaire spécialisé assurant une fonction précise",
+          "correct": true
+        },
+        {
+          "text": "Une cellule entière",
+          "correct": false
+        },
+        {
+          "text": "Une hormone",
+          "correct": false
+        },
+        {
+          "text": "Une molécule de glucose",
+          "correct": false
+        }
+      ],
+      "explanation": "Les organites sont des compartiments spécialisés du cytoplasme."
+    },
+    {
+      "id": "cel-007",
+      "category": "Diversité cellulaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Combien de types cellulaires environ sont cités dans l'organisme humain ?",
+      "choices": [
+        {
+          "text": "Près de 200",
+          "correct": true
+        },
+        {
+          "text": "2",
+          "correct": false
+        },
+        {
+          "text": "10",
+          "correct": false
+        },
+        {
+          "text": "10 000",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours mentionne près de 200 types cellulaires différents."
+    },
+    {
+      "id": "cel-008",
+      "category": "Diversité cellulaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi les globules rouges n'ont-ils pas de noyau selon l'exemple du cours ?",
+      "choices": [
+        {
+          "text": "Leur cytoplasme est spécialisé pour contenir l'hémoglobine et transporter l'O2",
+          "correct": true
+        },
+        {
+          "text": "Parce qu'ils n'ont pas de membrane",
+          "correct": false
+        },
+        {
+          "text": "Parce qu'ils stockent des lipides",
+          "correct": false
+        },
+        {
+          "text": "Parce qu'ils produisent l'urine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours relie leur morphologie spécialisée à leur fonction de transport de l'oxygène par l'hémoglobine."
+    },
+    {
+      "id": "cel-009",
+      "category": "Fibres musculaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel type de fibre musculaire possède la plus grande résistance à la fatigue ?",
+      "choices": [
+        {
+          "text": "Type I lente oxydative",
+          "correct": true
+        },
+        {
+          "text": "Type IIx/IIb rapide glycolytique",
+          "correct": false
+        },
+        {
+          "text": "Toutes identiques",
+          "correct": false
+        },
+        {
+          "text": "Aucune",
+          "correct": false
+        }
+      ],
+      "explanation": "Les fibres de type I sont lentes, oxydatives et très résistantes à la fatigue."
+    },
+    {
+      "id": "cel-010",
+      "category": "Fibres musculaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Les fibres IIx/IIb utilisent préférentiellement :",
+      "choices": [
+        {
+          "text": "Le glucose et le métabolisme anaérobie glycolytique",
+          "correct": true
+        },
+        {
+          "text": "Uniquement les acides gras en aérobie",
+          "correct": false
+        },
+        {
+          "text": "Les protéines comme seul substrat",
+          "correct": false
+        },
+        {
+          "text": "Le calcium comme carburant",
+          "correct": false
+        }
+      ],
+      "explanation": "Le tableau associe les fibres rapides glycolytiques au glucose et au métabolisme anaérobie glycolytique."
+    },
+    {
+      "id": "cel-011",
+      "category": "Membrane plasmique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La membrane plasmique est principalement :",
+      "choices": [
+        {
+          "text": "Une bicouche lipidique contenant protéines et cholestérol",
+          "correct": true
+        },
+        {
+          "text": "Une couche de cellulose uniquement",
+          "correct": false
+        },
+        {
+          "text": "Une couche d'ADN",
+          "correct": false
+        },
+        {
+          "text": "Une paroi de protéines rigide",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit une bicouche phospholipidique avec protéines et cholestérol selon le modèle de mosaïque fluide."
+    },
+    {
+      "id": "cel-012",
+      "category": "Membrane plasmique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle composition moyenne est donnée pour la membrane plasmique ?",
+      "choices": [
+        {
+          "text": "42 % lipides, 50 % protéines, 8 % glucides",
+          "correct": true
+        },
+        {
+          "text": "90 % glucides, 10 % eau",
+          "correct": false
+        },
+        {
+          "text": "100 % lipides",
+          "correct": false
+        },
+        {
+          "text": "50 % ADN, 50 % ARN",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique environ 42 % de lipides, 50 % de protéines et 8 % de glucides."
+    },
+    {
+      "id": "cel-013",
+      "category": "Membrane plasmique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le glycocalyx est notamment formé par :",
+      "choices": [
+        {
+          "text": "Des glucides portés par des protéines du côté extracellulaire",
+          "correct": true
+        },
+        {
+          "text": "Des chromosomes",
+          "correct": false
+        },
+        {
+          "text": "Des fibres de collagène intranucléaires",
+          "correct": false
+        },
+        {
+          "text": "Des triglycérides stockés",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit des glycoprotéines extracellulaires contribuant au glycocalyx."
+    },
+    {
+      "id": "cel-014",
+      "category": "Membrane plasmique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est le rôle des microvillosités ?",
+      "choices": [
+        {
+          "text": "Augmenter la surface d'échange",
+          "correct": true
+        },
+        {
+          "text": "Produire l'ADN",
+          "correct": false
+        },
+        {
+          "text": "Arrêter la mitose",
+          "correct": false
+        },
+        {
+          "text": "Détruire les ribosomes",
+          "correct": false
+        }
+      ],
+      "explanation": "Les microvillosités augmentent la surface d'échange, notamment au pôle apical."
+    },
+    {
+      "id": "cel-015",
+      "category": "Membrane plasmique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Les jonctions serrées servent principalement à :",
+      "choices": [
+        {
+          "text": "Assurer l'étanchéité entre cellules",
+          "correct": true
+        },
+        {
+          "text": "Transporter l'oxygène",
+          "correct": false
+        },
+        {
+          "text": "Synthétiser l'ATP",
+          "correct": false
+        },
+        {
+          "text": "Former les chromosomes",
+          "correct": false
+        }
+      ],
+      "explanation": "Les jonctions serrées rapprochent les cellules et contribuent à l'étanchéité des tissus."
+    },
+    {
+      "id": "cel-016",
+      "category": "Transports membranaires",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La diffusion simple se fait :",
+      "choices": [
+        {
+          "text": "Dans le sens du gradient de concentration",
+          "correct": true
+        },
+        {
+          "text": "Toujours contre le gradient avec ATP",
+          "correct": false
+        },
+        {
+          "text": "Uniquement par vésicules",
+          "correct": false
+        },
+        {
+          "text": "Uniquement dans le noyau",
+          "correct": false
+        }
+      ],
+      "explanation": "La diffusion déplace les molécules de la zone la plus concentrée vers la moins concentrée."
+    },
+    {
+      "id": "cel-017",
+      "category": "Transports membranaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La diffusion facilitée :",
+      "choices": [
+        {
+          "text": "Suit le gradient mais utilise des protéines de passage",
+          "correct": true
+        },
+        {
+          "text": "Consomme obligatoirement de l'ATP",
+          "correct": false
+        },
+        {
+          "text": "Se fait toujours par endocytose",
+          "correct": false
+        },
+        {
+          "text": "Ne concerne aucune molécule hydrophile",
+          "correct": false
+        }
+      ],
+      "explanation": "Elle respecte les lois de la diffusion tout en utilisant des canaux ou transporteurs membranaires."
+    },
+    {
+      "id": "cel-018",
+      "category": "Transports membranaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le transport actif :",
+      "choices": [
+        {
+          "text": "Consomme de l'ATP et peut aller contre le gradient",
+          "correct": true
+        },
+        {
+          "text": "Ne consomme jamais d'énergie",
+          "correct": false
+        },
+        {
+          "text": "Se fait uniquement du plus concentré vers le moins concentré",
+          "correct": false
+        },
+        {
+          "text": "Est identique à l'osmose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit le transport actif par une consommation d'énergie et un déplacement inverse du gradient."
+    },
+    {
+      "id": "cel-019",
+      "category": "Transports membranaires",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel exemple de transport actif est cité ?",
+      "choices": [
+        {
+          "text": "Pompe Na+/K+ ATPase",
+          "correct": true
+        },
+        {
+          "text": "Lactase",
+          "correct": false
+        },
+        {
+          "text": "Hémoglobine",
+          "correct": false
+        },
+        {
+          "text": "Collagène",
+          "correct": false
+        }
+      ],
+      "explanation": "La pompe sodium/potassium ATPase est donnée comme exemple."
+    },
+    {
+      "id": "cel-020",
+      "category": "Transports vésiculaires",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'endocytose permet :",
+      "choices": [
+        {
+          "text": "L'entrée de substances dans la cellule",
+          "correct": true
+        },
+        {
+          "text": "La sortie de substances",
+          "correct": false
+        },
+        {
+          "text": "La réplication de l'ADN",
+          "correct": false
+        },
+        {
+          "text": "La synthèse du glycogène",
+          "correct": false
+        }
+      ],
+      "explanation": "Endo- signifie vers l'intérieur : l'endocytose fait entrer des substances."
+    },
+    {
+      "id": "cel-021",
+      "category": "Transports vésiculaires",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'exocytose permet :",
+      "choices": [
+        {
+          "text": "La sortie de substances hors de la cellule",
+          "correct": true
+        },
+        {
+          "text": "L'entrée de substances",
+          "correct": false
+        },
+        {
+          "text": "La mitose",
+          "correct": false
+        },
+        {
+          "text": "La transcription",
+          "correct": false
+        }
+      ],
+      "explanation": "Exo- signifie vers l'extérieur : l'exocytose exporte des substances."
+    },
+    {
+      "id": "cel-022",
+      "category": "Cycle cellulaire",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles phases constituent l'interphase ?",
+      "choices": [
+        {
+          "text": "G1",
+          "correct": true
+        },
+        {
+          "text": "S",
+          "correct": true
+        },
+        {
+          "text": "G2",
+          "correct": true
+        },
+        {
+          "text": "M uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit l'interphase comme G1, S et G2."
+    },
+    {
+      "id": "cel-023",
+      "category": "Cycle cellulaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Pendant quelle phase l'ADN est-il répliqué ?",
+      "choices": [
+        {
+          "text": "Phase S",
+          "correct": true
+        },
+        {
+          "text": "Phase G1",
+          "correct": false
+        },
+        {
+          "text": "Phase G2 uniquement",
+          "correct": false
+        },
+        {
+          "text": "Phase M uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "S signifie synthèse : la quantité d'ADN y double."
+    },
+    {
+      "id": "cel-024",
+      "category": "Cycle cellulaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La réplication de l'ADN est dite :",
+      "choices": [
+        {
+          "text": "Semi-conservative",
+          "correct": true
+        },
+        {
+          "text": "Totalement conservative",
+          "correct": false
+        },
+        {
+          "text": "Aléatoire sans copie",
+          "correct": false
+        },
+        {
+          "text": "Peptidique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours précise que la réplication est semi-conservative."
+    },
+    {
+      "id": "cel-025",
+      "category": "Mitose",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La mitose produit :",
+      "choices": [
+        {
+          "text": "Deux cellules filles identiques entre elles et à la cellule mère",
+          "correct": true
+        },
+        {
+          "text": "Quatre cellules toutes différentes",
+          "correct": false
+        },
+        {
+          "text": "Un seul noyau sans cellule",
+          "correct": false
+        },
+        {
+          "text": "Deux molécules de glucose",
+          "correct": false
+        }
+      ],
+      "explanation": "La mitose est définie comme la division d'une cellule mère en deux cellules filles génétiquement identiques."
+    },
+    {
+      "id": "cel-026",
+      "category": "Expression génétique",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles sont les deux grandes étapes de l'expression génétique ?",
+      "choices": [
+        {
+          "text": "Transcription",
+          "correct": true
+        },
+        {
+          "text": "Traduction",
+          "correct": true
+        },
+        {
+          "text": "Glycolyse",
+          "correct": false
+        },
+        {
+          "text": "Lipolyse",
+          "correct": false
+        }
+      ],
+      "explanation": "L'expression génétique comprend transcription puis traduction."
+    },
+    {
+      "id": "cel-027",
+      "category": "Expression génétique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Où se déroule la transcription dans une cellule eucaryote ?",
+      "choices": [
+        {
+          "text": "Dans le noyau",
+          "correct": true
+        },
+        {
+          "text": "Dans le cytoplasme uniquement",
+          "correct": false
+        },
+        {
+          "text": "Dans le lysosome",
+          "correct": false
+        },
+        {
+          "text": "À l'extérieur de la cellule",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours situe la transcription dans le noyau."
+    },
+    {
+      "id": "cel-028",
+      "category": "Expression génétique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Où se déroule la traduction ?",
+      "choices": [
+        {
+          "text": "Dans le cytoplasme au niveau des ribosomes",
+          "correct": true
+        },
+        {
+          "text": "Dans le noyau uniquement",
+          "correct": false
+        },
+        {
+          "text": "Dans le plasma sanguin",
+          "correct": false
+        },
+        {
+          "text": "Dans la membrane nucléaire uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "La traduction se déroule dans le cytoplasme et fait intervenir les ribosomes."
+    },
+    {
+      "id": "cel-029",
+      "category": "Expression génétique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Un codon d'ARNm comporte :",
+      "choices": [
+        {
+          "text": "3 nucléotides",
+          "correct": true
+        },
+        {
+          "text": "1 nucléotide",
+          "correct": false
+        },
+        {
+          "text": "10 nucléotides",
+          "correct": false
+        },
+        {
+          "text": "20 acides aminés",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours rappelle qu'un codon correspond à trois nucléotides de l'ARNm."
+    },
+    {
+      "id": "cel-030",
+      "category": "Mutations / épigénétique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle différence le cours souligne-t-il entre mutation et modification épigénétique ?",
+      "choices": [
+        {
+          "text": "La mutation modifie la séquence d'ADN ; l'épigénétique modifie l'activité des gènes sans changer la séquence",
+          "correct": true
+        },
+        {
+          "text": "Les deux modifient toujours la séquence",
+          "correct": false
+        },
+        {
+          "text": "L'épigénétique est irréversible",
+          "correct": false
+        },
+        {
+          "text": "Une mutation ne concerne jamais l'ADN",
+          "correct": false
+        }
+      ],
+      "explanation": "Les mutations touchent la séquence d'ADN ; les modifications épigénétiques modulent l'activité des gènes sans modification de séquence et sont réversibles."
+    }
+  ]
+}

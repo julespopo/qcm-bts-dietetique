@@ -1,0 +1,788 @@
+{
+  "version": 3,
+  "title": "Les protides",
+  "subject": "Biochimie",
+  "chapter": "Chapitre 3",
+  "questions": [
+    {
+      "id": "pro-001",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Les protides sont des biomolécules :",
+      "choices": [
+        {
+          "text": "Azotées formées d'acides aminés",
+          "correct": true
+        },
+        {
+          "text": "Constituées uniquement de lipides",
+          "correct": false
+        },
+        {
+          "text": "Sans carbone",
+          "correct": false
+        },
+        {
+          "text": "Formées de nucléotides",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit les protides comme des biomolécules azotées constituées d'acides aminés reliés par des liaisons peptidiques."
+    },
+    {
+      "id": "pro-002",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quels éléments entrent dans la composition atomique habituelle des protides ?",
+      "choices": [
+        {
+          "text": "C, H, O, N, parfois S",
+          "correct": true
+        },
+        {
+          "text": "C, H uniquement",
+          "correct": false
+        },
+        {
+          "text": "P et Ca uniquement",
+          "correct": false
+        },
+        {
+          "text": "Na et Cl uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Les protides contiennent C, H, O et obligatoirement N, parfois S."
+    },
+    {
+      "id": "pro-003",
+      "category": "Classification",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Une holoprotéine contient :",
+      "choices": [
+        {
+          "text": "Uniquement des acides aminés",
+          "correct": true
+        },
+        {
+          "text": "Des AA et un groupement prosthétique",
+          "correct": false
+        },
+        {
+          "text": "Uniquement des glucides",
+          "correct": false
+        },
+        {
+          "text": "Des nucléotides",
+          "correct": false
+        }
+      ],
+      "explanation": "Holoprotéine = uniquement des acides aminés."
+    },
+    {
+      "id": "pro-004",
+      "category": "Classification",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "L'hémoglobine est classée comme hétéroprotéine car elle contient :",
+      "choices": [
+        {
+          "text": "Un groupement hème en plus des AA",
+          "correct": true
+        },
+        {
+          "text": "Du glycogène uniquement",
+          "correct": false
+        },
+        {
+          "text": "Trois phosphates",
+          "correct": false
+        },
+        {
+          "text": "De la cellulose",
+          "correct": false
+        }
+      ],
+      "explanation": "L'hémoglobine associe des chaînes polypeptidiques à des groupements hème contenant du fer."
+    },
+    {
+      "id": "pro-005",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle valeur énergétique est donnée pour les protéines ?",
+      "choices": [
+        {
+          "text": "4 kcal/g",
+          "correct": true
+        },
+        {
+          "text": "9 kcal/g",
+          "correct": false
+        },
+        {
+          "text": "7 kcal/g",
+          "correct": false
+        },
+        {
+          "text": "0 kcal/g",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique 4 kcal/g, avec un rôle énergétique secondaire."
+    },
+    {
+      "id": "pro-006",
+      "category": "Acides aminés",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Sur quel atome central sont portés COOH, NH2, H et R dans un acide aminé ?",
+      "choices": [
+        {
+          "text": "Le carbone α",
+          "correct": true
+        },
+        {
+          "text": "Le phosphore",
+          "correct": false
+        },
+        {
+          "text": "L'oxygène",
+          "correct": false
+        },
+        {
+          "text": "Le soufre",
+          "correct": false
+        }
+      ],
+      "explanation": "L'acide aminé possède un carbone α central portant les quatre substituants."
+    },
+    {
+      "id": "pro-007",
+      "category": "Acides aminés",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle partie varie d'un acide aminé à l'autre ?",
+      "choices": [
+        {
+          "text": "La chaîne latérale R",
+          "correct": true
+        },
+        {
+          "text": "Le carbone α",
+          "correct": false
+        },
+        {
+          "text": "La fonction amine toujours absente",
+          "correct": false
+        },
+        {
+          "text": "La fonction carboxyle toujours absente",
+          "correct": false
+        }
+      ],
+      "explanation": "La chaîne latérale R est la partie variable qui détermine la personnalité chimique de l'AA."
+    },
+    {
+      "id": "pro-008",
+      "category": "Chiralité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel acide aminé fait exception car son carbone α n'est pas asymétrique ?",
+      "choices": [
+        {
+          "text": "Glycine",
+          "correct": true
+        },
+        {
+          "text": "Leucine",
+          "correct": false
+        },
+        {
+          "text": "Cystéine",
+          "correct": false
+        },
+        {
+          "text": "Valine",
+          "correct": false
+        }
+      ],
+      "explanation": "La glycine a R = H ; son carbone α porte donc deux hydrogènes identiques."
+    },
+    {
+      "id": "pro-009",
+      "category": "Chiralité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Les acides aminés protéinogènes du vivant sont principalement de série :",
+      "choices": [
+        {
+          "text": "L",
+          "correct": true
+        },
+        {
+          "text": "D",
+          "correct": false
+        },
+        {
+          "text": "α",
+          "correct": false
+        },
+        {
+          "text": "β",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que les 20 AA protéinogènes naturels sont de série L."
+    },
+    {
+      "id": "pro-010",
+      "category": "Classification des AA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La cystéine contient quelle fonction dans sa chaîne latérale ?",
+      "choices": [
+        {
+          "text": "Thiol -SH",
+          "correct": true
+        },
+        {
+          "text": "Aldéhyde",
+          "correct": false
+        },
+        {
+          "text": "Phosphate",
+          "correct": false
+        },
+        {
+          "text": "Cétone uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "La cystéine possède une fonction thiol -SH, impliquée notamment dans les ponts disulfure."
+    },
+    {
+      "id": "pro-011",
+      "category": "AA indispensables",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien d'acides aminés indispensables sont indiqués chez l'adulte ?",
+      "choices": [
+        {
+          "text": "8",
+          "correct": true
+        },
+        {
+          "text": "4",
+          "correct": false
+        },
+        {
+          "text": "12",
+          "correct": false
+        },
+        {
+          "text": "20",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours en indique 8 chez l'adulte et 9 chez l'enfant, en incluant l'histidine."
+    },
+    {
+      "id": "pro-012",
+      "category": "AA indispensables",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Parmi les suivants, lesquels sont cités comme AA indispensables chez l'adulte ?",
+      "choices": [
+        {
+          "text": "Leucine",
+          "correct": true
+        },
+        {
+          "text": "Lysine",
+          "correct": true
+        },
+        {
+          "text": "Tryptophane",
+          "correct": true
+        },
+        {
+          "text": "Alanine",
+          "correct": false
+        }
+      ],
+      "explanation": "Leucine, lysine et tryptophane font partie des AA indispensables ; l'alanine non."
+    },
+    {
+      "id": "pro-013",
+      "category": "Propriétés acido-basiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un acide aminé est dit amphotère car il possède :",
+      "choices": [
+        {
+          "text": "Une fonction acide et une fonction basique",
+          "correct": true
+        },
+        {
+          "text": "Deux fonctions uniquement acides",
+          "correct": false
+        },
+        {
+          "text": "Aucune fonction ionisable",
+          "correct": false
+        },
+        {
+          "text": "Un noyau stérane",
+          "correct": false
+        }
+      ],
+      "explanation": "La fonction COOH est acide et la fonction NH2 est basique."
+    },
+    {
+      "id": "pro-014",
+      "category": "Propriétés acido-basiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le pHi correspond au pH où l'acide aminé :",
+      "choices": [
+        {
+          "text": "A une charge globale nulle",
+          "correct": true
+        },
+        {
+          "text": "Est toujours totalement non ionisé",
+          "correct": false
+        },
+        {
+          "text": "Possède uniquement une charge positive",
+          "correct": false
+        },
+        {
+          "text": "Est détruit",
+          "correct": false
+        }
+      ],
+      "explanation": "Au point isoélectrique, la charge globale est nulle, souvent sous forme zwitterionique."
+    },
+    {
+      "id": "pro-015",
+      "category": "Ponts disulfure",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un pont disulfure se forme entre :",
+      "choices": [
+        {
+          "text": "Deux résidus cystéine",
+          "correct": true
+        },
+        {
+          "text": "Deux glycines",
+          "correct": false
+        },
+        {
+          "text": "Deux glucoses",
+          "correct": false
+        },
+        {
+          "text": "Deux phosphates",
+          "correct": false
+        }
+      ],
+      "explanation": "L'oxydation de deux fonctions thiol de cystéines forme une liaison covalente S-S."
+    },
+    {
+      "id": "pro-016",
+      "category": "Liaison peptidique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La liaison peptidique se forme entre :",
+      "choices": [
+        {
+          "text": "Le COOH d'un AA et le NH2 du suivant",
+          "correct": true
+        },
+        {
+          "text": "Deux groupements phosphate",
+          "correct": false
+        },
+        {
+          "text": "Deux fonctions alcool seulement",
+          "correct": false
+        },
+        {
+          "text": "Deux bases azotées",
+          "correct": false
+        }
+      ],
+      "explanation": "La condensation entre COOH et NH2 forme la fonction amide CO-NH et libère une molécule d'eau."
+    },
+    {
+      "id": "pro-017",
+      "category": "Liaison peptidique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle molécule est libérée lors de la formation d'une liaison peptidique ?",
+      "choices": [
+        {
+          "text": "H2O",
+          "correct": true
+        },
+        {
+          "text": "CO2",
+          "correct": false
+        },
+        {
+          "text": "O2",
+          "correct": false
+        },
+        {
+          "text": "ATP",
+          "correct": false
+        }
+      ],
+      "explanation": "La formation de la liaison peptidique est une condensation avec perte d'une molécule d'eau."
+    },
+    {
+      "id": "pro-018",
+      "category": "Structure des protéines",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La structure primaire d'une protéine correspond :",
+      "choices": [
+        {
+          "text": "À la séquence des acides aminés",
+          "correct": true
+        },
+        {
+          "text": "À l'assemblage de plusieurs sous-unités uniquement",
+          "correct": false
+        },
+        {
+          "text": "À la seule hélice α",
+          "correct": false
+        },
+        {
+          "text": "À la dénaturation",
+          "correct": false
+        }
+      ],
+      "explanation": "La structure primaire est l'ordre linéaire des AA dans la chaîne."
+    },
+    {
+      "id": "pro-019",
+      "category": "Structure secondaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L'hélice α et le feuillet β sont des structures :",
+      "choices": [
+        {
+          "text": "Secondaires",
+          "correct": true
+        },
+        {
+          "text": "Primaires",
+          "correct": false
+        },
+        {
+          "text": "Quaternaires uniquement",
+          "correct": false
+        },
+        {
+          "text": "Lipidiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Ce sont deux motifs de structure secondaire stabilisés par des liaisons hydrogène du squelette peptidique."
+    },
+    {
+      "id": "pro-020",
+      "category": "Structure secondaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles interactions stabilisent principalement hélices α et feuillets β ?",
+      "choices": [
+        {
+          "text": "Liaisons hydrogène entre CO et NH du squelette",
+          "correct": true
+        },
+        {
+          "text": "Ponts phosphodiester",
+          "correct": false
+        },
+        {
+          "text": "Liaisons osidiques",
+          "correct": false
+        },
+        {
+          "text": "Uniquement des interactions entre lipides",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours insiste sur les liaisons H entre les fonctions C=O et N-H de la chaîne peptidique."
+    },
+    {
+      "id": "pro-021",
+      "category": "Structure tertiaire",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels types d'interactions peuvent stabiliser la structure tertiaire ?",
+      "choices": [
+        {
+          "text": "Liaisons hydrogène",
+          "correct": true
+        },
+        {
+          "text": "Ponts salins",
+          "correct": true
+        },
+        {
+          "text": "Ponts disulfure",
+          "correct": true
+        },
+        {
+          "text": "Interactions hydrophobes",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours cite ces quatre catégories d'interactions entre chaînes latérales R."
+    },
+    {
+      "id": "pro-022",
+      "category": "Structure quaternaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La structure quaternaire correspond :",
+      "choices": [
+        {
+          "text": "À l'assemblage de plusieurs chaînes polypeptidiques",
+          "correct": true
+        },
+        {
+          "text": "À la séquence des AA d'une seule chaîne",
+          "correct": false
+        },
+        {
+          "text": "À l'hydrolyse des protéines",
+          "correct": false
+        },
+        {
+          "text": "À une liaison osidique",
+          "correct": false
+        }
+      ],
+      "explanation": "Elle apparaît lorsque plusieurs sous-unités polypeptidiques s'associent en une protéine fonctionnelle."
+    },
+    {
+      "id": "pro-023",
+      "category": "Hémoglobine",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "L'hémoglobine adulte HbA comporte :",
+      "choices": [
+        {
+          "text": "2 chaînes α et 2 chaînes β",
+          "correct": true
+        },
+        {
+          "text": "1 seule chaîne",
+          "correct": false
+        },
+        {
+          "text": "4 chaînes α uniquement",
+          "correct": false
+        },
+        {
+          "text": "2 chaînes β uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit HbA comme un tétramère 2α + 2β associé à quatre hèmes."
+    },
+    {
+      "id": "pro-024",
+      "category": "Repliement",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "En milieu aqueux, une protéine soluble tend à :",
+      "choices": [
+        {
+          "text": "Cacher les R apolaires au cœur et exposer les R polaires",
+          "correct": true
+        },
+        {
+          "text": "Exposer tous les R apolaires à l'eau",
+          "correct": false
+        },
+        {
+          "text": "Détruire toutes ses liaisons",
+          "correct": false
+        },
+        {
+          "text": "Former du glycogène",
+          "correct": false
+        }
+      ],
+      "explanation": "Le repliement place préférentiellement les résidus hydrophobes au cœur et les résidus polaires vers l'eau."
+    },
+    {
+      "id": "pro-025",
+      "category": "Dénaturation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La dénaturation d'une protéine correspond principalement à :",
+      "choices": [
+        {
+          "text": "Une modification de sa conformation sans rupture systématique de la structure primaire",
+          "correct": true
+        },
+        {
+          "text": "La destruction obligatoire de toutes les liaisons peptidiques",
+          "correct": false
+        },
+        {
+          "text": "La formation de glucose",
+          "correct": false
+        },
+        {
+          "text": "La synthèse d'ADN",
+          "correct": false
+        }
+      ],
+      "explanation": "La dénaturation perturbe surtout les structures secondaire, tertiaire et/ou quaternaire."
+    },
+    {
+      "id": "pro-026",
+      "category": "Dénaturation",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels facteurs peuvent provoquer une dénaturation protéique dans le cadre du cours ?",
+      "choices": [
+        {
+          "text": "Chaleur",
+          "correct": true
+        },
+        {
+          "text": "Variation de pH",
+          "correct": true
+        },
+        {
+          "text": "Agitation mécanique",
+          "correct": true
+        },
+        {
+          "text": "Certains agents chimiques",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours présente plusieurs facteurs physiques et chimiques capables de modifier la conformation des protéines."
+    },
+    {
+      "id": "pro-027",
+      "category": "Solubilité",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Au point isoélectrique, la solubilité d'une protéine tend à être :",
+      "choices": [
+        {
+          "text": "Minimale",
+          "correct": true
+        },
+        {
+          "text": "Toujours maximale",
+          "correct": false
+        },
+        {
+          "text": "Indépendante du pH",
+          "correct": false
+        },
+        {
+          "text": "Infinie",
+          "correct": false
+        }
+      ],
+      "explanation": "À charge globale proche de zéro, les répulsions électrostatiques diminuent et la solubilité est généralement minimale."
+    },
+    {
+      "id": "pro-028",
+      "category": "Nutrition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi associer céréales et légumineuses peut-il être intéressant ?",
+      "choices": [
+        {
+          "text": "Pour améliorer la complémentarité en AA indispensables",
+          "correct": true
+        },
+        {
+          "text": "Pour supprimer tous les glucides",
+          "correct": false
+        },
+        {
+          "text": "Pour transformer les protéines en lipides",
+          "correct": false
+        },
+        {
+          "text": "Pour éviter toute digestion",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours relie la qualité protéique à la présence des AA indispensables et évoque la complémentation céréales + légumineuses."
+    },
+    {
+      "id": "pro-029",
+      "category": "Pathologies",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La phénylcétonurie concerne le métabolisme de :",
+      "choices": [
+        {
+          "text": "La phénylalanine",
+          "correct": true
+        },
+        {
+          "text": "Le glucose",
+          "correct": false
+        },
+        {
+          "text": "Le cholestérol",
+          "correct": false
+        },
+        {
+          "text": "La cellulose",
+          "correct": false
+        }
+      ],
+      "explanation": "La phénylcétonurie est citée parmi les pathologies du métabolisme protéique et concerne la phénylalanine."
+    },
+    {
+      "id": "pro-030",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le suffixe « -urie » signifie :",
+      "choices": [
+        {
+          "text": "Présence dans les urines",
+          "correct": true
+        },
+        {
+          "text": "Présence dans le sang",
+          "correct": false
+        },
+        {
+          "text": "Destruction",
+          "correct": false
+        },
+        {
+          "text": "Douleur",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans la terminologie du chapitre, -urie renvoie aux urines, comme dans protéinurie ou albuminurie."
+    }
+  ]
+}
