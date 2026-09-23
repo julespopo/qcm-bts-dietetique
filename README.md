@@ -1,75 +1,78 @@
-# QCM BTS Diététique — version web modulaire
+# QCM BTS Diététique — version web modulaire V2
 
-## Architecture
+## Organisation par matière
 
-- `index.html` : moteur du QCM, sans questions intégrées.
-- `manifest.json` : catalogue des banques disponibles.
-- `banques/*.json` : une banque par cours ou chapitre.
-- `generer_manifest.py` : reconstruit automatiquement `manifest.json` à partir du dossier `banques`.
+Le dossier `banques` peut maintenant contenir des sous-dossiers correspondant aux matières.
 
-## Ajouter un nouveau cours plus tard
+Exemple :
 
-Exemple : tu ajoutes `banques/07_vitamines.json`.
+```text
+banques/
+  BPADN/
+    01_glucides.json
+    02_lipides.json
+    03_protides.json
+    04_acides_nucleiques.json
+    05_milieu_interieur.json
+    06_biologie_cellulaire.json
 
-Ensuite, à la racine du projet :
+  alimentation_therapeutique/
+    diabete.json
+    insuffisance_renale.json
+    maladies_cardiovasculaires.json
+
+  microbiologie/
+    bacteries.json
+    virus.json
+```
+
+## Principe
+
+- Le dossier correspond à une matière.
+- Chaque fichier JSON correspond à un chapitre ou à un thème.
+- `index.html` reste le moteur du QCM.
+- `manifest.json` est le catalogue des banques.
+- `generer_manifest.py` parcourt automatiquement TOUS les sous-dossiers de `banques`.
+
+## Ajouter une nouvelle matière
+
+1. Crée un dossier, par exemple :
+   `banques/alimentation_therapeutique/`
+
+2. Ajoute les banques JSON dedans, par exemple :
+   `banques/alimentation_therapeutique/diabete.json`
+
+3. Lance :
+   `python3 generer_manifest.py`
+
+4. Envoie sur GitHub :
+   - le nouveau fichier JSON ;
+   - le `manifest.json` mis à jour.
+
+Tu n'as pas besoin de modifier `index.html`.
+
+## Ajouter un chapitre BPADN
+
+Exemple :
+
+```text
+banques/BPADN/07_enzymologie.json
+```
+
+Puis :
 
 ```bash
 python3 generer_manifest.py
 ```
 
-Le manifeste est mis à jour automatiquement. Tu publies ensuite les nouveaux fichiers sur GitHub.
+## Situation actuelle
 
-Tu n'as PAS besoin de modifier `index.html`.
+Les 6 banques existantes sont maintenant toutes rangées sous la matière `BPADN` :
+- Glucides
+- Lipides
+- Protides
+- Acides nucléiques
+- Milieu intérieur
+- Biologie cellulaire
 
-## Pourquoi cette version est plus scalable
-
-La page d'accueil charge seulement `manifest.json`, qui est très léger.
-
-Au moment de créer un questionnaire, le site choisit d'abord les questions à tirer grâce au nombre de questions indiqué dans le manifeste. Il ne télécharge ensuite que les banques contenant réellement les questions tirées.
-
-Exemple :
-- 20 matières disponibles ;
-- 2 000 questions au total ;
-- l'étudiant demande 20 questions ;
-- le navigateur n'a pas besoin de charger les 2 000 questions au démarrage.
-
-## Pause et reprise
-
-La sauvegarde stocke principalement les identifiants des questions et les noms des fichiers de banque, pas une copie de toute la base de données.
-
-Au moment de reprendre, le site recharge uniquement les banques nécessaires.
-
-## Hébergement
-
-Cette version est prévue pour un hébergement HTTP/HTTPS comme GitHub Pages.
-
-Elle ne peut pas être testée correctement par un simple double-clic sur `index.html`, car les navigateurs bloquent généralement `fetch()` depuis `file://`.
-
-Pour tester localement :
-
-```bash
-cd QCM_BTS_Dietetique_WEB_MODULAIRE
-python3 -m http.server 8000
-```
-
-Puis ouvrir `http://localhost:8000`.
-
-## Organisation conseillée sur l'année
-
-Tu peux garder une banque par chapitre :
-
-```text
-banques/
-  biochimie_glucides.json
-  biochimie_lipides.json
-  biochimie_protides.json
-  bpadn_acides_nucleiques.json
-  bpadn_milieu_interieur.json
-  bpadn_biologie_cellulaire.json
-  physiologie_digestive.json
-  nutrition_adulte.json
-  microbiologie_chapitre_1.json
-  ...
-```
-
-Chaque nouveau fichier devient automatiquement une nouvelle banque lorsque le manifeste est régénéré.
+Le site les regroupe donc automatiquement sous une seule matière.
