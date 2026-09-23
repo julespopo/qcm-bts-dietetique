@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.6.3
+# QCM BTS Diététique — V7.7
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -400,6 +400,33 @@ multiple → plusieurs bonnes réponses
 
 # Changelog
 
+## V7.7
+
+- Rafraîchissement visuel sobre de l'interface avant la V8.0.
+- Ajout d'une illustration diététique discrète dans l'en-tête.
+- Création d'icônes vectorielles maison pour :
+  - Matières
+  - Chapitres
+  - Difficulté
+  - Résultats
+- Ajout d'accents graphiques légers sur certaines cartes.
+- Le style reste volontairement épuré et non ostentatoire.
+- Footer mis à jour : `Index V7.7`.
+
+## V7.6.4
+
+- Contraste renforcé entre les éléments sélectionnés et non sélectionnés en mode nuit.
+- Le mode jour reste inchangé.
+- Matières et chapitres sélectionnés :
+  - fond violet plus visible ;
+  - bordure plus lumineuse ;
+  - halo renforcé.
+- Difficulté sélectionnée plus identifiable en mode sombre.
+- Réponses sélectionnées plus distinctes avant validation.
+- Choix du timer et état actif du timer plus visibles.
+- Les éléments non sélectionnés sont légèrement plus mats pour accentuer la différence.
+- Footer mis à jour : `Index V7.6.4`.
+
 ## V7.6.3
 
 - Ajout d'un graphique circulaire animé sur la page Résultats.
@@ -516,3 +543,21 @@ multiple → plusieurs bonnes réponses
 ## Objectif du projet
 
 Construire progressivement une plateforme de révision BTS Diététique simple à maintenir, utilisable toute l'année et partageable avec d'autres étudiants, sans avoir à reconstruire l'application à chaque nouveau cours.
+
+
+## Assets visuels
+
+Le projet contient désormais un dossier `assets/` avec des illustrations et icônes SVG légères, créées spécialement pour l'interface.
+
+```text
+assets/
+├── icons/
+│   ├── matieres.svg
+│   ├── chapitres.svg
+│   ├── difficulte.svg
+│   └── resultats.svg
+└── illustrations/
+    └── hero-dietetique.svg
+```
+
+Ces fichiers sont libres à utiliser dans le projet et ne nécessitent aucune dépendance externe.
