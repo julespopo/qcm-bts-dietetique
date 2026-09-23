@@ -17,6 +17,7 @@ html[data-theme="dark"]{
   --ok:#62d69a;--bad:#ff8e87;--warn:#f1c46d;--shadow:0 10px 34px rgba(0,0,0,.24)
 }
 *{box-sizing:border-box}
+button,.subject-card,.chapter-card{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);transition:background .2s ease,color .2s ease}
 main{max-width:1120px;margin:auto;padding:22px}
 h1,h2,h3,p{margin-top:0}.muted{color:var(--muted)}.hidden{display:none!important}
@@ -106,7 +107,7 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   display:grid;place-items:center;background:var(--card);color:var(--text);border:1px solid var(--line);
   box-shadow:0 8px 26px rgba(0,0,0,.14);font-size:1.35rem;
   transition:background .2s ease,border-color .2s ease,box-shadow .15s ease;
-  cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none
+  cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none
 }
 .theme-toggle:hover{border-color:rgba(var(--accent-rgb),.55);box-shadow:0 10px 30px rgba(0,0,0,.18)}
 .theme-toggle.dragging{cursor:grabbing;transition:none;box-shadow:0 12px 34px rgba(0,0,0,.22)}
@@ -116,6 +117,51 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   main{padding:13px}.selection-grid{grid-template-columns:1fr}.subject-pane{border-right:0;border-bottom:1px solid var(--line)}
   .chapter-list{grid-template-columns:1fr}.config-grid{grid-template-columns:1fr}.chapter-header{flex-direction:column}.chapter-actions{justify-content:flex-start}
 }
+
+/* Mobile : les chapitres s'ouvrent dans un bottom sheet */
+.mobile-sheet-overlay{
+  position:fixed;inset:0;z-index:1200;background:rgba(5,10,18,.46);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  opacity:0;pointer-events:none;transition:opacity .18s ease
+}
+.mobile-sheet-overlay.open{opacity:1;pointer-events:auto}
+.mobile-sheet{
+  position:absolute;left:0;right:0;bottom:0;max-height:min(78vh,720px);
+  display:flex;flex-direction:column;background:var(--card);color:var(--text);
+  border:1px solid var(--line);border-bottom:0;border-radius:22px 22px 0 0;
+  box-shadow:0 -18px 50px rgba(0,0,0,.22);
+  transform:translateY(102%);transition:transform .22s ease
+}
+.mobile-sheet-overlay.open .mobile-sheet{transform:translateY(0)}
+.mobile-sheet-handle{width:42px;height:4px;border-radius:999px;background:var(--line);margin:9px auto 3px}
+.mobile-sheet-header{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:12px 16px 10px;
+  border-bottom:1px solid var(--line)
+}
+.mobile-sheet-title{font-size:1.08rem;font-weight:830;margin:0}
+.mobile-sheet-meta{font-size:.84rem;color:var(--muted);margin-top:3px}
+.mobile-sheet-close{
+  width:38px;height:38px;padding:0;display:grid;place-items:center;border-radius:50%;
+  background:var(--button-soft);color:var(--text);font-size:1.15rem;border:1px solid var(--line)
+}
+.mobile-sheet-body{overflow:auto;-webkit-overflow-scrolling:touch;padding:12px 16px 18px}
+.mobile-sheet-actions{display:flex;gap:8px;margin-bottom:11px}
+.mobile-sheet-actions .tiny-btn{width:100%}
+.mobile-sheet-list{display:grid;grid-template-columns:1fr;gap:9px}
+body.sheet-open{overflow:hidden}
+
+@media(max-width:760px){
+  .selection-grid{display:block;min-height:0}
+  .subject-pane{border-right:0}
+  .chapter-pane{display:none}
+  .subject-list{gap:9px}
+  .subject-card{min-height:72px}
+  .theme-toggle{width:46px;height:46px}
+}
+@media(min-width:761px){
+  .mobile-sheet-overlay{display:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -158,9 +204,8 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
             <p id="activeSubjectMeta" class="muted"></p>
           </div>
           <div class="chapter-actions">
-            <button id="selectAllChapters" class="tiny-btn" type="button">Tout sélectionner</button>
-            <button id="clearAllChapters" class="tiny-btn" type="button">Tout désélectionner</button>
-          </div>
+          <button id="toggleAllChapters" class="tiny-btn" type="button">Tout sélectionner</button>
+        </div>
         </div>
         <div id="chapterList" class="chapter-list"></div>
       </div>
@@ -189,6 +234,26 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   </div>
 </section>
 
+
+<div id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true">
+  <section class="mobile-sheet" role="dialog" aria-modal="true" aria-labelledby="mobileSheetTitle">
+    <div class="mobile-sheet-handle"></div>
+    <div class="mobile-sheet-header">
+      <div>
+        <h2 id="mobileSheetTitle" class="mobile-sheet-title">Chapitres</h2>
+        <div id="mobileSheetMeta" class="mobile-sheet-meta"></div>
+      </div>
+      <button id="mobileSheetClose" class="mobile-sheet-close" type="button" aria-label="Fermer">×</button>
+    </div>
+    <div class="mobile-sheet-body">
+      <div class="mobile-sheet-actions">
+        <button id="mobileToggleAll" class="tiny-btn" type="button">Tout sélectionner</button>
+      </div>
+      <div id="mobileChapterList" class="mobile-sheet-list"></div>
+    </div>
+  </section>
+</div>
+
 <section id="quiz" class="card quiz-card hidden">
   <div class="meta"><span id="counter"></span><span id="scoreLive"></span></div>
   <div class="progress"><div id="progressBar"></div></div>
@@ -215,13 +280,13 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   </div>
 </section>
 
-<footer>Sélection par matière et chapitre • thème système par défaut • bouton jour/nuit déplaçable.</footer>
+<footer>Desktop : chapitres à droite • mobile : fenêtre de chapitres • thème système et bouton déplaçable.</footer>
 </main>
 
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v6";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7";
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,session:[],index:0,score:0,errors:[],answered:false};
 const cache=new Map();
@@ -294,45 +359,78 @@ function enableThemeButtonDrag(){
   const btn=$("themeToggle");
   if(!btn)return;
 
-  let startX=0,startY=0,startLeft=0,startTop=0,moved=false;
+  let dragging=false,moved=false,startX=0,startY=0,startLeft=0,startTop=0,pointerId=null;
 
-  btn.addEventListener("pointerdown",e=>{
-    if(e.button!==undefined&&e.button!==0)return;
+  const start=(clientX,clientY,id=null)=>{
     const rect=btn.getBoundingClientRect();
-    startX=e.clientX;startY=e.clientY;
-    startLeft=rect.left;startTop=rect.top;
-    moved=false;themeDragged=false;
-    btn.setPointerCapture?.(e.pointerId);
+    dragging=true;moved=false;themeDragged=false;pointerId=id;
+    startX=clientX;startY=clientY;startLeft=rect.left;startTop=rect.top;
     btn.classList.add("dragging");
-  });
+  };
 
-  btn.addEventListener("pointermove",e=>{
-    if(!btn.hasPointerCapture?.(e.pointerId))return;
-    const dx=e.clientX-startX,dy=e.clientY-startY;
-    if(Math.hypot(dx,dy)>4)moved=true;
+  const move=(clientX,clientY,event=null)=>{
+    if(!dragging)return;
+    const dx=clientX-startX,dy=clientY-startY;
+    if(Math.hypot(dx,dy)>5)moved=true;
     if(!moved)return;
+    event?.preventDefault?.();
     const pos=clampThemePosition(startLeft+dx,startTop+dy);
     btn.style.left=pos.left+"px";
     btn.style.top=pos.top+"px";
     btn.style.right="auto";
     btn.style.bottom="auto";
-  });
+  };
 
-  const endDrag=e=>{
-    if(btn.hasPointerCapture?.(e.pointerId))btn.releasePointerCapture?.(e.pointerId);
+  const end=()=>{
+    if(!dragging)return;
+    dragging=false;
     btn.classList.remove("dragging");
     themeDragged=moved;
     if(moved)saveThemeButtonPosition();
+    pointerId=null;
   };
-  btn.addEventListener("pointerup",endDrag);
-  btn.addEventListener("pointercancel",endDrag);
+
+  if(window.PointerEvent){
+    btn.addEventListener("pointerdown",e=>{
+      if(e.pointerType==="mouse"&&e.button!==0)return;
+      start(e.clientX,e.clientY,e.pointerId);
+      try{btn.setPointerCapture(e.pointerId);}catch{}
+      e.preventDefault();
+    });
+    window.addEventListener("pointermove",e=>{
+      if(!dragging || (pointerId!==null && e.pointerId!==pointerId))return;
+      move(e.clientX,e.clientY,e);
+    },{passive:false});
+    window.addEventListener("pointerup",e=>{
+      if(pointerId!==null && e.pointerId!==pointerId)return;
+      end();
+    });
+    window.addEventListener("pointercancel",end);
+  }else{
+    btn.addEventListener("touchstart",e=>{
+      const t=e.touches[0];if(!t)return;
+      start(t.clientX,t.clientY,"touch");
+      e.preventDefault();
+    },{passive:false});
+    window.addEventListener("touchmove",e=>{
+      if(!dragging)return;
+      const t=e.touches[0];if(!t)return;
+      move(t.clientX,t.clientY,e);
+    },{passive:false});
+    window.addEventListener("touchend",end,{passive:true});
+    window.addEventListener("touchcancel",end,{passive:true});
+    btn.addEventListener("mousedown",e=>{
+      if(e.button!==0)return;
+      start(e.clientX,e.clientY,"mouse");
+      e.preventDefault();
+    });
+    window.addEventListener("mousemove",e=>move(e.clientX,e.clientY,e));
+    window.addEventListener("mouseup",end);
+  }
 
   btn.addEventListener("click",e=>{
     if(themeDragged){
-      e.preventDefault();
-      e.stopPropagation();
-      themeDragged=false;
-      return;
+      e.preventDefault();e.stopPropagation();themeDragged=false;return;
     }
     toggleTheme();
   });
@@ -341,8 +439,7 @@ function enableThemeButtonDrag(){
     const rect=btn.getBoundingClientRect();
     if(btn.style.left){
       const pos=clampThemePosition(rect.left,rect.top);
-      btn.style.left=pos.left+"px";
-      btn.style.top=pos.top+"px";
+      btn.style.left=pos.left+"px";btn.style.top=pos.top+"px";
       saveThemeButtonPosition();
     }
   });
@@ -375,6 +472,57 @@ function subjectStats(subject){
   const selected=banks.filter(b=>state.selectedBankIds.has(b.id));
   return {banks,selected,questions:selected.reduce((s,b)=>s+Number(b.count||0),0),totalQuestions:banks.reduce((s,b)=>s+Number(b.count||0),0)};
 }
+
+function isMobileSelectionUI(){
+  return window.matchMedia&&window.matchMedia("(max-width:760px)").matches;
+}
+function subjectAllSelected(subject){
+  const st=subjectStats(subject);
+  return st.banks.length>0&&st.selected.length===st.banks.length;
+}
+function updateDesktopToggleButton(){
+  const btn=$("toggleAllChapters");
+  if(!btn||!state.activeSubject)return;
+  btn.textContent=subjectAllSelected(state.activeSubject)?"Tout désélectionner":"Tout sélectionner";
+}
+function renderMobileSheet(){
+  const subject=state.activeSubject;
+  if(!subject)return;
+  const list=banksForSubject(subject);
+  const st=subjectStats(subject);
+  $("mobileSheetTitle").textContent=subject;
+  $("mobileSheetMeta").textContent=`${st.selected.length} chapitre${st.selected.length>1?"s":""} sélectionné${st.selected.length>1?"s":""} sur ${st.banks.length}`;
+  $("mobileToggleAll").textContent=subjectAllSelected(subject)?"Tout désélectionner":"Tout sélectionner";
+  $("mobileChapterList").innerHTML=list.map(b=>{
+    const selected=state.selectedBankIds.has(b.id);
+    return `<button class="chapter-card ${selected?'selected':''}" type="button" data-bank-id="${esc(b.id)}" aria-pressed="${selected?'true':'false'}">
+      <div class="chapter-title">${esc(b.title)}</div>
+      <div class="chapter-meta">${esc(b.chapter||'')} • ${b.count} questions</div>
+    </button>`;
+  }).join("");
+  $("mobileChapterList").querySelectorAll(".chapter-card").forEach(btn=>btn.addEventListener("click",()=>{
+    const id=btn.dataset.bankId;
+    if(state.selectedBankIds.has(id))state.selectedBankIds.delete(id);else state.selectedBankIds.add(id);
+    renderSelectionUI();
+    renderMobileSheet();
+  }));
+}
+function openMobileSheet(subject){
+  state.activeSubject=subject;
+  renderSelectionUI();
+  renderMobileSheet();
+  const overlay=$("mobileSheetOverlay");
+  overlay.classList.add("open");
+  overlay.setAttribute("aria-hidden","false");
+  document.body.classList.add("sheet-open");
+}
+function closeMobileSheet(){
+  const overlay=$("mobileSheetOverlay");
+  overlay.classList.remove("open");
+  overlay.setAttribute("aria-hidden","true");
+  document.body.classList.remove("sheet-open");
+}
+
 function renderSubjects(){
   $("subjectList").innerHTML=subjects().map(subject=>{
     const st=subjectStats(subject);
@@ -387,6 +535,10 @@ function renderSubjects(){
   }).join("");
   $("subjectList").querySelectorAll(".subject-card").forEach(btn=>btn.addEventListener("click",()=>{
     const subject=btn.dataset.subject;
+    if(isMobileSelectionUI()){
+      openMobileSheet(subject);
+      return;
+    }
     state.activeSubject=subject;
     const st=subjectStats(subject);
     const allSelected=st.banks.length>0&&st.selected.length===st.banks.length;
@@ -399,8 +551,8 @@ function renderChapters(){
   $("activeSubjectTitle").textContent=subject||"Chapitres";
   const st=subject?subjectStats(subject):null;
   $("activeSubjectMeta").textContent=st?`${st.selected.length} chapitre${st.selected.length>1?'s':''} sélectionné${st.selected.length>1?'s':''} sur ${st.banks.length}`:"";
-  $("selectAllChapters").disabled=!subject;
-  $("clearAllChapters").disabled=!subject;
+  updateDesktopToggleButton();
+  $("toggleAllChapters").disabled=!subject;
   if(!list.length){$("chapterList").innerHTML='<div class="empty-chapters">Sélectionne une matière à gauche.</div>';return;}
   $("chapterList").innerHTML=list.map(b=>{
     const selected=state.selectedBankIds.has(b.id);
@@ -435,7 +587,12 @@ function updateAvailable(){
   if(total&&Number($("count").value)>total)$("count").value=total;
   $("startBtn").disabled=total===0;
 }
-function renderSelectionUI(){renderSubjects();renderChapters();updateAvailable();}
+function renderSelectionUI(){
+  renderSubjects();
+  renderChapters();
+  updateAvailable();
+  if($("mobileSheetOverlay")?.classList.contains("open"))renderMobileSheet();
+}
 
 function sampleUniqueInts(total,n){
   n=Math.min(n,total);const chosen=new Set();
@@ -516,8 +673,19 @@ async function init(){
   catch(e){$("heroText").textContent="Erreur de chargement";$("errorText").textContent=e.message;$("errorBox").classList.remove("hidden");}
 }
 
-$("selectAllChapters").addEventListener("click",()=>setAllActiveSubject(true));
-$("clearAllChapters").addEventListener("click",()=>setAllActiveSubject(false));
+$("toggleAllChapters").addEventListener("click",()=>setAllActiveSubject(!subjectAllSelected(state.activeSubject)));
+$("mobileToggleAll").addEventListener("click",()=>{
+  if(!state.activeSubject)return;
+  setAllActiveSubject(!subjectAllSelected(state.activeSubject));
+  renderMobileSheet();
+});
+$("mobileSheetClose").addEventListener("click",closeMobileSheet);
+$("mobileSheetOverlay").addEventListener("click",e=>{
+  if(e.target===$("mobileSheetOverlay"))closeMobileSheet();
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&$("mobileSheetOverlay").classList.contains("open"))closeMobileSheet();
+});
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",validate);$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
 $("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearProgress();state.session=[];$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
@@ -526,6 +694,10 @@ $("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;st
 initTheme();
 restoreThemeButtonPosition();
 enableThemeButtonDrag();
+
+window.addEventListener("resize",()=>{
+  if(!isMobileSelectionUI()&&$("mobileSheetOverlay").classList.contains("open"))closeMobileSheet();
+});
 window.addEventListener("beforeunload",()=>{if(!$("quiz").classList.contains("hidden"))saveProgress();});
 init();
 })();
