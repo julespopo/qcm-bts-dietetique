@@ -16,6 +16,70 @@ html[data-theme="dark"]{
   --accent:#8b82ff;--accent-rgb:139,130,255;--accent-dark:#746af5;--soft:#22233b;--soft2:#1d2030;--button-soft:#232a35;
   --ok:#62d69a;--bad:#ff8e87;--warn:#f1c46d;--shadow:0 10px 34px rgba(0,0,0,.24)
 }
+
+/* V7.6.4 — contraste renforcé des sélections en mode nuit uniquement */
+html[data-theme="dark"] .subject-card:not(.selected),
+html[data-theme="dark"] .chapter-card:not(.selected),
+html[data-theme="dark"] .difficulty-btn:not(.selected),
+html[data-theme="dark"] .choice:not(.selected):not(.correct):not(.wrong),
+html[data-theme="dark"] .timer-preset-floating:not(.selected){
+  background:#171c24;
+  border-color:#2b3441;
+  box-shadow:none;
+}
+
+html[data-theme="dark"] .subject-card.selected,
+html[data-theme="dark"] .chapter-card.selected,
+html[data-theme="dark"] .difficulty-btn.selected,
+html[data-theme="dark"] .choice.selected{
+  border-color:rgba(173,166,255,.98);
+  background:
+    linear-gradient(135deg,rgba(139,130,255,.34),rgba(99,87,210,.20));
+  box-shadow:
+    0 0 0 1px rgba(173,166,255,.34),
+    0 0 24px rgba(139,130,255,.30),
+    inset 0 0 22px rgba(139,130,255,.10);
+}
+
+html[data-theme="dark"] .subject-card.selected:hover,
+html[data-theme="dark"] .chapter-card.selected:hover,
+html[data-theme="dark"] .difficulty-btn.selected:hover,
+html[data-theme="dark"] .choice.selected:hover{
+  border-color:#c2bcff;
+  box-shadow:
+    0 0 0 1px rgba(194,188,255,.42),
+    0 0 30px rgba(139,130,255,.36),
+    inset 0 0 24px rgba(139,130,255,.13);
+}
+
+html[data-theme="dark"] .subject-card.selected .subject-name,
+html[data-theme="dark"] .chapter-card.selected .chapter-title,
+html[data-theme="dark"] .difficulty-btn.selected span,
+html[data-theme="dark"] .choice.selected span{
+  color:#fff;
+}
+
+html[data-theme="dark"] .subject-card.selected .subject-meta,
+html[data-theme="dark"] .chapter-card.selected .chapter-meta,
+html[data-theme="dark"] .difficulty-btn.selected small{
+  color:#d7d3ff;
+}
+
+html[data-theme="dark"] #timerToggleBtn.active,
+html[data-theme="dark"] .timer-preset-floating.selected{
+  border-color:#b8b1ff;
+  background:#302b58;
+  color:#f3f1ff;
+  box-shadow:
+    0 0 0 3px var(--bg),
+    0 0 22px rgba(139,130,255,.34);
+}
+
+html[data-theme="dark"] .subject-card.active::after{
+  background:#c2bcff;
+  box-shadow:0 0 12px rgba(173,166,255,.88);
+}
+
 *{box-sizing:border-box}
 html,body{touch-action:manipulation}
 button,.subject-card,.chapter-card,.choice,.mobile-sheet,.card{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
@@ -589,13 +653,13 @@ body.sheet-open{overflow:hidden}
   </div>
 </section>
 
-<footer>Index V7.6.3</footer>
+<footer>Index V7.6.4</footer>
 </main>
 
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_6_3";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_6_4";
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",session:[],index:0,score:0,errors:[],answered:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
