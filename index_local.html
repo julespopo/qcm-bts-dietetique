@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes">
 <meta name="theme-color" content="#4f46e5">
 <title>QCM BTS Diététique — Local</title>
 <style>
@@ -17,6 +17,8 @@ html[data-theme="dark"]{
   --ok:#62d69a;--bad:#ff8e87;--warn:#f1c46d;--shadow:0 10px 34px rgba(0,0,0,.24)
 }
 *{box-sizing:border-box}
+html,body{touch-action:manipulation}
+button,.subject-card,.chapter-card,.choice,.mobile-sheet,.card{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);transition:background .2s ease,color .2s ease}
 main{max-width:1120px;margin:auto;padding:22px}
 h1,h2,h3,p{margin-top:0}.muted{color:var(--muted)}.hidden{display:none!important}
@@ -89,37 +91,234 @@ input[type=number]{width:100%;padding:11px 12px;border:1px solid var(--line);bor
 .summary-line{margin-top:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:13px;border-top:1px solid var(--line)}
 .summary-strong{font-weight:780}
 
+.difficulty-block{
+  margin-top:16px;padding-top:15px;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:minmax(170px,230px) 1fr;gap:18px;align-items:center
+}
+.difficulty-help{margin:0;font-size:.88rem}
+.difficulty-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.difficulty-btn{
+  min-height:62px;padding:10px 12px;border:1px solid var(--line);border-radius:13px;
+  background:var(--tile);color:var(--text);display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-start;gap:3px;text-align:left
+}
+.difficulty-btn small{font-size:.76rem;color:var(--muted);font-weight:650}
+.difficulty-btn:hover{border-color:var(--hover-line)}
+.difficulty-btn.selected{
+  border-color:rgba(var(--accent-rgb),.75);
+  background:linear-gradient(135deg,rgba(var(--accent-rgb),.12),rgba(var(--accent-rgb),.045));
+  box-shadow:0 0 0 1px rgba(var(--accent-rgb),.11),0 0 16px rgba(var(--accent-rgb),.14)
+}
+
+/* Quiz */
+
+/* Mode focus : pendant une session, seul le questionnaire occupe la fenêtre. */
+body.quiz-active{overflow:hidden}
+body.quiz-active main{
+  max-width:none;width:100%;height:100dvh;min-height:100dvh;
+  padding:12px;display:flex;align-items:center;justify-content:center
+}
+body.quiz-active .hero,
+body.quiz-active #errorBox,
+body.quiz-active #resumeCard,
+body.quiz-active #setup,
+body.quiz-active #results,
+body.quiz-active footer{display:none!important}
+body.quiz-active #quiz{
+  width:min(960px,100%);max-height:calc(100dvh - 24px);margin:0;
+  overflow-y:auto;overscroll-behavior:contain;scroll-behavior:smooth;
+  scrollbar-gutter:stable
+}
+.quiz-actions{
+  position:sticky;bottom:-1px;z-index:20;margin-top:15px;padding:11px;
+  border:1px solid var(--line);border-radius:14px;background:var(--card);
+  box-shadow:0 -9px 22px rgba(0,0,0,.08)
+}
+.quiz-actions button{flex:1 1 145px}
+
 /* Quiz */
 .quiz-card,.results-card{padding:18px;margin-top:16px}
 .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
 .progress{height:9px;background:var(--button-soft);border-radius:999px;overflow:hidden;margin:12px 0 18px}.progress>div{height:100%;width:0;background:var(--accent)}
 .question{font-size:1.18rem;font-weight:780;line-height:1.45;margin:10px 0 14px}
-.choice{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;background:var(--tile)}
-.choice input{margin-top:3px;transform:scale(1.15);accent-color:var(--accent)}
+.choice{
+  display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:15px;
+  padding:15px 16px;margin:0;background:var(--tile);min-height:74px;
+  font-size:1.08rem;line-height:1.35;cursor:pointer;
+  transition:transform .12s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease
+}
+.choice:hover{transform:translateY(-1px);border-color:var(--hover-line)}
+.choice:focus-within{outline:3px solid rgba(var(--accent-rgb),.20);outline-offset:2px;border-color:rgba(var(--accent-rgb),.58)}
+.choice input{
+  position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none
+}
+.choice.selected{
+  border-color:rgba(var(--accent-rgb),.74);
+  background:linear-gradient(135deg,rgba(var(--accent-rgb),.12),rgba(var(--accent-rgb),.045));
+  box-shadow:0 0 0 1px rgba(var(--accent-rgb),.12),0 0 18px rgba(var(--accent-rgb),.15)
+}
 .choice.correct{background:rgba(23,114,69,.12);border-color:rgba(98,214,154,.6)}.choice.wrong{background:rgba(180,35,24,.12);border-color:rgba(255,142,135,.6)}
+
+#choices{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+#choices>p{margin:0 0 2px}
+#choices .choice span{font-weight:650}
+.keyboard-hint{margin:10px 0 0;color:var(--muted);font-size:.86rem}
+.timer-live{
+  display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid var(--line);
+  border-radius:999px;background:var(--pane);font-weight:760
+}
+.timer-live.warning{color:var(--warn);border-color:rgba(138,90,0,.35)}
+.timer-live.urgent{color:var(--bad);border-color:rgba(180,35,24,.42);box-shadow:0 0 12px rgba(180,35,24,.12)}
+.timer-settings{margin-top:11px}
+.timer-settings label{display:block;font-weight:760;margin-bottom:6px}
 .feedback{margin-top:13px;padding:13px;border-radius:12px;background:var(--pane)}.ok{color:var(--ok);font-weight:750}.bad{color:var(--bad);font-weight:750}.warn{color:var(--warn);font-weight:750}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.score{font-size:2rem;font-weight:850}
 .error-card{padding:18px;margin-top:16px}
 footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 .theme-toggle{
-  position:fixed;right:18px;bottom:18px;z-index:1000;width:48px;height:48px;padding:0;border-radius:50%;
+  position:fixed;right:18px;bottom:18px;z-index:1000;width:57px;height:57px;padding:0;border-radius:50%;
   display:grid;place-items:center;background:var(--card);color:var(--text);border:1px solid var(--line);
-  box-shadow:0 8px 26px rgba(0,0,0,.14);font-size:1.35rem;
-  transition:background .2s ease,border-color .2s ease,box-shadow .15s ease;
-  cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none
+  box-shadow:0 8px 26px rgba(0,0,0,.14);font-size:1.55rem;
+  transition:left .32s cubic-bezier(.22,.8,.25,1),top .32s cubic-bezier(.22,.8,.25,1),background .2s ease,border-color .2s ease,box-shadow .15s ease;
+  cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none
 }
 .theme-toggle:hover{border-color:rgba(var(--accent-rgb),.55);box-shadow:0 10px 30px rgba(0,0,0,.18)}
 .theme-toggle.dragging{cursor:grabbing;transition:none;box-shadow:0 12px 34px rgba(0,0,0,.22)}
+.theme-toggle.snapping{pointer-events:none}
 .theme-toggle:focus-visible{outline:3px solid rgba(var(--accent-rgb),.28);outline-offset:3px}
+
+
+.floating-actions{
+  position:fixed;inset:0;z-index:1090;pointer-events:none
+}
+.floating-action-btn,
+.timer-preset-floating{
+  position:fixed;
+  display:grid;place-items:center;
+  border:1px solid var(--line);
+  background:var(--card);color:var(--text);
+  box-shadow:0 8px 24px rgba(0,0,0,.16);
+  opacity:0;transform:scale(.72);
+  pointer-events:none;
+  transition:
+    left .24s cubic-bezier(.22,.8,.25,1),
+    top .24s cubic-bezier(.22,.8,.25,1),
+    opacity .16s ease,
+    transform .2s cubic-bezier(.22,.8,.25,1),
+    border-color .16s ease,
+    box-shadow .16s ease,
+    background .16s ease
+}
+.floating-actions.open .floating-action-btn{
+  opacity:1;transform:scale(1);pointer-events:auto
+}
+.floating-action-btn{
+  width:50px;height:50px;padding:0;border-radius:50%;
+  font-size:1.32rem
+}
+.floating-action-btn:hover,
+.timer-preset-floating:hover{
+  border-color:rgba(var(--accent-rgb),.55);
+  box-shadow:0 10px 28px rgba(0,0,0,.20)
+}
+#timerToggleBtn.active{
+  border-color:rgba(var(--accent-rgb),.78);
+  background:rgba(var(--accent-rgb),.10);
+  box-shadow:0 0 18px rgba(var(--accent-rgb),.18)
+}
+.timer-presets-floating{
+  position:fixed;inset:0;pointer-events:none
+}
+.timer-presets-floating.open .timer-preset-floating{
+  opacity:1;transform:scale(1);pointer-events:auto
+}
+.timer-preset-floating{
+  width:42px;height:42px;padding:0;border-radius:50%;
+  font-size:.78rem;font-weight:850
+}
+.timer-preset-floating.selected{
+  border-color:rgba(var(--accent-rgb),.82);
+  background:rgba(var(--accent-rgb),.12);
+  color:var(--accent);
+  box-shadow:0 0 16px rgba(var(--accent-rgb),.18)
+}
+
 
 @media(max-width:800px){
   main{padding:13px}.selection-grid{grid-template-columns:1fr}.subject-pane{border-right:0;border-bottom:1px solid var(--line)}
   .chapter-list{grid-template-columns:1fr}.config-grid{grid-template-columns:1fr}.chapter-header{flex-direction:column}.chapter-actions{justify-content:flex-start}
 }
+
+/* Mobile : les chapitres s'ouvrent dans un bottom sheet */
+.mobile-sheet-overlay{
+  position:fixed;inset:0;z-index:1200;background:rgba(5,10,18,.46);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  opacity:0;pointer-events:none;transition:opacity .18s ease
+}
+.mobile-sheet-overlay.open{opacity:1;pointer-events:auto}
+.mobile-sheet{
+  position:absolute;left:0;right:0;bottom:0;max-height:min(78vh,720px);
+  display:flex;flex-direction:column;background:var(--card);color:var(--text);
+  border:1px solid var(--line);border-bottom:0;border-radius:22px 22px 0 0;
+  box-shadow:0 -18px 50px rgba(0,0,0,.22);
+  transform:translateY(102%);transition:transform .22s ease
+}
+.mobile-sheet-overlay.open .mobile-sheet{transform:translateY(0)}
+.mobile-sheet-handle{width:42px;height:4px;border-radius:999px;background:var(--line);margin:9px auto 3px}
+.mobile-sheet-header{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:12px 16px 10px;
+  border-bottom:1px solid var(--line)
+}
+.mobile-sheet-title{font-size:1.08rem;font-weight:830;margin:0}
+.mobile-sheet-meta{font-size:.84rem;color:var(--muted);margin-top:3px}
+.mobile-sheet-close{
+  width:38px;height:38px;padding:0;display:grid;place-items:center;border-radius:50%;
+  background:var(--button-soft);color:var(--text);font-size:1.15rem;border:1px solid var(--line)
+}
+.mobile-sheet-body{overflow:auto;-webkit-overflow-scrolling:touch;padding:12px 16px 18px}
+.mobile-sheet-actions{display:flex;gap:8px;margin-bottom:11px}
+.mobile-sheet-actions .tiny-btn{width:100%}
+.mobile-sheet-list{display:grid;grid-template-columns:1fr;gap:9px}
+body.sheet-open{overflow:hidden}
+
+@media(max-width:760px){
+  .difficulty-block{grid-template-columns:1fr;gap:10px}
+  .difficulty-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .keyboard-hint{display:none}
+  .choice{min-height:76px;padding:14px;font-size:1rem}
+  .selection-grid{display:block;min-height:0}
+  .subject-pane{border-right:0}
+  .chapter-pane{display:none}
+  .subject-list{gap:9px}
+  .subject-card{min-height:72px}
+  .theme-toggle{width:54px;height:54px}
+}
+@media(min-width:761px){
+  .mobile-sheet-overlay{display:none!important}
+}
+
 </style>
 </head>
 <body>
-<button id="themeToggle" class="theme-toggle" type="button" aria-label="Activer le mode nuit" title="Mode nuit">☾</button>
+<button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir le menu" title="Menu">⚙</button>
+
+<div id="floatingActions" class="floating-actions" aria-hidden="true">
+  <button id="themeMenuBtn" class="floating-action-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
+    <span id="themeMenuIcon">☾</span>
+  </button>
+
+  <button id="timerToggleBtn" class="floating-action-btn" type="button" aria-label="Activer le minuteur" title="Timer" aria-pressed="false">
+    ⏱
+  </button>
+
+  <div id="timerPresets" class="timer-presets-floating" aria-hidden="true">
+    <button class="timer-preset-floating" type="button" data-seconds="15">15</button>
+    <button class="timer-preset-floating" type="button" data-seconds="30">30</button>
+    <button class="timer-preset-floating" type="button" data-seconds="45">45</button>
+    <button class="timer-preset-floating" type="button" data-seconds="60">60</button>
+  </div>
+</div>
+
 <main>
 <header class="card hero">
   <h1>QCM BTS Diététique</h1>
@@ -168,9 +367,8 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
             <p id="activeSubjectMeta" class="muted"></p>
           </div>
           <div class="chapter-actions">
-            <button id="selectAllChapters" class="tiny-btn" type="button">Tout sélectionner</button>
-            <button id="clearAllChapters" class="tiny-btn" type="button">Tout désélectionner</button>
-          </div>
+          <button id="toggleAllChapters" class="tiny-btn" type="button">Tout sélectionner</button>
+        </div>
         </div>
         <div id="chapterList" class="chapter-list"></div>
       </div>
@@ -192,6 +390,28 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
       </div>
       <button id="startBtn" class="primary" type="button">Commencer</button>
     </div>
+
+    <div class="difficulty-block">
+      <div>
+        <div class="panel-kicker">Difficulté</div>
+        <p class="muted difficulty-help">Choisis le niveau des questions à inclure dans le tirage.</p>
+      </div>
+      <div class="difficulty-options" role="group" aria-label="Difficulté du questionnaire">
+        <button class="difficulty-btn selected" type="button" data-difficulty="all" aria-pressed="true">
+          <span>Tous niveaux</span><small id="diffCountAll">—</small>
+        </button>
+        <button class="difficulty-btn" type="button" data-difficulty="1" aria-pressed="false">
+          <span>Facile</span><small id="diffCount1">—</small>
+        </button>
+        <button class="difficulty-btn" type="button" data-difficulty="2" aria-pressed="false">
+          <span>Intermédiaire</span><small id="diffCount2">—</small>
+        </button>
+        <button class="difficulty-btn" type="button" data-difficulty="3" aria-pressed="false">
+          <span>Difficile</span><small id="diffCount3">—</small>
+        </button>
+      </div>
+    </div>
+
     <div class="summary-line">
       <span id="selectionSummary" class="summary-strong"></span>
       <span id="available" class="muted"></span>
@@ -199,14 +419,35 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   </div>
 </section>
 
+
+<div id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true">
+  <section class="mobile-sheet" role="dialog" aria-modal="true" aria-labelledby="mobileSheetTitle">
+    <div class="mobile-sheet-handle"></div>
+    <div class="mobile-sheet-header">
+      <div>
+        <h2 id="mobileSheetTitle" class="mobile-sheet-title">Chapitres</h2>
+        <div id="mobileSheetMeta" class="mobile-sheet-meta"></div>
+      </div>
+      <button id="mobileSheetClose" class="mobile-sheet-close" type="button" aria-label="Fermer">×</button>
+    </div>
+    <div class="mobile-sheet-body">
+      <div class="mobile-sheet-actions">
+        <button id="mobileToggleAll" class="tiny-btn" type="button">Tout sélectionner</button>
+      </div>
+      <div id="mobileChapterList" class="mobile-sheet-list"></div>
+    </div>
+  </section>
+</div>
+
 <section id="quiz" class="card quiz-card hidden">
-  <div class="meta"><span id="counter"></span><span id="scoreLive"></span></div>
+  <div class="meta"><span id="counter"></span><span id="scoreLive"></span><span id="timerLive" class="timer-live hidden"></span></div>
   <div class="progress"><div id="progressBar"></div></div>
   <div id="qMeta" class="muted"></div>
   <div id="qText" class="question"></div>
   <form id="choices"></form>
+  <p class="keyboard-hint">Clavier : ↑ ↓ pour parcourir • Espace pour sélectionner • Entrée pour valider / continuer</p>
   <div id="feedback" class="feedback hidden"></div>
-  <div class="row" style="margin-top:15px">
+  <div class="row quiz-actions">
     <button id="validateBtn" class="primary" type="button">Valider</button>
     <button id="nextBtn" class="secondary hidden" type="button">Question suivante</button>
     <button id="pauseBtn" class="secondary" type="button">Mettre en pause</button>
@@ -231,9 +472,9 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v6";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_6_1";
 const $=id=>document.getElementById(id);
-const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,session:[],index:0,score:0,errors:[],answered:false};
+const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",session:[],index:0,score:0,errors:[],answered:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
 const THEME_KEY="qcm_bts_theme";
 const THEME_POS_KEY="qcm_bts_theme_button_position";
@@ -243,12 +484,10 @@ let themeDragged=false;
 function applyTheme(theme){
   const dark=theme==="dark";
   document.documentElement.dataset.theme=dark?"dark":"light";
-  const btn=$("themeToggle");
-  if(btn){
-    btn.textContent=dark?"☀":"☾";
-    btn.setAttribute("aria-label",dark?"Activer le mode jour":"Activer le mode nuit");
-    btn.title=dark?"Mode jour":"Mode nuit";
-  }
+  const icon=$("themeMenuIcon");
+  if(icon)icon.textContent=dark?"☀":"☾";
+  const themeBtn=$("themeMenuBtn");
+  if(themeBtn){themeBtn.setAttribute("aria-label",dark?"Activer le mode jour":"Activer le mode nuit");themeBtn.title=dark?"Mode jour":"Mode nuit";}
   const meta=document.querySelector('meta[name="theme-color"]');
   if(meta)meta.setAttribute("content",dark?"#0f1319":"#4f46e5");
 }
@@ -271,14 +510,221 @@ function toggleTheme(){
   try{localStorage.setItem(THEME_KEY,next);}catch{}
   applyTheme(next);
 }
+
+let floatingMenuOpen=false;
+
+function setFloatingButtonPosition(el,left,top){
+  if(!el)return;
+  el.style.left=Math.round(left)+"px";
+  el.style.top=Math.round(top)+"px";
+}
+
+function floatingDirection(){
+  const btn=$("themeToggle");
+  const r=btn.getBoundingClientRect();
+  const horizontal=r.left+r.width/2 < window.innerWidth/2 ? 1 : -1;
+  const vertical=r.top+r.height/2 < window.innerHeight/2 ? 1 : -1;
+  return {horizontal,vertical,rect:r};
+}
+
+function layoutFloatingActions(){
+  const btn=$("themeToggle");
+  if(!btn)return;
+
+  const themeBtn=$("themeMenuBtn");
+  const timerBtn=$("timerToggleBtn");
+  const presetButtons=[...document.querySelectorAll(".timer-preset-floating")];
+  const {horizontal,vertical,rect:r}=floatingDirection();
+
+  const mainSize=r.width;
+  const actionSize=50;
+  const presetSize=42;
+  const gap=12;
+
+  // Les 2 actions se déploient vers l'intérieur de l'écran.
+  // L'une suit l'axe horizontal, l'autre l'axe vertical.
+  const themeLeft = horizontal===1 ? r.right+gap : r.left-gap-actionSize;
+  const themeTop = r.top+(mainSize-actionSize)/2;
+  const timerLeft = r.left+(mainSize-actionSize)/2;
+  const timerTop = vertical===1 ? r.bottom+gap : r.top-gap-actionSize;
+
+  setFloatingButtonPosition(themeBtn,themeLeft,themeTop);
+  setFloatingButtonPosition(timerBtn,timerLeft,timerTop);
+
+  // Les durées se déploient depuis le timer sur l'axe horizontal opposé au bord.
+  const timerRect = {left:timerLeft,top:timerTop,width:actionSize,height:actionSize,right:timerLeft+actionSize,bottom:timerTop+actionSize};
+  presetButtons.forEach((p,i)=>{
+    const distance=(i+1)*(presetSize+8);
+    let left = horizontal===1
+      ? timerRect.left + (actionSize-presetSize)/2
+      : timerRect.left + (actionSize-presetSize)/2;
+    let top;
+
+    // On empile les durées dans la direction verticale qui rentre dans l'écran.
+    if(vertical===1){
+      top=timerRect.bottom+8+i*(presetSize+8);
+    }else{
+      top=timerRect.top-8-presetSize-i*(presetSize+8);
+    }
+
+    // Si l'empilement risque de sortir de l'écran, basculer horizontalement.
+    const projectedBottom=top+presetSize;
+    if(top<10||projectedBottom>window.innerHeight-10){
+      top=timerRect.top+(actionSize-presetSize)/2;
+      left=horizontal===1
+        ? timerRect.right+8+i*(presetSize+8)
+        : timerRect.left-8-presetSize-i*(presetSize+8);
+    }
+
+    left=Math.max(10,Math.min(left,window.innerWidth-presetSize-10));
+    top=Math.max(10,Math.min(top,window.innerHeight-presetSize-10));
+    setFloatingButtonPosition(p,left,top);
+  });
+}
+
+function openFloatingMenu(){
+  floatingMenuOpen=true;
+  $("floatingActions").classList.add("open");
+  $("floatingActions").setAttribute("aria-hidden","false");
+  layoutFloatingActions();
+}
+
+function closeFloatingMenu(){
+  floatingMenuOpen=false;
+  $("floatingActions").classList.remove("open");
+  $("floatingActions").setAttribute("aria-hidden","true");
+  $("timerPresets").classList.remove("open");
+  $("timerPresets").setAttribute("aria-hidden","true");
+}
+
+function toggleFloatingMenu(){
+  if(floatingMenuOpen)closeFloatingMenu();else openFloatingMenu();
+}
+
+function syncTimerPresetVisibility(){
+  const presets=$("timerPresets");
+  if(!presets)return;
+  const show=floatingMenuOpen&&state.timerEnabled;
+  presets.classList.toggle("open",show);
+  presets.setAttribute("aria-hidden",show?"false":"true");
+  if(show)layoutFloatingActions();
+}
+function normalizeTimerDurationMs(ms){
+  const options=[15000,30000,45000,60000];
+  const value=Number(ms)||30000;
+  return options.reduce((best,current)=>Math.abs(current-value)<Math.abs(best-value)?current:best,30000);
+}
+function syncTimerSettingsUI(){
+  const btn=$("timerToggleBtn");
+  if(!btn)return;
+  btn.classList.toggle("active",state.timerEnabled);
+  btn.setAttribute("aria-pressed",state.timerEnabled?"true":"false");
+  btn.setAttribute("aria-label",state.timerEnabled?"Désactiver le minuteur":"Activer le minuteur");
+  btn.title=state.timerEnabled?"Timer activé":"Timer désactivé";
+
+  const selectedSeconds=Math.round(normalizeTimerDurationMs(state.timerDurationMs)/1000);
+  document.querySelectorAll(".timer-preset-floating").forEach(preset=>{
+    const active=Number(preset.dataset.seconds)===selectedSeconds;
+    preset.classList.toggle("selected",active);
+    preset.setAttribute("aria-pressed",active?"true":"false");
+  });
+
+  syncTimerPresetVisibility();
+}
+function applyTimerSettingsToCurrentQuestion(restartCurrent=true){
+  state.timerDurationMs=normalizeTimerDurationMs(state.timerDurationMs);
+  syncTimerSettingsUI();
+
+  if($("quiz").classList.contains("hidden")){
+    return;
+  }
+
+  stopTimerInterval();
+
+  if(!state.timerEnabled){
+    state.timerEndAt=null;
+    state.timerRemainingMs=null;
+    renderTimer();
+    saveProgress();
+    return;
+  }
+
+  if(!state.answered&&restartCurrent){
+    state.timerRemainingMs=state.timerDurationMs;
+    state.timerEndAt=Date.now()+state.timerRemainingMs;
+    startTimerInterval();
+    saveProgress();
+  }else if(state.answered){
+    state.timerRemainingMs=null;
+    state.timerEndAt=null;
+    renderTimer();
+  }
+}
+function toggleTimer(){
+  state.timerEnabled=!state.timerEnabled;
+  applyTimerSettingsToCurrentQuestion(true);
+  syncTimerPresetVisibility();
+  layoutFloatingActions();
+}
+function selectTimerPreset(seconds){
+  state.timerDurationMs=normalizeTimerDurationMs(Number(seconds)*1000);
+  applyTimerSettingsToCurrentQuestion(true);
+}
+
 function clampThemePosition(left,top){
   const btn=$("themeToggle");
-  const w=btn?.offsetWidth||48,h=btn?.offsetHeight||48,pad=8;
+  const w=btn?.offsetWidth||57,h=btn?.offsetHeight||57,pad=24;
   return {
     left:Math.max(pad,Math.min(left,window.innerWidth-w-pad)),
     top:Math.max(pad,Math.min(top,window.innerHeight-h-pad))
   };
 }
+
+function nearestThemeCorner(left,top){
+  const btn=$("themeToggle");
+  const w=btn?.offsetWidth||57,h=btn?.offsetHeight||57,pad=24;
+  const maxLeft=Math.max(pad,window.innerWidth-w-pad);
+  const maxTop=Math.max(pad,window.innerHeight-h-pad);
+  const centerX=left+w/2,centerY=top+h/2;
+  const corners=[
+    {left:pad,top:pad},
+    {left:maxLeft,top:pad},
+    {left:pad,top:maxTop},
+    {left:maxLeft,top:maxTop}
+  ];
+  return corners.reduce((best,c)=>{
+    const cx=c.left+w/2,cy=c.top+h/2;
+    const d=(centerX-cx)**2+(centerY-cy)**2;
+    return !best||d<best.d?{...c,d}:best;
+  },null);
+}
+
+function snapThemeButtonToNearestCorner(){
+  const btn=$("themeToggle");
+  if(!btn)return;
+  const rect=btn.getBoundingClientRect();
+  const target=nearestThemeCorner(rect.left,rect.top);
+  if(!target)return;
+
+  btn.classList.add("snapping");
+  btn.style.right="auto";
+  btn.style.bottom="auto";
+  // force a frame so transition starts from current location
+  requestAnimationFrame(()=>{
+    btn.style.left=target.left+"px";
+    btn.style.top=target.top+"px";
+  });
+
+  const done=()=>{
+    btn.classList.remove("snapping");
+    btn.removeEventListener("transitionend",done);
+    saveThemeButtonPosition();
+    if(floatingMenuOpen)layoutFloatingActions();
+  };
+  btn.addEventListener("transitionend",done);
+  setTimeout(done,420);
+}
+
 function saveThemeButtonPosition(){
   const btn=$("themeToggle");
   if(!btn)return;
@@ -297,6 +743,7 @@ function restoreThemeButtonPosition(){
       btn.style.top=pos.top+"px";
       btn.style.right="auto";
       btn.style.bottom="auto";
+      requestAnimationFrame(()=>snapThemeButtonToNearestCorner());
     }
   }catch{}
 }
@@ -304,57 +751,85 @@ function enableThemeButtonDrag(){
   const btn=$("themeToggle");
   if(!btn)return;
 
-  let startX=0,startY=0,startLeft=0,startTop=0,moved=false;
+  let dragging=false,moved=false,startX=0,startY=0,startLeft=0,startTop=0,pointerId=null;
 
-  btn.addEventListener("pointerdown",e=>{
-    if(e.button!==undefined&&e.button!==0)return;
+  const start=(clientX,clientY,id=null)=>{
     const rect=btn.getBoundingClientRect();
-    startX=e.clientX;startY=e.clientY;
-    startLeft=rect.left;startTop=rect.top;
-    moved=false;themeDragged=false;
-    btn.setPointerCapture?.(e.pointerId);
+    closeFloatingMenu();
+    dragging=true;moved=false;themeDragged=false;pointerId=id;
+    startX=clientX;startY=clientY;startLeft=rect.left;startTop=rect.top;
     btn.classList.add("dragging");
-  });
+  };
 
-  btn.addEventListener("pointermove",e=>{
-    if(!btn.hasPointerCapture?.(e.pointerId))return;
-    const dx=e.clientX-startX,dy=e.clientY-startY;
-    if(Math.hypot(dx,dy)>4)moved=true;
+  const move=(clientX,clientY,event=null)=>{
+    if(!dragging)return;
+    const dx=clientX-startX,dy=clientY-startY;
+    if(Math.hypot(dx,dy)>5)moved=true;
     if(!moved)return;
+    event?.preventDefault?.();
     const pos=clampThemePosition(startLeft+dx,startTop+dy);
     btn.style.left=pos.left+"px";
     btn.style.top=pos.top+"px";
     btn.style.right="auto";
     btn.style.bottom="auto";
-  });
+  };
 
-  const endDrag=e=>{
-    if(btn.hasPointerCapture?.(e.pointerId))btn.releasePointerCapture?.(e.pointerId);
+  const end=()=>{
+    if(!dragging)return;
+    dragging=false;
     btn.classList.remove("dragging");
     themeDragged=moved;
-    if(moved)saveThemeButtonPosition();
+    pointerId=null;
+    if(moved)snapThemeButtonToNearestCorner();
   };
-  btn.addEventListener("pointerup",endDrag);
-  btn.addEventListener("pointercancel",endDrag);
+
+  if(window.PointerEvent){
+    btn.addEventListener("pointerdown",e=>{
+      if(e.pointerType==="mouse"&&e.button!==0)return;
+      start(e.clientX,e.clientY,e.pointerId);
+      try{btn.setPointerCapture(e.pointerId);}catch{}
+      e.preventDefault();
+    });
+    window.addEventListener("pointermove",e=>{
+      if(!dragging || (pointerId!==null && e.pointerId!==pointerId))return;
+      move(e.clientX,e.clientY,e);
+    },{passive:false});
+    window.addEventListener("pointerup",e=>{
+      if(pointerId!==null && e.pointerId!==pointerId)return;
+      end();
+    });
+    window.addEventListener("pointercancel",end);
+  }else{
+    btn.addEventListener("touchstart",e=>{
+      const t=e.touches[0];if(!t)return;
+      start(t.clientX,t.clientY,"touch");
+      e.preventDefault();
+    },{passive:false});
+    window.addEventListener("touchmove",e=>{
+      if(!dragging)return;
+      const t=e.touches[0];if(!t)return;
+      move(t.clientX,t.clientY,e);
+    },{passive:false});
+    window.addEventListener("touchend",end,{passive:true});
+    window.addEventListener("touchcancel",end,{passive:true});
+    btn.addEventListener("mousedown",e=>{
+      if(e.button!==0)return;
+      start(e.clientX,e.clientY,"mouse");
+      e.preventDefault();
+    });
+    window.addEventListener("mousemove",e=>move(e.clientX,e.clientY,e));
+    window.addEventListener("mouseup",end);
+  }
 
   btn.addEventListener("click",e=>{
     if(themeDragged){
-      e.preventDefault();
-      e.stopPropagation();
-      themeDragged=false;
-      return;
+      e.preventDefault();e.stopPropagation();themeDragged=false;return;
     }
-    toggleTheme();
+    toggleFloatingMenu();
   });
 
   window.addEventListener("resize",()=>{
-    const rect=btn.getBoundingClientRect();
-    if(btn.style.left){
-      const pos=clampThemePosition(rect.left,rect.top);
-      btn.style.left=pos.left+"px";
-      btn.style.top=pos.top+"px";
-      saveThemeButtonPosition();
-    }
+    if(btn.style.left)snapThemeButtonToNearestCorner();if(floatingMenuOpen)layoutFloatingActions();
   });
 }
 
@@ -400,6 +875,57 @@ function subjectStats(subject){
   const selected=banks.filter(b=>state.selectedBankIds.has(b.id));
   return {banks,selected,questions:selected.reduce((s,b)=>s+Number(b.count||0),0),totalQuestions:banks.reduce((s,b)=>s+Number(b.count||0),0)};
 }
+
+function isMobileSelectionUI(){
+  return window.matchMedia&&window.matchMedia("(max-width:760px)").matches;
+}
+function subjectAllSelected(subject){
+  const st=subjectStats(subject);
+  return st.banks.length>0&&st.selected.length===st.banks.length;
+}
+function updateDesktopToggleButton(){
+  const btn=$("toggleAllChapters");
+  if(!btn||!state.activeSubject)return;
+  btn.textContent=subjectAllSelected(state.activeSubject)?"Tout désélectionner":"Tout sélectionner";
+}
+function renderMobileSheet(){
+  const subject=state.activeSubject;
+  if(!subject)return;
+  const list=banksForSubject(subject);
+  const st=subjectStats(subject);
+  $("mobileSheetTitle").textContent=subject;
+  $("mobileSheetMeta").textContent=`${st.selected.length} chapitre${st.selected.length>1?"s":""} sélectionné${st.selected.length>1?"s":""} sur ${st.banks.length}`;
+  $("mobileToggleAll").textContent=subjectAllSelected(subject)?"Tout désélectionner":"Tout sélectionner";
+  $("mobileChapterList").innerHTML=list.map(b=>{
+    const selected=state.selectedBankIds.has(b.id);
+    return `<button class="chapter-card ${selected?'selected':''}" type="button" data-bank-id="${esc(b.id)}" aria-pressed="${selected?'true':'false'}">
+      <div class="chapter-title">${esc(b.title)}</div>
+      <div class="chapter-meta">${esc(b.chapter||'')} • ${b.count} questions</div>
+    </button>`;
+  }).join("");
+  $("mobileChapterList").querySelectorAll(".chapter-card").forEach(btn=>btn.addEventListener("click",()=>{
+    const id=btn.dataset.bankId;
+    if(state.selectedBankIds.has(id))state.selectedBankIds.delete(id);else state.selectedBankIds.add(id);
+    renderSelectionUI();
+    renderMobileSheet();
+  }));
+}
+function openMobileSheet(subject){
+  state.activeSubject=subject;
+  renderSelectionUI();
+  renderMobileSheet();
+  const overlay=$("mobileSheetOverlay");
+  overlay.classList.add("open");
+  overlay.setAttribute("aria-hidden","false");
+  document.body.classList.add("sheet-open");
+}
+function closeMobileSheet(){
+  const overlay=$("mobileSheetOverlay");
+  overlay.classList.remove("open");
+  overlay.setAttribute("aria-hidden","true");
+  document.body.classList.remove("sheet-open");
+}
+
 function renderSubjects(){
   $("subjectList").innerHTML=subjects().map(subject=>{
     const st=subjectStats(subject);
@@ -412,6 +938,10 @@ function renderSubjects(){
   }).join("");
   $("subjectList").querySelectorAll(".subject-card").forEach(btn=>btn.addEventListener("click",()=>{
     const subject=btn.dataset.subject;
+    if(isMobileSelectionUI()){
+      openMobileSheet(subject);
+      return;
+    }
     state.activeSubject=subject;
     const st=subjectStats(subject);
     const allSelected=st.banks.length>0&&st.selected.length===st.banks.length;
@@ -424,8 +954,8 @@ function renderChapters(){
   $("activeSubjectTitle").textContent=subject||"Chapitres";
   const st=subject?subjectStats(subject):null;
   $("activeSubjectMeta").textContent=st?`${st.selected.length} chapitre${st.selected.length>1?'s':''} sélectionné${st.selected.length>1?'s':''} sur ${st.banks.length}`:"";
-  $("selectAllChapters").disabled=!subject;
-  $("clearAllChapters").disabled=!subject;
+  updateDesktopToggleButton();
+  $("toggleAllChapters").disabled=!subject;
   if(!list.length){$("chapterList").innerHTML='<div class="empty-chapters">Sélectionne une matière à gauche.</div>';return;}
   $("chapterList").innerHTML=list.map(b=>{
     const selected=state.selectedBankIds.has(b.id);
@@ -450,17 +980,84 @@ function setAllActiveSubject(enabled){
   toggleSubject(state.activeSubject,enabled);
 }
 function selectedBanks(){return state.manifest.banks.filter(b=>state.selectedBankIds.has(b.id));}
-function updateAvailable(){
+let availabilityRequestId=0;
+
+function difficultyLabel(value){
+  const v=String(value??1);
+  return v==="1"?"Facile":v==="2"?"Intermédiaire":v==="3"?"Difficile":`Niveau ${v}`;
+}
+function questionMatchesDifficulty(q){
+  return state.difficultyFilter==="all"||String(q.difficulty??1)===state.difficultyFilter;
+}
+function syncDifficultyButtons(){
+  document.querySelectorAll(".difficulty-btn").forEach(btn=>{
+    const selected=btn.dataset.difficulty===state.difficultyFilter;
+    btn.classList.toggle("selected",selected);
+    btn.setAttribute("aria-pressed",selected?"true":"false");
+  });
+}
+function setDifficulty(level){
+  state.difficultyFilter=["all","1","2","3"].includes(String(level))?String(level):"all";
+  syncDifficultyButtons();
+  updateAvailable();
+}
+async function difficultyCountsForBanks(banks){
+  const counts={all:0,"1":0,"2":0,"3":0};
+  const entries=await Promise.all(banks.map(async bank=>({bank,data:await loadBank(bank.file)})));
+  for(const {data} of entries){
+    for(const q of data.questions){
+      const d=String(q.difficulty??1);
+      counts.all++;
+      if(Object.prototype.hasOwnProperty.call(counts,d))counts[d]++;
+    }
+  }
+  return counts;
+}
+function renderDifficultyCounts(counts){
+  $("diffCountAll").textContent=`${counts.all} question${counts.all>1?"s":""}`;
+  $("diffCount1").textContent=`${counts["1"]} question${counts["1"]>1?"s":""}`;
+  $("diffCount2").textContent=`${counts["2"]} question${counts["2"]>1?"s":""}`;
+  $("diffCount3").textContent=`${counts["3"]} question${counts["3"]>1?"s":""}`;
+}
+async function updateAvailable(){
+  const requestId=++availabilityRequestId;
   const banks=selectedBanks();
-  const total=banks.reduce((s,b)=>s+Number(b.count||0),0);
   const activeSubjects=new Set(banks.map(b=>b.subject||"Autres")).size;
   $("selectionSummary").textContent=`${activeSubjects} matière${activeSubjects>1?'s':''} • ${banks.length} chapitre${banks.length>1?'s':''}`;
-  $("available").textContent=`${total} question${total>1?'s':''} disponible${total>1?'s':''}`;
-  $("count").max=Math.max(1,total);
-  if(total&&Number($("count").value)>total)$("count").value=total;
-  $("startBtn").disabled=total===0;
+  syncDifficultyButtons();
+
+  if(!banks.length){
+    const empty={all:0,"1":0,"2":0,"3":0};
+    renderDifficultyCounts(empty);
+    $("available").textContent="0 question disponible";
+    $("count").max=1;
+    $("startBtn").disabled=true;
+    return;
+  }
+
+  $("available").textContent="Calcul des questions disponibles…";
+  try{
+    const counts=await difficultyCountsForBanks(banks);
+    if(requestId!==availabilityRequestId)return;
+    renderDifficultyCounts(counts);
+    const total=counts[state.difficultyFilter]??0;
+    const label=state.difficultyFilter==="all"?"tous niveaux":difficultyLabel(state.difficultyFilter).toLowerCase();
+    $("available").textContent=`${total} question${total>1?'s':''} disponible${total>1?'s':''} • ${label}`;
+    $("count").max=Math.max(1,total);
+    if(total&&Number($("count").value)>total)$("count").value=total;
+    $("startBtn").disabled=total===0;
+  }catch(e){
+    if(requestId!==availabilityRequestId)return;
+    $("available").textContent="Impossible de calculer les questions disponibles.";
+    $("startBtn").disabled=true;
+  }
 }
-function renderSelectionUI(){renderSubjects();renderChapters();updateAvailable();}
+function renderSelectionUI(){
+  renderSubjects();
+  renderChapters();
+  updateAvailable();
+  if($("mobileSheetOverlay")?.classList.contains("open"))renderMobileSheet();
+}
 
 function sampleUniqueInts(total,n){
   n=Math.min(n,total);const chosen=new Set();
@@ -473,17 +1070,27 @@ function mapGlobalSlotsToBanks(banks,slots){
   return plan;
 }
 async function createSessionFromSelection(){
-  const banks=selectedBanks(),total=banks.reduce((s,b)=>s+b.count,0);
-  const wanted=Math.max(1,Math.min(parseInt($("count").value,10)||20,total));
-  const plan=mapGlobalSlotsToBanks(banks,sampleUniqueInts(total,wanted)),chosen=[];
-  for(const [file,item] of plan){
-    const data=await loadBank(file);
-    for(const idx of item.indexes){
-      const q=data.questions[idx];if(!q)throw new Error(`Index absent dans ${file}. Régénère manifest.json.`);
-      chosen.push({...q,bankTitle:item.bank.title,subject:item.bank.subject||data.subject||"",chapter:item.bank.chapter||data.chapter||"",bankFile:file});
+  const banks=selectedBanks();
+  if(!banks.length)throw new Error("Sélectionne au moins un chapitre.");
+
+  const pool=[];
+  for(const bank of banks){
+    const data=await loadBank(bank.file);
+    for(const q of data.questions){
+      if(!questionMatchesDifficulty(q))continue;
+      pool.push({
+        ...q,
+        bankTitle:bank.title,
+        subject:bank.subject||data.subject||"",
+        chapter:bank.chapter||data.chapter||"",
+        bankFile:bank.file
+      });
     }
   }
-  return shuffle(chosen);
+
+  if(!pool.length)throw new Error("Aucune question ne correspond à la difficulté sélectionnée.");
+  const wanted=Math.max(1,Math.min(parseInt($("count").value,10)||20,pool.length));
+  return shuffle(pool).slice(0,wanted);
 }
 function refsFromSession(){return state.session.map(q=>({file:q.bankFile,id:q.id}));}
 async function rebuildSessionFromRefs(refs){
@@ -494,11 +1101,78 @@ async function rebuildSessionFromRefs(refs){
   }
   return refs.map(r=>lookups.get(r.file)?.get(r.id)).filter(Boolean);
 }
+
+function formatTimer(ms){
+  const total=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(total/60),s=total%60;
+  return m>0?`${m}:${String(s).padStart(2,"0")}`:`${s}s`;
+}
+function stopTimerInterval(){
+  if(state.timerInterval){clearInterval(state.timerInterval);state.timerInterval=null;}
+}
+function currentRemainingMs(){
+  if(!state.timerEnabled)return null;
+  if(state.timerEndAt!==null)return Math.max(0,state.timerEndAt-Date.now());
+  return Math.max(0,state.timerRemainingMs??state.timerDurationMs);
+}
+function renderTimer(){
+  const el=$("timerLive");if(!el)return;
+  if(!state.timerEnabled){
+    el.classList.add("hidden");el.classList.remove("warning","urgent");return;
+  }
+  const ms=currentRemainingMs();
+  el.classList.remove("hidden","warning","urgent");
+  el.textContent=`⏱ ${formatTimer(ms)}`;
+  if(ms<=5000)el.classList.add("urgent");
+  else if(ms<=10000)el.classList.add("warning");
+}
+function startTimerInterval(){
+  stopTimerInterval();
+  if(!state.timerEnabled||state.answered)return;
+  if(state.timerEndAt===null)state.timerEndAt=Date.now()+Math.max(0,state.timerRemainingMs??state.timerDurationMs);
+  renderTimer();
+  state.timerInterval=setInterval(()=>{
+    state.timerRemainingMs=currentRemainingMs();
+    renderTimer();
+    if(state.timerRemainingMs<=0){
+      stopTimerInterval();
+      state.timerEndAt=null;
+      state.timerRemainingMs=0;
+      validate(true);
+    }
+  },200);
+}
+function initTimerForNewSession(){
+  state.timerDurationMs=normalizeTimerDurationMs(state.timerDurationMs);
+  state.timerRemainingMs=state.timerEnabled?state.timerDurationMs:null;
+  state.timerEndAt=null;
+  stopTimerInterval();
+  syncTimerSettingsUI();
+  renderTimer();
+}
+function startQuestionTimer(resume=false){
+  stopTimerInterval();
+  if(!state.timerEnabled){
+    state.timerEndAt=null;state.timerRemainingMs=null;renderTimer();return;
+  }
+  if(!resume||state.timerRemainingMs===null||state.timerRemainingMs===undefined){
+    state.timerRemainingMs=state.timerDurationMs;
+  }
+  state.timerEndAt=Date.now()+Math.max(0,state.timerRemainingMs);
+  startTimerInterval();
+}
+function pauseTimer(){
+  if(!state.timerEnabled)return;
+  state.timerRemainingMs=currentRemainingMs();
+  state.timerEndAt=null;
+  stopTimerInterval();
+  renderTimer();
+}
+
 function getSaved(){try{const s=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");return s&&Array.isArray(s.session)&&s.session.length?s:null;}catch{return null;}}
 function saveProgress(){
   if(!state.session.length)return;
   const resumeIndex=state.answered?state.index+1:state.index;
-  localStorage.setItem(SAVE_KEY,JSON.stringify({savedAt:new Date().toISOString(),session:state.session,index:resumeIndex,score:state.score,errors:state.errors,shuffleAnswers:$("shuffleAnswers").checked,instantCorrection:$("instantCorrection").checked}));
+  localStorage.setItem(SAVE_KEY,JSON.stringify({savedAt:new Date().toISOString(),session:state.session,index:resumeIndex,score:state.score,errors:state.errors,shuffleAnswers:$("shuffleAnswers").checked,instantCorrection:$("instantCorrection").checked,timerEnabled:state.timerEnabled,timerDurationMs:state.timerDurationMs,timerRemainingMs:currentRemainingMs()}));
   refreshResumeCard();
 }
 function clearProgress(){localStorage.removeItem(SAVE_KEY);refreshResumeCard();}
@@ -507,49 +1181,231 @@ function refreshResumeCard(){
   $("resumeCard").classList.remove("hidden");const pos=Math.min((s.index||0)+1,s.session.length);
   $("resumeText").textContent=`Question ${pos} sur ${s.session.length} • score ${s.score||0} • sauvegarde disponible sur cet appareil.`;
 }
+
+function enterQuizFocus(){
+  document.body.classList.add("quiz-active");
+  requestAnimationFrame(()=>{
+    window.scrollTo({top:0,left:0,behavior:"instant"});
+    const quiz=$("quiz");
+    if(quiz)quiz.scrollTo({top:0,left:0,behavior:"smooth"});
+  });
+}
+function exitQuizFocus(){
+  document.body.classList.remove("quiz-active");
+}
+function focusQuestionTop(){
+  requestAnimationFrame(()=>{
+    const quiz=$("quiz");
+    if(quiz)quiz.scrollTo({top:0,left:0,behavior:"smooth"});
+  });
+}
+function focusCorrection(){
+  requestAnimationFrame(()=>{
+    const quiz=$("quiz"),feedback=$("feedback");
+    if(!quiz||!feedback||feedback.classList.contains("hidden"))return;
+    const qr=quiz.getBoundingClientRect(),fr=feedback.getBoundingClientRect();
+    const stickyAllowance=105;
+    if(fr.bottom>qr.bottom-stickyAllowance||fr.top<qr.top+12){
+      const delta=fr.bottom-(qr.bottom-stickyAllowance);
+      quiz.scrollBy({top:delta+12,behavior:"smooth"});
+    }
+  });
+}
+
 async function start(){
   $("startBtn").disabled=true;$("startBtn").textContent="Préparation…";
-  try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();saveProgress();}
+  try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();saveProgress();}
   catch(e){alert(e.message);}finally{$("startBtn").disabled=false;$("startBtn").textContent="Commencer";}
 }
-function renderQuestion(){
+function renderQuestion(resumeTimer=false){
   const q=state.session[state.index];if(!q){finish();return;}state.answered=false;
   $("counter").textContent=`Question ${state.index+1} / ${state.session.length}`;$("scoreLive").textContent=`Score : ${state.score}`;$("progressBar").style.width=`${(state.index/state.session.length)*100}%`;
-  $("qMeta").textContent=[q.subject,q.bankTitle,q.category,`difficulté ${q.difficulty||1}`].filter(Boolean).join(" • ");$("qText").textContent=q.prompt;$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("validateBtn").classList.remove("hidden");$("nextBtn").classList.add("hidden");
+  $("qMeta").textContent=[q.subject,q.bankTitle,q.category,difficultyLabel(q.difficulty)].filter(Boolean).join(" • ");$("qText").textContent=q.prompt;$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("validateBtn").classList.remove("hidden");$("nextBtn").classList.add("hidden");
   let cs=q.choices.map(c=>({...c}));if($("shuffleAnswers").checked)cs=shuffle(cs);const multiple=q.type==="multiple"||q.choices.filter(c=>c.correct).length>1,nCorrect=q.choices.filter(c=>c.correct).length;
-  $("choices").innerHTML=(multiple?`<p class="muted">${nCorrect} réponses attendues.</p>`:"")+cs.map(c=>`<label class="choice"><input name="ans" type="${multiple?'checkbox':'radio'}" data-correct="${c.correct?'1':'0'}"> <span>${esc(c.text)}</span></label>`).join("");saveProgress();
+  $("choices").innerHTML=(multiple?`<p class="muted">Plusieurs réponses sont attendues.</p>`:"")+cs.map(c=>`<label class="choice"><input name="ans" type="${multiple?'checkbox':'radio'}" data-correct="${c.correct?'1':'0'}"> <span>${esc(c.text)}</span></label>`).join("");
+  const syncChoiceVisuals=()=>{
+    $("choices").querySelectorAll(".choice").forEach(row=>{
+      const input=row.querySelector('input[name="ans"]');
+      row.classList.toggle("selected",!!input?.checked);
+    });
+  };
+  $("choices").querySelectorAll('input[name="ans"]').forEach(input=>input.addEventListener("change",syncChoiceVisuals));
+  syncChoiceVisuals();
+  startQuestionTimer(resumeTimer);saveProgress();focusQuestionTop();
+  if(window.matchMedia&&window.matchMedia("(min-width:761px)").matches){const first=$("choices").querySelector('input[name="ans"]');if(first)requestAnimationFrame(()=>first.focus());}
 }
-function validate(){
-  if(state.answered)return;const ins=[...$("choices").querySelectorAll('input[name="ans"]')];
-  if(!ins.some(i=>i.checked)){$("feedback").classList.remove("hidden");$("feedback").innerHTML='<span class="warn">Sélectionne au moins une réponse.</span>';return;}
-  const ok=ins.every(i=>(i.checked&&i.dataset.correct==="1")||(!i.checked&&i.dataset.correct==="0"));state.answered=true;if(ok)state.score++;else state.errors.push(state.session[state.index]);
-  ins.forEach(i=>{i.disabled=true;const row=i.closest(".choice");if(i.dataset.correct==="1")row.classList.add("correct");else if(i.checked)row.classList.add("wrong");});
-  $("scoreLive").textContent=`Score : ${state.score}`;const q=state.session[state.index];$("feedback").classList.remove("hidden");$("feedback").innerHTML=`<div class="${ok?'ok':'bad'}">${ok?'Bonne réponse.':'Réponse incorrecte.'}</div>`+(($("instantCorrection").checked||state.index===state.session.length-1)?`<div style="margin-top:7px">${esc(q.explanation||"")}</div>`:"");$("validateBtn").classList.add("hidden");$("nextBtn").classList.remove("hidden");$("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Question suivante";saveProgress();
+
+function answerInputs(){return [...$("choices").querySelectorAll('input[name="ans"]')];}
+function focusAnswerByOffset(delta){
+  const inputs=answerInputs().filter(i=>!i.disabled);if(!inputs.length)return;
+  let i=inputs.indexOf(document.activeElement);
+  i=i<0?0:(i+delta+inputs.length)%inputs.length;
+  inputs[i].focus();
+}
+function handleQuizKeyboard(e){
+  if($("quiz").classList.contains("hidden"))return;
+  if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();focusAnswerByOffset(1);return;}
+  if(e.key==="ArrowUp"||e.key==="ArrowLeft"){e.preventDefault();focusAnswerByOffset(-1);return;}
+  if(e.code==="Space"||e.key===" "){
+    const focused=answerInputs().find(i=>i===document.activeElement);
+    if(focused&&!focused.disabled){
+      e.preventDefault();
+      if(focused.type==="radio")focused.checked=true;else focused.checked=!focused.checked;
+      focused.dispatchEvent(new Event("change",{bubbles:true}));
+    }
+    return;
+  }
+  if(e.key==="Enter"){
+    e.preventDefault();
+    if(!state.answered)validate();
+    else if(!$("nextBtn").classList.contains("hidden"))next();
+  }
+}
+
+function validate(fromTimer=false){
+  fromTimer=fromTimer===true;
+  if(state.answered)return;
+  const ins=[...$("choices").querySelectorAll('input[name="ans"]')];
+  const hasSelection=ins.some(i=>i.checked);
+  if(!hasSelection&&!fromTimer){
+    $("feedback").classList.remove("hidden");
+    $("feedback").innerHTML='<span class="warn">Sélectionne au moins une réponse.</span>';
+    return;
+  }
+
+  if(state.timerEnabled){
+    state.timerRemainingMs=currentRemainingMs();
+    state.timerEndAt=null;
+    stopTimerInterval();
+    renderTimer();
+  }
+
+  const ok=ins.every(i=>(i.checked&&i.dataset.correct==="1")||(!i.checked&&i.dataset.correct==="0"));
+  state.answered=true;
+  if(ok)state.score++;else state.errors.push(state.session[state.index]);
+
+  ins.forEach(i=>{
+    i.disabled=true;
+    const row=i.closest(".choice");
+    if(i.dataset.correct==="1")row.classList.add("correct");
+    else if(i.checked)row.classList.add("wrong");
+  });
+
+  $("scoreLive").textContent=`Score : ${state.score}`;
+  const q=state.session[state.index];
+  $("feedback").classList.remove("hidden");
+  const status=fromTimer
+    ? '<div class="bad">Temps écoulé.</div>'
+    : `<div class="${ok?'ok':'bad'}">${ok?'Bonne réponse.':'Réponse incorrecte.'}</div>`;
+  $("feedback").innerHTML=status+(($("instantCorrection").checked||state.index===state.session.length-1)?`<div style="margin-top:7px">${esc(q.explanation||"")}</div>`:"");
+  $("validateBtn").classList.add("hidden");
+  $("nextBtn").classList.remove("hidden");
+  $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Question suivante";
+  saveProgress();focusCorrection();
 }
 function next(){if(!state.answered)return;if(state.index<state.session.length-1){state.index++;renderQuestion();}else finish();}
-function finish(){
+function finish(){stopTimerInterval();state.timerEndAt=null;exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
 }
 async function resumeSaved(){
   const s=getSaved();if(!s)return;
   state.session=s.session;state.score=s.score||0;state.errors=s.errors||[];
   if((s.index||0)>=state.session.length){finish();return;}
-  state.index=s.index||0;state.answered=false;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;
-  $("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();
+  state.index=s.index||0;state.answered=false;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();
+  $("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);
 }
-function pause(){saveProgress();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");refreshResumeCard();}
+function pause(){pauseTimer();saveProgress();exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");refreshResumeCard();}
 async function init(){ refreshResumeCard(); }
 
-$("selectAllChapters").addEventListener("click",()=>setAllActiveSubject(true));
-$("clearAllChapters").addEventListener("click",()=>setAllActiveSubject(false));
-$("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",validate);$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
-$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearProgress();state.session=[];$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");}});
+$("toggleAllChapters").addEventListener("click",()=>setAllActiveSubject(!subjectAllSelected(state.activeSubject)));
+$("mobileToggleAll").addEventListener("click",()=>{
+  if(!state.activeSubject)return;
+  setAllActiveSubject(!subjectAllSelected(state.activeSubject));
+  renderMobileSheet();
+});
+$("mobileSheetClose").addEventListener("click",closeMobileSheet);
+$("mobileSheetOverlay").addEventListener("click",e=>{
+  if(e.target===$("mobileSheetOverlay"))closeMobileSheet();
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&$("mobileSheetOverlay").classList.contains("open"))closeMobileSheet();
+});
+document.addEventListener("pointerdown",e=>{
+  if(!floatingMenuOpen)return;
+  const main=$("themeToggle");
+  const actionRoot=$("floatingActions");
+  if(main.contains(e.target)||actionRoot.contains(e.target))return;
+  closeFloatingMenu();
+});
+
+document.querySelectorAll(".difficulty-btn").forEach(btn=>btn.addEventListener("click",()=>setDifficulty(btn.dataset.difficulty)));
+$("themeMenuBtn").addEventListener("click",toggleTheme);
+$("timerToggleBtn").addEventListener("click",toggleTimer);
+document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
+$("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",()=>validate(false));$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
+$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
-$("newQuiz").addEventListener("click",()=>{$("results").classList.add("hidden");if(state.manifest){$("setup").classList.remove("hidden");renderSelectionUI();}});
-$("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();});
+$("newQuiz").addEventListener("click",()=>{exitQuizFocus();stopTimerInterval();state.timerEnabled=false;state.timerEndAt=null;state.timerRemainingMs=null;$("results").classList.add("hidden");if(state.manifest){$("setup").classList.remove("hidden");renderSelectionUI();}});
+$("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();});
+
+function disableAccidentalDoubleTapZoom(){
+  let lastTapTime=0,lastX=0,lastY=0,multiTouchGesture=false;
+
+  document.addEventListener("touchstart",e=>{
+    if(e.touches.length>1){
+      multiTouchGesture=true;
+      lastTapTime=0;
+    }else if(e.touches.length===1){
+      multiTouchGesture=false;
+    }
+  },{passive:true});
+
+  document.addEventListener("touchmove",e=>{
+    if(e.touches.length>1)multiTouchGesture=true;
+  },{passive:true});
+
+  document.addEventListener("touchend",e=>{
+    if(multiTouchGesture){
+      if(e.touches.length===0)multiTouchGesture=false;
+      lastTapTime=0;
+      return;
+    }
+    if(e.touches.length!==0)return;
+
+    const t=e.changedTouches&&e.changedTouches[0];
+    if(!t)return;
+    const now=Date.now();
+    const dt=now-lastTapTime;
+    const dist=Math.hypot(t.clientX-lastX,t.clientY-lastY);
+
+    if(dt>0&&dt<360&&dist<28){
+      // Empêche le zoom double-tap et le second déclenchement accidentel.
+      e.preventDefault();
+      lastTapTime=0;
+      return;
+    }
+
+    lastTapTime=now;
+    lastX=t.clientX;
+    lastY=t.clientY;
+  },{passive:false});
+
+  // Sécurité supplémentaire pour les navigateurs déclenchant dblclick.
+  document.addEventListener("dblclick",e=>{
+    e.preventDefault();
+  },{passive:false});
+}
+
 initTheme();
+state.timerEnabled=false;state.timerDurationMs=30000;syncTimerSettingsUI();
+disableAccidentalDoubleTapZoom();
 restoreThemeButtonPosition();
 enableThemeButtonDrag();
+
+window.addEventListener("resize",()=>{
+  if(!isMobileSelectionUI()&&$("mobileSheetOverlay").classList.contains("open"))closeMobileSheet();if(floatingMenuOpen)layoutFloatingActions();
+});
+document.addEventListener("keydown",handleQuizKeyboard);
 window.addEventListener("beforeunload",()=>{if(!$("quiz").classList.contains("hidden"))saveProgress();});
 $("folderInput").addEventListener("change",e=>loadFolder(e.target.files));
 init();
