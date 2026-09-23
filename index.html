@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes">
 <meta name="theme-color" content="#4f46e5">
 <title>QCM BTS Diététique</title>
 <style>
@@ -17,7 +17,8 @@ html[data-theme="dark"]{
   --ok:#62d69a;--bad:#ff8e87;--warn:#f1c46d;--shadow:0 10px 34px rgba(0,0,0,.24)
 }
 *{box-sizing:border-box}
-button,.subject-card,.chapter-card{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+html,body{touch-action:manipulation}
+button,.subject-card,.chapter-card,.choice,.mobile-sheet,.card{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);transition:background .2s ease,color .2s ease}
 main{max-width:1120px;margin:auto;padding:22px}
 h1,h2,h3,p{margin-top:0}.muted{color:var(--muted)}.hidden{display:none!important}
@@ -106,11 +107,12 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   position:fixed;right:18px;bottom:18px;z-index:1000;width:48px;height:48px;padding:0;border-radius:50%;
   display:grid;place-items:center;background:var(--card);color:var(--text);border:1px solid var(--line);
   box-shadow:0 8px 26px rgba(0,0,0,.14);font-size:1.35rem;
-  transition:background .2s ease,border-color .2s ease,box-shadow .15s ease;
+  transition:left .32s cubic-bezier(.22,.8,.25,1),top .32s cubic-bezier(.22,.8,.25,1),background .2s ease,border-color .2s ease,box-shadow .15s ease;
   cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none
 }
 .theme-toggle:hover{border-color:rgba(var(--accent-rgb),.55);box-shadow:0 10px 30px rgba(0,0,0,.18)}
 .theme-toggle.dragging{cursor:grabbing;transition:none;box-shadow:0 12px 34px rgba(0,0,0,.22)}
+.theme-toggle.snapping{pointer-events:none}
 .theme-toggle:focus-visible{outline:3px solid rgba(var(--accent-rgb),.28);outline-offset:3px}
 
 @media(max-width:800px){
@@ -286,7 +288,7 @@ body.sheet-open{overflow:hidden}
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_1";
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,session:[],index:0,score:0,errors:[],answered:false};
 const cache=new Map();
@@ -334,6 +336,51 @@ function clampThemePosition(left,top){
     top:Math.max(pad,Math.min(top,window.innerHeight-h-pad))
   };
 }
+
+function nearestThemeCorner(left,top){
+  const btn=$("themeToggle");
+  const w=btn?.offsetWidth||48,h=btn?.offsetHeight||48,pad=12;
+  const maxLeft=Math.max(pad,window.innerWidth-w-pad);
+  const maxTop=Math.max(pad,window.innerHeight-h-pad);
+  const centerX=left+w/2,centerY=top+h/2;
+  const corners=[
+    {left:pad,top:pad},
+    {left:maxLeft,top:pad},
+    {left:pad,top:maxTop},
+    {left:maxLeft,top:maxTop}
+  ];
+  return corners.reduce((best,c)=>{
+    const cx=c.left+w/2,cy=c.top+h/2;
+    const d=(centerX-cx)**2+(centerY-cy)**2;
+    return !best||d<best.d?{...c,d}:best;
+  },null);
+}
+
+function snapThemeButtonToNearestCorner(){
+  const btn=$("themeToggle");
+  if(!btn)return;
+  const rect=btn.getBoundingClientRect();
+  const target=nearestThemeCorner(rect.left,rect.top);
+  if(!target)return;
+
+  btn.classList.add("snapping");
+  btn.style.right="auto";
+  btn.style.bottom="auto";
+  // force a frame so transition starts from current location
+  requestAnimationFrame(()=>{
+    btn.style.left=target.left+"px";
+    btn.style.top=target.top+"px";
+  });
+
+  const done=()=>{
+    btn.classList.remove("snapping");
+    btn.removeEventListener("transitionend",done);
+    saveThemeButtonPosition();
+  };
+  btn.addEventListener("transitionend",done);
+  setTimeout(done,420);
+}
+
 function saveThemeButtonPosition(){
   const btn=$("themeToggle");
   if(!btn)return;
@@ -352,6 +399,7 @@ function restoreThemeButtonPosition(){
       btn.style.top=pos.top+"px";
       btn.style.right="auto";
       btn.style.bottom="auto";
+      requestAnimationFrame(()=>snapThemeButtonToNearestCorner());
     }
   }catch{}
 }
@@ -386,8 +434,8 @@ function enableThemeButtonDrag(){
     dragging=false;
     btn.classList.remove("dragging");
     themeDragged=moved;
-    if(moved)saveThemeButtonPosition();
     pointerId=null;
+    if(moved)snapThemeButtonToNearestCorner();
   };
 
   if(window.PointerEvent){
@@ -436,12 +484,7 @@ function enableThemeButtonDrag(){
   });
 
   window.addEventListener("resize",()=>{
-    const rect=btn.getBoundingClientRect();
-    if(btn.style.left){
-      const pos=clampThemePosition(rect.left,rect.top);
-      btn.style.left=pos.left+"px";btn.style.top=pos.top+"px";
-      saveThemeButtonPosition();
-    }
+    if(btn.style.left)snapThemeButtonToNearestCorner();
   });
 }
 
@@ -691,7 +734,57 @@ $("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnai
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
 $("newQuiz").addEventListener("click",()=>{$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
 $("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();});
+
+function disableAccidentalDoubleTapZoom(){
+  let lastTapTime=0,lastX=0,lastY=0,multiTouchGesture=false;
+
+  document.addEventListener("touchstart",e=>{
+    if(e.touches.length>1){
+      multiTouchGesture=true;
+      lastTapTime=0;
+    }else if(e.touches.length===1){
+      multiTouchGesture=false;
+    }
+  },{passive:true});
+
+  document.addEventListener("touchmove",e=>{
+    if(e.touches.length>1)multiTouchGesture=true;
+  },{passive:true});
+
+  document.addEventListener("touchend",e=>{
+    if(multiTouchGesture){
+      if(e.touches.length===0)multiTouchGesture=false;
+      lastTapTime=0;
+      return;
+    }
+    if(e.touches.length!==0)return;
+
+    const t=e.changedTouches&&e.changedTouches[0];
+    if(!t)return;
+    const now=Date.now();
+    const dt=now-lastTapTime;
+    const dist=Math.hypot(t.clientX-lastX,t.clientY-lastY);
+
+    if(dt>0&&dt<360&&dist<28){
+      // Empêche le zoom double-tap et le second déclenchement accidentel.
+      e.preventDefault();
+      lastTapTime=0;
+      return;
+    }
+
+    lastTapTime=now;
+    lastX=t.clientX;
+    lastY=t.clientY;
+  },{passive:false});
+
+  // Sécurité supplémentaire pour les navigateurs déclenchant dblclick.
+  document.addEventListener("dblclick",e=>{
+    e.preventDefault();
+  },{passive:false});
+}
+
 initTheme();
+disableAccidentalDoubleTapZoom();
 restoreThemeButtonPosition();
 enableThemeButtonDrag();
 
