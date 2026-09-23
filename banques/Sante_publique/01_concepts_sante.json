@@ -1,0 +1,658 @@
+{
+  "version": 1,
+  "title": "Concepts de santé",
+  "subject": "Santé publique",
+  "chapter": "Chapitre 1",
+  "questions": [
+    {
+      "id": "sp-c1-001",
+      "category": "Définition de la santé",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Selon la définition de l’OMS de 1946, la santé correspond à :",
+      "choices": [
+        {
+          "text": "Un état de complet bien-être physique, mental et social",
+          "correct": true
+        },
+        {
+          "text": "L’absence totale de maladie uniquement",
+          "correct": false
+        },
+        {
+          "text": "La capacité à travailler sans fatigue",
+          "correct": false
+        },
+        {
+          "text": "Un état exclusivement physique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours reprend la définition de l’OMS de 1946 : la santé est un état de complet bien-être physique, mental et social et ne se réduit pas à l’absence de maladie."
+    },
+    {
+      "id": "sp-c1-002",
+      "category": "Définition de la santé",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles dimensions sont explicitement intégrées à la définition de la santé de l’OMS ?",
+      "choices": [
+        {
+          "text": "Physique",
+          "correct": true
+        },
+        {
+          "text": "Mentale / psychique",
+          "correct": true
+        },
+        {
+          "text": "Sociale",
+          "correct": true
+        },
+        {
+          "text": "Uniquement économique",
+          "correct": false
+        }
+      ],
+      "explanation": "La définition de 1946 intègre trois dimensions : physique, mentale et sociale."
+    },
+    {
+      "id": "sp-c1-003",
+      "category": "Définition de la santé",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Pourquoi la définition de l’OMS de 1946 est-elle présentée comme novatrice ?",
+      "choices": [
+        {
+          "text": "Elle ne réduit pas la santé à l’absence de maladie",
+          "correct": true
+        },
+        {
+          "text": "Elle intègre plusieurs dimensions du bien-être",
+          "correct": true
+        },
+        {
+          "text": "Elle légitime des approches interdisciplinaires",
+          "correct": true
+        },
+        {
+          "text": "Elle définit la santé comme uniquement biologique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours souligne son caractère positif et multidimensionnel ainsi que l’ouverture aux sciences sociales et économiques."
+    },
+    {
+      "id": "sp-c1-004",
+      "category": "Santé individuelle",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Pourquoi dit-on que la santé individuelle est une notion relative ?",
+      "choices": [
+        {
+          "text": "Elle varie selon les individus et leur contexte",
+          "correct": true
+        },
+        {
+          "text": "Elle est identique pour tous à tout âge",
+          "correct": false
+        },
+        {
+          "text": "Elle dépend uniquement des analyses biologiques",
+          "correct": false
+        },
+        {
+          "text": "Elle ne change jamais au cours de la vie",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours présente la santé comme subjective et variable selon l’âge, le sexe, l’époque et les conditions de vie."
+    },
+    {
+      "id": "sp-c1-005",
+      "category": "Santé individuelle",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels éléments peuvent influencer la santé individuelle selon le cours ?",
+      "choices": [
+        {
+          "text": "Les conditions de vie",
+          "correct": true
+        },
+        {
+          "text": "La situation familiale",
+          "correct": true
+        },
+        {
+          "text": "La situation économique",
+          "correct": true
+        },
+        {
+          "text": "Uniquement le groupe sanguin",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite notamment les conditions de vie, la situation familiale et la situation économique."
+    },
+    {
+      "id": "sp-c1-006",
+      "category": "Charte d’Ottawa",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "En quelle année la Charte d’Ottawa a-t-elle fait évoluer l’approche de la santé ?",
+      "choices": [
+        {
+          "text": "1986",
+          "correct": true
+        },
+        {
+          "text": "1946",
+          "correct": false
+        },
+        {
+          "text": "2001",
+          "correct": false
+        },
+        {
+          "text": "2016",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours situe la Charte d’Ottawa en 1986."
+    },
+    {
+      "id": "sp-c1-007",
+      "category": "Charte d’Ottawa",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La Charte d’Ottawa présente la santé comme :",
+      "choices": [
+        {
+          "text": "Une ressource de la vie quotidienne",
+          "correct": true
+        },
+        {
+          "text": "Le seul but de la vie",
+          "correct": false
+        },
+        {
+          "text": "Un état uniquement médical",
+          "correct": false
+        },
+        {
+          "text": "Une absence de contraintes sociales",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans le cours, la santé est une ressource de la vie quotidienne et non le but de la vie."
+    },
+    {
+      "id": "sp-c1-008",
+      "category": "Charte d’Ottawa",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Dire que la santé est une « ressource de la vie quotidienne » signifie qu’elle permet notamment de :",
+      "choices": [
+        {
+          "text": "Étudier et travailler",
+          "correct": true
+        },
+        {
+          "text": "Avoir des relations et mener des projets",
+          "correct": true
+        },
+        {
+          "text": "S’engager socialement",
+          "correct": true
+        },
+        {
+          "text": "Éviter toute difficulté de la vie",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours explique que la santé est un moyen permettant d’étudier, travailler, avoir des relations, mener des projets ou s’engager."
+    },
+    {
+      "id": "sp-c1-009",
+      "category": "Santé globale",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quand un problème de santé devient-il « global » selon l’approche citée dans le cours ?",
+      "choices": [
+        {
+          "text": "Quand il dépasse les frontières nationales et appelle des réponses collectives",
+          "correct": true
+        },
+        {
+          "text": "Quand il concerne une seule personne",
+          "correct": false
+        },
+        {
+          "text": "Quand il est uniquement traité à l’hôpital",
+          "correct": false
+        },
+        {
+          "text": "Quand il ne dépend d’aucun autre pays",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite Mark Nichter : la santé devient globale lorsque les problèmes dépassent les frontières, sont influencés par d’autres pays et nécessitent des réponses collectives."
+    },
+    {
+      "id": "sp-c1-010",
+      "category": "Santé publique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quelle échelle se situe principalement la santé publique ?",
+      "choices": [
+        {
+          "text": "À l’échelle d’une population ou d’un territoire",
+          "correct": true
+        },
+        {
+          "text": "À l’échelle d’une cellule",
+          "correct": false
+        },
+        {
+          "text": "Uniquement à l’échelle d’un patient hospitalisé",
+          "correct": false
+        },
+        {
+          "text": "Uniquement à l’échelle familiale",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit la santé publique comme une approche de la santé à l’échelle d’une population ou d’un territoire."
+    },
+    {
+      "id": "sp-c1-011",
+      "category": "Santé publique",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels aspects la santé publique prend-elle en compte ?",
+      "choices": [
+        {
+          "text": "Curatifs",
+          "correct": true
+        },
+        {
+          "text": "Préventifs",
+          "correct": true
+        },
+        {
+          "text": "Éducatifs",
+          "correct": true
+        },
+        {
+          "text": "Environnementaux et sociaux",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours cite des dimensions curatives, préventives, éducatives, environnementales et sociales."
+    },
+    {
+      "id": "sp-c1-012",
+      "category": "Santé publique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est l’objectif général de la santé publique présenté dans le cours ?",
+      "choices": [
+        {
+          "text": "Maintenir l’état de santé et de bien-être de tous",
+          "correct": true
+        },
+        {
+          "text": "Soigner uniquement les personnes déjà malades",
+          "correct": false
+        },
+        {
+          "text": "Supprimer toute responsabilité collective",
+          "correct": false
+        },
+        {
+          "text": "S’occuper exclusivement de l’environnement",
+          "correct": false
+        }
+      ],
+      "explanation": "La santé publique vise à maintenir l’état de santé et le bien-être de tous par différents moyens."
+    },
+    {
+      "id": "sp-c1-013",
+      "category": "Santé publique",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Selon la définition de Winslow citée dans le cours, la santé publique repose notamment sur :",
+      "choices": [
+        {
+          "text": "Des actions collectives",
+          "correct": true
+        },
+        {
+          "text": "La prévention des maladies",
+          "correct": true
+        },
+        {
+          "text": "L’amélioration et la prolongation de la vie",
+          "correct": true
+        },
+        {
+          "text": "L’absence de toute organisation des services médicaux",
+          "correct": false
+        }
+      ],
+      "explanation": "Winslow définit la santé publique comme une science et un art mobilisant des actions collectives pour prévenir les maladies et améliorer/prolonger la vie."
+    },
+    {
+      "id": "sp-c1-014",
+      "category": "Santé publique",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Parmi les objectifs suivants, lesquels sont attribués à la santé publique ?",
+      "choices": [
+        {
+          "text": "Observer et surveiller l’état de santé de la population",
+          "correct": true
+        },
+        {
+          "text": "Prévenir les maladies",
+          "correct": true
+        },
+        {
+          "text": "Informer et éduquer la population",
+          "correct": true
+        },
+        {
+          "text": "Réduire les inégalités de santé",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours cite ces quatre objectifs et ajoute l’organisation du système de santé."
+    },
+    {
+      "id": "sp-c1-015",
+      "category": "Santé publique",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "La santé publique s’appuie notamment sur :",
+      "choices": [
+        {
+          "text": "Des actions",
+          "correct": true
+        },
+        {
+          "text": "Des textes législatifs",
+          "correct": true
+        },
+        {
+          "text": "Des moyens humains et financiers",
+          "correct": true
+        },
+        {
+          "text": "Uniquement des initiatives individuelles",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que la santé publique s’applique grâce à des actions, des textes législatifs et des moyens humains et financiers."
+    },
+    {
+      "id": "sp-c1-016",
+      "category": "Santé communautaire",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "La santé communautaire se caractérise surtout par :",
+      "choices": [
+        {
+          "text": "La participation active de la communauté",
+          "correct": true
+        },
+        {
+          "text": "Des décisions prises uniquement par des experts extérieurs",
+          "correct": false
+        },
+        {
+          "text": "Une logique « avec » la population plutôt que « pour » elle",
+          "correct": true
+        },
+        {
+          "text": "L’absence d’évaluation des actions",
+          "correct": false
+        }
+      ],
+      "explanation": "Elle implique les membres de la communauté dans l’identification des besoins, les priorités, la mise en œuvre et l’évaluation ; ils sont co-acteurs."
+    },
+    {
+      "id": "sp-c1-017",
+      "category": "Santé communautaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Dans une démarche de santé communautaire, les habitants sont :",
+      "choices": [
+        {
+          "text": "Des co-acteurs des décisions et interventions",
+          "correct": true
+        },
+        {
+          "text": "Uniquement des bénéficiaires passifs",
+          "correct": false
+        },
+        {
+          "text": "Exclus de la planification",
+          "correct": false
+        },
+        {
+          "text": "Consultés uniquement après l’action",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours insiste sur la logique « avec » : les habitants participent activement aux décisions et aux interventions."
+    },
+    {
+      "id": "sp-c1-018",
+      "category": "One Health",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le concept « One Health » s’est développé notamment à partir :",
+      "choices": [
+        {
+          "text": "Des années 2000",
+          "correct": true
+        },
+        {
+          "text": "Des années 1800",
+          "correct": false
+        },
+        {
+          "text": "De 1946 uniquement",
+          "correct": false
+        },
+        {
+          "text": "De 2019 uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours situe l’émergence du concept One Health dans les années 2000."
+    },
+    {
+      "id": "sp-c1-019",
+      "category": "One Health",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Le principe « One Health » affirme que la santé humaine est étroitement liée à :",
+      "choices": [
+        {
+          "text": "La santé animale",
+          "correct": true
+        },
+        {
+          "text": "La santé de l’environnement",
+          "correct": true
+        },
+        {
+          "text": "La santé végétale",
+          "correct": true
+        },
+        {
+          "text": "Uniquement la génétique humaine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours relie intimement santé humaine, animale, végétale et environnementale."
+    },
+    {
+      "id": "sp-c1-020",
+      "category": "One Health",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel contexte a favorisé le développement de « One Health » selon le cours ?",
+      "choices": [
+        {
+          "text": "La recrudescence et l’émergence de maladies infectieuses dans un contexte de mondialisation des échanges",
+          "correct": true
+        },
+        {
+          "text": "La disparition de toutes les maladies infectieuses",
+          "correct": false
+        },
+        {
+          "text": "La baisse du commerce mondial",
+          "correct": false
+        },
+        {
+          "text": "Uniquement l’augmentation de l’activité physique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours associe One Health à l’émergence/recrudescence de maladies infectieuses et à la mondialisation des échanges."
+    },
+    {
+      "id": "sp-c1-021",
+      "category": "Promotion de la santé",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "La promotion de la santé cherche à :",
+      "choices": [
+        {
+          "text": "Renforcer les aptitudes et capacités des individus",
+          "correct": true
+        },
+        {
+          "text": "Modifier les situations sociales, environnementales et économiques défavorables",
+          "correct": true
+        },
+        {
+          "text": "Permettre une meilleure maîtrise des déterminants de santé",
+          "correct": true
+        },
+        {
+          "text": "Se limiter aux soins curatifs",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours présente la promotion de la santé comme un processus social et politique global agissant à la fois sur les capacités individuelles et sur les conditions de vie."
+    },
+    {
+      "id": "sp-c1-022",
+      "category": "Promotion de la santé",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle place la participation de la population occupe-t-elle dans la promotion de la santé ?",
+      "choices": [
+        {
+          "text": "Elle est essentielle",
+          "correct": true
+        },
+        {
+          "text": "Elle est inutile",
+          "correct": false
+        },
+        {
+          "text": "Elle est interdite",
+          "correct": false
+        },
+        {
+          "text": "Elle concerne uniquement les professionnels",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que la participation de la population est essentielle dans toute action de promotion de la santé."
+    },
+    {
+      "id": "sp-c1-023",
+      "category": "Promotion de la santé",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi l’approche de promotion de la santé est-elle dite « globale » ?",
+      "choices": [
+        {
+          "text": "Parce qu’elle prend en compte l’ensemble des déterminants individuels, sociaux et physiques",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’elle ne s’intéresse qu’au soin",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’elle ignore l’environnement",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’elle s’adresse uniquement aux malades",
+          "correct": false
+        }
+      ],
+      "explanation": "L’approche est globale car elle considère l’ensemble des déterminants de la santé, individuels et environnementaux."
+    },
+    {
+      "id": "sp-c1-024",
+      "category": "Promotion de la santé",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi l’approche de promotion de la santé est-elle dite « positive » ?",
+      "choices": [
+        {
+          "text": "Parce qu’elle cherche à faire émerger des solutions et à agir pour la santé",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’elle nie les problèmes de santé",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’elle vise uniquement à supprimer les maladies",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’elle mesure uniquement la mortalité",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours qualifie l’approche de positive car elle vise à faire émerger des solutions et à agir pour la santé."
+    },
+    {
+      "id": "sp-c1-025",
+      "category": "Synthèse",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle distinction résume le mieux santé individuelle et santé publique ?",
+      "choices": [
+        {
+          "text": "La santé individuelle concerne l’état d’une personne tandis que la santé publique raisonne à l’échelle des populations",
+          "correct": true
+        },
+        {
+          "text": "La santé publique ne concerne jamais les individus",
+          "correct": false
+        },
+        {
+          "text": "La santé individuelle n’a aucun lien avec les conditions de vie",
+          "correct": false
+        },
+        {
+          "text": "Les deux notions sont strictement identiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Le chapitre articule une approche individuelle, subjective et contextuelle, et une approche collective à l’échelle des populations."
+    }
+  ]
+}

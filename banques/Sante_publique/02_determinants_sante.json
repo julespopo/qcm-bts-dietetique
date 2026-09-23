@@ -1,0 +1,658 @@
+{
+  "version": 1,
+  "title": "Les déterminants de santé",
+  "subject": "Santé publique",
+  "chapter": "Chapitre 2",
+  "questions": [
+    {
+      "id": "sp-c2-001",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Selon l’OMS, les déterminants de santé correspondent notamment :",
+      "choices": [
+        {
+          "text": "Aux circonstances dans lesquelles les individus naissent, grandissent, vivent, travaillent et vieillissent",
+          "correct": true
+        },
+        {
+          "text": "Uniquement aux maladies génétiques",
+          "correct": false
+        },
+        {
+          "text": "Uniquement aux comportements alimentaires",
+          "correct": false
+        },
+        {
+          "text": "Aux seuls traitements médicaux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours reprend la définition de l’OMS intégrant les conditions de vie et les systèmes mis en place face à la maladie."
+    },
+    {
+      "id": "sp-c2-002",
+      "category": "Effets des déterminants",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un déterminant peut agir directement sur la santé, par exemple par :",
+      "choices": [
+        {
+          "text": "L’exposition à des polluants ou substances cancérigènes",
+          "correct": true
+        },
+        {
+          "text": "Le revenu uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le niveau d’éducation uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le statut administratif uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite les polluants et substances cancérigènes comme exemples d’effets directs."
+    },
+    {
+      "id": "sp-c2-003",
+      "category": "Effets des déterminants",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Un déterminant peut agir indirectement sur la santé en influençant :",
+      "choices": [
+        {
+          "text": "L’accès aux soins",
+          "correct": true
+        },
+        {
+          "text": "Les comportements individuels",
+          "correct": true
+        },
+        {
+          "text": "Les décisions de santé",
+          "correct": true
+        },
+        {
+          "text": "Uniquement la couleur des yeux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit des effets indirects via l’accès au système de soins et l’influence sur les comportements et décisions."
+    },
+    {
+      "id": "sp-c2-004",
+      "category": "Caractéristiques individuelles",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles catégories appartiennent au champ des caractéristiques individuelles ?",
+      "choices": [
+        {
+          "text": "Caractéristiques biologiques et génétiques",
+          "correct": true
+        },
+        {
+          "text": "Compétences personnelles et sociales",
+          "correct": true
+        },
+        {
+          "text": "Habitudes de vie et comportements",
+          "correct": true
+        },
+        {
+          "text": "Caractéristiques socioéconomiques",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours distingue ces quatre catégories."
+    },
+    {
+      "id": "sp-c2-005",
+      "category": "Caractéristiques biologiques",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels exemples relèvent des caractéristiques biologiques et génétiques ?",
+      "choices": [
+        {
+          "text": "L’âge",
+          "correct": true
+        },
+        {
+          "text": "Le sexe",
+          "correct": true
+        },
+        {
+          "text": "Certaines prédispositions biologiques ou génétiques",
+          "correct": true
+        },
+        {
+          "text": "Le type d’emploi uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite notamment âge, sexe, origine ethnique et prédispositions biologiques ou génétiques."
+    },
+    {
+      "id": "sp-c2-006",
+      "category": "Compétences personnelles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Les compétences personnelles et sociales correspondent notamment à :",
+      "choices": [
+        {
+          "text": "Des connaissances, compétences et attitudes acquises au fil du temps",
+          "correct": true
+        },
+        {
+          "text": "Des caractéristiques uniquement innées",
+          "correct": false
+        },
+        {
+          "text": "Des revenus",
+          "correct": false
+        },
+        {
+          "text": "Des politiques publiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Elles sont présentées comme des ressources acquises et développées permettant de faire face aux défis de la vie quotidienne."
+    },
+    {
+      "id": "sp-c2-007",
+      "category": "Habitudes de vie",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels comportements sont explicitement cités comme déterminants de santé ?",
+      "choices": [
+        {
+          "text": "Alimentation et activité physique",
+          "correct": true
+        },
+        {
+          "text": "Tabac, alcool et drogues",
+          "correct": true
+        },
+        {
+          "text": "Hygiène et soins",
+          "correct": true
+        },
+        {
+          "text": "Comportements liés à la sécurité",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours cite l’ensemble de ces comportements parmi les habitudes de vie."
+    },
+    {
+      "id": "sp-c2-008",
+      "category": "Caractéristiques socioéconomiques",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels éléments sont cités comme caractéristiques socioéconomiques ?",
+      "choices": [
+        {
+          "text": "La scolarité",
+          "correct": true
+        },
+        {
+          "text": "L’occupation",
+          "correct": true
+        },
+        {
+          "text": "Le type d’emploi",
+          "correct": true
+        },
+        {
+          "text": "Le revenu",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours cite la scolarité, l’occupation, le type d’emploi et le revenu."
+    },
+    {
+      "id": "sp-c2-009",
+      "category": "Milieux de vie",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Parmi ces lieux, lesquels sont des « milieux de vie » selon le cours ?",
+      "choices": [
+        {
+          "text": "Milieu familial",
+          "correct": true
+        },
+        {
+          "text": "Milieu scolaire",
+          "correct": true
+        },
+        {
+          "text": "Travail",
+          "correct": true
+        },
+        {
+          "text": "Quartier ou ville",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours inclut notamment famille, école, hébergement, travail, quartier, village ou ville."
+    },
+    {
+      "id": "sp-c2-010",
+      "category": "Systèmes",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels systèmes administrés par l’État et ses partenaires sont cités ?",
+      "choices": [
+        {
+          "text": "Système d’éducation",
+          "correct": true
+        },
+        {
+          "text": "Système de santé et services sociaux",
+          "correct": true
+        },
+        {
+          "text": "Aménagement du territoire",
+          "correct": true
+        },
+        {
+          "text": "Programmes de soutien à l’emploi et de solidarité",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours cite ces différents systèmes comme déterminants de santé."
+    },
+    {
+      "id": "sp-c2-011",
+      "category": "Contexte global",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Le contexte global comprend notamment :",
+      "choices": [
+        {
+          "text": "Le contexte politique et législatif",
+          "correct": true
+        },
+        {
+          "text": "Le contexte économique",
+          "correct": true
+        },
+        {
+          "text": "Le contexte démographique",
+          "correct": true
+        },
+        {
+          "text": "Le contexte social et culturel",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours présente ces quatre composantes du contexte global."
+    },
+    {
+      "id": "sp-c2-012",
+      "category": "Nutrition",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Dans les programmes de santé publique, la nutrition comprend :",
+      "choices": [
+        {
+          "text": "Les comportements alimentaires",
+          "correct": true
+        },
+        {
+          "text": "L’activité physique",
+          "correct": true
+        },
+        {
+          "text": "La lutte contre la sédentarité",
+          "correct": true
+        },
+        {
+          "text": "Uniquement le calcul des calories",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit la nutrition au sens large en incluant alimentation, activité physique et sédentarité."
+    },
+    {
+      "id": "sp-c2-013",
+      "category": "PNNS et déterminants",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le PNNS illustre-t-il une action sur plusieurs déterminants de santé ?",
+      "choices": [
+        {
+          "text": "Parce qu’il agit sur les comportements mais aussi sur l’environnement alimentaire et physique et les inégalités sociales",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’il se limite à informer les individus",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’il ne concerne pas l’activité physique",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’il agit uniquement sur les hôpitaux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours insiste sur le fait que le PNNS ne se limite pas aux choix individuels et agit aussi sur l’environnement et les inégalités."
+    },
+    {
+      "id": "sp-c2-014",
+      "category": "Déterminants commerciaux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Les déterminants commerciaux de la santé désignent :",
+      "choices": [
+        {
+          "text": "Les activités du secteur privé pouvant influencer positivement ou négativement la santé",
+          "correct": true
+        },
+        {
+          "text": "Uniquement les achats des ménages",
+          "correct": false
+        },
+        {
+          "text": "Uniquement les taxes publiques",
+          "correct": false
+        },
+        {
+          "text": "Les facteurs biologiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours reprend une définition de l’OMS incluant production, commercialisation, distribution, promotion, conditions de travail, lobbying et autres activités privées."
+    },
+    {
+      "id": "sp-c2-015",
+      "category": "Déterminants commerciaux",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles pratiques commerciales sont citées comme pouvant influencer la santé ?",
+      "choices": [
+        {
+          "text": "Publicité et promotion",
+          "correct": true
+        },
+        {
+          "text": "Lobbying",
+          "correct": true
+        },
+        {
+          "text": "Financement de la recherche",
+          "correct": true
+        },
+        {
+          "text": "Formation des préférences sociales",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours cite explicitement ces leviers parmi les déterminants commerciaux."
+    },
+    {
+      "id": "sp-c2-016",
+      "category": "Déterminants commerciaux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Selon l’exemple du cours, plus de la moitié des publicités alimentaires vues par les enfants et adolescents à la télévision promouvaient :",
+      "choices": [
+        {
+          "text": "Des produits Nutri-Score D ou E",
+          "correct": true
+        },
+        {
+          "text": "Uniquement des fruits frais",
+          "correct": false
+        },
+        {
+          "text": "Uniquement de l’eau",
+          "correct": false
+        },
+        {
+          "text": "Des produits Nutri-Score A exclusivement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite une étude de Santé publique France (2020) indiquant que plus de la moitié de ces publicités promouvaient des produits D ou E."
+    },
+    {
+      "id": "sp-c2-017",
+      "category": "Inégalités sociales de santé",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Les inégalités sociales de santé sont :",
+      "choices": [
+        {
+          "text": "Des différences importantes et systématiques d’état de santé entre groupes sociaux",
+          "correct": true
+        },
+        {
+          "text": "Des différences purement aléatoires sans lien social",
+          "correct": false
+        },
+        {
+          "text": "Des différences uniquement génétiques",
+          "correct": false
+        },
+        {
+          "text": "Des écarts qui n’existent qu’à l’âge adulte",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours les définit comme des différences importantes et systématiques entre groupes sociaux, construites par la société."
+    },
+    {
+      "id": "sp-c2-018",
+      "category": "Inégalités sociales de santé",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Les inégalités sociales de santé peuvent être liées notamment :",
+      "choices": [
+        {
+          "text": "Aux revenus",
+          "correct": true
+        },
+        {
+          "text": "Au niveau d’éducation",
+          "correct": true
+        },
+        {
+          "text": "À la profession",
+          "correct": true
+        },
+        {
+          "text": "Aux conditions de vie",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours évoque le gradient social et des conditions de vie inéquitables influençant l’accès aux ressources et aux soins."
+    },
+    {
+      "id": "sp-c2-019",
+      "category": "Précarité alimentaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle proportion de ménages français est indiquée comme étant en insécurité alimentaire dans le cours ?",
+      "choices": [
+        {
+          "text": "11,4 %",
+          "correct": true
+        },
+        {
+          "text": "1,1 %",
+          "correct": false
+        },
+        {
+          "text": "35 %",
+          "correct": false
+        },
+        {
+          "text": "50 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite 11,4 % des ménages français, d’après l’étude INCA 3 de l’ANSES."
+    },
+    {
+      "id": "sp-c2-020",
+      "category": "Droit à l’alimentation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le droit à l’alimentation implique notamment un accès :",
+      "choices": [
+        {
+          "text": "Physique et économique à une nourriture suffisante, adéquate et culturellement acceptable",
+          "correct": true
+        },
+        {
+          "text": "Uniquement à une quantité maximale d’aliments",
+          "correct": false
+        },
+        {
+          "text": "À n’importe quel aliment sans considération de durabilité",
+          "correct": false
+        },
+        {
+          "text": "Exclusivement à des aliments gratuits",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours reprend une définition intégrant accessibilité physique et économique, adéquation culturelle et durabilité."
+    },
+    {
+      "id": "sp-c2-021",
+      "category": "Universalisme proportionné",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "L’universalisme proportionné consiste à :",
+      "choices": [
+        {
+          "text": "Proposer des interventions à tous avec un soutien accru selon les besoins",
+          "correct": true
+        },
+        {
+          "text": "Réserver toutes les actions aux publics les plus favorisés",
+          "correct": false
+        },
+        {
+          "text": "Proposer exactement la même intensité d’action à tous",
+          "correct": false
+        },
+        {
+          "text": "Supprimer les actions universelles",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit cette approche comme universelle avec une intensité adaptée aux besoins et vulnérabilités."
+    },
+    {
+      "id": "sp-c2-022",
+      "category": "Universalisme proportionné",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel exemple illustre l’universalisme proportionné dans le cours ?",
+      "choices": [
+        {
+          "text": "Une éducation nutritionnelle pour toutes les femmes enceintes, avec des paniers de fruits et légumes supplémentaires pour celles en situation de précarité",
+          "correct": true
+        },
+        {
+          "text": "Une action réservée uniquement aux femmes aisées",
+          "correct": false
+        },
+        {
+          "text": "Une interdiction de toute aide ciblée",
+          "correct": false
+        },
+        {
+          "text": "Une campagne ne concernant personne",
+          "correct": false
+        }
+      ],
+      "explanation": "Cet exemple montre une action à la fois universelle et renforcée pour un public ayant davantage de besoins."
+    },
+    {
+      "id": "sp-c2-023",
+      "category": "Danger et facteur de risque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le danger correspond à :",
+      "choices": [
+        {
+          "text": "Ce qui peut causer un dommage à la santé par sa propriété intrinsèque",
+          "correct": true
+        },
+        {
+          "text": "Un élément qui augmente seulement une probabilité sans pouvoir causer de dommage",
+          "correct": false
+        },
+        {
+          "text": "Un indicateur démographique",
+          "correct": false
+        },
+        {
+          "text": "Une mesure de prévention",
+          "correct": false
+        }
+      ],
+      "explanation": "Le danger est présenté comme une propriété intrinsèque d’un agent, d’une situation ou d’un environnement pouvant causer un dommage."
+    },
+    {
+      "id": "sp-c2-024",
+      "category": "Danger et facteur de risque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un facteur de risque est :",
+      "choices": [
+        {
+          "text": "Un élément qui augmente la probabilité de survenue d’un problème de santé sans être forcément sa cause directe",
+          "correct": true
+        },
+        {
+          "text": "Toujours la cause unique d’une maladie",
+          "correct": false
+        },
+        {
+          "text": "Un élément toujours protecteur",
+          "correct": false
+        },
+        {
+          "text": "Un synonyme strict de danger",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours distingue le facteur de risque, qui augmente une probabilité, du danger et du déterminant plus large."
+    },
+    {
+      "id": "sp-c2-025",
+      "category": "Déterminants et risques",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pourquoi le déterminant de santé est-il une notion plus large que le facteur de risque ?",
+      "choices": [
+        {
+          "text": "Parce qu’il inclut des influences positives ou négatives, dont certains facteurs protecteurs",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’il concerne uniquement les maladies",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’il exclut l’environnement",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’il est toujours individuel",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours précise que tous les facteurs de risque sont des déterminants, mais que tous les déterminants ne sont pas des facteurs de risque."
+    }
+  ]
+}

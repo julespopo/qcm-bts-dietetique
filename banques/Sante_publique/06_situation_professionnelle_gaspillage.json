@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "title": "Gaspillage alimentaire - situation professionnelle",
+  "subject": "Santé publique",
+  "chapter": "Situation professionnelle",
+  "questions": [
+    {
+      "id": "sp-sit-001",
+      "category": "Contexte",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La Journée internationale de sensibilisation aux pertes et gaspillages de nourriture se tient le :",
+      "choices": [
+        {
+          "text": "29 septembre",
+          "correct": true
+        },
+        {
+          "text": "1er janvier",
+          "correct": false
+        },
+        {
+          "text": "21 juin",
+          "correct": false
+        },
+        {
+          "text": "31 décembre",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document situe cette journée au 29 septembre."
+    },
+    {
+      "id": "sp-sit-002",
+      "category": "Contexte",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles organisations sont citées comme ayant institué cette journée internationale ?",
+      "choices": [
+        {
+          "text": "FAO",
+          "correct": true
+        },
+        {
+          "text": "PNUE",
+          "correct": true
+        },
+        {
+          "text": "OMS uniquement",
+          "correct": false
+        },
+        {
+          "text": "OCDE uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document cite l’Organisation des Nations Unies pour l’alimentation et l’agriculture (FAO) et le Programme des Nations Unies pour l’environnement (PNUE)."
+    },
+    {
+      "id": "sp-sit-003",
+      "category": "Chiffres",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel coût annuel par habitant du gaspillage alimentaire est estimé dans la situation professionnelle ?",
+      "choices": [
+        {
+          "text": "100 € par habitant et par an",
+          "correct": true
+        },
+        {
+          "text": "10 €",
+          "correct": false
+        },
+        {
+          "text": "1 000 €",
+          "correct": false
+        },
+        {
+          "text": "1 €",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document indique un coût estimé à 100 € par habitant et par an."
+    },
+    {
+      "id": "sp-sit-004",
+      "category": "Restauration collective",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle quantité moyenne de nourriture gaspillée par repas est indiquée pour la restauration collective ?",
+      "choices": [
+        {
+          "text": "170 g",
+          "correct": true
+        },
+        {
+          "text": "17 g",
+          "correct": false
+        },
+        {
+          "text": "1,7 kg",
+          "correct": false
+        },
+        {
+          "text": "55 g",
+          "correct": false
+        }
+      ],
+      "explanation": "La situation professionnelle indique 170 g de nourriture gaspillée par repas en moyenne."
+    },
+    {
+      "id": "sp-sit-005",
+      "category": "Questionnaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le questionnaire destiné aux lycéens doit comporter environ :",
+      "choices": [
+        {
+          "text": "10 à 15 questions",
+          "correct": true
+        },
+        {
+          "text": "1 à 2 questions",
+          "correct": false
+        },
+        {
+          "text": "50 à 100 questions",
+          "correct": false
+        },
+        {
+          "text": "Aucun nombre n’est indiqué",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document demande un questionnaire court de 10 à 15 questions."
+    },
+    {
+      "id": "sp-sit-006",
+      "category": "Questionnaire",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels thèmes doivent être explorés par le questionnaire lycéens ?",
+      "choices": [
+        {
+          "text": "Habitudes au réfectoire et à la maison",
+          "correct": true
+        },
+        {
+          "text": "Raisons du gaspillage",
+          "correct": true
+        },
+        {
+          "text": "Connaissance des enjeux environnementaux et économiques",
+          "correct": true
+        },
+        {
+          "text": "Leviers d’action préférés par les élèves",
+          "correct": true
+        }
+      ],
+      "explanation": "Ces cinq dimensions sont explicitement demandées dans la situation professionnelle."
+    },
+    {
+      "id": "sp-sit-007",
+      "category": "Communication",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle exigence est donnée pour le langage du questionnaire ?",
+      "choices": [
+        {
+          "text": "Être accessible et adapté aux lycéens",
+          "correct": true
+        },
+        {
+          "text": "Employer uniquement un vocabulaire scientifique complexe",
+          "correct": false
+        },
+        {
+          "text": "Être rédigé uniquement en anglais",
+          "correct": false
+        },
+        {
+          "text": "Être réservé aux professionnels",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document demande un langage accessible et adapté aux lycéens."
+    },
+    {
+      "id": "sp-sit-008",
+      "category": "Atelier",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Lors de la conception de l’atelier de sensibilisation, il faut notamment :",
+      "choices": [
+        {
+          "text": "Définir des objectifs pédagogiques",
+          "correct": true
+        },
+        {
+          "text": "Concevoir des animations",
+          "correct": true
+        },
+        {
+          "text": "Créer des supports adaptés",
+          "correct": true
+        },
+        {
+          "text": "Détailler le déroulé, les temps et les consignes",
+          "correct": true
+        }
+      ],
+      "explanation": "Ces étapes sont listées dans les tâches de la semaine du 21 au 25 septembre."
+    },
+    {
+      "id": "sp-sit-009",
+      "category": "Hygiène et atelier culinaire",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Parmi les points de vigilance demandés pour les ateliers culinaires figurent :",
+      "choices": [
+        {
+          "text": "Les CCP",
+          "correct": true
+        },
+        {
+          "text": "Les allergènes réglementaires",
+          "correct": true
+        },
+        {
+          "text": "Les règles d’hygiène et de sécurité",
+          "correct": true
+        },
+        {
+          "text": "La traçabilité de l’analyse sensorielle",
+          "correct": true
+        }
+      ],
+      "explanation": "Le document demande d’identifier les CCP et allergènes, de respecter l’hygiène et d’assurer une traçabilité lors de l’analyse sensorielle."
+    },
+    {
+      "id": "sp-sit-010",
+      "category": "Mise en œuvre",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Parmi les tâches finales prévues, lesquelles sont citées ?",
+      "choices": [
+        {
+          "text": "Réaliser des affiches de sensibilisation",
+          "correct": true
+        },
+        {
+          "text": "Présenter le protocole d’utilisation des œufs coquilles",
+          "correct": true
+        },
+        {
+          "text": "Expliquer la marche en avant",
+          "correct": true
+        },
+        {
+          "text": "Établir le coût des préparations",
+          "correct": true
+        }
+      ],
+      "explanation": "Ces tâches apparaissent dans la semaine du 28 septembre au 2 octobre."
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "appVersion": 2,
+  "appVersion": 3,
   "updated": "2026-09-23",
   "banks": [
     {
@@ -55,6 +55,60 @@
       "file": "banques/BPADN/06_biologie_cellulaire.json",
       "count": 30,
       "version": 3
+    },
+    {
+      "id": "Sante_publique__01_concepts_sante",
+      "title": "Concepts de santé",
+      "subject": "Santé publique",
+      "chapter": "Chapitre 1",
+      "file": "banques/Sante_publique/01_concepts_sante.json",
+      "count": 25,
+      "version": 1
+    },
+    {
+      "id": "Sante_publique__02_determinants_sante",
+      "title": "Les déterminants de santé",
+      "subject": "Santé publique",
+      "chapter": "Chapitre 2",
+      "file": "banques/Sante_publique/02_determinants_sante.json",
+      "count": 25,
+      "version": 1
+    },
+    {
+      "id": "Sante_publique__03_mesure_etat_sante_population",
+      "title": "Mesure de l’état de santé d’une population",
+      "subject": "Santé publique",
+      "chapter": "Chapitre 3",
+      "file": "banques/Sante_publique/03_mesure_etat_sante_population.json",
+      "count": 25,
+      "version": 1
+    },
+    {
+      "id": "Sante_publique__04_pnns",
+      "title": "PNNS - Promotion de la santé par la nutrition",
+      "subject": "Santé publique",
+      "chapter": "PNNS",
+      "file": "banques/Sante_publique/04_pnns.json",
+      "count": 10,
+      "version": 1
+    },
+    {
+      "id": "Sante_publique__05_gaspillage_alimentaire",
+      "title": "Gaspillage alimentaire - cadre, enjeux et actions",
+      "subject": "Santé publique",
+      "chapter": "Gaspillage alimentaire",
+      "file": "banques/Sante_publique/05_gaspillage_alimentaire.json",
+      "count": 25,
+      "version": 1
+    },
+    {
+      "id": "Sante_publique__06_situation_professionnelle_gaspillage",
+      "title": "Gaspillage alimentaire - situation professionnelle",
+      "subject": "Santé publique",
+      "chapter": "Situation professionnelle",
+      "file": "banques/Sante_publique/06_situation_professionnelle_gaspillage.json",
+      "count": 10,
+      "version": 1
     }
   ]
 }

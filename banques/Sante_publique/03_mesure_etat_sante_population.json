@@ -1,0 +1,658 @@
+{
+  "version": 1,
+  "title": "Mesure de l’état de santé d’une population",
+  "subject": "Santé publique",
+  "chapter": "Chapitre 3",
+  "questions": [
+    {
+      "id": "sp-c3-001",
+      "category": "Indicateurs",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Un indicateur est :",
+      "choices": [
+        {
+          "text": "Une variable servant d’outil de mesure pour décrire une situation, un phénomène ou un processus",
+          "correct": true
+        },
+        {
+          "text": "Une opinion sans mesure",
+          "correct": false
+        },
+        {
+          "text": "Une maladie",
+          "correct": false
+        },
+        {
+          "text": "Un traitement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit l’indicateur comme une variable et un outil de mesure."
+    },
+    {
+      "id": "sp-c3-002",
+      "category": "Indicateurs",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "La construction d’un indicateur peut varier selon :",
+      "choices": [
+        {
+          "text": "La population",
+          "correct": true
+        },
+        {
+          "text": "L’espace-temps",
+          "correct": true
+        },
+        {
+          "text": "Le contexte et la finalité de la mesure",
+          "correct": true
+        },
+        {
+          "text": "Uniquement le nom de l’indicateur",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours rappelle qu’un indicateur est construit en fonction de la population, de l’espace-temps, de l’objet, du contexte et de la finalité."
+    },
+    {
+      "id": "sp-c3-003",
+      "category": "Formes d’indicateurs",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le nombre de décès est un exemple de :",
+      "choices": [
+        {
+          "text": "Valeur absolue",
+          "correct": true
+        },
+        {
+          "text": "Valeur relative",
+          "correct": false
+        },
+        {
+          "text": "Indicateur composite uniquement",
+          "correct": false
+        },
+        {
+          "text": "Taux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours classe les nombres de naissances ou décès comme valeurs absolues."
+    },
+    {
+      "id": "sp-c3-004",
+      "category": "Formes d’indicateurs",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le taux de mortalité est un exemple de :",
+      "choices": [
+        {
+          "text": "Valeur relative",
+          "correct": true
+        },
+        {
+          "text": "Valeur absolue",
+          "correct": false
+        },
+        {
+          "text": "Mesure qualitative uniquement",
+          "correct": false
+        },
+        {
+          "text": "Indicateur sans population de référence",
+          "correct": false
+        }
+      ],
+      "explanation": "Les taux, comme le taux de mortalité ou de natalité, sont des valeurs relatives."
+    },
+    {
+      "id": "sp-c3-005",
+      "category": "Indicateurs composites",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Un indicateur composite correspond :",
+      "choices": [
+        {
+          "text": "Au regroupement de plusieurs indicateurs individuels",
+          "correct": true
+        },
+        {
+          "text": "À un seul nombre brut sans composante",
+          "correct": false
+        },
+        {
+          "text": "Uniquement à une mesure biologique",
+          "correct": false
+        },
+        {
+          "text": "À un questionnaire sans résultat",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit l’indicateur composite ou synthétique comme un agrégat de plusieurs indicateurs."
+    },
+    {
+      "id": "sp-c3-006",
+      "category": "Indicateurs composites",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels éléments peuvent entrer dans un indicateur composite tel que l’IDH selon l’exemple du cours ?",
+      "choices": [
+        {
+          "text": "Espérance de vie",
+          "correct": true
+        },
+        {
+          "text": "Éducation",
+          "correct": true
+        },
+        {
+          "text": "Niveau de vie",
+          "correct": true
+        },
+        {
+          "text": "Uniquement le poids",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours donne l’exemple du regroupement espérance de vie, éducation et niveau de vie."
+    },
+    {
+      "id": "sp-c3-007",
+      "category": "Relativité des indicateurs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi faut-il utiliser plusieurs indicateurs pour évaluer une situation ?",
+      "choices": [
+        {
+          "text": "Pour obtenir une vue d’ensemble",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’un indicateur est toujours parfait",
+          "correct": false
+        },
+        {
+          "text": "Pour éviter toute comparaison",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’un seul indicateur mesure automatiquement toutes les dimensions",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours insiste sur la relativité des indicateurs et la nécessité d’en combiner plusieurs."
+    },
+    {
+      "id": "sp-c3-008",
+      "category": "Finalité des indicateurs",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Les indicateurs d’activité servent surtout à :",
+      "choices": [
+        {
+          "text": "Suivre la mise en œuvre des politiques",
+          "correct": true
+        },
+        {
+          "text": "Mesurer uniquement la mortalité",
+          "correct": false
+        },
+        {
+          "text": "Décrire uniquement le niveau de vie",
+          "correct": false
+        },
+        {
+          "text": "Remplacer les indicateurs de résultats",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que les indicateurs d’activité permettent le suivi et la mise en œuvre des politiques."
+    },
+    {
+      "id": "sp-c3-009",
+      "category": "Finalité des indicateurs",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Les indicateurs de résultats servent surtout à :",
+      "choices": [
+        {
+          "text": "Mesurer les effets des politiques ou l’évolution des phénomènes",
+          "correct": true
+        },
+        {
+          "text": "Mesurer seulement les moyens financiers engagés",
+          "correct": false
+        },
+        {
+          "text": "Décrire uniquement les naissances",
+          "correct": false
+        },
+        {
+          "text": "Évaluer uniquement l’activité des professionnels",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours les associe aux effets et à l’évolution globale des phénomènes de santé ou de précarité."
+    },
+    {
+      "id": "sp-c3-010",
+      "category": "Finalité des indicateurs",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Les indicateurs mixtes évaluent :",
+      "choices": [
+        {
+          "text": "L’effort consenti par la collectivité et son impact",
+          "correct": true
+        },
+        {
+          "text": "Uniquement les ressources humaines",
+          "correct": false
+        },
+        {
+          "text": "Uniquement la satisfaction",
+          "correct": false
+        },
+        {
+          "text": "Seulement la démographie",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit les indicateurs mixtes comme évaluant l’effort et son impact."
+    },
+    {
+      "id": "sp-c3-011",
+      "category": "Rôle des indicateurs",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Mesurer l’état de santé d’une population permet notamment de :",
+      "choices": [
+        {
+          "text": "Repérer les problèmes prioritaires",
+          "correct": true
+        },
+        {
+          "text": "Comparer des populations ou des périodes",
+          "correct": true
+        },
+        {
+          "text": "Identifier des groupes vulnérables",
+          "correct": true
+        },
+        {
+          "text": "Évaluer des politiques de santé",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours cite ces usages pour orienter prévention, décisions et politiques."
+    },
+    {
+      "id": "sp-c3-012",
+      "category": "Démographie",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le taux de natalité correspond :",
+      "choices": [
+        {
+          "text": "Au rapport entre le nombre annuel de naissances et la population totale, exprimé en pour mille",
+          "correct": true
+        },
+        {
+          "text": "Au nombre moyen d’enfants par femme",
+          "correct": false
+        },
+        {
+          "text": "Au nombre total de décès",
+          "correct": false
+        },
+        {
+          "text": "À la différence entre immigration et émigration uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit le taux de natalité comme le rapport naissances annuelles / population totale, exprimé en ‰."
+    },
+    {
+      "id": "sp-c3-013",
+      "category": "Démographie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La fécondité indique :",
+      "choices": [
+        {
+          "text": "Le nombre moyen d’enfants par femme en âge de procréer",
+          "correct": true
+        },
+        {
+          "text": "Le nombre de décès avant un an",
+          "correct": false
+        },
+        {
+          "text": "Le nombre de nouveaux cas de maladie",
+          "correct": false
+        },
+        {
+          "text": "Le nombre de naissances pour mille habitants",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit la fécondité comme le nombre moyen d’enfants par femme en âge de procréer."
+    },
+    {
+      "id": "sp-c3-014",
+      "category": "Démographie",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "L’évolution d’une population dépend notamment :",
+      "choices": [
+        {
+          "text": "Du solde naturel et du solde migratoire",
+          "correct": true
+        },
+        {
+          "text": "Uniquement de la natalité",
+          "correct": false
+        },
+        {
+          "text": "Uniquement de la mortalité infantile",
+          "correct": false
+        },
+        {
+          "text": "De l’IMC moyen",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite le solde naturel et le solde migratoire comme deux facteurs de l’évolution de la population."
+    },
+    {
+      "id": "sp-c3-015",
+      "category": "Mortalité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Les indicateurs de mortalité renseignent principalement sur :",
+      "choices": [
+        {
+          "text": "Les décès dans une population",
+          "correct": true
+        },
+        {
+          "text": "Les maladies sans décès",
+          "correct": false
+        },
+        {
+          "text": "Les habitudes alimentaires uniquement",
+          "correct": false
+        },
+        {
+          "text": "Les revenus",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours distingue mortalité = décès et morbidité = maladies/problèmes de santé."
+    },
+    {
+      "id": "sp-c3-016",
+      "category": "Morbidité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Les indicateurs de morbidité renseignent principalement sur :",
+      "choices": [
+        {
+          "text": "L’état de maladie ou la fréquence des maladies",
+          "correct": true
+        },
+        {
+          "text": "Uniquement les décès",
+          "correct": false
+        },
+        {
+          "text": "Les naissances",
+          "correct": false
+        },
+        {
+          "text": "Les migrations",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit la morbidité comme le nombre de personnes malades ou de maladies dans une population."
+    },
+    {
+      "id": "sp-c3-017",
+      "category": "Mortalité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La mortalité prématurée concerne les décès :",
+      "choices": [
+        {
+          "text": "Avant 65 ans",
+          "correct": true
+        },
+        {
+          "text": "Avant 1 an",
+          "correct": false
+        },
+        {
+          "text": "Après 90 ans uniquement",
+          "correct": false
+        },
+        {
+          "text": "Entre 65 et 70 ans uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours fixe le seuil de la mortalité prématurée à avant 65 ans."
+    },
+    {
+      "id": "sp-c3-018",
+      "category": "Mortalité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La mortalité infantile concerne les décès :",
+      "choices": [
+        {
+          "text": "Avant l’âge de 1 an",
+          "correct": true
+        },
+        {
+          "text": "Avant 5 ans",
+          "correct": false
+        },
+        {
+          "text": "Avant 18 ans",
+          "correct": false
+        },
+        {
+          "text": "Avant 65 ans",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit la mortalité infantile comme celle des enfants avant un an."
+    },
+    {
+      "id": "sp-c3-019",
+      "category": "Morbidité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La prévalence correspond :",
+      "choices": [
+        {
+          "text": "Au nombre de cas existants d’une maladie dans une population à un moment donné, anciens et nouveaux",
+          "correct": true
+        },
+        {
+          "text": "Uniquement aux nouveaux cas",
+          "correct": false
+        },
+        {
+          "text": "Uniquement aux décès",
+          "correct": false
+        },
+        {
+          "text": "Au nombre de naissances",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours précise que la prévalence ne distingue pas anciens et nouveaux cas."
+    },
+    {
+      "id": "sp-c3-020",
+      "category": "Morbidité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "L’incidence correspond :",
+      "choices": [
+        {
+          "text": "Au nombre de nouveaux cas d’une maladie pendant une période donnée",
+          "correct": true
+        },
+        {
+          "text": "À tous les cas anciens et nouveaux à un instant donné",
+          "correct": false
+        },
+        {
+          "text": "Au nombre de décès",
+          "correct": false
+        },
+        {
+          "text": "À la durée moyenne de vie",
+          "correct": false
+        }
+      ],
+      "explanation": "L’incidence mesure les nouveaux cas sur une période donnée."
+    },
+    {
+      "id": "sp-c3-021",
+      "category": "Espérance de vie",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "L’espérance de vie à la naissance correspond :",
+      "choices": [
+        {
+          "text": "Au nombre d’années restant à vivre à un nouveau-né si les taux de mortalité actuels persistent",
+          "correct": true
+        },
+        {
+          "text": "À l’âge maximal possible d’un être humain",
+          "correct": false
+        },
+        {
+          "text": "À l’âge moyen des personnes décédées uniquement",
+          "correct": false
+        },
+        {
+          "text": "Au nombre d’années sans incapacité uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit l’espérance de vie à un âge de référence, dont l’espérance de vie à la naissance."
+    },
+    {
+      "id": "sp-c3-022",
+      "category": "Espérance de vie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "L’EVSI correspond :",
+      "choices": [
+        {
+          "text": "Au nombre d’années restant à vivre sans incapacité sévère",
+          "correct": true
+        },
+        {
+          "text": "À l’espérance de vie totale sans tenir compte de l’état de santé",
+          "correct": false
+        },
+        {
+          "text": "À la prévalence d’une maladie",
+          "correct": false
+        },
+        {
+          "text": "Au taux de fécondité",
+          "correct": false
+        }
+      ],
+      "explanation": "EVSI = espérance de vie sans incapacité, c’est-à-dire années de vie en bonne santé."
+    },
+    {
+      "id": "sp-c3-023",
+      "category": "Indicateurs nutritionnels",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels types d’indicateurs nutritionnels sont cités ?",
+      "choices": [
+        {
+          "text": "Anthropométriques",
+          "correct": true
+        },
+        {
+          "text": "Biologiques",
+          "correct": true
+        },
+        {
+          "text": "Alimentaires",
+          "correct": true
+        },
+        {
+          "text": "Uniquement démographiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite poids/taille/IMC, marqueurs biologiques et apports alimentaires."
+    },
+    {
+      "id": "sp-c3-024",
+      "category": "PNNS et indicateurs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le lien entre le PNNS et les indicateurs ?",
+      "choices": [
+        {
+          "text": "Le PNNS fixe des objectifs et les indicateurs permettent de suivre les progrès et d’ajuster les actions",
+          "correct": true
+        },
+        {
+          "text": "Les indicateurs remplacent entièrement le PNNS",
+          "correct": false
+        },
+        {
+          "text": "Le PNNS ne peut jamais être évalué",
+          "correct": false
+        },
+        {
+          "text": "Les indicateurs n’ont aucun lien avec les recommandations",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours résume : le PNNS fixe la direction et les indicateurs montrent le chemin parcouru."
+    },
+    {
+      "id": "sp-c3-025",
+      "category": "Producteurs de données",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles structures sont citées comme producteurs ou sources de données utiles en nutrition et santé publique ?",
+      "choices": [
+        {
+          "text": "ANSES / Ciqual",
+          "correct": true
+        },
+        {
+          "text": "Santé publique France",
+          "correct": true
+        },
+        {
+          "text": "DREES et INSEE",
+          "correct": true
+        },
+        {
+          "text": "Open Food Facts",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours cite notamment ANSES/Ciqual, Santé publique France, DREES, INSEE, Ministère de l’Agriculture/SSP et Open Food Facts."
+    }
+  ]
+}

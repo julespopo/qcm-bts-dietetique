@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "title": "PNNS - Promotion de la santé par la nutrition",
+  "subject": "Santé publique",
+  "chapter": "PNNS",
+  "questions": [
+    {
+      "id": "sp-pnns-001",
+      "category": "Repères",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "En quelle année le PNNS a-t-il été lancé ?",
+      "choices": [
+        {
+          "text": "2001",
+          "correct": true
+        },
+        {
+          "text": "1986",
+          "correct": false
+        },
+        {
+          "text": "2016",
+          "correct": false
+        },
+        {
+          "text": "2026",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document indique que le PNNS est un programme public lancé en 2001."
+    },
+    {
+      "id": "sp-pnns-002",
+      "category": "Finalité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est l’objectif général du PNNS ?",
+      "choices": [
+        {
+          "text": "Améliorer l’état de santé de la population française en agissant sur la nutrition",
+          "correct": true
+        },
+        {
+          "text": "Soigner uniquement les personnes hospitalisées",
+          "correct": false
+        },
+        {
+          "text": "Augmenter la consommation de tous les aliments",
+          "correct": false
+        },
+        {
+          "text": "Remplacer le système de santé",
+          "correct": false
+        }
+      ],
+      "explanation": "Le PNNS vise à améliorer l’état de santé de l’ensemble de la population en agissant sur un déterminant majeur : la nutrition."
+    },
+    {
+      "id": "sp-pnns-003",
+      "category": "Nutrition",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Dans le PNNS, la nutrition comprend :",
+      "choices": [
+        {
+          "text": "L’alimentation",
+          "correct": true
+        },
+        {
+          "text": "L’activité physique",
+          "correct": true
+        },
+        {
+          "text": "La sédentarité",
+          "correct": true
+        },
+        {
+          "text": "Des déterminants sociaux, culturels, économiques, sensoriels et cognitifs",
+          "correct": true
+        }
+      ],
+      "explanation": "Le document définit la nutrition au sens large, au-delà de la seule alimentation."
+    },
+    {
+      "id": "sp-pnns-004",
+      "category": "Santé",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels liens le document fait-il entre PNNS et dimensions de la santé ?",
+      "choices": [
+        {
+          "text": "Protection contre des pathologies pour la santé physique",
+          "correct": true
+        },
+        {
+          "text": "Influence sur l’équilibre psychologique pour la santé mentale",
+          "correct": true
+        },
+        {
+          "text": "Réduction des inégalités nutritionnelles pour la santé sociale",
+          "correct": true
+        },
+        {
+          "text": "Aucun lien avec la santé sociale",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document relie le PNNS aux dimensions physique, mentale et sociale de la santé."
+    },
+    {
+      "id": "sp-pnns-005",
+      "category": "Promotion de la santé",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le PNNS est-il une politique de prévention et de promotion de la santé ?",
+      "choices": [
+        {
+          "text": "Parce qu’il agit en amont sur les déterminants et les comportements",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’il se limite aux traitements médicaux",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’il ne fait aucune communication",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’il intervient uniquement après apparition de la maladie",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document indique qu’il agit en amont pour prévenir les maladies chroniques, faire évoluer les comportements et informer le public."
+    },
+    {
+      "id": "sp-pnns-006",
+      "category": "Prévention",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles maladies chroniques sont citées parmi celles que le PNNS cherche à prévenir ?",
+      "choices": [
+        {
+          "text": "Cancers",
+          "correct": true
+        },
+        {
+          "text": "Maladies cardiovasculaires",
+          "correct": true
+        },
+        {
+          "text": "Obésité et diabète",
+          "correct": true
+        },
+        {
+          "text": "Uniquement maladies infectieuses",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document cite cancers, maladies cardiovasculaires, obésité et diabète."
+    },
+    {
+      "id": "sp-pnns-007",
+      "category": "PNNS 5",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle période couvre le PNNS 5 ?",
+      "choices": [
+        {
+          "text": "2026-2030",
+          "correct": true
+        },
+        {
+          "text": "2020-2024",
+          "correct": false
+        },
+        {
+          "text": "2011-2015",
+          "correct": false
+        },
+        {
+          "text": "2030-2040",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document présente le PNNS 5 comme couvrant la période 2026-2030."
+    },
+    {
+      "id": "sp-pnns-008",
+      "category": "PNNS 5",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Parmi les ambitions du PNNS 5, lesquelles sont citées ?",
+      "choices": [
+        {
+          "text": "Mieux prévenir les maladies chroniques",
+          "correct": true
+        },
+        {
+          "text": "Améliorer l’accès à une alimentation saine, durable et de qualité",
+          "correct": true
+        },
+        {
+          "text": "Réduire les inégalités sociales et territoriales en nutrition",
+          "correct": true
+        },
+        {
+          "text": "Supprimer toute intervention sur le système alimentaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document ajoute aussi l’accompagnement de la transformation durable du système alimentaire."
+    },
+    {
+      "id": "sp-pnns-009",
+      "category": "PNNS 5",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels sont les trois axes du PNNS 5 ?",
+      "choices": [
+        {
+          "text": "Garantir l’accès à des environnements nutritionnels durables favorables à la santé",
+          "correct": true
+        },
+        {
+          "text": "Encourager des comportements nutritionnels sains et durables",
+          "correct": true
+        },
+        {
+          "text": "Faire des milieux de vie des espaces promoteurs de santé",
+          "correct": true
+        },
+        {
+          "text": "Développer uniquement des soins hospitaliers",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document structure le PNNS 5 autour de ces trois axes."
+    },
+    {
+      "id": "sp-pnns-010",
+      "category": "Articulation",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Le PNNS 5 s’articule avec :",
+      "choices": [
+        {
+          "text": "La Stratégie nationale de santé",
+          "correct": true
+        },
+        {
+          "text": "La SNANC 2025-2030",
+          "correct": true
+        },
+        {
+          "text": "La Stratégie nationale sport santé",
+          "correct": true
+        },
+        {
+          "text": "Aucune autre stratégie nationale",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document cite la SNS, la Stratégie nationale pour l’alimentation, la nutrition et le climat et la Stratégie nationale sport santé."
+    }
+  ]
+}

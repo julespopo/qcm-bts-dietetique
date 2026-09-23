@@ -1,0 +1,658 @@
+{
+  "version": 1,
+  "title": "Gaspillage alimentaire - cadre, enjeux et actions",
+  "subject": "Santé publique",
+  "chapter": "Gaspillage alimentaire",
+  "questions": [
+    {
+      "id": "sp-gas-001",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le gaspillage alimentaire est défini comme :",
+      "choices": [
+        {
+          "text": "Toute nourriture destinée à la consommation humaine qui est perdue, jetée ou dégradée à une étape de la chaîne alimentaire",
+          "correct": true
+        },
+        {
+          "text": "Uniquement les épluchures non comestibles",
+          "correct": false
+        },
+        {
+          "text": "Uniquement les restes des ménages",
+          "correct": false
+        },
+        {
+          "text": "Tous les emballages alimentaires",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus reprend cette définition législative du gaspillage alimentaire."
+    },
+    {
+      "id": "sp-gas-002",
+      "category": "Chiffres",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Environ combien de kilogrammes d’aliments encore consommables chaque Français jette-t-il par an selon le document ADEME ?",
+      "choices": [
+        {
+          "text": "19 kg",
+          "correct": true
+        },
+        {
+          "text": "2 kg",
+          "correct": false
+        },
+        {
+          "text": "55 kg uniquement de produits comestibles",
+          "correct": false
+        },
+        {
+          "text": "100 kg",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus indique environ 19 kg d’aliments encore consommables jetés par Français et par an."
+    },
+    {
+      "id": "sp-gas-003",
+      "category": "Chiffres",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "En 2023, combien de tonnes de déchets alimentaires la France a-t-elle produites selon le corpus ?",
+      "choices": [
+        {
+          "text": "9,7 millions de tonnes",
+          "correct": true
+        },
+        {
+          "text": "3,8 millions de tonnes",
+          "correct": false
+        },
+        {
+          "text": "19 millions de tonnes",
+          "correct": false
+        },
+        {
+          "text": "55 millions de tonnes",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document indique 9,7 millions de tonnes de déchets alimentaires en 2023."
+    },
+    {
+      "id": "sp-gas-004",
+      "category": "Chiffres",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Sur les 9,7 millions de tonnes de déchets alimentaires en 2023, quelle part est indiquée comme gaspillage alimentaire ?",
+      "choices": [
+        {
+          "text": "3,8 millions de tonnes, soit environ 40 %",
+          "correct": true
+        },
+        {
+          "text": "9,7 millions de tonnes, soit 100 %",
+          "correct": false
+        },
+        {
+          "text": "1 million de tonnes, soit 10 %",
+          "correct": false
+        },
+        {
+          "text": "7 millions de tonnes, soit 70 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus indique 3,8 millions de tonnes, soit 40 %, correspondant au gaspillage alimentaire."
+    },
+    {
+      "id": "sp-gas-005",
+      "category": "Objectifs nationaux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel objectif national de réduction du gaspillage est indiqué ?",
+      "choices": [
+        {
+          "text": "Réduire de 50 % par rapport à 2015 selon des échéances différentes selon les secteurs",
+          "correct": true
+        },
+        {
+          "text": "Réduire de 10 % sans date",
+          "correct": false
+        },
+        {
+          "text": "Supprimer 100 % du gaspillage en 2025",
+          "correct": false
+        },
+        {
+          "text": "Ne fixer aucun objectif chiffré",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus indique un objectif de -50 % par rapport à 2015 : 2025 pour distribution/restauration collective et 2030 pour d’autres secteurs."
+    },
+    {
+      "id": "sp-gas-006",
+      "category": "Pacte national",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le Pacte national de lutte contre le gaspillage alimentaire a été mis en œuvre dès :",
+      "choices": [
+        {
+          "text": "2013",
+          "correct": true
+        },
+        {
+          "text": "2001",
+          "correct": false
+        },
+        {
+          "text": "2021",
+          "correct": false
+        },
+        {
+          "text": "2026",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document situe la mise en œuvre du Pacte national en 2013, puis son renouvellement en 2017."
+    },
+    {
+      "id": "sp-gas-007",
+      "category": "Loi Garot",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle hiérarchie d’actions la loi Garot de 2016 établit-elle en priorité ?",
+      "choices": [
+        {
+          "text": "Prévention, puis don/transformation, puis alimentation animale, puis compost/méthanisation",
+          "correct": true
+        },
+        {
+          "text": "Compost d’abord, prévention en dernier",
+          "correct": false
+        },
+        {
+          "text": "Destruction des aliments consommables en priorité",
+          "correct": false
+        },
+        {
+          "text": "Uniquement le recyclage des emballages",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus présente cette hiérarchie des actions de lutte contre le gaspillage."
+    },
+    {
+      "id": "sp-gas-008",
+      "category": "Loi Garot",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que doivent proposer les distributeurs de plus de 400 m² selon la loi Garot ?",
+      "choices": [
+        {
+          "text": "Des conventions de don à des associations d’aide alimentaire",
+          "correct": true
+        },
+        {
+          "text": "Un service de restauration collective",
+          "correct": false
+        },
+        {
+          "text": "Des aliments gratuits à tous les clients",
+          "correct": false
+        },
+        {
+          "text": "Une collecte de verre uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus indique l’obligation de proposer des conventions de don aux associations d’aide alimentaire."
+    },
+    {
+      "id": "sp-gas-009",
+      "category": "Loi EGalim",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel dispositif la loi EGalim rend-elle obligatoire pour les opérateurs de restauration commerciale à partir du 1er juillet 2021 ?",
+      "choices": [
+        {
+          "text": "Le « gourmet bag »",
+          "correct": true
+        },
+        {
+          "text": "La suppression des menus",
+          "correct": false
+        },
+        {
+          "text": "Le don de tous les repas",
+          "correct": false
+        },
+        {
+          "text": "La pesée obligatoire de chaque assiette",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus cite l’obligation de proposer un « gourmet bag »."
+    },
+    {
+      "id": "sp-gas-010",
+      "category": "Loi AGEC",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "La loi AGEC de 2020 :",
+      "choices": [
+        {
+          "text": "Précise la définition du gaspillage et fixe des objectifs de réduction",
+          "correct": true
+        },
+        {
+          "text": "Étend le diagnostic anti-gaspillage aux industries agroalimentaires",
+          "correct": true
+        },
+        {
+          "text": "Introduit un label national anti-gaspillage",
+          "correct": true
+        },
+        {
+          "text": "Supprime les plans de gestion de la qualité du don",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus décrit ces mesures de la loi AGEC et un renforcement du suivi de la qualité du don."
+    },
+    {
+      "id": "sp-gas-011",
+      "category": "PNA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle finalité générale du Programme national pour l’alimentation est présentée ?",
+      "choices": [
+        {
+          "text": "Assurer l’accès à une alimentation sûre, saine, diversifiée, de qualité et en quantité suffisante, dans des conditions acceptables et durables",
+          "correct": true
+        },
+        {
+          "text": "Augmenter uniquement la production agricole",
+          "correct": false
+        },
+        {
+          "text": "Réduire uniquement le prix des repas scolaires",
+          "correct": false
+        },
+        {
+          "text": "Supprimer la restauration collective",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus reprend la finalité du PNA inscrite dans le Code rural."
+    },
+    {
+      "id": "sp-gas-012",
+      "category": "PNA3",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels sont les trois axes fondamentaux du PNA3 « Territoires en action » ?",
+      "choices": [
+        {
+          "text": "Justice sociale",
+          "correct": true
+        },
+        {
+          "text": "Évolution de l’offre alimentaire et information des consommateurs",
+          "correct": true
+        },
+        {
+          "text": "Lutte contre le gaspillage et éducation alimentaire",
+          "correct": true
+        },
+        {
+          "text": "Uniquement soutien à l’exportation",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document cite ces trois axes."
+    },
+    {
+      "id": "sp-gas-013",
+      "category": "PNA3",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels leviers transversaux sont cités pour le PNA3 ?",
+      "choices": [
+        {
+          "text": "Les Projets alimentaires territoriaux (PAT)",
+          "correct": true
+        },
+        {
+          "text": "La restauration collective",
+          "correct": true
+        },
+        {
+          "text": "Uniquement les réseaux sociaux",
+          "correct": false
+        },
+        {
+          "text": "Uniquement les laboratoires hospitaliers",
+          "correct": false
+        }
+      ],
+      "explanation": "Le PNA3 s’appuie sur les PAT et la restauration collective."
+    },
+    {
+      "id": "sp-gas-014",
+      "category": "RÉGAL",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est l’objectif des RÉGAL ?",
+      "choices": [
+        {
+          "text": "Mobiliser les acteurs de la chaîne alimentaire d’un territoire et favoriser le partage de pratiques et projets",
+          "correct": true
+        },
+        {
+          "text": "Contrôler uniquement les prix alimentaires",
+          "correct": false
+        },
+        {
+          "text": "Remplacer toutes les associations",
+          "correct": false
+        },
+        {
+          "text": "Organiser uniquement la collecte des emballages",
+          "correct": false
+        }
+      ],
+      "explanation": "Les RÉGAL sont présentés comme des communautés de travail territoriales en intelligence collective."
+    },
+    {
+      "id": "sp-gas-015",
+      "category": "Promotion de la santé",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi la lutte contre le gaspillage alimentaire peut-elle relever de la promotion de la santé ?",
+      "choices": [
+        {
+          "text": "Elle agit sur l’alimentation, l’environnement, les comportements et les inégalités",
+          "correct": true
+        },
+        {
+          "text": "Elle concerne uniquement les déchets sans lien avec la santé",
+          "correct": false
+        },
+        {
+          "text": "Elle ne touche jamais l’accès aux ressources",
+          "correct": false
+        },
+        {
+          "text": "Elle remplace les soins médicaux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus relie gaspillage, qualité alimentaire, accès aux ressources, inégalités sociales, environnement et comportements."
+    },
+    {
+      "id": "sp-gas-016",
+      "category": "Compétences",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles compétences peuvent être renforcées par des actions anti-gaspillage ?",
+      "choices": [
+        {
+          "text": "Lire les dates et mieux conserver les aliments",
+          "correct": true
+        },
+        {
+          "text": "Organiser les repas",
+          "correct": true
+        },
+        {
+          "text": "Ajuster les quantités",
+          "correct": true
+        },
+        {
+          "text": "Cuisiner les restes",
+          "correct": true
+        }
+      ],
+      "explanation": "Le corpus présente ces compétences comme favorisant l’autonomie alimentaire."
+    },
+    {
+      "id": "sp-gas-017",
+      "category": "Restauration collective",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Dans les établissements, quelles actions sont citées pour réduire le gaspillage ?",
+      "choices": [
+        {
+          "text": "Ajuster les portions",
+          "correct": true
+        },
+        {
+          "text": "Recueillir l’avis des usagers",
+          "correct": true
+        },
+        {
+          "text": "Former les équipes",
+          "correct": true
+        },
+        {
+          "text": "Travailler sur la présentation des plats",
+          "correct": true
+        }
+      ],
+      "explanation": "Le corpus propose ces actions ainsi que la valorisation des biodéchets."
+    },
+    {
+      "id": "sp-gas-018",
+      "category": "Restauration scolaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle cause explique la plus grande partie des déchets alimentaires en amont de la consommation dans l’étude citée ?",
+      "choices": [
+        {
+          "text": "La surproduction",
+          "correct": true
+        },
+        {
+          "text": "Les emballages uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le manque de réfrigérateurs",
+          "correct": false
+        },
+        {
+          "text": "Le prix des repas",
+          "correct": false
+        }
+      ],
+      "explanation": "L’étude citée identifie la surproduction comme principale cause des déchets pré-consommation."
+    },
+    {
+      "id": "sp-gas-019",
+      "category": "Restauration scolaire",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle quantité moyenne de déchets par enfant servi est indiquée dans l’étude citée ?",
+      "choices": [
+        {
+          "text": "43,8 g environ",
+          "correct": true
+        },
+        {
+          "text": "170 kg",
+          "correct": false
+        },
+        {
+          "text": "1,03 kg",
+          "correct": false
+        },
+        {
+          "text": "400 g exactement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus rapporte 43,8 ± 33,2 g de déchets en moyenne par enfant servi."
+    },
+    {
+      "id": "sp-gas-020",
+      "category": "Restauration scolaire",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles stratégies professionnelles sont citées pour réduire les déchets en cuisine scolaire ?",
+      "choices": [
+        {
+          "text": "Cuissons par lots / batch cooking",
+          "correct": true
+        },
+        {
+          "text": "Suivi et enregistrement de la production",
+          "correct": true
+        },
+        {
+          "text": "Bars à salade avec récipients peu profonds",
+          "correct": true
+        },
+        {
+          "text": "Augmentation systématique des quantités produites",
+          "correct": false
+        }
+      ],
+      "explanation": "L’étude cite ces trois stratégies parmi les pratiques efficaces."
+    },
+    {
+      "id": "sp-gas-021",
+      "category": "Restauration scolaire",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles contraintes peuvent limiter l’adoption de stratégies anti-gaspillage ?",
+      "choices": [
+        {
+          "text": "L’espace",
+          "correct": true
+        },
+        {
+          "text": "Le temps",
+          "correct": true
+        },
+        {
+          "text": "Le personnel",
+          "correct": true
+        },
+        {
+          "text": "Aucune contrainte n’est mentionnée",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus cite des contraintes d’espace, de temps et de personnel."
+    },
+    {
+      "id": "sp-gas-022",
+      "category": "Coûts",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel coût complet moyen du gaspillage par repas en restauration collective est indiqué pour 2025 ?",
+      "choices": [
+        {
+          "text": "1,03 €",
+          "correct": true
+        },
+        {
+          "text": "0,10 €",
+          "correct": false
+        },
+        {
+          "text": "10 €",
+          "correct": false
+        },
+        {
+          "text": "0,45 € uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus rapporte un coût complet moyen de 1,03 € par repas en 2025, contre 0,68 € en 2016."
+    },
+    {
+      "id": "sp-gas-023",
+      "category": "Public lycéen",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi les lycéens sont-ils considérés comme un public cible pertinent ?",
+      "choices": [
+        {
+          "text": "Leurs habitudes alimentaires sont encore en construction et ils peuvent comprendre les enjeux sanitaires, économiques et environnementaux",
+          "correct": true
+        },
+        {
+          "text": "Ils ne participent jamais aux repas collectifs",
+          "correct": false
+        },
+        {
+          "text": "Ils ne peuvent pas modifier leurs comportements",
+          "correct": false
+        },
+        {
+          "text": "Le gaspillage scolaire ne les concerne pas",
+          "correct": false
+        }
+      ],
+      "explanation": "Le corpus souligne la construction des habitudes à cet âge et la possibilité de développer des compétences durables."
+    },
+    {
+      "id": "sp-gas-024",
+      "category": "Public lycéen",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles raisons de gaspillage chez les lycéens sont citées ?",
+      "choices": [
+        {
+          "text": "Portions trop grandes",
+          "correct": true
+        },
+        {
+          "text": "Plats peu appréciés",
+          "correct": true
+        },
+        {
+          "text": "Manque d’anticipation",
+          "correct": true
+        },
+        {
+          "text": "Habitude de jeter ce qui n’est pas consommé",
+          "correct": true
+        }
+      ],
+      "explanation": "Le corpus cite ces raisons et insiste sur l’adaptation de l’offre aux besoins réels."
+    },
+    {
+      "id": "sp-gas-025",
+      "category": "Actions régionales",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles actions sont citées dans les lycées d’Île-de-France ?",
+      "choices": [
+        {
+          "text": "Assiettes petite faim / grande faim",
+          "correct": true
+        },
+        {
+          "text": "Bornes de réservation",
+          "correct": true
+        },
+        {
+          "text": "Affiches et animations de sensibilisation",
+          "correct": true
+        },
+        {
+          "text": "Compostage ou méthanisation dans certains établissements",
+          "correct": true
+        }
+      ],
+      "explanation": "Le corpus cite ces exemples d’actions de réduction, sensibilisation et valorisation des déchets."
+    }
+  ]
+}
