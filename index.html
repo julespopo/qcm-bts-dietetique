@@ -91,6 +91,51 @@ input[type=number]{width:100%;padding:11px 12px;border:1px solid var(--line);bor
 .summary-line{margin-top:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:13px;border-top:1px solid var(--line)}
 .summary-strong{font-weight:780}
 
+.difficulty-block{
+  margin-top:16px;padding-top:15px;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:minmax(170px,230px) 1fr;gap:18px;align-items:center
+}
+.difficulty-help{margin:0;font-size:.88rem}
+.difficulty-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.difficulty-btn{
+  min-height:62px;padding:10px 12px;border:1px solid var(--line);border-radius:13px;
+  background:var(--tile);color:var(--text);display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-start;gap:3px;text-align:left
+}
+.difficulty-btn small{font-size:.76rem;color:var(--muted);font-weight:650}
+.difficulty-btn:hover{border-color:var(--hover-line)}
+.difficulty-btn.selected{
+  border-color:rgba(var(--accent-rgb),.75);
+  background:linear-gradient(135deg,rgba(var(--accent-rgb),.12),rgba(var(--accent-rgb),.045));
+  box-shadow:0 0 0 1px rgba(var(--accent-rgb),.11),0 0 16px rgba(var(--accent-rgb),.14)
+}
+
+/* Quiz */
+
+/* Mode focus : pendant une session, seul le questionnaire occupe la fenêtre. */
+body.quiz-active{overflow:hidden}
+body.quiz-active main{
+  max-width:none;width:100%;height:100dvh;min-height:100dvh;
+  padding:12px;display:flex;align-items:center;justify-content:center
+}
+body.quiz-active .hero,
+body.quiz-active #errorBox,
+body.quiz-active #resumeCard,
+body.quiz-active #setup,
+body.quiz-active #results,
+body.quiz-active footer{display:none!important}
+body.quiz-active #quiz{
+  width:min(960px,100%);max-height:calc(100dvh - 24px);margin:0;
+  overflow-y:auto;overscroll-behavior:contain;scroll-behavior:smooth;
+  scrollbar-gutter:stable
+}
+.quiz-actions{
+  position:sticky;bottom:-1px;z-index:20;margin-top:15px;padding:11px;
+  border:1px solid var(--line);border-radius:14px;background:var(--card);
+  box-shadow:0 -9px 22px rgba(0,0,0,.08)
+}
+.quiz-actions button{flex:1 1 145px}
+
 /* Quiz */
 .quiz-card,.results-card{padding:18px;margin-top:16px}
 .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
@@ -237,6 +282,8 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 body.sheet-open{overflow:hidden}
 
 @media(max-width:760px){
+  .difficulty-block{grid-template-columns:1fr;gap:10px}
+  .difficulty-options{grid-template-columns:repeat(2,minmax(0,1fr))}
   .keyboard-hint{display:none}
   .choice{min-height:76px;padding:14px;font-size:1rem}
   .selection-grid{display:block;min-height:0}
@@ -253,7 +300,7 @@ body.sheet-open{overflow:hidden}
 </style>
 </head>
 <body>
-<button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir le menu" title="Menu">☰</button>
+<button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir le menu" title="Menu">⚙</button>
 
 <div id="floatingActions" class="floating-actions" aria-hidden="true">
   <button id="themeMenuBtn" class="floating-action-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
@@ -333,6 +380,28 @@ body.sheet-open{overflow:hidden}
       </div>
       <button id="startBtn" class="primary" type="button">Commencer</button>
     </div>
+
+    <div class="difficulty-block">
+      <div>
+        <div class="panel-kicker">Difficulté</div>
+        <p class="muted difficulty-help">Choisis le niveau des questions à inclure dans le tirage.</p>
+      </div>
+      <div class="difficulty-options" role="group" aria-label="Difficulté du questionnaire">
+        <button class="difficulty-btn selected" type="button" data-difficulty="all" aria-pressed="true">
+          <span>Tous niveaux</span><small id="diffCountAll">—</small>
+        </button>
+        <button class="difficulty-btn" type="button" data-difficulty="1" aria-pressed="false">
+          <span>Facile</span><small id="diffCount1">—</small>
+        </button>
+        <button class="difficulty-btn" type="button" data-difficulty="2" aria-pressed="false">
+          <span>Intermédiaire</span><small id="diffCount2">—</small>
+        </button>
+        <button class="difficulty-btn" type="button" data-difficulty="3" aria-pressed="false">
+          <span>Difficile</span><small id="diffCount3">—</small>
+        </button>
+      </div>
+    </div>
+
     <div class="summary-line">
       <span id="selectionSummary" class="summary-strong"></span>
       <span id="available" class="muted"></span>
@@ -368,7 +437,7 @@ body.sheet-open{overflow:hidden}
   <form id="choices"></form>
   <p class="keyboard-hint">Clavier : ↑ ↓ pour parcourir • Espace pour sélectionner • Entrée pour valider / continuer</p>
   <div id="feedback" class="feedback hidden"></div>
-  <div class="row" style="margin-top:15px">
+  <div class="row quiz-actions">
     <button id="validateBtn" class="primary" type="button">Valider</button>
     <button id="nextBtn" class="secondary hidden" type="button">Question suivante</button>
     <button id="pauseBtn" class="secondary" type="button">Mettre en pause</button>
@@ -387,15 +456,15 @@ body.sheet-open{overflow:hidden}
   </div>
 </section>
 
-<footer>Menu flottant radial • thème en un clic • timer 15/30/45/60 s • aucune fenêtre de réglages.</footer>
+<footer>Menu flottant • mode focus du quiz • difficulté sélectionnable • timer optionnel par question.</footer>
 </main>
 
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_5";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_6";
 const $=id=>document.getElementById(id);
-const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,session:[],index:0,score:0,errors:[],answered:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
+const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",session:[],index:0,score:0,errors:[],answered:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
 const THEME_KEY="qcm_bts_theme";
 const THEME_POS_KEY="qcm_bts_theme_button_position";
@@ -886,15 +955,77 @@ function setAllActiveSubject(enabled){
   toggleSubject(state.activeSubject,enabled);
 }
 function selectedBanks(){return state.manifest.banks.filter(b=>state.selectedBankIds.has(b.id));}
-function updateAvailable(){
+let availabilityRequestId=0;
+
+function difficultyLabel(value){
+  const v=String(value??1);
+  return v==="1"?"Facile":v==="2"?"Intermédiaire":v==="3"?"Difficile":`Niveau ${v}`;
+}
+function questionMatchesDifficulty(q){
+  return state.difficultyFilter==="all"||String(q.difficulty??1)===state.difficultyFilter;
+}
+function syncDifficultyButtons(){
+  document.querySelectorAll(".difficulty-btn").forEach(btn=>{
+    const selected=btn.dataset.difficulty===state.difficultyFilter;
+    btn.classList.toggle("selected",selected);
+    btn.setAttribute("aria-pressed",selected?"true":"false");
+  });
+}
+function setDifficulty(level){
+  state.difficultyFilter=["all","1","2","3"].includes(String(level))?String(level):"all";
+  syncDifficultyButtons();
+  updateAvailable();
+}
+async function difficultyCountsForBanks(banks){
+  const counts={all:0,"1":0,"2":0,"3":0};
+  const entries=await Promise.all(banks.map(async bank=>({bank,data:await loadBank(bank.file)})));
+  for(const {data} of entries){
+    for(const q of data.questions){
+      const d=String(q.difficulty??1);
+      counts.all++;
+      if(Object.prototype.hasOwnProperty.call(counts,d))counts[d]++;
+    }
+  }
+  return counts;
+}
+function renderDifficultyCounts(counts){
+  $("diffCountAll").textContent=`${counts.all} question${counts.all>1?"s":""}`;
+  $("diffCount1").textContent=`${counts["1"]} question${counts["1"]>1?"s":""}`;
+  $("diffCount2").textContent=`${counts["2"]} question${counts["2"]>1?"s":""}`;
+  $("diffCount3").textContent=`${counts["3"]} question${counts["3"]>1?"s":""}`;
+}
+async function updateAvailable(){
+  const requestId=++availabilityRequestId;
   const banks=selectedBanks();
-  const total=banks.reduce((s,b)=>s+Number(b.count||0),0);
   const activeSubjects=new Set(banks.map(b=>b.subject||"Autres")).size;
   $("selectionSummary").textContent=`${activeSubjects} matière${activeSubjects>1?'s':''} • ${banks.length} chapitre${banks.length>1?'s':''}`;
-  $("available").textContent=`${total} question${total>1?'s':''} disponible${total>1?'s':''}`;
-  $("count").max=Math.max(1,total);
-  if(total&&Number($("count").value)>total)$("count").value=total;
-  $("startBtn").disabled=total===0;
+  syncDifficultyButtons();
+
+  if(!banks.length){
+    const empty={all:0,"1":0,"2":0,"3":0};
+    renderDifficultyCounts(empty);
+    $("available").textContent="0 question disponible";
+    $("count").max=1;
+    $("startBtn").disabled=true;
+    return;
+  }
+
+  $("available").textContent="Calcul des questions disponibles…";
+  try{
+    const counts=await difficultyCountsForBanks(banks);
+    if(requestId!==availabilityRequestId)return;
+    renderDifficultyCounts(counts);
+    const total=counts[state.difficultyFilter]??0;
+    const label=state.difficultyFilter==="all"?"tous niveaux":difficultyLabel(state.difficultyFilter).toLowerCase();
+    $("available").textContent=`${total} question${total>1?'s':''} disponible${total>1?'s':''} • ${label}`;
+    $("count").max=Math.max(1,total);
+    if(total&&Number($("count").value)>total)$("count").value=total;
+    $("startBtn").disabled=total===0;
+  }catch(e){
+    if(requestId!==availabilityRequestId)return;
+    $("available").textContent="Impossible de calculer les questions disponibles.";
+    $("startBtn").disabled=true;
+  }
 }
 function renderSelectionUI(){
   renderSubjects();
@@ -914,17 +1045,27 @@ function mapGlobalSlotsToBanks(banks,slots){
   return plan;
 }
 async function createSessionFromSelection(){
-  const banks=selectedBanks(),total=banks.reduce((s,b)=>s+b.count,0);
-  const wanted=Math.max(1,Math.min(parseInt($("count").value,10)||20,total));
-  const plan=mapGlobalSlotsToBanks(banks,sampleUniqueInts(total,wanted)),chosen=[];
-  for(const [file,item] of plan){
-    const data=await loadBank(file);
-    for(const idx of item.indexes){
-      const q=data.questions[idx];if(!q)throw new Error(`Index absent dans ${file}. Régénère manifest.json.`);
-      chosen.push({...q,bankTitle:item.bank.title,subject:item.bank.subject||data.subject||"",chapter:item.bank.chapter||data.chapter||"",bankFile:file});
+  const banks=selectedBanks();
+  if(!banks.length)throw new Error("Sélectionne au moins un chapitre.");
+
+  const pool=[];
+  for(const bank of banks){
+    const data=await loadBank(bank.file);
+    for(const q of data.questions){
+      if(!questionMatchesDifficulty(q))continue;
+      pool.push({
+        ...q,
+        bankTitle:bank.title,
+        subject:bank.subject||data.subject||"",
+        chapter:bank.chapter||data.chapter||"",
+        bankFile:bank.file
+      });
     }
   }
-  return shuffle(chosen);
+
+  if(!pool.length)throw new Error("Aucune question ne correspond à la difficulté sélectionnée.");
+  const wanted=Math.max(1,Math.min(parseInt($("count").value,10)||20,pool.length));
+  return shuffle(pool).slice(0,wanted);
 }
 function refsFromSession(){return state.session.map(q=>({file:q.bankFile,id:q.id}));}
 async function rebuildSessionFromRefs(refs){
@@ -1015,15 +1156,46 @@ function refreshResumeCard(){
   $("resumeCard").classList.remove("hidden");const pos=Math.min((s.index||0)+1,s.refs.length);
   $("resumeText").textContent=`Question ${pos} sur ${s.refs.length} • score ${s.score||0} • sauvegarde disponible sur cet appareil.`;
 }
+
+function enterQuizFocus(){
+  document.body.classList.add("quiz-active");
+  requestAnimationFrame(()=>{
+    window.scrollTo({top:0,left:0,behavior:"instant"});
+    const quiz=$("quiz");
+    if(quiz)quiz.scrollTo({top:0,left:0,behavior:"smooth"});
+  });
+}
+function exitQuizFocus(){
+  document.body.classList.remove("quiz-active");
+}
+function focusQuestionTop(){
+  requestAnimationFrame(()=>{
+    const quiz=$("quiz");
+    if(quiz)quiz.scrollTo({top:0,left:0,behavior:"smooth"});
+  });
+}
+function focusCorrection(){
+  requestAnimationFrame(()=>{
+    const quiz=$("quiz"),feedback=$("feedback");
+    if(!quiz||!feedback||feedback.classList.contains("hidden"))return;
+    const qr=quiz.getBoundingClientRect(),fr=feedback.getBoundingClientRect();
+    const stickyAllowance=105;
+    if(fr.bottom>qr.bottom-stickyAllowance||fr.top<qr.top+12){
+      const delta=fr.bottom-(qr.bottom-stickyAllowance);
+      quiz.scrollBy({top:delta+12,behavior:"smooth"});
+    }
+  });
+}
+
 async function start(){
   $("startBtn").disabled=true;$("startBtn").textContent="Préparation…";
-  try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();saveProgress();}
+  try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();saveProgress();}
   catch(e){alert(e.message);}finally{$("startBtn").disabled=false;$("startBtn").textContent="Commencer";}
 }
 function renderQuestion(resumeTimer=false){
   const q=state.session[state.index];if(!q){finish();return;}state.answered=false;
   $("counter").textContent=`Question ${state.index+1} / ${state.session.length}`;$("scoreLive").textContent=`Score : ${state.score}`;$("progressBar").style.width=`${(state.index/state.session.length)*100}%`;
-  $("qMeta").textContent=[q.subject,q.bankTitle,q.category,`difficulté ${q.difficulty||1}`].filter(Boolean).join(" • ");$("qText").textContent=q.prompt;$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("validateBtn").classList.remove("hidden");$("nextBtn").classList.add("hidden");
+  $("qMeta").textContent=[q.subject,q.bankTitle,q.category,difficultyLabel(q.difficulty)].filter(Boolean).join(" • ");$("qText").textContent=q.prompt;$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("validateBtn").classList.remove("hidden");$("nextBtn").classList.add("hidden");
   let cs=q.choices.map(c=>({...c}));if($("shuffleAnswers").checked)cs=shuffle(cs);const multiple=q.type==="multiple"||q.choices.filter(c=>c.correct).length>1,nCorrect=q.choices.filter(c=>c.correct).length;
   $("choices").innerHTML=(multiple?`<p class="muted">${nCorrect} réponses attendues.</p>`:"")+cs.map(c=>`<label class="choice"><input name="ans" type="${multiple?'checkbox':'radio'}" data-correct="${c.correct?'1':'0'}"> <span>${esc(c.text)}</span></label>`).join("");
   const syncChoiceVisuals=()=>{
@@ -1034,7 +1206,7 @@ function renderQuestion(resumeTimer=false){
   };
   $("choices").querySelectorAll('input[name="ans"]').forEach(input=>input.addEventListener("change",syncChoiceVisuals));
   syncChoiceVisuals();
-  startQuestionTimer(resumeTimer);saveProgress();
+  startQuestionTimer(resumeTimer);saveProgress();focusQuestionTop();
   if(window.matchMedia&&window.matchMedia("(min-width:761px)").matches){const first=$("choices").querySelector('input[name="ans"]');if(first)requestAnimationFrame(()=>first.focus());}
 }
 
@@ -1103,18 +1275,18 @@ function validate(fromTimer=false){
   $("validateBtn").classList.add("hidden");
   $("nextBtn").classList.remove("hidden");
   $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Question suivante";
-  saveProgress();
+  saveProgress();focusCorrection();
 }
 function next(){if(!state.answered)return;if(state.index<state.session.length-1){state.index++;renderQuestion();}else finish();}
-function finish(){stopTimerInterval();state.timerEndAt=null;
+function finish(){stopTimerInterval();state.timerEndAt=null;exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
 }
 async function resumeSaved(){
   const s=getSaved();if(!s)return;$("resumeBtn").disabled=true;$("resumeBtn").textContent="Chargement…";
-  try{state.session=await rebuildSessionFromRefs(s.refs);if(!state.session.length)throw new Error("Les questions sauvegardées ne sont plus disponibles.");if((s.index||0)>=state.session.length){state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);finish();return;}state.index=s.index||0;state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);state.answered=false;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion(true);}
+  try{state.session=await rebuildSessionFromRefs(s.refs);if(!state.session.length)throw new Error("Les questions sauvegardées ne sont plus disponibles.");if((s.index||0)>=state.session.length){state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);finish();return;}state.index=s.index||0;state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);state.answered=false;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
   catch(e){alert(e.message);clearProgress();}finally{$("resumeBtn").disabled=false;$("resumeBtn").textContent="Reprendre";}
 }
-function pause(){pauseTimer();saveProgress();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");refreshResumeCard();}
+function pause(){pauseTimer();saveProgress();exitQuizFocus();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");refreshResumeCard();}
 async function init(){
   try{await loadManifest();state.selectedBankIds.clear();state.activeSubject=subjects()[0]||null;renderSelectionUI();const total=state.manifest.banks.reduce((s,b)=>s+b.count,0);$("heroText").textContent=`${total} questions disponibles • ${subjects().length} matières • sélection par chapitres`;$("setup").classList.remove("hidden");refreshResumeCard();}
   catch(e){$("heroText").textContent="Erreur de chargement";$("errorText").textContent=e.message;$("errorBox").classList.remove("hidden");}
@@ -1141,14 +1313,15 @@ document.addEventListener("pointerdown",e=>{
   closeFloatingMenu();
 });
 
+document.querySelectorAll(".difficulty-btn").forEach(btn=>btn.addEventListener("click",()=>setDifficulty(btn.dataset.difficulty)));
 $("themeMenuBtn").addEventListener("click",toggleTheme);
 $("timerToggleBtn").addEventListener("click",toggleTimer);
 document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",validate);$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
-$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
+$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
-$("newQuiz").addEventListener("click",()=>{stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
-$("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();});
+$("newQuiz").addEventListener("click",()=>{exitQuizFocus();stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
+$("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();});
 
 function disableAccidentalDoubleTapZoom(){
   let lastTapTime=0,lastX=0,lastY=0,multiTouchGesture=false;
