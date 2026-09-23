@@ -75,13 +75,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .tiny-btn{padding:8px 10px;font-size:.84rem;background:var(--button-soft);color:var(--text);border:1px solid var(--line)}
 .chapter-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .chapter-card{display:block;border-radius:14px;padding:14px;min-height:78px}
-.chapter-card.selected::after{
-  content:"✓";position:absolute;right:12px;top:12px;width:22px;height:22px;border-radius:50%;
-  display:grid;place-items:center;font-size:.78rem;font-weight:900;color:var(--accent);
-  background:rgba(var(--accent-rgb),.11);border:1px solid rgba(var(--accent-rgb),.34);
-  box-shadow:0 0 10px rgba(var(--accent-rgb),.16)
-}
-.chapter-title{font-weight:760;line-height:1.25;padding-right:28px}
+.chapter-title{font-weight:760;line-height:1.25}
 .chapter-meta{font-size:.84rem;color:var(--muted);margin-top:5px}
 .empty-chapters{border:1px dashed var(--line);border-radius:14px;padding:24px;text-align:center;color:var(--muted)}
 
@@ -110,9 +104,12 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 .theme-toggle{
   position:fixed;right:18px;bottom:18px;z-index:1000;width:48px;height:48px;padding:0;border-radius:50%;
   display:grid;place-items:center;background:var(--card);color:var(--text);border:1px solid var(--line);
-  box-shadow:0 8px 26px rgba(0,0,0,.14);font-size:1.35rem;transition:transform .15s ease,background .2s ease,border-color .2s ease
+  box-shadow:0 8px 26px rgba(0,0,0,.14);font-size:1.35rem;
+  transition:background .2s ease,border-color .2s ease,box-shadow .15s ease;
+  cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none
 }
-.theme-toggle:hover{transform:translateY(-2px);border-color:rgba(var(--accent-rgb),.55)}
+.theme-toggle:hover{border-color:rgba(var(--accent-rgb),.55);box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.theme-toggle.dragging{cursor:grabbing;transition:none;box-shadow:0 12px 34px rgba(0,0,0,.22)}
 .theme-toggle:focus-visible{outline:3px solid rgba(var(--accent-rgb),.28);outline-offset:3px}
 
 @media(max-width:800px){
@@ -149,7 +146,7 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
       <aside class="subject-pane">
         <div class="panel-kicker">Étape 1</div>
         <h2>Matières</h2>
-        <p class="muted">Les matières actives sont mises en lumière. Clique sur une matière pour afficher ses chapitres.</p>
+        <p class="muted">Clique sur une matière pour sélectionner tous ses chapitres et l’afficher à droite. Reclique dessus pour tout désélectionner.</p>
         <div id="subjectList" class="subject-list"></div>
       </aside>
 
@@ -218,17 +215,20 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   </div>
 </section>
 
-<footer>Sélection par matière et chapitre • mode nuit disponible à tout moment.</footer>
+<footer>Sélection par matière et chapitre • thème système par défaut • bouton jour/nuit déplaçable.</footer>
 </main>
 
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v5";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v6";
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,session:[],index:0,score:0,errors:[],answered:false};
 const cache=new Map();
 const THEME_KEY="qcm_bts_theme";
+const THEME_POS_KEY="qcm_bts_theme_button_position";
+const systemThemeQuery=window.matchMedia?window.matchMedia("(prefers-color-scheme: dark)"):null;
+let themeDragged=false;
 
 function applyTheme(theme){
   const dark=theme==="dark";
@@ -242,16 +242,110 @@ function applyTheme(theme){
   const meta=document.querySelector('meta[name="theme-color"]');
   if(meta)meta.setAttribute("content",dark?"#0f1319":"#4f46e5");
 }
+function storedTheme(){
+  try{return localStorage.getItem(THEME_KEY);}catch{return null;}
+}
 function initTheme(){
-  let saved=null;
-  try{saved=localStorage.getItem(THEME_KEY);}catch{}
-  const preferred=saved||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
-  applyTheme(preferred);
+  const saved=storedTheme();
+  const systemDark=!!(systemThemeQuery&&systemThemeQuery.matches);
+  applyTheme(saved||(systemDark?"dark":"light"));
+
+  if(systemThemeQuery){
+    systemThemeQuery.addEventListener?.("change",e=>{
+      if(!storedTheme())applyTheme(e.matches?"dark":"light");
+    });
+  }
 }
 function toggleTheme(){
   const next=document.documentElement.dataset.theme==="dark"?"light":"dark";
   try{localStorage.setItem(THEME_KEY,next);}catch{}
   applyTheme(next);
+}
+function clampThemePosition(left,top){
+  const btn=$("themeToggle");
+  const w=btn?.offsetWidth||48,h=btn?.offsetHeight||48,pad=8;
+  return {
+    left:Math.max(pad,Math.min(left,window.innerWidth-w-pad)),
+    top:Math.max(pad,Math.min(top,window.innerHeight-h-pad))
+  };
+}
+function saveThemeButtonPosition(){
+  const btn=$("themeToggle");
+  if(!btn)return;
+  const rect=btn.getBoundingClientRect();
+  const pos=clampThemePosition(rect.left,rect.top);
+  try{localStorage.setItem(THEME_POS_KEY,JSON.stringify(pos));}catch{}
+}
+function restoreThemeButtonPosition(){
+  const btn=$("themeToggle");
+  if(!btn)return;
+  try{
+    const saved=JSON.parse(localStorage.getItem(THEME_POS_KEY)||"null");
+    if(saved&&Number.isFinite(saved.left)&&Number.isFinite(saved.top)){
+      const pos=clampThemePosition(saved.left,saved.top);
+      btn.style.left=pos.left+"px";
+      btn.style.top=pos.top+"px";
+      btn.style.right="auto";
+      btn.style.bottom="auto";
+    }
+  }catch{}
+}
+function enableThemeButtonDrag(){
+  const btn=$("themeToggle");
+  if(!btn)return;
+
+  let startX=0,startY=0,startLeft=0,startTop=0,moved=false;
+
+  btn.addEventListener("pointerdown",e=>{
+    if(e.button!==undefined&&e.button!==0)return;
+    const rect=btn.getBoundingClientRect();
+    startX=e.clientX;startY=e.clientY;
+    startLeft=rect.left;startTop=rect.top;
+    moved=false;themeDragged=false;
+    btn.setPointerCapture?.(e.pointerId);
+    btn.classList.add("dragging");
+  });
+
+  btn.addEventListener("pointermove",e=>{
+    if(!btn.hasPointerCapture?.(e.pointerId))return;
+    const dx=e.clientX-startX,dy=e.clientY-startY;
+    if(Math.hypot(dx,dy)>4)moved=true;
+    if(!moved)return;
+    const pos=clampThemePosition(startLeft+dx,startTop+dy);
+    btn.style.left=pos.left+"px";
+    btn.style.top=pos.top+"px";
+    btn.style.right="auto";
+    btn.style.bottom="auto";
+  });
+
+  const endDrag=e=>{
+    if(btn.hasPointerCapture?.(e.pointerId))btn.releasePointerCapture?.(e.pointerId);
+    btn.classList.remove("dragging");
+    themeDragged=moved;
+    if(moved)saveThemeButtonPosition();
+  };
+  btn.addEventListener("pointerup",endDrag);
+  btn.addEventListener("pointercancel",endDrag);
+
+  btn.addEventListener("click",e=>{
+    if(themeDragged){
+      e.preventDefault();
+      e.stopPropagation();
+      themeDragged=false;
+      return;
+    }
+    toggleTheme();
+  });
+
+  window.addEventListener("resize",()=>{
+    const rect=btn.getBoundingClientRect();
+    if(btn.style.left){
+      const pos=clampThemePosition(rect.left,rect.top);
+      btn.style.left=pos.left+"px";
+      btn.style.top=pos.top+"px";
+      saveThemeButtonPosition();
+    }
+  });
 }
 
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
@@ -292,8 +386,11 @@ function renderSubjects(){
     </button>`;
   }).join("");
   $("subjectList").querySelectorAll(".subject-card").forEach(btn=>btn.addEventListener("click",()=>{
-    state.activeSubject=btn.dataset.subject;
-    renderSelectionUI();
+    const subject=btn.dataset.subject;
+    state.activeSubject=subject;
+    const st=subjectStats(subject);
+    const allSelected=st.banks.length>0&&st.selected.length===st.banks.length;
+    toggleSubject(subject,!allSelected);
   }));
 }
 function renderChapters(){
@@ -415,7 +512,7 @@ async function resumeSaved(){
 }
 function pause(){saveProgress();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");refreshResumeCard();}
 async function init(){
-  try{await loadManifest();for(const b of state.manifest.banks)state.selectedBankIds.add(b.id);state.activeSubject=subjects()[0]||null;renderSelectionUI();const total=state.manifest.banks.reduce((s,b)=>s+b.count,0);$("heroText").textContent=`${total} questions disponibles • ${subjects().length} matières • sélection par chapitres`;$("setup").classList.remove("hidden");refreshResumeCard();}
+  try{await loadManifest();state.selectedBankIds.clear();state.activeSubject=subjects()[0]||null;renderSelectionUI();const total=state.manifest.banks.reduce((s,b)=>s+b.count,0);$("heroText").textContent=`${total} questions disponibles • ${subjects().length} matières • sélection par chapitres`;$("setup").classList.remove("hidden");refreshResumeCard();}
   catch(e){$("heroText").textContent="Erreur de chargement";$("errorText").textContent=e.message;$("errorBox").classList.remove("hidden");}
 }
 
@@ -426,8 +523,9 @@ $("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnai
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
 $("newQuiz").addEventListener("click",()=>{$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
 $("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();});
-$("themeToggle").addEventListener("click",toggleTheme);
 initTheme();
+restoreThemeButtonPosition();
+enableThemeButtonDrag();
 window.addEventListener("beforeunload",()=>{if(!$("quiz").classList.contains("hidden"))saveProgress();});
 init();
 })();
