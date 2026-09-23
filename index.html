@@ -104,7 +104,14 @@ input[type=number]{width:100%;padding:11px 12px;border:1px solid var(--line);bor
 }
 .choice:hover{transform:translateY(-1px);border-color:var(--hover-line)}
 .choice:focus-within{outline:3px solid rgba(var(--accent-rgb),.20);outline-offset:2px;border-color:rgba(var(--accent-rgb),.58)}
-.choice input{margin:0;transform:scale(1.28);accent-color:var(--accent);flex:0 0 auto}
+.choice input{
+  position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none
+}
+.choice.selected{
+  border-color:rgba(var(--accent-rgb),.74);
+  background:linear-gradient(135deg,rgba(var(--accent-rgb),.12),rgba(var(--accent-rgb),.045));
+  box-shadow:0 0 0 1px rgba(var(--accent-rgb),.12),0 0 18px rgba(var(--accent-rgb),.15)
+}
 .choice.correct{background:rgba(23,114,69,.12);border-color:rgba(98,214,154,.6)}.choice.wrong{background:rgba(180,35,24,.12);border-color:rgba(255,142,135,.6)}
 
 #choices{display:flex;flex-direction:column;gap:10px;margin-top:10px}
@@ -144,28 +151,37 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   font-size:.78rem;font-weight:850;text-transform:uppercase;letter-spacing:.08em;
   color:var(--muted);padding:2px 4px 9px
 }
-.settings-action{
-  width:100%;display:flex;gap:10px;align-items:center;text-align:left;
-  padding:11px 12px;border:1px solid var(--line);border-radius:12px;
-  background:var(--tile);color:var(--text);font-weight:760
+.settings-icon-btn{
+  width:48px;height:48px;padding:0;display:grid;place-items:center;
+  border:1px solid var(--line);border-radius:14px;background:var(--tile);color:var(--text);
+  font-size:1.45rem
 }
-.settings-action:hover{border-color:rgba(var(--accent-rgb),.5)}
+.settings-icon-btn:hover{border-color:rgba(var(--accent-rgb),.5)}
 .settings-divider{height:1px;background:var(--line);margin:11px 2px}
-.settings-toggle-row{
-  display:flex;justify-content:space-between;align-items:center;gap:14px;
-  padding:6px 4px;cursor:pointer
+.settings-timer-toggle{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:11px 12px;border:1px solid var(--line);border-radius:12px;
+  background:var(--tile);color:var(--text);font-weight:780;text-align:left
 }
-.settings-toggle-row span{display:flex;flex-direction:column;gap:2px}
-.settings-toggle-row small,.settings-timer small{color:var(--muted);font-size:.78rem}
-.settings-toggle-row input{transform:scale(1.25);accent-color:var(--accent)}
+.settings-timer-toggle.active{
+  border-color:rgba(var(--accent-rgb),.70);
+  box-shadow:0 0 14px rgba(var(--accent-rgb),.12)
+}
+.settings-status{font-size:.78rem;color:var(--muted);font-weight:700}
+.settings-timer-toggle.active .settings-status{color:var(--accent)}
 .settings-timer{margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--pane)}
-.settings-timer label{display:block;font-size:.84rem;font-weight:760;margin-bottom:7px}
-.timer-input-row{display:flex;align-items:center;gap:7px}
-.timer-input-row input{
-  width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:10px;
-  background:var(--tile);color:var(--text);font-size:1rem
+.timer-presets{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.timer-preset{
+  padding:9px 4px;border:1px solid var(--line);border-radius:10px;
+  background:var(--tile);color:var(--text);font-weight:800
 }
-.timer-input-row span{font-weight:800;color:var(--muted)}
+.timer-preset:hover{border-color:rgba(var(--accent-rgb),.45)}
+.timer-preset.selected{
+  border-color:rgba(var(--accent-rgb),.76);
+  background:rgba(var(--accent-rgb),.10);
+  box-shadow:0 0 12px rgba(var(--accent-rgb),.14);
+  color:var(--accent)
+}
 
 
 @media(max-width:800px){
@@ -224,30 +240,26 @@ body.sheet-open{overflow:hidden}
 <body>
 <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir les réglages" title="Réglages">⚙</button>
 <div id="settingsMenu" class="settings-menu hidden" role="dialog" aria-label="Réglages rapides">
-  <div class="settings-menu-title">Réglages</div>
+  <div class="settings-menu-title">Menu</div>
 
-  <button id="themeMenuBtn" class="settings-action" type="button">
+  <button id="themeMenuBtn" class="settings-icon-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
     <span id="themeMenuIcon">☾</span>
-    <span id="themeMenuLabel">Mode nuit</span>
   </button>
 
   <div class="settings-divider"></div>
 
-  <label class="settings-toggle-row">
-    <span>
-      <strong>Minuteur</strong>
-      <small>Temps maximum par question</small>
-    </span>
-    <input id="timerEnabled" type="checkbox">
-  </label>
+  <button id="timerToggleBtn" class="settings-timer-toggle" type="button" aria-pressed="false">
+    <span>Timer</span>
+    <span id="timerToggleState" class="settings-status">Désactivé</span>
+  </button>
 
   <div id="timerSettings" class="settings-timer hidden">
-    <label for="timerSeconds">Secondes par question</label>
-    <div class="timer-input-row">
-      <input id="timerSeconds" type="number" min="15" max="300" step="5" value="30">
-      <span>s</span>
+    <div class="timer-presets" role="group" aria-label="Temps maximum par question">
+      <button class="timer-preset" type="button" data-seconds="15">15 s</button>
+      <button class="timer-preset" type="button" data-seconds="30">30 s</button>
+      <button class="timer-preset" type="button" data-seconds="45">45 s</button>
+      <button class="timer-preset" type="button" data-seconds="60">60 s</button>
     </div>
-    <small>Minimum : 15 secondes.</small>
   </div>
 </div>
 <main>
@@ -365,13 +377,13 @@ body.sheet-open{overflow:hidden}
   </div>
 </section>
 
-<footer>Réglages rapides déplaçables • minuteur optionnel par question • sélection adaptée mobile/ordinateur.</footer>
+<footer>Menu flottant • thème rapide • timer 15/30/45/60 s • sélection visuelle sans coches.</footer>
 </main>
 
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_3";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_4";
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,session:[],index:0,score:0,errors:[],answered:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
@@ -383,9 +395,10 @@ let themeDragged=false;
 function applyTheme(theme){
   const dark=theme==="dark";
   document.documentElement.dataset.theme=dark?"dark":"light";
-  const icon=$("themeMenuIcon"),label=$("themeMenuLabel");
+  const icon=$("themeMenuIcon");
   if(icon)icon.textContent=dark?"☀":"☾";
-  if(label)label.textContent=dark?"Mode jour":"Mode nuit";
+  const themeBtn=$("themeMenuBtn");
+  if(themeBtn){themeBtn.setAttribute("aria-label",dark?"Activer le mode jour":"Activer le mode nuit");themeBtn.title=dark?"Mode jour":"Mode nuit";}
   const meta=document.querySelector('meta[name="theme-color"]');
   if(meta)meta.setAttribute("content",dark?"#0f1319":"#4f46e5");
 }
@@ -432,33 +445,37 @@ function toggleSettingsMenu(){
   const menu=$("settingsMenu");if(!menu)return;
   if(menu.classList.contains("hidden"))openSettingsMenu();else closeSettingsMenu();
 }
-function clampTimerSeconds(){
-  const input=$("timerSeconds");
-  let seconds=parseInt(input.value,10);
-  if(!Number.isFinite(seconds))seconds=30;
-  seconds=Math.max(15,Math.min(300,seconds));
-  input.value=seconds;
-  return seconds;
+function normalizeTimerDurationMs(ms){
+  const options=[15000,30000,45000,60000];
+  const value=Number(ms)||30000;
+  return options.reduce((best,current)=>Math.abs(current-value)<Math.abs(best-value)?current:best,30000);
 }
 function syncTimerSettingsUI(){
-  $("timerSettings").classList.toggle("hidden",!$("timerEnabled").checked);
+  const btn=$("timerToggleBtn"),stateLabel=$("timerToggleState"),settings=$("timerSettings");
+  if(!btn||!stateLabel||!settings)return;
+  btn.classList.toggle("active",state.timerEnabled);
+  btn.setAttribute("aria-pressed",state.timerEnabled?"true":"false");
+  stateLabel.textContent=state.timerEnabled?"Activé":"Désactivé";
+  settings.classList.toggle("hidden",!state.timerEnabled);
+
+  const selectedSeconds=Math.round(normalizeTimerDurationMs(state.timerDurationMs)/1000);
+  document.querySelectorAll(".timer-preset").forEach(preset=>{
+    const active=Number(preset.dataset.seconds)===selectedSeconds;
+    preset.classList.toggle("selected",active);
+    preset.setAttribute("aria-pressed",active?"true":"false");
+  });
 }
-function applyTimerSettingsToCurrentQuestion(){
+function applyTimerSettingsToCurrentQuestion(restartCurrent=true){
+  state.timerDurationMs=normalizeTimerDurationMs(state.timerDurationMs);
   syncTimerSettingsUI();
-  const enabled=$("timerEnabled").checked;
-  const seconds=clampTimerSeconds();
 
   if($("quiz").classList.contains("hidden")){
-    state.timerEnabled=enabled;
-    state.timerDurationMs=seconds*1000;
     return;
   }
 
-  state.timerEnabled=enabled;
-  state.timerDurationMs=seconds*1000;
   stopTimerInterval();
 
-  if(!enabled){
+  if(!state.timerEnabled){
     state.timerEndAt=null;
     state.timerRemainingMs=null;
     renderTimer();
@@ -466,16 +483,24 @@ function applyTimerSettingsToCurrentQuestion(){
     return;
   }
 
-  if(!state.answered){
+  if(!state.answered&&restartCurrent){
     state.timerRemainingMs=state.timerDurationMs;
     state.timerEndAt=Date.now()+state.timerRemainingMs;
     startTimerInterval();
     saveProgress();
-  }else{
+  }else if(state.answered){
     state.timerRemainingMs=null;
     state.timerEndAt=null;
     renderTimer();
   }
+}
+function toggleTimer(){
+  state.timerEnabled=!state.timerEnabled;
+  applyTimerSettingsToCurrentQuestion(true);
+}
+function selectTimerPreset(seconds){
+  state.timerDurationMs=normalizeTimerDurationMs(Number(seconds)*1000);
+  applyTimerSettingsToCurrentQuestion(true);
 }
 
 function clampThemePosition(left,top){
@@ -861,11 +886,11 @@ function startTimerInterval(){
   },200);
 }
 function initTimerForNewSession(){
-  state.timerEnabled=$("timerEnabled").checked;
-  state.timerDurationMs=clampTimerSeconds()*1000;
+  state.timerDurationMs=normalizeTimerDurationMs(state.timerDurationMs);
   state.timerRemainingMs=state.timerEnabled?state.timerDurationMs:null;
   state.timerEndAt=null;
   stopTimerInterval();
+  syncTimerSettingsUI();
   renderTimer();
 }
 function startQuestionTimer(resume=false){
@@ -910,7 +935,17 @@ function renderQuestion(resumeTimer=false){
   $("counter").textContent=`Question ${state.index+1} / ${state.session.length}`;$("scoreLive").textContent=`Score : ${state.score}`;$("progressBar").style.width=`${(state.index/state.session.length)*100}%`;
   $("qMeta").textContent=[q.subject,q.bankTitle,q.category,`difficulté ${q.difficulty||1}`].filter(Boolean).join(" • ");$("qText").textContent=q.prompt;$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("validateBtn").classList.remove("hidden");$("nextBtn").classList.add("hidden");
   let cs=q.choices.map(c=>({...c}));if($("shuffleAnswers").checked)cs=shuffle(cs);const multiple=q.type==="multiple"||q.choices.filter(c=>c.correct).length>1,nCorrect=q.choices.filter(c=>c.correct).length;
-  $("choices").innerHTML=(multiple?`<p class="muted">${nCorrect} réponses attendues.</p>`:"")+cs.map(c=>`<label class="choice"><input name="ans" type="${multiple?'checkbox':'radio'}" data-correct="${c.correct?'1':'0'}"> <span>${esc(c.text)}</span></label>`).join("");startQuestionTimer(resumeTimer);saveProgress();if(window.matchMedia&&window.matchMedia("(min-width:761px)").matches){const first=$("choices").querySelector('input[name="ans"]');if(first)requestAnimationFrame(()=>first.focus());}
+  $("choices").innerHTML=(multiple?`<p class="muted">${nCorrect} réponses attendues.</p>`:"")+cs.map(c=>`<label class="choice"><input name="ans" type="${multiple?'checkbox':'radio'}" data-correct="${c.correct?'1':'0'}"> <span>${esc(c.text)}</span></label>`).join("");
+  const syncChoiceVisuals=()=>{
+    $("choices").querySelectorAll(".choice").forEach(row=>{
+      const input=row.querySelector('input[name="ans"]');
+      row.classList.toggle("selected",!!input?.checked);
+    });
+  };
+  $("choices").querySelectorAll('input[name="ans"]').forEach(input=>input.addEventListener("change",syncChoiceVisuals));
+  syncChoiceVisuals();
+  startQuestionTimer(resumeTimer);saveProgress();
+  if(window.matchMedia&&window.matchMedia("(min-width:761px)").matches){const first=$("choices").querySelector('input[name="ans"]');if(first)requestAnimationFrame(()=>first.focus());}
 }
 
 function answerInputs(){return [...$("choices").querySelectorAll('input[name="ans"]')];}
@@ -922,7 +957,6 @@ function focusAnswerByOffset(delta){
 }
 function handleQuizKeyboard(e){
   if($("quiz").classList.contains("hidden"))return;
-  if(e.target&&e.target.id==="timerSeconds")return;
   if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();focusAnswerByOffset(1);return;}
   if(e.key==="ArrowUp"||e.key==="ArrowLeft"){e.preventDefault();focusAnswerByOffset(-1);return;}
   if(e.code==="Space"||e.key===" "){
@@ -987,7 +1021,7 @@ function finish(){stopTimerInterval();state.timerEndAt=null;
 }
 async function resumeSaved(){
   const s=getSaved();if(!s)return;$("resumeBtn").disabled=true;$("resumeBtn").textContent="Chargement…";
-  try{state.session=await rebuildSessionFromRefs(s.refs);if(!state.session.length)throw new Error("Les questions sauvegardées ne sont plus disponibles.");if((s.index||0)>=state.session.length){state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);finish();return;}state.index=s.index||0;state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);state.answered=false;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=Math.max(15000,Number(s.timerDurationMs)||30000);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;$('timerEnabled').checked=state.timerEnabled;$('timerSeconds').value=Math.round(state.timerDurationMs/1000);syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion(true);}
+  try{state.session=await rebuildSessionFromRefs(s.refs);if(!state.session.length)throw new Error("Les questions sauvegardées ne sont plus disponibles.");if((s.index||0)>=state.session.length){state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);finish();return;}state.index=s.index||0;state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);state.answered=false;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion(true);}
   catch(e){alert(e.message);clearProgress();}finally{$("resumeBtn").disabled=false;$("resumeBtn").textContent="Reprendre";}
 }
 function pause(){pauseTimer();saveProgress();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");refreshResumeCard();}
@@ -1017,13 +1051,12 @@ document.addEventListener("pointerdown",e=>{
 });
 
 $("themeMenuBtn").addEventListener("click",toggleTheme);
-$("timerEnabled").addEventListener("change",applyTimerSettingsToCurrentQuestion);
-$("timerSeconds").addEventListener("change",applyTimerSettingsToCurrentQuestion);
-$("timerSeconds").addEventListener("blur",applyTimerSettingsToCurrentQuestion);
+$("timerToggleBtn").addEventListener("click",toggleTimer);
+document.querySelectorAll(".timer-preset").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",validate);$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
-$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;$("timerEnabled").checked=false;$("timerSeconds").value=30;syncTimerSettingsUI();clearProgress();state.session=[];$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
+$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
-$("newQuiz").addEventListener("click",()=>{stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;$("timerEnabled").checked=false;$("timerSeconds").value=30;syncTimerSettingsUI();$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
+$("newQuiz").addEventListener("click",()=>{stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
 $("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();});
 
 function disableAccidentalDoubleTapZoom(){
@@ -1075,7 +1108,7 @@ function disableAccidentalDoubleTapZoom(){
 }
 
 initTheme();
-$("timerEnabled").checked=false;$("timerSeconds").value=30;syncTimerSettingsUI();
+state.timerEnabled=false;state.timerDurationMs=30000;syncTimerSettingsUI();
 disableAccidentalDoubleTapZoom();
 restoreThemeButtonPosition();
 enableThemeButtonDrag();
