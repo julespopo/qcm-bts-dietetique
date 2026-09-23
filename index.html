@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#4f46e5">
+<title>QCM BTS Diététique</title>
+<style>
+:root{
+  --bg:#f6f7fb;--card:#fff;--text:#1e2430;--muted:#697386;--line:#dce1ea;
+  --accent:#4f46e5;--ok:#177245;--bad:#b42318;--warn:#8a5a00
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+main{max-width:980px;margin:auto;padding:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.hero{background:linear-gradient(135deg,#312e81,#4f46e5);color:#fff;border:0}
+.hero h1{margin:0 0 6px;font-size:clamp(1.7rem,4vw,2.45rem)}
+.hero p{margin:0;color:#e8e7ff}
+h2{margin-top:0}.muted{color:var(--muted)}.hidden{display:none!important}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+button,select,input{font:inherit}
+button{border:0;border-radius:10px;padding:11px 15px;font-weight:750;cursor:pointer}
+.primary{background:var(--accent);color:#fff}.secondary{background:#edf0f5;color:var(--text)}.danger{background:#fdecec;color:var(--bad)}
+button:disabled{opacity:.45;cursor:not-allowed}
+select,input[type=number]{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--text)}
+label.title{display:block;font-weight:750;margin:0 0 6px}
+.subject{margin-top:14px}.subject:first-child{margin-top:0}
+.subject h3{margin:0 0 8px;font-size:1rem}
+.bankchecks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.bankcheck{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:11px;padding:10px;background:#fff}
+.bankcheck input{margin-top:3px;transform:scale(1.08)}
+.resume{border-left:5px solid var(--accent);background:#fafaff;margin-top:16px}
+.meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+.progress{height:9px;background:#e9edf3;border-radius:999px;overflow:hidden;margin:12px 0 18px}
+.progress>div{height:100%;width:0;background:var(--accent)}
+.question{font-size:1.18rem;font-weight:780;line-height:1.45;margin:10px 0 14px}
+.choice{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;background:#fff}
+.choice input{margin-top:3px;transform:scale(1.15)}
+.choice.correct{background:#effaf4;border-color:#7bc89f}.choice.wrong{background:#fff2f1;border-color:#ef9995}
+.feedback{margin-top:13px;padding:13px;border-radius:12px;background:#f7f8fb}
+.ok{color:var(--ok);font-weight:750}.bad{color:var(--bad);font-weight:750}.warn{color:var(--warn);font-weight:750}
+.score{font-size:2rem;font-weight:850}
+.status{margin-top:12px;padding:11px;border-radius:10px;background:#f7f8fb}
+footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
+@media(max-width:700px){.grid,.bankchecks{grid-template-columns:1fr}main{padding:13px}.card{padding:15px}}
+</style>
+</head>
+<body>
+<main>
+<header class="card hero">
+  <h1>QCM BTS Diététique</h1>
+  <p id="heroText">Chargement des banques disponibles…</p>
+</header>
+
+<section id="errorBox" class="card hidden" style="margin-top:16px">
+  <h2>Impossible de charger les banques</h2>
+  <p id="errorText"></p>
+</section>
+
+<section id="resumeCard" class="card resume hidden">
+  <h2>Questionnaire en pause</h2>
+  <p id="resumeText"></p>
+  <div class="row">
+    <button id="resumeBtn" class="primary" type="button">Reprendre</button>
+    <button id="discardSavedBtn" class="danger" type="button">Abandonner cette progression</button>
+  </div>
+</section>
+
+<section id="setup" class="grid hidden" style="margin-top:16px">
+  <div class="card">
+    <h2>1. Choisir les cours</h2>
+    <label class="title" for="scope">Mode</label>
+    <select id="scope">
+      <option value="all">Tous les cours</option>
+      <option value="custom">Choisir certains cours</option>
+    </select>
+    <div id="bankSelection" class="hidden" style="margin-top:12px"></div>
+    <div id="bankSummary" class="status muted"></div>
+  </div>
+
+  <div class="card">
+    <h2>2. Configurer le questionnaire</h2>
+    <label class="title" for="count">Nombre de questions</label>
+    <input id="count" type="number" min="1" value="20">
+    <p class="muted">Le site tire les questions au hasard et ne télécharge que les fichiers nécessaires à la série.</p>
+    <div class="row">
+      <label><input id="shuffleAnswers" type="checkbox" checked> Mélanger les réponses</label>
+      <label><input id="instantCorrection" type="checkbox" checked> Correction immédiate</label>
+    </div>
+    <p id="available" class="muted"></p>
+    <button id="startBtn" class="primary" type="button">Commencer</button>
+  </div>
+</section>
+
+<section id="quiz" class="card hidden" style="margin-top:16px">
+  <div class="meta"><span id="counter"></span><span id="scoreLive"></span></div>
+  <div class="progress"><div id="progressBar"></div></div>
+  <div id="qMeta" class="muted"></div>
+  <div id="qText" class="question"></div>
+  <form id="choices"></form>
+  <div id="feedback" class="feedback hidden"></div>
+  <div class="row" style="margin-top:15px">
+    <button id="validateBtn" class="primary" type="button">Valider</button>
+    <button id="nextBtn" class="secondary hidden" type="button">Question suivante</button>
+    <button id="pauseBtn" class="secondary" type="button">Mettre en pause</button>
+    <button id="quitBtn" class="danger" type="button">Abandonner</button>
+  </div>
+  <p class="muted" style="font-size:.88rem">La progression est sauvegardée automatiquement sur cet appareil.</p>
+</section>
+
+<section id="results" class="card hidden" style="margin-top:16px">
+  <h2>Résultats</h2>
+  <div id="finalScore" class="score"></div>
+  <p id="summary"></p>
+  <div class="row">
+    <button id="retryErrors" class="primary" type="button">Revoir mes erreurs</button>
+    <button id="newQuiz" class="secondary" type="button">Nouveau questionnaire</button>
+  </div>
+</section>
+
+<footer>Les banques de questions sont chargées automatiquement depuis le site. Aucune importation n'est nécessaire.</footer>
+</main>
+
+<script>
+(()=>{
+"use strict";
+
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v1";
+const $=id=>document.getElementById(id);
+const state={manifest:null,session:[],sessionRefs:[],index:0,score:0,errors:[],answered:false};
+const cache=new Map();
+
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+async function loadManifest(){
+  if(location.protocol==="file:"){
+    throw new Error("Cette version est prévue pour être hébergée sur le web. Pour la tester localement, lance un petit serveur local.");
+  }
+  const r=await fetch("manifest.json",{cache:"no-store"});
+  if(!r.ok) throw new Error("manifest.json introuvable ("+r.status+")");
+  const m=await r.json();
+  if(!m || !Array.isArray(m.banks)) throw new Error("Format de manifest.json invalide.");
+  state.manifest=m;
+}
+
+async function loadBank(file){
+  if(cache.has(file)) return cache.get(file);
+  const r=await fetch(file,{cache:"no-store"});
+  if(!r.ok) throw new Error("Impossible de charger "+file);
+  const data=await r.json();
+  if(!data || !Array.isArray(data.questions)) throw new Error("Banque invalide : "+file);
+  cache.set(file,data);
+  return data;
+}
+
+function renderBanks(){
+  const banks=state.manifest.banks;
+  const bySubject={};
+  for(const b of banks){
+    const s=b.subject||"Autres";
+    (bySubject[s] ||= []).push(b);
+  }
+  $("bankSelection").innerHTML=Object.entries(bySubject).map(([subject,list])=>`
+    <div class="subject">
+      <h3>${esc(subject)}</h3>
+      <div class="bankchecks">
+        ${list.map(b=>`
+          <label class="bankcheck">
+            <input type="checkbox" value="${esc(b.id)}" checked>
+            <span><strong>${esc(b.title)}</strong><br><span class="muted">${esc(b.chapter||"")} • ${b.count} questions</span></span>
+          </label>`).join("")}
+      </div>
+    </div>`).join("");
+  $("bankSelection").querySelectorAll("input").forEach(x=>x.addEventListener("change",updateAvailable));
+}
+
+function selectedBanks(){
+  if($("scope").value==="all") return [...state.manifest.banks];
+  const ids=new Set([...$("bankSelection").querySelectorAll("input:checked")].map(x=>x.value));
+  return state.manifest.banks.filter(b=>ids.has(b.id));
+}
+
+function updateAvailable(){
+  const banks=selectedBanks();
+  const total=banks.reduce((s,b)=>s+Number(b.count||0),0);
+  $("available").textContent=`${total} question${total>1?"s":""} disponible${total>1?"s":""}.`;
+  $("bankSummary").textContent=`${banks.length} banque${banks.length>1?"s":""} sélectionnée${banks.length>1?"s":""} • ${total} questions`;
+  $("count").max=Math.max(1,total);
+  if(total && Number($("count").value)>total) $("count").value=total;
+  $("startBtn").disabled=total===0;
+}
+
+function sampleUniqueInts(total,n){
+  n=Math.min(n,total);
+  const chosen=new Set();
+  for(let j=total-n;j<total;j++){
+    const t=Math.floor(Math.random()*(j+1));
+    chosen.add(chosen.has(t)?j:t);
+  }
+  return shuffle([...chosen]);
+}
+
+function mapGlobalSlotsToBanks(banks,slots){
+  const plan=new Map();
+  let offset=0;
+  for(const b of banks){
+    const start=offset, end=offset+b.count;
+    const local=[];
+    for(const s of slots){
+      if(s>=start && s<end) local.push(s-start);
+    }
+    if(local.length) plan.set(b.file,{bank:b,indexes:local});
+    offset=end;
+  }
+  return plan;
+}
+
+async function createSessionFromSelection(){
+  const banks=selectedBanks();
+  const total=banks.reduce((s,b)=>s+b.count,0);
+  const wanted=Math.max(1,Math.min(parseInt($("count").value,10)||20,total));
+  const slots=sampleUniqueInts(total,wanted);
+  const plan=mapGlobalSlotsToBanks(banks,slots);
+  const chosen=[];
+
+  for(const [file,item] of plan){
+    const data=await loadBank(file);
+    for(const idx of item.indexes){
+      const q=data.questions[idx];
+      if(!q) throw new Error(`Le manifeste indique un index absent dans ${file}. Régénère manifest.json.`);
+      chosen.push({
+        ...q,
+        bankTitle:item.bank.title,
+        subject:item.bank.subject||data.subject||"",
+        chapter:item.bank.chapter||data.chapter||"",
+        bankFile:file
+      });
+    }
+  }
+  return shuffle(chosen);
+}
+
+function refsFromSession(){
+  return state.session.map(q=>({file:q.bankFile,id:q.id}));
+}
+
+async function rebuildSessionFromRefs(refs){
+  const files=[...new Set(refs.map(r=>r.file))];
+  const lookups=new Map();
+  for(const file of files){
+    const data=await loadBank(file);
+    const meta=state.manifest.banks.find(b=>b.file===file)||{};
+    const m=new Map();
+    data.questions.forEach(q=>m.set(q.id,{...q,bankTitle:meta.title||data.title||file,subject:meta.subject||data.subject||"",chapter:meta.chapter||data.chapter||"",bankFile:file}));
+    lookups.set(file,m);
+  }
+  const rebuilt=[];
+  for(const r of refs){
+    const q=lookups.get(r.file)?.get(r.id);
+    if(q) rebuilt.push(q);
+  }
+  return rebuilt;
+}
+
+function getSaved(){
+  try{
+    const s=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");
+    return s && Array.isArray(s.refs) && s.refs.length ? s:null;
+  }catch{return null;}
+}
+
+function saveProgress(){
+  if(!state.session.length)return;
+  const resumeIndex=state.answered ? state.index+1 : state.index;
+  const data={
+    savedAt:new Date().toISOString(),
+    refs:refsFromSession(),
+    index:resumeIndex,
+    score:state.score,
+    errorRefs:state.errors.map(q=>({file:q.bankFile,id:q.id})),
+    shuffleAnswers:$("shuffleAnswers").checked,
+    instantCorrection:$("instantCorrection").checked
+  };
+  localStorage.setItem(SAVE_KEY,JSON.stringify(data));
+  refreshResumeCard();
+}
+
+function clearProgress(){localStorage.removeItem(SAVE_KEY);refreshResumeCard();}
+
+function refreshResumeCard(){
+  const s=getSaved();
+  if(!s){$("resumeCard").classList.add("hidden");return;}
+  $("resumeCard").classList.remove("hidden");
+  const pos=Math.min((s.index||0)+1,s.refs.length);
+  $("resumeText").textContent=`Question ${pos} sur ${s.refs.length} • score ${s.score||0} • sauvegarde disponible sur cet appareil.`;
+}
+
+async function start(){
+  $("startBtn").disabled=true;
+  $("startBtn").textContent="Préparation…";
+  try{
+    state.session=await createSessionFromSelection();
+    state.sessionRefs=refsFromSession();
+    state.index=0;state.score=0;state.errors=[];state.answered=false;
+    $("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");
+    renderQuestion();saveProgress();
+  }catch(e){
+    alert(e.message);
+  }finally{
+    $("startBtn").disabled=false;
+    $("startBtn").textContent="Commencer";
+  }
+}
+
+function renderQuestion(){
+  const q=state.session[state.index];
+  if(!q){finish();return;}
+  state.answered=false;
+  $("counter").textContent=`Question ${state.index+1} / ${state.session.length}`;
+  $("scoreLive").textContent=`Score : ${state.score}`;
+  $("progressBar").style.width=`${(state.index/state.session.length)*100}%`;
+  $("qMeta").textContent=[q.bankTitle,q.category,`difficulté ${q.difficulty||1}`].filter(Boolean).join(" • ");
+  $("qText").textContent=q.prompt;
+  $("feedback").classList.add("hidden");$("feedback").innerHTML="";
+  $("validateBtn").classList.remove("hidden");$("nextBtn").classList.add("hidden");
+
+  let cs=q.choices.map(c=>({...c}));
+  if($("shuffleAnswers").checked) cs=shuffle(cs);
+  const multiple=q.type==="multiple" || q.choices.filter(c=>c.correct).length>1;
+  const nCorrect=q.choices.filter(c=>c.correct).length;
+
+  $("choices").innerHTML=(multiple?`<p class="muted">${nCorrect} réponses attendues.</p>`:"")+
+    cs.map(c=>`<label class="choice"><input name="ans" type="${multiple?"checkbox":"radio"}" data-correct="${c.correct?"1":"0"}"> <span>${esc(c.text)}</span></label>`).join("");
+  saveProgress();
+}
+
+function validate(){
+  if(state.answered)return;
+  const ins=[...$("choices").querySelectorAll('input[name="ans"]')];
+  const selected=ins.filter(i=>i.checked);
+  if(!selected.length){
+    $("feedback").classList.remove("hidden");
+    $("feedback").innerHTML='<span class="warn">Sélectionne au moins une réponse.</span>';
+    return;
+  }
+  const ok=ins.every(i=>(i.checked&&i.dataset.correct==="1")||(!i.checked&&i.dataset.correct==="0"));
+  state.answered=true;
+  if(ok)state.score++;else state.errors.push(state.session[state.index]);
+
+  ins.forEach(i=>{
+    i.disabled=true;
+    const row=i.closest(".choice");
+    if(i.dataset.correct==="1")row.classList.add("correct");
+    else if(i.checked)row.classList.add("wrong");
+  });
+
+  $("scoreLive").textContent=`Score : ${state.score}`;
+  const q=state.session[state.index];
+  $("feedback").classList.remove("hidden");
+  $("feedback").innerHTML=`<div class="${ok?"ok":"bad"}">${ok?"Bonne réponse.":"Réponse incorrecte."}</div>`+
+    (($("instantCorrection").checked||state.index===state.session.length-1)?`<div style="margin-top:7px">${esc(q.explanation||"")}</div>`:"");
+  $("validateBtn").classList.add("hidden");
+  $("nextBtn").classList.remove("hidden");
+  $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Question suivante";
+  saveProgress();
+}
+
+function next(){
+  if(!state.answered)return;
+  if(state.index<state.session.length-1){state.index++;renderQuestion();}
+  else finish();
+}
+
+function finish(){
+  $("quiz").classList.add("hidden");$("results").classList.remove("hidden");
+  const total=state.session.length,pct=Math.round(100*state.score/total);
+  $("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;
+  $("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";
+  $("retryErrors").disabled=!state.errors.length;
+  clearProgress();
+}
+
+async function resumeSaved(){
+  const s=getSaved();if(!s)return;
+  $("resumeBtn").disabled=true;$("resumeBtn").textContent="Chargement…";
+  try{
+    state.session=await rebuildSessionFromRefs(s.refs);
+    if(!state.session.length) throw new Error("Les questions sauvegardées ne sont plus disponibles.");
+    state.index=Math.min(s.index||0,state.session.length-1);
+    state.score=s.score||0;
+    state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);
+    state.answered=false;
+    $("shuffleAnswers").checked=s.shuffleAnswers!==false;
+    $("instantCorrection").checked=s.instantCorrection!==false;
+    $("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");
+    renderQuestion();
+  }catch(e){
+    alert(e.message);
+    clearProgress();
+  }finally{
+    $("resumeBtn").disabled=false;$("resumeBtn").textContent="Reprendre";
+  }
+}
+
+function pause(){
+  saveProgress();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");refreshResumeCard();
+}
+
+async function init(){
+  try{
+    await loadManifest();
+    renderBanks();
+    const total=state.manifest.banks.reduce((s,b)=>s+b.count,0);
+    $("heroText").textContent=`${total} questions disponibles • ${state.manifest.banks.length} banques • chargement automatique`;
+    $("setup").classList.remove("hidden");
+    updateAvailable();
+    refreshResumeCard();
+  }catch(e){
+    $("heroText").textContent="Erreur de chargement";
+    $("errorText").textContent=e.message;
+    $("errorBox").classList.remove("hidden");
+  }
+}
+
+$("scope").addEventListener("change",()=>{
+  $("bankSelection").classList.toggle("hidden",$("scope").value!=="custom");
+  updateAvailable();
+});
+$("startBtn").addEventListener("click",start);
+$("validateBtn").addEventListener("click",validate);
+$("nextBtn").addEventListener("click",next);
+$("pauseBtn").addEventListener("click",pause);
+$("quitBtn").addEventListener("click",()=>{
+  if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){
+    clearProgress();state.session=[];
+    $("quiz").classList.add("hidden");$("setup").classList.remove("hidden");
+  }
+});
+$("resumeBtn").addEventListener("click",resumeSaved);
+$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
+$("newQuiz").addEventListener("click",()=>{$("results").classList.add("hidden");$("setup").classList.remove("hidden");updateAvailable();});
+$("retryErrors").addEventListener("click",()=>{
+  if(!state.errors.length)return;
+  state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;
+  $("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();
+});
+window.addEventListener("beforeunload",()=>{if(!$("quiz").classList.contains("hidden"))saveProgress();});
+
+init();
+})();
+</script>
+</body>
+</html>
