@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#4f46e5">
-<title>QCM BTS Diététique</title>
+<title>QCM BTS Diététique — Local</title>
 <style>
 :root{
   --bg:#f4f6fa;--card:#fff;--text:#1d2430;--muted:#6b7280;--line:#dfe3eb;
@@ -89,12 +89,22 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 <main>
 <header class="card hero">
   <h1>QCM BTS Diététique</h1>
-  <p id="heroText">Chargement des banques disponibles…</p>
+  <p id="heroText">Version locale • sélectionne ton dossier banques pour commencer.</p>
 </header>
 
 <section id="errorBox" class="card error-card hidden">
   <h2>Impossible de charger les banques</h2>
   <p id="errorText"></p>
+</section>
+
+<section id="localLoader" class="card" style="padding:18px;margin-top:16px">
+  <h2>Charger les banques</h2>
+  <p class="muted">Sélectionne le dossier <strong>banques</strong>. Tous ses sous-dossiers seront lus automatiquement.</p>
+  <label>
+    <span style="display:inline-block;background:var(--accent);color:white;border-radius:11px;padding:11px 15px;font-weight:750;cursor:pointer">Choisir le dossier banques</span>
+    <input id="folderInput" type="file" accept=".json,application/json" multiple webkitdirectory style="display:none">
+  </label>
+  <p id="loadStatus" class="muted" style="margin:12px 0 0">Aucune banque chargée.</p>
 </section>
 
 <section id="resumeCard" class="card resume hidden">
@@ -181,7 +191,7 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   </div>
 </section>
 
-<footer>Les banques sont organisées par matière puis par chapitre. Aucune importation n'est nécessaire.</footer>
+<footer>Version locale : les fichiers sont lus depuis ton dossier, sans serveur.</footer>
 </main>
 
 <script>
@@ -197,21 +207,36 @@ function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Ma
 function subjects(){return [...new Set(state.manifest.banks.map(b=>b.subject||"Autres"))];}
 function banksForSubject(subject){return state.manifest.banks.filter(b=>(b.subject||"Autres")===subject);}
 
-async function loadManifest(){
-  if(location.protocol==="file:") throw new Error("Cette version web doit être ouverte depuis GitHub Pages. Utilise index_local.html pour un test par double-clic.");
-  const r=await fetch("manifest.json",{cache:"no-store"});
-  if(!r.ok) throw new Error("manifest.json introuvable ("+r.status+")");
-  const m=await r.json();
-  if(!m||!Array.isArray(m.banks)) throw new Error("Format de manifest.json invalide.");
-  state.manifest=m;
-}
+async function loadManifest(){ return; }
 async function loadBank(file){
   if(cache.has(file)) return cache.get(file);
-  const r=await fetch(file,{cache:"no-store"});
-  if(!r.ok) throw new Error("Impossible de charger "+file);
-  const data=await r.json();
-  if(!data||!Array.isArray(data.questions)) throw new Error("Banque invalide : "+file);
-  cache.set(file,data);return data;
+  throw new Error("Banque non chargée : "+file);
+}
+function inferSubject(file,data){
+  if(data.subject&&data.subject.trim()) return data.subject.trim();
+  const parts=(file.webkitRelativePath||file.name).split("/").filter(Boolean);
+  const idx=parts.map(x=>x.toLowerCase()).lastIndexOf("banques");
+  if(idx>=0&&parts.length>idx+2) return parts[idx+1];
+  if(parts.length>=3) return parts[parts.length-2];
+  return "Autres";
+}
+async function loadFolder(files){
+  const banks=[];cache.clear();let ignored=0;const errors=[];
+  for(const file of [...files].filter(f=>f.name.toLowerCase().endsWith(".json"))){
+    try{
+      const data=JSON.parse(await file.text());
+      if(!Array.isArray(data.questions)){ignored++;continue;}
+      const path=file.webkitRelativePath||file.name;
+      const subject=inferSubject(file,data);
+      const id=path.replace(/\.json$/i,"").replaceAll("/","__");
+      const bank={id,title:data.title||file.name.replace(/\.json$/i,""),subject,chapter:data.chapter||"",file:path,count:data.questions.length,version:data.version||1};
+      banks.push(bank);cache.set(path,data);
+    }catch(e){errors.push(file.name+" : "+e.message);}
+  }
+  state.manifest={banks};state.selectedBankIds=new Set(banks.map(b=>b.id));state.activeSubject=subjects()[0]||null;
+  if(banks.length){renderSelectionUI();$("setup").classList.remove("hidden");$("heroText").textContent=`${banks.reduce((s,b)=>s+b.count,0)} questions disponibles • ${subjects().length} matières • version locale`;$("loadStatus").innerHTML=`<span class="ok">${banks.length} banque(s) chargée(s)</span>${ignored?` • ${ignored} JSON ignoré(s)`:""}`;}
+  else{$("setup").classList.add("hidden");$("loadStatus").innerHTML='<span class="bad">Aucune banque valide trouvée.</span>';}
+  if(errors.length)$("loadStatus").innerHTML+=`<br><span class="bad">${errors.map(esc).join("<br>")}</span>`;
 }
 
 function subjectStats(subject){
@@ -324,18 +349,18 @@ async function rebuildSessionFromRefs(refs){
   }
   return refs.map(r=>lookups.get(r.file)?.get(r.id)).filter(Boolean);
 }
-function getSaved(){try{const s=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");return s&&Array.isArray(s.refs)&&s.refs.length?s:null;}catch{return null;}}
+function getSaved(){try{const s=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");return s&&Array.isArray(s.session)&&s.session.length?s:null;}catch{return null;}}
 function saveProgress(){
   if(!state.session.length)return;
   const resumeIndex=state.answered?state.index+1:state.index;
-  localStorage.setItem(SAVE_KEY,JSON.stringify({savedAt:new Date().toISOString(),refs:refsFromSession(),index:resumeIndex,score:state.score,errorRefs:state.errors.map(q=>({file:q.bankFile,id:q.id})),shuffleAnswers:$("shuffleAnswers").checked,instantCorrection:$("instantCorrection").checked}));
+  localStorage.setItem(SAVE_KEY,JSON.stringify({savedAt:new Date().toISOString(),session:state.session,index:resumeIndex,score:state.score,errors:state.errors,shuffleAnswers:$("shuffleAnswers").checked,instantCorrection:$("instantCorrection").checked}));
   refreshResumeCard();
 }
 function clearProgress(){localStorage.removeItem(SAVE_KEY);refreshResumeCard();}
 function refreshResumeCard(){
   const s=getSaved();if(!s){$("resumeCard").classList.add("hidden");return;}
-  $("resumeCard").classList.remove("hidden");const pos=Math.min((s.index||0)+1,s.refs.length);
-  $("resumeText").textContent=`Question ${pos} sur ${s.refs.length} • score ${s.score||0} • sauvegarde disponible sur cet appareil.`;
+  $("resumeCard").classList.remove("hidden");const pos=Math.min((s.index||0)+1,s.session.length);
+  $("resumeText").textContent=`Question ${pos} sur ${s.session.length} • score ${s.score||0} • sauvegarde disponible sur cet appareil.`;
 }
 async function start(){
   $("startBtn").disabled=true;$("startBtn").textContent="Préparation…";
@@ -361,24 +386,24 @@ function finish(){
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
 }
 async function resumeSaved(){
-  const s=getSaved();if(!s)return;$("resumeBtn").disabled=true;$("resumeBtn").textContent="Chargement…";
-  try{state.session=await rebuildSessionFromRefs(s.refs);if(!state.session.length)throw new Error("Les questions sauvegardées ne sont plus disponibles.");if((s.index||0)>=state.session.length){state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);finish();return;}state.index=s.index||0;state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);state.answered=false;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();}
-  catch(e){alert(e.message);clearProgress();}finally{$("resumeBtn").disabled=false;$("resumeBtn").textContent="Reprendre";}
+  const s=getSaved();if(!s)return;
+  state.session=s.session;state.score=s.score||0;state.errors=s.errors||[];
+  if((s.index||0)>=state.session.length){finish();return;}
+  state.index=s.index||0;state.answered=false;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;
+  $("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();
 }
-function pause(){saveProgress();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");refreshResumeCard();}
-async function init(){
-  try{await loadManifest();for(const b of state.manifest.banks)state.selectedBankIds.add(b.id);state.activeSubject=subjects()[0]||null;renderSelectionUI();const total=state.manifest.banks.reduce((s,b)=>s+b.count,0);$("heroText").textContent=`${total} questions disponibles • ${subjects().length} matières • sélection par chapitres`;$("setup").classList.remove("hidden");refreshResumeCard();}
-  catch(e){$("heroText").textContent="Erreur de chargement";$("errorText").textContent=e.message;$("errorBox").classList.remove("hidden");}
-}
+function pause(){saveProgress();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");refreshResumeCard();}
+async function init(){ refreshResumeCard(); }
 
 $("selectAllChapters").addEventListener("click",()=>setAllActiveSubject(true));
 $("clearAllChapters").addEventListener("click",()=>setAllActiveSubject(false));
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",validate);$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
-$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearProgress();state.session=[];$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
+$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearProgress();state.session=[];$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
-$("newQuiz").addEventListener("click",()=>{$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
+$("newQuiz").addEventListener("click",()=>{$("results").classList.add("hidden");if(state.manifest){$("setup").classList.remove("hidden");renderSelectionUI();}});
 $("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;$("results").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();});
 window.addEventListener("beforeunload",()=>{if(!$("quiz").classList.contains("hidden"))saveProgress();});
+$("folderInput").addEventListener("change",e=>loadFolder(e.target.files));
 init();
 })();
 </script>
