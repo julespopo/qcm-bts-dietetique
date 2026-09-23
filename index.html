@@ -197,7 +197,8 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   display:grid;place-items:center;
   border:1px solid var(--line);
   background:var(--card);color:var(--text);
-  box-shadow:0 8px 24px rgba(0,0,0,.16);
+  border-width:2px;
+  box-shadow:0 0 0 3px var(--bg),0 8px 24px rgba(0,0,0,.24);
   opacity:0;transform:scale(.72);
   pointer-events:none;
   transition:
@@ -222,9 +223,9 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   box-shadow:0 10px 28px rgba(0,0,0,.20)
 }
 #timerToggleBtn.active{
-  border-color:rgba(var(--accent-rgb),.78);
-  background:rgba(var(--accent-rgb),.10);
-  box-shadow:0 0 18px rgba(var(--accent-rgb),.18)
+  border-color:rgba(var(--accent-rgb),.88);
+  background:var(--soft);
+  box-shadow:0 0 0 3px var(--bg),0 0 20px rgba(var(--accent-rgb),.24)
 }
 .timer-presets-floating{
   position:fixed;inset:0;pointer-events:none
@@ -233,14 +234,17 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   opacity:1;transform:scale(1);pointer-events:auto
 }
 .timer-preset-floating{
-  width:42px;height:42px;padding:0;border-radius:50%;
-  font-size:.78rem;font-weight:850
+  width:44px;height:44px;padding:0;border-radius:50%;
+  font-size:.79rem;font-weight:900;
+  background:var(--card);
+  border:2px solid var(--hover-line);
+  box-shadow:0 0 0 3px var(--bg),0 8px 22px rgba(0,0,0,.24)
 }
 .timer-preset-floating.selected{
-  border-color:rgba(var(--accent-rgb),.82);
-  background:rgba(var(--accent-rgb),.12);
+  border-color:rgba(var(--accent-rgb),.88);
+  background:var(--soft);
   color:var(--accent);
-  box-shadow:0 0 16px rgba(var(--accent-rgb),.18)
+  box-shadow:0 0 0 3px var(--bg),0 0 18px rgba(var(--accent-rgb),.22)
 }
 
 
@@ -282,6 +286,78 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 body.sheet-open{overflow:hidden}
 
 @media(max-width:760px){
+  body.quiz-active main{
+    padding:5px;
+    align-items:stretch;
+  }
+  body.quiz-active #quiz{
+    width:100%;
+    height:calc(100dvh - 10px);
+    max-height:calc(100dvh - 10px);
+    border-radius:14px;
+    padding:10px 10px 7px;
+    display:block;
+  }
+  body.quiz-active #quiz .meta{
+    font-size:.79rem;
+    gap:7px;
+    margin-bottom:0;
+  }
+  body.quiz-active #quiz .progress{
+    height:6px;
+    margin:6px 0 8px;
+  }
+  body.quiz-active #qMeta{
+    display:none;
+  }
+  body.quiz-active #qText{
+    font-size:1.08rem;
+    line-height:1.28;
+    margin:6px 0 8px;
+  }
+  body.quiz-active #choices{
+    gap:6px;
+    margin-top:5px;
+  }
+  body.quiz-active .choice{
+    min-height:0;
+    padding:9px 10px;
+    font-size:.94rem;
+    line-height:1.24;
+    border-radius:11px;
+  }
+  body.quiz-active #choices>p{
+    font-size:.82rem;
+    margin-bottom:0;
+  }
+  body.quiz-active .feedback{
+    margin-top:7px;
+    padding:9px 10px;
+    font-size:.9rem;
+    line-height:1.28;
+  }
+  body.quiz-active .quiz-actions{
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1fr);
+    gap:5px;
+    padding:6px;
+    margin-top:7px;
+    border-radius:11px;
+  }
+  body.quiz-active .quiz-actions button{
+    min-width:0;
+    padding:9px 5px;
+    font-size:.80rem;
+    line-height:1.1;
+  }
+  body.quiz-active #validateBtn,
+  body.quiz-active #nextBtn{grid-column:1}
+  body.quiz-active #pauseBtn{grid-column:2}
+  body.quiz-active #quitBtn{grid-column:3}
+  body.quiz-active #quiz>p.muted:last-child{
+    display:none;
+  }
+
   .difficulty-block{grid-template-columns:1fr;gap:10px}
   .difficulty-options{grid-template-columns:repeat(2,minmax(0,1fr))}
   .keyboard-hint{display:none}
@@ -456,13 +532,13 @@ body.sheet-open{overflow:hidden}
   </div>
 </section>
 
-<footer>Menu flottant • mode focus du quiz • difficulté sélectionnable • timer optionnel par question.</footer>
+<footer>Index V7.6.2</footer>
 </main>
 
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_6";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_6_2";
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",session:[],index:0,score:0,errors:[],answered:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
@@ -1106,13 +1182,18 @@ function startTimerInterval(){
   if(state.timerEndAt===null)state.timerEndAt=Date.now()+Math.max(0,state.timerRemainingMs??state.timerDurationMs);
   renderTimer();
   state.timerInterval=setInterval(()=>{
+    if(!state.timerEnabled||state.answered){
+      stopTimerInterval();
+      renderTimer();
+      return;
+    }
     state.timerRemainingMs=currentRemainingMs();
     renderTimer();
     if(state.timerRemainingMs<=0){
       stopTimerInterval();
       state.timerEndAt=null;
       state.timerRemainingMs=0;
-      validate(true);
+      expireQuestion();
     }
   },200);
 }
@@ -1195,9 +1276,9 @@ async function start(){
 function renderQuestion(resumeTimer=false){
   const q=state.session[state.index];if(!q){finish();return;}state.answered=false;
   $("counter").textContent=`Question ${state.index+1} / ${state.session.length}`;$("scoreLive").textContent=`Score : ${state.score}`;$("progressBar").style.width=`${(state.index/state.session.length)*100}%`;
-  $("qMeta").textContent=[q.subject,q.bankTitle,q.category,difficultyLabel(q.difficulty)].filter(Boolean).join(" • ");$("qText").textContent=q.prompt;$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("validateBtn").classList.remove("hidden");$("nextBtn").classList.add("hidden");
+  $("qMeta").textContent=[q.subject,difficultyLabel(q.difficulty)].filter(Boolean).join(" • ");$("qText").textContent=q.prompt;$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("validateBtn").classList.remove("hidden");$("nextBtn").classList.add("hidden");
   let cs=q.choices.map(c=>({...c}));if($("shuffleAnswers").checked)cs=shuffle(cs);const multiple=q.type==="multiple"||q.choices.filter(c=>c.correct).length>1,nCorrect=q.choices.filter(c=>c.correct).length;
-  $("choices").innerHTML=(multiple?`<p class="muted">${nCorrect} réponses attendues.</p>`:"")+cs.map(c=>`<label class="choice"><input name="ans" type="${multiple?'checkbox':'radio'}" data-correct="${c.correct?'1':'0'}"> <span>${esc(c.text)}</span></label>`).join("");
+  $("choices").innerHTML=(multiple?`<p class="muted">Plusieurs réponses sont attendues.</p>`:"")+cs.map(c=>`<label class="choice"><input name="ans" type="${multiple?'checkbox':'radio'}" data-correct="${c.correct?'1':'0'}"> <span>${esc(c.text)}</span></label>`).join("");
   const syncChoiceVisuals=()=>{
     $("choices").querySelectorAll(".choice").forEach(row=>{
       const input=row.querySelector('input[name="ans"]');
@@ -1237,15 +1318,14 @@ function handleQuizKeyboard(e){
   }
 }
 
-function validate(fromTimer=false){
+function finalizeAnswer(timedOut=false){
   if(state.answered)return;
+
   const ins=[...$("choices").querySelectorAll('input[name="ans"]')];
-  const hasSelection=ins.some(i=>i.checked);
-  if(!hasSelection&&!fromTimer){
-    $("feedback").classList.remove("hidden");
-    $("feedback").innerHTML='<span class="warn">Sélectionne au moins une réponse.</span>';
-    return;
-  }
+
+  // A normal validation and a timeout are now completely separate code paths.
+  // "Temps écoulé" can only be produced when timedOut === true AND timer is active.
+  const realTimeout=timedOut===true&&state.timerEnabled===true;
 
   if(state.timerEnabled){
     state.timerRemainingMs=currentRemainingMs();
@@ -1254,7 +1334,7 @@ function validate(fromTimer=false){
     renderTimer();
   }
 
-  const ok=ins.every(i=>(i.checked&&i.dataset.correct==="1")||(!i.checked&&i.dataset.correct==="0"));
+  const ok=!realTimeout&&ins.every(i=>(i.checked&&i.dataset.correct==="1")||(!i.checked&&i.dataset.correct==="0"));
   state.answered=true;
   if(ok)state.score++;else state.errors.push(state.session[state.index]);
 
@@ -1268,15 +1348,41 @@ function validate(fromTimer=false){
   $("scoreLive").textContent=`Score : ${state.score}`;
   const q=state.session[state.index];
   $("feedback").classList.remove("hidden");
-  const status=fromTimer
+
+  const status=realTimeout
     ? '<div class="bad">Temps écoulé.</div>'
     : `<div class="${ok?'ok':'bad'}">${ok?'Bonne réponse.':'Réponse incorrecte.'}</div>`;
-  $("feedback").innerHTML=status+(($("instantCorrection").checked||state.index===state.session.length-1)?`<div style="margin-top:7px">${esc(q.explanation||"")}</div>`:"");
+
+  $("feedback").innerHTML=status+(($("instantCorrection").checked||state.index===state.session.length-1)
+    ? `<div style="margin-top:7px">${esc(q.explanation||"")}</div>`
+    : "");
+
   $("validateBtn").classList.add("hidden");
   $("nextBtn").classList.remove("hidden");
   $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Question suivante";
-  saveProgress();focusCorrection();
+  saveProgress();
+  focusCorrection();
 }
+
+function validate(){
+  if(state.answered)return;
+  const ins=[...$("choices").querySelectorAll('input[name="ans"]')];
+  if(!ins.some(i=>i.checked)){
+    $("feedback").classList.remove("hidden");
+    $("feedback").innerHTML='<span class="warn">Sélectionne au moins une réponse.</span>';
+    focusCorrection();
+    return;
+  }
+  finalizeAnswer(false);
+}
+
+function expireQuestion(){
+  // Defensive guard: an old/stale interval can never create a fake timeout
+  // once the timer has been disabled.
+  if(!state.timerEnabled||state.answered)return;
+  finalizeAnswer(true);
+}
+
 function next(){if(!state.answered)return;if(state.index<state.session.length-1){state.index++;renderQuestion();}else finish();}
 function finish(){stopTimerInterval();state.timerEndAt=null;exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
@@ -1317,7 +1423,7 @@ document.querySelectorAll(".difficulty-btn").forEach(btn=>btn.addEventListener("
 $("themeMenuBtn").addEventListener("click",toggleTheme);
 $("timerToggleBtn").addEventListener("click",toggleTimer);
 document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
-$("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",validate);$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
+$("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",()=>validate());$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
 $("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
 $("newQuiz").addEventListener("click",()=>{exitQuizFocus();stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
