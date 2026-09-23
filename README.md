@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.3
+# QCM BTS Diététique — V7.6.3
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -87,22 +87,31 @@ Cela évite d'avoir à faire défiler la page entre les matières et les chapitr
 
 ---
 
-## 4. Réglages flottants
+## 4. Menu flottant
 
-Le bouton flottant `⚙` ouvre le menu des réglages rapides.
+L'interface de réglages ne repose plus sur une fenêtre ou un panneau.
 
-Il peut être déplacé :
+À l'état neutre, un seul bouton flottant `☰` est visible.
 
-- à la souris sur ordinateur ;
-- au doigt sur téléphone.
+Lorsqu'on le touche ou qu'on clique dessus, il se déploie en deux boutons flottants indépendants :
 
-Quand il est relâché, il s'aimante automatiquement vers le **coin de l'écran le plus proche** avec une animation fluide.
+- `☾ / ☀` : bascule immédiatement entre le mode nuit et le mode jour ;
+- `⏱` : active ou désactive le minuteur.
 
-Une marge est conservée avec les bords afin que le bouton reste facile à attraper.
+Aucun cadre ne contient ces boutons.
 
-Sa position est mémorisée dans le navigateur.
+Lorsque le minuteur est activé, quatre petits boutons supplémentaires apparaissent autour de lui :
 
----
+- `15`
+- `30`
+- `45`
+- `60`
+
+Ils correspondent au nombre de secondes maximum par question.
+
+Le bouton principal reste déplaçable à la souris ou au doigt.
+
+Lorsqu'il est amené près du bord gauche ou droit, il peut se ranger partiellement hors de l'écran : environ 30 % de l'icône restent visibles. Un clic sur cette partie visible ramène le bouton entièrement à l'écran puis ouvre automatiquement le menu radial.
 
 ## 5. Mode jour / nuit
 
@@ -120,32 +129,73 @@ Le thème ne dépend pas de l'heure.
 
 Le minuteur est **désactivé par défaut**.
 
-Il peut être activé depuis le menu `⚙ Réglages`.
+Il s'active directement via l'icône `⏱` du menu flottant.
 
-L'utilisateur choisit un temps maximum par question :
+Lorsqu'il est activé, quatre durées sont disponibles :
 
-- minimum : **15 secondes** ;
-- maximum : **300 secondes** ;
-- valeur proposée : **30 secondes**.
+- **15 secondes**
+- **30 secondes**
+- **45 secondes**
+- **60 secondes**
+
+Une seule durée est active à la fois.
 
 Chaque nouvelle question repart avec le temps complet.
 
 Si le temps arrive à zéro :
 
 1. la question est automatiquement terminée ;
-2. elle est comptée comme incorrecte si elle n'était pas correctement répondue ;
-3. la correction s'affiche ;
+2. la correction s'affiche ;
+3. la question est comptée comme incorrecte si la réponse n'était pas correcte ;
 4. l'utilisateur passe ensuite manuellement à la question suivante.
 
 La mise en pause conserve le temps restant de la question en cours.
 
----
+## 7. Difficulté du questionnaire
 
-## 7. Réponses et navigation
+Avant de lancer une session, l'utilisateur peut filtrer les questions par difficulté :
+
+- **Tous niveaux**
+- **Facile** — niveau 1
+- **Intermédiaire** — niveau 2
+- **Difficile** — niveau 3
+
+Le nombre de questions disponibles est recalculé en fonction :
+
+- des matières sélectionnées ;
+- des chapitres sélectionnés ;
+- du niveau choisi.
+
+Le nombre demandé est automatiquement limité au nombre de questions réellement disponibles.
+
+Les banques actuelles contiennent :
+
+- 169 questions de niveau 1 ;
+- 127 questions de niveau 2 ;
+- 4 questions de niveau 3.
+
+Cette répartition évoluera naturellement avec l'ajout de nouvelles banques.
+
+## 8. Mode focus pendant le questionnaire
+
+Lorsqu'une session commence, l'interface passe automatiquement en **mode focus** :
+
+- le reste de la page est masqué ;
+- sur téléphone, le nom du chapitre / de la banque est retiré pendant la session afin de libérer de la hauteur ;
+- la carte du questionnaire est centrée dans la fenêtre ;
+- la question et les propositions sont regroupées dans cette carte ;
+- les boutons `Valider`, `Mettre en pause` et `Abandonner` restent accessibles grâce à une barre d'actions fixe en bas de la carte ;
+- après validation, la vue se repositionne automatiquement pour rendre la correction visible.
+
+Si le contenu d'une question dépasse la hauteur disponible, seul l'intérieur de la carte du quiz défile.
+
+## 9. Réponses et navigation
 
 Les réponses sont affichées **verticalement, une sous l'autre**, afin de limiter les mouvements des yeux et faciliter la lecture.
 
 Les cartes de réponse sont volontairement assez grandes pour être confortables sur ordinateur comme sur mobile.
+
+Les boutons radio et cases à cocher natifs sont masqués : **aucune coche ni aucun rond n'est affiché**. La sélection est indiquée uniquement par le halo de la carte choisie.
 
 ### Navigation clavier sur ordinateur
 
@@ -160,7 +210,7 @@ La première réponse reçoit automatiquement le focus à chaque nouvelle questi
 
 ---
 
-## 8. Mobile et zoom
+## 10. Mobile et zoom
 
 Sur téléphone :
 
@@ -171,7 +221,7 @@ Sur téléphone :
 
 ---
 
-## 9. Pause et reprise
+## 11. Pause et reprise
 
 Une session en cours peut être sauvegardée automatiquement dans le navigateur.
 
@@ -185,7 +235,7 @@ La reprise conserve notamment :
 
 ---
 
-## 10. Utilisation en ligne avec GitHub Pages
+## 12. Utilisation en ligne avec GitHub Pages
 
 Le fichier principal du site est :
 
@@ -215,7 +265,7 @@ GitHub Pages met ensuite le site à jour.
 
 ---
 
-## 11. Utilisation locale sans serveur
+## 13. Utilisation locale sans serveur
 
 Pour une utilisation locale, ouvrir :
 
@@ -235,7 +285,7 @@ Cette version ne nécessite ni serveur local ni connexion internet.
 
 ---
 
-## 12. Ajouter une nouvelle matière
+## 14. Ajouter une nouvelle matière
 
 Créer un nouveau dossier dans `banques`.
 
@@ -269,7 +319,7 @@ Il n'est normalement pas nécessaire de modifier `index.html`.
 
 ---
 
-## 13. Ajouter un nouveau chapitre
+## 15. Ajouter un nouveau chapitre
 
 Exemple :
 
@@ -287,7 +337,7 @@ et pousser les modifications sur GitHub.
 
 ---
 
-## 14. Format d'une banque JSON
+## 16. Format d'une banque JSON
 
 Chaque banque contient notamment :
 
@@ -326,7 +376,7 @@ multiple → plusieurs bonnes réponses
 
 ---
 
-## 15. Matières actuellement disponibles
+## 17. Matières actuellement disponibles
 
 ### BPADN
 
@@ -349,6 +399,82 @@ multiple → plusieurs bonnes réponses
 ---
 
 # Changelog
+
+## V7.6.3
+
+- Ajout d'un graphique circulaire animé sur la page Résultats.
+- Le pourcentage s'anime de 0 % jusqu'au score obtenu.
+- La couleur de l'anneau s'adapte au score.
+- Le bouton ⚙ peut désormais être rangé partiellement hors de l'écran :
+  - environ 30 % restent visibles ;
+  - un clic sur la partie visible le ramène entièrement dans l'écran ;
+  - le menu radial s'ouvre automatiquement après son retour.
+- La position rangée du bouton est mémorisée.
+- Suppression de la ligne `300 questions disponibles • 2 matières • sélection par chapitres` sous le titre.
+- Le footer affiche `Index V7.6.3`.
+
+## V7.6.2
+
+- Correction renforcée du bug `Temps écoulé`.
+- La validation manuelle et l'expiration du timer utilisent désormais deux chemins séparés.
+- Un intervalle de timer obsolète est automatiquement neutralisé si le timer est désactivé.
+- Optimisation du mode Focus sur téléphone :
+  - suppression du chapitre / de la banque pendant la question ;
+  - marges et espacements réduits ;
+  - réponses plus compactes ;
+  - barre Valider / Pause / Abandonner compacte et toujours accessible ;
+  - meilleure utilisation de la hauteur de l'écran.
+- Renforcement du fond et du contraste des icônes du menu flottant et des choix 15 / 30 / 45 / 60 s.
+- Le bas de la page affiche désormais uniquement la version réelle de l'index : `Index V7.6.2`.
+
+## V7.6.1
+
+- Correction d'un bug où un clic normal sur `Valider` pouvait afficher `Temps écoulé`.
+- Le message `Temps écoulé` n'apparaît désormais que lorsque le timer atteint réellement zéro.
+- Pour les questions à choix multiples, le nombre exact de bonnes réponses n'est plus révélé.
+- Le texte affiche simplement : `Plusieurs réponses sont attendues.`
+
+## V7.6
+
+- Retour de l'icône `⚙` sur le bouton principal du menu flottant.
+- Ajout d'un mode focus automatique pendant les questionnaires.
+- Questionnaire centré dans la fenêtre.
+- Barre d'actions du quiz maintenue accessible en bas de la carte.
+- Recentrage automatique vers la correction après validation.
+- Ajout du filtre de difficulté :
+  - Tous niveaux
+  - Facile
+  - Intermédiaire
+  - Difficile
+- Recalcul dynamique du nombre de questions disponibles selon la difficulté.
+- Affichage des libellés de difficulté dans les questions au lieu des valeurs numériques.
+
+## V7.5
+
+- Remplacement de la fenêtre Réglages par un menu flottant sans panneau.
+- État neutre : seule l'icône `☰` est visible.
+- Un clic sur `☰` déploie deux icônes indépendantes :
+  - Jour / Nuit ;
+  - Timer.
+- Jour / Nuit bascule immédiatement sans ouvrir de sous-menu.
+- Le bouton Timer active / désactive directement le minuteur.
+- Lorsque le timer est actif, les choix 15 / 30 / 45 / 60 s apparaissent comme de petits boutons flottants.
+- Aucun cadre ou fond commun autour des icônes déployées.
+- Déplacement et aimantation du bouton principal conservés.
+
+## V7.4
+
+- Suppression des coches / ronds visibles dans les réponses.
+- Sélection des réponses indiquée uniquement par un halo.
+- Menu Réglages simplifié.
+- Mode jour / nuit représenté uniquement par son icône.
+- Timer activable / désactivable sans checkbox visible.
+- Remplacement du champ numérique du timer par quatre durées fixes :
+  - 15 s
+  - 30 s
+  - 45 s
+  - 60 s
+- Timer toujours désactivé par défaut.
 
 ## V7.3
 

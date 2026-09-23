@@ -23,8 +23,8 @@ body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",
 main{max-width:1120px;margin:auto;padding:22px}
 h1,h2,h3,p{margin-top:0}.muted{color:var(--muted)}.hidden{display:none!important}
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
-.hero{padding:22px;background:linear-gradient(135deg,#312e81,#4f46e5);color:#fff;border:0}
-.hero h1{margin:0 0 6px;font-size:clamp(1.75rem,4vw,2.45rem)}
+.hero{padding:22px 24px;background:linear-gradient(135deg,#312e81,#4f46e5);color:#fff;border:0}
+.hero h1{margin:0;font-size:clamp(1.75rem,4vw,2.45rem)}
 .hero p{margin:0;color:#e8e7ff}
 button,input{font:inherit}
 button{border:0;border-radius:11px;padding:11px 15px;font-weight:750;cursor:pointer}
@@ -173,6 +173,42 @@ body.quiz-active #quiz{
 .timer-settings label{display:block;font-weight:760;margin-bottom:6px}
 .feedback{margin-top:13px;padding:13px;border-radius:12px;background:var(--pane)}.ok{color:var(--ok);font-weight:750}.bad{color:var(--bad);font-weight:750}.warn{color:var(--warn);font-weight:750}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.score{font-size:2rem;font-weight:850}
+
+.result-overview{
+  display:flex;align-items:center;gap:22px;margin:8px 0 18px
+}
+.result-copy{min-width:0}
+.result-copy #summary{margin:4px 0 0}
+.score-donut{
+  position:relative;width:128px;height:128px;flex:0 0 128px;
+  filter:drop-shadow(0 8px 18px rgba(var(--accent-rgb),.10))
+}
+.score-donut svg{width:100%;height:100%;display:block;transform:rotate(-90deg)}
+.score-donut-track{
+  fill:none;stroke:var(--button-soft);stroke-width:13
+}
+.score-donut-progress{
+  fill:none;stroke:var(--accent);stroke-width:13;stroke-linecap:round;
+  stroke-dasharray:100;stroke-dashoffset:100;
+  transition:stroke-dashoffset 1s cubic-bezier(.18,.8,.22,1),stroke .2s ease
+}
+.score-donut-center{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;pointer-events:none
+}
+.score-donut-center strong{
+  font-size:1.55rem;line-height:1;font-weight:900;letter-spacing:-.03em
+}
+.score-donut-center span{
+  margin-top:4px;font-size:.72rem;color:var(--muted);font-weight:750;text-transform:uppercase;letter-spacing:.06em
+}
+@media(max-width:560px){
+  .result-overview{gap:14px}
+  .score-donut{width:106px;height:106px;flex-basis:106px}
+  .score-donut-center strong{font-size:1.3rem}
+  .results-card .score{font-size:1.75rem}
+}
+
 .error-card{padding:18px;margin-top:16px}
 footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 .theme-toggle{
@@ -185,6 +221,11 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 .theme-toggle:hover{border-color:rgba(var(--accent-rgb),.55);box-shadow:0 10px 30px rgba(0,0,0,.18)}
 .theme-toggle.dragging{cursor:grabbing;transition:none;box-shadow:0 12px 34px rgba(0,0,0,.22)}
 .theme-toggle.snapping{pointer-events:none}
+.theme-toggle.docked{
+  opacity:.92;
+  box-shadow:0 0 0 2px var(--bg),0 7px 22px rgba(0,0,0,.18)
+}
+.theme-toggle.revealing{pointer-events:none}
 .theme-toggle:focus-visible{outline:3px solid rgba(var(--accent-rgb),.28);outline-offset:3px}
 
 
@@ -197,7 +238,8 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   display:grid;place-items:center;
   border:1px solid var(--line);
   background:var(--card);color:var(--text);
-  box-shadow:0 8px 24px rgba(0,0,0,.16);
+  border-width:2px;
+  box-shadow:0 0 0 3px var(--bg),0 8px 24px rgba(0,0,0,.24);
   opacity:0;transform:scale(.72);
   pointer-events:none;
   transition:
@@ -222,9 +264,9 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   box-shadow:0 10px 28px rgba(0,0,0,.20)
 }
 #timerToggleBtn.active{
-  border-color:rgba(var(--accent-rgb),.78);
-  background:rgba(var(--accent-rgb),.10);
-  box-shadow:0 0 18px rgba(var(--accent-rgb),.18)
+  border-color:rgba(var(--accent-rgb),.88);
+  background:var(--soft);
+  box-shadow:0 0 0 3px var(--bg),0 0 20px rgba(var(--accent-rgb),.24)
 }
 .timer-presets-floating{
   position:fixed;inset:0;pointer-events:none
@@ -233,14 +275,17 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   opacity:1;transform:scale(1);pointer-events:auto
 }
 .timer-preset-floating{
-  width:42px;height:42px;padding:0;border-radius:50%;
-  font-size:.78rem;font-weight:850
+  width:44px;height:44px;padding:0;border-radius:50%;
+  font-size:.79rem;font-weight:900;
+  background:var(--card);
+  border:2px solid var(--hover-line);
+  box-shadow:0 0 0 3px var(--bg),0 8px 22px rgba(0,0,0,.24)
 }
 .timer-preset-floating.selected{
-  border-color:rgba(var(--accent-rgb),.82);
-  background:rgba(var(--accent-rgb),.12);
+  border-color:rgba(var(--accent-rgb),.88);
+  background:var(--soft);
   color:var(--accent);
-  box-shadow:0 0 16px rgba(var(--accent-rgb),.18)
+  box-shadow:0 0 0 3px var(--bg),0 0 18px rgba(var(--accent-rgb),.22)
 }
 
 
@@ -282,6 +327,78 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 body.sheet-open{overflow:hidden}
 
 @media(max-width:760px){
+  body.quiz-active main{
+    padding:5px;
+    align-items:stretch;
+  }
+  body.quiz-active #quiz{
+    width:100%;
+    height:calc(100dvh - 10px);
+    max-height:calc(100dvh - 10px);
+    border-radius:14px;
+    padding:10px 10px 7px;
+    display:block;
+  }
+  body.quiz-active #quiz .meta{
+    font-size:.79rem;
+    gap:7px;
+    margin-bottom:0;
+  }
+  body.quiz-active #quiz .progress{
+    height:6px;
+    margin:6px 0 8px;
+  }
+  body.quiz-active #qMeta{
+    display:none;
+  }
+  body.quiz-active #qText{
+    font-size:1.08rem;
+    line-height:1.28;
+    margin:6px 0 8px;
+  }
+  body.quiz-active #choices{
+    gap:6px;
+    margin-top:5px;
+  }
+  body.quiz-active .choice{
+    min-height:0;
+    padding:9px 10px;
+    font-size:.94rem;
+    line-height:1.24;
+    border-radius:11px;
+  }
+  body.quiz-active #choices>p{
+    font-size:.82rem;
+    margin-bottom:0;
+  }
+  body.quiz-active .feedback{
+    margin-top:7px;
+    padding:9px 10px;
+    font-size:.9rem;
+    line-height:1.28;
+  }
+  body.quiz-active .quiz-actions{
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1fr);
+    gap:5px;
+    padding:6px;
+    margin-top:7px;
+    border-radius:11px;
+  }
+  body.quiz-active .quiz-actions button{
+    min-width:0;
+    padding:9px 5px;
+    font-size:.80rem;
+    line-height:1.1;
+  }
+  body.quiz-active #validateBtn,
+  body.quiz-active #nextBtn{grid-column:1}
+  body.quiz-active #pauseBtn{grid-column:2}
+  body.quiz-active #quitBtn{grid-column:3}
+  body.quiz-active #quiz>p.muted:last-child{
+    display:none;
+  }
+
   .difficulty-block{grid-template-columns:1fr;gap:10px}
   .difficulty-options{grid-template-columns:repeat(2,minmax(0,1fr))}
   .keyboard-hint{display:none}
@@ -322,7 +439,6 @@ body.sheet-open{overflow:hidden}
 <main>
 <header class="card hero">
   <h1>QCM BTS Diététique</h1>
-  <p id="heroText">Version locale • sélectionne ton dossier banques pour commencer.</p>
 </header>
 
 <section id="errorBox" class="card error-card hidden">
@@ -458,21 +574,38 @@ body.sheet-open{overflow:hidden}
 
 <section id="results" class="card results-card hidden">
   <h2>Résultats</h2>
-  <div id="finalScore" class="score"></div>
-  <p id="summary"></p>
+
+  <div class="result-overview">
+    <div id="scoreDonut" class="score-donut" role="img" aria-label="Score">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="score-donut-track" cx="60" cy="60" r="48"></circle>
+        <circle id="scoreDonutProgress" class="score-donut-progress" cx="60" cy="60" r="48" pathLength="100"></circle>
+      </svg>
+      <div class="score-donut-center">
+        <strong id="scoreDonutPercent">0%</strong>
+        <span>score</span>
+      </div>
+    </div>
+
+    <div class="result-copy">
+      <div id="finalScore" class="score"></div>
+      <p id="summary"></p>
+    </div>
+  </div>
+
   <div class="row">
     <button id="retryErrors" class="primary" type="button">Revoir mes erreurs</button>
     <button id="newQuiz" class="secondary" type="button">Nouveau questionnaire</button>
   </div>
 </section>
 
-<footer>Version locale : les fichiers sont lus depuis ton dossier, sans serveur.</footer>
+<footer>Index V7.6.3</footer>
 </main>
 
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_6_1";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_6_3";
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",session:[],index:0,score:0,errors:[],answered:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
@@ -480,6 +613,7 @@ const THEME_KEY="qcm_bts_theme";
 const THEME_POS_KEY="qcm_bts_theme_button_position";
 const systemThemeQuery=window.matchMedia?window.matchMedia("(prefers-color-scheme: dark)"):null;
 let themeDragged=false;
+let themeDockedSide=null;
 
 function applyTheme(theme){
   const dark=theme==="dark";
@@ -680,6 +814,16 @@ function clampThemePosition(left,top){
   };
 }
 
+function clampThemeDragPosition(left,top){
+  const btn=$("themeToggle");
+  const w=btn?.offsetWidth||57,h=btn?.offsetHeight||57,pad=10;
+  // During drag, the user can deliberately approach the horizontal margins.
+  return {
+    left:Math.max(-w*.15,Math.min(left,window.innerWidth-w*.85)),
+    top:Math.max(pad,Math.min(top,window.innerHeight-h-pad))
+  };
+}
+
 function nearestThemeCorner(left,top){
   const btn=$("themeToggle");
   const w=btn?.offsetWidth||57,h=btn?.offsetHeight||57,pad=24;
@@ -699,6 +843,51 @@ function nearestThemeCorner(left,top){
   },null);
 }
 
+function saveThemeButtonPosition(){
+  const btn=$("themeToggle");
+  if(!btn)return;
+  const rect=btn.getBoundingClientRect();
+  try{
+    localStorage.setItem(THEME_POS_KEY,JSON.stringify({
+      left:rect.left,
+      top:rect.top,
+      dockedSide:themeDockedSide
+    }));
+  }catch{}
+}
+
+function dockThemeButton(side,top=null){
+  const btn=$("themeToggle");
+  if(!btn||!["left","right"].includes(side))return;
+
+  closeFloatingMenu();
+  const w=btn.offsetWidth||57,h=btn.offsetHeight||57;
+  const visibleRatio=.30; // ~30% remains visible
+  const current=btn.getBoundingClientRect();
+  const safeTop=Math.max(18,Math.min(top??current.top,window.innerHeight-h-18));
+  const left=side==="left"
+    ? -w*(1-visibleRatio)
+    : window.innerWidth-w*visibleRatio;
+
+  themeDockedSide=side;
+  btn.classList.add("docked","snapping");
+  btn.style.right="auto";
+  btn.style.bottom="auto";
+
+  requestAnimationFrame(()=>{
+    btn.style.left=left+"px";
+    btn.style.top=safeTop+"px";
+  });
+
+  const done=()=>{
+    btn.classList.remove("snapping");
+    btn.removeEventListener("transitionend",done);
+    saveThemeButtonPosition();
+  };
+  btn.addEventListener("transitionend",done);
+  setTimeout(done,420);
+}
+
 function snapThemeButtonToNearestCorner(){
   const btn=$("themeToggle");
   if(!btn)return;
@@ -706,10 +895,12 @@ function snapThemeButtonToNearestCorner(){
   const target=nearestThemeCorner(rect.left,rect.top);
   if(!target)return;
 
+  themeDockedSide=null;
+  btn.classList.remove("docked");
   btn.classList.add("snapping");
   btn.style.right="auto";
   btn.style.bottom="auto";
-  // force a frame so transition starts from current location
+
   requestAnimationFrame(()=>{
     btn.style.left=target.left+"px";
     btn.style.top=target.top+"px";
@@ -725,28 +916,61 @@ function snapThemeButtonToNearestCorner(){
   setTimeout(done,420);
 }
 
-function saveThemeButtonPosition(){
+function revealDockedThemeButton(openMenu=true){
   const btn=$("themeToggle");
-  if(!btn)return;
+  if(!btn||!themeDockedSide){
+    if(openMenu)openFloatingMenu();
+    return;
+  }
+
+  const side=themeDockedSide;
   const rect=btn.getBoundingClientRect();
-  const pos=clampThemePosition(rect.left,rect.top);
-  try{localStorage.setItem(THEME_POS_KEY,JSON.stringify(pos));}catch{}
+  const w=btn.offsetWidth||57;
+  const targetLeft=side==="left"?24:window.innerWidth-w-24;
+
+  themeDockedSide=null;
+  btn.classList.remove("docked");
+  btn.classList.add("revealing");
+  btn.style.left=targetLeft+"px";
+  btn.style.top=Math.max(18,Math.min(rect.top,window.innerHeight-(btn.offsetHeight||57)-18))+"px";
+
+  const finishReveal=()=>{
+    btn.classList.remove("revealing");
+    btn.removeEventListener("transitionend",finishReveal);
+    saveThemeButtonPosition();
+    if(openMenu)openFloatingMenu();
+  };
+  btn.addEventListener("transitionend",finishReveal);
+  setTimeout(finishReveal,380);
 }
+
 function restoreThemeButtonPosition(){
   const btn=$("themeToggle");
   if(!btn)return;
   try{
     const saved=JSON.parse(localStorage.getItem(THEME_POS_KEY)||"null");
-    if(saved&&Number.isFinite(saved.left)&&Number.isFinite(saved.top)){
-      const pos=clampThemePosition(saved.left,saved.top);
-      btn.style.left=pos.left+"px";
-      btn.style.top=pos.top+"px";
-      btn.style.right="auto";
-      btn.style.bottom="auto";
-      requestAnimationFrame(()=>snapThemeButtonToNearestCorner());
+    if(saved&&Number.isFinite(saved.top)){
+      if(saved.dockedSide==="left"||saved.dockedSide==="right"){
+        themeDockedSide=saved.dockedSide;
+        btn.classList.add("docked");
+        const w=btn.offsetWidth||57,h=btn.offsetHeight||57;
+        const visibleRatio=.30;
+        btn.style.left=(themeDockedSide==="left"?-w*(1-visibleRatio):window.innerWidth-w*visibleRatio)+"px";
+        btn.style.top=Math.max(18,Math.min(saved.top,window.innerHeight-h-18))+"px";
+        btn.style.right="auto";
+        btn.style.bottom="auto";
+      }else if(Number.isFinite(saved.left)){
+        const pos=clampThemePosition(saved.left,saved.top);
+        btn.style.left=pos.left+"px";
+        btn.style.top=pos.top+"px";
+        btn.style.right="auto";
+        btn.style.bottom="auto";
+        requestAnimationFrame(()=>snapThemeButtonToNearestCorner());
+      }
     }
   }catch{}
 }
+
 function enableThemeButtonDrag(){
   const btn=$("themeToggle");
   if(!btn)return;
@@ -767,7 +991,7 @@ function enableThemeButtonDrag(){
     if(Math.hypot(dx,dy)>5)moved=true;
     if(!moved)return;
     event?.preventDefault?.();
-    const pos=clampThemePosition(startLeft+dx,startTop+dy);
+    const pos=clampThemeDragPosition(startLeft+dx,startTop+dy);
     btn.style.left=pos.left+"px";
     btn.style.top=pos.top+"px";
     btn.style.right="auto";
@@ -780,7 +1004,20 @@ function enableThemeButtonDrag(){
     btn.classList.remove("dragging");
     themeDragged=moved;
     pointerId=null;
-    if(moved)snapThemeButtonToNearestCorner();
+
+    if(moved){
+      const r=btn.getBoundingClientRect();
+      const centerX=r.left+r.width/2;
+      const edgeThreshold=Math.max(72,r.width*1.35);
+
+      if(centerX<=edgeThreshold){
+        dockThemeButton("left",r.top);
+      }else if(window.innerWidth-centerX<=edgeThreshold){
+        dockThemeButton("right",r.top);
+      }else{
+        snapThemeButtonToNearestCorner();
+      }
+    }
   };
 
   if(window.PointerEvent){
@@ -825,11 +1062,20 @@ function enableThemeButtonDrag(){
     if(themeDragged){
       e.preventDefault();e.stopPropagation();themeDragged=false;return;
     }
+    if(themeDockedSide){
+      revealDockedThemeButton(true);
+      return;
+    }
     toggleFloatingMenu();
   });
 
   window.addEventListener("resize",()=>{
-    if(btn.style.left)snapThemeButtonToNearestCorner();if(floatingMenuOpen)layoutFloatingActions();
+    if(themeDockedSide){
+      dockThemeButton(themeDockedSide,$("themeToggle").getBoundingClientRect().top);
+    }else if(btn.style.left){
+      snapThemeButtonToNearestCorner();
+    }
+    if(floatingMenuOpen)layoutFloatingActions();
   });
 }
 
@@ -1131,13 +1377,18 @@ function startTimerInterval(){
   if(state.timerEndAt===null)state.timerEndAt=Date.now()+Math.max(0,state.timerRemainingMs??state.timerDurationMs);
   renderTimer();
   state.timerInterval=setInterval(()=>{
+    if(!state.timerEnabled||state.answered){
+      stopTimerInterval();
+      renderTimer();
+      return;
+    }
     state.timerRemainingMs=currentRemainingMs();
     renderTimer();
     if(state.timerRemainingMs<=0){
       stopTimerInterval();
       state.timerEndAt=null;
       state.timerRemainingMs=0;
-      validate(true);
+      expireQuestion();
     }
   },200);
 }
@@ -1220,7 +1471,7 @@ async function start(){
 function renderQuestion(resumeTimer=false){
   const q=state.session[state.index];if(!q){finish();return;}state.answered=false;
   $("counter").textContent=`Question ${state.index+1} / ${state.session.length}`;$("scoreLive").textContent=`Score : ${state.score}`;$("progressBar").style.width=`${(state.index/state.session.length)*100}%`;
-  $("qMeta").textContent=[q.subject,q.bankTitle,q.category,difficultyLabel(q.difficulty)].filter(Boolean).join(" • ");$("qText").textContent=q.prompt;$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("validateBtn").classList.remove("hidden");$("nextBtn").classList.add("hidden");
+  $("qMeta").textContent=[q.subject,difficultyLabel(q.difficulty)].filter(Boolean).join(" • ");$("qText").textContent=q.prompt;$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("validateBtn").classList.remove("hidden");$("nextBtn").classList.add("hidden");
   let cs=q.choices.map(c=>({...c}));if($("shuffleAnswers").checked)cs=shuffle(cs);const multiple=q.type==="multiple"||q.choices.filter(c=>c.correct).length>1,nCorrect=q.choices.filter(c=>c.correct).length;
   $("choices").innerHTML=(multiple?`<p class="muted">Plusieurs réponses sont attendues.</p>`:"")+cs.map(c=>`<label class="choice"><input name="ans" type="${multiple?'checkbox':'radio'}" data-correct="${c.correct?'1':'0'}"> <span>${esc(c.text)}</span></label>`).join("");
   const syncChoiceVisuals=()=>{
@@ -1262,16 +1513,14 @@ function handleQuizKeyboard(e){
   }
 }
 
-function validate(fromTimer=false){
-  fromTimer=fromTimer===true;
+function finalizeAnswer(timedOut=false){
   if(state.answered)return;
+
   const ins=[...$("choices").querySelectorAll('input[name="ans"]')];
-  const hasSelection=ins.some(i=>i.checked);
-  if(!hasSelection&&!fromTimer){
-    $("feedback").classList.remove("hidden");
-    $("feedback").innerHTML='<span class="warn">Sélectionne au moins une réponse.</span>';
-    return;
-  }
+
+  // A normal validation and a timeout are now completely separate code paths.
+  // "Temps écoulé" can only be produced when timedOut === true AND timer is active.
+  const realTimeout=timedOut===true&&state.timerEnabled===true;
 
   if(state.timerEnabled){
     state.timerRemainingMs=currentRemainingMs();
@@ -1280,7 +1529,7 @@ function validate(fromTimer=false){
     renderTimer();
   }
 
-  const ok=ins.every(i=>(i.checked&&i.dataset.correct==="1")||(!i.checked&&i.dataset.correct==="0"));
+  const ok=!realTimeout&&ins.every(i=>(i.checked&&i.dataset.correct==="1")||(!i.checked&&i.dataset.correct==="0"));
   state.answered=true;
   if(ok)state.score++;else state.errors.push(state.session[state.index]);
 
@@ -1294,18 +1543,73 @@ function validate(fromTimer=false){
   $("scoreLive").textContent=`Score : ${state.score}`;
   const q=state.session[state.index];
   $("feedback").classList.remove("hidden");
-  const status=fromTimer
+
+  const status=realTimeout
     ? '<div class="bad">Temps écoulé.</div>'
     : `<div class="${ok?'ok':'bad'}">${ok?'Bonne réponse.':'Réponse incorrecte.'}</div>`;
-  $("feedback").innerHTML=status+(($("instantCorrection").checked||state.index===state.session.length-1)?`<div style="margin-top:7px">${esc(q.explanation||"")}</div>`:"");
+
+  $("feedback").innerHTML=status+(($("instantCorrection").checked||state.index===state.session.length-1)
+    ? `<div style="margin-top:7px">${esc(q.explanation||"")}</div>`
+    : "");
+
   $("validateBtn").classList.add("hidden");
   $("nextBtn").classList.remove("hidden");
   $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Question suivante";
-  saveProgress();focusCorrection();
+  saveProgress();
+  focusCorrection();
 }
+
+function validate(){
+  if(state.answered)return;
+  const ins=[...$("choices").querySelectorAll('input[name="ans"]')];
+  if(!ins.some(i=>i.checked)){
+    $("feedback").classList.remove("hidden");
+    $("feedback").innerHTML='<span class="warn">Sélectionne au moins une réponse.</span>';
+    focusCorrection();
+    return;
+  }
+  finalizeAnswer(false);
+}
+
+function expireQuestion(){
+  // Defensive guard: an old/stale interval can never create a fake timeout
+  // once the timer has been disabled.
+  if(!state.timerEnabled||state.answered)return;
+  finalizeAnswer(true);
+}
+
 function next(){if(!state.answered)return;if(state.index<state.session.length-1){state.index++;renderQuestion();}else finish();}
+
+function animateScoreDonut(percent){
+  const pct=Math.max(0,Math.min(100,Number(percent)||0));
+  const ring=$("scoreDonutProgress");
+  const label=$("scoreDonutPercent");
+  const donut=$("scoreDonut");
+  if(!ring||!label||!donut)return;
+
+  ring.style.transition="none";
+  ring.style.strokeDashoffset="100";
+  ring.style.stroke=pct>=80?"var(--ok)":pct<50?"var(--bad)":"var(--accent)";
+  label.textContent="0%";
+  donut.setAttribute("aria-label",`Score : ${pct} %`);
+
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    ring.style.transition="stroke-dashoffset 1s cubic-bezier(.18,.8,.22,1),stroke .2s ease";
+    ring.style.strokeDashoffset=String(100-pct);
+  }));
+
+  const duration=900,start=performance.now();
+  const tick=now=>{
+    const t=Math.min(1,(now-start)/duration);
+    const eased=1-Math.pow(1-t,3);
+    label.textContent=`${Math.round(pct*eased)}%`;
+    if(t<1)requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
 function finish(){stopTimerInterval();state.timerEndAt=null;exitQuizFocus();
-  $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
+  $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
 }
 async function resumeSaved(){
   const s=getSaved();if(!s)return;
@@ -1342,7 +1646,7 @@ document.querySelectorAll(".difficulty-btn").forEach(btn=>btn.addEventListener("
 $("themeMenuBtn").addEventListener("click",toggleTheme);
 $("timerToggleBtn").addEventListener("click",toggleTimer);
 document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
-$("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",()=>validate(false));$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
+$("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",()=>validate());$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
 $("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
 $("newQuiz").addEventListener("click",()=>{exitQuizFocus();stopTimerInterval();state.timerEnabled=false;state.timerEndAt=null;state.timerRemainingMs=null;$("results").classList.add("hidden");if(state.manifest){$("setup").classList.remove("hidden");renderSelectionUI();}});
