@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.7.1
+# QCM BTS Diététique — V7.7.2
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -400,26 +400,20 @@ multiple → plusieurs bonnes réponses
 
 # Changelog
 
-## V7.7.1
+## V7.7.2
 
-- Correction des icônes/images cassées lorsque seul `index.html` est mis à jour.
-- Les SVG sont désormais intégrés directement dans `index.html`.
-- Le dossier `assets/` n'est plus nécessaire au fonctionnement visuel de la page.
-- Suppression de la mention `Révisions & nutrition` au-dessus du titre.
-- Footer mis à jour : `Index V7.7.1`.
-
-## V7.7
-
-- Rafraîchissement visuel sobre de l'interface avant la V8.0.
-- Ajout d'une illustration diététique discrète dans l'en-tête.
-- Création d'icônes vectorielles maison pour :
+- Nouvelle direction visuelle avec de vraies illustrations raster générées spécialement pour le projet.
+- Suppression du rendu géométrique / SVG précédent.
+- Ajout d'un dossier `assets/images/`.
+- Images converties en WebP transparent pour réduire le poids du site.
+- Illustration nutritionnelle dans le header.
+- Illustrations dédiées pour :
   - Matières
   - Chapitres
   - Difficulté
   - Résultats
-- Ajout d'accents graphiques légers sur certaines cartes.
-- Le style reste volontairement épuré et non ostentatoire.
-- Footer mis à jour : `Index V7.7`.
+- Mise en page responsive sur mobile et ordinateur.
+- Footer mis à jour : `Index V7.7.2`.
 
 ## V7.6.4
 
@@ -553,25 +547,22 @@ multiple → plusieurs bonnes réponses
 Construire progressivement une plateforme de révision BTS Diététique simple à maintenir, utilisable toute l'année et partageable avec d'autres étudiants, sans avoir à reconstruire l'application à chaque nouveau cours.
 
 
-## Assets visuels
+## Assets visuels — V7.7.2
 
-Le projet contient désormais un dossier `assets/` avec des illustrations et icônes SVG légères, créées spécialement pour l'interface.
+Les images visuelles sont désormais stockées séparément :
 
 ```text
 assets/
-├── icons/
-│   ├── matieres.svg
-│   ├── chapitres.svg
-│   ├── difficulte.svg
-│   └── resultats.svg
-└── illustrations/
-    └── hero-dietetique.svg
+└── images/
+    ├── hero-nutrition.webp
+    ├── matieres.webp
+    ├── chapitres.webp
+    ├── difficulte.webp
+    └── resultats.webp
 ```
 
-Ces fichiers sont libres à utiliser dans le projet et ne nécessitent aucune dépendance externe.
+Les images ont été optimisées au format WebP avec transparence pour préserver une bonne qualité tout en réduisant le poids du chargement.
 
+Pour cette version, il faut téléverser **le dossier `assets/` une seule fois** sur GitHub en même temps que le nouvel `index.html`.
 
-### Note V7.7.1
-
-Les illustrations et icônes sont désormais embarquées directement dans le HTML.
-Cela permet de mettre le site à jour en remplaçant uniquement `index.html`, sans devoir téléverser un dossier `assets/`.
+Les futures mises à jour qui ne modifient pas ces images pourront de nouveau être faites en remplaçant uniquement `index.html`.
