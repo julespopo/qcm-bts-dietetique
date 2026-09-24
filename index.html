@@ -361,6 +361,70 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   width:50px;height:50px;padding:0;border-radius:50%;
   font-size:1.32rem
 }
+.theme-orbit-btn{overflow:hidden;position:fixed}
+.theme-orbit{
+  position:relative;width:30px;height:30px;display:block;overflow:hidden;border-radius:50%;
+}
+.theme-celestial{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-size:1.34rem;line-height:1;
+  transition:
+    transform .46s cubic-bezier(.22,.78,.26,1),
+    opacity .36s ease,
+    filter .36s ease;
+  will-change:transform,opacity
+}
+.theme-sun{
+  color:#f1a62d;
+  opacity:1;transform:translateY(0) rotate(0deg) scale(1);
+  filter:drop-shadow(0 0 7px rgba(241,166,45,.30))
+}
+.theme-moon{
+  color:#aaa4ff;
+  opacity:0;transform:translateY(18px) rotate(-16deg) scale(.78);
+  filter:drop-shadow(0 0 7px rgba(139,130,255,.25))
+}
+.theme-orbit-btn.is-dark .theme-sun{
+  opacity:0;transform:translateY(18px) rotate(18deg) scale(.78)
+}
+.theme-orbit-btn.is-dark .theme-moon{
+  opacity:1;transform:translateY(0) rotate(0deg) scale(1)
+}
+.theme-orbit-btn.theme-animating{
+  box-shadow:0 0 0 3px var(--bg),0 0 22px rgba(var(--accent-rgb),.22),0 8px 24px rgba(0,0,0,.20)
+}
+html.theme-switching body,
+html.theme-switching .card,
+html.theme-switching .subject-card,
+html.theme-switching .chapter-card,
+html.theme-switching .difficulty-btn,
+html.theme-switching .choice,
+html.theme-switching .floating-action-btn,
+html.theme-switching .timer-preset-floating,
+html.theme-switching .mobile-sheet,
+html.theme-switching .quiz-actions,
+html.theme-switching button{
+  transition:
+    background-color .42s ease,
+    color .42s ease,
+    border-color .42s ease,
+    box-shadow .42s ease !important
+}
+@media(prefers-reduced-motion:reduce){
+  .theme-celestial{transition:none!important}
+  html.theme-switching body,
+  html.theme-switching .card,
+  html.theme-switching .subject-card,
+  html.theme-switching .chapter-card,
+  html.theme-switching .difficulty-btn,
+  html.theme-switching .choice,
+  html.theme-switching .floating-action-btn,
+  html.theme-switching .timer-preset-floating,
+  html.theme-switching .mobile-sheet,
+  html.theme-switching .quiz-actions,
+  html.theme-switching button{transition:none!important}
+}
+
 .floating-action-btn:hover,
 .timer-preset-floating:hover{
   border-color:rgba(var(--accent-rgb),.55);
@@ -534,8 +598,11 @@ body.sheet-open{overflow:hidden}
 <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir le menu" title="Menu">⚙</button>
 
 <div id="floatingActions" class="floating-actions" aria-hidden="true">
-  <button id="themeMenuBtn" class="floating-action-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
-    <span id="themeMenuIcon">☾</span>
+  <button id="themeMenuBtn" class="floating-action-btn theme-orbit-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
+    <span class="theme-orbit" aria-hidden="true">
+      <span id="themeSun" class="theme-celestial theme-sun">☀</span>
+      <span id="themeMoon" class="theme-celestial theme-moon">☾</span>
+    </span>
   </button>
 
   <button id="timerToggleBtn" class="floating-action-btn" type="button" aria-label="Activer le minuteur" title="Timer" aria-pressed="false">
@@ -709,13 +776,13 @@ body.sheet-open{overflow:hidden}
   </div>
 </section>
 
-<footer>Index V7.7.2</footer>
+<footer>Index V7.7.4</footer>
 </main>
 
 <script>
 (()=>{
 "use strict";
-const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_7_2";
+const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_7_4";
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",session:[],index:0,score:0,errors:[],answered:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
@@ -725,15 +792,32 @@ const systemThemeQuery=window.matchMedia?window.matchMedia("(prefers-color-schem
 let themeDragged=false;
 let themeDockedSide=null;
 
-function applyTheme(theme){
+function applyTheme(theme,{animate=false}={}){
   const dark=theme==="dark";
-  document.documentElement.dataset.theme=dark?"dark":"light";
-  const icon=$("themeMenuIcon");
-  if(icon)icon.textContent=dark?"☀":"☾";
+  const root=document.documentElement;
   const themeBtn=$("themeMenuBtn");
-  if(themeBtn){themeBtn.setAttribute("aria-label",dark?"Activer le mode jour":"Activer le mode nuit");themeBtn.title=dark?"Mode jour":"Mode nuit";}
+
+  if(animate){
+    root.classList.add("theme-switching");
+    themeBtn?.classList.add("theme-animating");
+  }
+
+  root.dataset.theme=dark?"dark":"light";
+  if(themeBtn){
+    themeBtn.classList.toggle("is-dark",dark);
+    themeBtn.setAttribute("aria-label",dark?"Activer le mode jour":"Activer le mode nuit");
+    themeBtn.title=dark?"Mode jour":"Mode nuit";
+  }
+
   const meta=document.querySelector('meta[name="theme-color"]');
   if(meta)meta.setAttribute("content",dark?"#0f1319":"#4f46e5");
+
+  if(animate){
+    window.setTimeout(()=>{
+      root.classList.remove("theme-switching");
+      themeBtn?.classList.remove("theme-animating");
+    },520);
+  }
 }
 function storedTheme(){
   try{return localStorage.getItem(THEME_KEY);}catch{return null;}
@@ -752,7 +836,7 @@ function initTheme(){
 function toggleTheme(){
   const next=document.documentElement.dataset.theme==="dark"?"light":"dark";
   try{localStorage.setItem(THEME_KEY,next);}catch{}
-  applyTheme(next);
+  applyTheme(next,{animate:true});
 }
 
 let floatingMenuOpen=false;
