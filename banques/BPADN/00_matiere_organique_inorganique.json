@@ -1,0 +1,989 @@
+{
+  "version": 1,
+  "title": "Chapitre 0 — Matière organique et inorganique",
+  "subject": "BPADN",
+  "chapter": "Matière organique et inorganique",
+  "questions": [
+    {
+      "id": "chap0-matiere-v1-001",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle proposition décrit la matière organique selon le cours ?",
+      "choices": [
+        {
+          "text": "Elle est issue du vivant",
+          "correct": true
+        },
+        {
+          "text": "Elle est constituée uniquement de sels minéraux",
+          "correct": false
+        },
+        {
+          "text": "Elle ne contient jamais de carbone",
+          "correct": false
+        },
+        {
+          "text": "Elle est présente uniquement hors du vivant",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours présente la matière organique comme issue du vivant. Ses atomes principaux sont C, H, O et N, parfois S et P.",
+      "chapter": "Matière organique vs inorganique",
+      "tags": [
+        "matière organique",
+        "vocabulaire"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-002",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels sont les atomes principaux de la matière organique indiqués dans le cours ?",
+      "choices": [
+        {
+          "text": "Carbone (C)",
+          "correct": true
+        },
+        {
+          "text": "Hydrogène (H)",
+          "correct": true
+        },
+        {
+          "text": "Oxygène (O)",
+          "correct": true
+        },
+        {
+          "text": "Azote (N)",
+          "correct": true
+        },
+        {
+          "text": "Sodium (Na)",
+          "correct": false
+        }
+      ],
+      "explanation": "Les principaux atomes de la matière organique sont C, H, O et N. Le cours précise que S et P peuvent également être présents.",
+      "chapter": "Matière organique vs inorganique",
+      "tags": [
+        "matière organique",
+        "atomes"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-003",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles familles appartiennent aux quatre grandes familles de matière organique présentées dans le cours ?",
+      "choices": [
+        {
+          "text": "Glucides",
+          "correct": true
+        },
+        {
+          "text": "Lipides",
+          "correct": true
+        },
+        {
+          "text": "Protides",
+          "correct": true
+        },
+        {
+          "text": "Acides nucléiques",
+          "correct": true
+        },
+        {
+          "text": "Sels minéraux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours distingue quatre grandes familles de biomolécules organiques : glucides, lipides, protides et acides nucléiques.",
+      "chapter": "Matière organique vs inorganique",
+      "tags": [
+        "biomolécules",
+        "familles"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-004",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels éléments sont classés dans la matière inorganique dans ce cours ?",
+      "choices": [
+        {
+          "text": "Eau",
+          "correct": true
+        },
+        {
+          "text": "Sels minéraux",
+          "correct": true
+        },
+        {
+          "text": "Oligoéléments",
+          "correct": true
+        },
+        {
+          "text": "Glucides",
+          "correct": false
+        },
+        {
+          "text": "Acides nucléiques",
+          "correct": false
+        }
+      ],
+      "explanation": "La matière inorganique comprend notamment l'eau, les sels minéraux et les oligoéléments.",
+      "chapter": "Matière organique vs inorganique",
+      "tags": [
+        "matière inorganique",
+        "classification"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-005",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu'est-ce qu'un atome selon le vocabulaire du cours ?",
+      "choices": [
+        {
+          "text": "Un élément chimique de base, électriquement neutre",
+          "correct": true
+        },
+        {
+          "text": "Un assemblage de plusieurs molécules",
+          "correct": false
+        },
+        {
+          "text": "Une particule toujours chargée positivement",
+          "correct": false
+        },
+        {
+          "text": "Une molécule ayant gagné un électron",
+          "correct": false
+        }
+      ],
+      "explanation": "L'atome est présenté comme la plus petite unité d'un élément chimique de base. Il est électriquement neutre.",
+      "chapter": "Atomes, molécules, ions et liaisons",
+      "tags": [
+        "atome",
+        "vocabulaire"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-006",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle définition correspond à une molécule ?",
+      "choices": [
+        {
+          "text": "Plusieurs atomes liés par des liaisons covalentes, formant un ensemble neutre",
+          "correct": true
+        },
+        {
+          "text": "Un atome ayant perdu un électron uniquement",
+          "correct": false
+        },
+        {
+          "text": "Une association nécessairement chargée négativement",
+          "correct": false
+        },
+        {
+          "text": "Un élément minéral présent à moins de 100 mg/kg",
+          "correct": false
+        }
+      ],
+      "explanation": "Une molécule est un assemblage d'atomes liés par des liaisons covalentes. Le cours précise qu'elle est neutre.",
+      "chapter": "Atomes, molécules, ions et liaisons",
+      "tags": [
+        "molécule",
+        "vocabulaire"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-007",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Un ion est :",
+      "choices": [
+        {
+          "text": "Un atome ou une molécule ayant perdu ou gagné des électrons et portant une charge",
+          "correct": true
+        },
+        {
+          "text": "Toujours une molécule neutre",
+          "correct": false
+        },
+        {
+          "text": "Toujours un atome de carbone",
+          "correct": false
+        },
+        {
+          "text": "Une liaison entre deux molécules d'eau",
+          "correct": false
+        }
+      ],
+      "explanation": "Un ion est un atome ou une molécule chargé(e), après perte ou gain d'électrons. Les exemples du cours comprennent Na⁺, Cl⁻, Ca²⁺ et HCO₃⁻.",
+      "chapter": "Atomes, molécules, ions et liaisons",
+      "tags": [
+        "ion",
+        "charge"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-008",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles affirmations caractérisent une liaison covalente dans le cours ?",
+      "choices": [
+        {
+          "text": "Elle implique une mise en commun d'électrons",
+          "correct": true
+        },
+        {
+          "text": "Elle lie les atomes dans une molécule",
+          "correct": true
+        },
+        {
+          "text": "Elle est forte et stable",
+          "correct": true
+        },
+        {
+          "text": "Elle est décrite autour de 350 à 400 kJ/mol",
+          "correct": true
+        },
+        {
+          "text": "Elle ne comporte aucun partage d'électrons",
+          "correct": false
+        }
+      ],
+      "explanation": "La liaison covalente correspond à un partage d'électrons. Elle est forte, stable, et le cours donne un ordre de grandeur d'environ 350 à 400 kJ/mol.",
+      "chapter": "Atomes, molécules, ions et liaisons",
+      "tags": [
+        "liaison covalente",
+        "électrons"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-009",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles propositions concernent les liaisons faibles non covalentes ?",
+      "choices": [
+        {
+          "text": "Elles sont réversibles",
+          "correct": true
+        },
+        {
+          "text": "Elles n'impliquent pas de partage d'électrons",
+          "correct": true
+        },
+        {
+          "text": "Leur énergie est indiquée autour de 4 à 30 kJ/mol",
+          "correct": true
+        },
+        {
+          "text": "Elles sont cruciales pour l'ADN et les protéines",
+          "correct": true
+        },
+        {
+          "text": "Elles sont plus fortes que les liaisons covalentes",
+          "correct": false
+        }
+      ],
+      "explanation": "Les liaisons faibles sont non covalentes, sans partage d'électrons, faibles et réversibles. Le cours cite les liaisons H, ioniques, de van der Waals et hydrophobes.",
+      "chapter": "Atomes, molécules, ions et liaisons",
+      "tags": [
+        "liaisons faibles",
+        "biologie"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-010",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel angle approximatif forme la molécule d'eau H₂O ?",
+      "choices": [
+        {
+          "text": "104,5°",
+          "correct": true
+        },
+        {
+          "text": "90°",
+          "correct": false
+        },
+        {
+          "text": "120°",
+          "correct": false
+        },
+        {
+          "text": "180°",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique un angle d'environ 104,5° pour la molécule d'eau.",
+      "chapter": "L'eau, molécule du vivant",
+      "tags": [
+        "eau",
+        "structure"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-011",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi la molécule d'eau est-elle polaire ?",
+      "choices": [
+        {
+          "text": "Parce que l'oxygène attire plus fortement les électrons que l'hydrogène",
+          "correct": true
+        },
+        {
+          "text": "Parce que les deux hydrogènes portent une charge négative complète",
+          "correct": false
+        },
+        {
+          "text": "Parce que l'eau est constituée d'ions Na⁺ et Cl⁻",
+          "correct": false
+        },
+        {
+          "text": "Parce que les liaisons O–H sont ioniques",
+          "correct": false
+        }
+      ],
+      "explanation": "L'oxygène attire plus fortement les électrons : il porte une charge partielle δ⁻ et les hydrogènes des charges partielles δ⁺. Cette polarité explique les propriétés de l'eau.",
+      "chapter": "L'eau, molécule du vivant",
+      "tags": [
+        "eau",
+        "polarité"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-012",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles propriétés clés de l'eau sont citées dans le cours ?",
+      "choices": [
+        {
+          "text": "Cohésion",
+          "correct": true
+        },
+        {
+          "text": "Pouvoir solvant",
+          "correct": true
+        },
+        {
+          "text": "Capacité thermique",
+          "correct": true
+        },
+        {
+          "text": "Tension superficielle",
+          "correct": true
+        },
+        {
+          "text": "Radioactivité",
+          "correct": false
+        }
+      ],
+      "explanation": "Les quatre propriétés mises en avant sont la cohésion, le pouvoir solvant, la capacité thermique et la tension superficielle. Elles découlent de la polarité et des liaisons hydrogène.",
+      "chapter": "L'eau, molécule du vivant",
+      "tags": [
+        "eau",
+        "propriétés"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-013",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels sont les grands rôles de l'eau dans le corps indiqués dans le cours ?",
+      "choices": [
+        {
+          "text": "Solvant",
+          "correct": true
+        },
+        {
+          "text": "Réactionnel",
+          "correct": true
+        },
+        {
+          "text": "pH et tampon",
+          "correct": true
+        },
+        {
+          "text": "Thermorégulation",
+          "correct": true
+        },
+        {
+          "text": "Maintien des compartiments et échanges",
+          "correct": true
+        },
+        {
+          "text": "Stockage de l'information génétique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours retient cinq grands rôles : solvant, réactionnel, pH et tampon, thermorégulation, et maintien des compartiments hydriques/échanges.",
+      "chapter": "L'eau, molécule du vivant",
+      "tags": [
+        "eau",
+        "rôles"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-014",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans une hydrolyse digestive, quel rôle joue l'eau selon le cours ?",
+      "choices": [
+        {
+          "text": "Une molécule d'eau coupe chaque liaison concernée",
+          "correct": true
+        },
+        {
+          "text": "Elle est toujours produite et jamais consommée",
+          "correct": false
+        },
+        {
+          "text": "Elle ne participe pas directement à la réaction",
+          "correct": false
+        },
+        {
+          "text": "Elle transforme automatiquement les ions en atomes neutres",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours précise que, dans le sens de l'hydrolyse, une molécule d'eau coupe chaque liaison : c'est le principe illustré pour la digestion de l'amidon puis du maltose.",
+      "chapter": "L'eau, molécule du vivant",
+      "tags": [
+        "hydrolyse",
+        "réaction"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-015",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle proportion d'eau est indiquée pour un adulte ?",
+      "choices": [
+        {
+          "text": "60 %",
+          "correct": true
+        },
+        {
+          "text": "75 %",
+          "correct": false
+        },
+        {
+          "text": "55 %",
+          "correct": false
+        },
+        {
+          "text": "22 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique environ 75 % d'eau chez le nouveau-né, 60 % chez l'adulte et 55 % chez la personne âgée.",
+      "chapter": "L'eau, molécule du vivant",
+      "tags": [
+        "eau corporelle",
+        "adulte"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-016",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "D'après le cours, une perte de seulement 2 % d'eau corporelle entraîne :",
+      "choices": [
+        {
+          "text": "Une chute des performances physiques et cognitives",
+          "correct": true
+        },
+        {
+          "text": "Une augmentation immédiate de la masse osseuse",
+          "correct": false
+        },
+        {
+          "text": "Une absence totale de conséquence",
+          "correct": false
+        },
+        {
+          "text": "Un risque vital systématique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique qu'une perte de 2 % d'eau corporelle diminue les performances physiques et cognitives, tandis qu'une perte de 10 % constitue un risque vital.",
+      "chapter": "L'eau, molécule du vivant",
+      "tags": [
+        "déshydratation",
+        "performances"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-017",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels sont les quatre éléments qui constituent ensemble 96,5 % du corps humain selon le cours ?",
+      "choices": [
+        {
+          "text": "Oxygène",
+          "correct": true
+        },
+        {
+          "text": "Carbone",
+          "correct": true
+        },
+        {
+          "text": "Hydrogène",
+          "correct": true
+        },
+        {
+          "text": "Azote",
+          "correct": true
+        },
+        {
+          "text": "Calcium",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que 96,5 % du corps est constitué d'oxygène, de carbone, d'hydrogène et d'azote.",
+      "chapter": "Sels minéraux et oligoéléments",
+      "tags": [
+        "composition corporelle",
+        "éléments majeurs"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-018",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel élément représente environ 65 % du corps humain dans le tableau du cours ?",
+      "choices": [
+        {
+          "text": "Oxygène",
+          "correct": true
+        },
+        {
+          "text": "Carbone",
+          "correct": false
+        },
+        {
+          "text": "Hydrogène",
+          "correct": false
+        },
+        {
+          "text": "Azote",
+          "correct": false
+        }
+      ],
+      "explanation": "Les proportions données sont : oxygène 65 %, carbone 18 %, hydrogène 10 % et azote 3 %.",
+      "chapter": "Sels minéraux et oligoéléments",
+      "tags": [
+        "composition corporelle",
+        "oxygène"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-019",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Selon la classification quantitative du cours, un oligoélément est présent à :",
+      "choices": [
+        {
+          "text": "Moins de 100 mg/kg",
+          "correct": true
+        },
+        {
+          "text": "Plus de 30 g/kg",
+          "correct": false
+        },
+        {
+          "text": "Exactement 30 g/kg",
+          "correct": false
+        },
+        {
+          "text": "Plus de 100 g/kg",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours classe les oligoéléments à moins de 100 mg/kg. Les macroéléments sont au-dessus de 30 g/kg et les microéléments se situent entre 30 g/kg et 100 mg/kg.",
+      "chapter": "Sels minéraux et oligoéléments",
+      "tags": [
+        "oligoéléments",
+        "classification quantitative"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-020",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels rôles des sels minéraux sont explicitement cités dans le cours ?",
+      "choices": [
+        {
+          "text": "Structure des os et des dents",
+          "correct": true
+        },
+        {
+          "text": "Équilibre hydrique et pression osmotique",
+          "correct": true
+        },
+        {
+          "text": "Contraction musculaire",
+          "correct": true
+        },
+        {
+          "text": "Transmission nerveuse",
+          "correct": true
+        },
+        {
+          "text": "Équilibre acido-basique",
+          "correct": true
+        },
+        {
+          "text": "Activation enzymatique",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours cite six grands rôles : structure, pression osmotique, contraction musculaire, transmission nerveuse, équilibre acido-basique et activation enzymatique.",
+      "chapter": "Sels minéraux et oligoéléments",
+      "tags": [
+        "sels minéraux",
+        "rôles"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-021",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel couple d'ions est associé au potentiel d'action et à la transmission nerveuse ?",
+      "choices": [
+        {
+          "text": "Na⁺ / K⁺",
+          "correct": true
+        },
+        {
+          "text": "Ca²⁺ / Fe",
+          "correct": false
+        },
+        {
+          "text": "Zn²⁺ / Cu²⁺",
+          "correct": false
+        },
+        {
+          "text": "HCO₃⁻ / phosphate uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours associe Na⁺ et K⁺ au potentiel d'action, c'est-à-dire à l'influx nerveux.",
+      "chapter": "Sels minéraux et oligoéléments",
+      "tags": [
+        "sodium",
+        "potassium",
+        "transmission nerveuse"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-022",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Associez les oligoéléments à un rôle ou une conséquence de carence conforme au cours. Quelles propositions sont correctes ?",
+      "choices": [
+        {
+          "text": "Fer : hémoglobine et transport de O₂",
+          "correct": true
+        },
+        {
+          "text": "Zinc : immunité et cicatrisation",
+          "correct": true
+        },
+        {
+          "text": "Iode : hormones thyroïdiennes",
+          "correct": true
+        },
+        {
+          "text": "Sélénium : antioxydant et thyroïde",
+          "correct": true
+        },
+        {
+          "text": "Fluor : émail dentaire",
+          "correct": true
+        },
+        {
+          "text": "Cuivre : synthèse du glucose comme rôle principal indiqué",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours associe le fer à l'hémoglobine et au transport de l'O₂, le zinc à l'immunité/cicatrisation, l'iode aux hormones thyroïdiennes, le sélénium à l'activité antioxydante et à la thyroïde, le cuivre aux enzymes et au fer, et le fluor à l'émail dentaire.",
+      "chapter": "Sels minéraux et oligoéléments",
+      "tags": [
+        "oligoéléments",
+        "rôles",
+        "carences"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-023",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Parmi les associations fonction chimique / formule, lesquelles sont correctes ?",
+      "choices": [
+        {
+          "text": "Alcool : R—OH",
+          "correct": true
+        },
+        {
+          "text": "Aldéhyde : R—CHO",
+          "correct": true
+        },
+        {
+          "text": "Cétone : R—CO—R'",
+          "correct": true
+        },
+        {
+          "text": "Acide carboxylique : R—COOH",
+          "correct": true
+        },
+        {
+          "text": "Amine : R—CO—NH₂",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours donne : alcool R—OH, aldéhyde R—CHO, cétone R—CO—R', acide carboxylique R—COOH. L'amine est R—NH₂ alors que l'amide est R—CO—NH₂.",
+      "chapter": "Fonctions chimiques",
+      "tags": [
+        "fonctions chimiques",
+        "formules"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-024",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fonction chimique correspond à R—SH ?",
+      "choices": [
+        {
+          "text": "Thiol",
+          "correct": true
+        },
+        {
+          "text": "Amide",
+          "correct": false
+        },
+        {
+          "text": "Ester",
+          "correct": false
+        },
+        {
+          "text": "Alcool",
+          "correct": false
+        }
+      ],
+      "explanation": "La fonction soufrée présentée dans le cours est le thiol, noté R—SH.",
+      "chapter": "Fonctions chimiques",
+      "tags": [
+        "thiol",
+        "fonction soufrée"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-025",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles propositions sur la solubilité sont conformes au cours ?",
+      "choices": [
+        {
+          "text": "Les molécules polaires sont associées à l'hydrosolubilité",
+          "correct": true
+        },
+        {
+          "text": "Les groupes —OH et —NH₂ favorisent le caractère polaire cité dans le cours",
+          "correct": true
+        },
+        {
+          "text": "Les longues chaînes C—H sont associées au caractère apolaire et à la liposolubilité",
+          "correct": true
+        },
+        {
+          "text": "Les vitamines A, D, E, K sont données comme exemples de composés liposolubles",
+          "correct": true
+        },
+        {
+          "text": "Les sels sont donnés comme exemples de composés liposolubles",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours relie l'hydrosolubilité aux molécules polaires, notamment avec —OH ou —NH₂, et la liposolubilité aux molécules apolaires riches en chaînes C—H. Les vitamines A, D, E, K sont données comme exemples liposolubles.",
+      "chapter": "Fonctions chimiques",
+      "tags": [
+        "solubilité",
+        "polarité"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-026",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle définition de la vitamine est donnée dans le cours ?",
+      "choices": [
+        {
+          "text": "Une molécule organique indispensable en très petites quantités, généralement non synthétisée par l'organisme et sans valeur énergétique",
+          "correct": true
+        },
+        {
+          "text": "Un minéral apportant directement de l'énergie",
+          "correct": false
+        },
+        {
+          "text": "Une molécule toujours synthétisée en quantité suffisante par l'organisme",
+          "correct": false
+        },
+        {
+          "text": "Un nutriment exclusivement constitué de protéines",
+          "correct": false
+        }
+      ],
+      "explanation": "Une vitamine est définie comme une molécule organique indispensable en très petites quantités, généralement non synthétisée par l'organisme, nécessitant un apport alimentaire et n'ayant aucune valeur énergétique.",
+      "chapter": "Vitamines",
+      "tags": [
+        "vitamines",
+        "définition"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-027",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles caractéristiques concernent les vitamines hydrosolubles B et C ?",
+      "choices": [
+        {
+          "text": "Elles sont solubles dans l'eau",
+          "correct": true
+        },
+        {
+          "text": "Elles sont en principe non stockées, sauf B9 et B12 selon le cours",
+          "correct": true
+        },
+        {
+          "text": "Leurs excès sont éliminés dans les urines",
+          "correct": true
+        },
+        {
+          "text": "Un apport régulier est nécessaire",
+          "correct": true
+        },
+        {
+          "text": "Elles sont toutes stockées dans le foie et le tissu adipeux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que les vitamines hydrosolubles B et C sont solubles dans l'eau, généralement non stockées sauf B9/B12, éliminées dans les urines en cas d'excès, et nécessitent un apport régulier.",
+      "chapter": "Vitamines",
+      "tags": [
+        "vitamines hydrosolubles",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-028",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles caractéristiques concernent les vitamines liposolubles A, D, E et K ?",
+      "choices": [
+        {
+          "text": "Elles sont solubles dans les graisses",
+          "correct": true
+        },
+        {
+          "text": "Leur absorption se fait avec les lipides",
+          "correct": true
+        },
+        {
+          "text": "Elles peuvent être stockées dans le foie et le tissu adipeux",
+          "correct": true
+        },
+        {
+          "text": "Un excès peut entraîner un risque de surdosage",
+          "correct": true
+        },
+        {
+          "text": "Elles doivent obligatoirement être apportées tous les jours selon le cours",
+          "correct": false
+        }
+      ],
+      "explanation": "Les vitamines A, D, E et K sont liposolubles, absorbées avec les lipides, stockées dans le foie et le tissu adipeux, et peuvent présenter un risque de surdosage.",
+      "chapter": "Vitamines",
+      "tags": [
+        "vitamines liposolubles",
+        "ADEK"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-029",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles associations vitamine / rôle principal sont correctes d'après le tableau du cours ?",
+      "choices": [
+        {
+          "text": "B1 : métabolisme glucidique",
+          "correct": true
+        },
+        {
+          "text": "B9 : synthèse de l'ADN et division cellulaire",
+          "correct": true
+        },
+        {
+          "text": "B12 : synthèse de l'ADN et système nerveux",
+          "correct": true
+        },
+        {
+          "text": "C : antioxydant, synthèse du collagène et absorption du fer",
+          "correct": true
+        },
+        {
+          "text": "B2 : coagulation sanguine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le tableau attribue à B1 le métabolisme glucidique, à B9 la synthèse de l'ADN et la division cellulaire, à B12 la synthèse de l'ADN et le système nerveux, et à C un rôle antioxydant, dans le collagène et l'absorption du fer.",
+      "chapter": "Vitamines",
+      "tags": [
+        "vitamines B",
+        "vitamine C",
+        "rôles"
+      ]
+    },
+    {
+      "id": "chap0-matiere-v1-030",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles associations concernant les vitamines liposolubles sont correctes ?",
+      "choices": [
+        {
+          "text": "Vitamine A : vision, peau, immunité, croissance",
+          "correct": true
+        },
+        {
+          "text": "Vitamine D : régulation phosphocalcique",
+          "correct": true
+        },
+        {
+          "text": "Vitamine E : antioxydant protégeant les acides gras insaturés",
+          "correct": true
+        },
+        {
+          "text": "Vitamine K : coagulation sanguine",
+          "correct": true
+        },
+        {
+          "text": "Vitamine D : carence principale = scorbut",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours attribue à A des rôles dans la vision, la peau, l'immunité et la croissance ; à D la régulation phosphocalcique ; à E un rôle antioxydant protégeant les AG insaturés ; et à K la coagulation sanguine. Le scorbut correspond à une carence en vitamine C.",
+      "chapter": "Vitamines",
+      "tags": [
+        "vitamines liposolubles",
+        "ADEK",
+        "rôles"
+      ]
+    }
+  ]
+}
