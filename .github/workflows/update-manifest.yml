@@ -1,0 +1,49 @@
+name: Mettre à jour le manifest QCM
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "banques/**/*.json"
+      - "generer_manifest.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Régénérer manifest.json
+        run: python3 generer_manifest.py
+
+      - name: Vérifier si manifest.json a changé
+        id: changes
+        run: |
+          if git diff --quiet -- manifest.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit automatique du manifest
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifest.json
+          git commit -m "chore: mise à jour automatique du manifest"
+          git push
