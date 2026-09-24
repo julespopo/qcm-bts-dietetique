@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.7
+# QCM BTS Diététique — V7.7.1
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -400,6 +400,14 @@ multiple → plusieurs bonnes réponses
 
 # Changelog
 
+## V7.7.1
+
+- Correction des icônes/images cassées lorsque seul `index.html` est mis à jour.
+- Les SVG sont désormais intégrés directement dans `index.html`.
+- Le dossier `assets/` n'est plus nécessaire au fonctionnement visuel de la page.
+- Suppression de la mention `Révisions & nutrition` au-dessus du titre.
+- Footer mis à jour : `Index V7.7.1`.
+
 ## V7.7
 
 - Rafraîchissement visuel sobre de l'interface avant la V8.0.
@@ -561,3 +569,9 @@ assets/
 ```
 
 Ces fichiers sont libres à utiliser dans le projet et ne nécessitent aucune dépendance externe.
+
+
+### Note V7.7.1
+
+Les illustrations et icônes sont désormais embarquées directement dans le HTML.
+Cela permet de mettre le site à jour en remplaçant uniquement `index.html`, sans devoir téléverser un dossier `assets/`.
