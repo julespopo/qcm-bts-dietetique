@@ -1,7 +1,16 @@
 {
-  "appVersion": 3,
-  "updated": "2026-09-23",
+  "appVersion": 2,
+  "updated": "2026-09-24",
   "banks": [
+    {
+      "id": "BPADN__00_matiere_organique_inorganique",
+      "title": "Chapitre 0 — Matière organique et inorganique",
+      "subject": "BPADN",
+      "chapter": "Matière organique et inorganique",
+      "file": "banques/BPADN/00_matiere_organique_inorganique.json",
+      "count": 30,
+      "version": 1
+    },
     {
       "id": "BPADN__01_glucides",
       "title": "Les glucides",
