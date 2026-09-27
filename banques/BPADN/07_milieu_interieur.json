@@ -1,0 +1,796 @@
+{
+  "version": 3,
+  "title": "Chapitre 7 — Le milieu intérieur",
+  "subject": "BPADN",
+  "chapter": "Chapitre 7 — Le milieu intérieur",
+  "questions": [
+    {
+      "id": "bp7-001",
+      "category": "Milieu intérieur",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi correspond le milieu intérieur selon le cours ?",
+      "choices": [
+        {
+          "text": "À l’ensemble des liquides extracellulaires qui entourent les cellules",
+          "correct": true
+        },
+        {
+          "text": "Uniquement au cytoplasme",
+          "correct": false
+        },
+        {
+          "text": "Uniquement au plasma sanguin",
+          "correct": false
+        },
+        {
+          "text": "À l’ensemble des organites cellulaires",
+          "correct": false
+        }
+      ],
+      "explanation": "Le milieu intérieur regroupe les liquides extracellulaires entourant les cellules."
+    },
+    {
+      "id": "bp7-002",
+      "category": "Milieu intérieur",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels liquides appartiennent au milieu intérieur ?",
+      "choices": [
+        {
+          "text": "Plasma sanguin",
+          "correct": true
+        },
+        {
+          "text": "Liquide interstitiel",
+          "correct": true
+        },
+        {
+          "text": "Lymphe",
+          "correct": true
+        },
+        {
+          "text": "Cytosol intracellulaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite plasma, liquide interstitiel et lymphe parmi les liquides du milieu intérieur."
+    },
+    {
+      "id": "bp7-003",
+      "category": "Homéostasie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’est-ce que l’homéostasie ?",
+      "choices": [
+        {
+          "text": "Le maintien des constantes du milieu intérieur dans des limites compatibles avec le fonctionnement cellulaire",
+          "correct": true
+        },
+        {
+          "text": "La destruction des globules rouges",
+          "correct": false
+        },
+        {
+          "text": "La digestion des protéines",
+          "correct": false
+        },
+        {
+          "text": "La synthèse des lipides",
+          "correct": false
+        }
+      ],
+      "explanation": "L’homéostasie désigne les mécanismes de régulation qui maintiennent le milieu intérieur stable."
+    },
+    {
+      "id": "bp7-004",
+      "category": "Compartiments liquidiens",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel liquide correspond au compartiment intracellulaire ?",
+      "choices": [
+        {
+          "text": "Le cytosol des cellules",
+          "correct": true
+        },
+        {
+          "text": "Le plasma sanguin",
+          "correct": false
+        },
+        {
+          "text": "La lymphe canalisée",
+          "correct": false
+        },
+        {
+          "text": "Le liquide interstitiel",
+          "correct": false
+        }
+      ],
+      "explanation": "Le compartiment intracellulaire correspond au liquide contenu dans les cellules."
+    },
+    {
+      "id": "bp7-005",
+      "category": "Osmose",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Dans quel sens se déplace l’eau par osmose ?",
+      "choices": [
+        {
+          "text": "Du milieu le moins concentré en solutés vers le milieu le plus concentré, à travers une membrane semi-perméable",
+          "correct": true
+        },
+        {
+          "text": "Toujours du sang vers les cellules",
+          "correct": false
+        },
+        {
+          "text": "Toujours contre le gradient avec ATP",
+          "correct": false
+        },
+        {
+          "text": "Sans membrane",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit l’osmose comme un déplacement d’eau vers le milieu le plus concentré en solutés."
+    },
+    {
+      "id": "bp7-006",
+      "category": "Sang",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Comment le sang est-il défini dans le cours ?",
+      "choices": [
+        {
+          "text": "Comme le tissu liquide de l’organisme",
+          "correct": true
+        },
+        {
+          "text": "Comme un organe solide",
+          "correct": false
+        },
+        {
+          "text": "Comme un liquide sans cellules",
+          "correct": false
+        },
+        {
+          "text": "Comme un tissu épithélial uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le sang est présenté comme un tissu liquide."
+    },
+    {
+      "id": "bp7-007",
+      "category": "Sang",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles sont les deux grandes composantes du sang ?",
+      "choices": [
+        {
+          "text": "Plasma",
+          "correct": true
+        },
+        {
+          "text": "Éléments figurés",
+          "correct": true
+        },
+        {
+          "text": "Lymphe canalisée",
+          "correct": false
+        },
+        {
+          "text": "Liquide intracellulaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Le sang comprend une phase liquide, le plasma, et des éléments figurés."
+    },
+    {
+      "id": "bp7-008",
+      "category": "Sang",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel intervalle de pH sanguin est indiqué ?",
+      "choices": [
+        {
+          "text": "7,35 à 7,45",
+          "correct": true
+        },
+        {
+          "text": "5,0 à 5,5",
+          "correct": false
+        },
+        {
+          "text": "6,0 à 6,5",
+          "correct": false
+        },
+        {
+          "text": "8,5 à 9,0",
+          "correct": false
+        }
+      ],
+      "explanation": "Le pH sanguin physiologique indiqué se situe entre 7,35 et 7,45."
+    },
+    {
+      "id": "bp7-009",
+      "category": "Sang",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles fonctions du sang sont citées ?",
+      "choices": [
+        {
+          "text": "Transport",
+          "correct": true
+        },
+        {
+          "text": "Régulation physico-chimique",
+          "correct": true
+        },
+        {
+          "text": "Protection contre les hémorragies",
+          "correct": true
+        },
+        {
+          "text": "Digestion intestinale uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le sang assure notamment des fonctions de transport, régulation et protection."
+    },
+    {
+      "id": "bp7-010",
+      "category": "Plasma",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle proportion d’eau contient approximativement le plasma ?",
+      "choices": [
+        {
+          "text": "Environ 90 %",
+          "correct": true
+        },
+        {
+          "text": "10 %",
+          "correct": false
+        },
+        {
+          "text": "50 %",
+          "correct": false
+        },
+        {
+          "text": "100 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Le plasma est décrit comme contenant environ 90 % d’eau."
+    },
+    {
+      "id": "bp7-011",
+      "category": "Plasma",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles protéines plasmatiques sont citées ?",
+      "choices": [
+        {
+          "text": "Albumines",
+          "correct": true
+        },
+        {
+          "text": "Globulines",
+          "correct": true
+        },
+        {
+          "text": "Facteurs de coagulation",
+          "correct": true
+        },
+        {
+          "text": "Collagène osseux uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite notamment albumines, globulines et facteurs de coagulation."
+    },
+    {
+      "id": "bp7-012",
+      "category": "Tampons",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels systèmes tampons chimiques sont cités ?",
+      "choices": [
+        {
+          "text": "Acide carbonique / bicarbonate",
+          "correct": true
+        },
+        {
+          "text": "Phosphates",
+          "correct": true
+        },
+        {
+          "text": "Protéines",
+          "correct": true
+        },
+        {
+          "text": "Glucose / glycogène",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours présente plusieurs systèmes tampons contribuant au maintien du pH."
+    },
+    {
+      "id": "bp7-013",
+      "category": "Hématies",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle protéine des hématies permet le transport de l’oxygène ?",
+      "choices": [
+        {
+          "text": "L’hémoglobine",
+          "correct": true
+        },
+        {
+          "text": "L’albumine",
+          "correct": false
+        },
+        {
+          "text": "Le collagène",
+          "correct": false
+        },
+        {
+          "text": "L’insuline",
+          "correct": false
+        }
+      ],
+      "explanation": "L’hémoglobine des globules rouges fixe et transporte l’oxygène."
+    },
+    {
+      "id": "bp7-014",
+      "category": "Hématies",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles caractéristiques des hématies sont données ?",
+      "choices": [
+        {
+          "text": "Absence de noyau à maturité",
+          "correct": true
+        },
+        {
+          "text": "Absence de mitochondries à maturité",
+          "correct": true
+        },
+        {
+          "text": "Forme biconcave et déformable",
+          "correct": true
+        },
+        {
+          "text": "Présence d’un noyau volumineux",
+          "correct": false
+        }
+      ],
+      "explanation": "Les globules rouges matures sont anucléés, sans mitochondries et biconcaves."
+    },
+    {
+      "id": "bp7-015",
+      "category": "Hématies",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle part du CO₂ est transportée par les hématies selon le cours ?",
+      "choices": [
+        {
+          "text": "Environ 20 %",
+          "correct": true
+        },
+        {
+          "text": "0 %",
+          "correct": false
+        },
+        {
+          "text": "50 %",
+          "correct": false
+        },
+        {
+          "text": "100 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours attribue aux hématies le transport d’environ 20 % du CO₂."
+    },
+    {
+      "id": "bp7-016",
+      "category": "Érythropoïèse",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Où se déroule l’érythropoïèse ?",
+      "choices": [
+        {
+          "text": "Dans la moelle osseuse",
+          "correct": true
+        },
+        {
+          "text": "Dans le plasma",
+          "correct": false
+        },
+        {
+          "text": "Dans les reins",
+          "correct": false
+        },
+        {
+          "text": "Dans les poumons",
+          "correct": false
+        }
+      ],
+      "explanation": "L’érythropoïèse est la formation des globules rouges dans la moelle osseuse."
+    },
+    {
+      "id": "bp7-017",
+      "category": "Érythropoïèse",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle hormone régule la production des globules rouges ?",
+      "choices": [
+        {
+          "text": "L’érythropoïétine (EPO)",
+          "correct": true
+        },
+        {
+          "text": "L’insuline",
+          "correct": false
+        },
+        {
+          "text": "Le glucagon",
+          "correct": false
+        },
+        {
+          "text": "Le calcitriol",
+          "correct": false
+        }
+      ],
+      "explanation": "L’EPO, produite principalement par les reins, stimule l’érythropoïèse."
+    },
+    {
+      "id": "bp7-018",
+      "category": "Hématies",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle durée de vie est indiquée pour un globule rouge ?",
+      "choices": [
+        {
+          "text": "Environ 100 à 120 jours",
+          "correct": true
+        },
+        {
+          "text": "1 à 2 jours",
+          "correct": false
+        },
+        {
+          "text": "10 à 20 jours",
+          "correct": false
+        },
+        {
+          "text": "500 jours",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique une durée de vie de l’ordre de 100 à 120 jours."
+    },
+    {
+      "id": "bp7-019",
+      "category": "Dégradation des GR",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que devient le fer de l’hème lors de la dégradation des globules rouges ?",
+      "choices": [
+        {
+          "text": "Il est récupéré et recyclé",
+          "correct": true
+        },
+        {
+          "text": "Il est toujours éliminé dans les urines",
+          "correct": false
+        },
+        {
+          "text": "Il devient du glucose",
+          "correct": false
+        },
+        {
+          "text": "Il est transformé en vitamine K",
+          "correct": false
+        }
+      ],
+      "explanation": "Le fer est récupéré et recyclé lors du catabolisme de l’hémoglobine."
+    },
+    {
+      "id": "bp7-020",
+      "category": "Lymphe",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel système transporte la lymphe ?",
+      "choices": [
+        {
+          "text": "Le système lymphatique",
+          "correct": true
+        },
+        {
+          "text": "Le système nerveux uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le système digestif uniquement",
+          "correct": false
+        },
+        {
+          "text": "La bicouche nucléaire",
+          "correct": false
+        }
+      ],
+      "explanation": "La lymphe circule dans le système lymphatique."
+    },
+    {
+      "id": "bp7-021",
+      "category": "Hémostase",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est le but de l’hémostase ?",
+      "choices": [
+        {
+          "text": "Arrêter un saignement",
+          "correct": true
+        },
+        {
+          "text": "Augmenter la glycémie",
+          "correct": false
+        },
+        {
+          "text": "Former des nucléotides",
+          "correct": false
+        },
+        {
+          "text": "Digérer les protéines",
+          "correct": false
+        }
+      ],
+      "explanation": "L’hémostase regroupe les mécanismes permettant l’arrêt d’une hémorragie."
+    },
+    {
+      "id": "bp7-022",
+      "category": "Hémostase",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles sont les trois étapes essentielles de l’hémostase ?",
+      "choices": [
+        {
+          "text": "Spasme vasculaire",
+          "correct": true
+        },
+        {
+          "text": "Formation du clou plaquettaire",
+          "correct": true
+        },
+        {
+          "text": "Coagulation",
+          "correct": true
+        },
+        {
+          "text": "Érythropoïèse",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours distingue ces trois étapes successives."
+    },
+    {
+      "id": "bp7-023",
+      "category": "Coagulation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel polymère protéique forme le réseau du caillot ?",
+      "choices": [
+        {
+          "text": "La fibrine",
+          "correct": true
+        },
+        {
+          "text": "L’amidon",
+          "correct": false
+        },
+        {
+          "text": "La cellulose",
+          "correct": false
+        },
+        {
+          "text": "L’ADN",
+          "correct": false
+        }
+      ],
+      "explanation": "La coagulation aboutit à la formation d’un réseau de fibrine."
+    },
+    {
+      "id": "bp7-024",
+      "category": "Cicatrisation",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’est-ce que la cicatrisation ?",
+      "choices": [
+        {
+          "text": "Un processus de restauration de l’intégrité cutanée et de régénération des tissus lésés",
+          "correct": true
+        },
+        {
+          "text": "La dégradation du glycogène",
+          "correct": false
+        },
+        {
+          "text": "Le transport actif du sodium",
+          "correct": false
+        },
+        {
+          "text": "La synthèse de l’ATP",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit la cicatrisation comme un processus de réparation tissulaire."
+    },
+    {
+      "id": "bp7-025",
+      "category": "Cicatrisation",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles phases sont citées dans la cicatrisation ?",
+      "choices": [
+        {
+          "text": "Phase vasculaire et inflammatoire",
+          "correct": true
+        },
+        {
+          "text": "Phase de réparation tissulaire",
+          "correct": true
+        },
+        {
+          "text": "Phase de maturation / remodelage",
+          "correct": true
+        },
+        {
+          "text": "Phase de réplication de l’ADN uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document distingue ces grandes phases de la cicatrisation."
+    },
+    {
+      "id": "bp7-026",
+      "category": "Nutrition et cicatrisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi les protéines sont-elles importantes pour la cicatrisation ?",
+      "choices": [
+        {
+          "text": "Elles apportent les acides aminés nécessaires à la synthèse de collagène et de nouvelles protéines tissulaires",
+          "correct": true
+        },
+        {
+          "text": "Elles remplacent directement les plaquettes",
+          "correct": false
+        },
+        {
+          "text": "Elles dissolvent la fibrine",
+          "correct": false
+        },
+        {
+          "text": "Elles constituent le seul tampon sanguin",
+          "correct": false
+        }
+      ],
+      "explanation": "Les protéines fournissent les acides aminés nécessaires à la réparation."
+    },
+    {
+      "id": "bp7-027",
+      "category": "Vitamines et cicatrisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel rôle est attribué à la vitamine C dans la cicatrisation ?",
+      "choices": [
+        {
+          "text": "Elle intervient comme cofacteur dans la synthèse du collagène",
+          "correct": true
+        },
+        {
+          "text": "Elle forme directement les hématies",
+          "correct": false
+        },
+        {
+          "text": "Elle synthétise le glycogène",
+          "correct": false
+        },
+        {
+          "text": "Elle hydrolyse l’ATP",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours met en avant la vitamine C dans la synthèse du collagène."
+    },
+    {
+      "id": "bp7-028",
+      "category": "Vitamines et cicatrisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle vitamine est directement liée aux facteurs de coagulation ?",
+      "choices": [
+        {
+          "text": "La vitamine K",
+          "correct": true
+        },
+        {
+          "text": "La vitamine B1",
+          "correct": false
+        },
+        {
+          "text": "La vitamine B2",
+          "correct": false
+        },
+        {
+          "text": "La vitamine C uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "La vitamine K intervient dans la synthèse de plusieurs facteurs de coagulation."
+    },
+    {
+      "id": "bp7-029",
+      "category": "Synthèse",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles relations sont cohérentes avec le chapitre ?",
+      "choices": [
+        {
+          "text": "Albumines plasmatiques → pression oncotique",
+          "correct": true
+        },
+        {
+          "text": "Bicarbonates → système tampon",
+          "correct": true
+        },
+        {
+          "text": "Plaquettes → clou plaquettaire",
+          "correct": true
+        },
+        {
+          "text": "Fibrine → réseau du caillot",
+          "correct": true
+        },
+        {
+          "text": "Cellulose → coagulation",
+          "correct": false
+        }
+      ],
+      "explanation": "Ces associations relient les fonctions du plasma et de l’hémostase."
+    },
+    {
+      "id": "bp7-030",
+      "category": "Synthèse",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles propositions résument correctement le milieu intérieur ?",
+      "choices": [
+        {
+          "text": "Il comprend les liquides extracellulaires",
+          "correct": true
+        },
+        {
+          "text": "L’homéostasie en maintient les constantes",
+          "correct": true
+        },
+        {
+          "text": "L’osmose participe aux échanges d’eau",
+          "correct": true
+        },
+        {
+          "text": "Le sang et la lymphe appartiennent au milieu intérieur",
+          "correct": true
+        },
+        {
+          "text": "Le cytosol est un liquide extracellulaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Ces quatre notions structurent le chapitre 7."
+    }
+  ]
+}

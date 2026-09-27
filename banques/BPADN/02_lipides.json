@@ -1,67 +1,67 @@
 {
   "version": 3,
-  "title": "Les lipides",
+  "title": "Chapitre 2 — Les lipides",
   "subject": "BPADN",
-  "chapter": "Chapitre 2",
+  "chapter": "Chapitre 2 — Les lipides",
   "questions": [
     {
-      "id": "lip-001",
+      "id": "bp2-001",
       "category": "Définition",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Quelle propriété caractérise les lipides selon le cours ?",
+      "prompt": "Quelle propriété générale caractérise les lipides selon le cours ?",
       "choices": [
         {
-          "text": "Insolubles dans l'eau et solubles dans des solvants organiques",
+          "text": "Ils sont hydrophobes et riches en chaînes C—H",
           "correct": true
         },
         {
-          "text": "Très solubles dans l'eau",
+          "text": "Ils sont tous très hydrosolubles",
           "correct": false
         },
         {
-          "text": "Toujours chargés électriquement",
+          "text": "Ils sont constitués uniquement d’azote",
           "correct": false
         },
         {
-          "text": "Constitués uniquement d'azote",
+          "text": "Ils fournissent 4 kcal/g",
           "correct": false
         }
       ],
-      "explanation": "Les lipides sont caractérisés par leur insolubilité dans l'eau et leur solubilité dans des solvants organiques."
+      "explanation": "Le cours présente les lipides comme des biomolécules hydrophobes, riches en chaînes C—H."
     },
     {
-      "id": "lip-002",
-      "category": "Définition",
+      "id": "bp2-002",
+      "category": "Rôles",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Quelle valeur énergétique est attribuée à 1 g de lipides ?",
+      "prompt": "Quelle valeur énergétique est attribuée aux lipides ?",
       "choices": [
         {
-          "text": "9 kcal",
+          "text": "9 kcal/g",
           "correct": true
         },
         {
-          "text": "4 kcal",
+          "text": "2 kcal/g",
           "correct": false
         },
         {
-          "text": "2 kcal",
+          "text": "4 kcal/g",
           "correct": false
         },
         {
-          "text": "17 kcal",
+          "text": "12 kcal/g",
           "correct": false
         }
       ],
-      "explanation": "Le cours indique 9 kcal/g, soit plus du double de la valeur énergétique des glucides."
+      "explanation": "Les lipides fournissent 9 kcal/g et constituent une réserve énergétique très dense."
     },
     {
-      "id": "lip-003",
+      "id": "bp2-003",
       "category": "Classification",
       "type": "multiple",
       "difficulty": 1,
-      "prompt": "Quelles familles font partie des quatre grandes familles de lipides présentées ?",
+      "prompt": "Quelles sont les quatre grandes familles de lipides présentées ?",
       "choices": [
         {
           "text": "Acides gras",
@@ -80,44 +80,74 @@
           "correct": true
         },
         {
-          "text": "Nucléotides",
+          "text": "Glucides",
           "correct": false
         }
       ],
-      "explanation": "Le cours distingue acides gras, glycérolipides, sphingolipides et stérols/dérivés."
+      "explanation": "Le plan du cours distingue ces quatre grandes familles."
     },
     {
-      "id": "lip-004",
-      "category": "Acides gras",
-      "type": "single",
-      "difficulty": 1,
-      "prompt": "Un acide gras possède :",
+      "id": "bp2-004",
+      "category": "Rôles",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels rôles des lipides sont explicitement cités ?",
       "choices": [
         {
-          "text": "Une longue chaîne carbonée hydrophobe terminée par un COOH",
+          "text": "Réserve énergétique",
           "correct": true
         },
         {
-          "text": "Uniquement un groupement amine",
-          "correct": false
+          "text": "Constituants des membranes",
+          "correct": true
         },
         {
-          "text": "Une chaîne de glucose",
-          "correct": false
+          "text": "Précurseurs de molécules comme les hormones stéroïdes",
+          "correct": true
         },
         {
-          "text": "Trois phosphates",
+          "text": "Signalisation et autres fonctions",
+          "correct": true
+        },
+        {
+          "text": "Support direct de l’information génétique",
           "correct": false
         }
       ],
-      "explanation": "La définition du cours associe une chaîne carbonée hydrophobe et une fonction acide carboxylique hydrophile."
+      "explanation": "Le cours cite les rôles énergétique, structural, de précurseur et de signalisation."
     },
     {
-      "id": "lip-005",
+      "id": "bp2-005",
+      "category": "Acides gras",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle structure générale décrit un acide gras ?",
+      "choices": [
+        {
+          "text": "Une longue chaîne carbonée terminée par une fonction —COOH",
+          "correct": true
+        },
+        {
+          "text": "Une chaîne de nucléotides",
+          "correct": false
+        },
+        {
+          "text": "Un polymère d’acides aminés",
+          "correct": false
+        },
+        {
+          "text": "Un ose cyclique",
+          "correct": false
+        }
+      ],
+      "explanation": "Un acide gras possède une chaîne hydrocarbonée et une fonction acide carboxylique."
+    },
+    {
+      "id": "bp2-006",
       "category": "Nomenclature",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Dans la notation C18:2, le nombre 2 indique :",
+      "prompt": "Dans la notation Cx:y d’un acide gras, que représente y ?",
       "choices": [
         {
           "text": "Le nombre de doubles liaisons",
@@ -128,282 +158,286 @@
           "correct": false
         },
         {
-          "text": "Le nombre de groupes phosphate",
+          "text": "Le nombre de fonctions alcool",
           "correct": false
         },
         {
-          "text": "Le nombre de fonctions alcool",
+          "text": "Le nombre de phosphates",
           "correct": false
         }
       ],
-      "explanation": "Dans Cx:y, x est le nombre de carbones et y le nombre de doubles liaisons."
+      "explanation": "Dans Cx:y, x indique le nombre de carbones et y le nombre de doubles liaisons."
     },
     {
-      "id": "lip-006",
+      "id": "bp2-007",
       "category": "Nomenclature",
       "type": "single",
       "difficulty": 2,
-      "prompt": "La notation oméga compte la position d'une double liaison à partir :",
+      "prompt": "Depuis quelle extrémité compte-t-on en notation oméga (ω) ?",
       "choices": [
         {
-          "text": "Du carbone CH3 terminal",
+          "text": "Depuis le CH₃ terminal",
           "correct": true
         },
         {
-          "text": "Du groupe COOH",
+          "text": "Depuis le —COOH",
           "correct": false
         },
         {
-          "text": "Du centre de la chaîne",
+          "text": "Depuis le carbone anomérique",
           "correct": false
         },
         {
-          "text": "Du premier oxygène",
+          "text": "Depuis le phosphate",
           "correct": false
         }
       ],
-      "explanation": "La notation ω compte à partir de l'extrémité méthyle CH3."
+      "explanation": "La notation ω compte depuis l’extrémité méthyle terminale."
     },
     {
-      "id": "lip-007",
+      "id": "bp2-008",
       "category": "Acides gras saturés",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Un acide gras saturé possède :",
+      "prompt": "Que signifie « acide gras saturé » ?",
       "choices": [
         {
-          "text": "Aucune double liaison C=C",
+          "text": "Il ne possède aucune double liaison C=C",
           "correct": true
         },
         {
-          "text": "Une seule double liaison",
+          "text": "Il possède une seule double liaison",
           "correct": false
         },
         {
-          "text": "Au moins deux doubles liaisons",
+          "text": "Il possède au moins deux doubles liaisons",
           "correct": false
         },
         {
-          "text": "Toujours trois doubles liaisons",
+          "text": "Il contient obligatoirement un phosphate",
           "correct": false
         }
       ],
-      "explanation": "Un AG saturé ne contient aucune double liaison entre carbones."
+      "explanation": "Les acides gras saturés ne comportent aucune double liaison entre carbones."
     },
     {
-      "id": "lip-008",
+      "id": "bp2-009",
       "category": "Acides gras",
-      "type": "single",
+      "type": "multiple",
       "difficulty": 2,
-      "prompt": "L'acide oléique est :",
+      "prompt": "Quelles associations sont exactes ?",
       "choices": [
         {
-          "text": "C18:1 ω-9",
+          "text": "Butyrique = C4:0",
           "correct": true
         },
         {
-          "text": "C16:0",
-          "correct": false
+          "text": "Palmitique = C16:0",
+          "correct": true
         },
         {
-          "text": "C18:2 ω-6",
-          "correct": false
+          "text": "Stéarique = C18:0",
+          "correct": true
         },
         {
-          "text": "C22:6 ω-3",
+          "text": "Oléique = C18:1 ω-9",
+          "correct": true
+        },
+        {
+          "text": "Linoléique = C18:0",
           "correct": false
         }
       ],
-      "explanation": "Le cours présente l'acide oléique comme le principal AG monoinsaturé, C18:1 ω-9."
+      "explanation": "Ces notations figurent dans les exemples du chapitre."
     },
     {
-      "id": "lip-009",
+      "id": "bp2-010",
       "category": "Isomérie",
       "type": "single",
-      "difficulty": 1,
-      "prompt": "Quelle configuration est la forme naturelle majoritaire des AG insaturés biologiques ?",
+      "difficulty": 2,
+      "prompt": "Quelle forme des acides gras insaturés est présentée comme naturelle chez les AGI biologiques ?",
       "choices": [
         {
-          "text": "Cis",
+          "text": "La forme cis",
           "correct": true
         },
         {
-          "text": "Trans",
+          "text": "La forme trans industrielle",
           "correct": false
         },
         {
-          "text": "D",
+          "text": "La forme peptidique",
           "correct": false
         },
         {
-          "text": "L",
+          "text": "La forme osidique",
           "correct": false
         }
       ],
-      "explanation": "Le cours décrit la configuration cis comme la forme naturelle des AG insaturés biologiques."
+      "explanation": "La forme cis crée un coude dans la chaîne carbonée."
     },
     {
-      "id": "lip-010",
-      "category": "Oméga",
+      "id": "bp2-011",
+      "category": "AGPI",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Quel acide gras est le chef de file essentiel de la famille ω-6 ?",
+      "prompt": "À partir de combien de doubles liaisons parle-t-on d’acide gras polyinsaturé ?",
       "choices": [
         {
-          "text": "Acide linoléique",
+          "text": "Au moins 2",
           "correct": true
         },
         {
-          "text": "Acide oléique",
+          "text": "0",
           "correct": false
+        },
+        {
+          "text": "1",
+          "correct": false
+        },
+        {
+          "text": "Au moins 10",
+          "correct": false
+        }
+      ],
+      "explanation": "Les AGPI comportent au moins deux doubles liaisons."
+    },
+    {
+      "id": "bp2-012",
+      "category": "Acides gras essentiels",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels acides gras sont présentés comme essentiels ?",
+      "choices": [
+        {
+          "text": "Acide linoléique C18:2 ω-6",
+          "correct": true
+        },
+        {
+          "text": "Acide α-linolénique C18:3 ω-3",
+          "correct": true
+        },
+        {
+          "text": "Acide palmitique C16:0",
+          "correct": false
+        },
+        {
+          "text": "Acide stéarique C18:0",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique que leur apport alimentaire est indispensable."
+    },
+    {
+      "id": "bp2-013",
+      "category": "Oméga-3",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels dérivés sont associés à la famille oméga-3 ?",
+      "choices": [
+        {
+          "text": "EPA",
+          "correct": true
+        },
+        {
+          "text": "DHA",
+          "correct": true
         },
         {
           "text": "Acide palmitique",
           "correct": false
-        },
-        {
-          "text": "DHA",
-          "correct": false
-        }
-      ],
-      "explanation": "L'acide linoléique C18:2 ω-6 est le chef de file essentiel des oméga-6."
-    },
-    {
-      "id": "lip-011",
-      "category": "Oméga",
-      "type": "single",
-      "difficulty": 1,
-      "prompt": "Quel acide gras est le chef de file essentiel de la famille ω-3 ?",
-      "choices": [
-        {
-          "text": "Acide α-linolénique",
-          "correct": true
         },
         {
           "text": "Acide stéarique",
           "correct": false
-        },
-        {
-          "text": "Acide palmitique",
-          "correct": false
-        },
-        {
-          "text": "Acide oléique",
-          "correct": false
         }
       ],
-      "explanation": "L'acide α-linolénique C18:3 ω-3 est le chef de file essentiel des oméga-3."
+      "explanation": "EPA et DHA sont cités comme dérivés importants de la famille ω-3."
     },
     {
-      "id": "lip-012",
-      "category": "Acides gras essentiels",
-      "type": "single",
-      "difficulty": 2,
-      "prompt": "Pourquoi l'acide linoléique et l'acide α-linolénique sont-ils essentiels ?",
-      "choices": [
-        {
-          "text": "L'organisme ne sait pas les synthétiser en raison de l'absence de désaturases Δ12 et Δ15",
-          "correct": true
-        },
-        {
-          "text": "Ils sont les seuls lipides énergétiques",
-          "correct": false
-        },
-        {
-          "text": "Ils ne contiennent pas de carbone",
-          "correct": false
-        },
-        {
-          "text": "Ils sont synthétisés uniquement dans le foie",
-          "correct": false
-        }
-      ],
-      "explanation": "Le cours précise que l'humain ne possède pas les désaturases Δ12 et Δ15 nécessaires à leur synthèse."
-    },
-    {
-      "id": "lip-013",
-      "category": "EPA/DHA",
-      "type": "single",
-      "difficulty": 2,
-      "prompt": "Comment le cours qualifie-t-il EPA et DHA ?",
-      "choices": [
-        {
-          "text": "Conditionnellement essentiels",
-          "correct": true
-        },
-        {
-          "text": "Toujours strictement essentiels",
-          "correct": false
-        },
-        {
-          "text": "Acides gras saturés",
-          "correct": false
-        },
-        {
-          "text": "Stérols",
-          "correct": false
-        }
-      ],
-      "explanation": "Ils peuvent être synthétisés en faible quantité à partir de l'α-linolénique : ils sont présentés comme conditionnellement essentiels."
-    },
-    {
-      "id": "lip-014",
+      "id": "bp2-014",
       "category": "Propriétés",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Le point de fusion d'un acide gras :",
+      "prompt": "Quel effet des doubles liaisons cis sur le point de fusion est cohérent avec le cours ?",
       "choices": [
         {
-          "text": "Augmente avec la longueur de chaîne et diminue avec le nombre de doubles liaisons",
+          "text": "Elles diminuent le point de fusion en limitant l’empilement compact",
           "correct": true
         },
         {
-          "text": "Diminue toujours avec la longueur",
+          "text": "Elles augmentent toujours fortement le point de fusion",
           "correct": false
         },
         {
-          "text": "Augmente avec chaque double liaison",
+          "text": "Elles rendent la chaîne plus rectiligne",
           "correct": false
         },
         {
-          "text": "Ne dépend jamais de la structure",
+          "text": "Elles transforment l’acide gras en protéine",
           "correct": false
         }
       ],
-      "explanation": "Le cours relie un point de fusion élevé aux chaînes longues et saturées."
+      "explanation": "Le coude créé par la configuration cis limite l’empilement des chaînes."
     },
     {
-      "id": "lip-015",
-      "category": "Propriétés",
-      "type": "single",
-      "difficulty": 2,
-      "prompt": "Pourquoi les AG insaturés sont-ils sensibles à l'oxydation ?",
-      "choices": [
-        {
-          "text": "À cause de leurs doubles liaisons",
-          "correct": true
-        },
-        {
-          "text": "À cause de l'absence totale d'oxygène",
-          "correct": false
-        },
-        {
-          "text": "À cause d'un noyau stérane",
-          "correct": false
-        },
-        {
-          "text": "Parce qu'ils sont des protéines",
-          "correct": false
-        }
-      ],
-      "explanation": "Les doubles liaisons sont des sites sensibles à l'oxydation, ce qui favorise le rancissement."
-    },
-    {
-      "id": "lip-016",
+      "id": "bp2-015",
       "category": "Glycérolipides",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Le glycérol possède combien de fonctions OH disponibles pour estérification ?",
+      "prompt": "Combien de fonctions —OH possède le glycérol ?",
+      "choices": [
+        {
+          "text": "3",
+          "correct": true
+        },
+        {
+          "text": "1",
+          "correct": false
+        },
+        {
+          "text": "2",
+          "correct": false
+        },
+        {
+          "text": "6",
+          "correct": false
+        }
+      ],
+      "explanation": "Le glycérol est un trialcool à trois carbones."
+    },
+    {
+      "id": "bp2-016",
+      "category": "Liaison ester",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment se forme une liaison ester dans les glycérolipides ?",
+      "choices": [
+        {
+          "text": "Par condensation entre un alcool et un acide gras avec perte d’eau",
+          "correct": true
+        },
+        {
+          "text": "Par hydrolyse d’une liaison peptidique",
+          "correct": false
+        },
+        {
+          "text": "Par ajout d’un phosphate sans perte d’eau",
+          "correct": false
+        },
+        {
+          "text": "Par réduction d’un aldéhyde",
+          "correct": false
+        }
+      ],
+      "explanation": "L’estérification est une réaction de condensation."
+    },
+    {
+      "id": "bp2-017",
+      "category": "TAG",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien d’acides gras sont estérifiés dans un triacylglycérol (TAG) ?",
       "choices": [
         {
           "text": "3",
@@ -422,177 +456,99 @@
           "correct": false
         }
       ],
-      "explanation": "Le glycérol est un trialcool à trois carbones avec trois fonctions OH."
+      "explanation": "Un TAG est formé d’un glycérol estérifié par trois acides gras."
     },
     {
-      "id": "lip-017",
-      "category": "Réactions",
-      "type": "single",
+      "id": "bp2-018",
+      "category": "TAG",
+      "type": "multiple",
       "difficulty": 2,
-      "prompt": "Une liaison ester entre glycérol et acide gras se forme par :",
+      "prompt": "Quelles affirmations sur les TAG sont conformes au cours ?",
       "choices": [
         {
-          "text": "Condensation avec perte d'eau",
+          "text": "Ils constituent la forme de réserve lipidique",
           "correct": true
         },
         {
-          "text": "Hydrolyse avec ajout d'eau",
-          "correct": false
-        },
-        {
-          "text": "Réduction du phosphate",
-          "correct": false
-        },
-        {
-          "text": "Oxydation d'un acide aminé",
-          "correct": false
-        }
-      ],
-      "explanation": "L'estérification est une condensation entre une fonction alcool et une fonction acide carboxylique, avec libération d'eau."
-    },
-    {
-      "id": "lip-018",
-      "category": "Triglycérides",
-      "type": "single",
-      "difficulty": 1,
-      "prompt": "Un TAG comporte :",
-      "choices": [
-        {
-          "text": "3 acides gras estérifiés sur un glycérol",
+          "text": "Ils sont stockés dans le tissu adipeux",
           "correct": true
         },
         {
-          "text": "2 acides gras et 1 phosphate",
-          "correct": false
-        },
-        {
-          "text": "1 sphingosine et 1 choline",
-          "correct": false
-        },
-        {
-          "text": "4 cycles stéranes",
-          "correct": false
-        }
-      ],
-      "explanation": "TAG = triacylglycérol : trois acides gras estérifiés sur les trois OH du glycérol."
-    },
-    {
-      "id": "lip-019",
-      "category": "Triglycérides",
-      "type": "single",
-      "difficulty": 2,
-      "prompt": "Quelle proportion des lipides alimentaires est présentée comme étant des TAG ?",
-      "choices": [
-        {
-          "text": "Environ 95 %",
+          "text": "Ils sont hydrolysés par des lipases",
           "correct": true
         },
         {
-          "text": "Environ 5 %",
-          "correct": false
-        },
-        {
-          "text": "Environ 25 %",
-          "correct": false
-        },
-        {
-          "text": "100 % exactement",
+          "text": "Ils constituent le support direct de l’information génétique",
           "correct": false
         }
       ],
-      "explanation": "Le cours indique qu'environ 95 % des lipides alimentaires sont des triglycérides."
+      "explanation": "Le chapitre présente les TAG comme la principale forme de réserve lipidique."
     },
     {
-      "id": "lip-020",
+      "id": "bp2-019",
       "category": "Digestion",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles étapes participent à la digestion des TAG ?",
+      "choices": [
+        {
+          "text": "Émulsification par les sels biliaires",
+          "correct": true
+        },
+        {
+          "text": "Hydrolyse par la lipase pancréatique",
+          "correct": true
+        },
+        {
+          "text": "Absorption intestinale puis reformation de TAG",
+          "correct": true
+        },
+        {
+          "text": "Transformation directe en ADN",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit émulsification, hydrolyse puis absorption et reformation des TAG."
+    },
+    {
+      "id": "bp2-020",
+      "category": "Glycérophospholipides",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Quelle enzyme hydrolyse principalement les TAG dans l'intestin ?",
+      "prompt": "Quelle propriété permet aux glycérophospholipides de former des bicouches ?",
       "choices": [
         {
-          "text": "Lipase pancréatique",
+          "text": "Leur caractère amphiphile",
           "correct": true
         },
         {
-          "text": "Lactase",
+          "text": "Leur caractère entièrement hydrophile",
           "correct": false
         },
         {
-          "text": "Pepsine",
+          "text": "Leur absence de phosphate",
           "correct": false
         },
         {
-          "text": "Amylase salivaire",
+          "text": "Leur saturation obligatoire",
           "correct": false
         }
       ],
-      "explanation": "Après émulsification par les sels biliaires, la lipase pancréatique hydrolyse les TAG en MAG et acides gras libres."
+      "explanation": "Ils possèdent une tête hydrophile et des queues hydrophobes."
     },
     {
-      "id": "lip-021",
-      "category": "Glycérophospholipides",
-      "type": "single",
-      "difficulty": 2,
-      "prompt": "Un glycérophospholipide contient notamment :",
-      "choices": [
-        {
-          "text": "Glycérol + 2 AG + phosphate + groupement variable",
-          "correct": true
-        },
-        {
-          "text": "Glycérol + 3 AG uniquement",
-          "correct": false
-        },
-        {
-          "text": "Sphingosine + 3 glucoses",
-          "correct": false
-        },
-        {
-          "text": "4 cycles stéranes",
-          "correct": false
-        }
-      ],
-      "explanation": "Le cours décrit les GPL comme glycérol + deux acides gras + phosphate + groupement polaire variable."
-    },
-    {
-      "id": "lip-022",
-      "category": "Glycérophospholipides",
-      "type": "single",
-      "difficulty": 2,
-      "prompt": "Pourquoi les GPL forment-ils spontanément des bicouches en milieu aqueux ?",
-      "choices": [
-        {
-          "text": "Parce qu'ils sont amphiphiles",
-          "correct": true
-        },
-        {
-          "text": "Parce qu'ils sont entièrement hydrophiles",
-          "correct": false
-        },
-        {
-          "text": "Parce qu'ils sont entièrement apolaires",
-          "correct": false
-        },
-        {
-          "text": "Parce qu'ils sont des protéines",
-          "correct": false
-        }
-      ],
-      "explanation": "Leur tête est hydrophile et leurs queues hydrophobes : cette amphiphilie conduit à la bicouche."
-    },
-    {
-      "id": "lip-023",
+      "id": "bp2-021",
       "category": "Lécithines",
       "type": "single",
       "difficulty": 1,
       "prompt": "La lécithine correspond à :",
       "choices": [
         {
-          "text": "La phosphatidylcholine",
+          "text": "Une phosphatidylcholine",
           "correct": true
         },
         {
-          "text": "Un acide gras saturé",
+          "text": "Un acide gras essentiel",
           "correct": false
         },
         {
@@ -600,96 +556,122 @@
           "correct": false
         },
         {
-          "text": "Un sphingolipide sans phosphate",
+          "text": "Une vitamine hydrosoluble",
           "correct": false
         }
       ],
-      "explanation": "Le cours retient lécithine = phosphatidylcholine."
+      "explanation": "La lécithine est une phosphatidylcholine, donc un glycérophospholipide."
     },
     {
-      "id": "lip-024",
-      "category": "Sphingolipides",
+      "id": "bp2-022",
+      "category": "Lécithines",
       "type": "single",
-      "difficulty": 1,
-      "prompt": "Sur quelle molécule les sphingolipides sont-ils construits ?",
+      "difficulty": 2,
+      "prompt": "Pourquoi la lécithine peut-elle être utilisée comme émulsifiant ?",
       "choices": [
         {
-          "text": "Sphingosine",
+          "text": "Son amphiphilie permet de stabiliser un mélange eau/huile",
           "correct": true
         },
         {
-          "text": "Glycérol uniquement",
+          "text": "Elle hydrolyse les protéines",
           "correct": false
         },
         {
-          "text": "Glucose",
+          "text": "Elle détruit les phospholipides",
           "correct": false
         },
         {
-          "text": "Cholestérol",
+          "text": "Elle est totalement apolaire",
           "correct": false
         }
       ],
-      "explanation": "Les sphingolipides utilisent la sphingosine à la place du glycérol."
+      "explanation": "Son caractère amphiphile explique son pouvoir émulsifiant."
     },
     {
-      "id": "lip-025",
+      "id": "bp2-023",
+      "category": "Sphingolipides",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Sur quelle molécule sont construits les sphingolipides ?",
+      "choices": [
+        {
+          "text": "La sphingosine",
+          "correct": true
+        },
+        {
+          "text": "Le glycérol uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le glucose",
+          "correct": false
+        },
+        {
+          "text": "Le ribose",
+          "correct": false
+        }
+      ],
+      "explanation": "Les sphingolipides sont construits sur une base sphingosine."
+    },
+    {
+      "id": "bp2-024",
       "category": "Sphingomyéline",
       "type": "single",
       "difficulty": 1,
-      "prompt": "La sphingomyéline est particulièrement abondante dans :",
+      "prompt": "Où la sphingomyéline est-elle particulièrement abondante ?",
       "choices": [
         {
-          "text": "La gaine de myéline",
+          "text": "Dans la gaine de myéline autour des axones",
           "correct": true
         },
         {
-          "text": "Le glycogène hépatique",
+          "text": "Dans l’amidon végétal",
           "correct": false
         },
         {
-          "text": "Les chromosomes",
+          "text": "Dans le glycogène hépatique",
           "correct": false
         },
         {
-          "text": "Le suc gastrique",
+          "text": "Dans la cellulose",
           "correct": false
         }
       ],
-      "explanation": "La sphingomyéline est un constituant important de la gaine de myéline autour des axones."
+      "explanation": "La sphingomyéline est un sphingolipide majeur de la gaine de myéline."
     },
     {
-      "id": "lip-026",
-      "category": "Cholestérol",
-      "type": "single",
-      "difficulty": 2,
-      "prompt": "Le cholestérol est caractérisé par :",
-      "choices": [
-        {
-          "text": "Un noyau stérane à 4 cycles",
-          "correct": true
-        },
-        {
-          "text": "Une chaîne de glucose β(1→4)",
-          "correct": false
-        },
-        {
-          "text": "Trois phosphates",
-          "correct": false
-        },
-        {
-          "text": "Une liaison peptidique",
-          "correct": false
-        }
-      ],
-      "explanation": "Le cours décrit le cholestérol comme un stérol à noyau stérane à quatre cycles."
-    },
-    {
-      "id": "lip-027",
+      "id": "bp2-025",
       "category": "Cholestérol",
       "type": "multiple",
       "difficulty": 2,
-      "prompt": "Quels composés dérivent du cholestérol selon le cours ?",
+      "prompt": "Quelles caractéristiques du cholestérol sont données dans le cours ?",
+      "choices": [
+        {
+          "text": "Il appartient aux stérols",
+          "correct": true
+        },
+        {
+          "text": "Il participe aux membranes",
+          "correct": true
+        },
+        {
+          "text": "Il est précurseur de plusieurs molécules",
+          "correct": true
+        },
+        {
+          "text": "C’est un polymère de nucléotides",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cholestérol est un stérol membranaire et un précurseur important."
+    },
+    {
+      "id": "bp2-026",
+      "category": "Cholestérol",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "De quelles molécules le cholestérol est-il précurseur ?",
       "choices": [
         {
           "text": "Acides biliaires",
@@ -708,89 +690,119 @@
           "correct": false
         }
       ],
-      "explanation": "Le cholestérol est précurseur des acides biliaires, de la vitamine D3 et des hormones stéroïdes."
+      "explanation": "Ces trois familles de dérivés sont explicitement citées."
     },
     {
-      "id": "lip-028",
+      "id": "bp2-027",
       "category": "Vitamines liposolubles",
       "type": "multiple",
       "difficulty": 1,
-      "prompt": "Quelles vitamines sont liposolubles ?",
+      "prompt": "Quelles vitamines sont classées comme liposolubles ?",
       "choices": [
         {
-          "text": "A",
+          "text": "Vitamine A",
           "correct": true
         },
         {
-          "text": "D",
+          "text": "Vitamine D",
           "correct": true
         },
         {
-          "text": "E",
+          "text": "Vitamine E",
           "correct": true
         },
         {
-          "text": "K",
+          "text": "Vitamine K",
           "correct": true
         },
         {
-          "text": "C",
+          "text": "Vitamine C",
           "correct": false
         }
       ],
-      "explanation": "Les vitamines liposolubles du cours sont A, D, E et K."
+      "explanation": "Le cours retient les vitamines A, D, E et K."
     },
     {
-      "id": "lip-029",
-      "category": "Vitamine E",
+      "id": "bp2-028",
+      "category": "Vitamines liposolubles",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel rôle majeur est attribué à la vitamine E ?",
+      "prompt": "Quel rôle est associé à la vitamine D ?",
       "choices": [
         {
-          "text": "Antioxydant des membranes et protection des AG insaturés",
+          "text": "Participation à l’équilibre phosphocalcique et à la minéralisation osseuse",
           "correct": true
         },
         {
-          "text": "Hydrolyse du lactose",
+          "text": "Transport de l’oxygène",
           "correct": false
         },
         {
-          "text": "Formation de l'ARNm",
+          "text": "Hydrolyse des TAG",
           "correct": false
         },
         {
-          "text": "Transport de l'oxygène par l'hémoglobine",
+          "text": "Transcription de l’ARNm",
           "correct": false
         }
       ],
-      "explanation": "La vitamine E est présentée comme un antioxydant majeur protégeant notamment les AG insaturés de la peroxydation."
+      "explanation": "La vitamine D participe à la régulation du calcium et du phosphore et à la minéralisation osseuse."
     },
     {
-      "id": "lip-030",
-      "category": "Vitamine K",
+      "id": "bp2-029",
+      "category": "Vitamines liposolubles",
       "type": "single",
-      "difficulty": 1,
-      "prompt": "La vitamine K intervient principalement dans :",
+      "difficulty": 2,
+      "prompt": "Quel rôle majeur est associé à la vitamine E ?",
       "choices": [
         {
-          "text": "La coagulation sanguine",
+          "text": "Antioxydant protégeant notamment les acides gras insaturés",
           "correct": true
         },
         {
-          "text": "La digestion de l'amidon",
+          "text": "Coagulation sanguine",
           "correct": false
         },
         {
-          "text": "La transcription de l'ADN",
+          "text": "Vision nocturne",
           "correct": false
         },
         {
-          "text": "La synthèse du lactose",
+          "text": "Synthèse de glycogène",
           "correct": false
         }
       ],
-      "explanation": "La vitamine K est un cofacteur nécessaire à plusieurs facteurs de coagulation."
+      "explanation": "La vitamine E est présentée comme un antioxydant membranaire."
+    },
+    {
+      "id": "bp2-030",
+      "category": "Synthèse",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles propositions résument correctement le chapitre ?",
+      "choices": [
+        {
+          "text": "TAG = réserve lipidique",
+          "correct": true
+        },
+        {
+          "text": "GPL = molécules amphiphiles des membranes",
+          "correct": true
+        },
+        {
+          "text": "Sphingomyéline = composant de la gaine de myéline",
+          "correct": true
+        },
+        {
+          "text": "Cholestérol = précurseur d’acides biliaires, vitamine D3 et hormones stéroïdes",
+          "correct": true
+        },
+        {
+          "text": "Les lipides fournissent 4 kcal/g",
+          "correct": false
+        }
+      ],
+      "explanation": "Ces notions figurent dans la synthèse du chapitre."
     }
   ]
 }
