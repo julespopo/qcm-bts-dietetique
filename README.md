@@ -22,6 +22,7 @@ QCM_BTS_Dietetique_WEB_MODULAIRE_V7_3/
 │
 └── banques/
     ├── BPADN/
+    │   ├── 00_matiere_organique_inorganique.json
     │   ├── 01_glucides.json
     │   ├── 02_lipides.json
     │   ├── 03_protides.json
@@ -38,7 +39,7 @@ QCM_BTS_Dietetique_WEB_MODULAIRE_V7_3/
         └── 06_situation_professionnelle_gaspillage.json
 ```
 
-Le projet contient actuellement **12 banques** et environ **300 questions**.
+Le projet contient actuellement **13 banques** et **330 questions**.
 
 ---
 
@@ -380,6 +381,7 @@ multiple → plusieurs bonnes réponses
 
 ### BPADN
 
+- Matière organique et inorganique
 - Glucides
 - Lipides
 - Protides
