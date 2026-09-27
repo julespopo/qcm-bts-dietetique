@@ -1399,7 +1399,7 @@ function syncModeUI(){
   document.querySelectorAll(".mode-btn").forEach(btn=>{const active=btn.dataset.mode===state.mode;btn.classList.toggle("selected",active);btn.setAttribute("aria-pressed",active?"true":"false");});
   const startBtn=$("startBtn");if(startBtn&&!startBtn.disabled)startBtn.textContent=flash?"Commencer les cartes":"Commencer";
 }
-function setStudyMode(mode){state.mode=mode==="flashcard"?"flashcard":"qcm";syncModeUI();}
+function setStudyMode(mode){state.mode=mode==="flashcard"?"flashcard":"qcm";syncModeUI();updateAvailable();}
 
 async function loadManifest(){
   if(location.protocol==="file:") throw new Error("Cette version web doit être ouverte depuis GitHub Pages. Utilise index_local.html pour un test par double-clic.");
@@ -1537,6 +1537,9 @@ function difficultyLabel(value){
 function questionMatchesDifficulty(q){
   return state.difficultyFilter==="all"||String(q.difficulty??1)===state.difficultyFilter;
 }
+function isFlashcardEligible(q){
+  return q.type!=="multiple"&&(q.choices||[]).filter(c=>c.correct).length===1;
+}
 function syncDifficultyButtons(){
   document.querySelectorAll(".difficulty-btn").forEach(btn=>{
     const selected=btn.dataset.difficulty===state.difficultyFilter;
@@ -1554,6 +1557,7 @@ async function difficultyCountsForBanks(banks){
   const entries=await Promise.all(banks.map(async bank=>({bank,data:await loadBank(bank.file)})));
   for(const {data} of entries){
     for(const q of data.questions){
+      if(state.mode==="flashcard"&&!isFlashcardEligible(q))continue;
       const d=String(q.difficulty??1);
       counts.all++;
       if(Object.prototype.hasOwnProperty.call(counts,d))counts[d]++;
@@ -1655,7 +1659,7 @@ function makeFlashcardSession(questions){
 }
 async function createSessionFromSelection(){
   const banks=selectedBanks();if(!banks.length)throw new Error("Sélectionne au moins un chapitre.");const pool=[];
-  for(const bank of banks){const data=await loadBank(bank.file);for(const q of data.questions){if(!questionMatchesDifficulty(q))continue;pool.push({...q,bankTitle:bank.title,subject:bank.subject||data.subject||"",chapter:bank.chapter||data.chapter||"",bankFile:bank.file});}}
+  for(const bank of banks){const data=await loadBank(bank.file);for(const q of data.questions){if(!questionMatchesDifficulty(q))continue;if(state.mode==="flashcard"&&!isFlashcardEligible(q))continue;pool.push({...q,bankTitle:bank.title,subject:bank.subject||data.subject||"",chapter:bank.chapter||data.chapter||"",bankFile:bank.file});}}
   if(!pool.length)throw new Error("Aucune question ne correspond à la difficulté sélectionnée.");const wanted=Math.max(1,Math.min(parseInt($("count").value,10)||20,pool.length));const selected=shuffle(pool).slice(0,wanted);return state.mode==="flashcard"?makeFlashcardSession(selected):selected;
 }
 function questionRef(q){
