@@ -1697,7 +1697,6 @@ function syncModeUI(){
 }
 function setStudyMode(mode){state.mode=mode==="flashcard"?"flashcard":"qcm";syncModeUI();updateAvailable();}
 
-async function loadManifest(){ return; }
 async function loadBank(file){
   if(cache.has(file)) return cache.get(file);
   throw new Error("Banque non chargée : "+file);
@@ -1936,16 +1935,6 @@ function renderSelectionUI(){
   if($("mobileSheetOverlay")?.classList.contains("open"))renderMobileSheet();
 }
 
-function sampleUniqueInts(total,n){
-  n=Math.min(n,total);const chosen=new Set();
-  for(let j=total-n;j<total;j++){const t=Math.floor(Math.random()*(j+1));chosen.add(chosen.has(t)?j:t);}
-  return shuffle([...chosen]);
-}
-function mapGlobalSlotsToBanks(banks,slots){
-  const plan=new Map();let offset=0;
-  for(const b of banks){const start=offset,end=offset+b.count,local=[];for(const s of slots)if(s>=start&&s<end)local.push(s-start);if(local.length)plan.set(b.file,{bank:b,indexes:local});offset=end;}
-  return plan;
-}
 function buildFlashcard(q,wantTrue){
   const correct=(q.choices||[]).filter(c=>c.correct);
   const incorrect=(q.choices||[]).filter(c=>!c.correct);
@@ -1987,27 +1976,6 @@ async function createSessionFromSelection(){
   for(const bank of banks){const data=await loadBank(bank.file);for(const q of data.questions){if(!questionMatchesDifficulty(q))continue;if(state.mode==="flashcard"&&!isFlashcardEligible(q))continue;pool.push({...q,bankTitle:bank.title,subject:bank.subject||data.subject||"",chapter:bank.chapter||data.chapter||"",bankFile:bank.file});}}
   if(!pool.length)throw new Error("Aucune question ne correspond à la difficulté sélectionnée.");const wanted=Math.max(1,Math.min(parseInt($("count").value,10)||20,pool.length));const selected=shuffle(pool).slice(0,wanted);return state.mode==="flashcard"?makeFlashcardSession(selected):selected;
 }
-function questionRef(q){
-  const ref={file:q.bankFile,id:q.id};
-  if(Array.isArray(q.flashProposal)){ref.flashProposal=q.flashProposal;ref.flashTruth=!!q.flashTruth;}
-  return ref;
-}
-function refsFromSession(){return state.session.map(questionRef);}
-async function rebuildSessionFromRefs(refs){
-  const files=[...new Set(refs.map(r=>r.file))],lookups=new Map();
-  for(const file of files){
-    const data=await loadBank(file),meta=state.manifest.banks.find(b=>b.file===file)||{},m=new Map();
-    data.questions.forEach(q=>m.set(q.id,{...q,bankTitle:meta.title||data.title||file,subject:meta.subject||data.subject||"",chapter:meta.chapter||data.chapter||"",bankFile:file}));
-    lookups.set(file,m);
-  }
-  return refs.map(r=>{
-    const q=lookups.get(r.file)?.get(r.id);if(!q)return null;
-    if(state.mode!=="flashcard")return q;
-    if(Array.isArray(r.flashProposal)&&r.flashProposal.length)return {...q,flashProposal:r.flashProposal,flashTruth:!!r.flashTruth};
-    return buildFlashcard(q,Math.random()>=.5);
-  }).filter(Boolean);
-}
-
 function formatTimer(ms){
   const total=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(total/60),s=total%60;
   return m>0?`${m}:${String(s).padStart(2,"0")}`:`${s}s`;
