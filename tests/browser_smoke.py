@@ -244,8 +244,14 @@ try:
     driver.execute_script("localStorage.clear();")
     driver.get(BASE_URL + "index_local.html")
     folder_input = driver.find_element(By.ID, "folderInput")
+    assert folder_input.get_attribute("webkitdirectory") is not None, "sélecteur de dossier local absent"
     bank_files = [str(p.resolve()) for p in sorted((ROOT / "banques").rglob("*.json"))]
     assert len(bank_files) == 13
+    # ChromeDriver n'autorise pas toujours l'envoi automatisé d'un répertoire
+    # sur un input webkitdirectory. Pour tester le moteur d'import sans boîte
+    # de dialogue système, on retire cet attribut uniquement dans le test et
+    # on injecte exactement les mêmes 13 JSON.
+    driver.execute_script("arguments[0].removeAttribute('webkitdirectory'); arguments[0].style.display='block';", folder_input)
     folder_input.send_keys("\n".join(bank_files))
     wait_until(lambda: "13 banque(s) chargée(s)" in driver.find_element(By.ID, "loadStatus").text, "les banques locales ne se chargent pas")
     visible("#setup")
