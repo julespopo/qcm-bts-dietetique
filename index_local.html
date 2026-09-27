@@ -31,7 +31,7 @@ html[data-theme="dark"] .timer-preset-floating:not(.selected){
 html[data-theme="dark"] .subject-card.selected,
 html[data-theme="dark"] .chapter-card.selected,
 html[data-theme="dark"] .difficulty-btn.selected,
-html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong){
+html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong):not(.answer-missed){
   border-color:rgba(173,166,255,.98);
   background:
     linear-gradient(135deg,rgba(139,130,255,.34),rgba(99,87,210,.20));
@@ -44,7 +44,7 @@ html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong)
 html[data-theme="dark"] .subject-card.selected:hover,
 html[data-theme="dark"] .chapter-card.selected:hover,
 html[data-theme="dark"] .difficulty-btn.selected:hover,
-html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong):hover{
+html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong):not(.answer-missed):hover{
   border-color:#c2bcff;
   box-shadow:
     0 0 0 1px rgba(194,188,255,.42),
@@ -55,7 +55,7 @@ html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong)
 html[data-theme="dark"] .subject-card.selected .subject-name,
 html[data-theme="dark"] .chapter-card.selected .chapter-title,
 html[data-theme="dark"] .difficulty-btn.selected span,
-html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong) span{
+html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong):not(.answer-missed) span{
   color:#fff;
 }
 
@@ -272,6 +272,12 @@ body.quiz-active #quiz{
   animation:qcm-choice-wrong-impact .34s cubic-bezier(.22,.8,.32,1)
 }
 .choice.answer-wrong span{color:var(--bad)}
+.choice.answer-missed{
+  border-color:rgba(23,114,69,.58);
+  box-shadow:inset 0 0 0 1px rgba(23,114,69,.16);
+  animation:qcm-choice-missed-impact .32s cubic-bezier(.22,.8,.32,1)
+}
+.choice.answer-missed span{color:var(--ok)}
 @keyframes qcm-choice-correct-impact{
   0%{transform:scale(1)}
   34%{transform:scale(1.018)}
@@ -285,8 +291,13 @@ body.quiz-active #quiz{
   74%{transform:translateX(-2px) scale(1.002)}
   100%{transform:translateX(0) scale(1)}
 }
+@keyframes qcm-choice-missed-impact{
+  0%{transform:scale(1)}
+  45%{transform:scale(1.009)}
+  100%{transform:scale(1)}
+}
 @media(prefers-reduced-motion:reduce){
-  .choice.answer-correct,.choice.answer-wrong{animation:none}
+  .choice.answer-correct,.choice.answer-wrong,.choice.answer-missed{animation:none}
 }
 
 /* Feedback QCM : contraste dédié au mode nuit */
@@ -302,6 +313,12 @@ html[data-theme="dark"] .choice.answer-wrong{
   box-shadow:0 0 0 1px rgba(255,142,135,.20),0 0 22px rgba(214,68,58,.17),inset 0 0 20px rgba(214,68,58,.07)
 }
 html[data-theme="dark"] .choice.answer-wrong span{color:#ffaaa4}
+html[data-theme="dark"] .choice.answer-missed{
+  background:rgba(40,167,105,.07);
+  border-color:rgba(98,214,154,.64);
+  box-shadow:inset 0 0 0 1px rgba(98,214,154,.13),0 0 14px rgba(40,167,105,.08)
+}
+html[data-theme="dark"] .choice.answer-missed span{color:#8be8b8}
 
 
 #choices{display:flex;flex-direction:column;gap:10px;margin-top:10px}
@@ -1906,9 +1923,12 @@ function finalizeAnswer(timedOut=false){
   ins.forEach(i=>{
     i.disabled=true;
     const row=i.closest(".choice");
-    row.classList.remove("answer-correct","answer-wrong");
-    if(!i.checked)return;
-    row.classList.add(ok?"answer-correct":"answer-wrong");
+    const selected=i.checked;
+    const correct=i.dataset.correct==="1";
+    row.classList.remove("answer-correct","answer-wrong","answer-missed");
+    if(selected&&correct)row.classList.add("answer-correct");
+    else if(selected&&!correct)row.classList.add("answer-wrong");
+    else if(!selected&&correct)row.classList.add("answer-missed");
   });
 
   $("scoreLive").textContent=`Score : ${state.score}`;
