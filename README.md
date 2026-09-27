@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.7.2
+# QCM BTS Diététique — V7.8.0
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -401,6 +401,20 @@ multiple → plusieurs bonnes réponses
 ---
 
 # Changelog
+
+## V7.8.0
+
+- Nouveau choix **QCM / Vrai-Faux** avant de démarrer une session.
+- Mode flashcards utilisant directement les banques existantes.
+- Une proposition est tirée par question et transformée en affirmation Vrai/Faux.
+- Swipe **gauche = Faux** et **droite = Vrai** sur mobile et à la souris.
+- Boutons Faux / Vrai disponibles sans geste.
+- Raccourcis clavier : flèche gauche = Faux, flèche droite = Vrai.
+- Correction et explication affichées après chaque carte.
+- Score, progression, minuteur, pause/reprise et révision des erreurs conservés.
+- Chapitre 0 BPADN uniformisé en version 3.
+- Nettoyage des fichiers macOS parasites via `.gitignore`.
+- Footer : `Index V7.8.0`.
 
 ## V7.7.2
 
