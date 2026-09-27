@@ -807,33 +807,6 @@ body.quiz-active.flashcard-mode .flash-card{touch-action:none}
   body.quiz-active.flashcard-mode #quiz>p.muted:last-child{display:none}
 }
 
-@media(min-width:761px){
-  body.quiz-active.flashcard-mode #quiz{
-    min-height:min(760px,calc(100dvh - 24px));
-    display:grid;
-    grid-template-rows:auto auto minmax(0,1fr) auto;
-  }
-  body.quiz-active.flashcard-mode #flashArea{
-    min-height:0;
-    display:flex!important;
-    flex-direction:column;
-    justify-content:center;
-  }
-  body.quiz-active.flashcard-mode .swipe-stage{
-    height:min(48dvh,430px);
-  }
-  body.quiz-active.flashcard-mode .flash-controls{width:min(100%,620px)}
-  body.quiz-active.flashcard-mode .flash-btn{min-height:66px;font-size:1.08rem}
-  body.quiz-active.flashcard-mode .quiz-actions{
-    position:static;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-  }
-  body.quiz-active.flashcard-mode #pauseBtn{grid-column:1}
-  body.quiz-active.flashcard-mode #quitBtn{grid-column:2}
-  body.quiz-active.flashcard-mode #validateBtn,
-  body.quiz-active.flashcard-mode #nextBtn{display:none!important}
-}
 
 </style>
 </head>
@@ -1992,6 +1965,7 @@ function renderLiveQuizStats(){
   $("counter").textContent=total?"Question "+current+" / "+total:"";
   $("scoreLive").textContent=answered>0?"Score : "+state.score+" / "+answered:"Score : "+state.score;
   $("remainingLive").textContent=remaining+" restante"+(remaining>1?"s":"");
+  if($("progressBar")&&total)$("progressBar").style.width=((answered/total)*100)+"%";
 }
 function renderQuestion(resumeTimer=false){
   const q=state.session[state.index];if(!q){finish();return;}state.answered=false;renderLiveQuizStats();$("progressBar").style.width=((state.index/state.session.length)*100)+"%";
