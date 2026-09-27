@@ -31,7 +31,7 @@ html[data-theme="dark"] .timer-preset-floating:not(.selected){
 html[data-theme="dark"] .subject-card.selected,
 html[data-theme="dark"] .chapter-card.selected,
 html[data-theme="dark"] .difficulty-btn.selected,
-html[data-theme="dark"] .choice.selected{
+html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong){
   border-color:rgba(173,166,255,.98);
   background:
     linear-gradient(135deg,rgba(139,130,255,.34),rgba(99,87,210,.20));
@@ -44,7 +44,7 @@ html[data-theme="dark"] .choice.selected{
 html[data-theme="dark"] .subject-card.selected:hover,
 html[data-theme="dark"] .chapter-card.selected:hover,
 html[data-theme="dark"] .difficulty-btn.selected:hover,
-html[data-theme="dark"] .choice.selected:hover{
+html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong):hover{
   border-color:#c2bcff;
   box-shadow:
     0 0 0 1px rgba(194,188,255,.42),
@@ -55,7 +55,7 @@ html[data-theme="dark"] .choice.selected:hover{
 html[data-theme="dark"] .subject-card.selected .subject-name,
 html[data-theme="dark"] .chapter-card.selected .chapter-title,
 html[data-theme="dark"] .difficulty-btn.selected span,
-html[data-theme="dark"] .choice.selected span{
+html[data-theme="dark"] .choice.selected:not(.answer-correct):not(.answer-wrong) span{
   color:#fff;
 }
 
@@ -288,6 +288,21 @@ body.quiz-active #quiz{
 @media(prefers-reduced-motion:reduce){
   .choice.answer-correct,.choice.answer-wrong{animation:none}
 }
+
+/* Feedback QCM : contraste dédié au mode nuit */
+html[data-theme="dark"] .choice.answer-correct{
+  background:linear-gradient(135deg,rgba(40,167,105,.30),rgba(23,114,69,.18));
+  border-color:rgba(98,214,154,.96);
+  box-shadow:0 0 0 1px rgba(98,214,154,.22),0 0 22px rgba(40,167,105,.18),inset 0 0 20px rgba(40,167,105,.08)
+}
+html[data-theme="dark"] .choice.answer-correct span{color:#8be8b8}
+html[data-theme="dark"] .choice.answer-wrong{
+  background:linear-gradient(135deg,rgba(214,68,58,.30),rgba(180,35,24,.18));
+  border-color:rgba(255,142,135,.96);
+  box-shadow:0 0 0 1px rgba(255,142,135,.20),0 0 22px rgba(214,68,58,.17),inset 0 0 20px rgba(214,68,58,.07)
+}
+html[data-theme="dark"] .choice.answer-wrong span{color:#ffaaa4}
+
 
 #choices{display:flex;flex-direction:column;gap:10px;margin-top:10px}
 #choices>p{margin:0 0 2px}
