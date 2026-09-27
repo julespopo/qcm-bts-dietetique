@@ -33,3 +33,11 @@
 
 - **Version**
   - footer : Index V7.8.0.
+
+
+- **Banques BPADN recréées**
+  - 7 chapitres reconstruits à partir des documents de cours fournis ;
+  - 30 questions par chapitre, soit 210 questions BPADN ;
+  - noms uniformisés au format `Chapitre X — Nom du chapitre` ;
+  - fichiers renumérotés pour correspondre aux vrais chapitres 6, 7 et 8 ;
+  - manifest synchronisé.
