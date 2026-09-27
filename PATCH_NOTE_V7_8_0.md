@@ -17,6 +17,7 @@
   - alternance autant que possible entre propositions vraies et fausses.
 
 - **Correction et suivi**
+  - passage automatique à la carte suivante après la réponse (environ 0,85 s), sans bouton « Suivant » ;
   - correction immédiate ;
   - explication de la question conservée ;
   - score, progression, timer, pause/reprise et revoir les erreurs restent compatibles.
