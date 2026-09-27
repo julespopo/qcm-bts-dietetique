@@ -1628,10 +1628,10 @@ function renderMobileSheet(){
     renderMobileSheet();
   }));
 }
-let mobileSheetReturnFocus=null;
+let mobileSheetReturnSubject=null;
 function openMobileSheet(subject){
   state.activeSubject=subject;
-  mobileSheetReturnFocus=document.activeElement instanceof HTMLElement?document.activeElement:null;
+  mobileSheetReturnSubject=subject;
   renderSelectionUI();
   renderMobileSheet();
   const overlay=$("mobileSheetOverlay");
@@ -1644,14 +1644,15 @@ function openMobileSheet(subject){
 function closeMobileSheet(){
   const overlay=$("mobileSheetOverlay");
   if(overlay.contains(document.activeElement)){
-    if(mobileSheetReturnFocus?.isConnected)mobileSheetReturnFocus.focus({preventScroll:true});
+    const returnTarget=[...document.querySelectorAll(".subject-card")].find(btn=>btn.dataset.subject===mobileSheetReturnSubject);
+    if(returnTarget)returnTarget.focus({preventScroll:true});
     else if(document.activeElement instanceof HTMLElement)document.activeElement.blur();
   }
   overlay.classList.remove("open");
   overlay.setAttribute("aria-hidden","true");
   overlay.inert=true;
   document.body.classList.remove("sheet-open");
-  mobileSheetReturnFocus=null;
+  mobileSheetReturnSubject=null;
 }
 
 function renderSubjects(){
