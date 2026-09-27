@@ -891,6 +891,50 @@ body.quiz-active.flashcard-mode #quitBtn{
 }
 
 
+
+@media(max-height:560px){
+  body.quiz-active.flashcard-mode main{padding:4px}
+  body.quiz-active.flashcard-mode #quiz{
+    height:calc(100dvh - 8px);
+    max-height:calc(100dvh - 8px);
+    padding:7px 9px max(6px,env(safe-area-inset-bottom));
+    display:grid;
+    grid-template-rows:auto auto minmax(0,1fr) auto;
+    overflow:hidden;
+  }
+  body.quiz-active.flashcard-mode #quiz .meta{min-height:22px;font-size:.76rem}
+  body.quiz-active.flashcard-mode #quiz .progress{height:4px;margin:4px 0 5px}
+  body.quiz-active.flashcard-mode #flashArea{
+    display:flex!important;flex-direction:column;min-height:0;height:100%;
+  }
+  body.quiz-active.flashcard-mode .swipe-stage{
+    width:min(100%,680px);height:auto;min-height:145px;flex:1 1 auto;margin:2px auto 5px;
+  }
+  body.quiz-active.flashcard-mode .flash-card{padding:12px 16px;border-radius:18px}
+  body.quiz-active.flashcard-mode .flash-question-label,
+  body.quiz-active.flashcard-mode .flash-answer-label{font-size:.62rem}
+  body.quiz-active.flashcard-mode .flash-question{
+    margin-top:3px;font-size:clamp(.84rem,2.6vw,1rem);line-height:1.2;
+  }
+  body.quiz-active.flashcard-mode .flash-divider{margin:7px 0}
+  body.quiz-active.flashcard-mode .flash-statement,
+  body.quiz-active.flashcard-mode .flash-statement.medium,
+  body.quiz-active.flashcard-mode .flash-statement.long{
+    margin-top:3px;font-size:clamp(.94rem,3.5vw,1.18rem);line-height:1.2;
+  }
+  body.quiz-active.flashcard-mode .flash-controls{width:100%;max-width:none;gap:7px;margin:0}
+  body.quiz-active.flashcard-mode .flash-btn{min-height:46px;padding:7px;font-size:.94rem;border-radius:13px}
+  body.quiz-active.flashcard-mode .flash-hint{display:none}
+  body.quiz-active.flashcard-mode .quiz-actions{
+    position:static;display:grid;grid-template-columns:1fr 1fr;gap:6px;
+    width:100%;margin:4px 0 0;padding:5px;border-radius:11px;
+  }
+  body.quiz-active.flashcard-mode #pauseBtn,
+  body.quiz-active.flashcard-mode #quitBtn{min-height:40px;padding:6px;font-size:.82rem}
+  body.quiz-active.flashcard-mode #validateBtn,
+  body.quiz-active.flashcard-mode #nextBtn{display:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -1119,7 +1163,7 @@ body.quiz-active.flashcard-mode #quitBtn{
   </div>
 </section>
 
-<footer>Index V7.8.1</footer>
+<footer>Index V7.8.2</footer>
 </main>
 
 <script>
