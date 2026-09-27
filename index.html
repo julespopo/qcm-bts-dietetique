@@ -935,6 +935,17 @@ body.quiz-active.flashcard-mode #quitBtn{
   body.quiz-active.flashcard-mode #nextBtn{display:none!important}
 }
 
+
+/* En revue des erreurs Vrai/Faux, la correction est manuelle : le bouton Suivant doit rester accessible. */
+@media(max-width:760px), (max-height:560px){
+  body.quiz-active.flashcard-mode.reviewing-errors #nextBtn{
+    display:block!important;
+    grid-column:1 / -1;
+    min-height:50px;
+    font-size:.92rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1090,7 +1101,7 @@ body.quiz-active.flashcard-mode #quitBtn{
     <span id="counter"></span>
     <span class="live-stats"><span id="scoreLive"></span><span id="remainingLive"></span><span id="timerLive" class="timer-live hidden"></span></span>
   </div>
-  <div class="progress"><div id="progressBar"></div></div>
+  <div class="progress" role="progressbar" aria-label="Progression du questionnaire" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progressBar"></div></div>
   <div id="qMeta" class="muted"></div>
   <div id="qText" class="question"></div>
   <div id="normalAnswerArea">
@@ -1116,7 +1127,7 @@ body.quiz-active.flashcard-mode #quitBtn{
     </div>
     <p id="flashHint" class="flash-hint">Glisse à gauche pour Faux • à droite pour Vrai</p>
   </div>
-  <div id="feedback" class="feedback hidden"></div>
+  <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
   <div class="row quiz-actions">
     <button id="validateBtn" class="primary" type="button">Valider</button>
     <button id="nextBtn" class="secondary hidden" type="button">Question suivante</button>
@@ -1735,9 +1746,12 @@ let mobileSheetReturnSubject=null;
 function openMobileSheet(subject){
   state.activeSubject=subject;
   mobileSheetReturnSubject=subject;
+  closeFloatingMenu({restoreFocus:false});
   renderSelectionUI();
   renderMobileSheet();
-  const overlay=$("mobileSheetOverlay");
+  const overlay=$("mobileSheetOverlay"),main=document.querySelector("main"),gear=$("themeToggle");
+  if(main)main.inert=true;
+  if(gear)gear.inert=true;
   overlay.inert=false;
   overlay.classList.add("open");
   overlay.setAttribute("aria-hidden","false");
@@ -1745,16 +1759,16 @@ function openMobileSheet(subject){
   requestAnimationFrame(()=>$("mobileSheetClose")?.focus({preventScroll:true}));
 }
 function closeMobileSheet(){
-  const overlay=$("mobileSheetOverlay");
-  if(overlay.contains(document.activeElement)){
-    const returnTarget=[...document.querySelectorAll(".subject-card")].find(btn=>btn.dataset.subject===mobileSheetReturnSubject);
-    if(returnTarget)returnTarget.focus({preventScroll:true});
-    else if(document.activeElement instanceof HTMLElement)document.activeElement.blur();
-  }
+  const overlay=$("mobileSheetOverlay"),main=document.querySelector("main"),gear=$("themeToggle");
+  if(overlay.contains(document.activeElement)&&document.activeElement instanceof HTMLElement)document.activeElement.blur();
   overlay.classList.remove("open");
   overlay.setAttribute("aria-hidden","true");
   overlay.inert=true;
+  if(main)main.inert=false;
+  if(gear)gear.inert=false;
   document.body.classList.remove("sheet-open");
+  const returnTarget=[...document.querySelectorAll(".subject-card")].find(btn=>btn.dataset.subject===mobileSheetReturnSubject);
+  if(returnTarget)returnTarget.focus({preventScroll:true});
   mobileSheetReturnSubject=null;
 }
 
@@ -2110,10 +2124,15 @@ function renderLiveQuizStats(){
   $("counter").textContent=total?"Question "+current+" / "+total:"";
   $("scoreLive").textContent=answered>0?"Score : "+state.score+" / "+answered:"Score : "+state.score;
   $("remainingLive").textContent=remaining+" restante"+(remaining>1?"s":"");
-  if($("progressBar")&&total)$("progressBar").style.width=((answered/total)*100)+"%";
+  const progress=$("progressBar"),progressRoot=progress?.parentElement;
+  if(progress&&total){
+    const pct=(answered/total)*100;
+    progress.style.width=pct+"%";
+    progressRoot?.setAttribute("aria-valuenow",String(Math.round(pct)));
+  }
 }
 function renderQuestion(resumeTimer=false){
-  const q=state.session[state.index];if(!q){finish();return;}state.answered=false;renderLiveQuizStats();$("progressBar").style.width=((state.index/state.session.length)*100)+"%";
+  const q=state.session[state.index];if(!q){finish();return;}state.answered=false;document.body.classList.toggle("reviewing-errors",state.reviewingErrors);renderLiveQuizStats();
   $("qMeta").textContent=[q.subject,difficultyLabel(q.difficulty)].filter(Boolean).join(" • ");$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("nextBtn").classList.add("hidden");
   if(state.mode==="flashcard"){renderFlashcardQuestion(q,resumeTimer);return;}
   $("qText").classList.remove("hidden");$("normalAnswerArea").classList.remove("hidden");$("flashArea").classList.add("hidden");$("qText").textContent=q.prompt;$("validateBtn").classList.remove("hidden");
@@ -2441,7 +2460,7 @@ function animateScoreDonut(percent){
   requestAnimationFrame(tick);
 }
 
-function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;exitQuizFocus();
+function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;document.body.classList.remove("reviewing-errors");exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
 }
 async function resumeSaved(){
