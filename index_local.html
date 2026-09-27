@@ -260,7 +260,34 @@ body.quiz-active #quiz{
   background:linear-gradient(135deg,rgba(var(--accent-rgb),.12),rgba(var(--accent-rgb),.045));
   box-shadow:0 0 0 1px rgba(var(--accent-rgb),.12),0 0 18px rgba(var(--accent-rgb),.15)
 }
-.choice.correct{background:rgba(23,114,69,.12);border-color:rgba(98,214,154,.6)}.choice.wrong{background:rgba(180,35,24,.12);border-color:rgba(255,142,135,.6)}
+.choice.answer-correct{
+  background:rgba(23,114,69,.18);border-color:rgba(98,214,154,.78);
+  box-shadow:0 0 0 1px rgba(98,214,154,.12),0 8px 22px rgba(23,114,69,.10);
+  animation:qcm-choice-correct-impact .34s cubic-bezier(.22,.8,.32,1)
+}
+.choice.answer-correct span{color:var(--ok)}
+.choice.answer-wrong{
+  background:rgba(180,35,24,.18);border-color:rgba(255,142,135,.78);
+  box-shadow:0 0 0 1px rgba(255,142,135,.10),0 8px 22px rgba(180,35,24,.10);
+  animation:qcm-choice-wrong-impact .34s cubic-bezier(.22,.8,.32,1)
+}
+.choice.answer-wrong span{color:var(--bad)}
+@keyframes qcm-choice-correct-impact{
+  0%{transform:scale(1)}
+  34%{transform:scale(1.018)}
+  62%{transform:scale(.994)}
+  100%{transform:scale(1)}
+}
+@keyframes qcm-choice-wrong-impact{
+  0%{transform:translateX(0) scale(1)}
+  28%{transform:translateX(-5px) scale(1.008)}
+  52%{transform:translateX(4px) scale(.997)}
+  74%{transform:translateX(-2px) scale(1.002)}
+  100%{transform:translateX(0) scale(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  .choice.answer-correct,.choice.answer-wrong{animation:none}
+}
 
 #choices{display:flex;flex-direction:column;gap:10px;margin-top:10px}
 #choices>p{margin:0 0 2px}
@@ -1864,8 +1891,9 @@ function finalizeAnswer(timedOut=false){
   ins.forEach(i=>{
     i.disabled=true;
     const row=i.closest(".choice");
-    if(i.dataset.correct==="1")row.classList.add("correct");
-    else if(i.checked)row.classList.add("wrong");
+    row.classList.remove("answer-correct","answer-wrong");
+    if(!i.checked)return;
+    row.classList.add(ok?"answer-correct":"answer-wrong");
   });
 
   $("scoreLive").textContent=`Score : ${state.score}`;
