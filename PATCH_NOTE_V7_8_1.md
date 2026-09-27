@@ -20,3 +20,19 @@
   - le défilement vertical mobile reste possible ;
   - le swipe horizontal est détecté séparément afin d’éviter les déclenchements accidentels ;
   - `prefers-reduced-motion` reste respecté avec des animations raccourcies.
+
+
+- **Plein écran mobile**
+  - le mode Vrai/Faux utilise désormais toute la hauteur disponible ;
+  - la carte prend la majorité de l'espace tout en laissant des contrôles confortables ;
+  - les boutons Faux / Vrai sont plus grands ;
+  - Mettre en pause / Abandonner sont recentrés sur deux colonnes et agrandis.
+
+- **Statistiques en direct**
+  - le score est affiché sur le nombre de questions déjà répondues, par exemple `7 / 11` ;
+  - le nombre de questions restantes est affiché juste à côté ;
+  - la barre de progression se met à jour dès la validation.
+
+- **Correctif du drag**
+  - l'animation d'arrivée de la carte est annulée dès qu'on la saisit afin qu'elle puisse réellement suivre le doigt ou la souris avant le relâchement ;
+  - la carte se soulève dès l'appui et le navigateur ne capture plus le geste horizontal de la carte.
