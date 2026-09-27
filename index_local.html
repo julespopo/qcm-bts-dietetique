@@ -1549,21 +1549,45 @@ function mapGlobalSlotsToBanks(banks,slots){
   for(const b of banks){const start=offset,end=offset+b.count,local=[];for(const s of slots)if(s>=start&&s<end)local.push(s-start);if(local.length)plan.set(b.file,{bank:b,indexes:local});offset=end;}
   return plan;
 }
+function flashStatementFromChoice(q,choice){
+  if(!choice)return "";
+  const prompt=String(q.prompt||"").trim();
+  const answer=String(choice.text||"").trim();
+  const correctCount=(q.choices||[]).filter(c=>c.correct).length;
+  const lead=correctCount>1?"Une des réponses correctes à la question":"La réponse correcte à la question";
+  return lead+" « "+prompt+" » est : "+answer+".";
+}
 function makeFlashcardSession(questions){
   let wantTrue=Math.random()>=.5;
-  return questions.map(q=>{const correct=(q.choices||[]).filter(c=>c.correct),incorrect=(q.choices||[]).filter(c=>!c.correct);let candidates=wantTrue?correct:incorrect;if(!candidates.length){wantTrue=!wantTrue;candidates=wantTrue?correct:incorrect;}const choice=candidates[Math.floor(Math.random()*candidates.length)]||(q.choices||[])[0];const card={...q,flashStatement:choice?choice.text:"",flashTruth:!!choice?.correct};wantTrue=!wantTrue;return card;});
+  return questions.map(q=>{
+    const correct=(q.choices||[]).filter(c=>c.correct),incorrect=(q.choices||[]).filter(c=>!c.correct);
+    let candidates=wantTrue?correct:incorrect;
+    if(!candidates.length){wantTrue=!wantTrue;candidates=wantTrue?correct:incorrect;}
+    const choice=candidates[Math.floor(Math.random()*candidates.length)]||(q.choices||[])[0];
+    const card={...q,flashChoiceText:choice?choice.text:"",flashStatement:flashStatementFromChoice(q,choice),flashTruth:!!choice?.correct};
+    wantTrue=!wantTrue;
+    return card;
+  });
 }
 async function createSessionFromSelection(){
   const banks=selectedBanks();if(!banks.length)throw new Error("Sélectionne au moins un chapitre.");const pool=[];
   for(const bank of banks){const data=await loadBank(bank.file);for(const q of data.questions){if(!questionMatchesDifficulty(q))continue;pool.push({...q,bankTitle:bank.title,subject:bank.subject||data.subject||"",chapter:bank.chapter||data.chapter||"",bankFile:bank.file});}}
   if(!pool.length)throw new Error("Aucune question ne correspond à la difficulté sélectionnée.");const wanted=Math.max(1,Math.min(parseInt($("count").value,10)||20,pool.length));const selected=shuffle(pool).slice(0,wanted);return state.mode==="flashcard"?makeFlashcardSession(selected):selected;
 }
-function questionRef(q){const ref={file:q.bankFile,id:q.id};if(q.flashStatement!==undefined){ref.flashStatement=q.flashStatement;ref.flashTruth=!!q.flashTruth;}return ref;}
+function questionRef(q){const ref={file:q.bankFile,id:q.id};if(q.flashStatement!==undefined){ref.flashChoiceText=q.flashChoiceText||"";ref.flashTruth=!!q.flashTruth;}return ref;}
 function refsFromSession(){return state.session.map(questionRef);}
 async function rebuildSessionFromRefs(refs){
   const files=[...new Set(refs.map(r=>r.file))],lookups=new Map();
   for(const file of files){const data=await loadBank(file),meta=state.manifest.banks.find(b=>b.file===file)||{},m=new Map();data.questions.forEach(q=>m.set(q.id,{...q,bankTitle:meta.title||data.title||file,subject:meta.subject||data.subject||"",chapter:meta.chapter||data.chapter||"",bankFile:file}));lookups.set(file,m);}
-  return refs.map(r=>{const q=lookups.get(r.file)?.get(r.id);if(!q)return null;return r.flashStatement!==undefined?{...q,flashStatement:r.flashStatement,flashTruth:!!r.flashTruth}:q;}).filter(Boolean);
+  return refs.map(r=>{
+    const q=lookups.get(r.file)?.get(r.id);if(!q)return null;
+    const hasFlash=r.flashChoiceText!==undefined||r.flashStatement!==undefined;
+    if(!hasFlash)return q;
+    const legacyChoice=(q.choices||[]).find(c=>c.text===r.flashStatement);
+    const choiceText=r.flashChoiceText||legacyChoice?.text||"";
+    const choice=(q.choices||[]).find(c=>c.text===choiceText)||legacyChoice;
+    return choice?{...q,flashChoiceText:choice.text,flashStatement:flashStatementFromChoice(q,choice),flashTruth:!!choice.correct}:q;
+  }).filter(Boolean);
 }
 
 function formatTimer(ms){
