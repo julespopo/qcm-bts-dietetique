@@ -18,6 +18,7 @@
 
 - **Correction et suivi**
   - passage automatique à la carte suivante après la réponse (environ 0,85 s), sans bouton « Suivant » ;
+  - grand ✓ vert en cas de réussite et grande ✕ rouge en cas d’erreur pendant la transition ;
   - correction immédiate ;
   - explication de la question conservée ;
   - score, progression, timer, pause/reprise et revoir les erreurs restent compatibles.
