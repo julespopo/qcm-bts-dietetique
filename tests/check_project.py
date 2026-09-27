@@ -267,6 +267,14 @@ for html_path in HTML_FILES:
         err(f"{rel}: zone de correction sans annonce aria-live")
     if 'flashcard-mode.reviewing-errors #nextBtn' not in source:
         err(f"{rel}: bouton suivant inaccessible en revue d'erreurs Vrai/Faux mobile")
+    if 'id="flashLiveResult" class="sr-only" role="status" aria-live="polite"' not in static_html:
+        err(f"{rel}: résultat Vrai/Faux non annoncé aux technologies d'assistance")
+    if 'function quizShortcutAllowed(e)' not in source:
+        err(f"{rel}: les raccourcis clavier peuvent intercepter les boutons de contrôle")
+    if 'catch(e){console.warn("Sauvegarde locale indisponible."' not in source:
+        err(f"{rel}: une erreur localStorage peut interrompre la session")
+    if 'if(floatingMenuOpen)closeFloatingMenu();' not in source:
+        err(f"{rel}: le menu flottant ne peut pas être fermé avec Échap")
 
     # Les ressources locales référencées dans le HTML doivent exister.
     for ref in re.findall(r'(?:src|href)="([^"]+)"', static_html):
@@ -294,6 +302,8 @@ for html_path in HTML_FILES:
 
     if '$("heroText").textContent=' in source:
         err(f"{rel}: accès non protégé à #heroText (peut masquer l'erreur de chargement)")
+    if rel == "index.html" and 'rebuilt.some(q=>q===null)' not in source:
+        err(f"{rel}: reprise web susceptible de décaler une session si une question a disparu")
     if 'actions.inert=true' not in source or 'presets.inert=!show' not in source:
         err(f"{rel}: gestion inert du menu flottant incomplète")
     if 'overlay.inert=true' not in source or 'overlay.inert=false' not in source:
