@@ -608,7 +608,9 @@ body.flashcard-mode .qcm-only-option{display:none!important}
 .swipe-stage::before{transform:translateY(13px) scale(.96);opacity:.55}.swipe-stage::after{transform:translateY(7px) scale(.98);opacity:.78}
 .flash-card{position:relative;z-index:2;width:100%;height:100%;border:1px solid var(--line);border-radius:24px;background:var(--tile);box-shadow:0 18px 48px rgba(0,0,0,.13);padding:28px 24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:grab;transform-origin:50% 100%;transition:transform .22s cubic-bezier(.22,.8,.25,1),box-shadow .2s ease,border-color .2s ease}
 .flash-card:active{cursor:grabbing}.flash-card.dragging{transition:none;box-shadow:0 24px 58px rgba(0,0,0,.18)}
-.flash-statement{font-size:clamp(1.55rem,4.8vw,2.15rem);font-weight:850;line-height:1.3;max-width:92%}
+.flash-statement{font-size:clamp(1.55rem,4.8vw,2.15rem);font-weight:850;line-height:1.28;max-width:90%;text-wrap:balance}
+.flash-statement.medium{font-size:clamp(1.3rem,4vw,1.8rem);max-width:92%}
+.flash-statement.long{font-size:clamp(1.08rem,3.2vw,1.5rem);line-height:1.32;max-width:94%}
 .flash-stamp{position:absolute;top:24px;padding:5px 10px;border:3px solid currentColor;border-radius:9px;font-size:1.15rem;font-weight:950;letter-spacing:.08em;opacity:0;pointer-events:none}
 .flash-stamp.false{left:22px;color:var(--bad);transform:rotate(-10deg)}.flash-stamp.true{right:22px;color:var(--ok);transform:rotate(10deg)}
 .flash-result-icon{
@@ -1608,13 +1610,75 @@ function mapGlobalSlotsToBanks(banks,slots){
   for(const b of banks){const start=offset,end=offset+b.count,local=[];for(const s of slots)if(s>=start&&s<end)local.push(s-start);if(local.length)plan.set(b.file,{bank:b,indexes:local});offset=end;}
   return plan;
 }
+function cleanFlashText(value){
+  return String(value||"").trim().replace(/\s+/g," ").replace(/\s+([,.;:!?])/g,"$1");
+}
+function lcFirst(value){
+  const s=cleanFlashText(value);
+  return s?s.charAt(0).toLocaleLowerCase("fr-FR")+s.slice(1):s;
+}
+function stripFlashPromptNoise(prompt){
+  return cleanFlashText(prompt)
+    .replace(/\s*\?$/,"")
+    .replace(/\s+(?:selon|dans) le cours$/i,"")
+    .replace(/\s+dans le tableau du cours$/i,"")
+    .replace(/\s+dans ce chapitre$/i,"")
+    .replace(/\s+dans l'application diététique du cours$/i,"");
+}
+function flashAnswerIsStandalone(answer){
+  const a=cleanFlashText(answer);
+  if(!a)return false;
+  if(/[=→←]/.test(a)||/;/.test(a))return true;
+  if(/^(?:Le|La|Les|L['’]|Un|Une|Des)\s+/i.test(a)&&/\b(?:est|sont|possède|possèdent|contient|contiennent|correspond|correspondent|forme|forment|permet|permettent|fournit|fournissent|relie|relient|comprend|comprennent|constitue|constituent|participe|participent|intervient|interviennent)\b/i.test(a))return true;
+  return false;
+}
+function flashTopicFromPrompt(prompt){
+  const p=stripFlashPromptNoise(prompt);
+  let m;
+  if((m=p.match(/^Qu['’]est-ce qu['’](?:un|une)\s+(.+)$/i)))return "Définition — "+m[1];
+  if((m=p.match(/^Quelle fonction chimique correspond à\s+(.+)$/i)))return "Fonction chimique de "+m[1];
+  if((m=p.match(/^Quelle valeur énergétique est attribuée aux?\s+(.+)$/i)))return "Valeur énergétique des "+m[1];
+  if((m=p.match(/^Quelle proportion d['’](.+?) est indiquée pour\s+(.+)$/i)))return "Proportion d’"+m[1]+" chez "+m[2];
+  if((m=p.match(/^Quel intervalle de\s+(.+?)\s+est indiqué$/i)))return "Intervalle de "+m[1];
+  if((m=p.match(/^Combien de\s+(.+?)\s+possède\s+(.+)$/i)))return "Nombre de "+m[1]+" de "+m[2];
+  if((m=p.match(/^Combien d['’](.+?)\s+sont\s+(.+)$/i)))return "Nombre d’"+m[1]+" "+m[2];
+  if((m=p.match(/^Combien de\s+(.+?)\s+sont\s+(.+)$/i)))return "Nombre de "+m[1]+" "+m[2];
+  if((m=p.match(/^De quels?\s+(.+?)\s+(.+?)\s+sont-ils constitués(?:.+)?$/i)))return "Composition de "+m[2];
+  if((m=p.match(/^De quels?\s+(.+?)\s+le\s+(.+?)\s+est-il constitué(?:.+)?$/i)))return "Composition du "+m[2];
+  if((m=p.match(/^De quelles?\s+(.+?)\s+(.+?)\s+est-il précurseur$/i)))return "Précurseurs de "+m[2];
+  if((m=p.match(/^De quels?\s+(.+?)\s+(.+?)\s+est-il constitué$/i)))return "Composition de "+m[2];
+  if((m=p.match(/^À quelle famille appartient\s+(.+)$/i)))return "Famille de "+m[1];
+  if((m=p.match(/^À quoi correspond\s+(.+)$/i)))return m[1];
+  if((m=p.match(/^Quel est le rôle de\s+(.+)$/i)))return "Rôle de "+m[1];
+  if((m=p.match(/^Quel rôle(?:.+?) est (?:associé|attribué) à\s+(.+)$/i)))return "Rôle de "+m[1];
+  if((m=p.match(/^Quelle carence est associée à\s+(.+)$/i)))return "Carence en "+m[1];
+  if((m=p.match(/^Quelle cause est donnée pour\s+(.+)$/i)))return "Cause de "+m[1];
+  if((m=p.match(/^Quel(?:le)?\s+(.+?)\s+est associé(?:e)? à\s+(.+)$/i)))return m[1]+" associé à "+m[2];
+  if((m=p.match(/^Quel(?:le)?\s+(.+?)\s+est lié(?:e)? à\s+(.+)$/i)))return m[1]+" lié à "+m[2];
+  if((m=p.match(/^Quel(?:le)?\s+(.+?)\s+correspond à\s+(.+)$/i)))return m[1]+" correspondant à "+m[2];
+  if((m=p.match(/^Quel(?:le)?\s+(.+?)\s+est présenté(?:e)? comme\s+(.+)$/i)))return m[1]+" présenté comme "+m[2];
+  if((m=p.match(/^Quelle différence(?:\s+chimique)?\s+(?:oppose|distingue)\s+(.+)$/i)))return "Différence — "+m[1];
+  if((m=p.match(/^Que signifie\s+(.+)$/i)))return "Signification de "+m[1];
+  if((m=p.match(/^Où se déroule\s+(.+)$/i)))return "Lieu de "+m[1];
+  if((m=p.match(/^Dans quel sens\s+(.+)$/i)))return "Sens — "+m[1];
+  if((m=p.match(/^Quel sucre est présent dans\s+(.+)$/i)))return "Sucre de "+m[1];
+  if((m=p.match(/^Quelles?\s+(.+?)\s+sont\s+(.+)$/i)))return m[1].replace(/s$/i,"")+" "+m[2];
+  if((m=p.match(/^Quels?\s+(.+?)\s+sont\s+(.+)$/i)))return m[1].replace(/s$/i,"")+" "+m[2];
+  if((m=p.match(/^Pourquoi\s+(.+)$/i)))return "Explication — "+m[1].replace(/-t-il|-t-elle|-ils|-elles/i,"").replace(/\s+/g," ");
+  if((m=p.match(/^Comment se forme\s+(.+)$/i)))return "Formation de "+m[1];
+  if((m=p.match(/^Comment\s+(.+)$/i)))return m[1].replace(/-t-il|-t-elle|-ils|-elles/i,"").replace(/\s+/g," ");
+  if((m=p.match(/^Quel(?:le)?\s+(.+)$/i)))return m[1];
+  if((m=p.match(/^Quels?\s+(.+)$/i)))return m[1];
+  if((m=p.match(/^Quelles?\s+(.+)$/i)))return m[1];
+  return p;
+}
 function flashStatementFromChoice(q,choice){
   if(!choice)return "";
-  const prompt=String(q.prompt||"").trim();
-  const answer=String(choice.text||"").trim();
-  const correctCount=(q.choices||[]).filter(c=>c.correct).length;
-  const lead=correctCount>1?"Une des réponses correctes à la question":"La réponse correcte à la question";
-  return lead+" « "+prompt+" » est : "+answer+".";
+  const answer=cleanFlashText(choice.text).replace(/[.]$/,"");
+  if(flashAnswerIsStandalone(answer))return answer+".";
+  let topic=flashTopicFromPrompt(q.prompt).replace(/\s*\?$/,"").trim();
+  topic=topic.charAt(0).toLocaleUpperCase("fr-FR")+topic.slice(1);
+  return topic+" : "+answer+".";
 }
 function makeFlashcardSession(questions){
   let wantTrue=Math.random()>=.5;
@@ -1774,7 +1838,7 @@ function animateFlashCardIn(){const card=$("flashCard");if(!card)return;card.cla
 function renderFlashcardQuestion(q,resumeTimer=false){
   clearFlashAdvance();
   $("qText").classList.add("hidden");$("normalAnswerArea").classList.add("hidden");$("flashArea").classList.remove("hidden");$("validateBtn").classList.add("hidden");$("nextBtn").classList.add("hidden");
-  $("flashStatement").textContent=q.flashStatement||"";$("flashFalseBtn").disabled=false;$("flashTrueBtn").disabled=false;resetFlashCardVisual();animateFlashCardIn();
+  const flashText=q.flashStatement||"",flashEl=$("flashStatement");flashEl.textContent=flashText;flashEl.classList.toggle("medium",flashText.length>95);flashEl.classList.toggle("long",flashText.length>155);$("flashFalseBtn").disabled=false;$("flashTrueBtn").disabled=false;resetFlashCardVisual();animateFlashCardIn();
   startQuestionTimer(resumeTimer);saveProgress();focusQuestionTop();if(window.matchMedia&&window.matchMedia("(min-width:761px)").matches)requestAnimationFrame(()=>$("flashCard")?.focus());
 }
 function renderQuestion(resumeTimer=false){
