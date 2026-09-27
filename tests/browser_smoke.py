@@ -87,13 +87,14 @@ def select_mobile_subject_all():
     js_click(subject)
     overlay = visible("#mobileSheetOverlay.open")
     assert driver.execute_script("return arguments[0].inert", overlay) is False
-    assert driver.execute_script("return document.querySelector('main').inert") is True
-    wait_until(lambda: driver.switch_to.active_element.get_attribute("id") == "mobileSheetClose", "focus non placé dans le bottom sheet")
+    assert driver.execute_script("return document.querySelector('#setup').inert") is True
+    assert driver.execute_script("return document.querySelector('#mobileSheetOverlay').closest('main').inert") is False
+    wait_until(lambda: driver.execute_script("return document.activeElement && document.activeElement.id") == "mobileSheetClose", "focus non placé dans le bottom sheet")
     js_click(driver.find_element(By.ID, "mobileToggleAll"))
     wait_until(lambda: "sélectionné" in driver.find_element(By.ID, "mobileSheetMeta").text, "sélection mobile non appliquée")
     js_click(driver.find_element(By.ID, "mobileSheetClose"))
     wait_until(lambda: not overlay.get_attribute("class").endswith("open"), "bottom sheet non fermé")
-    assert driver.execute_script("return document.querySelector('main').inert") is False
+    assert driver.execute_script("return document.querySelector('#setup').inert") is False
     active = driver.switch_to.active_element
     assert "subject-card" in (active.get_attribute("class") or ""), "focus non restauré sur la matière"
 
