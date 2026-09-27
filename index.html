@@ -613,6 +613,22 @@ body.flashcard-mode .qcm-only-option{display:none!important}
 .flash-statement{font-size:clamp(1.25rem,4vw,1.72rem);font-weight:850;line-height:1.32;max-width:94%}
 .flash-stamp{position:absolute;top:24px;padding:5px 10px;border:3px solid currentColor;border-radius:9px;font-size:1.15rem;font-weight:950;letter-spacing:.08em;opacity:0;pointer-events:none}
 .flash-stamp.false{left:22px;color:var(--bad);transform:rotate(-10deg)}.flash-stamp.true{right:22px;color:var(--ok);transform:rotate(10deg)}
+.flash-result-icon{
+  position:absolute;inset:0;z-index:6;display:grid;place-items:center;
+  pointer-events:none;opacity:0;transform:scale(.58);
+  font-size:clamp(5.5rem,20vw,9rem);font-weight:1000;line-height:1;
+  text-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+.flash-result-icon.show{animation:flash-result-pop .78s cubic-bezier(.18,.86,.28,1) both}
+.flash-result-icon.success{color:var(--ok)}
+.flash-result-icon.failure{color:var(--bad)}
+@keyframes flash-result-pop{
+  0%{opacity:0;transform:scale(.45)}
+  18%{opacity:1;transform:scale(1.16)}
+  35%{opacity:1;transform:scale(1)}
+  78%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(.92)}
+}
 .flash-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(100%,520px);margin:0 auto}
 .flash-btn{min-height:54px;border:1px solid var(--line);background:var(--tile);color:var(--text);font-size:1rem}.flash-btn.false:hover{border-color:var(--bad);color:var(--bad)}.flash-btn.true:hover{border-color:var(--ok);color:var(--ok)}.flash-btn:disabled{opacity:.42}
 .flash-hint{text-align:center;margin:10px 0 0;font-size:.84rem;color:var(--muted)}.flash-answer-key{margin-top:7px;font-weight:750}
@@ -788,6 +804,7 @@ body.quiz-active.flashcard-mode #quiz{width:min(720px,100%)}body.quiz-active.fla
         <div id="flashQuestionContext" class="flash-context"></div>
         <div id="flashStatement" class="flash-statement"></div>
       </article>
+      <div id="flashResultIcon" class="flash-result-icon" aria-hidden="true"></div>
     </div>
     <div class="flash-controls">
       <button id="flashFalseBtn" class="flash-btn false" type="button">← Faux</button>
@@ -1694,7 +1711,7 @@ async function start(){
   try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();saveProgress();}
   catch(e){alert(e.message);}finally{$("startBtn").disabled=false;syncModeUI();}
 }
-function resetFlashCardVisual(){const card=$("flashCard");if(!card)return;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";}
+function resetFlashCardVisual(){const card=$("flashCard"),result=$("flashResultIcon");if(!card)return;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";if(result){result.className="flash-result-icon";result.textContent="";}}
 function renderFlashcardQuestion(q,resumeTimer=false){
   clearFlashAdvance();
   $("qText").classList.add("hidden");$("normalAnswerArea").classList.add("hidden");$("flashArea").classList.remove("hidden");$("validateBtn").classList.add("hidden");$("nextBtn").classList.add("hidden");
@@ -1733,7 +1750,7 @@ function paintFlashDrag(dx){const card=$("flashCard");if(!card)return;const widt
 function animateFlashAway(userTruth){const card=$("flashCard");if(!card||!card.animate)return;const dir=userTruth?1:-1;card.animate([{transform:card.style.transform||"translateX(0) rotate(0)"},{transform:"translateX("+(dir*125)+"vw) rotate("+(dir*22)+"deg)",opacity:.15}],{duration:300,easing:"cubic-bezier(.2,.75,.25,1)",fill:"forwards"});}
 function answerFlashcard(userTruth,timedOut=false){
   if(state.mode!=="flashcard"||state.answered)return;const q=state.session[state.index],realTimeout=timedOut===true&&state.timerEnabled===true;if(state.timerEnabled){state.timerRemainingMs=currentRemainingMs();state.timerEndAt=null;stopTimerInterval();renderTimer();}
-  const ok=!realTimeout&&userTruth===!!q.flashTruth;state.answered=true;if(ok)state.score++;else state.errors.push(q);$("flashFalseBtn").disabled=true;$("flashTrueBtn").disabled=true;$("flashCard").style.pointerEvents="none";if(!realTimeout)animateFlashAway(!!userTruth);
+  const ok=!realTimeout&&userTruth===!!q.flashTruth;state.answered=true;if(ok)state.score++;else state.errors.push(q);$("flashFalseBtn").disabled=true;$("flashTrueBtn").disabled=true;$("flashCard").style.pointerEvents="none";if(!realTimeout)animateFlashAway(!!userTruth);const result=$("flashResultIcon");if(result){result.textContent=ok?"✓":"✕";result.className="flash-result-icon "+(ok?"success":"failure");void result.offsetWidth;result.classList.add("show");}
   $("scoreLive").textContent="Score : "+state.score;$("feedback").classList.remove("hidden");const status=realTimeout?'<div class="bad">Temps écoulé.</div>':'<div class="'+(ok?"ok":"bad")+'">'+(ok?"Bonne réponse.":"Réponse incorrecte.")+'</div>';const expected=q.flashTruth?"Vrai":"Faux";
   $("feedback").innerHTML=status+'<div class="flash-answer-key">La proposition était <strong>'+expected+'.</strong></div><div style="margin-top:7px">'+esc(q.explanation||"")+'</div>';$("validateBtn").classList.add("hidden");$("nextBtn").classList.add("hidden");saveProgress();focusCorrection();scheduleFlashAdvance();
 }
