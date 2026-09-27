@@ -249,8 +249,18 @@ for html_path in HTML_FILES:
         err(f"{rel}: favicon non déclarée")
     if 'id="floatingActions" class="floating-actions" aria-hidden="true" inert' not in static_html:
         err(f"{rel}: floatingActions doit être inert lorsqu'il est fermé")
+    if 'id="timerPresets" class="timer-presets-floating" aria-hidden="true" inert' not in static_html:
+        err(f"{rel}: timerPresets doit être inert lorsqu'il est masqué")
+    if 'id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true" inert' not in static_html:
+        err(f"{rel}: mobileSheetOverlay doit être inert lorsqu'il est fermé")
     if 'aria-expanded="false" aria-controls="floatingActions"' not in static_html:
         err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
+    if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
+        err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
+    if '<footer>Index V7.8.2</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.8.2")
+    if '@media(max-height:560px)' not in source:
+        err(f"{rel}: mode compact petits écrans absent")
 
     # Les ressources locales référencées dans le HTML doivent exister.
     for ref in re.findall(r'(?:src|href)="([^"]+)"', static_html):
@@ -278,6 +288,10 @@ for html_path in HTML_FILES:
 
     if '$("heroText").textContent=' in source:
         err(f"{rel}: accès non protégé à #heroText (peut masquer l'erreur de chargement)")
+    if 'actions.inert=true' not in source or 'presets.inert=!show' not in source:
+        err(f"{rel}: gestion inert du menu flottant incomplète")
+    if 'overlay.inert=true' not in source or 'overlay.inert=false' not in source:
+        err(f"{rel}: gestion inert du bottom sheet incomplète")
 
 # Hygiène du dépôt
 ds_store = [p.relative_to(ROOT).as_posix() for p in ROOT.rglob(".DS_Store")]
