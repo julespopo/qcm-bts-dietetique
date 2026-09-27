@@ -1911,16 +1911,6 @@ function renderSelectionUI(){
   if($("mobileSheetOverlay")?.classList.contains("open"))renderMobileSheet();
 }
 
-function sampleUniqueInts(total,n){
-  n=Math.min(n,total);const chosen=new Set();
-  for(let j=total-n;j<total;j++){const t=Math.floor(Math.random()*(j+1));chosen.add(chosen.has(t)?j:t);}
-  return shuffle([...chosen]);
-}
-function mapGlobalSlotsToBanks(banks,slots){
-  const plan=new Map();let offset=0;
-  for(const b of banks){const start=offset,end=offset+b.count,local=[];for(const s of slots)if(s>=start&&s<end)local.push(s-start);if(local.length)plan.set(b.file,{bank:b,indexes:local});offset=end;}
-  return plan;
-}
 function buildFlashcard(q,wantTrue){
   const correct=(q.choices||[]).filter(c=>c.correct);
   const incorrect=(q.choices||[]).filter(c=>!c.correct);
