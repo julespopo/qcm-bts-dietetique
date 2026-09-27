@@ -544,9 +544,7 @@ body.flashcard-mode .qcm-only-option{display:none!important}
 .swipe-stage::before{transform:translateY(13px) scale(.96);opacity:.55}.swipe-stage::after{transform:translateY(7px) scale(.98);opacity:.78}
 .flash-card{position:relative;z-index:2;width:100%;height:100%;border:1px solid var(--line);border-radius:24px;background:var(--tile);box-shadow:0 18px 48px rgba(0,0,0,.13);padding:28px 24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:grab;transform-origin:50% 100%;transition:transform .22s cubic-bezier(.22,.8,.25,1),box-shadow .2s ease,border-color .2s ease}
 .flash-card:active{cursor:grabbing}.flash-card.dragging{transition:none;box-shadow:0 24px 58px rgba(0,0,0,.18)}
-.flash-kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:850;margin-bottom:13px}
-.flash-context{font-size:.96rem;color:var(--muted);line-height:1.4;max-width:92%;margin-bottom:14px}
-.flash-statement{font-size:clamp(1.25rem,4vw,1.72rem);font-weight:850;line-height:1.32;max-width:94%}
+.flash-statement{font-size:clamp(1.55rem,4.8vw,2.15rem);font-weight:850;line-height:1.3;max-width:92%}
 .flash-stamp{position:absolute;top:24px;padding:5px 10px;border:3px solid currentColor;border-radius:9px;font-size:1.15rem;font-weight:950;letter-spacing:.08em;opacity:0;pointer-events:none}
 .flash-stamp.false{left:22px;color:var(--bad);transform:rotate(-10deg)}.flash-stamp.true{right:22px;color:var(--ok);transform:rotate(10deg)}
 .flash-result-icon{
@@ -781,8 +779,6 @@ body.quiz-active.flashcard-mode #quiz{width:min(720px,100%)}body.quiz-active.fla
       <article id="flashCard" class="flash-card" tabindex="0" aria-label="Carte Vrai ou Faux">
         <div id="flashFalseStamp" class="flash-stamp false" aria-hidden="true">FAUX</div>
         <div id="flashTrueStamp" class="flash-stamp true" aria-hidden="true">VRAI</div>
-        <div class="flash-kicker">Cette proposition est-elle vraie ?</div>
-        <div id="flashQuestionContext" class="flash-context"></div>
         <div id="flashStatement" class="flash-statement"></div>
       </article>
       <div id="flashResultIcon" class="flash-result-icon" aria-hidden="true"></div>
@@ -838,7 +834,7 @@ body.quiz-active.flashcard-mode #quiz{width:min(720px,100%)}body.quiz-active.fla
 "use strict";
 const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_8_0";
 const $=id=>document.getElementById(id);
-const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",mode:"qcm",session:[],index:0,score:0,errors:[],answered:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
+const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",mode:"qcm",session:[],index:0,score:0,errors:[],answered:false,reviewingErrors:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
 const THEME_KEY="qcm_bts_theme";
 const THEME_POS_KEY="qcm_bts_theme_button_position";
@@ -1645,7 +1641,7 @@ function getSaved(){try{const s=JSON.parse(localStorage.getItem(SAVE_KEY)||"null
 function saveProgress(){
   if(!state.session.length)return;
   const resumeIndex=state.answered?state.index+1:state.index;
-  localStorage.setItem(SAVE_KEY,JSON.stringify({savedAt:new Date().toISOString(),mode:state.mode,session:state.session,index:resumeIndex,score:state.score,errors:state.errors,shuffleAnswers:$("shuffleAnswers").checked,instantCorrection:$("instantCorrection").checked,timerEnabled:state.timerEnabled,timerDurationMs:state.timerDurationMs,timerRemainingMs:currentRemainingMs()}));
+  localStorage.setItem(SAVE_KEY,JSON.stringify({savedAt:new Date().toISOString(),mode:state.mode,session:state.session,index:resumeIndex,score:state.score,errors:state.errors,shuffleAnswers:$("shuffleAnswers").checked,instantCorrection:$("instantCorrection").checked,reviewingErrors:state.reviewingErrors,timerEnabled:state.timerEnabled,timerDurationMs:state.timerDurationMs,timerRemainingMs:currentRemainingMs()}));
   refreshResumeCard();
 }
 function clearProgress(){localStorage.removeItem(SAVE_KEY);refreshResumeCard();}
@@ -1687,7 +1683,7 @@ function focusCorrection(){
 
 async function start(){
   $("startBtn").disabled=true;$("startBtn").textContent="Préparation…";
-  try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();saveProgress();}
+  try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=false;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();saveProgress();}
   catch(e){alert(e.message);}finally{$("startBtn").disabled=false;syncModeUI();}
 }
 function resetFlashCardVisual(){const card=$("flashCard"),result=$("flashResultIcon"),stage=$("swipeStage");if(!card)return;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging","entering");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";if(stage)stage.classList.remove("impact-success","impact-failure");if(result){result.className="flash-result-icon";result.textContent="";}}
@@ -1695,7 +1691,7 @@ function animateFlashCardIn(){const card=$("flashCard");if(!card)return;card.cla
 function renderFlashcardQuestion(q,resumeTimer=false){
   clearFlashAdvance();
   $("qText").classList.add("hidden");$("normalAnswerArea").classList.add("hidden");$("flashArea").classList.remove("hidden");$("validateBtn").classList.add("hidden");$("nextBtn").classList.add("hidden");
-  $("flashQuestionContext").textContent=q.prompt;$("flashStatement").textContent=q.flashStatement||"";$("flashFalseBtn").disabled=false;$("flashTrueBtn").disabled=false;resetFlashCardVisual();animateFlashCardIn();
+  $("flashStatement").textContent=q.flashStatement||"";$("flashFalseBtn").disabled=false;$("flashTrueBtn").disabled=false;resetFlashCardVisual();animateFlashCardIn();
   startQuestionTimer(resumeTimer);saveProgress();focusQuestionTop();if(window.matchMedia&&window.matchMedia("(min-width:761px)").matches)requestAnimationFrame(()=>$("flashCard")?.focus());
 }
 function renderQuestion(resumeTimer=false){
@@ -1731,8 +1727,17 @@ function animateFlashAway(userTruth){const card=$("flashCard");if(!card||!card.a
 function answerFlashcard(userTruth,timedOut=false){
   if(state.mode!=="flashcard"||state.answered)return;const q=state.session[state.index],realTimeout=timedOut===true&&state.timerEnabled===true;if(state.timerEnabled){state.timerRemainingMs=currentRemainingMs();state.timerEndAt=null;stopTimerInterval();renderTimer();}
   const ok=!realTimeout&&userTruth===!!q.flashTruth;state.answered=true;if(ok)state.score++;else state.errors.push(q);$("flashFalseBtn").disabled=true;$("flashTrueBtn").disabled=true;$("flashCard").style.pointerEvents="none";if(!realTimeout)animateFlashAway(!!userTruth);const result=$("flashResultIcon"),stage=$("swipeStage");if(stage){stage.classList.remove("impact-success","impact-failure");void stage.offsetWidth;stage.classList.add(ok?"impact-success":"impact-failure");}if(result){result.textContent=ok?"✓":"✕";result.className="flash-result-icon "+(ok?"success":"failure");void result.offsetWidth;result.classList.add("show");}
-  $("scoreLive").textContent="Score : "+state.score;$("feedback").classList.remove("hidden");const status=realTimeout?'<div class="bad">Temps écoulé.</div>':'<div class="'+(ok?"ok":"bad")+'">'+(ok?"Bonne réponse.":"Réponse incorrecte.")+'</div>';const expected=q.flashTruth?"Vrai":"Faux";
-  $("feedback").innerHTML=status+'<div class="flash-answer-key">La proposition était <strong>'+expected+'.</strong></div><div style="margin-top:7px">'+esc(q.explanation||"")+'</div>';$("validateBtn").classList.add("hidden");$("nextBtn").classList.add("hidden");saveProgress();focusCorrection();scheduleFlashAdvance();
+  $("scoreLive").textContent="Score : "+state.score;$("validateBtn").classList.add("hidden");const expected=q.flashTruth?"Vrai":"Faux";
+  if(state.reviewingErrors){
+    $("feedback").classList.remove("hidden");
+    const status=realTimeout?'<div class="bad">Temps écoulé.</div>':'<div class="'+(ok?"ok":"bad")+'">'+(ok?"Bonne réponse.":"Réponse incorrecte.")+'</div>';
+    $("feedback").innerHTML=status+'<div class="flash-answer-key">La proposition était <strong>'+expected+'.</strong></div><div class="review-explanation"><strong>Explication</strong><div style="margin-top:7px">'+esc(q.explanation||"Aucune explication disponible.")+'</div></div>';
+    $("nextBtn").classList.remove("hidden");
+    $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Erreur suivante";
+    saveProgress();focusCorrection();
+  }else{
+    $("feedback").classList.add("hidden");$("feedback").innerHTML="";$("nextBtn").classList.add("hidden");saveProgress();scheduleFlashAdvance();
+  }
 }
 function initFlashSwipe(){const card=$("flashCard");if(!card)return;card.addEventListener("pointerdown",e=>{if(state.mode!=="flashcard"||state.answered)return;flashDragActive=true;flashPointerId=e.pointerId;flashStartX=e.clientX;flashDx=0;card.classList.add("dragging");try{card.setPointerCapture(e.pointerId);}catch{}});card.addEventListener("pointermove",e=>{if(!flashDragActive||e.pointerId!==flashPointerId)return;flashDx=e.clientX-flashStartX;if(Math.abs(flashDx)>5)e.preventDefault();paintFlashDrag(flashDx);});const end=e=>{if(!flashDragActive||(e&&e.pointerId!==undefined&&e.pointerId!==flashPointerId))return;flashDragActive=false;card.classList.remove("dragging");const threshold=Math.min(105,Math.max(72,card.offsetWidth*.22));if(Math.abs(flashDx)>=threshold)answerFlashcard(flashDx>0);else{card.style.transform="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";}flashPointerId=null;flashDx=0;};card.addEventListener("pointerup",end);card.addEventListener("pointercancel",end);}
 
@@ -1834,7 +1839,7 @@ function animateScoreDonut(percent){
 function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
 }
-async function resumeSaved(){const s=getSaved();if(!s)return;state.mode=s.mode==="flashcard"?"flashcard":"qcm";syncModeUI();state.session=s.session;state.score=s.score||0;state.errors=s.errors||[];if((s.index||0)>=state.session.length){finish();return;}state.index=s.index||0;state.answered=false;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
+async function resumeSaved(){const s=getSaved();if(!s)return;state.mode=s.mode==="flashcard"?"flashcard":"qcm";syncModeUI();state.session=s.session;state.score=s.score||0;state.errors=s.errors||[];if((s.index||0)>=state.session.length){finish();return;}state.index=s.index||0;state.answered=false;state.reviewingErrors=!!s.reviewingErrors;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
 function pause(){clearFlashAdvance();pauseTimer();saveProgress();exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");refreshResumeCard();}
 async function init(){ refreshResumeCard(); }
 
@@ -1866,10 +1871,10 @@ $("timerToggleBtn").addEventListener("click",toggleTimer);
 document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",()=>validate());$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
 $("flashFalseBtn").addEventListener("click",()=>answerFlashcard(false));$("flashTrueBtn").addEventListener("click",()=>answerFlashcard(true));
-$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearFlashAdvance();stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");}});
+$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearFlashAdvance();stopTimerInterval();state.reviewingErrors=false;state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
-$("newQuiz").addEventListener("click",()=>{clearFlashAdvance();exitQuizFocus();stopTimerInterval();state.timerEnabled=false;state.timerEndAt=null;state.timerRemainingMs=null;$("results").classList.add("hidden");if(state.manifest){$("setup").classList.remove("hidden");renderSelectionUI();}});
-$("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();});
+$("newQuiz").addEventListener("click",()=>{clearFlashAdvance();exitQuizFocus();stopTimerInterval();state.reviewingErrors=false;state.timerEnabled=false;state.timerEndAt=null;state.timerRemainingMs=null;$("results").classList.add("hidden");if(state.manifest){$("setup").classList.remove("hidden");renderSelectionUI();}});
+$("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=true;initTimerForNewSession();$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();});
 
 function disableAccidentalDoubleTapZoom(){
   let lastTapTime=0,lastX=0,lastY=0,multiTouchGesture=false;
