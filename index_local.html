@@ -587,7 +587,7 @@ body.sheet-open{overflow:hidden}
   .mobile-sheet-overlay{display:none!important}
 }
 
-/* V7.8.0 — modes QCM / flashcards Vrai-Faux */
+/* V7.8.1 — swipe inertiel façon Tinder */
 .study-mode-block{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .study-mode-head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:9px}
 .study-mode-head p{margin:0;font-size:.88rem}
@@ -598,11 +598,29 @@ body.sheet-open{overflow:hidden}
 html[data-theme="dark"] .mode-btn.selected{border-color:rgba(173,166,255,.98);background:linear-gradient(135deg,rgba(139,130,255,.34),rgba(99,87,210,.20));box-shadow:0 0 0 1px rgba(173,166,255,.34),0 0 24px rgba(139,130,255,.30),inset 0 0 22px rgba(139,130,255,.10)}
 body.flashcard-mode .qcm-only-option{display:none!important}
 .flash-area{margin-top:4px}
-.swipe-stage{position:relative;width:min(100%,620px);height:330px;margin:4px auto 14px;display:grid;place-items:center;perspective:900px}
-.swipe-stage::before,.swipe-stage::after{content:"";position:absolute;width:92%;height:88%;border:1px solid var(--line);border-radius:23px;background:var(--card);box-shadow:var(--shadow);z-index:0}
-.swipe-stage::before{transform:translateY(13px) scale(.96);opacity:.55}.swipe-stage::after{transform:translateY(7px) scale(.98);opacity:.78}
-.flash-card{position:relative;z-index:2;width:100%;height:100%;border:1px solid var(--line);border-radius:24px;background:var(--tile);box-shadow:0 18px 48px rgba(0,0,0,.13);padding:28px 24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:grab;transform-origin:50% 100%;transition:transform .22s cubic-bezier(.22,.8,.25,1),box-shadow .2s ease,border-color .2s ease}
-.flash-card:active{cursor:grabbing}.flash-card.dragging{transition:none;box-shadow:0 24px 58px rgba(0,0,0,.18)}
+.swipe-stage{
+  position:relative;width:min(100%,620px);height:330px;margin:4px auto 14px;display:grid;place-items:center;perspective:1100px;
+  --deck-back-y:13px;--deck-back-scale:.96;--deck-back-opacity:.55;
+  --deck-front-y:7px;--deck-front-scale:.98;--deck-front-opacity:.78
+}
+.swipe-stage::before,.swipe-stage::after{
+  content:"";position:absolute;width:92%;height:88%;border:1px solid var(--line);border-radius:23px;background:var(--card);box-shadow:var(--shadow);z-index:0;
+  transition:transform .18s ease,opacity .18s ease
+}
+.swipe-stage::before{transform:translateY(var(--deck-back-y)) scale(var(--deck-back-scale));opacity:var(--deck-back-opacity)}
+.swipe-stage::after{transform:translateY(var(--deck-front-y)) scale(var(--deck-front-scale));opacity:var(--deck-front-opacity)}
+.flash-card{
+  position:relative;z-index:2;width:100%;height:100%;border:1px solid var(--line);border-radius:24px;background:var(--tile);
+  box-shadow:0 18px 48px rgba(0,0,0,.13);padding:28px 24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:grab;transform-origin:50% 100%;
+  transition:transform .22s cubic-bezier(.22,.8,.25,1),box-shadow .2s ease,border-color .16s ease;will-change:transform
+}
+.flash-card:active{cursor:grabbing}
+.flash-card.dragging{
+  transition:none;z-index:5;
+  box-shadow:0 38px 88px rgba(0,0,0,.26),0 10px 28px rgba(var(--accent-rgb),.08)
+}
+.flash-card.returning{pointer-events:none}
 .flash-question-label,.flash-answer-label{font-size:.72rem;font-weight:900;letter-spacing:.11em;color:var(--accent)}
 .flash-question{font-size:clamp(1rem,2.8vw,1.28rem);font-weight:700;line-height:1.35;max-width:94%;margin-top:8px;text-wrap:balance;color:var(--muted)}
 .flash-divider{width:min(72%,340px);height:1px;background:var(--line);margin:18px 0}
@@ -624,7 +642,7 @@ body.flashcard-mode .qcm-only-option{display:none!important}
 .flash-result-icon.failure{color:var(--bad)}
 .swipe-stage.impact-success{animation:flash-stage-impact-success .34s cubic-bezier(.2,.8,.2,1)}
 .swipe-stage.impact-failure{animation:flash-stage-impact-failure .38s cubic-bezier(.2,.8,.2,1)}
-.flash-card.entering{animation:flash-card-enter .38s cubic-bezier(.18,.86,.28,1) both}
+.flash-card.entering{animation:flash-card-enter .34s cubic-bezier(.18,.86,.28,1) both}
 @keyframes flash-result-impact-success{
   0%{opacity:0;transform:scale(.22) rotate(-10deg);filter:blur(5px)}
   10%{opacity:1;transform:scale(1.48) rotate(4deg);filter:blur(0)}
@@ -660,17 +678,149 @@ body.flashcard-mode .qcm-only-option{display:none!important}
   74%{transform:translate(-2px,1px) rotate(-.2deg)}
 }
 @keyframes flash-card-enter{
-  0%{opacity:0;transform:translateX(105px) translateY(8px) rotate(4deg) scale(.96)}
-  62%{opacity:1;transform:translateX(-9px) translateY(0) rotate(-.35deg) scale(1.01)}
-  82%{transform:translateX(3px) rotate(.12deg) scale(.998)}
-  100%{opacity:1;transform:translateX(0) translateY(0) rotate(0) scale(1)}
+  0%{
+    opacity:.58;
+    transform:translate3d(0,22px,0) rotate(0) scale(.955);
+    box-shadow:0 8px 22px rgba(0,0,0,.08)
+  }
+  58%{
+    opacity:1;
+    transform:translate3d(0,5px,0) rotate(0) scale(.986);
+    box-shadow:0 13px 34px rgba(0,0,0,.10)
+  }
+  82%{
+    transform:translate3d(0,-1px,0) rotate(0) scale(1.002)
+  }
+  100%{
+    opacity:1;
+    transform:translate3d(0,0,0) rotate(0) scale(1);
+    box-shadow:0 18px 48px rgba(0,0,0,.13)
+  }
 }
 .flash-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(100%,520px);margin:0 auto}
 .flash-btn{min-height:54px;border:1px solid var(--line);background:var(--tile);color:var(--text);font-size:1rem}.flash-btn.false:hover{border-color:var(--bad);color:var(--bad)}.flash-btn.true:hover{border-color:var(--ok);color:var(--ok)}.flash-btn:disabled{opacity:.42}
 .flash-hint{text-align:center;margin:10px 0 0;font-size:.84rem;color:var(--muted)}.flash-answer-key{margin-top:7px;font-weight:750}
 body.quiz-active.flashcard-mode #quiz{width:min(720px,100%)}body.quiz-active.flashcard-mode #qMeta{text-align:center}
 @media(max-width:760px){.study-mode-head{display:block}.study-mode-head p{margin-top:4px}.mode-btn{min-height:62px;padding:9px 11px}.swipe-stage{height:min(46dvh,320px)}.flash-card{padding:22px 17px;border-radius:21px}.flash-context{font-size:.89rem;margin-bottom:11px}.flash-statement{font-size:clamp(1.18rem,6vw,1.55rem)}.flash-stamp{top:18px;font-size:1rem}}
-@media(prefers-reduced-motion:reduce){.flash-card{transition:none!important}}
+@media(prefers-reduced-motion:reduce){.flash-card{transition:none!important}.swipe-stage::before,.swipe-stage::after{transition:none!important}}
+
+
+/* V7.8.1 — plein écran mobile + statistiques de session */
+.live-stats{display:inline-flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+#remainingLive{color:var(--muted)}
+body.quiz-active.flashcard-mode .flash-card{touch-action:none}
+
+@media(max-width:760px){
+  body.quiz-active.flashcard-mode main{padding:4px}
+  body.quiz-active.flashcard-mode #quiz{
+    width:100%;
+    height:calc(100dvh - 8px);
+    max-height:calc(100dvh - 8px);
+    padding:11px 11px max(9px,env(safe-area-inset-bottom));
+    display:grid;
+    grid-template-rows:auto auto minmax(0,1fr) auto;
+    overflow:hidden;
+    gap:0;
+  }
+  body.quiz-active.flashcard-mode #quiz .meta{
+    font-size:.82rem;
+    align-items:center;
+    min-height:28px;
+  }
+  body.quiz-active.flashcard-mode #quiz .live-stats{
+    gap:8px;
+    font-weight:720;
+  }
+  body.quiz-active.flashcard-mode #remainingLive{
+    padding-left:8px;
+    border-left:1px solid var(--line);
+  }
+  body.quiz-active.flashcard-mode #quiz .progress{
+    height:6px;
+    margin:6px 0 8px;
+  }
+  body.quiz-active.flashcard-mode #flashArea{
+    display:flex!important;
+    flex-direction:column;
+    min-height:0;
+    height:100%;
+    padding:0 1px;
+  }
+  body.quiz-active.flashcard-mode .swipe-stage{
+    width:min(100%,680px);
+    height:auto;
+    min-height:285px;
+    flex:1 1 auto;
+    margin:4px auto 12px;
+  }
+  body.quiz-active.flashcard-mode .flash-card{
+    padding:clamp(20px,4vh,34px) 20px;
+    border-radius:24px;
+  }
+  body.quiz-active.flashcard-mode .flash-question{
+    font-size:clamp(1rem,4.1vw,1.28rem);
+  }
+  body.quiz-active.flashcard-mode .flash-statement{
+    font-size:clamp(1.42rem,6.2vw,2rem);
+  }
+  body.quiz-active.flashcard-mode .flash-statement.medium{
+    font-size:clamp(1.26rem,5.4vw,1.72rem);
+  }
+  body.quiz-active.flashcard-mode .flash-statement.long{
+    font-size:clamp(1.08rem,4.5vw,1.44rem);
+  }
+  body.quiz-active.flashcard-mode .flash-controls{
+    width:100%;
+    max-width:none;
+    gap:10px;
+    margin:0;
+    flex:0 0 auto;
+  }
+  body.quiz-active.flashcard-mode .flash-btn{
+    min-height:76px;
+    border-radius:18px;
+    font-size:1.18rem;
+    font-weight:880;
+    padding:14px 10px;
+  }
+  body.quiz-active.flashcard-mode .flash-btn.false{
+    background:rgba(180,35,24,.08);
+    border-color:rgba(255,142,135,.38);
+  }
+  body.quiz-active.flashcard-mode .flash-btn.true{
+    background:rgba(23,114,69,.08);
+    border-color:rgba(98,214,154,.38);
+  }
+  body.quiz-active.flashcard-mode .flash-hint{
+    margin:8px 0 7px;
+    font-size:.86rem;
+    line-height:1.2;
+  }
+  body.quiz-active.flashcard-mode .quiz-actions{
+    position:static;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    width:100%;
+    margin:0;
+    padding:7px;
+    border-radius:14px;
+  }
+  body.quiz-active.flashcard-mode #pauseBtn{
+    grid-column:1;
+    min-height:56px;
+    font-size:.94rem;
+  }
+  body.quiz-active.flashcard-mode #quitBtn{
+    grid-column:2;
+    min-height:56px;
+    font-size:.94rem;
+  }
+  body.quiz-active.flashcard-mode #validateBtn,
+  body.quiz-active.flashcard-mode #nextBtn{display:none!important}
+  body.quiz-active.flashcard-mode #quiz>p.muted:last-child{display:none}
+}
+
 
 </style>
 </head>
@@ -830,7 +980,10 @@ body.quiz-active.flashcard-mode #quiz{width:min(720px,100%)}body.quiz-active.fla
 </div>
 
 <section id="quiz" class="card quiz-card hidden">
-  <div class="meta"><span id="counter"></span><span id="scoreLive"></span><span id="timerLive" class="timer-live hidden"></span></div>
+  <div class="meta">
+    <span id="counter"></span>
+    <span class="live-stats"><span id="scoreLive"></span><span id="remainingLive"></span><span id="timerLive" class="timer-live hidden"></span></span>
+  </div>
   <div class="progress"><div id="progressBar"></div></div>
   <div id="qMeta" class="muted"></div>
   <div id="qText" class="question"></div>
@@ -894,7 +1047,7 @@ body.quiz-active.flashcard-mode #quiz{width:min(720px,100%)}body.quiz-active.fla
   </div>
 </section>
 
-<footer>Index V7.8.0</footer>
+<footer>Index V7.8.1</footer>
 </main>
 
 <script>
@@ -1803,7 +1956,7 @@ async function start(){
   try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=false;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();saveProgress();}
   catch(e){alert(e.message);}finally{$("startBtn").disabled=false;syncModeUI();}
 }
-function resetFlashCardVisual(){const card=$("flashCard"),result=$("flashResultIcon"),stage=$("swipeStage");if(!card)return;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging","entering");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";if(stage)stage.classList.remove("impact-success","impact-failure");if(result){result.className="flash-result-icon";result.textContent="";}}
+function resetFlashCardVisual(){const card=$("flashCard"),result=$("flashResultIcon"),stage=$("swipeStage");if(!card)return;stopFlashDragPhysics();flashTargetX=flashTargetY=flashRenderX=flashRenderY=flashRenderVX=flashRenderVY=flashLift=0;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging","entering","returning");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";card.style.borderColor="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";resetFlashDeck();if(stage)stage.classList.remove("impact-success","impact-failure");if(result){result.className="flash-result-icon";result.textContent="";}}
 function animateFlashCardIn(){const card=$("flashCard");if(!card)return;card.classList.remove("entering");void card.offsetWidth;card.classList.add("entering");}
 function renderFlashcardQuestion(q,resumeTimer=false){
   clearFlashAdvance();
@@ -1818,8 +1971,18 @@ function renderFlashcardQuestion(q,resumeTimer=false){
   startQuestionTimer(resumeTimer);saveProgress();focusQuestionTop();
   if(window.matchMedia&&window.matchMedia("(min-width:761px)").matches)requestAnimationFrame(()=>$("flashCard")?.focus());
 }
+function renderLiveQuizStats(){
+  const total=state.session.length;
+  const current=Math.min(total,state.index+1);
+  const answered=Math.min(total,state.index+(state.answered?1:0));
+  const remaining=Math.max(0,total-answered);
+  $("counter").textContent=total?"Question "+current+" / "+total:"";
+  $("scoreLive").textContent=answered>0?"Score : "+state.score+" / "+answered:"Score : "+state.score;
+  $("remainingLive").textContent=remaining+" restante"+(remaining>1?"s":"");
+  if($("progressBar")&&total)$("progressBar").style.width=((answered/total)*100)+"%";
+}
 function renderQuestion(resumeTimer=false){
-  const q=state.session[state.index];if(!q){finish();return;}state.answered=false;$("counter").textContent="Question "+(state.index+1)+" / "+state.session.length;$("scoreLive").textContent="Score : "+state.score;$("progressBar").style.width=((state.index/state.session.length)*100)+"%";
+  const q=state.session[state.index];if(!q){finish();return;}state.answered=false;renderLiveQuizStats();$("progressBar").style.width=((state.index/state.session.length)*100)+"%";
   $("qMeta").textContent=[q.subject,difficultyLabel(q.difficulty)].filter(Boolean).join(" • ");$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("nextBtn").classList.add("hidden");
   if(state.mode==="flashcard"){renderFlashcardQuestion(q,resumeTimer);return;}
   $("qText").classList.remove("hidden");$("normalAnswerArea").classList.remove("hidden");$("flashArea").classList.add("hidden");$("qText").textContent=q.prompt;$("validateBtn").classList.remove("hidden");
@@ -1847,12 +2010,107 @@ function handleQuizKeyboard(e){if($("quiz").classList.contains("hidden"))return;
   if(e.key==="Enter"){e.preventDefault();if(!state.answered)validate();else if(!$("nextBtn").classList.contains("hidden"))next();}
 }
 
-let flashDragActive=false,flashPointerId=null,flashStartX=0,flashDx=0,flashAdvanceTimer=null;
+let flashDragActive=false,flashPointerId=null,flashStartX=0,flashStartY=0,flashDx=0,flashDy=0,flashLastX=0,flashLastY=0,flashLastT=0,flashVelocityX=0,flashVelocityY=0,flashRotationSign=1,flashAxis=null,flashAdvanceTimer=null;
+let flashTargetX=0,flashTargetY=0,flashRenderX=0,flashRenderY=0,flashRenderVX=0,flashRenderVY=0,flashDragRaf=null,flashLift=0;
 function clearFlashAdvance(){if(flashAdvanceTimer){clearTimeout(flashAdvanceTimer);flashAdvanceTimer=null;}}
-function scheduleFlashAdvance(){clearFlashAdvance();const answeredIndex=state.index;flashAdvanceTimer=setTimeout(()=>{flashAdvanceTimer=null;if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex)return;next();},850);}
-function paintFlashDrag(dx){const card=$("flashCard");if(!card)return;const width=Math.max(1,card.offsetWidth),ratio=Math.min(1,Math.abs(dx)/(width*.38));card.style.transform="translateX("+dx+"px) rotate("+(dx*.035)+"deg)";$("flashTrueStamp").style.opacity=dx>0?String(ratio):"0";$("flashFalseStamp").style.opacity=dx<0?String(ratio):"0";}
-function animateFlashAway(userTruth){const card=$("flashCard");if(!card||!card.animate)return;const dir=userTruth?1:-1;card.animate([{transform:card.style.transform||"translateX(0) rotate(0)"},{transform:"translateX("+(dir*125)+"vw) rotate("+(dir*22)+"deg)",opacity:.15}],{duration:300,easing:"cubic-bezier(.2,.75,.25,1)",fill:"forwards"});}
-function answerFlashcard(userTruth,timedOut=false){
+function scheduleFlashAdvance(delay=850){clearFlashAdvance();const answeredIndex=state.index;flashAdvanceTimer=setTimeout(()=>{flashAdvanceTimer=null;if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex)return;next();},delay);}
+function resetFlashDeck(){
+  const stage=$("swipeStage");if(!stage)return;
+  stage.style.removeProperty("--deck-back-y");stage.style.removeProperty("--deck-back-scale");stage.style.removeProperty("--deck-back-opacity");
+  stage.style.removeProperty("--deck-front-y");stage.style.removeProperty("--deck-front-scale");stage.style.removeProperty("--deck-front-opacity");
+}
+function liftFlashDeck(ratio){
+  const stage=$("swipeStage");if(!stage)return;
+  const p=Math.max(0,Math.min(1,ratio));
+  stage.style.setProperty("--deck-front-y",(7-p*6).toFixed(2)+"px");
+  stage.style.setProperty("--deck-front-scale",(0.98+p*.018).toFixed(4));
+  stage.style.setProperty("--deck-front-opacity",(.78+p*.16).toFixed(3));
+  stage.style.setProperty("--deck-back-y",(13-p*4).toFixed(2)+"px");
+  stage.style.setProperty("--deck-back-scale",(.96+p*.01).toFixed(4));
+  stage.style.setProperty("--deck-back-opacity",(.55+p*.08).toFixed(3));
+}
+function flashTransform(dx,dy=0,rotationSign=flashRotationSign,lift=0){
+  const rot=Math.max(-18,Math.min(18,dx*.052*rotationSign));
+  const y=dy*.48-lift*7;
+  const scale=1+lift*.014;
+  return "translate3d("+dx+"px,"+y+"px,0) rotate("+rot+"deg) scale("+scale+")";
+}
+function stopFlashDragPhysics(){
+  if(flashDragRaf!==null){cancelAnimationFrame(flashDragRaf);flashDragRaf=null;}
+}
+function renderFlashDragFrame(){
+  flashDragRaf=null;
+  if(!flashDragActive||flashAxis==="y")return;
+  const card=$("flashCard");if(!card)return;
+
+  // Ressort amorti : la carte vise le pointeur avec un très léger retard,
+  // puis conserve un peu de mouvement quand la main change brusquement de direction.
+  const stiffness=.24,damping=.68;
+  flashRenderVX=(flashRenderVX+(flashTargetX-flashRenderX)*stiffness)*damping;
+  flashRenderVY=(flashRenderVY+(flashTargetY-flashRenderY)*stiffness)*damping;
+  flashRenderX+=flashRenderVX;
+  flashRenderY+=flashRenderVY;
+  flashLift+=(1-flashLift)*.32;
+
+  const width=Math.max(1,card.offsetWidth);
+  const ratio=Math.min(1,Math.abs(flashRenderX)/(width*.34));
+  card.style.transform=flashTransform(flashRenderX,flashRenderY,flashRotationSign,flashLift);
+  card.style.borderColor=flashRenderX>10?"var(--ok)":flashRenderX<-10?"var(--bad)":"";
+  $("flashTrueStamp").style.opacity=flashRenderX>0?String(ratio):"0";
+  $("flashFalseStamp").style.opacity=flashRenderX<0?String(ratio):"0";
+  liftFlashDeck(Math.max(.10,ratio));
+
+  const unsettled=Math.abs(flashTargetX-flashRenderX)>.15||Math.abs(flashTargetY-flashRenderY)>.15||Math.abs(flashRenderVX)>.08||Math.abs(flashRenderVY)>.08||flashLift<.995;
+  if(flashDragActive&&(unsettled||flashAxis==="x"||flashAxis===null))flashDragRaf=requestAnimationFrame(renderFlashDragFrame);
+}
+function ensureFlashDragPhysics(){
+  if(flashDragRaf===null)flashDragRaf=requestAnimationFrame(renderFlashDragFrame);
+}
+function paintFlashDrag(dx,dy=flashDy){
+  flashTargetX=dx;flashTargetY=dy;
+  ensureFlashDragPhysics();
+}
+function animateFlashReturn(){
+  const card=$("flashCard");if(!card)return;
+  const reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  stopFlashDragPhysics();
+  const from=card.style.transform||flashTransform(flashRenderX,flashRenderY,flashRotationSign,flashLift);
+  card.classList.add("returning");
+  const anim=card.animate(
+    reduce
+      ? [{transform:from},{transform:"translate3d(0,0,0) rotate(0deg)"}]
+      : [{transform:from,offset:0},{transform:"translate3d("+(-flashDx*.07)+"px,0,0) rotate("+(-flashDx*.003)+"deg)",offset:.72},{transform:"translate3d(0,0,0) rotate(0deg)",offset:1}],
+    {duration:reduce?120:330,easing:"cubic-bezier(.18,.9,.24,1)"}
+  );
+  anim.onfinish=()=>{if(!state.answered){card.style.transform="";card.style.borderColor="";card.classList.remove("returning");$("flashTrueStamp").style.opacity="0";$("flashFalseStamp").style.opacity="0";resetFlashDeck();}};
+}
+function animateFlashAway(userTruth,meta={}){
+  const card=$("flashCard");if(!card||!card.animate)return 0;
+  const dir=userTruth?1:-1;
+  const reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const dx=Number.isFinite(meta.dx)?meta.dx:(dir*18),dy=Number.isFinite(meta.dy)?meta.dy:-8;
+  const vx=Number.isFinite(meta.vx)?meta.vx:(dir*.95),vy=Number.isFinite(meta.vy)?meta.vy:-.08;
+  const rotationSign=Number.isFinite(meta.rotationSign)?meta.rotationSign:1;
+  const speed=Math.max(.35,Math.min(2.4,Math.abs(vx)));
+  const width=Math.max(window.innerWidth||900,card.offsetWidth*1.8);
+  const finalX=dir*(width+card.offsetWidth*.75);
+  const finalY=Math.max(-210,Math.min(210,dy+vy*190-20));
+  const startRot=Math.max(-17,Math.min(17,dx*.05*rotationSign));
+  const midX=dx+dir*(85+speed*45);
+  const midY=dy+vy*45;
+  const midRot=startRot+dir*rotationSign*(7+speed*3);
+  const finalRot=startRot+dir*rotationSign*(30+speed*8);
+  const duration=reduce?160:Math.round(Math.max(280,Math.min(470,455-speed*72)));
+  const startTransform=card.style.transform||flashTransform(dx,dy,rotationSign);
+  const anim=card.animate([
+    {transform:startTransform,opacity:1,offset:0},
+    {transform:"translate3d("+midX+"px,"+midY+"px,0) rotate("+midRot+"deg) scale(1.012)",opacity:1,offset:.28},
+    {transform:"translate3d("+finalX+"px,"+finalY+"px,0) rotate("+finalRot+"deg) scale(.94)",opacity:.04,offset:1}
+  ],{duration,easing:"cubic-bezier(.12,.78,.18,1)",fill:"forwards"});
+  anim.onfinish=()=>resetFlashDeck();
+  return duration;
+}
+function answerFlashcard(userTruth,timedOut=false,throwMeta=null){
   if(state.mode!=="flashcard"||state.answered)return;
   const q=state.session[state.index],realTimeout=timedOut===true&&state.timerEnabled===true;
   if(state.timerEnabled){state.timerRemainingMs=currentRemainingMs();state.timerEndAt=null;stopTimerInterval();renderTimer();}
@@ -1860,11 +2118,11 @@ function answerFlashcard(userTruth,timedOut=false){
   state.answered=true;
   if(ok)state.score++;else state.errors.push(q);
   $("flashFalseBtn").disabled=true;$("flashTrueBtn").disabled=true;$("flashCard").style.pointerEvents="none";
-  if(!realTimeout)animateFlashAway(!!userTruth);
+  const throwDuration=!realTimeout?animateFlashAway(!!userTruth,throwMeta||{}):0;
   const result=$("flashResultIcon"),stage=$("swipeStage");
   if(stage){stage.classList.remove("impact-success","impact-failure");void stage.offsetWidth;stage.classList.add(ok?"impact-success":"impact-failure");}
   if(result){result.textContent=ok?"✓":"✕";result.className="flash-result-icon "+(ok?"success":"failure");void result.offsetWidth;result.classList.add("show");}
-  $("scoreLive").textContent="Score : "+state.score;$("validateBtn").classList.add("hidden");
+  renderLiveQuizStats();$("validateBtn").classList.add("hidden");
   const expected=q.flashTruth?"Vraie":"Fausse";
   if(state.reviewingErrors){
     $("feedback").classList.remove("hidden");
@@ -1874,29 +2132,82 @@ function answerFlashcard(userTruth,timedOut=false){
     $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Erreur suivante";
     saveProgress();focusCorrection();
   }else{
-    $("feedback").classList.add("hidden");$("feedback").innerHTML="";$("nextBtn").classList.add("hidden");saveProgress();scheduleFlashAdvance();
+    $("feedback").classList.add("hidden");$("feedback").innerHTML="";$("nextBtn").classList.add("hidden");saveProgress();scheduleFlashAdvance(Math.max(560,throwDuration+150));
   }
 }
 function initFlashSwipe(){
   const card=$("flashCard");if(!card)return;
   card.addEventListener("pointerdown",e=>{
     if(state.mode!=="flashcard"||state.answered)return;
-    flashDragActive=true;flashPointerId=e.pointerId;flashStartX=e.clientX;flashDx=0;card.classList.add("dragging");
+    const rect=card.getBoundingClientRect();
+    stopFlashDragPhysics();
+    flashDragActive=true;flashPointerId=e.pointerId;flashStartX=e.clientX;flashStartY=e.clientY;flashDx=0;flashDy=0;
+    flashLastX=e.clientX;flashLastY=e.clientY;flashLastT=performance.now();flashVelocityX=0;flashVelocityY=0;flashAxis=null;
+    flashTargetX=0;flashTargetY=0;flashRenderX=0;flashRenderY=0;flashRenderVX=0;flashRenderVY=0;flashLift=.42;
+    flashRotationSign=((e.clientY-rect.top)/Math.max(1,rect.height))<.5?1:-1;
+    card.getAnimations?.().forEach(a=>a.cancel());
+    card.classList.remove("entering","returning");card.classList.add("dragging");
+    card.style.transform=flashTransform(0,0,flashRotationSign,flashLift);
+    liftFlashDeck(.10);
+    ensureFlashDragPhysics();
     try{card.setPointerCapture(e.pointerId);}catch{}
   });
   card.addEventListener("pointermove",e=>{
     if(!flashDragActive||e.pointerId!==flashPointerId)return;
-    flashDx=e.clientX-flashStartX;if(Math.abs(flashDx)>5)e.preventDefault();paintFlashDrag(flashDx);
+    flashDx=e.clientX-flashStartX;flashDy=e.clientY-flashStartY;
+
+    if(!flashAxis){
+      if(Math.abs(flashDx)>6&&Math.abs(flashDx)>Math.abs(flashDy)*1.05)flashAxis="x";
+      else if(Math.abs(flashDy)>12&&Math.abs(flashDy)>Math.abs(flashDx)*1.25)flashAxis="y";
+    }
+
+    const now=performance.now(),dt=Math.max(8,now-flashLastT);
+    const instVx=(e.clientX-flashLastX)/dt,instVy=(e.clientY-flashLastY)/dt;
+    flashVelocityX=flashVelocityX*.52+instVx*.48;flashVelocityY=flashVelocityY*.52+instVy*.48;
+    flashLastX=e.clientX;flashLastY=e.clientY;flashLastT=now;
+
+    if(flashAxis==="y"){
+      flashDragActive=false;card.classList.remove("dragging");
+      flashTargetX=flashRenderX;flashTargetY=flashRenderY;
+      animateFlashReturn();
+      try{card.releasePointerCapture(e.pointerId);}catch{}
+      flashPointerId=null;flashAxis=null;
+      return;
+    }
+
+    // Avant même que l'axe soit définitivement choisi, la carte accompagne légèrement
+    // la main. Dès qu'un swipe horizontal est reconnu, elle suit le geste presque 1:1.
+    if(flashAxis==="x"){
+      e.preventDefault();
+      paintFlashDrag(flashDx,flashDy);
+    }else{
+      paintFlashDrag(flashDx*.42,flashDy*.18);
+    }
   });
   const end=e=>{
     if(!flashDragActive||(e&&e.pointerId!==undefined&&e.pointerId!==flashPointerId))return;
-    flashDragActive=false;card.classList.remove("dragging");
-    const threshold=Math.min(105,Math.max(72,card.offsetWidth*.22));
-    if(Math.abs(flashDx)>=threshold)answerFlashcard(flashDx>0);
-    else{card.style.transform="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";}
-    flashPointerId=null;flashDx=0;
+    flashDragActive=false;card.classList.remove("dragging");stopFlashDragPhysics();
+
+    const threshold=Math.min(118,Math.max(68,card.offsetWidth*.19));
+    const velocityThrow=Math.abs(flashVelocityX)>.48&&Math.abs(flashDx)>22;
+    const horizontalIntent=flashAxis==="x"||Math.abs(flashDx)>Math.abs(flashDy)*1.05;
+
+    if(horizontalIntent&&(Math.abs(flashDx)>=threshold||velocityThrow)){
+      const direction=(Math.abs(flashVelocityX)>.7?Math.sign(flashVelocityX):Math.sign(flashDx))||1;
+      const meta={
+        dx:flashRenderX,dy:flashRenderY,
+        vx:flashVelocityX,vy:flashVelocityY,
+        rotationSign:flashRotationSign
+      };
+      answerFlashcard(direction>0,false,meta);
+    }else{
+      animateFlashReturn();
+    }
+
+    flashPointerId=null;flashDx=0;flashDy=0;flashAxis=null;
   };
-  card.addEventListener("pointerup",end);card.addEventListener("pointercancel",end);
+  card.addEventListener("pointerup",end);
+  card.addEventListener("pointercancel",end);
 }
 
 
@@ -1931,7 +2242,7 @@ function finalizeAnswer(timedOut=false){
     else if(!selected&&correct)row.classList.add("answer-missed");
   });
 
-  $("scoreLive").textContent=`Score : ${state.score}`;
+  renderLiveQuizStats();
   const q=state.session[state.index];
   $("feedback").classList.remove("hidden");
 
