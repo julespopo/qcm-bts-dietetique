@@ -53,3 +53,11 @@
   - réponse globale incorrecte : sélection(s) en rouge ;
   - légère animation d’impact au moment de la validation ;
   - les réponses non sélectionnées restent neutres.
+
+
+- **Feedback détaillé par proposition**
+  - une réponse sélectionnée et correcte passe en vert ;
+  - une réponse sélectionnée mais fausse passe en rouge ;
+  - une bonne réponse oubliée est signalée par un contour vert plus discret ;
+  - les propositions fausses non sélectionnées restent neutres ;
+  - le statut global de la question reste affiché séparément.
