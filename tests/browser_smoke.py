@@ -236,6 +236,36 @@ try:
     assert "résultats" in next_btn.text.lower(), "libellé final de revue inattendu"
 
     assert_no_console_regressions()
-    print("OK — tests navigateur desktop/mobile")
+
+    # 4) Version locale: chargement réel des 13 fichiers JSON et un QCM complet.
+    driver.set_window_size(1280, 900)
+    driver.get(BASE_URL + "index_local.html")
+    wait_until(lambda: driver.execute_script("return document.readyState") == "complete", "index_local non chargé")
+    driver.execute_script("localStorage.clear();")
+    driver.get(BASE_URL + "index_local.html")
+    folder_input = driver.find_element(By.ID, "folderInput")
+    bank_files = [str(p.resolve()) for p in sorted((ROOT / "banques").rglob("*.json"))]
+    assert len(bank_files) == 13
+    folder_input.send_keys("\n".join(bank_files))
+    wait_until(lambda: "13 banque(s) chargée(s)" in driver.find_element(By.ID, "loadStatus").text, "les banques locales ne se chargent pas")
+    visible("#setup")
+    wait_until(lambda: len(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")) == 2, "matières locales incorrectes")
+    js_click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
+    wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "sélection locale non prise en compte")
+    count_el = driver.find_element(By.ID, "count")
+    count_el.clear()
+    count_el.send_keys("1")
+    js_click(driver.find_element(By.ID, "startBtn"))
+    visible("#quiz:not(.hidden)")
+    inputs = driver.find_elements(By.CSS_SELECTOR, '#choices input[name="ans"]')
+    correct = [i for i in inputs if i.get_attribute("data-correct") == "1"]
+    assert correct
+    for inp in correct:
+        js_click(inp)
+    js_click(driver.find_element(By.ID, "validateBtn"))
+    wait_until(lambda: "Bonne réponse" in driver.find_element(By.ID, "feedback").text, "QCM local correct refusé")
+
+    assert_no_console_regressions()
+    print("OK — tests navigateur web desktop/mobile + version locale")
 finally:
     driver.quit()
