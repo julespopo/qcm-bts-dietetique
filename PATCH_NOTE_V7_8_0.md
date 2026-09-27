@@ -55,3 +55,10 @@
   - chaque carte reformule désormais la question et la réponse proposée en une affirmation complète ;
   - exemple : « La réponse correcte à la question “Quelle hormone régule le rythme de production des globules rouges ?” est : l’érythropoïétine (EPO). » ;
   - les anciennes sauvegardes de sessions flashcards sont converties automatiquement au nouveau format lors de la reprise.
+
+
+- **Flashcards : format compact contextuel**
+  - suppression du long préfixe « La réponse correcte à la question… » ;
+  - si la réponse constitue déjà une affirmation complète, elle est affichée seule ;
+  - sinon, la carte affiche un contexte court + la proposition ;
+  - taille du texte adaptée automatiquement aux cartes plus longues.
