@@ -1711,7 +1711,7 @@ async function loadFolder(files){
     }catch(e){errors.push(file.name+" : "+e.message);}
   }
   state.manifest={banks};state.selectedBankIds=new Set();state.activeSubject=subjects()[0]||null;
-  if(banks.length){renderSelectionUI();$("setup").classList.remove("hidden");$("heroText").textContent=`${banks.reduce((s,b)=>s+b.count,0)} questions disponibles • ${subjects().length} matières • version locale`;$("loadStatus").innerHTML=`<span class="ok">${banks.length} banque(s) chargée(s)</span>${ignored?` • ${ignored} JSON ignoré(s)`:""}`;}
+  if(banks.length){renderSelectionUI();$("setup").classList.remove("hidden");const heroText=$("heroText");if(heroText)heroText.textContent=`${banks.reduce((s,b)=>s+b.count,0)} questions disponibles • ${subjects().length} matières • version locale`;$("loadStatus").innerHTML=`<span class="ok">${banks.length} banque(s) chargée(s)</span>${ignored?` • ${ignored} JSON ignoré(s)`:""}`;}
   else{$("setup").classList.add("hidden");$("loadStatus").innerHTML='<span class="bad">Aucune banque valide trouvée.</span>';}
   if(errors.length)$("loadStatus").innerHTML+=`<br><span class="bad">${errors.map(esc).join("<br>")}</span>`;
 }
