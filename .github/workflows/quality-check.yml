@@ -27,5 +27,8 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Régénérer le manifest pour le contrôle
+        run: python3 generer_manifest.py
+
       - name: Tester la structure, les banques et le JavaScript
         run: python3 tests/check_project.py
