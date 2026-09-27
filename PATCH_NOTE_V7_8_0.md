@@ -6,6 +6,7 @@
 
 - **Flashcards Vrai / Faux**
   - chaque carte affiche une **question** et, juste dessous, une **réponse proposée** ;
+  - seules les **questions à réponse unique** alimentent ce mode ; les QCM à réponses multiples sont exclus du Vrai/Faux mais restent inchangés dans le mode QCM ;
   - l’utilisateur doit juger si cette réponse est vraie ou fausse ;
   - swipe gauche = **Faux** ;
   - swipe droite = **Vrai** ;
