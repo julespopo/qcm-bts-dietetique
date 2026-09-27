@@ -545,12 +545,12 @@ html.theme-switching button{
 .mobile-sheet-title{font-size:1.08rem;font-weight:830;margin:0}
 .mobile-sheet-meta{font-size:.84rem;color:var(--muted);margin-top:3px}
 .mobile-sheet-close{
-  width:38px;height:38px;padding:0;display:grid;place-items:center;border-radius:50%;
+  width:44px;height:44px;padding:0;display:grid;place-items:center;border-radius:50%;
   background:var(--button-soft);color:var(--text);font-size:1.15rem;border:1px solid var(--line)
 }
 .mobile-sheet-body{overflow:auto;-webkit-overflow-scrolling:touch;padding:12px 16px 18px}
 .mobile-sheet-actions{display:flex;gap:8px;margin-bottom:11px}
-.mobile-sheet-actions .tiny-btn{width:100%}
+.mobile-sheet-actions .tiny-btn{width:100%;min-height:44px}
 .mobile-sheet-list{display:grid;grid-template-columns:1fr;gap:9px}
 body.sheet-open{overflow:hidden}
 
@@ -600,7 +600,7 @@ body.sheet-open{overflow:hidden}
     margin-top:5px;
   }
   body.quiz-active .choice{
-    min-height:0;
+    min-height:46px;
     padding:9px 10px;
     font-size:.94rem;
     line-height:1.24;
@@ -626,6 +626,7 @@ body.sheet-open{overflow:hidden}
   }
   body.quiz-active .quiz-actions button{
     min-width:0;
+    min-height:44px;
     padding:9px 5px;
     font-size:.80rem;
     line-height:1.1;
