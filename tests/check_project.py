@@ -308,8 +308,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: gestion inert du menu flottant incomplète")
     if 'overlay.inert=true' not in source or 'overlay.inert=false' not in source:
         err(f"{rel}: gestion inert du bottom sheet incomplète")
-    if 'if(main)main.inert=true' not in source or 'if(main)main.inert=false' not in source:
-        err(f"{rel}: arrière-plan du bottom sheet non neutralisé")
+    if 'main > :not(#mobileSheetOverlay)' not in source or 'el.inert=true' not in source or 'el.inert=false' not in source:
+        err(f"{rel}: arrière-plan du bottom sheet non neutralisé sans bloquer le dialogue")
     if 'document.body.classList.toggle("reviewing-errors",state.reviewingErrors)' not in source:
         err(f"{rel}: état reviewing-errors non synchronisé")
 
