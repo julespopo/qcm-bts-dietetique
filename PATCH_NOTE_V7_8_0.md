@@ -48,3 +48,10 @@
   - suppression du libellé « Cette proposition est-elle vraie ? » et de la question source sur la carte ;
   - en révision des erreurs, l’explication est affichée avant de pouvoir passer à l’erreur suivante ;
   - hors révision, le passage automatique après le ✓ / ✕ est conservé.
+
+
+- **Flashcards : propositions autonomes**
+  - une réponse isolée n'est plus affichée seule ;
+  - chaque carte reformule désormais la question et la réponse proposée en une affirmation complète ;
+  - exemple : « La réponse correcte à la question “Quelle hormone régule le rythme de production des globules rouges ?” est : l’érythropoïétine (EPO). » ;
+  - les anciennes sauvegardes de sessions flashcards sont converties automatiquement au nouveau format lors de la reprise.
