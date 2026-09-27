@@ -406,13 +406,14 @@ multiple → plusieurs bonnes réponses
 
 - Les 7 banques BPADN ont été recréées à partir des cours fournis, avec 30 questions par chapitre.
 - Les intitulés BPADN sont uniformisés au format `Chapitre X — Nom du chapitre` et les fichiers 6, 7 et 8 suivent désormais leur vraie numérotation.
-- Nouveau choix **QCM / Vrai-Faux** avant de démarrer une session.
-- Mode flashcards utilisant directement les banques existantes.
-- Une proposition est tirée par question et transformée en affirmation Vrai/Faux.
-- Swipe **gauche = Faux** et **droite = Vrai** sur mobile et à la souris.
-- Boutons Faux / Vrai disponibles sans geste.
-- Raccourcis clavier : flèche gauche = Faux, flèche droite = Vrai.
-- Correction et explication affichées après chaque carte.
+- Nouveau choix **QCM / Flashcards** avant de démarrer une session.
+- Mode flashcards **question → réponse** utilisant directement les banques existantes.
+- La face avant affiche la question ; un appui sur la carte ou sur **Voir la réponse** révèle uniquement la ou les bonnes réponses.
+- Après révélation : **gauche = À revoir** et **droite = Je savais**, au swipe, avec les boutons correspondants.
+- Raccourcis clavier : Entrée/Espace pour révéler, puis flèche gauche/droite pour s’auto-évaluer.
+- Les réponses multiples affichent toutes les bonnes réponses.
+- Grand ✓ / ✕, animation d’impact et arrivée glissée de la carte suivante conservés.
+- En révision des erreurs, l’explication est affichée avant de passer à l’erreur suivante.
 - Score, progression, minuteur, pause/reprise et révision des erreurs conservés.
 - Chapitre 0 BPADN uniformisé en version 3.
 - Nettoyage des fichiers macOS parasites via `.gitignore`.
