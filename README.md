@@ -26,9 +26,9 @@ QCM_BTS_Dietetique_WEB_MODULAIRE_V7_3/
     │   ├── 01_glucides.json
     │   ├── 02_lipides.json
     │   ├── 03_protides.json
-    │   ├── 04_acides_nucleiques.json
-    │   ├── 05_milieu_interieur.json
-    │   └── 06_biologie_cellulaire.json
+    │   ├── 06_acides_nucleiques.json
+    │   ├── 07_milieu_interieur.json
+    │   └── 08_biologie_cellulaire.json
     │
     └── Sante_publique/
         ├── 01_concepts_sante.json
@@ -171,9 +171,9 @@ Le nombre demandé est automatiquement limité au nombre de questions réellemen
 
 Les banques actuelles contiennent :
 
-- 169 questions de niveau 1 ;
-- 127 questions de niveau 2 ;
-- 4 questions de niveau 3.
+- 139 questions de niveau 1 ;
+- 170 questions de niveau 2 ;
+- 21 questions de niveau 3.
 
 Cette répartition évoluera naturellement avec l'ajout de nouvelles banques.
 
@@ -404,6 +404,8 @@ multiple → plusieurs bonnes réponses
 
 ## V7.8.0
 
+- Les 7 banques BPADN ont été recréées à partir des cours fournis, avec 30 questions par chapitre.
+- Les intitulés BPADN sont uniformisés au format `Chapitre X — Nom du chapitre` et les fichiers 6, 7 et 8 suivent désormais leur vraie numérotation.
 - Nouveau choix **QCM / Vrai-Faux** avant de démarrer une session.
 - Mode flashcards utilisant directement les banques existantes.
 - Une proposition est tirée par question et transformée en affirmation Vrai/Faux.
