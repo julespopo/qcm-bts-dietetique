@@ -1022,7 +1022,7 @@ body.quiz-active.flashcard-mode #quitBtn{
 </section>
 
 
-<div id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true">
+<div id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true" inert>
   <section class="mobile-sheet" role="dialog" aria-modal="true" aria-labelledby="mobileSheetTitle">
     <div class="mobile-sheet-handle"></div>
     <div class="mobile-sheet-header">
@@ -1256,7 +1256,10 @@ function openFloatingMenu(){
 function closeFloatingMenu({restoreFocus=true}={}){
   floatingMenuOpen=false;
   const actions=$("floatingActions"),presets=$("timerPresets"),toggle=$("themeToggle");
-  if(restoreFocus&&actions?.contains(document.activeElement))toggle?.focus({preventScroll:true});
+  if(actions?.contains(document.activeElement)){
+    if(restoreFocus)toggle?.focus({preventScroll:true});
+    else if(document.activeElement instanceof HTMLElement)document.activeElement.blur();
+  }
   actions?.classList.remove("open");
   actions?.setAttribute("aria-hidden","true");
   if(actions)actions.inert=true;
@@ -1684,20 +1687,30 @@ function renderMobileSheet(){
     renderMobileSheet();
   }));
 }
+let mobileSheetReturnFocus=null;
 function openMobileSheet(subject){
   state.activeSubject=subject;
+  mobileSheetReturnFocus=document.activeElement instanceof HTMLElement?document.activeElement:null;
   renderSelectionUI();
   renderMobileSheet();
   const overlay=$("mobileSheetOverlay");
+  overlay.inert=false;
   overlay.classList.add("open");
   overlay.setAttribute("aria-hidden","false");
   document.body.classList.add("sheet-open");
+  requestAnimationFrame(()=>$("mobileSheetClose")?.focus({preventScroll:true}));
 }
 function closeMobileSheet(){
   const overlay=$("mobileSheetOverlay");
+  if(overlay.contains(document.activeElement)){
+    if(mobileSheetReturnFocus?.isConnected)mobileSheetReturnFocus.focus({preventScroll:true});
+    else if(document.activeElement instanceof HTMLElement)document.activeElement.blur();
+  }
   overlay.classList.remove("open");
   overlay.setAttribute("aria-hidden","true");
+  overlay.inert=true;
   document.body.classList.remove("sheet-open");
+  mobileSheetReturnFocus=null;
 }
 
 function renderSubjects(){
