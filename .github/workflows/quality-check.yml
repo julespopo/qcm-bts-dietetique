@@ -32,3 +32,13 @@ jobs:
 
       - name: Tester la structure, les banques et le JavaScript
         run: python3 tests/check_project.py
+
+      - name: Installer Selenium
+        run: python3 -m pip install --disable-pip-version-check selenium
+
+      - name: Tester les parcours navigateur
+        run: |
+          python3 -m http.server 8000 >/tmp/qcm-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID' EXIT
+          python3 tests/browser_smoke.py
