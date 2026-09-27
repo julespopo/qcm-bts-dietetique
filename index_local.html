@@ -1598,6 +1598,14 @@ function flashTopicFromPrompt(prompt){
   if((m=p.match(/^Quel(?:le)?\s+(.+?)\s+est lié(?:e)? à\s+(.+)$/i)))return m[1]+" lié à "+m[2];
   if((m=p.match(/^Quel(?:le)?\s+(.+?)\s+correspond à\s+(.+)$/i)))return m[1]+" correspondant à "+m[2];
   if((m=p.match(/^Quel(?:le)?\s+(.+?)\s+est présenté(?:e)? comme\s+(.+)$/i)))return m[1]+" présenté comme "+m[2];
+  if((m=p.match(/^Quelle hormone\s+(.+)$/i)))return "Hormone qui "+m[1];
+  if((m=p.match(/^Quelle substance\s+(.+)$/i)))return "Substance qui "+m[1];
+  if((m=p.match(/^Quel oligoélément\s+(.+)$/i)))return "Oligoélément qui "+m[1];
+  if((m=p.match(/^Quel angle approximatif forme\s+(.+)$/i)))return "Angle approximatif formé par "+m[1];
+  if((m=p.match(/^Quel seuil définit\s+(.+)$/i)))return "Seuil définissant "+m[1];
+  if((m=p.match(/^Quelle formule générale est associée aux?\s+(.+)$/i)))return "Formule générale des "+m[1];
+  if((m=p.match(/^Quel carbone est anomérique dans\s+(.+)$/i)))return "Carbone anomérique de "+m[1];
+  if((m=p.match(/^Quelle caractéristique distingue\s+(.+)$/i)))return "Caractéristique de "+m[1];
   if((m=p.match(/^Quelle différence(?:\s+chimique)?\s+(?:oppose|distingue)\s+(.+)$/i)))return "Différence — "+m[1];
   if((m=p.match(/^Que signifie\s+(.+)$/i)))return "Signification de "+m[1];
   if((m=p.match(/^Où se déroule\s+(.+)$/i)))return "Lieu de "+m[1];
