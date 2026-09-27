@@ -1,7 +1,9 @@
 ### Patch Note — V7.8.1
 
 - **Swipe Vrai/Faux plus physique**
-  - la carte suit réellement le doigt ou la souris pendant le geste ;
+  - dès l'appui, la carte se **décolle** visuellement de la pile ;
+  - la carte suit réellement le doigt ou la souris pendant le geste avec un léger retard physique ;
+  - un ressort amorti ajoute de l'inertie pendant le déplacement et lors des changements brusques de direction ;
   - légère translation verticale et rotation selon le point où la carte est saisie ;
   - la pile située derrière remonte progressivement pendant le drag ;
   - au-delà du seuil, la carte se décroche et est projetée hors de l’écran avec inertie ;
