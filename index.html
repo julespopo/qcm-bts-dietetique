@@ -1758,7 +1758,9 @@ function openMobileSheet(subject){
   overlay.classList.add("open");
   overlay.setAttribute("aria-hidden","false");
   document.body.classList.add("sheet-open");
-  requestAnimationFrame(()=>$("mobileSheetClose")?.focus({preventScroll:true}));
+  const closeBtn=$("mobileSheetClose");
+  closeBtn?.focus({preventScroll:true});
+  requestAnimationFrame(()=>{if(document.activeElement!==closeBtn)closeBtn?.focus({preventScroll:true});});
 }
 function closeMobileSheet(){
   const overlay=$("mobileSheetOverlay"),main=document.querySelector("main"),gear=$("themeToggle");
