@@ -41,3 +41,10 @@
   - noms uniformisés au format `Chapitre X — Nom du chapitre` ;
   - fichiers renumérotés pour correspondre aux vrais chapitres 6, 7 et 8 ;
   - manifest synchronisé.
+
+
+- **Flashcards épurées**
+  - la carte affiche désormais l’affirmation seule, centrée ;
+  - suppression du libellé « Cette proposition est-elle vraie ? » et de la question source sur la carte ;
+  - en révision des erreurs, l’explication est affichée avant de pouvoir passer à l’erreur suivante ;
+  - hors révision, le passage automatique après le ✓ / ✕ est conservé.
