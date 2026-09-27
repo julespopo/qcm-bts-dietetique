@@ -1751,8 +1751,8 @@ function openMobileSheet(subject){
   closeFloatingMenu({restoreFocus:false});
   renderSelectionUI();
   renderMobileSheet();
-  const overlay=$("mobileSheetOverlay"),main=document.querySelector("main"),gear=$("themeToggle");
-  if(main)main.inert=true;
+  const overlay=$("mobileSheetOverlay"),gear=$("themeToggle");
+  document.querySelectorAll("main > :not(#mobileSheetOverlay)").forEach(el=>{el.inert=true;});
   if(gear)gear.inert=true;
   overlay.inert=false;
   overlay.classList.add("open");
@@ -1763,12 +1763,12 @@ function openMobileSheet(subject){
   requestAnimationFrame(()=>{if(document.activeElement!==closeBtn)closeBtn?.focus({preventScroll:true});});
 }
 function closeMobileSheet(){
-  const overlay=$("mobileSheetOverlay"),main=document.querySelector("main"),gear=$("themeToggle");
+  const overlay=$("mobileSheetOverlay"),gear=$("themeToggle");
   if(overlay.contains(document.activeElement)&&document.activeElement instanceof HTMLElement)document.activeElement.blur();
   overlay.classList.remove("open");
   overlay.setAttribute("aria-hidden","true");
   overlay.inert=true;
-  if(main)main.inert=false;
+  document.querySelectorAll("main > :not(#mobileSheetOverlay)").forEach(el=>{el.inert=false;});
   if(gear)gear.inert=false;
   document.body.classList.remove("sheet-open");
   const returnTarget=[...document.querySelectorAll(".subject-card")].find(btn=>btn.dataset.subject===mobileSheetReturnSubject);
