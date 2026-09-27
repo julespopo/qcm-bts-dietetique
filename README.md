@@ -406,12 +406,11 @@ multiple → plusieurs bonnes réponses
 
 - Les 7 banques BPADN ont été recréées à partir des cours fournis, avec 30 questions par chapitre.
 - Les intitulés BPADN sont uniformisés au format `Chapitre X — Nom du chapitre` et les fichiers 6, 7 et 8 suivent désormais leur vraie numérotation.
-- Nouveau choix **QCM / Flashcards** avant de démarrer une session.
-- Mode flashcards **question → réponse** utilisant directement les banques existantes.
-- La face avant affiche la question ; un appui sur la carte ou sur **Voir la réponse** révèle uniquement la ou les bonnes réponses.
-- Après révélation : **gauche = À revoir** et **droite = Je savais**, au swipe, avec les boutons correspondants.
-- Raccourcis clavier : Entrée/Espace pour révéler, puis flèche gauche/droite pour s’auto-évaluer.
-- Les réponses multiples affichent toutes les bonnes réponses.
+- Nouveau choix **QCM / Vrai-Faux** avant de démarrer une session.
+- Chaque flashcard affiche simultanément une **question** et une **réponse proposée**.
+- L’utilisateur juge uniquement la véracité de cette réponse : **gauche = Faux**, **droite = Vrai**.
+- Pour les questions à réponses multiples, une carte vraie contient l’ensemble des bonnes réponses ; une carte fausse contient un ensemble volontairement altéré.
+- Boutons **Faux / Vrai** et raccourcis clavier gauche / droite disponibles.
 - Grand ✓ / ✕, animation d’impact et arrivée glissée de la carte suivante conservés.
 - En révision des erreurs, l’explication est affichée avant de passer à l’erreur suivante.
 - Score, progression, minuteur, pause/reprise et révision des erreurs conservés.
