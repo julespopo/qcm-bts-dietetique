@@ -261,6 +261,12 @@ for html_path in HTML_FILES:
         err(f"{rel}: version d'interface attendue V7.8.2")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
+    if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
+        err(f"{rel}: barre de progression non exposée aux technologies d'assistance")
+    if 'id="feedback" class="feedback hidden" role="status" aria-live="polite"' not in static_html:
+        err(f"{rel}: zone de correction sans annonce aria-live")
+    if 'flashcard-mode.reviewing-errors #nextBtn' not in source:
+        err(f"{rel}: bouton suivant inaccessible en revue d'erreurs Vrai/Faux mobile")
 
     # Les ressources locales référencées dans le HTML doivent exister.
     for ref in re.findall(r'(?:src|href)="([^"]+)"', static_html):
@@ -292,6 +298,10 @@ for html_path in HTML_FILES:
         err(f"{rel}: gestion inert du menu flottant incomplète")
     if 'overlay.inert=true' not in source or 'overlay.inert=false' not in source:
         err(f"{rel}: gestion inert du bottom sheet incomplète")
+    if 'if(main)main.inert=true' not in source or 'if(main)main.inert=false' not in source:
+        err(f"{rel}: arrière-plan du bottom sheet non neutralisé")
+    if 'document.body.classList.toggle("reviewing-errors",state.reviewingErrors)' not in source:
+        err(f"{rel}: état reviewing-errors non synchronisé")
 
 # Hygiène du dépôt
 ds_store = [p.relative_to(ROOT).as_posix() for p in ROOT.rglob(".DS_Store")]
