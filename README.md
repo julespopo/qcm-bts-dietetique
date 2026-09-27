@@ -408,6 +408,7 @@ multiple → plusieurs bonnes réponses
 - Les intitulés BPADN sont uniformisés au format `Chapitre X — Nom du chapitre` et les fichiers 6, 7 et 8 suivent désormais leur vraie numérotation.
 - Nouveau choix **QCM / Vrai-Faux** avant de démarrer une session.
 - Chaque flashcard affiche simultanément une **question** et une **réponse proposée**.
+- Le mode Vrai/Faux utilise uniquement les **questions à réponse unique**, afin que la réponse proposée puisse être jugée sans ambiguïté ; les QCM à réponses multiples restent disponibles en mode QCM classique.
 - L’utilisateur juge uniquement la véracité de cette réponse : **gauche = Faux**, **droite = Vrai**.
 - Pour les questions à réponses multiples, une carte vraie contient l’ensemble des bonnes réponses ; une carte fausse contient un ensemble volontairement altéré.
 - Boutons **Faux / Vrai** et raccourcis clavier gauche / droite disponibles.
