@@ -1696,6 +1696,7 @@ async function start(){
 }
 function resetFlashCardVisual(){const card=$("flashCard");if(!card)return;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";}
 function renderFlashcardQuestion(q,resumeTimer=false){
+  clearFlashAdvance();
   $("qText").classList.add("hidden");$("normalAnswerArea").classList.add("hidden");$("flashArea").classList.remove("hidden");$("validateBtn").classList.add("hidden");$("nextBtn").classList.add("hidden");
   $("flashQuestionContext").textContent=q.prompt;$("flashStatement").textContent=q.flashStatement||"";$("flashFalseBtn").disabled=false;$("flashTrueBtn").disabled=false;resetFlashCardVisual();
   startQuestionTimer(resumeTimer);saveProgress();focusQuestionTop();if(window.matchMedia&&window.matchMedia("(min-width:761px)").matches)requestAnimationFrame(()=>$("flashCard")?.focus());
@@ -1725,14 +1726,16 @@ function handleQuizKeyboard(e){if($("quiz").classList.contains("hidden"))return;
   if(e.key==="Enter"){e.preventDefault();if(!state.answered)validate();else if(!$("nextBtn").classList.contains("hidden"))next();}
 }
 
-let flashDragActive=false,flashPointerId=null,flashStartX=0,flashDx=0;
+let flashDragActive=false,flashPointerId=null,flashStartX=0,flashDx=0,flashAdvanceTimer=null;
+function clearFlashAdvance(){if(flashAdvanceTimer){clearTimeout(flashAdvanceTimer);flashAdvanceTimer=null;}}
+function scheduleFlashAdvance(){clearFlashAdvance();const answeredIndex=state.index;flashAdvanceTimer=setTimeout(()=>{flashAdvanceTimer=null;if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex)return;next();},850);}
 function paintFlashDrag(dx){const card=$("flashCard");if(!card)return;const width=Math.max(1,card.offsetWidth),ratio=Math.min(1,Math.abs(dx)/(width*.38));card.style.transform="translateX("+dx+"px) rotate("+(dx*.035)+"deg)";$("flashTrueStamp").style.opacity=dx>0?String(ratio):"0";$("flashFalseStamp").style.opacity=dx<0?String(ratio):"0";}
 function animateFlashAway(userTruth){const card=$("flashCard");if(!card||!card.animate)return;const dir=userTruth?1:-1;card.animate([{transform:card.style.transform||"translateX(0) rotate(0)"},{transform:"translateX("+(dir*125)+"vw) rotate("+(dir*22)+"deg)",opacity:.15}],{duration:300,easing:"cubic-bezier(.2,.75,.25,1)",fill:"forwards"});}
 function answerFlashcard(userTruth,timedOut=false){
   if(state.mode!=="flashcard"||state.answered)return;const q=state.session[state.index],realTimeout=timedOut===true&&state.timerEnabled===true;if(state.timerEnabled){state.timerRemainingMs=currentRemainingMs();state.timerEndAt=null;stopTimerInterval();renderTimer();}
   const ok=!realTimeout&&userTruth===!!q.flashTruth;state.answered=true;if(ok)state.score++;else state.errors.push(q);$("flashFalseBtn").disabled=true;$("flashTrueBtn").disabled=true;$("flashCard").style.pointerEvents="none";if(!realTimeout)animateFlashAway(!!userTruth);
   $("scoreLive").textContent="Score : "+state.score;$("feedback").classList.remove("hidden");const status=realTimeout?'<div class="bad">Temps écoulé.</div>':'<div class="'+(ok?"ok":"bad")+'">'+(ok?"Bonne réponse.":"Réponse incorrecte.")+'</div>';const expected=q.flashTruth?"Vrai":"Faux";
-  $("feedback").innerHTML=status+'<div class="flash-answer-key">La proposition était <strong>'+expected+'.</strong></div><div style="margin-top:7px">'+esc(q.explanation||"")+'</div>';$("validateBtn").classList.add("hidden");$("nextBtn").classList.remove("hidden");$("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Carte suivante";saveProgress();focusCorrection();
+  $("feedback").innerHTML=status+'<div class="flash-answer-key">La proposition était <strong>'+expected+'.</strong></div><div style="margin-top:7px">'+esc(q.explanation||"")+'</div>';$("validateBtn").classList.add("hidden");$("nextBtn").classList.add("hidden");saveProgress();focusCorrection();scheduleFlashAdvance();
 }
 function initFlashSwipe(){const card=$("flashCard");if(!card)return;card.addEventListener("pointerdown",e=>{if(state.mode!=="flashcard"||state.answered)return;flashDragActive=true;flashPointerId=e.pointerId;flashStartX=e.clientX;flashDx=0;card.classList.add("dragging");try{card.setPointerCapture(e.pointerId);}catch{}});card.addEventListener("pointermove",e=>{if(!flashDragActive||e.pointerId!==flashPointerId)return;flashDx=e.clientX-flashStartX;if(Math.abs(flashDx)>5)e.preventDefault();paintFlashDrag(flashDx);});const end=e=>{if(!flashDragActive||(e&&e.pointerId!==undefined&&e.pointerId!==flashPointerId))return;flashDragActive=false;card.classList.remove("dragging");const threshold=Math.min(105,Math.max(72,card.offsetWidth*.22));if(Math.abs(flashDx)>=threshold)answerFlashcard(flashDx>0);else{card.style.transform="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";}flashPointerId=null;flashDx=0;};card.addEventListener("pointerup",end);card.addEventListener("pointercancel",end);}
 
@@ -1831,7 +1834,7 @@ function animateScoreDonut(percent){
   requestAnimationFrame(tick);
 }
 
-function finish(){stopTimerInterval();state.timerEndAt=null;exitQuizFocus();
+function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
 }
 async function resumeSaved(){
@@ -1839,7 +1842,7 @@ async function resumeSaved(){
   try{state.mode=s.mode==="flashcard"?"flashcard":"qcm";syncModeUI();state.session=await rebuildSessionFromRefs(s.refs);if(!state.session.length)throw new Error("Les questions sauvegardées ne sont plus disponibles.");if((s.index||0)>=state.session.length){state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);finish();return;}state.index=s.index||0;state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);state.answered=false;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
   catch(e){alert(e.message);clearProgress();}finally{$("resumeBtn").disabled=false;$("resumeBtn").textContent="Reprendre";}
 }
-function pause(){pauseTimer();saveProgress();exitQuizFocus();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");refreshResumeCard();}
+function pause(){clearFlashAdvance();pauseTimer();saveProgress();exitQuizFocus();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");refreshResumeCard();}
 async function init(){
   try{await loadManifest();state.selectedBankIds.clear();state.activeSubject=subjects()[0]||null;syncModeUI();renderSelectionUI();$("setup").classList.remove("hidden");refreshResumeCard();}
   catch(e){$("heroText").textContent="Erreur de chargement";$("errorText").textContent=e.message;$("errorBox").classList.remove("hidden");}
@@ -1873,9 +1876,9 @@ $("timerToggleBtn").addEventListener("click",toggleTimer);
 document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",()=>validate());$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
 $("flashFalseBtn").addEventListener("click",()=>answerFlashcard(false));$("flashTrueBtn").addEventListener("click",()=>answerFlashcard(true));
-$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
+$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearFlashAdvance();stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
-$("newQuiz").addEventListener("click",()=>{exitQuizFocus();stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
+$("newQuiz").addEventListener("click",()=>{clearFlashAdvance();exitQuizFocus();stopTimerInterval();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
 $("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;initTimerForNewSession();$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();});
 
 function disableAccidentalDoubleTapZoom(){
