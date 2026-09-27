@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.7.2
+# QCM BTS Diététique — V7.8.0
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -22,12 +22,13 @@ QCM_BTS_Dietetique_WEB_MODULAIRE_V7_3/
 │
 └── banques/
     ├── BPADN/
+    │   ├── 00_matiere_organique_inorganique.json
     │   ├── 01_glucides.json
     │   ├── 02_lipides.json
     │   ├── 03_protides.json
-    │   ├── 04_acides_nucleiques.json
-    │   ├── 05_milieu_interieur.json
-    │   └── 06_biologie_cellulaire.json
+    │   ├── 06_acides_nucleiques.json
+    │   ├── 07_milieu_interieur.json
+    │   └── 08_biologie_cellulaire.json
     │
     └── Sante_publique/
         ├── 01_concepts_sante.json
@@ -38,7 +39,7 @@ QCM_BTS_Dietetique_WEB_MODULAIRE_V7_3/
         └── 06_situation_professionnelle_gaspillage.json
 ```
 
-Le projet contient actuellement **12 banques** et environ **300 questions**.
+Le projet contient actuellement **13 banques** et **330 questions**.
 
 ---
 
@@ -170,9 +171,9 @@ Le nombre demandé est automatiquement limité au nombre de questions réellemen
 
 Les banques actuelles contiennent :
 
-- 169 questions de niveau 1 ;
-- 127 questions de niveau 2 ;
-- 4 questions de niveau 3.
+- 139 questions de niveau 1 ;
+- 170 questions de niveau 2 ;
+- 21 questions de niveau 3.
 
 Cette répartition évoluera naturellement avec l'ajout de nouvelles banques.
 
@@ -380,6 +381,7 @@ multiple → plusieurs bonnes réponses
 
 ### BPADN
 
+- Matière organique et inorganique
 - Glucides
 - Lipides
 - Protides
@@ -399,6 +401,23 @@ multiple → plusieurs bonnes réponses
 ---
 
 # Changelog
+
+## V7.8.0
+
+- Les 7 banques BPADN ont été recréées à partir des cours fournis, avec 30 questions par chapitre.
+- Les intitulés BPADN sont uniformisés au format `Chapitre X — Nom du chapitre` et les fichiers 6, 7 et 8 suivent désormais leur vraie numérotation.
+- Nouveau choix **QCM / Vrai-Faux** avant de démarrer une session.
+- Chaque flashcard affiche simultanément une **question** et une **réponse proposée**.
+- Le mode Vrai/Faux utilise uniquement les **questions à réponse unique**, afin que la réponse proposée puisse être jugée sans ambiguïté ; les QCM à réponses multiples restent disponibles en mode QCM classique.
+- L’utilisateur juge uniquement la véracité de cette réponse : **gauche = Faux**, **droite = Vrai**.
+- Pour les questions à réponses multiples, une carte vraie contient l’ensemble des bonnes réponses ; une carte fausse contient un ensemble volontairement altéré.
+- Boutons **Faux / Vrai** et raccourcis clavier gauche / droite disponibles.
+- Grand ✓ / ✕, animation d’impact et arrivée glissée de la carte suivante conservés.
+- En révision des erreurs, l’explication est affichée avant de passer à l’erreur suivante.
+- Score, progression, minuteur, pause/reprise et révision des erreurs conservés.
+- Chapitre 0 BPADN uniformisé en version 3.
+- Nettoyage des fichiers macOS parasites via `.gitignore`.
+- Footer : `Index V7.8.0`.
 
 ## V7.7.2
 

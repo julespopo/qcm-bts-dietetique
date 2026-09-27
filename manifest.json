@@ -1,67 +1,67 @@
 {
   "appVersion": 2,
-  "updated": "2026-09-24",
+  "updated": "2026-09-27",
   "banks": [
     {
       "id": "BPADN__00_matiere_organique_inorganique",
       "title": "Chapitre 0 — Matière organique et inorganique",
       "subject": "BPADN",
-      "chapter": "Matière organique et inorganique",
+      "chapter": "Chapitre 0 — Matière organique et inorganique",
       "file": "banques/BPADN/00_matiere_organique_inorganique.json",
       "count": 30,
-      "version": 1
+      "version": 3
     },
     {
       "id": "BPADN__01_glucides",
-      "title": "Les glucides",
+      "title": "Chapitre 1 — Les glucides",
       "subject": "BPADN",
-      "chapter": "Chapitre 1",
+      "chapter": "Chapitre 1 — Les glucides",
       "file": "banques/BPADN/01_glucides.json",
       "count": 30,
       "version": 3
     },
     {
       "id": "BPADN__02_lipides",
-      "title": "Les lipides",
+      "title": "Chapitre 2 — Les lipides",
       "subject": "BPADN",
-      "chapter": "Chapitre 2",
+      "chapter": "Chapitre 2 — Les lipides",
       "file": "banques/BPADN/02_lipides.json",
       "count": 30,
       "version": 3
     },
     {
       "id": "BPADN__03_protides",
-      "title": "Les protides",
+      "title": "Chapitre 3 — Les protides",
       "subject": "BPADN",
-      "chapter": "Chapitre 3",
+      "chapter": "Chapitre 3 — Les protides",
       "file": "banques/BPADN/03_protides.json",
       "count": 30,
       "version": 3
     },
     {
-      "id": "BPADN__04_acides_nucleiques",
-      "title": "Les acides nucléiques",
+      "id": "BPADN__06_acides_nucleiques",
+      "title": "Chapitre 6 — Les acides nucléiques",
       "subject": "BPADN",
-      "chapter": "Chapitre 6",
-      "file": "banques/BPADN/04_acides_nucleiques.json",
+      "chapter": "Chapitre 6 — Les acides nucléiques",
+      "file": "banques/BPADN/06_acides_nucleiques.json",
       "count": 30,
       "version": 3
     },
     {
-      "id": "BPADN__05_milieu_interieur",
-      "title": "Le milieu intérieur",
+      "id": "BPADN__07_milieu_interieur",
+      "title": "Chapitre 7 — Le milieu intérieur",
       "subject": "BPADN",
-      "chapter": "Chapitre 7",
-      "file": "banques/BPADN/05_milieu_interieur.json",
+      "chapter": "Chapitre 7 — Le milieu intérieur",
+      "file": "banques/BPADN/07_milieu_interieur.json",
       "count": 30,
       "version": 3
     },
     {
-      "id": "BPADN__06_biologie_cellulaire",
-      "title": "La biologie cellulaire",
+      "id": "BPADN__08_biologie_cellulaire",
+      "title": "Chapitre 8 — La biologie cellulaire",
       "subject": "BPADN",
-      "chapter": "Chapitre 8",
-      "file": "banques/BPADN/06_biologie_cellulaire.json",
+      "chapter": "Chapitre 8 — La biologie cellulaire",
+      "file": "banques/BPADN/08_biologie_cellulaire.json",
       "count": 30,
       "version": 3
     },
