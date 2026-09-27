@@ -45,3 +45,11 @@
 
 - **Version**
   - footer : `Index V7.8.0`.
+
+
+- **Coloration des réponses QCM**
+  - après validation, seules les réponses sélectionnées changent de couleur ;
+  - réponse globale correcte : sélection(s) en vert ;
+  - réponse globale incorrecte : sélection(s) en rouge ;
+  - légère animation d’impact au moment de la validation ;
+  - les réponses non sélectionnées restent neutres.
