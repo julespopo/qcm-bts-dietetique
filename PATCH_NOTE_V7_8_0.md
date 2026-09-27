@@ -4,13 +4,14 @@
   - choix entre QCM classique et flashcards ;
   - les deux modes utilisent les mêmes matières, chapitres et niveaux de difficulté.
 
-- **Flashcards question → réponse**
-  - la face avant affiche uniquement la question ;
-  - un appui sur la carte ou sur **Voir la réponse** révèle la ou les bonnes réponses ;
-  - les questions à réponses multiples affichent toutes les réponses correctes ;
-  - après révélation : **gauche = À revoir**, **droite = Je savais** ;
-  - boutons **À revoir / Je savais** disponibles sans geste ;
-  - clavier : Entrée/Espace pour révéler, puis flèche gauche/droite pour s’auto-évaluer.
+- **Flashcards Vrai / Faux**
+  - chaque carte affiche une **question** et, juste dessous, une **réponse proposée** ;
+  - l’utilisateur doit juger si cette réponse est vraie ou fausse ;
+  - swipe gauche = **Faux** ;
+  - swipe droite = **Vrai** ;
+  - boutons **Faux / Vrai** disponibles sans geste ;
+  - clavier : flèche gauche = Faux, flèche droite = Vrai ;
+  - pour les questions à réponses multiples, les cartes vraies montrent l’ensemble exact des bonnes réponses et les cartes fausses une combinaison altérée.
 
 - **Animations**
   - grand ✓ vert pour **Je savais** ;
@@ -20,13 +21,13 @@
   - passage automatique après l’auto-évaluation pendant une série normale.
 
 - **Révision des erreurs**
-  - les cartes marquées **À revoir** sont conservées comme erreurs ;
-  - lors de **Revoir mes erreurs**, l’explication du cours est affichée après l’auto-évaluation ;
+  - les réponses Vrai/Faux incorrectes sont conservées comme erreurs ;
+  - lors de **Revoir mes erreurs**, l’explication du cours est affichée après la réponse ;
   - le passage à l’erreur suivante est alors manuel afin de laisser le temps de lire l’explication.
 
 - **Minuteur**
   - le minuteur reste compatible avec les flashcards ;
-  - à expiration, la réponse est révélée et la carte est marquée **À revoir**.
+  - à expiration, la carte est comptée comme incorrecte.
 
 - **Banques BPADN**
   - 7 chapitres reconstruits à partir des documents de cours fournis ;
