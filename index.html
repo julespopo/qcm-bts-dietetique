@@ -680,7 +680,10 @@ body.flashcard-mode .qcm-only-option{display:none!important}
   transition:transform .22s cubic-bezier(.22,.8,.25,1),box-shadow .2s ease,border-color .16s ease;will-change:transform
 }
 .flash-card:active{cursor:grabbing}
-.flash-card.dragging{transition:none;box-shadow:0 30px 72px rgba(0,0,0,.22)}
+.flash-card.dragging{
+  transition:none;z-index:5;
+  box-shadow:0 38px 88px rgba(0,0,0,.26),0 10px 28px rgba(var(--accent-rgb),.08)
+}
 .flash-card.returning{pointer-events:none}
 .flash-question-label,.flash-answer-label{font-size:.72rem;font-weight:900;letter-spacing:.11em;color:var(--accent)}
 .flash-question{font-size:clamp(1rem,2.8vw,1.28rem);font-weight:700;line-height:1.35;max-width:94%;margin-top:8px;text-wrap:balance;color:var(--muted)}
@@ -1877,7 +1880,7 @@ async function start(){
   try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=false;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();saveProgress();}
   catch(e){alert(e.message);}finally{$("startBtn").disabled=false;syncModeUI();}
 }
-function resetFlashCardVisual(){const card=$("flashCard"),result=$("flashResultIcon"),stage=$("swipeStage");if(!card)return;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging","entering","returning");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";card.style.borderColor="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";resetFlashDeck();if(stage)stage.classList.remove("impact-success","impact-failure");if(result){result.className="flash-result-icon";result.textContent="";}}
+function resetFlashCardVisual(){const card=$("flashCard"),result=$("flashResultIcon"),stage=$("swipeStage");if(!card)return;stopFlashDragPhysics();flashTargetX=flashTargetY=flashRenderX=flashRenderY=flashRenderVX=flashRenderVY=flashLift=0;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging","entering","returning");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";card.style.borderColor="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";resetFlashDeck();if(stage)stage.classList.remove("impact-success","impact-failure");if(result){result.className="flash-result-icon";result.textContent="";}}
 function animateFlashCardIn(){const card=$("flashCard");if(!card)return;card.classList.remove("entering");void card.offsetWidth;card.classList.add("entering");}
 function renderFlashcardQuestion(q,resumeTimer=false){
   clearFlashAdvance();
@@ -1922,6 +1925,7 @@ function handleQuizKeyboard(e){if($("quiz").classList.contains("hidden"))return;
 }
 
 let flashDragActive=false,flashPointerId=null,flashStartX=0,flashStartY=0,flashDx=0,flashDy=0,flashLastX=0,flashLastY=0,flashLastT=0,flashVelocityX=0,flashVelocityY=0,flashRotationSign=1,flashAxis=null,flashAdvanceTimer=null;
+let flashTargetX=0,flashTargetY=0,flashRenderX=0,flashRenderY=0,flashRenderVX=0,flashRenderVY=0,flashDragRaf=null,flashLift=0;
 function clearFlashAdvance(){if(flashAdvanceTimer){clearTimeout(flashAdvanceTimer);flashAdvanceTimer=null;}}
 function scheduleFlashAdvance(delay=850){clearFlashAdvance();const answeredIndex=state.index;flashAdvanceTimer=setTimeout(()=>{flashAdvanceTimer=null;if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex)return;next();},delay);}
 function resetFlashDeck(){
@@ -1939,23 +1943,52 @@ function liftFlashDeck(ratio){
   stage.style.setProperty("--deck-back-scale",(.96+p*.01).toFixed(4));
   stage.style.setProperty("--deck-back-opacity",(.55+p*.08).toFixed(3));
 }
-function flashTransform(dx,dy=0,rotationSign=flashRotationSign){
-  const rot=Math.max(-17,Math.min(17,dx*.05*rotationSign));
-  return "translate3d("+dx+"px,"+(dy*.28)+"px,0) rotate("+rot+"deg)";
+function flashTransform(dx,dy=0,rotationSign=flashRotationSign,lift=0){
+  const rot=Math.max(-18,Math.min(18,dx*.052*rotationSign));
+  const y=dy*.48-lift*7;
+  const scale=1+lift*.014;
+  return "translate3d("+dx+"px,"+y+"px,0) rotate("+rot+"deg) scale("+scale+")";
+}
+function stopFlashDragPhysics(){
+  if(flashDragRaf!==null){cancelAnimationFrame(flashDragRaf);flashDragRaf=null;}
+}
+function renderFlashDragFrame(){
+  flashDragRaf=null;
+  if(!flashDragActive||flashAxis==="y")return;
+  const card=$("flashCard");if(!card)return;
+
+  // Ressort amorti : la carte vise le pointeur avec un très léger retard,
+  // puis conserve un peu de mouvement quand la main change brusquement de direction.
+  const stiffness=.24,damping=.68;
+  flashRenderVX=(flashRenderVX+(flashTargetX-flashRenderX)*stiffness)*damping;
+  flashRenderVY=(flashRenderVY+(flashTargetY-flashRenderY)*stiffness)*damping;
+  flashRenderX+=flashRenderVX;
+  flashRenderY+=flashRenderVY;
+  flashLift+=(1-flashLift)*.32;
+
+  const width=Math.max(1,card.offsetWidth);
+  const ratio=Math.min(1,Math.abs(flashRenderX)/(width*.34));
+  card.style.transform=flashTransform(flashRenderX,flashRenderY,flashRotationSign,flashLift);
+  card.style.borderColor=flashRenderX>10?"var(--ok)":flashRenderX<-10?"var(--bad)":"";
+  $("flashTrueStamp").style.opacity=flashRenderX>0?String(ratio):"0";
+  $("flashFalseStamp").style.opacity=flashRenderX<0?String(ratio):"0";
+  liftFlashDeck(Math.max(.10,ratio));
+
+  const unsettled=Math.abs(flashTargetX-flashRenderX)>.15||Math.abs(flashTargetY-flashRenderY)>.15||Math.abs(flashRenderVX)>.08||Math.abs(flashRenderVY)>.08||flashLift<.995;
+  if(flashDragActive&&(unsettled||flashAxis==="x"||flashAxis===null))flashDragRaf=requestAnimationFrame(renderFlashDragFrame);
+}
+function ensureFlashDragPhysics(){
+  if(flashDragRaf===null)flashDragRaf=requestAnimationFrame(renderFlashDragFrame);
 }
 function paintFlashDrag(dx,dy=flashDy){
-  const card=$("flashCard");if(!card)return;
-  const width=Math.max(1,card.offsetWidth),ratio=Math.min(1,Math.abs(dx)/(width*.36));
-  card.style.transform=flashTransform(dx,dy);
-  card.style.borderColor=dx>10?"var(--ok)":dx<-10?"var(--bad)":"";
-  $("flashTrueStamp").style.opacity=dx>0?String(ratio):"0";
-  $("flashFalseStamp").style.opacity=dx<0?String(ratio):"0";
-  liftFlashDeck(ratio);
+  flashTargetX=dx;flashTargetY=dy;
+  ensureFlashDragPhysics();
 }
 function animateFlashReturn(){
   const card=$("flashCard");if(!card)return;
   const reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const from=card.style.transform||flashTransform(flashDx,flashDy);
+  stopFlashDragPhysics();
+  const from=card.style.transform||flashTransform(flashRenderX,flashRenderY,flashRotationSign,flashLift);
   card.classList.add("returning");
   const anim=card.animate(
     reduce
@@ -2021,41 +2054,73 @@ function initFlashSwipe(){
   card.addEventListener("pointerdown",e=>{
     if(state.mode!=="flashcard"||state.answered)return;
     const rect=card.getBoundingClientRect();
+    stopFlashDragPhysics();
     flashDragActive=true;flashPointerId=e.pointerId;flashStartX=e.clientX;flashStartY=e.clientY;flashDx=0;flashDy=0;
     flashLastX=e.clientX;flashLastY=e.clientY;flashLastT=performance.now();flashVelocityX=0;flashVelocityY=0;flashAxis=null;
+    flashTargetX=0;flashTargetY=0;flashRenderX=0;flashRenderY=0;flashRenderVX=0;flashRenderVY=0;flashLift=.18;
     flashRotationSign=((e.clientY-rect.top)/Math.max(1,rect.height))<.5?1:-1;
-    card.classList.add("dragging");
+    card.classList.remove("returning");card.classList.add("dragging");
+    card.style.transform=flashTransform(0,0,flashRotationSign,flashLift);
+    liftFlashDeck(.10);
+    ensureFlashDragPhysics();
     try{card.setPointerCapture(e.pointerId);}catch{}
   });
   card.addEventListener("pointermove",e=>{
     if(!flashDragActive||e.pointerId!==flashPointerId)return;
     flashDx=e.clientX-flashStartX;flashDy=e.clientY-flashStartY;
+
     if(!flashAxis){
-      if(Math.abs(flashDx)>8&&Math.abs(flashDx)>Math.abs(flashDy)*1.12)flashAxis="x";
-      else if(Math.abs(flashDy)>11&&Math.abs(flashDy)>Math.abs(flashDx)*1.2)flashAxis="y";
+      if(Math.abs(flashDx)>6&&Math.abs(flashDx)>Math.abs(flashDy)*1.05)flashAxis="x";
+      else if(Math.abs(flashDy)>12&&Math.abs(flashDy)>Math.abs(flashDx)*1.25)flashAxis="y";
     }
+
     const now=performance.now(),dt=Math.max(8,now-flashLastT);
     const instVx=(e.clientX-flashLastX)/dt,instVy=(e.clientY-flashLastY)/dt;
-    flashVelocityX=flashVelocityX*.58+instVx*.42;flashVelocityY=flashVelocityY*.58+instVy*.42;
+    flashVelocityX=flashVelocityX*.52+instVx*.48;flashVelocityY=flashVelocityY*.52+instVy*.48;
     flashLastX=e.clientX;flashLastY=e.clientY;flashLastT=now;
-    if(flashAxis==="x"){e.preventDefault();paintFlashDrag(flashDx,flashDy);}
+
+    if(flashAxis==="y"){
+      flashDragActive=false;card.classList.remove("dragging");
+      flashTargetX=flashRenderX;flashTargetY=flashRenderY;
+      animateFlashReturn();
+      try{card.releasePointerCapture(e.pointerId);}catch{}
+      flashPointerId=null;flashAxis=null;
+      return;
+    }
+
+    // Avant même que l'axe soit définitivement choisi, la carte accompagne légèrement
+    // la main. Dès qu'un swipe horizontal est reconnu, elle suit le geste presque 1:1.
+    if(flashAxis==="x"){
+      e.preventDefault();
+      paintFlashDrag(flashDx,flashDy);
+    }else{
+      paintFlashDrag(flashDx*.42,flashDy*.18);
+    }
   });
   const end=e=>{
     if(!flashDragActive||(e&&e.pointerId!==undefined&&e.pointerId!==flashPointerId))return;
-    flashDragActive=false;card.classList.remove("dragging");
-    const threshold=Math.min(118,Math.max(70,card.offsetWidth*.2));
-    const velocityThrow=Math.abs(flashVelocityX)>.52&&Math.abs(flashDx)>26;
-    if(flashAxis==="x"&&(Math.abs(flashDx)>=threshold||velocityThrow)){
-      const meta={dx:flashDx,dy:flashDy,vx:flashVelocityX,vy:flashVelocityY,rotationSign:flashRotationSign};
-      answerFlashcard(flashDx>0,false,meta);
-    }else if(flashAxis==="x"){
-      animateFlashReturn();
+    flashDragActive=false;card.classList.remove("dragging");stopFlashDragPhysics();
+
+    const threshold=Math.min(118,Math.max(68,card.offsetWidth*.19));
+    const velocityThrow=Math.abs(flashVelocityX)>.48&&Math.abs(flashDx)>22;
+    const horizontalIntent=flashAxis==="x"||Math.abs(flashDx)>Math.abs(flashDy)*1.05;
+
+    if(horizontalIntent&&(Math.abs(flashDx)>=threshold||velocityThrow)){
+      const direction=(Math.abs(flashVelocityX)>.7?Math.sign(flashVelocityX):Math.sign(flashDx))||1;
+      const meta={
+        dx:flashRenderX,dy:flashRenderY,
+        vx:flashVelocityX,vy:flashVelocityY,
+        rotationSign:flashRotationSign
+      };
+      answerFlashcard(direction>0,false,meta);
     }else{
-      card.style.transform="";card.style.borderColor="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";resetFlashDeck();
+      animateFlashReturn();
     }
+
     flashPointerId=null;flashDx=0;flashDy=0;flashAxis=null;
   };
-  card.addEventListener("pointerup",end);card.addEventListener("pointercancel",end);
+  card.addEventListener("pointerup",end);
+  card.addEventListener("pointercancel",end);
 }
 
 
