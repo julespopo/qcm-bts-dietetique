@@ -402,6 +402,16 @@ La difficulté est numérique : `1` = facile, `2` = intermédiaire, `3` = diffic
 
 ---
 
+
+### Contrôles automatiques
+
+Le dépôt contient deux niveaux de tests :
+
+- `python3 tests/check_project.py` vérifie banques, manifest, logique QCM/Vrai-Faux, ressources, accessibilité structurelle et syntaxe JavaScript ;
+- `tests/browser_smoke.py` est exécuté dans GitHub Actions avec Chrome/Selenium pour tester de vrais parcours desktop et mobile.
+
+Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur les pull requests et sur `main`.
+
 # Changelog
 
 ## V7.8.2
