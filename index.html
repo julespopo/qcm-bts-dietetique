@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes">
 <meta name="theme-color" content="#4f46e5">
 <title>QCM BTS Diététique</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
 :root{
   --bg:#f4f6fa;--card:#fff;--pane:#fbfcff;--tile:#fff;--text:#1d2430;--muted:#6b7280;--line:#dfe3eb;--hover-line:#bcc5d5;
@@ -893,9 +894,9 @@ body.quiz-active.flashcard-mode #quitBtn{
 </style>
 </head>
 <body>
-<button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir le menu" title="Menu">⚙</button>
+<button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir le menu" title="Menu" aria-expanded="false" aria-controls="floatingActions">⚙</button>
 
-<div id="floatingActions" class="floating-actions" aria-hidden="true">
+<div id="floatingActions" class="floating-actions" aria-hidden="true" inert>
   <button id="themeMenuBtn" class="floating-action-btn theme-orbit-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
     <span class="theme-orbit" aria-hidden="true">
       <span id="themeSun" class="theme-celestial theme-sun">☀</span>
@@ -907,7 +908,7 @@ body.quiz-active.flashcard-mode #quitBtn{
     ⏱
   </button>
 
-  <div id="timerPresets" class="timer-presets-floating" aria-hidden="true">
+  <div id="timerPresets" class="timer-presets-floating" aria-hidden="true" inert>
     <button class="timer-preset-floating" type="button" data-seconds="15">15</button>
     <button class="timer-preset-floating" type="button" data-seconds="30">30</button>
     <button class="timer-preset-floating" type="button" data-seconds="45">45</button>
@@ -1244,17 +1245,25 @@ function layoutFloatingActions(){
 
 function openFloatingMenu(){
   floatingMenuOpen=true;
-  $("floatingActions").classList.add("open");
-  $("floatingActions").setAttribute("aria-hidden","false");
+  const actions=$("floatingActions"),toggle=$("themeToggle");
+  actions.inert=false;
+  actions.classList.add("open");
+  actions.setAttribute("aria-hidden","false");
+  toggle?.setAttribute("aria-expanded","true");
   layoutFloatingActions();
 }
 
-function closeFloatingMenu(){
+function closeFloatingMenu({restoreFocus=true}={}){
   floatingMenuOpen=false;
-  $("floatingActions").classList.remove("open");
-  $("floatingActions").setAttribute("aria-hidden","true");
-  $("timerPresets").classList.remove("open");
-  $("timerPresets").setAttribute("aria-hidden","true");
+  const actions=$("floatingActions"),presets=$("timerPresets"),toggle=$("themeToggle");
+  if(restoreFocus&&actions?.contains(document.activeElement))toggle?.focus({preventScroll:true});
+  actions?.classList.remove("open");
+  actions?.setAttribute("aria-hidden","true");
+  if(actions)actions.inert=true;
+  presets?.classList.remove("open");
+  presets?.setAttribute("aria-hidden","true");
+  if(presets)presets.inert=true;
+  toggle?.setAttribute("aria-expanded","false");
 }
 
 function toggleFloatingMenu(){
@@ -1267,6 +1276,7 @@ function syncTimerPresetVisibility(){
   const show=floatingMenuOpen&&state.timerEnabled;
   presets.classList.toggle("open",show);
   presets.setAttribute("aria-hidden",show?"false":"true");
+  presets.inert=!show;
   if(show)layoutFloatingActions();
 }
 function normalizeTimerDurationMs(ms){
@@ -2384,7 +2394,7 @@ async function resumeSaved(){
 function pause(){clearFlashAdvance();pauseTimer();saveProgress();exitQuizFocus();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");refreshResumeCard();}
 async function init(){
   try{await loadManifest();state.selectedBankIds.clear();state.activeSubject=subjects()[0]||null;syncModeUI();renderSelectionUI();$("setup").classList.remove("hidden");refreshResumeCard();}
-  catch(e){$("heroText").textContent="Erreur de chargement";$("errorText").textContent=e.message;$("errorBox").classList.remove("hidden");}
+  catch(e){const heroText=$("heroText");if(heroText)heroText.textContent="Erreur de chargement";$("errorText").textContent=e.message;$("errorBox").classList.remove("hidden");}
 }
 
 $("toggleAllChapters").addEventListener("click",()=>setAllActiveSubject(!subjectAllSelected(state.activeSubject)));
@@ -2405,7 +2415,7 @@ document.addEventListener("pointerdown",e=>{
   const main=$("themeToggle");
   const actionRoot=$("floatingActions");
   if(main.contains(e.target)||actionRoot.contains(e.target))return;
-  closeFloatingMenu();
+  closeFloatingMenu({restoreFocus:false});
 });
 
 document.querySelectorAll(".difficulty-btn").forEach(btn=>btn.addEventListener("click",()=>setDifficulty(btn.dataset.difficulty)));
