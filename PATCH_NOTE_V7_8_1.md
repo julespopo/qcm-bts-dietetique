@@ -36,3 +36,9 @@
 - **Correctif du drag**
   - l'animation d'arrivée de la carte est annulée dès qu'on la saisit afin qu'elle puisse réellement suivre le doigt ou la souris avant le relâchement ;
   - la carte se soulève dès l'appui et le navigateur ne capture plus le geste horizontal de la carte.
+
+
+- **Arrivée depuis la pile**
+  - la carte suivante n'arrive plus latéralement ;
+  - elle apparaît légèrement plus basse et plus petite, comme la carte juste en dessous dans une pile ;
+  - elle remonte ensuite verticalement jusqu'à sa position finale avec un léger effet de prise de place.
