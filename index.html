@@ -1018,6 +1018,12 @@ body.quiz-active.flashcard-mode #quitBtn{
 .flash-card{z-index:4}
 
 @media(max-width:760px){
+  body.quiz-active.flashcard-mode.flash-explanation-shown #nextBtn{
+    display:block!important;
+    grid-column:1 / -1;
+    min-height:50px;
+    font-size:.92rem
+  }
   .flash-explanation-dialog{width:min(94vw,500px);border-radius:20px}
   .flash-explanation-dialog-inner{padding:20px 16px}
   .flash-explanation-dialog-actions{grid-template-columns:1fr}
@@ -2199,6 +2205,7 @@ function syncFlashExplanationToggle(){
   btn.textContent=state.flashExplanations?"Explications : activées":"Explications : désactivées";
 }
 function hideFlashExplanationPanel(){
+  document.body.classList.remove("flash-explanation-shown");
   const panel=$("flashExplanationPanel");if(!panel)return;
   panel.classList.add("hidden");panel.innerHTML="";
 }
@@ -2208,6 +2215,7 @@ function showFlashExplanationPanel(q,ok,realTimeout){
   const status=realTimeout?'<div class="flash-explanation-status bad">Temps écoulé.</div>':'<div class="flash-explanation-status '+(ok?"ok":"bad")+'">'+(ok?"Bonne réponse.":"Réponse incorrecte.")+'</div>';
   panel.innerHTML=status+'<div class="flash-answer-key">La réponse proposée était <strong>'+expected+'.</strong></div><div class="review-explanation"><strong>Explication</strong><div style="margin-top:7px">'+esc(q.explanation||"Aucune explication disponible.")+'</div></div>';
   panel.classList.remove("hidden");
+  document.body.classList.add("flash-explanation-shown");
   requestAnimationFrame(()=>panel.focus({preventScroll:true}));
 }
 function setFlashExplanations(enabled,{persist=true}={}){
@@ -2626,7 +2634,7 @@ function animateScoreDonut(percent){
   requestAnimationFrame(tick);
 }
 
-function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;document.body.classList.remove("reviewing-errors");exitQuizFocus();
+function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;hideFlashExplanationPanel();document.body.classList.remove("reviewing-errors");exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
 }
 async function resumeSaved(){
