@@ -265,8 +265,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.9.0</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.9.0")
+    if '<footer>Index V7.9.1</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.9.1")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
     if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
@@ -309,6 +309,14 @@ for html_path in HTML_FILES:
         err(f"{rel}: recommandations À réviser non rendues à la fin")
     if 'data-review-topic-index' not in source:
         err(f"{rel}: boutons de révision ciblée absents")
+    if '.config-grid{display:grid;grid-template-columns:minmax(180px,240px) 1fr auto;gap:18px;align-items:start}' not in source:
+        err(f"{rel}: alignement supérieur de la zone Options absent")
+    if 'card.addEventListener("click",()=>{' not in source or 'performance.now()-flashExplanationShownAt<300' not in source:
+        err(f"{rel}: navigation par tap sur la carte d'explication absente")
+    if 'combinedLength=prompt.length+proposal.length' not in source:
+        err(f"{rel}: densité Vrai/Faux non adaptée à la longueur combinée")
+    if '.flash-card.very-dense-content' not in source:
+        err(f"{rel}: style mobile très dense Vrai/Faux absent")
 
     # Les ressources locales référencées dans le HTML doivent exister.
     for ref in re.findall(r'(?:src|href)="([^"]+)"', static_html):

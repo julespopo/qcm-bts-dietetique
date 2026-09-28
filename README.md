@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.9.0
+# QCM BTS Diététique — V7.9.1
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -427,6 +427,16 @@ Le dépôt contient deux niveaux de tests :
 Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur les pull requests et sur `main`.
 
 # Changelog
+
+## V7.9.1
+
+- Correction de l'alignement du bloc **Options** dans la configuration : son titre reste en haut de sa colonne.
+- En Vrai/Faux avec explications, un clic ou tap sur la **carte d'explication** passe à la question suivante, en complément de `Entrée` et du bouton **Question suivante**.
+- Un délai anti-clic accidentel évite qu'un swipe ayant donné la réponse saute immédiatement la correction.
+- Sur mobile, la question et la réponse proposée utilisent davantage la largeur de la carte.
+- La densité typographique s'adapte désormais à la longueur combinée **question + réponse proposée**.
+- La carte mobile reste contenue au-dessus des boutons **Faux / Vrai**, y compris avec des contenus plus longs.
+- Les corrections sont appliquées aux versions web et locale.
 
 ## V7.9.0
 

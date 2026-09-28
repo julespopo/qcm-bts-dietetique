@@ -189,7 +189,9 @@ button:disabled{opacity:.45;cursor:not-allowed}
 
 /* Configuration */
 .config-card{margin-top:16px;padding:18px}
-.config-grid{display:grid;grid-template-columns:minmax(180px,240px) 1fr auto;gap:18px;align-items:end}
+.config-grid{display:grid;grid-template-columns:minmax(180px,240px) 1fr auto;gap:18px;align-items:start}
+.config-grid>#startBtn{align-self:end}
+.config-options{align-self:start}
 .field label{display:block;font-weight:760;margin-bottom:6px}
 input[type=number]{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--tile);color:var(--text)}
 .options{display:flex;gap:18px;flex-wrap:wrap;align-items:center;min-height:44px}
@@ -790,7 +792,7 @@ body.flashcard-mode .qcm-only-option{display:none!important}
 .flash-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(100%,520px);margin:0 auto}
 .flash-btn{min-height:54px;border:1px solid var(--line);background:var(--tile);color:var(--text);font-size:1rem}.flash-btn.false:hover{border-color:var(--bad);color:var(--bad)}.flash-btn.true:hover{border-color:var(--ok);color:var(--ok)}.flash-btn:disabled{opacity:.42}
 .flash-hint{text-align:center;margin:10px 0 0;font-size:.84rem;color:var(--muted)}.flash-answer-key{margin-top:7px;font-weight:750}
-.flash-card.explanation-visible{justify-content:center;overflow:hidden;cursor:default}
+.flash-card.explanation-visible{justify-content:center;overflow:hidden;cursor:pointer}
 .flash-card.explanation-visible>.flash-question-label,
 .flash-card.explanation-visible>#flashQuestion,
 .flash-card.explanation-visible>.flash-divider,
@@ -878,27 +880,72 @@ body.quiz-active.flashcard-mode #quitBtn{
     padding:0 1px;
   }
   body.quiz-active.flashcard-mode .swipe-stage{
-    width:min(100%,680px);
+    width:100%;
     height:auto;
-    min-height:285px;
+    min-height:300px;
     flex:1 1 auto;
-    margin:4px auto 12px;
+    margin:3px auto 10px;
+    overflow:hidden;
   }
   body.quiz-active.flashcard-mode .flash-card{
-    padding:clamp(20px,4vh,34px) 20px;
+    padding:clamp(16px,3.2vh,28px) 11px;
     border-radius:24px;
+    overflow:hidden;
   }
   body.quiz-active.flashcard-mode .flash-question{
-    font-size:clamp(1rem,4.1vw,1.28rem);
+    width:100%;
+    max-width:100%;
+    font-size:clamp(.96rem,3.9vw,1.22rem);
+    line-height:1.28;
+    overflow-wrap:anywhere;
+  }
+  body.quiz-active.flashcard-mode .flash-divider{
+    width:min(82%,390px);
+    margin:14px 0;
   }
   body.quiz-active.flashcard-mode .flash-statement{
-    font-size:clamp(1.42rem,6.2vw,2rem);
+    width:100%;
+    max-width:100%;
+    font-size:clamp(1.34rem,5.8vw,1.9rem);
+    line-height:1.24;
+    overflow-wrap:anywhere;
   }
   body.quiz-active.flashcard-mode .flash-statement.medium{
-    font-size:clamp(1.26rem,5.4vw,1.72rem);
+    width:100%;
+    max-width:100%;
+    font-size:clamp(1.16rem,5vw,1.62rem);
   }
   body.quiz-active.flashcard-mode .flash-statement.long{
-    font-size:clamp(1.08rem,4.5vw,1.44rem);
+    width:100%;
+    max-width:100%;
+    font-size:clamp(.98rem,4.15vw,1.34rem);
+    line-height:1.24;
+  }
+  body.quiz-active.flashcard-mode .flash-card.dense-content{
+    padding-top:14px;
+    padding-bottom:14px;
+  }
+  body.quiz-active.flashcard-mode .flash-card.dense-content .flash-question{
+    font-size:clamp(.88rem,3.5vw,1.08rem);
+    line-height:1.2;
+  }
+  body.quiz-active.flashcard-mode .flash-card.dense-content .flash-divider{margin:10px 0}
+  body.quiz-active.flashcard-mode .flash-card.dense-content .flash-statement{
+    font-size:clamp(1.02rem,4.35vw,1.42rem);
+    line-height:1.18;
+  }
+  body.quiz-active.flashcard-mode .flash-card.very-dense-content{
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+  body.quiz-active.flashcard-mode .flash-card.very-dense-content .flash-question{
+    font-size:clamp(.8rem,3.1vw,.98rem);
+    line-height:1.16;
+  }
+  body.quiz-active.flashcard-mode .flash-card.very-dense-content .flash-divider{margin:7px 0}
+  body.quiz-active.flashcard-mode .flash-card.very-dense-content .flash-statement{
+    font-size:clamp(.9rem,3.75vw,1.2rem);
+    line-height:1.14;
   }
   body.quiz-active.flashcard-mode .flash-controls{
     width:100%;
@@ -972,17 +1019,17 @@ body.quiz-active.flashcard-mode #quitBtn{
   body.quiz-active.flashcard-mode .swipe-stage{
     width:min(100%,680px);height:auto;min-height:145px;flex:1 1 auto;margin:2px auto 5px;
   }
-  body.quiz-active.flashcard-mode .flash-card{padding:12px 16px;border-radius:18px}
+  body.quiz-active.flashcard-mode .flash-card{padding:10px 9px;border-radius:18px;overflow:hidden}
   body.quiz-active.flashcard-mode .flash-question-label,
   body.quiz-active.flashcard-mode .flash-answer-label{font-size:.62rem}
   body.quiz-active.flashcard-mode .flash-question{
-    margin-top:3px;font-size:clamp(.84rem,2.6vw,1rem);line-height:1.2;
+    width:100%;max-width:100%;margin-top:3px;font-size:clamp(.82rem,2.55vw,.98rem);line-height:1.18;
   }
   body.quiz-active.flashcard-mode .flash-divider{margin:7px 0}
   body.quiz-active.flashcard-mode .flash-statement,
   body.quiz-active.flashcard-mode .flash-statement.medium,
   body.quiz-active.flashcard-mode .flash-statement.long{
-    margin-top:3px;font-size:clamp(.94rem,3.5vw,1.18rem);line-height:1.2;
+    width:100%;max-width:100%;margin-top:3px;font-size:clamp(.9rem,3.3vw,1.12rem);line-height:1.17;
   }
   body.quiz-active.flashcard-mode .flash-controls{width:100%;max-width:none;gap:7px;margin:0}
   body.quiz-active.flashcard-mode .flash-btn{min-height:46px;padding:7px;font-size:.94rem;border-radius:13px}
@@ -1112,7 +1159,7 @@ body.quiz-active.flashcard-mode #quitBtn{
         <label for="count">Nombre de questions</label>
         <input id="count" type="number" min="1" value="20">
       </div>
-      <div>
+      <div class="config-options">
         <div class="panel-kicker">Options</div>
         <div class="options">
           <label class="qcm-only-option"><input id="shuffleAnswers" type="checkbox" checked> Mélanger les réponses</label>
@@ -1278,7 +1325,7 @@ body.quiz-active.flashcard-mode #quitBtn{
   </section>
 </section>
 
-<footer>Index V7.9.0</footer>
+<footer>Index V7.9.1</footer>
 </main>
 
 <script>
@@ -2356,6 +2403,7 @@ async function startPreparedSession(){
   catch(e){alert(e.message);}finally{$("startBtn").disabled=false;syncModeUI();}
 }
 function hideFlashcardExplanation(){
+  flashExplanationShownAt=0;
   const card=$("flashCard"),box=$("flashCardExplanation"),answerKey=$("flashCardAnswerKey"),countdown=$("flashExplanationCountdownWrap"),fill=$("flashExplanationCountdownFill");
   card?.classList.remove("explanation-visible");
   box?.classList.add("hidden");
@@ -2369,11 +2417,15 @@ function animateFlashCardIn(){const card=$("flashCard");if(!card)return;card.cla
 function renderFlashcardQuestion(q,resumeTimer=false){
   clearFlashAdvance();
   $("qText").classList.add("hidden");$("normalAnswerArea").classList.add("hidden");$("flashArea").classList.remove("hidden");$("validateBtn").classList.add("hidden");$("nextBtn").classList.add("hidden");
-  const proposal=flashProposalText(q),proposalEl=$("flashStatement");
-  $("flashQuestion").textContent=q.prompt||"";
+  const proposal=flashProposalText(q),proposalEl=$("flashStatement"),card=$("flashCard");
+  const prompt=String(q.prompt||"");
+  $("flashQuestion").textContent=prompt;
   proposalEl.textContent=proposal;
   proposalEl.classList.toggle("medium",proposal.length>95);
   proposalEl.classList.toggle("long",proposal.length>155);
+  const combinedLength=prompt.length+proposal.length;
+  card.classList.toggle("dense-content",combinedLength>210&&combinedLength<=310);
+  card.classList.toggle("very-dense-content",combinedLength>310);
   $("flashFalseBtn").disabled=false;$("flashTrueBtn").disabled=false;
   resetFlashCardVisual();animateFlashCardIn();
   startQuestionTimer(resumeTimer);saveProgress();focusQuestionTop();
@@ -2434,7 +2486,7 @@ function handleQuizKeyboard(e){
   if(e.key==="Enter"){e.preventDefault();if(!state.answered)validate();else if(!$("nextBtn").classList.contains("hidden"))next();}
 }
 
-let flashDragActive=false,flashPointerId=null,flashStartX=0,flashStartY=0,flashDx=0,flashDy=0,flashLastX=0,flashLastY=0,flashLastT=0,flashVelocityX=0,flashVelocityY=0,flashRotationSign=1,flashAxis=null,flashAdvanceTimer=null,flashExplanationCountdownInterval=null;
+let flashDragActive=false,flashPointerId=null,flashStartX=0,flashStartY=0,flashDx=0,flashDy=0,flashLastX=0,flashLastY=0,flashLastT=0,flashVelocityX=0,flashVelocityY=0,flashRotationSign=1,flashAxis=null,flashAdvanceTimer=null,flashExplanationCountdownInterval=null,flashExplanationShownAt=0;
 let flashTargetX=0,flashTargetY=0,flashRenderX=0,flashRenderY=0,flashRenderVX=0,flashRenderVY=0,flashDragRaf=null,flashLift=0;
 function clearFlashAdvance(){
   if(flashAdvanceTimer){clearTimeout(flashAdvanceTimer);flashAdvanceTimer=null;}
@@ -2450,7 +2502,9 @@ function showFlashcardExplanation(q,{ok=true,realTimeout=false,autoAdvance=ok&&!
   card.style.transform="";card.style.borderColor="";
   $("flashTrueStamp").style.opacity="0";$("flashFalseStamp").style.opacity="0";resetFlashDeck();
   card.classList.add("explanation-visible");
+  card.style.pointerEvents="auto";
   box.classList.remove("hidden");
+  flashExplanationShownAt=performance.now();
   box.classList.toggle("is-error",!ok);
   title.textContent=realTimeout?"⌛ Temps écoulé":ok?"✓ Explication":"✕ Réponse incorrecte";
   if(ok){
@@ -2692,6 +2746,14 @@ function initFlashSwipe(){
   };
   card.addEventListener("pointerup",end);
   card.addEventListener("pointercancel",end);
+  card.addEventListener("click",()=>{
+    if(state.mode!=="flashcard"||!state.answered)return;
+    const explanation=$("flashCardExplanation");
+    if(!explanation||explanation.classList.contains("hidden"))return;
+    if(performance.now()-flashExplanationShownAt<300)return;
+    clearFlashAdvance();
+    next();
+  });
 }
 
 
