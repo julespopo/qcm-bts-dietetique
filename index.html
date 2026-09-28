@@ -919,6 +919,32 @@ body.quiz-active.flashcard-mode #quitBtn{
     font-size:clamp(.98rem,4.15vw,1.34rem);
     line-height:1.24;
   }
+  body.quiz-active.flashcard-mode .flash-card.dense-content{
+    padding-top:14px;
+    padding-bottom:14px;
+  }
+  body.quiz-active.flashcard-mode .flash-card.dense-content .flash-question{
+    font-size:clamp(.88rem,3.5vw,1.08rem);
+    line-height:1.2;
+  }
+  body.quiz-active.flashcard-mode .flash-card.dense-content .flash-divider{margin:10px 0}
+  body.quiz-active.flashcard-mode .flash-card.dense-content .flash-statement{
+    font-size:clamp(1.02rem,4.35vw,1.42rem);
+    line-height:1.18;
+  }
+  body.quiz-active.flashcard-mode .flash-card.very-dense-content{
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+  body.quiz-active.flashcard-mode .flash-card.very-dense-content .flash-question{
+    font-size:clamp(.8rem,3.1vw,.98rem);
+    line-height:1.16;
+  }
+  body.quiz-active.flashcard-mode .flash-card.very-dense-content .flash-divider{margin:7px 0}
+  body.quiz-active.flashcard-mode .flash-card.very-dense-content .flash-statement{
+    font-size:clamp(.9rem,3.75vw,1.2rem);
+    line-height:1.14;
+  }
   body.quiz-active.flashcard-mode .flash-controls{
     width:100%;
     max-width:none;
@@ -2404,11 +2430,15 @@ function animateFlashCardIn(){const card=$("flashCard");if(!card)return;card.cla
 function renderFlashcardQuestion(q,resumeTimer=false){
   clearFlashAdvance();
   $("qText").classList.add("hidden");$("normalAnswerArea").classList.add("hidden");$("flashArea").classList.remove("hidden");$("validateBtn").classList.add("hidden");$("nextBtn").classList.add("hidden");
-  const proposal=flashProposalText(q),proposalEl=$("flashStatement");
-  $("flashQuestion").textContent=q.prompt||"";
+  const proposal=flashProposalText(q),proposalEl=$("flashStatement"),card=$("flashCard");
+  const prompt=String(q.prompt||"");
+  $("flashQuestion").textContent=prompt;
   proposalEl.textContent=proposal;
   proposalEl.classList.toggle("medium",proposal.length>95);
   proposalEl.classList.toggle("long",proposal.length>155);
+  const combinedLength=prompt.length+proposal.length;
+  card.classList.toggle("dense-content",combinedLength>210&&combinedLength<=310);
+  card.classList.toggle("very-dense-content",combinedLength>310);
   $("flashFalseBtn").disabled=false;$("flashTrueBtn").disabled=false;
   resetFlashCardVisual();animateFlashCardIn();
   startQuestionTimer(resumeTimer);saveProgress();focusQuestionTop();
