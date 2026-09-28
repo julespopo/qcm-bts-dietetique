@@ -278,6 +278,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: préférence d'explications Vrai/Faux non sauvegardée")
     if 'FLASH_EXPLANATION_DELAY_MS=5000' not in source:
         err(f"{rel}: délai d'explication Vrai/Faux attendu à 5 secondes")
+    if 'class="flash-explanation-stopwatch"' not in static_html or '<circle id="flashExplanationCountdownFill"' not in static_html:
+        err(f"{rel}: chronomètre circulaire d'explication Vrai/Faux absent")
     if 'showFlashcardSuccessExplanation(q)' not in source:
         err(f"{rel}: explication intégrée à la carte après bonne réponse absente")
     if '.flash-card.explanation-visible>#flashQuestion' not in source or '.flash-card.explanation-visible>#flashStatement' not in source:
