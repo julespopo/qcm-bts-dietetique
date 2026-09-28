@@ -770,10 +770,19 @@ body.flashcard-mode .qcm-only-option{display:none!important}
 .flash-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(100%,520px);margin:0 auto}
 .flash-btn{min-height:54px;border:1px solid var(--line);background:var(--tile);color:var(--text);font-size:1rem}.flash-btn.false:hover{border-color:var(--bad);color:var(--bad)}.flash-btn.true:hover{border-color:var(--ok);color:var(--ok)}.flash-btn:disabled{opacity:.42}
 .flash-hint{text-align:center;margin:10px 0 0;font-size:.84rem;color:var(--muted)}.flash-answer-key{margin-top:7px;font-weight:750}
-.flash-card.explanation-visible{justify-content:flex-start;overflow:auto;cursor:default}
+.flash-card.explanation-visible{justify-content:center;overflow:hidden;cursor:default}
+.flash-card.explanation-visible>.flash-question-label,
+.flash-card.explanation-visible>#flashQuestion,
+.flash-card.explanation-visible>.flash-divider,
+.flash-card.explanation-visible>.flash-answer-label,
+.flash-card.explanation-visible>#flashStatement{display:none}
 .flash-card-explanation{
   width:100%;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
   text-align:left;animation:flash-explanation-in .24s ease both
+}
+.flash-card.explanation-visible .flash-card-explanation{
+  margin-top:0;padding-top:0;border-top:0;max-height:100%;overflow:auto;
+  overscroll-behavior:contain
 }
 .flash-card-explanation-title{display:flex;align-items:center;gap:7px;color:var(--ok);font-size:.82rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
 .flash-card-explanation-text{margin-top:7px;font-size:.94rem;line-height:1.45;color:var(--text)}
