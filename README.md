@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.8.0
+# QCM BTS Diététique — V7.8.2
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -92,7 +92,7 @@ Cela évite d'avoir à faire défiler la page entre les matières et les chapitr
 
 L'interface de réglages ne repose plus sur une fenêtre ou un panneau.
 
-À l'état neutre, un seul bouton flottant `☰` est visible.
+À l'état neutre, un seul bouton flottant `⚙` est visible.
 
 Lorsqu'on le touche ou qu'on clique dessus, il se déploie en deux boutons flottants indépendants :
 
@@ -350,7 +350,7 @@ Chaque banque contient notamment :
     {
       "id": "exemple_001",
       "type": "single",
-      "difficulty": "moyen",
+      "difficulty": 2,
       "prompt": "Question...",
       "choices": [
         {
@@ -374,6 +374,8 @@ Types actuellement utilisés :
 single   → une seule bonne réponse
 multiple → plusieurs bonnes réponses
 ```
+
+La difficulté est numérique : `1` = facile, `2` = intermédiaire, `3` = difficile.
 
 ---
 
@@ -400,7 +402,27 @@ multiple → plusieurs bonnes réponses
 
 ---
 
+
+### Contrôles automatiques
+
+Le dépôt contient deux niveaux de tests :
+
+- `python3 tests/check_project.py` vérifie banques, manifest, logique QCM/Vrai-Faux, ressources, accessibilité structurelle et syntaxe JavaScript ;
+- `tests/browser_smoke.py` est exécuté dans GitHub Actions avec Chrome/Selenium pour tester de vrais parcours desktop et mobile.
+
+Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur les pull requests et sur `main`.
+
 # Changelog
+
+## V7.8.2
+
+- Renforcement de l’accessibilité du menu flottant (`inert`, focus et `aria-expanded`).
+- Ajout d’une favicon explicite.
+- Correction du chemin d’erreur lorsque le manifest ne peut pas être chargé.
+- Ajout de tests automatisés de structure, banques, manifest, logique QCM, Vrai/Faux et syntaxe JavaScript.
+- Ajout d’un workflow GitHub Actions de contrôle qualité sur les PR et sur `main`.
+- Nettoyage des fichiers système macOS suivis par erreur.
+
 
 ## V7.8.0
 
@@ -410,7 +432,7 @@ multiple → plusieurs bonnes réponses
 - Chaque flashcard affiche simultanément une **question** et une **réponse proposée**.
 - Le mode Vrai/Faux utilise uniquement les **questions à réponse unique**, afin que la réponse proposée puisse être jugée sans ambiguïté ; les QCM à réponses multiples restent disponibles en mode QCM classique.
 - L’utilisateur juge uniquement la véracité de cette réponse : **gauche = Faux**, **droite = Vrai**.
-- Pour les questions à réponses multiples, une carte vraie contient l’ensemble des bonnes réponses ; une carte fausse contient un ensemble volontairement altéré.
+- Les questions à réponses multiples restent réservées au mode QCM classique ; le mode Vrai/Faux utilise uniquement les questions à réponse unique.
 - Boutons **Faux / Vrai** et raccourcis clavier gauche / droite disponibles.
 - Grand ✓ / ✕, animation d’impact et arrivée glissée de la carte suivante conservés.
 - En révision des erreurs, l’explication est affichée avant de passer à l’erreur suivante.

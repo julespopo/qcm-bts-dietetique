@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes">
 <meta name="theme-color" content="#4f46e5">
 <title>QCM BTS Diététique — Local</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
 :root{
   --bg:#f4f6fa;--card:#fff;--pane:#fbfcff;--tile:#fff;--text:#1d2430;--muted:#6b7280;--line:#dfe3eb;--hover-line:#bcc5d5;
@@ -80,6 +81,7 @@ html[data-theme="dark"] .subject-card.active::after{
   box-shadow:0 0 12px rgba(173,166,255,.88);
 }
 
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 *{box-sizing:border-box}
 html,body{touch-action:manipulation}
 button,.subject-card,.chapter-card,.choice,.mobile-sheet,.card{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
@@ -420,6 +422,70 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
   width:50px;height:50px;padding:0;border-radius:50%;
   font-size:1.32rem
 }
+.theme-orbit-btn{overflow:hidden;position:fixed}
+.theme-orbit{
+  position:relative;width:30px;height:30px;display:block;overflow:hidden;border-radius:50%;
+}
+.theme-celestial{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-size:1.34rem;line-height:1;
+  transition:
+    transform .46s cubic-bezier(.22,.78,.26,1),
+    opacity .36s ease,
+    filter .36s ease;
+  will-change:transform,opacity
+}
+.theme-sun{
+  color:#f1a62d;
+  opacity:1;transform:translateY(0) rotate(0deg) scale(1);
+  filter:drop-shadow(0 0 7px rgba(241,166,45,.30))
+}
+.theme-moon{
+  color:#aaa4ff;
+  opacity:0;transform:translateY(18px) rotate(-16deg) scale(.78);
+  filter:drop-shadow(0 0 7px rgba(139,130,255,.25))
+}
+.theme-orbit-btn.is-dark .theme-sun{
+  opacity:0;transform:translateY(18px) rotate(18deg) scale(.78)
+}
+.theme-orbit-btn.is-dark .theme-moon{
+  opacity:1;transform:translateY(0) rotate(0deg) scale(1)
+}
+.theme-orbit-btn.theme-animating{
+  box-shadow:0 0 0 3px var(--bg),0 0 22px rgba(var(--accent-rgb),.22),0 8px 24px rgba(0,0,0,.20)
+}
+html.theme-switching body,
+html.theme-switching .card,
+html.theme-switching .subject-card,
+html.theme-switching .chapter-card,
+html.theme-switching .difficulty-btn,
+html.theme-switching .choice,
+html.theme-switching .floating-action-btn,
+html.theme-switching .timer-preset-floating,
+html.theme-switching .mobile-sheet,
+html.theme-switching .quiz-actions,
+html.theme-switching button{
+  transition:
+    background-color .42s ease,
+    color .42s ease,
+    border-color .42s ease,
+    box-shadow .42s ease !important
+}
+@media(prefers-reduced-motion:reduce){
+  .theme-celestial{transition:none!important}
+  html.theme-switching body,
+  html.theme-switching .card,
+  html.theme-switching .subject-card,
+  html.theme-switching .chapter-card,
+  html.theme-switching .difficulty-btn,
+  html.theme-switching .choice,
+  html.theme-switching .floating-action-btn,
+  html.theme-switching .timer-preset-floating,
+  html.theme-switching .mobile-sheet,
+  html.theme-switching .quiz-actions,
+  html.theme-switching button{transition:none!important}
+}
+
 .floating-action-btn:hover,
 .timer-preset-floating:hover{
   border-color:rgba(var(--accent-rgb),.55);
@@ -479,12 +545,12 @@ footer{margin-top:18px;color:var(--muted);font-size:.88rem;text-align:center}
 .mobile-sheet-title{font-size:1.08rem;font-weight:830;margin:0}
 .mobile-sheet-meta{font-size:.84rem;color:var(--muted);margin-top:3px}
 .mobile-sheet-close{
-  width:38px;height:38px;padding:0;display:grid;place-items:center;border-radius:50%;
+  width:44px;height:44px;padding:0;display:grid;place-items:center;border-radius:50%;
   background:var(--button-soft);color:var(--text);font-size:1.15rem;border:1px solid var(--line)
 }
 .mobile-sheet-body{overflow:auto;-webkit-overflow-scrolling:touch;padding:12px 16px 18px}
 .mobile-sheet-actions{display:flex;gap:8px;margin-bottom:11px}
-.mobile-sheet-actions .tiny-btn{width:100%}
+.mobile-sheet-actions .tiny-btn{width:100%;min-height:44px}
 .mobile-sheet-list{display:grid;grid-template-columns:1fr;gap:9px}
 body.sheet-open{overflow:hidden}
 
@@ -534,7 +600,7 @@ body.sheet-open{overflow:hidden}
     margin-top:5px;
   }
   body.quiz-active .choice{
-    min-height:0;
+    min-height:46px;
     padding:9px 10px;
     font-size:.94rem;
     line-height:1.24;
@@ -560,6 +626,7 @@ body.sheet-open{overflow:hidden}
   }
   body.quiz-active .quiz-actions button{
     min-width:0;
+    min-height:44px;
     padding:9px 5px;
     font-size:.80rem;
     line-height:1.1;
@@ -826,21 +893,79 @@ body.quiz-active.flashcard-mode #quitBtn{
 }
 
 
+
+@media(max-height:560px){
+  body.quiz-active.flashcard-mode main{padding:4px}
+  body.quiz-active.flashcard-mode #quiz{
+    height:calc(100dvh - 8px);
+    max-height:calc(100dvh - 8px);
+    padding:7px 9px max(6px,env(safe-area-inset-bottom));
+    display:grid;
+    grid-template-rows:auto auto minmax(0,1fr) auto;
+    overflow:hidden;
+  }
+  body.quiz-active.flashcard-mode #quiz .meta{min-height:22px;font-size:.76rem}
+  body.quiz-active.flashcard-mode #quiz .progress{height:4px;margin:4px 0 5px}
+  body.quiz-active.flashcard-mode #flashArea{
+    display:flex!important;flex-direction:column;min-height:0;height:100%;
+  }
+  body.quiz-active.flashcard-mode .swipe-stage{
+    width:min(100%,680px);height:auto;min-height:145px;flex:1 1 auto;margin:2px auto 5px;
+  }
+  body.quiz-active.flashcard-mode .flash-card{padding:12px 16px;border-radius:18px}
+  body.quiz-active.flashcard-mode .flash-question-label,
+  body.quiz-active.flashcard-mode .flash-answer-label{font-size:.62rem}
+  body.quiz-active.flashcard-mode .flash-question{
+    margin-top:3px;font-size:clamp(.84rem,2.6vw,1rem);line-height:1.2;
+  }
+  body.quiz-active.flashcard-mode .flash-divider{margin:7px 0}
+  body.quiz-active.flashcard-mode .flash-statement,
+  body.quiz-active.flashcard-mode .flash-statement.medium,
+  body.quiz-active.flashcard-mode .flash-statement.long{
+    margin-top:3px;font-size:clamp(.94rem,3.5vw,1.18rem);line-height:1.2;
+  }
+  body.quiz-active.flashcard-mode .flash-controls{width:100%;max-width:none;gap:7px;margin:0}
+  body.quiz-active.flashcard-mode .flash-btn{min-height:46px;padding:7px;font-size:.94rem;border-radius:13px}
+  body.quiz-active.flashcard-mode .flash-hint{display:none}
+  body.quiz-active.flashcard-mode .quiz-actions{
+    position:static;display:grid;grid-template-columns:1fr 1fr;gap:6px;
+    width:100%;margin:4px 0 0;padding:5px;border-radius:11px;
+  }
+  body.quiz-active.flashcard-mode #pauseBtn,
+  body.quiz-active.flashcard-mode #quitBtn{min-height:40px;padding:6px;font-size:.82rem}
+  body.quiz-active.flashcard-mode #validateBtn,
+  body.quiz-active.flashcard-mode #nextBtn{display:none!important}
+}
+
+
+/* En revue des erreurs Vrai/Faux, la correction est manuelle : le bouton Suivant doit rester accessible. */
+@media(max-width:760px), (max-height:560px){
+  body.quiz-active.flashcard-mode.reviewing-errors #nextBtn{
+    display:block!important;
+    grid-column:1 / -1;
+    min-height:50px;
+    font-size:.92rem;
+  }
+}
+
 </style>
 </head>
 <body>
-<button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir le menu" title="Menu">⚙</button>
+<button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir le menu" title="Menu" aria-expanded="false" aria-controls="floatingActions">⚙</button>
 
-<div id="floatingActions" class="floating-actions" aria-hidden="true">
-  <button id="themeMenuBtn" class="floating-action-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
-    <span id="themeMenuIcon">☾</span>
+<div id="floatingActions" class="floating-actions" aria-hidden="true" inert>
+  <button id="themeMenuBtn" class="floating-action-btn theme-orbit-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
+    <span class="theme-orbit" aria-hidden="true">
+      <span id="themeSun" class="theme-celestial theme-sun">☀</span>
+      <span id="themeMoon" class="theme-celestial theme-moon">☾</span>
+    </span>
   </button>
 
   <button id="timerToggleBtn" class="floating-action-btn" type="button" aria-label="Activer le minuteur" title="Timer" aria-pressed="false">
     ⏱
   </button>
 
-  <div id="timerPresets" class="timer-presets-floating" aria-hidden="true">
+  <div id="timerPresets" class="timer-presets-floating" aria-hidden="true" inert>
     <button class="timer-preset-floating" type="button" data-seconds="15">15</button>
     <button class="timer-preset-floating" type="button" data-seconds="30">30</button>
     <button class="timer-preset-floating" type="button" data-seconds="45">45</button>
@@ -964,7 +1089,7 @@ body.quiz-active.flashcard-mode #quitBtn{
 </section>
 
 
-<div id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true">
+<div id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true" inert>
   <section class="mobile-sheet" role="dialog" aria-modal="true" aria-labelledby="mobileSheetTitle">
     <div class="mobile-sheet-handle"></div>
     <div class="mobile-sheet-header">
@@ -988,7 +1113,7 @@ body.quiz-active.flashcard-mode #quitBtn{
     <span id="counter"></span>
     <span class="live-stats"><span id="scoreLive"></span><span id="remainingLive"></span><span id="timerLive" class="timer-live hidden"></span></span>
   </div>
-  <div class="progress"><div id="progressBar"></div></div>
+  <div class="progress" role="progressbar" aria-label="Progression du questionnaire" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progressBar"></div></div>
   <div id="qMeta" class="muted"></div>
   <div id="qText" class="question"></div>
   <div id="normalAnswerArea">
@@ -1008,13 +1133,14 @@ body.quiz-active.flashcard-mode #quitBtn{
       </article>
       <div id="flashResultIcon" class="flash-result-icon" aria-hidden="true"></div>
     </div>
+    <div id="flashLiveResult" class="sr-only" role="status" aria-live="polite"></div>
     <div id="flashSelfControls" class="flash-controls">
       <button id="flashFalseBtn" class="flash-btn false" type="button">← Faux</button>
       <button id="flashTrueBtn" class="flash-btn true" type="button">Vrai →</button>
     </div>
     <p id="flashHint" class="flash-hint">Glisse à gauche pour Faux • à droite pour Vrai</p>
   </div>
-  <div id="feedback" class="feedback hidden"></div>
+  <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
   <div class="row quiz-actions">
     <button id="validateBtn" class="primary" type="button">Valider</button>
     <button id="nextBtn" class="secondary hidden" type="button">Question suivante</button>
@@ -1051,7 +1177,7 @@ body.quiz-active.flashcard-mode #quitBtn{
   </div>
 </section>
 
-<footer>Index V7.8.1</footer>
+<footer>Index V7.8.2</footer>
 </main>
 
 <script>
@@ -1067,15 +1193,32 @@ const systemThemeQuery=window.matchMedia?window.matchMedia("(prefers-color-schem
 let themeDragged=false;
 let themeDockedSide=null;
 
-function applyTheme(theme){
+function applyTheme(theme,{animate=false}={}){
   const dark=theme==="dark";
-  document.documentElement.dataset.theme=dark?"dark":"light";
-  const icon=$("themeMenuIcon");
-  if(icon)icon.textContent=dark?"☀":"☾";
+  const root=document.documentElement;
   const themeBtn=$("themeMenuBtn");
-  if(themeBtn){themeBtn.setAttribute("aria-label",dark?"Activer le mode jour":"Activer le mode nuit");themeBtn.title=dark?"Mode jour":"Mode nuit";}
+
+  if(animate){
+    root.classList.add("theme-switching");
+    themeBtn?.classList.add("theme-animating");
+  }
+
+  root.dataset.theme=dark?"dark":"light";
+  if(themeBtn){
+    themeBtn.classList.toggle("is-dark",dark);
+    themeBtn.setAttribute("aria-label",dark?"Activer le mode jour":"Activer le mode nuit");
+    themeBtn.title=dark?"Mode jour":"Mode nuit";
+  }
+
   const meta=document.querySelector('meta[name="theme-color"]');
   if(meta)meta.setAttribute("content",dark?"#0f1319":"#4f46e5");
+
+  if(animate){
+    window.setTimeout(()=>{
+      root.classList.remove("theme-switching");
+      themeBtn?.classList.remove("theme-animating");
+    },520);
+  }
 }
 function storedTheme(){
   try{return localStorage.getItem(THEME_KEY);}catch{return null;}
@@ -1094,7 +1237,7 @@ function initTheme(){
 function toggleTheme(){
   const next=document.documentElement.dataset.theme==="dark"?"light":"dark";
   try{localStorage.setItem(THEME_KEY,next);}catch{}
-  applyTheme(next);
+  applyTheme(next,{animate:true});
 }
 
 let floatingMenuOpen=false;
@@ -1170,17 +1313,28 @@ function layoutFloatingActions(){
 
 function openFloatingMenu(){
   floatingMenuOpen=true;
-  $("floatingActions").classList.add("open");
-  $("floatingActions").setAttribute("aria-hidden","false");
+  const actions=$("floatingActions"),toggle=$("themeToggle");
+  actions.inert=false;
+  actions.classList.add("open");
+  actions.setAttribute("aria-hidden","false");
+  toggle?.setAttribute("aria-expanded","true");
   layoutFloatingActions();
 }
 
-function closeFloatingMenu(){
+function closeFloatingMenu({restoreFocus=true}={}){
   floatingMenuOpen=false;
-  $("floatingActions").classList.remove("open");
-  $("floatingActions").setAttribute("aria-hidden","true");
-  $("timerPresets").classList.remove("open");
-  $("timerPresets").setAttribute("aria-hidden","true");
+  const actions=$("floatingActions"),presets=$("timerPresets"),toggle=$("themeToggle");
+  if(actions?.contains(document.activeElement)){
+    if(restoreFocus)toggle?.focus({preventScroll:true});
+    else if(document.activeElement instanceof HTMLElement)document.activeElement.blur();
+  }
+  actions?.classList.remove("open");
+  actions?.setAttribute("aria-hidden","true");
+  if(actions)actions.inert=true;
+  presets?.classList.remove("open");
+  presets?.setAttribute("aria-hidden","true");
+  if(presets)presets.inert=true;
+  toggle?.setAttribute("aria-expanded","false");
 }
 
 function toggleFloatingMenu(){
@@ -1193,6 +1347,7 @@ function syncTimerPresetVisibility(){
   const show=floatingMenuOpen&&state.timerEnabled;
   presets.classList.toggle("open",show);
   presets.setAttribute("aria-hidden",show?"false":"true");
+  presets.inert=!show;
   if(show)layoutFloatingActions();
 }
 function normalizeTimerDurationMs(ms){
@@ -1543,7 +1698,6 @@ function syncModeUI(){
 }
 function setStudyMode(mode){state.mode=mode==="flashcard"?"flashcard":"qcm";syncModeUI();updateAvailable();}
 
-async function loadManifest(){ return; }
 async function loadBank(file){
   if(cache.has(file)) return cache.get(file);
   throw new Error("Banque non chargée : "+file);
@@ -1570,7 +1724,7 @@ async function loadFolder(files){
     }catch(e){errors.push(file.name+" : "+e.message);}
   }
   state.manifest={banks};state.selectedBankIds=new Set();state.activeSubject=subjects()[0]||null;
-  if(banks.length){renderSelectionUI();$("setup").classList.remove("hidden");$("heroText").textContent=`${banks.reduce((s,b)=>s+b.count,0)} questions disponibles • ${subjects().length} matières • version locale`;$("loadStatus").innerHTML=`<span class="ok">${banks.length} banque(s) chargée(s)</span>${ignored?` • ${ignored} JSON ignoré(s)`:""}`;}
+  if(banks.length){renderSelectionUI();$("setup").classList.remove("hidden");const heroText=$("heroText");if(heroText)heroText.textContent=`${banks.reduce((s,b)=>s+b.count,0)} questions disponibles • ${subjects().length} matières • version locale`;$("loadStatus").innerHTML=`<span class="ok">${banks.length} banque(s) chargée(s)</span>${ignored?` • ${ignored} JSON ignoré(s)`:""}`;}
   else{$("setup").classList.add("hidden");$("loadStatus").innerHTML='<span class="bad">Aucune banque valide trouvée.</span>';}
   if(errors.length)$("loadStatus").innerHTML+=`<br><span class="bad">${errors.map(esc).join("<br>")}</span>`;
 }
@@ -1615,20 +1769,36 @@ function renderMobileSheet(){
     renderMobileSheet();
   }));
 }
+let mobileSheetReturnSubject=null;
 function openMobileSheet(subject){
   state.activeSubject=subject;
+  mobileSheetReturnSubject=subject;
+  closeFloatingMenu({restoreFocus:false});
   renderSelectionUI();
   renderMobileSheet();
-  const overlay=$("mobileSheetOverlay");
+  const overlay=$("mobileSheetOverlay"),gear=$("themeToggle");
+  document.querySelectorAll("main > :not(#mobileSheetOverlay)").forEach(el=>{el.inert=true;});
+  if(gear)gear.inert=true;
+  overlay.inert=false;
   overlay.classList.add("open");
   overlay.setAttribute("aria-hidden","false");
   document.body.classList.add("sheet-open");
+  const closeBtn=$("mobileSheetClose");
+  closeBtn?.focus({preventScroll:true});
+  requestAnimationFrame(()=>{if(document.activeElement!==closeBtn)closeBtn?.focus({preventScroll:true});});
 }
 function closeMobileSheet(){
-  const overlay=$("mobileSheetOverlay");
+  const overlay=$("mobileSheetOverlay"),gear=$("themeToggle");
+  if(overlay.contains(document.activeElement)&&document.activeElement instanceof HTMLElement)document.activeElement.blur();
   overlay.classList.remove("open");
   overlay.setAttribute("aria-hidden","true");
+  overlay.inert=true;
+  document.querySelectorAll("main > :not(#mobileSheetOverlay)").forEach(el=>{el.inert=false;});
+  if(gear)gear.inert=false;
   document.body.classList.remove("sheet-open");
+  const returnTarget=[...document.querySelectorAll(".subject-card")].find(btn=>btn.dataset.subject===mobileSheetReturnSubject);
+  if(returnTarget)returnTarget.focus({preventScroll:true});
+  mobileSheetReturnSubject=null;
 }
 
 function renderSubjects(){
@@ -1768,16 +1938,6 @@ function renderSelectionUI(){
   if($("mobileSheetOverlay")?.classList.contains("open"))renderMobileSheet();
 }
 
-function sampleUniqueInts(total,n){
-  n=Math.min(n,total);const chosen=new Set();
-  for(let j=total-n;j<total;j++){const t=Math.floor(Math.random()*(j+1));chosen.add(chosen.has(t)?j:t);}
-  return shuffle([...chosen]);
-}
-function mapGlobalSlotsToBanks(banks,slots){
-  const plan=new Map();let offset=0;
-  for(const b of banks){const start=offset,end=offset+b.count,local=[];for(const s of slots)if(s>=start&&s<end)local.push(s-start);if(local.length)plan.set(b.file,{bank:b,indexes:local});offset=end;}
-  return plan;
-}
 function buildFlashcard(q,wantTrue){
   const correct=(q.choices||[]).filter(c=>c.correct);
   const incorrect=(q.choices||[]).filter(c=>!c.correct);
@@ -1819,27 +1979,6 @@ async function createSessionFromSelection(){
   for(const bank of banks){const data=await loadBank(bank.file);for(const q of data.questions){if(!questionMatchesDifficulty(q))continue;if(state.mode==="flashcard"&&!isFlashcardEligible(q))continue;pool.push({...q,bankTitle:bank.title,subject:bank.subject||data.subject||"",chapter:bank.chapter||data.chapter||"",bankFile:bank.file});}}
   if(!pool.length)throw new Error("Aucune question ne correspond à la difficulté sélectionnée.");const wanted=Math.max(1,Math.min(parseInt($("count").value,10)||20,pool.length));const selected=shuffle(pool).slice(0,wanted);return state.mode==="flashcard"?makeFlashcardSession(selected):selected;
 }
-function questionRef(q){
-  const ref={file:q.bankFile,id:q.id};
-  if(Array.isArray(q.flashProposal)){ref.flashProposal=q.flashProposal;ref.flashTruth=!!q.flashTruth;}
-  return ref;
-}
-function refsFromSession(){return state.session.map(questionRef);}
-async function rebuildSessionFromRefs(refs){
-  const files=[...new Set(refs.map(r=>r.file))],lookups=new Map();
-  for(const file of files){
-    const data=await loadBank(file),meta=state.manifest.banks.find(b=>b.file===file)||{},m=new Map();
-    data.questions.forEach(q=>m.set(q.id,{...q,bankTitle:meta.title||data.title||file,subject:meta.subject||data.subject||"",chapter:meta.chapter||data.chapter||"",bankFile:file}));
-    lookups.set(file,m);
-  }
-  return refs.map(r=>{
-    const q=lookups.get(r.file)?.get(r.id);if(!q)return null;
-    if(state.mode!=="flashcard")return q;
-    if(Array.isArray(r.flashProposal)&&r.flashProposal.length)return {...q,flashProposal:r.flashProposal,flashTruth:!!r.flashTruth};
-    return buildFlashcard(q,Math.random()>=.5);
-  }).filter(Boolean);
-}
-
 function formatTimer(ms){
   const total=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(total/60),s=total%60;
   return m>0?`${m}:${String(s).padStart(2,"0")}`:`${s}s`;
@@ -1913,12 +2052,14 @@ function pauseTimer(){
 
 function getSaved(){try{const s=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");return s&&Array.isArray(s.session)&&s.session.length?s:null;}catch{return null;}}
 function saveProgress(){
-  if(!state.session.length)return;
+  if(!state.session.length)return true;
   const resumeIndex=state.answered?state.index+1:state.index;
-  localStorage.setItem(SAVE_KEY,JSON.stringify({savedAt:new Date().toISOString(),mode:state.mode,session:state.session,index:resumeIndex,score:state.score,errors:state.errors,shuffleAnswers:$("shuffleAnswers").checked,instantCorrection:$("instantCorrection").checked,reviewingErrors:state.reviewingErrors,timerEnabled:state.timerEnabled,timerDurationMs:state.timerDurationMs,timerRemainingMs:currentRemainingMs()}));
-  refreshResumeCard();
+  const payload={savedAt:new Date().toISOString(),mode:state.mode,session:state.session,index:resumeIndex,score:state.score,errors:state.errors,shuffleAnswers:$("shuffleAnswers").checked,instantCorrection:$("instantCorrection").checked,reviewingErrors:state.reviewingErrors,timerEnabled:state.timerEnabled,timerDurationMs:state.timerDurationMs,timerRemainingMs:currentRemainingMs()};
+  try{localStorage.setItem(SAVE_KEY,JSON.stringify(payload));}
+  catch(e){console.warn("Sauvegarde locale indisponible.",e);return false;}
+  refreshResumeCard();return true;
 }
-function clearProgress(){localStorage.removeItem(SAVE_KEY);refreshResumeCard();}
+function clearProgress(){try{localStorage.removeItem(SAVE_KEY);}catch(e){console.warn("Suppression de la sauvegarde locale impossible.",e);}refreshResumeCard();}
 function refreshResumeCard(){
   const s=getSaved();if(!s){$("resumeCard").classList.add("hidden");return;}
   $("resumeCard").classList.remove("hidden");const pos=Math.min((s.index||0)+1,s.session.length);
@@ -1983,10 +2124,15 @@ function renderLiveQuizStats(){
   $("counter").textContent=total?"Question "+current+" / "+total:"";
   $("scoreLive").textContent=answered>0?"Score : "+state.score+" / "+answered:"Score : "+state.score;
   $("remainingLive").textContent=remaining+" restante"+(remaining>1?"s":"");
-  if($("progressBar")&&total)$("progressBar").style.width=((answered/total)*100)+"%";
+  const progress=$("progressBar"),progressRoot=progress?.parentElement;
+  if(progress&&total){
+    const pct=(answered/total)*100;
+    progress.style.width=pct+"%";
+    progressRoot?.setAttribute("aria-valuenow",String(Math.round(pct)));
+  }
 }
 function renderQuestion(resumeTimer=false){
-  const q=state.session[state.index];if(!q){finish();return;}state.answered=false;renderLiveQuizStats();$("progressBar").style.width=((state.index/state.session.length)*100)+"%";
+  const q=state.session[state.index];if(!q){finish();return;}state.answered=false;document.body.classList.toggle("reviewing-errors",state.reviewingErrors);renderLiveQuizStats();
   $("qMeta").textContent=[q.subject,difficultyLabel(q.difficulty)].filter(Boolean).join(" • ");$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("nextBtn").classList.add("hidden");
   if(state.mode==="flashcard"){renderFlashcardQuestion(q,resumeTimer);return;}
   $("qText").classList.remove("hidden");$("normalAnswerArea").classList.remove("hidden");$("flashArea").classList.add("hidden");$("qText").textContent=q.prompt;$("validateBtn").classList.remove("hidden");
@@ -2003,13 +2149,22 @@ function focusAnswerByOffset(delta){
   i=i<0?0:(i+delta+inputs.length)%inputs.length;
   inputs[i].focus();
 }
-function handleQuizKeyboard(e){if($("quiz").classList.contains("hidden"))return;
+function quizShortcutAllowed(e){
+  const target=e.target;
+  if(!(target instanceof Element))return true;
+  if(target.matches('input[name="ans"]'))return true;
+  if(target.closest("#flashCard"))return true;
+  return !target.closest('button,a[href],input,select,textarea,[contenteditable="true"]');
+}
+function handleQuizKeyboard(e){
+  if($("quiz").classList.contains("hidden")||!quizShortcutAllowed(e))return;
   if(state.mode==="flashcard"){
     if(!state.answered&&(e.key==="ArrowLeft"||e.key==="ArrowRight")){e.preventDefault();answerFlashcard(e.key==="ArrowRight");return;}
     if(e.key==="Enter"&&state.answered&&!$("nextBtn").classList.contains("hidden")){e.preventDefault();next();}
     return;
   }
-  if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();focusAnswerByOffset(1);return;}if(e.key==="ArrowUp"||e.key==="ArrowLeft"){e.preventDefault();focusAnswerByOffset(-1);return;}
+  if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();focusAnswerByOffset(1);return;}
+  if(e.key==="ArrowUp"||e.key==="ArrowLeft"){e.preventDefault();focusAnswerByOffset(-1);return;}
   if(e.code==="Space"||e.key===" "){const focused=answerInputs().find(i=>i===document.activeElement);if(focused&&!focused.disabled){e.preventDefault();if(focused.type==="radio")focused.checked=true;else focused.checked=!focused.checked;focused.dispatchEvent(new Event("change",{bubbles:true}));}return;}
   if(e.key==="Enter"){e.preventDefault();if(!state.answered)validate();else if(!$("nextBtn").classList.contains("hidden"))next();}
 }
@@ -2126,6 +2281,7 @@ function answerFlashcard(userTruth,timedOut=false,throwMeta=null){
   const result=$("flashResultIcon"),stage=$("swipeStage");
   if(stage){stage.classList.remove("impact-success","impact-failure");void stage.offsetWidth;stage.classList.add(ok?"impact-success":"impact-failure");}
   if(result){result.textContent=ok?"✓":"✕";result.className="flash-result-icon "+(ok?"success":"failure");void result.offsetWidth;result.classList.add("show");}
+  const flashLive=$("flashLiveResult");if(flashLive){flashLive.textContent="";requestAnimationFrame(()=>{flashLive.textContent=realTimeout?"Temps écoulé.":ok?"Bonne réponse.":"Réponse incorrecte.";});}
   renderLiveQuizStats();$("validateBtn").classList.add("hidden");
   const expected=q.flashTruth?"Vraie":"Fausse";
   if(state.reviewingErrors){
@@ -2314,11 +2470,11 @@ function animateScoreDonut(percent){
   requestAnimationFrame(tick);
 }
 
-function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;exitQuizFocus();
+function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;document.body.classList.remove("reviewing-errors");exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
 }
 async function resumeSaved(){const s=getSaved();if(!s)return;state.mode=s.mode==="flashcard"?"flashcard":"qcm";syncModeUI();state.session=s.session;state.score=s.score||0;state.errors=s.errors||[];if((s.index||0)>=state.session.length){finish();return;}state.index=s.index||0;state.answered=false;state.reviewingErrors=!!s.reviewingErrors;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
-function pause(){clearFlashAdvance();pauseTimer();saveProgress();exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");refreshResumeCard();}
+function pause(){clearFlashAdvance();pauseTimer();if(saveProgress()===false){alert("Impossible de sauvegarder la progression sur cet appareil.");startQuestionTimer(true);return;}exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");refreshResumeCard();}
 async function init(){ refreshResumeCard(); }
 
 $("toggleAllChapters").addEventListener("click",()=>setAllActiveSubject(!subjectAllSelected(state.activeSubject)));
@@ -2332,14 +2488,16 @@ $("mobileSheetOverlay").addEventListener("click",e=>{
   if(e.target===$("mobileSheetOverlay"))closeMobileSheet();
 });
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"&&$("mobileSheetOverlay").classList.contains("open"))closeMobileSheet();
+  if(e.key!=="Escape")return;
+  if($("mobileSheetOverlay").classList.contains("open")){closeMobileSheet();return;}
+  if(floatingMenuOpen)closeFloatingMenu();
 });
 document.addEventListener("pointerdown",e=>{
   if(!floatingMenuOpen)return;
   const main=$("themeToggle");
   const actionRoot=$("floatingActions");
   if(main.contains(e.target)||actionRoot.contains(e.target))return;
-  closeFloatingMenu();
+  closeFloatingMenu({restoreFocus:false});
 });
 
 document.querySelectorAll(".difficulty-btn").forEach(btn=>btn.addEventListener("click",()=>setDifficulty(btn.dataset.difficulty)));

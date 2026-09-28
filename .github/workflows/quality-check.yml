@@ -1,0 +1,44 @@
+name: Vérifications qualité
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Régénérer le manifest pour le contrôle
+        run: python3 generer_manifest.py
+
+      - name: Tester la structure, les banques et le JavaScript
+        run: python3 tests/check_project.py
+
+      - name: Installer Selenium
+        run: python3 -m pip install --disable-pip-version-check selenium
+
+      - name: Tester les parcours navigateur
+        run: |
+          python3 -m http.server 8000 >/tmp/qcm-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID' EXIT
+          python3 tests/browser_smoke.py
