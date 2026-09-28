@@ -325,6 +325,10 @@ for html_path in HTML_FILES:
         err(f"{rel}: carte de reprise mobile non réalignée")
     if 'flashcard-mode.flash-explanations-on #nextBtn:not(.hidden)' not in source:
         err(f"{rel}: Question suivante peut être forcé visible avant une réponse")
+    if 'body.quiz-active.flashcard-mode .swipe-stage::before' not in source or 'display:none;' not in source:
+        err(f"{rel}: cartes fantômes mobile non masquées")
+    if 'margin:12px 0 0;' not in source:
+        err(f"{rel}: espacement entre Faux/Vrai et Pause/Abandonner insuffisant")
     if 'id="flashHint"' in static_html:
         err(f"{rel}: texte d'aide Vrai/Faux encore présent sous les boutons")
     if 'card.addEventListener("click",()=>{' not in source or 'performance.now()-flashExplanationShownAt<300' not in source:
