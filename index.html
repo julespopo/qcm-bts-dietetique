@@ -868,10 +868,10 @@ body.flash-pref-open{overflow:hidden}
 body.quiz-active.flashcard-mode #quiz{width:min(720px,100%)}body.quiz-active.flashcard-mode #qMeta{text-align:center}
 @media(max-width:760px){.study-mode-head{display:block}.study-mode-head p{margin-top:4px}.mode-btn{min-height:62px;padding:9px 11px}.swipe-stage{height:min(46dvh,320px)}.flash-card{padding:22px 17px;border-radius:21px}.flash-context{font-size:.89rem;margin-bottom:11px}.flash-statement{font-size:clamp(1.18rem,6vw,1.55rem)}.flash-stamp{top:18px;font-size:1rem}}
 @keyframes flash-card-enter-mobile{
-  0%{opacity:.58;transform:translate3d(0,18px,0) scale(.965);box-shadow:0 0 8px rgba(0,0,0,.04)}
-  58%{opacity:1;transform:translate3d(0,4px,0) scale(.989);box-shadow:0 0 10px rgba(0,0,0,.05)}
+  0%{opacity:.58;transform:translate3d(0,18px,0) scale(.965)}
+  58%{opacity:1;transform:translate3d(0,4px,0) scale(.989)}
   82%{transform:translate3d(0,-1px,0) scale(1.001)}
-  100%{opacity:1;transform:translate3d(0,0,0) scale(1);box-shadow:0 0 12px rgba(0,0,0,.055)}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1)}
 }
 @media(prefers-reduced-motion:reduce){.flash-card{transition:none!important}.swipe-stage::before,.swipe-stage::after{transition:none!important}}
 
@@ -937,6 +937,16 @@ body.quiz-active.flashcard-mode #quitBtn{
     padding:clamp(16px,3.2vh,28px) 11px;
     border-radius:24px;
     overflow:hidden;
+    box-shadow:none;
+    isolation:isolate;
+  }
+  body.quiz-active.flashcard-mode .flash-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    pointer-events:none;
+    z-index:-1;
     box-shadow:0 0 12px rgba(0,0,0,.055);
   }
   body.quiz-active.flashcard-mode .flash-card.entering{
