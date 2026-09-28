@@ -786,10 +786,15 @@ body.flashcard-mode .qcm-only-option{display:none!important}
 }
 .flash-card-explanation-title{display:flex;align-items:center;gap:7px;color:var(--ok);font-size:.82rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
 .flash-card-explanation-text{margin-top:7px;font-size:.94rem;line-height:1.45;color:var(--text)}
-.flash-explanation-countdown{display:flex;align-items:center;gap:9px;margin-top:13px;color:var(--muted);font-size:.78rem;font-weight:760}
-.flash-explanation-countdown strong{min-width:1.15em;color:var(--ok);font-size:.92rem;text-align:right}
-.flash-explanation-countdown-track{height:6px;flex:1;overflow:hidden;border-radius:999px;background:var(--button-soft)}
-.flash-explanation-countdown-fill{width:100%;height:100%;border-radius:inherit;background:var(--ok);transform:scaleX(1);transform-origin:left center}
+.flash-explanation-countdown{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;color:var(--muted);font-size:.78rem;font-weight:760}
+.flash-explanation-stopwatch{position:relative;width:48px;height:52px;flex:0 0 48px;display:grid;place-items:end center}
+.flash-explanation-stopwatch::before{content:"";position:absolute;top:0;left:50%;width:14px;height:7px;border:2px solid var(--ok);border-bottom:0;border-radius:4px 4px 0 0;transform:translateX(-50%)}
+.flash-explanation-stopwatch::after{content:"";position:absolute;top:7px;right:2px;width:8px;height:3px;border-radius:999px;background:var(--ok);transform:rotate(38deg);transform-origin:left center}
+.flash-explanation-stopwatch svg{width:44px;height:44px;display:block;overflow:visible}
+.flash-explanation-stopwatch-track,.flash-explanation-countdown-fill{fill:none;stroke-width:4}
+.flash-explanation-stopwatch-track{stroke:var(--button-soft)}
+.flash-explanation-countdown-fill{stroke:var(--ok);stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:22px 22px}
+.flash-explanation-stopwatch strong{position:absolute;left:50%;bottom:11px;transform:translateX(-50%);min-width:1.1em;color:var(--ok);font-size:.94rem;line-height:1;text-align:center}
 @keyframes flash-explanation-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.flash-card-explanation{animation:none}}
 .flash-pref-overlay{position:fixed;inset:0;z-index:1400;display:grid;place-items:center;padding:20px;background:rgba(8,11,18,.58);backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .18s ease}
@@ -1173,9 +1178,12 @@ body.quiz-active.flashcard-mode #quitBtn{
           <div id="flashCardExplanationText" class="flash-card-explanation-text"></div>
           <div class="flash-explanation-countdown" aria-label="Temps avant la prochaine carte">
             <span id="flashExplanationCountdownLabel">Prochaine carte dans</span>
-            <strong id="flashExplanationCountdown">5</strong><span>s</span>
-            <div class="flash-explanation-countdown-track" aria-hidden="true">
-              <div id="flashExplanationCountdownFill" class="flash-explanation-countdown-fill"></div>
+            <div class="flash-explanation-stopwatch" aria-hidden="true">
+              <svg viewBox="0 0 44 44">
+                <circle class="flash-explanation-stopwatch-track" cx="22" cy="22" r="18" pathLength="100"></circle>
+                <circle id="flashExplanationCountdownFill" class="flash-explanation-countdown-fill" cx="22" cy="22" r="18" pathLength="100"></circle>
+              </svg>
+              <strong id="flashExplanationCountdown">5</strong>
             </div>
           </div>
         </div>
@@ -2245,7 +2253,7 @@ function hideFlashcardSuccessExplanation(){
   const card=$("flashCard"),box=$("flashCardExplanation"),fill=$("flashExplanationCountdownFill");
   card?.classList.remove("explanation-visible");
   box?.classList.add("hidden");
-  if(fill){fill.style.transition="none";fill.style.transform="scaleX(1)";}
+  if(fill){fill.style.transition="none";fill.style.strokeDashoffset="0";}
 }
 function resetFlashCardVisual(){const card=$("flashCard"),result=$("flashResultIcon"),stage=$("swipeStage");if(!card)return;hideFlashcardSuccessExplanation();stopFlashDragPhysics();flashTargetX=flashTargetY=flashRenderX=flashRenderY=flashRenderVX=flashRenderVY=flashLift=0;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging","entering","returning");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";card.style.borderColor="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";resetFlashDeck();if(stage)stage.classList.remove("impact-success","impact-failure");if(result){result.className="flash-result-icon";result.textContent="";}}
 function animateFlashCardIn(){const card=$("flashCard");if(!card)return;card.classList.remove("entering");void card.offsetWidth;card.classList.add("entering");}
@@ -2338,10 +2346,10 @@ function showFlashcardSuccessExplanation(q){
   const answeredIndex=state.index,endAt=performance.now()+FLASH_EXPLANATION_DELAY_MS;
   const tick=()=>{count.textContent=String(Math.max(0,Math.ceil((endAt-performance.now())/1000)));};
   tick();
-  fill.style.transition="none";fill.style.transform="scaleX(1)";
+  fill.style.transition="none";fill.style.strokeDashoffset="0";
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    fill.style.transition="transform "+FLASH_EXPLANATION_DELAY_MS+"ms linear";
-    fill.style.transform="scaleX(0)";
+    fill.style.transition="stroke-dashoffset "+FLASH_EXPLANATION_DELAY_MS+"ms linear";
+    fill.style.strokeDashoffset="100";
   }));
   flashExplanationCountdownInterval=setInterval(tick,200);
   flashAdvanceTimer=setTimeout(()=>{
