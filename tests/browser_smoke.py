@@ -197,13 +197,25 @@ try:
     assert toggle.get_attribute("aria-pressed") == "false", "état initial des explications incorrect"
     js_click(toggle)
     wait_until(lambda: toggle.get_attribute("aria-pressed") == "true", "activation des explications non appliquée")
-    js_click(driver.find_element(By.ID, "flashTrueBtn"))
-    visible("#feedback:not(.hidden)")
-    visible("#nextBtn")
-    assert "explication" in driver.find_element(By.ID, "feedback").text.lower(), "explication Vrai/Faux absente"
+
+    prompt = norm(driver.find_element(By.ID, "flashQuestion").text)
+    proposal = norm(driver.find_element(By.ID, "flashStatement").text)
+    truth = truth_map.get((prompt, proposal))
+    assert truth is not None, f"impossible de déterminer la vérité de la carte: {prompt!r} / {proposal!r}"
+    js_click(driver.find_element(By.ID, "flashTrueBtn") if truth else driver.find_element(By.ID, "flashFalseBtn"))
+
+    card_explanation = visible("#flashCardExplanation:not(.hidden)")
+    assert driver.find_element(By.ID, "feedback").get_attribute("class").endswith("hidden"), "feedback externe affiché malgré une bonne réponse"
+    assert driver.find_element(By.ID, "nextBtn").get_attribute("class").endswith("hidden"), "bouton suivant affiché pendant le décompte"
+    assert card_explanation.find_element(By.ID, "flashCardExplanationText").text.strip(), "explication intégrée à la carte absente"
     counter_with_explanation = driver.find_element(By.ID, "counter").text
-    time.sleep(1.0)
-    assert driver.find_element(By.ID, "counter").text == counter_with_explanation, "avance automatique active malgré les explications"
+    countdown_start = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
+    assert countdown_start in (6, 7), f"décompte initial inattendu: {countdown_start}"
+    time.sleep(1.15)
+    countdown_after = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
+    assert countdown_after < countdown_start, "décompte visuel Vrai/Faux immobile"
+    assert driver.find_element(By.ID, "counter").text == counter_with_explanation, "avance avant la fin du délai d'explication"
+
     js_click(toggle)
     wait_until(lambda: toggle.get_attribute("aria-pressed") == "false", "désactivation des explications non appliquée")
     wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "désactivation n'a pas relancé l'enchaînement automatique")
