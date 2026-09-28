@@ -2955,13 +2955,17 @@ function setFlashPaused(paused){
     flashPaused=true;document.body.classList.add("flash-paused");
     pauseTimer();pauseFlashAutoAdvance();stopFlashDragPhysics();
     flashDragActive=false;flashPointerId=null;flashAxis=null;
-    const card=$("flashCard");if(card){card.classList.remove("dragging");card.style.transform="";}
+    const card=$("flashCard"),stage=$("swipeStage"),result=$("flashResultIcon");
+    if(card){card.classList.remove("dragging");card.style.transform="";}
+    [card,stage,result].filter(Boolean).flatMap(el=>el.getAnimations?.()||[]).forEach(anim=>anim.pause());
     $("flashFalseBtn").disabled=true;$("flashTrueBtn").disabled=true;$("nextBtn").disabled=true;
     const overlay=$("flashPauseOverlay");if(overlay){overlay.classList.remove("hidden");overlay.setAttribute("aria-hidden","false");}
     $("pauseBtn").textContent="Reprendre";$("pauseBtn").setAttribute("aria-pressed","true");
     saveProgress();
   }else{
     resetFlashPauseUI();
+    const card=$("flashCard"),stage=$("swipeStage"),result=$("flashResultIcon");
+    [card,stage,result].filter(Boolean).flatMap(el=>el.getAnimations?.()||[]).forEach(anim=>{if(anim.playState==="paused")anim.play();});
     $("flashFalseBtn").disabled=state.answered;$("flashTrueBtn").disabled=state.answered;
     if(!state.answered)startQuestionTimer(true);else resumeFlashAutoAdvance();
     if(window.matchMedia&&window.matchMedia("(min-width:761px)").matches)requestAnimationFrame(()=>$("flashCard")?.focus());
