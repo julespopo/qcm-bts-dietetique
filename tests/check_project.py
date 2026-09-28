@@ -319,6 +319,10 @@ for html_path in HTML_FILES:
         err(f"{rel}: alignement supérieur de la zone Options absent")
     if '.config-options{order:-1}' not in source:
         err(f"{rel}: Options n'est pas placé avant Nombre de questions sur mobile")
+    if 'flashcard-mode.flash-explanations-on #nextBtn:not(.hidden)' not in source:
+        err(f"{rel}: Question suivante peut être forcé visible avant une réponse")
+    if 'visibleRatio=window.innerWidth<=760?.55:.30' not in source:
+        err(f"{rel}: bouton flottant pas assez visible lorsqu'il est docké sur mobile")
     if 'id="flashHint"' in static_html:
         err(f"{rel}: texte d'aide Vrai/Faux encore présent sous les boutons")
     if 'card.addEventListener("click",()=>{' not in source or 'performance.now()-flashExplanationShownAt<300' not in source:
