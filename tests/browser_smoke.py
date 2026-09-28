@@ -205,9 +205,18 @@ try:
     js_click(driver.find_element(By.ID, "flashTrueBtn") if truth else driver.find_element(By.ID, "flashFalseBtn"))
 
     card_explanation = visible("#flashCardExplanation:not(.hidden)")
+    flash_card = driver.find_element(By.ID, "flashCard")
+    assert not driver.find_element(By.ID, "flashQuestion").is_displayed(), "question encore visible pendant l'explication"
+    assert not driver.find_element(By.ID, "flashStatement").is_displayed(), "proposition encore visible pendant l'explication"
+    assert not flash_card.find_element(By.CSS_SELECTOR, ".flash-question-label").is_displayed(), "libellé QUESTION encore visible"
+    assert not flash_card.find_element(By.CSS_SELECTOR, ".flash-answer-label").is_displayed(), "libellé RÉPONSE PROPOSÉE encore visible"
     assert driver.find_element(By.ID, "feedback").get_attribute("class").endswith("hidden"), "feedback externe affiché malgré une bonne réponse"
     assert driver.find_element(By.ID, "nextBtn").get_attribute("class").endswith("hidden"), "bouton suivant affiché pendant le décompte"
     assert card_explanation.find_element(By.ID, "flashCardExplanationText").text.strip(), "explication intégrée à la carte absente"
+    card_rect = flash_card.rect
+    explanation_rect = card_explanation.rect
+    assert explanation_rect["y"] >= card_rect["y"] - 1, "explication déborde au-dessus de la carte"
+    assert explanation_rect["y"] + explanation_rect["height"] <= card_rect["y"] + card_rect["height"] + 1, "explication déborde sous la carte"
     counter_with_explanation = driver.find_element(By.ID, "counter").text
     countdown_start = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
     assert countdown_start in (4, 5), f"décompte initial inattendu: {countdown_start}"
