@@ -219,7 +219,11 @@ for bank_path in bank_paths:
 required_ids = {
     "setup", "quiz", "results", "choices", "validateBtn", "nextBtn",
     "pauseBtn", "quitBtn", "flashArea", "flashCard", "flashFalseBtn",
-    "flashTrueBtn", "themeToggle", "floatingActions", "timerToggleBtn",
+    "flashTrueBtn", "flashExplanationMenuBtn", "flashExplanationOverlay",
+    "flashExplanationNo", "flashExplanationYes", "flashCardExplanation",
+    "flashCardExplanationTitle", "flashCardAnswerKey", "flashCardExplanationText",
+    "flashExplanationCountdownWrap", "flashExplanationCountdown", "flashExplanationCountdownFill",
+    "themeToggle", "floatingActions", "timerToggleBtn",
     "timerPresets", "errorBox", "errorText",
 }
 node = shutil.which("node")
@@ -253,12 +257,14 @@ for html_path in HTML_FILES:
         err(f"{rel}: timerPresets doit être inert lorsqu'il est masqué")
     if 'id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true" inert' not in static_html:
         err(f"{rel}: mobileSheetOverlay doit être inert lorsqu'il est fermé")
+    if 'id="flashExplanationOverlay" class="flash-pref-overlay" aria-hidden="true" inert' not in static_html:
+        err(f"{rel}: flashExplanationOverlay doit être inert lorsqu'il est fermé")
     if 'aria-expanded="false" aria-controls="floatingActions"' not in static_html:
         err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.8.2</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.8.2")
+    if '<footer>Index V7.8.3</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.8.3")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
     if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
@@ -267,10 +273,28 @@ for html_path in HTML_FILES:
         err(f"{rel}: zone de correction sans annonce aria-live")
     if 'flashcard-mode.reviewing-errors #nextBtn' not in source:
         err(f"{rel}: bouton suivant inaccessible en revue d'erreurs Vrai/Faux mobile")
+    if 'flashcard-mode.flash-explanations-on #nextBtn' not in source:
+        err(f"{rel}: bouton suivant inaccessible avec explications Vrai/Faux mobile")
+    if 'flashExplanationsEnabled:state.flashExplanationsEnabled' not in source:
+        err(f"{rel}: préférence d'explications Vrai/Faux non sauvegardée")
+    if 'FLASH_EXPLANATION_DELAY_MS=7000' not in source:
+        err(f"{rel}: délai d'explication Vrai/Faux attendu à 7 secondes")
+    if 'class="flash-explanation-stopwatch"' not in static_html or '<circle id="flashExplanationCountdownFill"' not in static_html:
+        err(f"{rel}: chronomètre circulaire d'explication Vrai/Faux absent")
+    if 'function showFlashcardExplanation(q,' not in source:
+        err(f"{rel}: correction Vrai/Faux intégrée à la carte absente")
+    if 'showFlashcardExplanation(q,{ok,realTimeout,autoAdvance:ok&&!realTimeout})' not in source:
+        err(f"{rel}: réponses incorrectes non routées vers la carte d'explication")
+    if '.flash-card.explanation-visible>#flashQuestion' not in source or '.flash-card.explanation-visible>#flashStatement' not in source:
+        err(f"{rel}: question/proposition non masquées pendant l'explication")
     if 'id="flashLiveResult" class="sr-only" role="status" aria-live="polite"' not in static_html:
         err(f"{rel}: résultat Vrai/Faux non annoncé aux technologies d'assistance")
     if 'function quizShortcutAllowed(e)' not in source:
         err(f"{rel}: les raccourcis clavier peuvent intercepter les boutons de contrôle")
+    if 'if(e.code==="Space"||e.key===" "){e.preventDefault();pause();return;}' not in source:
+        err(f"{rel}: raccourci Espace pour pause Vrai/Faux absent")
+    if 'if(e.key==="Enter"&&state.answered){e.preventDefault();clearFlashAdvance();next();return;}' not in source:
+        err(f"{rel}: raccourci Entrée pour avancer Vrai/Faux absent")
     if 'catch(e){console.warn("Sauvegarde locale indisponible."' not in source:
         err(f"{rel}: une erreur localStorage peut interrompre la session")
     if 'if(floatingMenuOpen)closeFloatingMenu();' not in source:

@@ -98,7 +98,7 @@ def select_mobile_subject_all():
     active = driver.switch_to.active_element
     assert "subject-card" in (active.get_attribute("class") or ""), "focus non restauré sur la matière"
 
-def start_mode(mode: str, count: int):
+def start_mode(mode: str, count: int, explanations: bool = False):
     mode_btn = driver.find_element(By.CSS_SELECTOR, f'.mode-btn[data-mode="{mode}"]')
     js_click(mode_btn)
     count_el = driver.find_element(By.ID, "count")
@@ -106,6 +106,12 @@ def start_mode(mode: str, count: int):
     count_el.send_keys(str(count))
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "bouton démarrer désactivé")
     js_click(driver.find_element(By.ID, "startBtn"))
+    if mode == "flashcard":
+        overlay = visible("#flashExplanationOverlay.open")
+        assert driver.execute_script("return arguments[0].inert", overlay) is False
+        assert driver.execute_script("return document.querySelector('#setup').inert") is True
+        wait_until(lambda: driver.execute_script("return document.activeElement && document.activeElement.id") == "flashExplanationYes", "focus non placé dans la popup Vrai/Faux")
+        js_click(driver.find_element(By.ID, "flashExplanationYes" if explanations else "flashExplanationNo"))
     visible("#quiz:not(.hidden)")
 
 def assert_no_console_regressions():
@@ -183,6 +189,62 @@ try:
     wait_until(lambda: driver.find_element(By.ID, "flashLiveResult").get_attribute("textContent").strip() != "", "résultat flash non annoncé")
     wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 2 /"), "carte suivante non avancée")
 
+    # The in-session control lives in the floating menu and must immediately change behavior.
+    gear = driver.find_element(By.ID, "themeToggle")
+    js_click(gear)
+    visible("#floatingActions.open")
+    toggle = visible("#flashExplanationMenuBtn:not(.hidden)")
+    assert toggle.get_attribute("aria-pressed") == "false", "état initial des explications incorrect"
+    js_click(toggle)
+    wait_until(lambda: toggle.get_attribute("aria-pressed") == "true", "activation des explications non appliquée")
+
+    prompt = norm(driver.find_element(By.ID, "flashQuestion").text)
+    proposal = norm(driver.find_element(By.ID, "flashStatement").text)
+    truth = truth_map.get((prompt, proposal))
+    assert truth is not None, f"impossible de déterminer la vérité de la carte: {prompt!r} / {proposal!r}"
+    js_click(driver.find_element(By.ID, "flashTrueBtn") if truth else driver.find_element(By.ID, "flashFalseBtn"))
+
+    card_explanation = visible("#flashCardExplanation:not(.hidden)")
+    flash_card = driver.find_element(By.ID, "flashCard")
+    assert not driver.find_element(By.ID, "flashQuestion").is_displayed(), "question encore visible pendant l'explication"
+    assert not driver.find_element(By.ID, "flashStatement").is_displayed(), "proposition encore visible pendant l'explication"
+    assert not flash_card.find_element(By.CSS_SELECTOR, ".flash-question-label").is_displayed(), "libellé QUESTION encore visible"
+    assert not flash_card.find_element(By.CSS_SELECTOR, ".flash-answer-label").is_displayed(), "libellé RÉPONSE PROPOSÉE encore visible"
+    assert driver.find_element(By.ID, "feedback").get_attribute("class").endswith("hidden"), "feedback externe affiché malgré une bonne réponse"
+    assert driver.find_element(By.ID, "nextBtn").get_attribute("class").endswith("hidden"), "bouton suivant affiché pendant le décompte"
+    assert card_explanation.find_element(By.ID, "flashCardExplanationText").text.strip(), "explication intégrée à la carte absente"
+    card_rect = flash_card.rect
+    explanation_rect = card_explanation.rect
+    assert explanation_rect["y"] >= card_rect["y"] - 1, "explication déborde au-dessus de la carte"
+    assert explanation_rect["y"] + explanation_rect["height"] <= card_rect["y"] + card_rect["height"] + 1, "explication déborde sous la carte"
+    counter_with_explanation = driver.find_element(By.ID, "counter").text
+    stopwatch = visible(".flash-explanation-stopwatch")
+    stopwatch_rect = stopwatch.rect
+    assert stopwatch_rect["x"] + stopwatch_rect["width"] >= card_rect["x"] + card_rect["width"] - 90, "chronomètre pas placé à droite"
+    assert stopwatch_rect["y"] <= card_rect["y"] + 90, "chronomètre pas placé en haut de la carte"
+    countdown_ring = driver.find_element(By.ID, "flashExplanationCountdownFill")
+    assert countdown_ring.tag_name.lower() == "circle", "le décompte n'est pas rendu sous forme de chronomètre circulaire"
+    countdown_start = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
+    assert countdown_start in (6, 7), f"décompte initial inattendu: {countdown_start}"
+    ring_start = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
+    time.sleep(1.15)
+    ring_after = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
+    assert ring_after > ring_start, "anneau du chronomètre immobile"
+    countdown_after = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
+    assert countdown_after < countdown_start, "décompte visuel Vrai/Faux immobile"
+    assert driver.find_element(By.ID, "counter").text == counter_with_explanation, "avance avant la fin du délai d'explication"
+
+    # Enter skips the remaining explanation delay.
+    driver.find_element(By.ID, "flashCard").send_keys(Keys.ENTER)
+    wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "Entrée n'a pas avancé la carte")
+
+    # Space pauses the Vrai/Faux session and resume must keep the next-question position.
+    driver.find_element(By.ID, "flashCard").send_keys(Keys.SPACE)
+    visible("#resumeCard:not(.hidden)")
+    js_click(driver.find_element(By.ID, "resumeBtn"))
+    visible("#quiz:not(.hidden)")
+    assert driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "pause Espace/reprise a décalé la session"
+
     # 3) Mobile: modal focus, full-height layout, visual button balance, error review.
     fresh(390, 844)
 
@@ -199,7 +261,7 @@ try:
     assert driver.switch_to.active_element.get_attribute("id") == "themeToggle", "focus non rendu au bouton principal"
 
     select_mobile_subject_all()
-    start_mode("flashcard", 1)
+    start_mode("flashcard", 1, explanations=True)
 
     quiz = visible("#quiz")
     inner_height = driver.execute_script("return window.innerHeight")
@@ -220,8 +282,22 @@ try:
     truth = truth_map.get((prompt, proposal))
     assert truth is not None, f"impossible de déterminer la vérité de la carte: {prompt!r} / {proposal!r}"
 
-    # Deliberately answer incorrectly so the single-question session has one review item.
+    # Deliberately answer incorrectly: correction must replace the card content, not render below it.
     js_click(false_btn if truth else true_btn)
+    error_card = visible("#flashCardExplanation:not(.hidden)")
+    assert "is-error" in (error_card.get_attribute("class") or ""), "carte d'explication non marquée comme erreur"
+    assert "réponse incorrecte" in driver.find_element(By.ID, "flashCardExplanationTitle").text.lower(), "titre d'erreur absent de la carte"
+    assert driver.find_element(By.ID, "flashCardAnswerKey").is_displayed(), "vérité attendue absente de la carte"
+    assert driver.find_element(By.ID, "flashCardExplanationText").text.strip(), "explication absente de la carte après erreur"
+    assert not driver.find_element(By.ID, "flashQuestion").is_displayed(), "question encore visible après erreur"
+    assert not driver.find_element(By.ID, "flashStatement").is_displayed(), "proposition encore visible après erreur"
+    assert driver.find_element(By.ID, "feedback").get_attribute("class").endswith("hidden"), "ancienne correction externe encore visible"
+    assert not driver.find_element(By.ID, "flashExplanationCountdownWrap").is_displayed(), "chronomètre affiché malgré une erreur"
+    explanation_next = visible("#nextBtn")
+    assert explanation_next.is_displayed(), "bouton suivant invisible avec explications mobile"
+    time.sleep(0.9)
+    assert not driver.find_element(By.ID, "results").is_displayed(), "résultats affichés avant validation de l'explication"
+    js_click(explanation_next)
     visible("#results:not(.hidden)")
     assert driver.find_element(By.ID, "finalScore").text.startswith("0 / 1"), "erreur Vrai/Faux non comptabilisée"
 
@@ -231,6 +307,8 @@ try:
     proposal = norm(driver.find_element(By.ID, "flashStatement").text)
     truth = truth_map[(prompt, proposal)]
     js_click(driver.find_element(By.ID, "flashTrueBtn") if truth else driver.find_element(By.ID, "flashFalseBtn"))
+    visible("#flashCardExplanation:not(.hidden)")
+    assert driver.find_element(By.ID, "feedback").get_attribute("class").endswith("hidden"), "revue d'erreurs encore affichée hors de la carte"
     next_btn = visible("#nextBtn")
     assert next_btn.is_displayed(), "bouton de continuation invisible en revue d'erreurs mobile"
     assert "résultats" in next_btn.text.lower(), "libellé final de revue inattendu"

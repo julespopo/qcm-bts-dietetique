@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.8.2
+# QCM BTS Diététique — V7.8.3
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -134,9 +134,9 @@ Il s'active directement via l'icône `⏱` du menu flottant.
 
 Lorsqu'il est activé, quatre durées sont disponibles :
 
-- **15 secondes**
+- **17 secondes**
 - **30 secondes**
-- **45 secondes**
+- **47 secondes**
 - **60 secondes**
 
 Une seule durée est active à la fois.
@@ -414,6 +414,15 @@ Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur le
 
 # Changelog
 
+## V7.8.3
+
+- Avant chaque session **Vrai/Faux**, une popup demande si les explications doivent être affichées après chaque réponse.
+- Avec les explications activées, toute correction s’affiche directement dans la carte : une bonne réponse montre l’explication seule pendant 7 secondes puis enchaîne automatiquement ; une erreur remplace la question par « Réponse incorrecte », la vérité attendue et l’explication, puis reste affichée jusqu’à validation.
+- Sans explications, le comportement rapide reste inchangé : animation de résultat puis passage automatique à la carte suivante.
+- Une action **💡 Explications** dans le menu flottant permet d’activer ou désactiver ce comportement pendant la session.
+- Le réglage est conservé lors d’une pause/reprise et fonctionne aussi sur la version locale.
+- Les tests navigateur couvrent les deux choix de la popup et le basculement du réglage en cours de session.
+
 ## V7.8.2
 
 - Renforcement de l’accessibilité du menu flottant (`inert`, focus et `aria-expanded`).
@@ -607,3 +616,5 @@ Les images ont été optimisées au format WebP avec transparence pour préserve
 Pour cette version, il faut téléverser **le dossier `assets/` une seule fois** sur GitHub en même temps que le nouvel `index.html`.
 
 Les futures mises à jour qui ne modifient pas ces images pourront de nouveau être faites en remplaçant uniquement `index.html`.
+
+- En Vrai/Faux avec explications, une bonne réponse affiche uniquement l’explication pendant 7 secondes avec un petit chronomètre circulaire en haut à droite avant l’enchaînement automatique. **Entrée** permet de passer plus vite à la suivante et **Espace** met la session en pause.
