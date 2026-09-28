@@ -276,8 +276,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: bouton suivant inaccessible avec explications Vrai/Faux mobile")
     if 'flashExplanationsEnabled:state.flashExplanationsEnabled' not in source:
         err(f"{rel}: préférence d'explications Vrai/Faux non sauvegardée")
-    if 'FLASH_EXPLANATION_DELAY_MS=5000' not in source:
-        err(f"{rel}: délai d'explication Vrai/Faux attendu à 5 secondes")
+    if 'FLASH_EXPLANATION_DELAY_MS=7000' not in source:
+        err(f"{rel}: délai d'explication Vrai/Faux attendu à 7 secondes")
     if 'class="flash-explanation-stopwatch"' not in static_html or '<circle id="flashExplanationCountdownFill"' not in static_html:
         err(f"{rel}: chronomètre circulaire d'explication Vrai/Faux absent")
     if 'showFlashcardSuccessExplanation(q)' not in source:
@@ -288,6 +288,10 @@ for html_path in HTML_FILES:
         err(f"{rel}: résultat Vrai/Faux non annoncé aux technologies d'assistance")
     if 'function quizShortcutAllowed(e)' not in source:
         err(f"{rel}: les raccourcis clavier peuvent intercepter les boutons de contrôle")
+    if 'if(e.code==="Space"||e.key===" "){e.preventDefault();pause();return;}' not in source:
+        err(f"{rel}: raccourci Espace pour pause Vrai/Faux absent")
+    if 'if(e.key==="Enter"&&state.answered){e.preventDefault();clearFlashAdvance();next();return;}' not in source:
+        err(f"{rel}: raccourci Entrée pour avancer Vrai/Faux absent")
     if 'catch(e){console.warn("Sauvegarde locale indisponible."' not in source:
         err(f"{rel}: une erreur localStorage peut interrompre la session")
     if 'if(floatingMenuOpen)closeFloatingMenu();' not in source:
