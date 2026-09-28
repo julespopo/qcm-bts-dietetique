@@ -171,6 +171,12 @@ def assert_no_console_regressions():
 try:
     # 1) Desktop QCM: scoring, per-choice feedback, pause/resume.
     fresh()
+
+    # Configuration layout: Options must start at the top of its grid column.
+    count_field = driver.find_element(By.CSS_SELECTOR, ".config-grid .field")
+    options_block = driver.find_element(By.CSS_SELECTOR, ".config-grid .config-options")
+    assert abs(count_field.rect["y"] - options_block.rect["y"]) <= 3, "bloc Options décalé verticalement dans la configuration"
+
     select_one_desktop_bank()
     start_mode("qcm", 30)
 
@@ -347,6 +353,13 @@ try:
     true_btn = driver.find_element(By.ID, "flashTrueBtn")
     assert false_btn.rect["height"] >= 70 and true_btn.rect["height"] >= 70, "boutons Vrai/Faux trop petits sur mobile"
 
+    flash_card = driver.find_element(By.ID, "flashCard")
+    flash_statement = driver.find_element(By.ID, "flashStatement")
+    flash_controls = driver.find_element(By.ID, "flashSelfControls")
+    assert flash_statement.rect["width"] >= flash_card.rect["width"] * 0.90, "réponse proposée mobile trop étroite dans la carte"
+    assert flash_card.rect["y"] + flash_card.rect["height"] <= flash_controls.rect["y"] + 2, "carte Vrai/Faux empiète sur les boutons"
+
+
     pause_btn = driver.find_element(By.ID, "pauseBtn")
     quit_btn = driver.find_element(By.ID, "quitBtn")
     pause_style = driver.execute_script("return [getComputedStyle(arguments[0]).backgroundColor,getComputedStyle(arguments[0]).color]", pause_btn)
@@ -371,9 +384,9 @@ try:
     assert not driver.find_element(By.ID, "flashExplanationCountdownWrap").is_displayed(), "chronomètre affiché malgré une erreur"
     explanation_next = visible("#nextBtn")
     assert explanation_next.is_displayed(), "bouton suivant invisible avec explications mobile"
-    time.sleep(0.9)
+    time.sleep(0.45)
     assert not driver.find_element(By.ID, "results").is_displayed(), "résultats affichés avant validation de l'explication"
-    js_click(explanation_next)
+    js_click(driver.find_element(By.ID, "flashCard"))
     visible("#results:not(.hidden)")
     assert driver.find_element(By.ID, "finalScore").text.startswith("0 / 1"), "erreur Vrai/Faux non comptabilisée"
 
