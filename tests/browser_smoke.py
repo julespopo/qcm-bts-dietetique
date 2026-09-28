@@ -218,9 +218,15 @@ try:
     assert explanation_rect["y"] >= card_rect["y"] - 1, "explication déborde au-dessus de la carte"
     assert explanation_rect["y"] + explanation_rect["height"] <= card_rect["y"] + card_rect["height"] + 1, "explication déborde sous la carte"
     counter_with_explanation = driver.find_element(By.ID, "counter").text
+    stopwatch = visible(".flash-explanation-stopwatch")
+    countdown_ring = driver.find_element(By.ID, "flashExplanationCountdownFill")
+    assert countdown_ring.tag_name.lower() == "circle", "le décompte n'est pas rendu sous forme de chronomètre circulaire"
     countdown_start = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
     assert countdown_start in (4, 5), f"décompte initial inattendu: {countdown_start}"
+    ring_start = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
     time.sleep(1.15)
+    ring_after = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
+    assert ring_after > ring_start, "anneau du chronomètre immobile"
     countdown_after = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
     assert countdown_after < countdown_start, "décompte visuel Vrai/Faux immobile"
     assert driver.find_element(By.ID, "counter").text == counter_with_explanation, "avance avant la fin du délai d'explication"
