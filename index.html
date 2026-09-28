@@ -2317,6 +2317,10 @@ function showFlashcardSuccessExplanation(q){
   clearFlashAdvance();
   const card=$("flashCard"),box=$("flashCardExplanation"),text=$("flashCardExplanationText"),count=$("flashExplanationCountdown"),fill=$("flashExplanationCountdownFill"),label=$("flashExplanationCountdownLabel");
   if(!card||!box||!text||!count||!fill)return;
+  stopFlashDragPhysics();
+  card.classList.remove("dragging","returning");
+  card.style.transform="";card.style.borderColor="";
+  $("flashTrueStamp").style.opacity="0";$("flashFalseStamp").style.opacity="0";resetFlashDeck();
   card.classList.add("explanation-visible");
   box.classList.remove("hidden");
   text.textContent=q.explanation||"Aucune explication disponible.";
