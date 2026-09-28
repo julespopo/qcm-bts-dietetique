@@ -280,6 +280,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: délai d'explication Vrai/Faux attendu à 5 secondes")
     if 'showFlashcardSuccessExplanation(q)' not in source:
         err(f"{rel}: explication intégrée à la carte après bonne réponse absente")
+    if '.flash-card.explanation-visible>#flashQuestion' not in source or '.flash-card.explanation-visible>#flashStatement' not in source:
+        err(f"{rel}: question/proposition non masquées pendant l'explication")
     if 'id="flashLiveResult" class="sr-only" role="status" aria-live="polite"' not in static_html:
         err(f"{rel}: résultat Vrai/Faux non annoncé aux technologies d'assistance")
     if 'function quizShortcutAllowed(e)' not in source:
