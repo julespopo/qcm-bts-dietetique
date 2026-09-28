@@ -367,7 +367,27 @@ html[data-theme="dark"] .choice.answer-missed span{color:#8be8b8}
 .score-donut-center span{
   margin-top:4px;font-size:.72rem;color:var(--muted);font-weight:750;text-transform:uppercase;letter-spacing:.06em
 }
+.review-recommendations{
+  margin-top:18px;padding:16px;border:1px solid var(--line);border-radius:17px;background:var(--pane)
+}
+.review-recommendations-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.review-recommendations-head h3{margin:0;font-size:1.08rem}
+.review-recommendations-intro{margin:7px 0 13px;color:var(--muted);font-size:.9rem;line-height:1.4}
+.review-topic-list{display:grid;gap:9px}
+.review-topic-card{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;
+  padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--card)
+}
+.review-topic-copy{min-width:0}
+.review-topic-name{font-weight:850;line-height:1.25}
+.review-topic-meta{margin-top:4px;color:var(--muted);font-size:.8rem;line-height:1.3}
+.review-topic-errors{display:inline-block;margin-top:7px;padding:3px 7px;border-radius:999px;background:rgba(180,35,24,.09);color:var(--bad);font-size:.74rem;font-weight:800}
+.review-topic-card button{white-space:nowrap}
 @media(max-width:560px){
+  .review-recommendations-head{align-items:flex-start;flex-direction:column}
+  .review-recommendations-head button{width:100%}
+  .review-topic-card{grid-template-columns:1fr}
+  .review-topic-card button{width:100%}
   .result-overview{gap:14px}
   .score-donut{width:106px;height:106px;flex-basis:106px}
   .score-donut-center strong{font-size:1.3rem}
@@ -1237,9 +1257,18 @@ body.quiz-active.flashcard-mode #quitBtn{
     <button id="retryErrors" class="primary" type="button">Revoir mes erreurs</button>
     <button id="newQuiz" class="secondary" type="button">Nouveau questionnaire</button>
   </div>
+
+  <section id="reviewRecommendations" class="review-recommendations hidden" aria-labelledby="reviewRecommendationsTitle">
+    <div class="review-recommendations-head">
+      <h3 id="reviewRecommendationsTitle">📚 À réviser</h3>
+      <button id="reviewAllTopics" class="primary" type="button">Réviser tout ce qui est à revoir</button>
+    </div>
+    <p id="reviewRecommendationsIntro" class="review-recommendations-intro"></p>
+    <div id="reviewTopicList" class="review-topic-list"></div>
+  </section>
 </section>
 
-<footer>Index V7.8.3</footer>
+<footer>Index V7.9.0</footer>
 </main>
 
 <script>
@@ -2097,6 +2126,100 @@ async function createSessionFromSelection(){
   for(const bank of banks){const data=await loadBank(bank.file);for(const q of data.questions){if(!questionMatchesDifficulty(q))continue;if(state.mode==="flashcard"&&!isFlashcardEligible(q))continue;pool.push({...q,bankTitle:bank.title,subject:bank.subject||data.subject||"",chapter:bank.chapter||data.chapter||"",bankFile:bank.file});}}
   if(!pool.length)throw new Error("Aucune question ne correspond à la difficulté sélectionnée.");const wanted=Math.max(1,Math.min(parseInt($("count").value,10)||20,pool.length));const selected=shuffle(pool).slice(0,wanted);return state.mode==="flashcard"?makeFlashcardSession(selected):selected;
 }
+function reviewCategory(q){
+  const value=String(q&&q.category||"").trim();
+  return value||"Notions générales";
+}
+let reviewTopicsCache=[];
+function buildReviewTopics(errors=state.errors){
+  const grouped=new Map();
+  for(const q of errors||[]){
+    const bankFile=q.bankFile||"";
+    const category=reviewCategory(q);
+    const key=bankFile+"\u0000"+category;
+    if(!grouped.has(key)){
+      grouped.set(key,{
+        key:key,bankFile:bankFile,category:category,
+        subject:q.subject||"Autres",
+        chapter:q.chapter||q.bankTitle||"Chapitre",
+        errorCount:0
+      });
+    }
+    grouped.get(key).errorCount++;
+  }
+  return [...grouped.values()].sort((a,b)=>
+    b.errorCount-a.errorCount||
+    String(a.subject).localeCompare(String(b.subject),"fr")||
+    String(a.chapter).localeCompare(String(b.chapter),"fr")||
+    String(a.category).localeCompare(String(b.category),"fr")
+  );
+}
+function renderReviewRecommendations(){
+  const panel=$("reviewRecommendations"),list=$("reviewTopicList"),allBtn=$("reviewAllTopics"),intro=$("reviewRecommendationsIntro");
+  if(!panel||!list||!allBtn||!intro)return;
+  reviewTopicsCache=buildReviewTopics();
+  if(!reviewTopicsCache.length){
+    panel.classList.add("hidden");
+    list.innerHTML="";
+    allBtn.disabled=true;
+    return;
+  }
+  panel.classList.remove("hidden");
+  allBtn.disabled=false;
+  allBtn.textContent="Réviser tout ("+reviewTopicsCache.length+" thème"+(reviewTopicsCache.length>1?"s":"")+")";
+  intro.textContent="Ces thèmes correspondent aux catégories des questions ratées. Réviser un thème relance toutes les questions disponibles de cette catégorie.";
+  list.innerHTML=reviewTopicsCache.map((topic,index)=>
+    '<article class="review-topic-card">'+
+      '<div class="review-topic-copy">'+
+        '<div class="review-topic-name">'+esc(topic.category)+'</div>'+
+        '<div class="review-topic-meta">'+esc(topic.subject)+' • '+esc(topic.chapter)+'</div>'+
+        '<span class="review-topic-errors">'+topic.errorCount+' erreur'+(topic.errorCount>1?'s':'')+'</span>'+
+      '</div>'+
+      '<button class="secondary" type="button" data-review-topic-index="'+index+'">Réviser ce thème</button>'+
+    '</article>'
+  ).join("");
+}
+async function sessionForReviewTopics(topics){
+  if(!Array.isArray(topics)||!topics.length)throw new Error("Aucun thème à réviser.");
+  const byFile=new Map();
+  for(const topic of topics){
+    if(!topic.bankFile)continue;
+    if(!byFile.has(topic.bankFile))byFile.set(topic.bankFile,new Set());
+    byFile.get(topic.bankFile).add(topic.category);
+  }
+  const pool=[],seen=new Set();
+  for(const [file,categories] of byFile){
+    const data=await loadBank(file);
+    const meta=state.manifest.banks.find(b=>b.file===file)||{};
+    for(const q of data.questions||[]){
+      if(!categories.has(reviewCategory(q)))continue;
+      if(state.mode==="flashcard"&&!isFlashcardEligible(q))continue;
+      const unique=file+"\u0000"+q.id;
+      if(seen.has(unique))continue;
+      seen.add(unique);
+      pool.push({...q,bankTitle:meta.title||data.title||file,subject:meta.subject||data.subject||"",chapter:meta.chapter||data.chapter||"",bankFile:file});
+    }
+  }
+  if(!pool.length)throw new Error("Aucune question disponible pour ce thème.");
+  const shuffled=shuffle(pool);
+  return state.mode==="flashcard"?makeFlashcardSession(shuffled):shuffled;
+}
+async function startReviewTopics(topics){
+  const buttons=[...document.querySelectorAll("#reviewRecommendations button")];
+  buttons.forEach(btn=>btn.disabled=true);
+  try{
+    state.session=await sessionForReviewTopics(topics);
+    state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=false;state.flashOutcome=null;
+    initTimerForNewSession();
+    $("results").classList.add("hidden");$("quiz").classList.remove("hidden");
+    enterQuizFocus();renderQuestion();saveProgress();
+  }catch(e){
+    alert(e.message);
+  }finally{
+    buttons.forEach(btn=>btn.disabled=false);
+  }
+}
+
 function questionRef(q){
   const ref={file:q.bankFile,id:q.id};
   if(Array.isArray(q.flashProposal)){ref.flashProposal=q.flashProposal;ref.flashTruth=!!q.flashTruth;}
@@ -2687,7 +2810,7 @@ function animateScoreDonut(percent){
 }
 
 function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;document.body.classList.remove("reviewing-errors");exitQuizFocus();
-  $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
+  $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;renderReviewRecommendations();clearProgress();
 }
 async function resumeSaved(){
   const s=getSaved();if(!s)return;$("resumeBtn").disabled=true;$("resumeBtn").textContent="Chargement…";
@@ -2734,8 +2857,15 @@ $("flashExplanationNo").addEventListener("click",()=>chooseFlashExplanation(fals
 $("flashFalseBtn").addEventListener("click",()=>answerFlashcard(false));$("flashTrueBtn").addEventListener("click",()=>answerFlashcard(true));
 $("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearFlashAdvance();stopTimerInterval();state.reviewingErrors=false;state.flashOutcome=null;state.flashExplanationsEnabled=false;syncFlashExplanationUI();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
-$("newQuiz").addEventListener("click",()=>{clearFlashAdvance();exitQuizFocus();stopTimerInterval();state.flashOutcome=null;state.flashExplanationsEnabled=false;syncFlashExplanationUI();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
+$("newQuiz").addEventListener("click",()=>{clearFlashAdvance();exitQuizFocus();stopTimerInterval();state.flashOutcome=null;state.flashExplanationsEnabled=false;syncFlashExplanationUI();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();reviewTopicsCache=[];$("reviewRecommendations").classList.add("hidden");$("reviewTopicList").innerHTML="";$("results").classList.add("hidden");$("setup").classList.remove("hidden");renderSelectionUI();});
 $("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=true;initTimerForNewSession();$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();});
+$("reviewAllTopics").addEventListener("click",()=>startReviewTopics([...reviewTopicsCache]));
+$("reviewTopicList").addEventListener("click",e=>{
+  const btn=e.target.closest("[data-review-topic-index]");
+  if(!btn)return;
+  const topic=reviewTopicsCache[Number(btn.dataset.reviewTopicIndex)];
+  if(topic)startReviewTopics([topic]);
+});
 
 function disableAccidentalDoubleTapZoom(){
   let lastTapTime=0,lastX=0,lastY=0,multiTouchGesture=false;

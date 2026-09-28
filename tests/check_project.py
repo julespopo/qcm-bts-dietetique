@@ -224,7 +224,9 @@ required_ids = {
     "flashCardExplanationTitle", "flashCardAnswerKey", "flashCardExplanationText",
     "flashExplanationCountdownWrap", "flashExplanationCountdown", "flashExplanationCountdownFill",
     "themeToggle", "floatingActions", "timerToggleBtn",
-    "timerPresets", "errorBox", "errorText",
+    "timerPresets", "reviewRecommendations", "reviewRecommendationsTitle",
+    "reviewRecommendationsIntro", "reviewAllTopics", "reviewTopicList",
+    "errorBox", "errorText",
 }
 node = shutil.which("node")
 
@@ -263,8 +265,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.8.3</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.8.3")
+    if '<footer>Index V7.9.0</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.9.0")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
     if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
@@ -299,6 +301,14 @@ for html_path in HTML_FILES:
         err(f"{rel}: une erreur localStorage peut interrompre la session")
     if 'if(floatingMenuOpen)closeFloatingMenu();' not in source:
         err(f"{rel}: le menu flottant ne peut pas être fermé avec Échap")
+    if 'function buildReviewTopics(errors=state.errors)' not in source:
+        err(f"{rel}: regroupement des thèmes À réviser absent")
+    if 'async function sessionForReviewTopics(topics)' not in source:
+        err(f"{rel}: génération d'une session ciblée À réviser absente")
+    if 'renderReviewRecommendations();clearProgress();' not in source:
+        err(f"{rel}: recommandations À réviser non rendues à la fin")
+    if 'data-review-topic-index' not in source:
+        err(f"{rel}: boutons de révision ciblée absents")
 
     # Les ressources locales référencées dans le HTML doivent exister.
     for ref in re.findall(r'(?:src|href)="([^"]+)"', static_html):
