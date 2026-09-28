@@ -616,3 +616,5 @@ Les images ont été optimisées au format WebP avec transparence pour préserve
 Pour cette version, il faut téléverser **le dossier `assets/` une seule fois** sur GitHub en même temps que le nouvel `index.html`.
 
 Les futures mises à jour qui ne modifient pas ces images pourront de nouveau être faites en remplaçant uniquement `index.html`.
+
+- En Vrai/Faux avec explications, une bonne réponse reste 7 secondes sur la carte avec un décompte visuel avant l’enchaînement automatique.
