@@ -349,12 +349,35 @@ try:
     wait_until(lambda: not driver.find_element(By.ID, "flashPauseOverlay").is_displayed(), "bouton Reprendre n'a pas repris le Vrai/Faux")
     assert driver.find_element(By.ID, "counter").text == counter_before_pause, "reprise a décalé la session"
 
-    # 3) Mobile: modal focus, configuration ordering, full-height layout, visual button balance, error review.
+    # 3) Mobile: configuration, reprise, full-height layout, visual button balance, error review.
     fresh(390, 844)
 
     options_block = driver.find_element(By.CSS_SELECTOR, ".config-options")
     count_field = driver.find_element(By.CSS_SELECTOR, ".config-grid .field")
     assert options_block.rect["y"] < count_field.rect["y"], "Options n'est pas affiché au-dessus de Nombre de questions sur mobile"
+
+    flash_mode_btn = driver.find_element(By.CSS_SELECTOR, '.mode-btn[data-mode="flashcard"]')
+    js_click(flash_mode_btn)
+    options_list = driver.find_element(By.CSS_SELECTOR, ".config-options .options")
+    assert options_list.rect["height"] <= 2, "bloc Options vide conserve trop de hauteur en Vrai/Faux"
+    gap_after_options = count_field.rect["y"] - (options_block.rect["y"] + options_block.rect["height"])
+    assert gap_after_options <= 18, f"écart Options/Nombre de questions trop grand: {gap_after_options}"
+
+    qcm_mode_btn = driver.find_element(By.CSS_SELECTOR, '.mode-btn[data-mode="qcm"]')
+    js_click(qcm_mode_btn)
+    select_mobile_subject_all()
+    start_mode("qcm", 1)
+    js_click(driver.find_element(By.ID, "pauseBtn"))
+    resume = visible("#resumeCard:not(.hidden)")
+    resume_btn = driver.find_element(By.ID, "resumeBtn")
+    discard_btn = driver.find_element(By.ID, "discardSavedBtn")
+    assert resume_btn.rect["width"] >= resume.rect["width"] * 0.84, "bouton Reprendre trop étroit sur mobile"
+    assert discard_btn.rect["width"] >= resume.rect["width"] * 0.84, "bouton Abandonner progression trop étroit sur mobile"
+    assert discard_btn.rect["y"] > resume_btn.rect["y"], "boutons de reprise non empilés proprement sur mobile"
+    js_click(resume_btn)
+    visible("#quiz:not(.hidden)")
+
+    fresh(390, 844)
 
     # Floating menu focus/ARIA regression.
     gear = driver.find_element(By.ID, "themeToggle")
@@ -389,8 +412,10 @@ try:
     assert flash_statement.rect["y"] + flash_statement.rect["height"] <= flash_card.rect["y"] + flash_card.rect["height"] + 1, "texte de réponse proposé hors de la carte"
 
 
+    assert not driver.find_element(By.ID, "nextBtn").is_displayed(), "Question suivante visible avant réponse sur mobile"
     pause_btn = driver.find_element(By.ID, "pauseBtn")
     quit_btn = driver.find_element(By.ID, "quitBtn")
+    assert pause_btn.rect["height"] <= 48 and quit_btn.rect["height"] <= 48, "Pause/Abandonner encore trop hauts sur mobile"
     pause_style = driver.execute_script("return [getComputedStyle(arguments[0]).backgroundColor,getComputedStyle(arguments[0]).color]", pause_btn)
     quit_style = driver.execute_script("return [getComputedStyle(arguments[0]).backgroundColor,getComputedStyle(arguments[0]).color]", quit_btn)
     assert pause_style == quit_style, "Pause et Abandonner n'ont pas le même style en Vrai/Faux"
