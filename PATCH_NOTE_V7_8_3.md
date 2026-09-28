@@ -10,4 +10,4 @@
 - Le comportement est identique dans `index.html` et `index_local.html`.
 - Les contrôles automatisés ont été étendus pour couvrir la popup et les changements de mode en cours de session.
 
-- Bonne réponse + explications activées : l’explication apparaît dans la carte pendant 5 secondes, avec un décompte visuel, puis la carte suivante s’affiche automatiquement.
+- Bonne réponse + explications activées : la question et la proposition disparaissent ; seule l’explication reste dans la carte pendant 5 secondes, avec un décompte visuel, puis la carte suivante s’affiche automatiquement.
