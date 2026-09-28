@@ -920,13 +920,18 @@ body.quiz-active.flashcard-mode #quitBtn{
     height:auto;
     min-height:300px;
     flex:1 1 auto;
-    margin:3px auto 10px;
+    margin:3px auto 12px;
     overflow:hidden;
+  }
+  body.quiz-active.flashcard-mode .swipe-stage::before,
+  body.quiz-active.flashcard-mode .swipe-stage::after{
+    display:none;
   }
   body.quiz-active.flashcard-mode .flash-card{
     padding:clamp(16px,3.2vh,28px) 11px;
     border-radius:24px;
     overflow:hidden;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
   }
   body.quiz-active.flashcard-mode .flash-question{
     width:100%;
@@ -1016,7 +1021,7 @@ body.quiz-active.flashcard-mode #quitBtn{
     grid-template-columns:1fr 1fr;
     gap:6px;
     width:100%;
-    margin:5px 0 0;
+    margin:12px 0 0;
     padding:0;
     border:0;
     border-radius:0;
