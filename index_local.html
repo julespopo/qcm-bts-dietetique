@@ -793,6 +793,15 @@ body.flashcard-mode .qcm-only-option{display:none!important}
 .flash-btn{min-height:54px;border:1px solid var(--line);background:var(--tile);color:var(--text);font-size:1rem}.flash-btn.false:hover{border-color:var(--bad);color:var(--bad)}.flash-btn.true:hover{border-color:var(--ok);color:var(--ok)}.flash-btn:disabled{opacity:.42}
 .flash-hint{text-align:center;margin:10px 0 0;font-size:.84rem;color:var(--muted)}.flash-answer-key{margin-top:7px;font-weight:750}
 .flash-card.explanation-visible{justify-content:center;overflow:hidden;cursor:pointer}
+.flash-pause-overlay{
+  position:absolute;inset:0;z-index:20;border-radius:24px;display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)
+}
+.flash-pause-overlay::before{content:"";position:absolute;inset:0;background:var(--card);opacity:.88}
+.flash-pause-copy{position:relative;z-index:1;display:grid;gap:6px;place-items:center;padding:18px}
+.flash-pause-copy strong{font-size:1.35rem;font-weight:900}
+.flash-pause-copy span{font-size:.88rem;color:var(--muted);font-weight:700}
+body.flash-paused .flash-controls{opacity:.48}
 .flash-card.explanation-visible>.flash-question-label,
 .flash-card.explanation-visible>#flashQuestion,
 .flash-card.explanation-visible>.flash-divider,
@@ -1258,6 +1267,12 @@ body.quiz-active.flashcard-mode #quitBtn{
           </div>
         </div>
       </article>
+      <div id="flashPauseOverlay" class="flash-pause-overlay hidden" aria-hidden="true">
+        <div class="flash-pause-copy">
+          <strong>En pause</strong>
+          <span>Espace ou Reprendre pour continuer</span>
+        </div>
+      </div>
       <div id="flashResultIcon" class="flash-result-icon" aria-hidden="true"></div>
     </div>
     <div id="flashLiveResult" class="sr-only" role="status" aria-live="polite"></div>
@@ -2398,7 +2413,7 @@ function start(){
 }
 async function startPreparedSession(){
   $("startBtn").disabled=true;$("startBtn").textContent="Préparation…";
-  try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=false;state.flashOutcome=null;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");syncFlashExplanationUI();enterQuizFocus();renderQuestion();saveProgress();}
+  try{resetFlashPauseUI();state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=false;state.flashOutcome=null;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");syncFlashExplanationUI();enterQuizFocus();renderQuestion();saveProgress();}
   catch(e){alert(e.message);}finally{$("startBtn").disabled=false;syncModeUI();}
 }
 function hideFlashcardExplanation(){
@@ -2475,6 +2490,7 @@ function handleQuizKeyboard(e){
   if($("quiz").classList.contains("hidden")||!quizShortcutAllowed(e))return;
   if(state.mode==="flashcard"){
     if(e.code==="Space"||e.key===" "){e.preventDefault();pause();return;}
+    if(flashPaused)return;
     if(!state.answered&&(e.key==="ArrowLeft"||e.key==="ArrowRight")){e.preventDefault();answerFlashcard(e.key==="ArrowRight");return;}
     if(e.key==="Enter"&&state.answered){e.preventDefault();clearFlashAdvance();next();return;}
     return;
@@ -2487,11 +2503,72 @@ function handleQuizKeyboard(e){
 
 let flashDragActive=false,flashPointerId=null,flashStartX=0,flashStartY=0,flashDx=0,flashDy=0,flashLastX=0,flashLastY=0,flashLastT=0,flashVelocityX=0,flashVelocityY=0,flashRotationSign=1,flashAxis=null,flashAdvanceTimer=null,flashExplanationCountdownInterval=null,flashExplanationShownAt=0;
 let flashTargetX=0,flashTargetY=0,flashRenderX=0,flashRenderY=0,flashRenderVX=0,flashRenderVY=0,flashDragRaf=null,flashLift=0;
+let flashPaused=false,flashAdvanceEndAt=0,flashAdvanceRemainingMs=null,flashExplanationEndAt=0,flashExplanationRemainingMs=null;
 function clearFlashAdvance(){
   if(flashAdvanceTimer){clearTimeout(flashAdvanceTimer);flashAdvanceTimer=null;}
   if(flashExplanationCountdownInterval){clearInterval(flashExplanationCountdownInterval);flashExplanationCountdownInterval=null;}
+  flashAdvanceEndAt=0;flashExplanationEndAt=0;flashAdvanceRemainingMs=null;flashExplanationRemainingMs=null;
 }
-function scheduleFlashAdvance(delay=850){clearFlashAdvance();const answeredIndex=state.index;flashAdvanceTimer=setTimeout(()=>{flashAdvanceTimer=null;if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex)return;next();},delay);}
+function scheduleFlashAdvance(delay=850){
+  clearFlashAdvance();
+  const ms=Math.max(0,delay),answeredIndex=state.index;
+  flashAdvanceRemainingMs=ms;flashAdvanceEndAt=performance.now()+ms;
+  flashAdvanceTimer=setTimeout(()=>{
+    flashAdvanceTimer=null;flashAdvanceEndAt=0;flashAdvanceRemainingMs=null;
+    if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex||flashPaused)return;
+    next();
+  },ms);
+}
+function startFlashExplanationCountdown(duration=FLASH_EXPLANATION_DELAY_MS){
+  const count=$("flashExplanationCountdown"),fill=$("flashExplanationCountdownFill");
+  if(!count||!fill)return;
+  const ms=Math.max(0,duration),answeredIndex=state.index;
+  clearFlashAdvance();
+  flashExplanationRemainingMs=ms;flashAdvanceRemainingMs=ms;
+  flashExplanationEndAt=performance.now()+ms;flashAdvanceEndAt=flashExplanationEndAt;
+  const startOffset=Math.max(0,Math.min(100,100*(1-ms/FLASH_EXPLANATION_DELAY_MS)));
+  const tick=()=>{count.textContent=String(Math.max(0,Math.ceil((flashExplanationEndAt-performance.now())/1000)));};
+  tick();
+  fill.style.transition="none";fill.style.strokeDashoffset=String(startOffset);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    fill.style.transition="stroke-dashoffset "+ms+"ms linear";
+    fill.style.strokeDashoffset="100";
+  }));
+  flashExplanationCountdownInterval=setInterval(tick,200);
+  flashAdvanceTimer=setTimeout(()=>{
+    flashAdvanceTimer=null;flashAdvanceEndAt=0;flashAdvanceRemainingMs=null;flashExplanationEndAt=0;flashExplanationRemainingMs=null;
+    if(flashExplanationCountdownInterval){clearInterval(flashExplanationCountdownInterval);flashExplanationCountdownInterval=null;}
+    if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex||flashPaused)return;
+    next();
+  },ms);
+}
+function pauseFlashAutoAdvance(){
+  const now=performance.now(),fill=$("flashExplanationCountdownFill"),count=$("flashExplanationCountdown");
+  if(flashAdvanceTimer){
+    flashAdvanceRemainingMs=Math.max(0,flashAdvanceEndAt-now);
+    clearTimeout(flashAdvanceTimer);flashAdvanceTimer=null;
+  }
+  if(flashExplanationCountdownInterval){clearInterval(flashExplanationCountdownInterval);flashExplanationCountdownInterval=null;}
+  if(flashExplanationEndAt){
+    flashExplanationRemainingMs=Math.max(0,flashExplanationEndAt-now);
+    if(fill){
+      const offset=parseFloat(getComputedStyle(fill).strokeDashoffset)||0;
+      fill.style.transition="none";fill.style.strokeDashoffset=String(offset);
+    }
+    if(count)count.textContent=String(Math.max(0,Math.ceil(flashExplanationRemainingMs/1000)));
+  }
+  flashAdvanceEndAt=0;flashExplanationEndAt=0;
+}
+function resumeFlashAutoAdvance(){
+  if(!state.answered)return;
+  const explanation=$("flashCardExplanation"),countdown=$("flashExplanationCountdownWrap");
+  if(explanation&&!explanation.classList.contains("hidden")&&countdown&&!countdown.classList.contains("hidden")&&flashExplanationRemainingMs!==null){
+    const ms=flashExplanationRemainingMs;flashExplanationRemainingMs=null;startFlashExplanationCountdown(ms);return;
+  }
+  if(flashAdvanceRemainingMs!==null){
+    const ms=flashAdvanceRemainingMs;flashAdvanceRemainingMs=null;scheduleFlashAdvance(ms);
+  }
+}
 function showFlashcardExplanation(q,{ok=true,realTimeout=false,autoAdvance=ok&&!realTimeout}={}){
   clearFlashAdvance();
   const card=$("flashCard"),box=$("flashCardExplanation"),title=$("flashCardExplanationTitle"),answerKey=$("flashCardAnswerKey"),text=$("flashCardExplanationText"),countdown=$("flashExplanationCountdownWrap"),count=$("flashExplanationCountdown"),fill=$("flashExplanationCountdownFill"),label=$("flashExplanationCountdownLabel");
@@ -2519,21 +2596,7 @@ function showFlashcardExplanation(q,{ok=true,realTimeout=false,autoAdvance=ok&&!
     countdown.classList.remove("hidden");
     $("nextBtn").classList.add("hidden");
     label.textContent=state.index===state.session.length-1?"Résultats dans":"Prochaine carte dans";
-    const answeredIndex=state.index,endAt=performance.now()+FLASH_EXPLANATION_DELAY_MS;
-    const tick=()=>{count.textContent=String(Math.max(0,Math.ceil((endAt-performance.now())/1000)));};
-    tick();
-    fill.style.transition="none";fill.style.strokeDashoffset="0";
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{
-      fill.style.transition="stroke-dashoffset "+FLASH_EXPLANATION_DELAY_MS+"ms linear";
-      fill.style.strokeDashoffset="100";
-    }));
-    flashExplanationCountdownInterval=setInterval(tick,200);
-    flashAdvanceTimer=setTimeout(()=>{
-      flashAdvanceTimer=null;
-      if(flashExplanationCountdownInterval){clearInterval(flashExplanationCountdownInterval);flashExplanationCountdownInterval=null;}
-      if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex)return;
-      next();
-    },FLASH_EXPLANATION_DELAY_MS);
+    startFlashExplanationCountdown(FLASH_EXPLANATION_DELAY_MS);
   }else{
     countdown.classList.add("hidden");
     $("nextBtn").classList.remove("hidden");
@@ -2648,7 +2711,7 @@ function showFlashcardFeedback(q,ok,realTimeout){
   focusCorrection();
 }
 function answerFlashcard(userTruth,timedOut=false,throwMeta=null){
-  if(state.mode!=="flashcard"||state.answered)return;
+  if(state.mode!=="flashcard"||state.answered||flashPaused)return;
   const q=state.session[state.index],realTimeout=timedOut===true&&state.timerEnabled===true;
   if(state.timerEnabled){state.timerRemainingMs=currentRemainingMs();state.timerEndAt=null;stopTimerInterval();renderTimer();}
   const ok=!realTimeout&&userTruth===!!q.flashTruth;
@@ -2675,7 +2738,7 @@ function answerFlashcard(userTruth,timedOut=false,throwMeta=null){
 function initFlashSwipe(){
   const card=$("flashCard");if(!card)return;
   card.addEventListener("pointerdown",e=>{
-    if(state.mode!=="flashcard"||state.answered)return;
+    if(state.mode!=="flashcard"||state.answered||flashPaused)return;
     const rect=card.getBoundingClientRect();
     stopFlashDragPhysics();
     flashDragActive=true;flashPointerId=e.pointerId;flashStartX=e.clientX;flashStartY=e.clientY;flashDx=0;flashDy=0;
@@ -2746,7 +2809,7 @@ function initFlashSwipe(){
   card.addEventListener("pointerup",end);
   card.addEventListener("pointercancel",end);
   card.addEventListener("click",()=>{
-    if(state.mode!=="flashcard"||!state.answered)return;
+    if(state.mode!=="flashcard"||!state.answered||flashPaused)return;
     const explanation=$("flashCardExplanation");
     if(!explanation||explanation.classList.contains("hidden"))return;
     if(performance.now()-flashExplanationShownAt<300)return;
@@ -2855,11 +2918,40 @@ function animateScoreDonut(percent){
   requestAnimationFrame(tick);
 }
 
-function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;document.body.classList.remove("reviewing-errors");exitQuizFocus();
+function finish(){clearFlashAdvance();resetFlashPauseUI();stopTimerInterval();state.timerEndAt=null;document.body.classList.remove("reviewing-errors");exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;renderReviewRecommendations();clearProgress();
 }
 async function resumeSaved(){const s=getSaved();if(!s)return;state.mode=s.mode==="flashcard"?"flashcard":"qcm";state.flashExplanationsEnabled=!!s.flashExplanationsEnabled;syncModeUI();syncFlashExplanationUI();state.session=s.session;state.score=s.score||0;state.errors=s.errors||[];if((s.index||0)>=state.session.length){finish();return;}state.index=s.index||0;state.answered=false;state.reviewingErrors=!!s.reviewingErrors;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
-function pause(){clearFlashAdvance();pauseTimer();if(saveProgress()===false){alert("Impossible de sauvegarder la progression sur cet appareil.");startQuestionTimer(true);return;}exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");refreshResumeCard();}
+function resetFlashPauseUI(){
+  flashPaused=false;document.body.classList.remove("flash-paused");
+  const overlay=$("flashPauseOverlay");
+  if(overlay){overlay.classList.add("hidden");overlay.setAttribute("aria-hidden","true");}
+  $("pauseBtn").textContent="Mettre en pause";$("pauseBtn").setAttribute("aria-pressed","false");
+  $("nextBtn").disabled=false;
+}
+function setFlashPaused(paused){
+  if(state.mode!=="flashcard")return;
+  if(paused===flashPaused)return;
+  if(paused){
+    flashPaused=true;document.body.classList.add("flash-paused");
+    pauseTimer();pauseFlashAutoAdvance();stopFlashDragPhysics();
+    flashDragActive=false;flashPointerId=null;flashAxis=null;
+    const card=$("flashCard");if(card){card.classList.remove("dragging");card.style.transform="";}
+    $("flashFalseBtn").disabled=true;$("flashTrueBtn").disabled=true;$("nextBtn").disabled=true;
+    const overlay=$("flashPauseOverlay");if(overlay){overlay.classList.remove("hidden");overlay.setAttribute("aria-hidden","false");}
+    $("pauseBtn").textContent="Reprendre";$("pauseBtn").setAttribute("aria-pressed","true");
+    saveProgress();
+  }else{
+    resetFlashPauseUI();
+    $("flashFalseBtn").disabled=state.answered;$("flashTrueBtn").disabled=state.answered;
+    if(!state.answered)startQuestionTimer(true);else resumeFlashAutoAdvance();
+    if(window.matchMedia&&window.matchMedia("(min-width:761px)").matches)requestAnimationFrame(()=>$("flashCard")?.focus());
+  }
+}
+function pause(){
+  if(state.mode==="flashcard"){setFlashPaused(!flashPaused);return;}
+  clearFlashAdvance();pauseTimer();if(saveProgress()===false){alert("Impossible de sauvegarder la progression sur cet appareil.");startQuestionTimer(true);return;}exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");refreshResumeCard();
+}
 async function init(){ refreshResumeCard(); }
 
 $("toggleAllChapters").addEventListener("click",()=>setAllActiveSubject(!subjectAllSelected(state.activeSubject)));
@@ -2894,9 +2986,9 @@ document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventLis
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",()=>validate());$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
 $("flashExplanationNo").addEventListener("click",()=>chooseFlashExplanation(false));$("flashExplanationYes").addEventListener("click",()=>chooseFlashExplanation(true));$("flashExplanationMenuBtn").addEventListener("click",toggleFlashExplanations);
 $("flashFalseBtn").addEventListener("click",()=>answerFlashcard(false));$("flashTrueBtn").addEventListener("click",()=>answerFlashcard(true));
-$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearFlashAdvance();stopTimerInterval();state.reviewingErrors=false;state.flashOutcome=null;state.flashExplanationsEnabled=false;syncFlashExplanationUI();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");}});
+$("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearFlashAdvance();resetFlashPauseUI();stopTimerInterval();state.reviewingErrors=false;state.flashOutcome=null;state.flashExplanationsEnabled=false;syncFlashExplanationUI();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
-$("newQuiz").addEventListener("click",()=>{clearFlashAdvance();exitQuizFocus();stopTimerInterval();state.reviewingErrors=false;state.flashOutcome=null;state.flashExplanationsEnabled=false;syncFlashExplanationUI();state.timerEnabled=false;state.timerEndAt=null;state.timerRemainingMs=null;reviewTopicsCache=[];$("reviewRecommendations").classList.add("hidden");$("reviewTopicList").innerHTML="";$("results").classList.add("hidden");if(state.manifest){$("setup").classList.remove("hidden");renderSelectionUI();}});
+$("newQuiz").addEventListener("click",()=>{clearFlashAdvance();resetFlashPauseUI();exitQuizFocus();stopTimerInterval();state.reviewingErrors=false;state.flashOutcome=null;state.flashExplanationsEnabled=false;syncFlashExplanationUI();state.timerEnabled=false;state.timerEndAt=null;state.timerRemainingMs=null;reviewTopicsCache=[];$("reviewRecommendations").classList.add("hidden");$("reviewTopicList").innerHTML="";$("results").classList.add("hidden");if(state.manifest){$("setup").classList.remove("hidden");renderSelectionUI();}});
 $("retryErrors").addEventListener("click",()=>{if(!state.errors.length)return;state.session=shuffle([...state.errors]);state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=true;initTimerForNewSession();$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();});
 $("reviewAllTopics").addEventListener("click",()=>startReviewTopics([...reviewTopicsCache]));
 $("reviewTopicList").addEventListener("click",e=>{const btn=e.target.closest("[data-review-topic-index]");if(!btn)return;const topic=reviewTopicsCache[Number(btn.dataset.reviewTopicIndex)];if(topic)startReviewTopics([topic]);});
