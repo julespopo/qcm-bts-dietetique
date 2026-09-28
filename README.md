@@ -134,9 +134,9 @@ Il s'active directement via l'icône `⏱` du menu flottant.
 
 Lorsqu'il est activé, quatre durées sont disponibles :
 
-- **15 secondes**
+- **17 secondes**
 - **30 secondes**
-- **45 secondes**
+- **47 secondes**
 - **60 secondes**
 
 Une seule durée est active à la fois.
@@ -417,7 +417,7 @@ Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur le
 ## V7.8.3
 
 - Avant chaque session **Vrai/Faux**, une popup demande si les explications doivent être affichées après chaque réponse.
-- Avec les explications activées, une bonne réponse remplace la question par l’explication seule pendant 5 secondes puis enchaîne automatiquement ; une erreur reste affichée jusqu’à validation.
+- Avec les explications activées, une bonne réponse remplace la question par l’explication seule pendant 7 secondes puis enchaîne automatiquement ; une erreur reste affichée jusqu’à validation.
 - Sans explications, le comportement rapide reste inchangé : animation de résultat puis passage automatique à la carte suivante.
 - Une action **💡 Explications** dans le menu flottant permet d’activer ou désactiver ce comportement pendant la session.
 - Le réglage est conservé lors d’une pause/reprise et fonctionne aussi sur la version locale.
@@ -617,4 +617,4 @@ Pour cette version, il faut téléverser **le dossier `assets/` une seule fois**
 
 Les futures mises à jour qui ne modifient pas ces images pourront de nouveau être faites en remplaçant uniquement `index.html`.
 
-- En Vrai/Faux avec explications, une bonne réponse affiche uniquement l’explication pendant 5 secondes avec un petit chronomètre circulaire avant l’enchaînement automatique.
+- En Vrai/Faux avec explications, une bonne réponse affiche uniquement l’explication pendant 7 secondes avec un petit chronomètre circulaire en haut à droite avant l’enchaînement automatique. **Entrée** permet de passer plus vite à la suivante et **Espace** met la session en pause.
