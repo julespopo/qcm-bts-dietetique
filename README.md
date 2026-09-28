@@ -419,7 +419,7 @@ Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur le
 - Avant chaque session **Vrai/Faux**, une popup demande si les explications doivent être affichées après chaque réponse.
 - Avec les explications activées, la correction est affichée même en cas de bonne réponse et le passage à la carte suivante devient manuel.
 - Sans explications, le comportement rapide reste inchangé : animation de résultat puis passage automatique à la carte suivante.
-- Un bouton **Explications : activées/désactivées** permet de changer ce comportement pendant la session.
+- Une action **💡 Explications** dans le menu flottant permet d’activer ou désactiver ce comportement pendant la session.
 - Le réglage est conservé lors d’une pause/reprise et fonctionne aussi sur la version locale.
 - Les tests navigateur couvrent les deux choix de la popup et le basculement du réglage en cours de session.
 
