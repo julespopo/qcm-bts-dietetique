@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.8.3
+# QCM BTS Diététique — V7.9.0
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -209,6 +209,20 @@ Pendant un questionnaire :
 
 La première réponse reçoit automatiquement le focus à chaque nouvelle question.
 
+### À réviser après une session
+
+Lorsqu'au moins une réponse est incorrecte, la page Résultats affiche un bloc **À réviser**.
+
+Les erreurs sont regroupées automatiquement par :
+
+- matière ;
+- chapitre ;
+- catégorie de question.
+
+Pour chaque thème, le nombre d'erreurs est affiché. **Réviser ce thème** relance toutes les questions disponibles de cette catégorie, et **Réviser tout** regroupe toutes les catégories identifiées pendant la session.
+
+Le bouton **Revoir mes erreurs** reste disponible séparément : il repose uniquement les questions ratées, tandis que **À réviser** permet de retravailler l'ensemble du thème concerné.
+
 ---
 
 ## 10. Mobile et zoom
@@ -413,6 +427,17 @@ Le dépôt contient deux niveaux de tests :
 Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur les pull requests et sur `main`.
 
 # Changelog
+
+## V7.9.0
+
+- Ajout d'un bloc **À réviser** sur la page Résultats lorsqu'une session contient des erreurs.
+- Regroupement automatique des erreurs par matière, chapitre et `category` déjà présente dans les banques JSON.
+- Classement des thèmes par nombre d'erreurs décroissant.
+- **Réviser ce thème** crée une nouvelle session avec toutes les questions disponibles de la catégorie concernée.
+- **Réviser tout** rassemble les questions de toutes les catégories à retravailler en évitant les doublons.
+- Le fonctionnement respecte le mode actif : QCM reste QCM et Vrai/Faux reste Vrai/Faux.
+- Aucun changement du format des 330 questions existantes n'est nécessaire.
+- Fonctionnalité disponible dans `index.html` et `index_local.html`.
 
 ## V7.8.3
 
