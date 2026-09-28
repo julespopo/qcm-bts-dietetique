@@ -219,7 +219,8 @@ for bank_path in bank_paths:
 required_ids = {
     "setup", "quiz", "results", "choices", "validateBtn", "nextBtn",
     "pauseBtn", "quitBtn", "flashArea", "flashCard", "flashFalseBtn",
-    "flashTrueBtn", "themeToggle", "floatingActions", "timerToggleBtn",
+    "flashTrueBtn", "flashExplanationToggle", "flashExplanationOverlay",
+    "flashExplanationNo", "flashExplanationYes", "themeToggle", "floatingActions", "timerToggleBtn",
     "timerPresets", "errorBox", "errorText",
 }
 node = shutil.which("node")
@@ -253,12 +254,14 @@ for html_path in HTML_FILES:
         err(f"{rel}: timerPresets doit être inert lorsqu'il est masqué")
     if 'id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true" inert' not in static_html:
         err(f"{rel}: mobileSheetOverlay doit être inert lorsqu'il est fermé")
+    if 'id="flashExplanationOverlay" class="flash-pref-overlay" aria-hidden="true" inert' not in static_html:
+        err(f"{rel}: flashExplanationOverlay doit être inert lorsqu'il est fermé")
     if 'aria-expanded="false" aria-controls="floatingActions"' not in static_html:
         err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.8.2</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.8.2")
+    if '<footer>Index V7.8.3</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.8.3")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
     if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
@@ -267,6 +270,10 @@ for html_path in HTML_FILES:
         err(f"{rel}: zone de correction sans annonce aria-live")
     if 'flashcard-mode.reviewing-errors #nextBtn' not in source:
         err(f"{rel}: bouton suivant inaccessible en revue d'erreurs Vrai/Faux mobile")
+    if 'flashcard-mode.flash-explanations-on #nextBtn' not in source:
+        err(f"{rel}: bouton suivant inaccessible avec explications Vrai/Faux mobile")
+    if 'flashExplanationsEnabled:state.flashExplanationsEnabled' not in source:
+        err(f"{rel}: préférence d'explications Vrai/Faux non sauvegardée")
     if 'id="flashLiveResult" class="sr-only" role="status" aria-live="polite"' not in static_html:
         err(f"{rel}: résultat Vrai/Faux non annoncé aux technologies d'assistance")
     if 'function quizShortcutAllowed(e)' not in source:
