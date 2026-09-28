@@ -432,6 +432,9 @@ Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur le
 
 - Sur mobile, le bloc **Options** est affiché avant **Nombre de questions**.
 - Le texte d'aide sous les boutons **Faux / Vrai** a été supprimé pour alléger l'écran et récupérer de la hauteur.
+- En Vrai/Faux, **Espace** et le bouton **Mettre en pause** ne quittent plus le questionnaire : un voile **En pause** apparaît directement sur la carte.
+- Pendant cette pause, les swipes, réponses, animations et chronomètres sont gelés ; **Espace** ou **Reprendre** relance la session au même endroit.
+- Le comportement historique de pause du QCM classique reste inchangé.
 - Les versions web et locale restent synchronisées.
 
 ## V7.9.1
