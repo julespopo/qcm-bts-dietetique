@@ -282,12 +282,19 @@ try:
     truth = truth_map.get((prompt, proposal))
     assert truth is not None, f"impossible de déterminer la vérité de la carte: {prompt!r} / {proposal!r}"
 
-    # Deliberately answer incorrectly: with explanations enabled, correction must appear before results.
+    # Deliberately answer incorrectly: correction must replace the card content, not render below it.
     js_click(false_btn if truth else true_btn)
-    visible("#feedback:not(.hidden)")
+    error_card = visible("#flashCardExplanation:not(.hidden)")
+    assert "is-error" in (error_card.get_attribute("class") or ""), "carte d'explication non marquée comme erreur"
+    assert "réponse incorrecte" in driver.find_element(By.ID, "flashCardExplanationTitle").text.lower(), "titre d'erreur absent de la carte"
+    assert driver.find_element(By.ID, "flashCardAnswerKey").is_displayed(), "vérité attendue absente de la carte"
+    assert driver.find_element(By.ID, "flashCardExplanationText").text.strip(), "explication absente de la carte après erreur"
+    assert not driver.find_element(By.ID, "flashQuestion").is_displayed(), "question encore visible après erreur"
+    assert not driver.find_element(By.ID, "flashStatement").is_displayed(), "proposition encore visible après erreur"
+    assert driver.find_element(By.ID, "feedback").get_attribute("class").endswith("hidden"), "ancienne correction externe encore visible"
+    assert not driver.find_element(By.ID, "flashExplanationCountdownWrap").is_displayed(), "chronomètre affiché malgré une erreur"
     explanation_next = visible("#nextBtn")
     assert explanation_next.is_displayed(), "bouton suivant invisible avec explications mobile"
-    assert "explication" in driver.find_element(By.ID, "feedback").text.lower(), "explication absente après une erreur mobile"
     time.sleep(0.9)
     assert not driver.find_element(By.ID, "results").is_displayed(), "résultats affichés avant validation de l'explication"
     js_click(explanation_next)
@@ -300,6 +307,8 @@ try:
     proposal = norm(driver.find_element(By.ID, "flashStatement").text)
     truth = truth_map[(prompt, proposal)]
     js_click(driver.find_element(By.ID, "flashTrueBtn") if truth else driver.find_element(By.ID, "flashFalseBtn"))
+    visible("#flashCardExplanation:not(.hidden)")
+    assert driver.find_element(By.ID, "feedback").get_attribute("class").endswith("hidden"), "revue d'erreurs encore affichée hors de la carte"
     next_btn = visible("#nextBtn")
     assert next_btn.is_displayed(), "bouton de continuation invisible en revue d'erreurs mobile"
     assert "résultats" in next_btn.text.lower(), "libellé final de revue inattendu"
