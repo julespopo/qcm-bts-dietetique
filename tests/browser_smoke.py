@@ -20,15 +20,24 @@ TIMEOUT = 12
 def norm(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip())
 
-# Truth table used only by the E2E test to deliberately create/review one flashcard error.
+# Test metadata used to deliberately answer questions and validate targeted review sessions.
 truth_map: dict[tuple[str, str], bool] = {}
 ambiguous: set[tuple[str, str]] = set()
+qcm_category_counts: dict[tuple[str, str, str], int] = {}
+flash_category_counts: dict[tuple[str, str, str], int] = {}
 for bank_path in sorted((ROOT / "banques").rglob("*.json")):
     data = json.loads(bank_path.read_text(encoding="utf-8"))
+    subject = str(data.get("subject", "")).strip()
+    chapter = str(data.get("chapter", data.get("title", ""))).strip()
     for q in data.get("questions", []):
+        category = str(q.get("category", "")).strip() or "Notions générales"
+        topic_key = (subject, chapter, category)
+        qcm_category_counts[topic_key] = qcm_category_counts.get(topic_key, 0) + 1
+
         correct = [c for c in q.get("choices", []) if c.get("correct") is True]
         if q.get("type") == "multiple" or len(correct) != 1:
             continue
+        flash_category_counts[topic_key] = flash_category_counts.get(topic_key, 0) + 1
         prompt = norm(str(q.get("prompt", "")))
         for choice in q.get("choices", []):
             key = (prompt, norm(str(choice.get("text", ""))))
@@ -114,6 +123,41 @@ def start_mode(mode: str, count: int, explanations: bool = False):
         js_click(driver.find_element(By.ID, "flashExplanationYes" if explanations else "flashExplanationNo"))
     visible("#quiz:not(.hidden)")
 
+def answer_current_qcm_wrong():
+    inputs = driver.find_elements(By.CSS_SELECTOR, '#choices input[name="ans"]')
+    assert inputs, "aucune réponse QCM à rendre volontairement fausse"
+    incorrect = [i for i in inputs if i.get_attribute("data-correct") == "0"]
+    if incorrect:
+        js_click(incorrect[0])
+    else:
+        correct = [i for i in inputs if i.get_attribute("data-correct") == "1"]
+        assert len(correct) >= 2, "impossible de construire une mauvaise réponse QCM"
+        js_click(correct[0])
+    js_click(driver.find_element(By.ID, "validateBtn"))
+    wait_until(lambda: "Réponse incorrecte" in driver.find_element(By.ID, "feedback").text, "réponse volontairement fausse non détectée")
+
+def complete_qcm_with_errors(count: int):
+    for index in range(count):
+        answer_current_qcm_wrong()
+        next_btn = visible("#nextBtn")
+        js_click(next_btn)
+        if index < count - 1:
+            visible("#quiz:not(.hidden)")
+    visible("#results:not(.hidden)")
+
+def result_topic_key(card):
+    category = norm(card.find_element(By.CSS_SELECTOR, ".review-topic-name").text)
+    meta = norm(card.find_element(By.CSS_SELECTOR, ".review-topic-meta").text)
+    parts = [part.strip() for part in meta.split("•", 1)]
+    assert len(parts) == 2, f"métadonnées thème inattendues: {meta!r}"
+    return (parts[0], parts[1], category)
+
+def counter_total():
+    text_value = driver.find_element(By.ID, "counter").text
+    match = re.search(r"/\s*(\d+)", text_value)
+    assert match, f"compteur de session illisible: {text_value!r}"
+    return int(match.group(1))
+
 def assert_no_console_regressions():
     logs = driver.get_log("browser")
     bad = []
@@ -168,6 +212,38 @@ try:
     js_click(driver.find_element(By.ID, "resumeBtn"))
     visible("#quiz:not(.hidden)")
     assert driver.find_element(By.ID, "counter").text == counter_before, "reprise de session décalée"
+
+    # 1b) Desktop QCM: targeted "À réviser" launches every question from one category.
+    fresh()
+    select_one_desktop_bank()
+    start_mode("qcm", 3)
+    complete_qcm_with_errors(3)
+
+    review_panel = visible("#reviewRecommendations:not(.hidden)")
+    review_cards = review_panel.find_elements(By.CSS_SELECTOR, ".review-topic-card")
+    assert review_cards, "bloc À réviser vide après plusieurs erreurs"
+    first_key = result_topic_key(review_cards[0])
+    expected_targeted = qcm_category_counts.get(first_key)
+    assert expected_targeted, f"catégorie de révision inconnue dans les banques: {first_key!r}"
+    js_click(review_cards[0].find_element(By.CSS_SELECTOR, "[data-review-topic-index]"))
+    visible("#quiz:not(.hidden)")
+    assert "flashcard-mode" not in (driver.find_element(By.TAG_NAME, "body").get_attribute("class") or ""), "Réviser ce thème a changé QCM en Vrai/Faux"
+    assert counter_total() == expected_targeted, f"Réviser ce thème: {counter_total()} questions au lieu de {expected_targeted}"
+
+    # 1c) Desktop QCM: "Réviser tout" unions every detected category without duplicates.
+    fresh()
+    select_one_desktop_bank()
+    start_mode("qcm", 3)
+    complete_qcm_with_errors(3)
+    review_panel = visible("#reviewRecommendations:not(.hidden)")
+    review_cards = review_panel.find_elements(By.CSS_SELECTOR, ".review-topic-card")
+    keys = [result_topic_key(card) for card in review_cards]
+    expected_all = sum(qcm_category_counts.get(key, 0) for key in keys)
+    assert expected_all > 0, "aucune question attendue pour Réviser tout"
+    js_click(driver.find_element(By.ID, "reviewAllTopics"))
+    visible("#quiz:not(.hidden)")
+    assert "flashcard-mode" not in (driver.find_element(By.TAG_NAME, "body").get_attribute("class") or ""), "Réviser tout a changé QCM en Vrai/Faux"
+    assert counter_total() == expected_all, f"Réviser tout: {counter_total()} questions au lieu de {expected_all}"
 
     # 2) Desktop flashcard: the card must move while the pointer is still held.
     fresh()
@@ -356,8 +432,31 @@ try:
         js_click(inp)
     js_click(driver.find_element(By.ID, "validateBtn"))
     wait_until(lambda: "Bonne réponse" in driver.find_element(By.ID, "feedback").text, "QCM local correct refusé")
+    js_click(visible("#nextBtn"))
+    visible("#results:not(.hidden)")
+    assert not driver.find_element(By.ID, "reviewRecommendations").is_displayed(), "À réviser affiché après un sans-faute local"
+
+    # Local targeted review: the imported-bank cache must be sufficient to relaunch a category.
+    js_click(driver.find_element(By.ID, "newQuiz"))
+    visible("#setup")
+    count_el = driver.find_element(By.ID, "count")
+    count_el.clear()
+    count_el.send_keys("1")
+    js_click(driver.find_element(By.ID, "startBtn"))
+    visible("#quiz:not(.hidden)")
+    answer_current_qcm_wrong()
+    js_click(visible("#nextBtn"))
+    visible("#results:not(.hidden)")
+    local_review = visible("#reviewRecommendations:not(.hidden)")
+    local_card = local_review.find_elements(By.CSS_SELECTOR, ".review-topic-card")[0]
+    local_key = result_topic_key(local_card)
+    local_expected = qcm_category_counts.get(local_key)
+    assert local_expected, f"catégorie locale inconnue dans les banques: {local_key!r}"
+    js_click(local_card.find_element(By.CSS_SELECTOR, "[data-review-topic-index]"))
+    visible("#quiz:not(.hidden)")
+    assert counter_total() == local_expected, f"Réviser ce thème local: {counter_total()} questions au lieu de {local_expected}"
 
     assert_no_console_regressions()
-    print("OK — tests navigateur web desktop/mobile + version locale")
+    print("OK — batterie E2E: QCM, Vrai/Faux, À réviser ciblé/global, desktop/mobile + version locale")
 finally:
     driver.quit()
