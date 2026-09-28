@@ -221,7 +221,7 @@ required_ids = {
     "pauseBtn", "quitBtn", "flashArea", "flashCard", "flashFalseBtn",
     "flashTrueBtn", "flashExplanationMenuBtn", "flashExplanationOverlay",
     "flashExplanationNo", "flashExplanationYes", "flashCardExplanation",
-    "flashCardExplanationTitle", "flashCardAnswerKey", "flashCardExplanationText",
+    "flashCardExplanationTitle", "flashCardAnswerKey", "flashCardExplanationText", "flashPauseOverlay",
     "flashExplanationCountdownWrap", "flashExplanationCountdown", "flashExplanationCountdownFill",
     "themeToggle", "floatingActions", "timerToggleBtn",
     "timerPresets", "reviewRecommendations", "reviewRecommendationsTitle",
@@ -297,6 +297,12 @@ for html_path in HTML_FILES:
         err(f"{rel}: raccourci Espace pour pause Vrai/Faux absent")
     if 'if(e.key==="Enter"&&state.answered){e.preventDefault();clearFlashAdvance();next();return;}' not in source:
         err(f"{rel}: raccourci Entrée pour avancer Vrai/Faux absent")
+    if 'function setFlashPaused(paused)' not in source or 'if(state.mode==="flashcard"){setFlashPaused(!flashPaused);return;}' not in source:
+        err(f"{rel}: pause Vrai/Faux sur place absente")
+    if 'function pauseFlashAutoAdvance()' not in source or 'function resumeFlashAutoAdvance()' not in source:
+        err(f"{rel}: pause/reprise du chrono d'explication absente")
+    if 'id="flashPauseOverlay" class="flash-pause-overlay hidden" aria-hidden="true"' not in static_html:
+        err(f"{rel}: voile de pause Vrai/Faux absent")
     if 'catch(e){console.warn("Sauvegarde locale indisponible."' not in source:
         err(f"{rel}: une erreur localStorage peut interrompre la session")
     if 'if(floatingMenuOpen)closeFloatingMenu();' not in source:
