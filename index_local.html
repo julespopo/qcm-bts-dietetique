@@ -67,6 +67,7 @@ html[data-theme="dark"] .difficulty-btn.selected small{
 }
 
 html[data-theme="dark"] #timerToggleBtn.active,
+html[data-theme="dark"] #flashExplanationMenuBtn.active,
 html[data-theme="dark"] .timer-preset-floating.selected{
   border-color:#b8b1ff;
   background:#302b58;
@@ -491,9 +492,11 @@ html.theme-switching button{
   border-color:rgba(var(--accent-rgb),.55);
   box-shadow:0 10px 28px rgba(0,0,0,.20)
 }
-#timerToggleBtn.active{
+#timerToggleBtn.active,
+#flashExplanationMenuBtn.active{
   border-color:rgba(var(--accent-rgb),.88);
   background:var(--soft);
+  color:var(--accent);
   box-shadow:0 0 0 3px var(--bg),0 0 20px rgba(var(--accent-rgb),.24)
 }
 .timer-presets-floating{
@@ -767,8 +770,6 @@ body.flashcard-mode .qcm-only-option{display:none!important}
 .flash-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(100%,520px);margin:0 auto}
 .flash-btn{min-height:54px;border:1px solid var(--line);background:var(--tile);color:var(--text);font-size:1rem}.flash-btn.false:hover{border-color:var(--bad);color:var(--bad)}.flash-btn.true:hover{border-color:var(--ok);color:var(--ok)}.flash-btn:disabled{opacity:.42}
 .flash-hint{text-align:center;margin:10px 0 0;font-size:.84rem;color:var(--muted)}.flash-answer-key{margin-top:7px;font-weight:750}
-.flash-explanation-toggle{display:flex;align-items:center;justify-content:center;width:max-content;max-width:100%;min-height:38px;margin:7px auto 0;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--button-soft);color:var(--muted);font-size:.82rem;font-weight:780}
-.flash-explanation-toggle.active{color:var(--accent);border-color:rgba(var(--accent-rgb),.52);background:rgba(var(--accent-rgb),.10)}
 .flash-pref-overlay{position:fixed;inset:0;z-index:1400;display:grid;place-items:center;padding:20px;background:rgba(8,11,18,.58);backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .18s ease}
 .flash-pref-overlay.open{opacity:1;pointer-events:auto}
 .flash-pref-dialog{width:min(100%,460px);border:1px solid var(--line);border-radius:24px;background:var(--card);box-shadow:0 28px 80px rgba(0,0,0,.30);padding:24px}
@@ -976,6 +977,10 @@ body.quiz-active.flashcard-mode #quitBtn{
     ⏱
   </button>
 
+  <button id="flashExplanationMenuBtn" class="floating-action-btn hidden" type="button" aria-label="Activer les explications Vrai/Faux" title="Explications Vrai/Faux" aria-pressed="false">
+    💡
+  </button>
+
   <div id="timerPresets" class="timer-presets-floating" aria-hidden="true" inert>
     <button class="timer-preset-floating" type="button" data-seconds="15">15</button>
     <button class="timer-preset-floating" type="button" data-seconds="30">30</button>
@@ -1150,7 +1155,6 @@ body.quiz-active.flashcard-mode #quitBtn{
       <button id="flashTrueBtn" class="flash-btn true" type="button">Vrai →</button>
     </div>
     <p id="flashHint" class="flash-hint">Glisse à gauche pour Faux • à droite pour Vrai</p>
-    <button id="flashExplanationToggle" class="flash-explanation-toggle" type="button" aria-pressed="false">💡 Explications : désactivées</button>
   </div>
   <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
   <div class="row quiz-actions">
@@ -1286,6 +1290,7 @@ function layoutFloatingActions(){
 
   const themeBtn=$("themeMenuBtn");
   const timerBtn=$("timerToggleBtn");
+  const explanationBtn=$("flashExplanationMenuBtn");
   const presetButtons=[...document.querySelectorAll(".timer-preset-floating")];
   const {horizontal,vertical,rect:r}=floatingDirection();
 
@@ -1294,15 +1299,21 @@ function layoutFloatingActions(){
   const presetSize=42;
   const gap=12;
 
-  // Les 2 actions se déploient vers l'intérieur de l'écran.
-  // L'une suit l'axe horizontal, l'autre l'axe vertical.
+  // Les actions se déploient vers l'intérieur de l'écran :
+  // thème sur l'axe horizontal, timer sur l'axe vertical,
+  // explications dans la diagonale entre les deux.
   const themeLeft = horizontal===1 ? r.right+gap : r.left-gap-actionSize;
   const themeTop = r.top+(mainSize-actionSize)/2;
   const timerLeft = r.left+(mainSize-actionSize)/2;
   const timerTop = vertical===1 ? r.bottom+gap : r.top-gap-actionSize;
+  const explanationLeft=themeLeft;
+  const explanationTop=timerTop;
 
   setFloatingButtonPosition(themeBtn,themeLeft,themeTop);
   setFloatingButtonPosition(timerBtn,timerLeft,timerTop);
+  if(explanationBtn&&!explanationBtn.classList.contains("hidden")){
+    setFloatingButtonPosition(explanationBtn,explanationLeft,explanationTop);
+  }
 
   // Les durées se déploient depuis le timer sur l'axe horizontal opposé au bord.
   const timerRect = {left:timerLeft,top:timerTop,width:actionSize,height:actionSize,right:timerLeft+actionSize,bottom:timerTop+actionSize};
@@ -1723,13 +1734,17 @@ function syncModeUI(){
 function setStudyMode(mode){state.mode=mode==="flashcard"?"flashcard":"qcm";syncModeUI();syncFlashExplanationUI();updateAvailable();}
 
 function syncFlashExplanationUI(){
-  const enabled=state.mode==="flashcard"&&state.flashExplanationsEnabled;
+  const flash=state.mode==="flashcard";
+  const enabled=flash&&state.flashExplanationsEnabled;
   document.body.classList.toggle("flash-explanations-on",enabled);
-  const btn=$("flashExplanationToggle");
+  const btn=$("flashExplanationMenuBtn");
   if(!btn)return;
+  btn.classList.toggle("hidden",!flash);
   btn.classList.toggle("active",enabled);
   btn.setAttribute("aria-pressed",enabled?"true":"false");
-  btn.textContent=enabled?"💡 Explications : activées":"💡 Explications : désactivées";
+  btn.setAttribute("aria-label",enabled?"Désactiver les explications Vrai/Faux":"Activer les explications Vrai/Faux");
+  btn.title=enabled?"Explications activées":"Explications désactivées";
+  if(floatingMenuOpen)layoutFloatingActions();
 }
 function showCurrentFlashExplanationIfAnswered(){
   if(state.mode!=="flashcard"||!state.answered||state.reviewingErrors||!state.flashOutcome)return;
@@ -2595,7 +2610,7 @@ $("themeMenuBtn").addEventListener("click",toggleTheme);
 $("timerToggleBtn").addEventListener("click",toggleTimer);
 document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",()=>validate());$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
-$("flashExplanationNo").addEventListener("click",()=>chooseFlashExplanation(false));$("flashExplanationYes").addEventListener("click",()=>chooseFlashExplanation(true));$("flashExplanationToggle").addEventListener("click",toggleFlashExplanations);
+$("flashExplanationNo").addEventListener("click",()=>chooseFlashExplanation(false));$("flashExplanationYes").addEventListener("click",()=>chooseFlashExplanation(true));$("flashExplanationMenuBtn").addEventListener("click",toggleFlashExplanations);
 $("flashFalseBtn").addEventListener("click",()=>answerFlashcard(false));$("flashTrueBtn").addEventListener("click",()=>answerFlashcard(true));
 $("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearFlashAdvance();stopTimerInterval();state.reviewingErrors=false;state.flashOutcome=null;state.flashExplanationsEnabled=false;syncFlashExplanationUI();state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
