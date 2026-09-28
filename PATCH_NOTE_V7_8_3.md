@@ -9,3 +9,5 @@
 - Le choix est inclus dans la sauvegarde locale pour les pauses/reprises.
 - Le comportement est identique dans `index.html` et `index_local.html`.
 - Les contrôles automatisés ont été étendus pour couvrir la popup et les changements de mode en cours de session.
+
+- Bonne réponse + explications activées : l’explication apparaît dans la carte pendant 7 secondes, avec un décompte visuel, puis la carte suivante s’affiche automatiquement.
