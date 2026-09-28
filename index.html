@@ -785,6 +785,8 @@ body.flashcard-mode .qcm-only-option{display:none!important}
   overscroll-behavior:contain
 }
 .flash-card-explanation-title{display:flex;align-items:flex-start;gap:7px;min-height:52px;padding-right:62px;color:var(--ok);font-size:.82rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.flash-card-explanation.is-error .flash-card-explanation-title{color:var(--bad)}
+.flash-card-answer-key{margin:0 0 12px;padding:10px 12px;border-radius:11px;background:var(--pane);font-size:.9rem;font-weight:760;color:var(--text)}
 .flash-card-explanation-text{margin-top:7px;font-size:.94rem;line-height:1.45;color:var(--text)}
 .flash-explanation-countdown{position:absolute;top:0;right:0;z-index:3;margin:0;color:var(--muted);font-size:.78rem;font-weight:760}
 .flash-explanation-stopwatch{position:relative;width:48px;height:52px;display:grid;place-items:end center}
@@ -1164,9 +1166,10 @@ body.quiz-active.flashcard-mode #quitBtn{
         <div class="flash-answer-label">RÉPONSE PROPOSÉE</div>
         <div id="flashStatement" class="flash-statement"></div>
         <div id="flashCardExplanation" class="flash-card-explanation hidden">
-          <div class="flash-card-explanation-title">✓ Explication</div>
+          <div id="flashCardExplanationTitle" class="flash-card-explanation-title">✓ Explication</div>
+          <div id="flashCardAnswerKey" class="flash-card-answer-key hidden"></div>
           <div id="flashCardExplanationText" class="flash-card-explanation-text"></div>
-          <div class="flash-explanation-countdown" aria-label="Temps avant la prochaine carte">
+          <div id="flashExplanationCountdownWrap" class="flash-explanation-countdown" aria-label="Temps avant la prochaine carte">
             <span id="flashExplanationCountdownLabel" class="sr-only">Prochaine carte dans</span>
             <div class="flash-explanation-stopwatch" aria-hidden="true">
               <svg viewBox="0 0 44 44">
@@ -1783,16 +1786,11 @@ function showCurrentFlashExplanationIfAnswered(){
   const q=state.session[state.index];if(!q)return;
   if(state.flashExplanationsEnabled){
     clearFlashAdvance();
-    if(state.flashOutcome.ok&&!state.flashOutcome.realTimeout){
-      resetFlashCardVisual();
-      $("flashFalseBtn").disabled=true;$("flashTrueBtn").disabled=true;$("flashCard").style.pointerEvents="none";
-      showFlashcardSuccessExplanation(q);
-    }else{
-      hideFlashcardSuccessExplanation();
-      showFlashcardFeedback(q,state.flashOutcome.ok,state.flashOutcome.realTimeout);
-    }
+    resetFlashCardVisual();
+    $("flashFalseBtn").disabled=true;$("flashTrueBtn").disabled=true;$("flashCard").style.pointerEvents="none";
+    showFlashcardExplanation(q,{ok:state.flashOutcome.ok,realTimeout:state.flashOutcome.realTimeout,autoAdvance:state.flashOutcome.ok&&!state.flashOutcome.realTimeout});
   }else{
-    hideFlashcardSuccessExplanation();
+    hideFlashcardExplanation();
     $("feedback").classList.add("hidden");
     $("feedback").innerHTML="";
     $("nextBtn").classList.add("hidden");
@@ -2249,13 +2247,16 @@ async function startPreparedSession(){
   try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=false;state.flashOutcome=null;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");syncFlashExplanationUI();enterQuizFocus();renderQuestion();saveProgress();}
   catch(e){alert(e.message);}finally{$("startBtn").disabled=false;syncModeUI();}
 }
-function hideFlashcardSuccessExplanation(){
-  const card=$("flashCard"),box=$("flashCardExplanation"),fill=$("flashExplanationCountdownFill");
+function hideFlashcardExplanation(){
+  const card=$("flashCard"),box=$("flashCardExplanation"),answerKey=$("flashCardAnswerKey"),countdown=$("flashExplanationCountdownWrap"),fill=$("flashExplanationCountdownFill");
   card?.classList.remove("explanation-visible");
   box?.classList.add("hidden");
+  box?.classList.remove("is-error");
+  answerKey?.classList.add("hidden");
+  countdown?.classList.remove("hidden");
   if(fill){fill.style.transition="none";fill.style.strokeDashoffset="0";}
 }
-function resetFlashCardVisual(){const card=$("flashCard"),result=$("flashResultIcon"),stage=$("swipeStage");if(!card)return;hideFlashcardSuccessExplanation();stopFlashDragPhysics();flashTargetX=flashTargetY=flashRenderX=flashRenderY=flashRenderVX=flashRenderVY=flashLift=0;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging","entering","returning");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";card.style.borderColor="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";resetFlashDeck();if(stage)stage.classList.remove("impact-success","impact-failure");if(result){result.className="flash-result-icon";result.textContent="";}}
+function resetFlashCardVisual(){const card=$("flashCard"),result=$("flashResultIcon"),stage=$("swipeStage");if(!card)return;hideFlashcardExplanation();stopFlashDragPhysics();flashTargetX=flashTargetY=flashRenderX=flashRenderY=flashRenderVX=flashRenderVY=flashLift=0;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging","entering","returning");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";card.style.borderColor="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";resetFlashDeck();if(stage)stage.classList.remove("impact-success","impact-failure");if(result){result.className="flash-result-icon";result.textContent="";}}
 function animateFlashCardIn(){const card=$("flashCard");if(!card)return;card.classList.remove("entering");void card.offsetWidth;card.classList.add("entering");}
 function renderFlashcardQuestion(q,resumeTimer=false){
   clearFlashAdvance();
@@ -2332,34 +2333,51 @@ function clearFlashAdvance(){
   if(flashExplanationCountdownInterval){clearInterval(flashExplanationCountdownInterval);flashExplanationCountdownInterval=null;}
 }
 function scheduleFlashAdvance(delay=850){clearFlashAdvance();const answeredIndex=state.index;flashAdvanceTimer=setTimeout(()=>{flashAdvanceTimer=null;if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex)return;next();},delay);}
-function showFlashcardSuccessExplanation(q){
+function showFlashcardExplanation(q,{ok=true,realTimeout=false,autoAdvance=ok&&!realTimeout}={}){
   clearFlashAdvance();
-  const card=$("flashCard"),box=$("flashCardExplanation"),text=$("flashCardExplanationText"),count=$("flashExplanationCountdown"),fill=$("flashExplanationCountdownFill"),label=$("flashExplanationCountdownLabel");
-  if(!card||!box||!text||!count||!fill)return;
+  const card=$("flashCard"),box=$("flashCardExplanation"),title=$("flashCardExplanationTitle"),answerKey=$("flashCardAnswerKey"),text=$("flashCardExplanationText"),countdown=$("flashExplanationCountdownWrap"),count=$("flashExplanationCountdown"),fill=$("flashExplanationCountdownFill"),label=$("flashExplanationCountdownLabel");
+  if(!card||!box||!title||!answerKey||!text||!countdown||!count||!fill)return;
   stopFlashDragPhysics();
   card.classList.remove("dragging","returning");
   card.style.transform="";card.style.borderColor="";
   $("flashTrueStamp").style.opacity="0";$("flashFalseStamp").style.opacity="0";resetFlashDeck();
   card.classList.add("explanation-visible");
   box.classList.remove("hidden");
+  box.classList.toggle("is-error",!ok);
+  title.textContent=realTimeout?"⌛ Temps écoulé":ok?"✓ Explication":"✕ Réponse incorrecte";
+  if(ok){
+    answerKey.classList.add("hidden");
+    answerKey.textContent="";
+  }else{
+    answerKey.classList.remove("hidden");
+    answerKey.textContent="La réponse proposée était "+(q.flashTruth?"vraie.":"fausse.");
+  }
   text.textContent=q.explanation||"Aucune explication disponible.";
-  label.textContent=state.index===state.session.length-1?"Résultats dans":"Prochaine carte dans";
-  $("feedback").classList.add("hidden");$("feedback").innerHTML="";$("nextBtn").classList.add("hidden");
-  const answeredIndex=state.index,endAt=performance.now()+FLASH_EXPLANATION_DELAY_MS;
-  const tick=()=>{count.textContent=String(Math.max(0,Math.ceil((endAt-performance.now())/1000)));};
-  tick();
-  fill.style.transition="none";fill.style.strokeDashoffset="0";
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    fill.style.transition="stroke-dashoffset "+FLASH_EXPLANATION_DELAY_MS+"ms linear";
-    fill.style.strokeDashoffset="100";
-  }));
-  flashExplanationCountdownInterval=setInterval(tick,200);
-  flashAdvanceTimer=setTimeout(()=>{
-    flashAdvanceTimer=null;
-    if(flashExplanationCountdownInterval){clearInterval(flashExplanationCountdownInterval);flashExplanationCountdownInterval=null;}
-    if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex)return;
-    next();
-  },FLASH_EXPLANATION_DELAY_MS);
+  $("feedback").classList.add("hidden");$("feedback").innerHTML="";
+  if(autoAdvance){
+    countdown.classList.remove("hidden");
+    $("nextBtn").classList.add("hidden");
+    label.textContent=state.index===state.session.length-1?"Résultats dans":"Prochaine carte dans";
+    const answeredIndex=state.index,endAt=performance.now()+FLASH_EXPLANATION_DELAY_MS;
+    const tick=()=>{count.textContent=String(Math.max(0,Math.ceil((endAt-performance.now())/1000)));};
+    tick();
+    fill.style.transition="none";fill.style.strokeDashoffset="0";
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      fill.style.transition="stroke-dashoffset "+FLASH_EXPLANATION_DELAY_MS+"ms linear";
+      fill.style.strokeDashoffset="100";
+    }));
+    flashExplanationCountdownInterval=setInterval(tick,200);
+    flashAdvanceTimer=setTimeout(()=>{
+      flashAdvanceTimer=null;
+      if(flashExplanationCountdownInterval){clearInterval(flashExplanationCountdownInterval);flashExplanationCountdownInterval=null;}
+      if(state.mode!=="flashcard"||!state.answered||state.index!==answeredIndex)return;
+      next();
+    },FLASH_EXPLANATION_DELAY_MS);
+  }else{
+    countdown.classList.add("hidden");
+    $("nextBtn").classList.remove("hidden");
+    $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":state.reviewingErrors?"Erreur suivante":"Question suivante";
+  }
   saveProgress();
 }
 function resetFlashDeck(){
@@ -2473,7 +2491,7 @@ function answerFlashcard(userTruth,timedOut=false,throwMeta=null){
   const q=state.session[state.index],realTimeout=timedOut===true&&state.timerEnabled===true;
   if(state.timerEnabled){state.timerRemainingMs=currentRemainingMs();state.timerEndAt=null;stopTimerInterval();renderTimer();}
   const ok=!realTimeout&&userTruth===!!q.flashTruth;
-  const keepCardForExplanation=ok&&state.flashExplanationsEnabled&&!state.reviewingErrors;
+  const keepCardForExplanation=state.flashExplanationsEnabled||state.reviewingErrors;
   state.answered=true;
   state.flashOutcome={ok,realTimeout};
   if(ok)state.score++;else state.errors.push(q);
@@ -2485,15 +2503,11 @@ function answerFlashcard(userTruth,timedOut=false,throwMeta=null){
   const flashLive=$("flashLiveResult");if(flashLive){flashLive.textContent="";requestAnimationFrame(()=>{flashLive.textContent=realTimeout?"Temps écoulé.":ok?"Bonne réponse.":"Réponse incorrecte.";});}
   renderLiveQuizStats();$("validateBtn").classList.add("hidden");
   if(state.reviewingErrors){
-    hideFlashcardSuccessExplanation();
-    showFlashcardFeedback(q,ok,realTimeout);
-  }else if(state.flashExplanationsEnabled&&ok){
-    showFlashcardSuccessExplanation(q);
+    showFlashcardExplanation(q,{ok,realTimeout,autoAdvance:false});
   }else if(state.flashExplanationsEnabled){
-    hideFlashcardSuccessExplanation();
-    showFlashcardFeedback(q,ok,realTimeout);
+    showFlashcardExplanation(q,{ok,realTimeout,autoAdvance:ok&&!realTimeout});
   }else{
-    hideFlashcardSuccessExplanation();
+    hideFlashcardExplanation();
     $("feedback").classList.add("hidden");$("feedback").innerHTML="";$("nextBtn").classList.add("hidden");saveProgress();scheduleFlashAdvance(Math.max(560,throwDuration+150));
   }
 }
