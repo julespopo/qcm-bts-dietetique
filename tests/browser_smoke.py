@@ -210,7 +210,7 @@ try:
     assert card_explanation.find_element(By.ID, "flashCardExplanationText").text.strip(), "explication intégrée à la carte absente"
     counter_with_explanation = driver.find_element(By.ID, "counter").text
     countdown_start = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
-    assert countdown_start in (6, 7), f"décompte initial inattendu: {countdown_start}"
+    assert countdown_start in (4, 5), f"décompte initial inattendu: {countdown_start}"
     time.sleep(1.15)
     countdown_after = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
     assert countdown_after < countdown_start, "décompte visuel Vrai/Faux immobile"
