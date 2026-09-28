@@ -189,10 +189,14 @@ try:
     wait_until(lambda: driver.find_element(By.ID, "flashLiveResult").get_attribute("textContent").strip() != "", "résultat flash non annoncé")
     wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 2 /"), "carte suivante non avancée")
 
-    # The in-session control must enable explanations immediately and stop auto-advance.
-    toggle = driver.find_element(By.ID, "flashExplanationToggle")
+    # The in-session control lives in the floating menu and must immediately change behavior.
+    gear = driver.find_element(By.ID, "themeToggle")
+    js_click(gear)
+    visible("#floatingActions.open")
+    toggle = visible("#flashExplanationMenuBtn:not(.hidden)")
+    assert toggle.get_attribute("aria-pressed") == "false", "état initial des explications incorrect"
     js_click(toggle)
-    wait_until(lambda: "activées" in toggle.text.lower(), "activation des explications non appliquée")
+    wait_until(lambda: toggle.get_attribute("aria-pressed") == "true", "activation des explications non appliquée")
     js_click(driver.find_element(By.ID, "flashTrueBtn"))
     visible("#feedback:not(.hidden)")
     visible("#nextBtn")
@@ -201,8 +205,9 @@ try:
     time.sleep(1.0)
     assert driver.find_element(By.ID, "counter").text == counter_with_explanation, "avance automatique active malgré les explications"
     js_click(toggle)
-    wait_until(lambda: "désactivées" in toggle.text.lower(), "désactivation des explications non appliquée")
+    wait_until(lambda: toggle.get_attribute("aria-pressed") == "false", "désactivation des explications non appliquée")
     wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "désactivation n'a pas relancé l'enchaînement automatique")
+    driver.find_element(By.TAG_NAME, "body").click()
 
     # 3) Mobile: modal focus, full-height layout, visual button balance, error review.
     fresh(390, 844)
