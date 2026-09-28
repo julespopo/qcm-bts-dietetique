@@ -220,7 +220,9 @@ required_ids = {
     "setup", "quiz", "results", "choices", "validateBtn", "nextBtn",
     "pauseBtn", "quitBtn", "flashArea", "flashCard", "flashFalseBtn",
     "flashTrueBtn", "flashExplanationMenuBtn", "flashExplanationOverlay",
-    "flashExplanationNo", "flashExplanationYes", "themeToggle", "floatingActions", "timerToggleBtn",
+    "flashExplanationNo", "flashExplanationYes", "flashCardExplanation",
+    "flashCardExplanationText", "flashExplanationCountdown", "flashExplanationCountdownFill",
+    "themeToggle", "floatingActions", "timerToggleBtn",
     "timerPresets", "errorBox", "errorText",
 }
 node = shutil.which("node")
@@ -274,6 +276,10 @@ for html_path in HTML_FILES:
         err(f"{rel}: bouton suivant inaccessible avec explications Vrai/Faux mobile")
     if 'flashExplanationsEnabled:state.flashExplanationsEnabled' not in source:
         err(f"{rel}: préférence d'explications Vrai/Faux non sauvegardée")
+    if 'FLASH_EXPLANATION_DELAY_MS=7000' not in source:
+        err(f"{rel}: délai d'explication Vrai/Faux attendu à 7 secondes")
+    if 'showFlashcardSuccessExplanation(q)' not in source:
+        err(f"{rel}: explication intégrée à la carte après bonne réponse absente")
     if 'id="flashLiveResult" class="sr-only" role="status" aria-live="polite"' not in static_html:
         err(f"{rel}: résultat Vrai/Faux non annoncé aux technologies d'assistance")
     if 'function quizShortcutAllowed(e)' not in source:
