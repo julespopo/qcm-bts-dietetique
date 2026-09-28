@@ -327,8 +327,12 @@ try:
     visible("#quiz:not(.hidden)")
     assert driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "pause Espace/reprise a décalé la session"
 
-    # 3) Mobile: modal focus, full-height layout, visual button balance, error review.
+    # 3) Mobile: modal focus, configuration ordering, full-height layout, visual button balance, error review.
     fresh(390, 844)
+
+    options_block = driver.find_element(By.CSS_SELECTOR, ".config-options")
+    count_field = driver.find_element(By.CSS_SELECTOR, ".config-grid .field")
+    assert options_block.rect["y"] < count_field.rect["y"], "Options n'est pas affiché au-dessus de Nombre de questions sur mobile"
 
     # Floating menu focus/ARIA regression.
     gear = driver.find_element(By.ID, "themeToggle")
@@ -352,6 +356,7 @@ try:
     false_btn = driver.find_element(By.ID, "flashFalseBtn")
     true_btn = driver.find_element(By.ID, "flashTrueBtn")
     assert false_btn.rect["height"] >= 70 and true_btn.rect["height"] >= 70, "boutons Vrai/Faux trop petits sur mobile"
+    assert not driver.find_elements(By.ID, "flashHint"), "texte d'aide encore présent sous Faux/Vrai"
 
     flash_card = driver.find_element(By.ID, "flashCard")
     flash_statement = driver.find_element(By.ID, "flashStatement")
