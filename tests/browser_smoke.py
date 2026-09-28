@@ -98,7 +98,7 @@ def select_mobile_subject_all():
     active = driver.switch_to.active_element
     assert "subject-card" in (active.get_attribute("class") or ""), "focus non restauré sur la matière"
 
-def start_mode(mode: str, count: int):
+def start_mode(mode: str, count: int, explanations: bool = False):
     mode_btn = driver.find_element(By.CSS_SELECTOR, f'.mode-btn[data-mode="{mode}"]')
     js_click(mode_btn)
     count_el = driver.find_element(By.ID, "count")
@@ -106,6 +106,12 @@ def start_mode(mode: str, count: int):
     count_el.send_keys(str(count))
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "bouton démarrer désactivé")
     js_click(driver.find_element(By.ID, "startBtn"))
+    if mode == "flashcard":
+        dialog = visible("#flashExplanationDialog")
+        assert dialog.get_attribute("open") is not None, "popup d'explications non ouverte"
+        assert "même lorsqu’elle est juste" in norm(driver.find_element(By.ID, "flashExplanationDescription").text).lower()
+        js_click(driver.find_element(By.ID, "flashExplainYes" if explanations else "flashExplainNo"))
+        wait_until(lambda: driver.find_element(By.ID, "flashExplanationDialog").get_attribute("open") is None, "popup d'explications non fermée")
     visible("#quiz:not(.hidden)")
 
 def assert_no_console_regressions():
@@ -182,6 +188,41 @@ try:
     wait_until(lambda: "/ 1" in driver.find_element(By.ID, "scoreLive").text, "score flash non mis à jour")
     wait_until(lambda: driver.find_element(By.ID, "flashLiveResult").get_attribute("textContent").strip() != "", "résultat flash non annoncé")
     wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 2 /"), "carte suivante non avancée")
+
+    # 2b) Explanations: prompt, correct-answer explanation, runtime toggle and persistence.
+    fresh()
+    js_click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
+    wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "matière flash explications non sélectionnée")
+    start_mode("flashcard", 2, explanations=True)
+    explain_toggle = driver.find_element(By.ID, "flashExplanationToggle")
+    assert explain_toggle.get_attribute("aria-pressed") == "true", "explications non activées après la popup"
+
+    prompt = norm(driver.find_element(By.ID, "flashQuestion").text)
+    proposal = norm(driver.find_element(By.ID, "flashStatement").text)
+    truth = truth_map.get((prompt, proposal))
+    assert truth is not None, "vérité de la carte d'explication introuvable"
+    js_click(driver.find_element(By.ID, "flashTrueBtn") if truth else driver.find_element(By.ID, "flashFalseBtn"))
+
+    panel = visible("#flashExplanationPanel:not(.hidden)")
+    wait_until(lambda: "Bonne réponse" in panel.text, "explication non affichée après une bonne réponse")
+    assert "Explication" in panel.text, "contenu pédagogique absent du panneau"
+    assert driver.find_element(By.ID, "nextBtn").is_displayed(), "bouton suivant absent avec explications"
+    assert "1 / 1" in driver.find_element(By.ID, "scoreLive").text, "score incorrect avec explications"
+
+    # Turning explanations off while the explanation is visible must return to auto-advance.
+    js_click(explain_toggle)
+    assert explain_toggle.get_attribute("aria-pressed") == "false", "désactivation des explications ignorée"
+    wait_until(lambda: "hidden" in (panel.get_attribute("class") or ""), "panneau d'explication non masqué")
+    wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 2 /"), "auto-avance non rétablie après désactivation")
+
+    # Re-enable during the quiz, pause, resume and ensure the preference survives.
+    js_click(explain_toggle)
+    assert explain_toggle.get_attribute("aria-pressed") == "true", "réactivation des explications ignorée"
+    js_click(driver.find_element(By.ID, "pauseBtn"))
+    visible("#resumeCard:not(.hidden)")
+    js_click(driver.find_element(By.ID, "resumeBtn"))
+    visible("#quiz:not(.hidden)")
+    assert driver.find_element(By.ID, "flashExplanationToggle").get_attribute("aria-pressed") == "true", "préférence d'explication perdue à la reprise"
 
     # 3) Mobile: modal focus, full-height layout, visual button balance, error review.
     fresh(390, 844)
