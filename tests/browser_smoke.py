@@ -316,16 +316,38 @@ try:
     assert countdown_after < countdown_start, "décompte visuel Vrai/Faux immobile"
     assert driver.find_element(By.ID, "counter").text == counter_with_explanation, "avance avant la fin du délai d'explication"
 
-    # Enter skips the remaining explanation delay.
+    # Space pauses in place, including the 7-second explanation stopwatch.
+    driver.find_element(By.ID, "flashCard").send_keys(Keys.SPACE)
+    pause_overlay = visible("#flashPauseOverlay:not(.hidden)")
+    assert driver.find_element(By.ID, "quiz").is_displayed(), "la pause Vrai/Faux a quitté le questionnaire"
+    assert not driver.find_element(By.ID, "resumeCard").is_displayed(), "ancienne interface de pause affichée en Vrai/Faux"
+    assert driver.find_element(By.ID, "pauseBtn").text == "Reprendre", "bouton pause non transformé en Reprendre"
+    frozen_count = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
+    frozen_offset = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
+    time.sleep(1.15)
+    assert int(driver.find_element(By.ID, "flashExplanationCountdown").text) == frozen_count, "chrono d'explication continue pendant la pause"
+    frozen_offset_after = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
+    assert abs(frozen_offset_after - frozen_offset) < 0.5, "anneau du chronomètre continue pendant la pause"
+    driver.find_element(By.TAG_NAME, "body").send_keys(Keys.SPACE)
+    wait_until(lambda: not driver.find_element(By.ID, "flashPauseOverlay").is_displayed(), "Espace n'a pas repris le Vrai/Faux")
+    assert driver.find_element(By.ID, "pauseBtn").text == "Mettre en pause", "bouton Reprendre non restauré"
+    time.sleep(0.45)
+    assert int(driver.find_element(By.ID, "flashExplanationCountdown").text) <= frozen_count, "chrono d'explication non repris"
+
+    # Enter still skips the remaining explanation delay.
     driver.find_element(By.ID, "flashCard").send_keys(Keys.ENTER)
     wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "Entrée n'a pas avancé la carte")
 
-    # Space pauses the Vrai/Faux session and resume must keep the next-question position.
-    driver.find_element(By.ID, "flashCard").send_keys(Keys.SPACE)
-    visible("#resumeCard:not(.hidden)")
-    js_click(driver.find_element(By.ID, "resumeBtn"))
-    visible("#quiz:not(.hidden)")
-    assert driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "pause Espace/reprise a décalé la session"
+    # The visible pause button uses the same in-place pause on an unanswered card.
+    counter_before_pause = driver.find_element(By.ID, "counter").text
+    js_click(driver.find_element(By.ID, "pauseBtn"))
+    visible("#flashPauseOverlay:not(.hidden)")
+    assert driver.find_element(By.ID, "flashFalseBtn").get_property("disabled"), "Faux actif pendant la pause"
+    assert driver.find_element(By.ID, "flashTrueBtn").get_property("disabled"), "Vrai actif pendant la pause"
+    assert driver.find_element(By.ID, "counter").text == counter_before_pause, "pause a changé de question"
+    js_click(driver.find_element(By.ID, "pauseBtn"))
+    wait_until(lambda: not driver.find_element(By.ID, "flashPauseOverlay").is_displayed(), "bouton Reprendre n'a pas repris le Vrai/Faux")
+    assert driver.find_element(By.ID, "counter").text == counter_before_pause, "reprise a décalé la session"
 
     # 3) Mobile: modal focus, configuration ordering, full-height layout, visual button balance, error review.
     fresh(390, 844)
