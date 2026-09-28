@@ -356,8 +356,10 @@ try:
     flash_card = driver.find_element(By.ID, "flashCard")
     flash_statement = driver.find_element(By.ID, "flashStatement")
     flash_controls = driver.find_element(By.ID, "flashSelfControls")
+    time.sleep(0.45)  # attendre la fin de l'animation d'entrée avant les mesures
     assert flash_statement.rect["width"] >= flash_card.rect["width"] * 0.90, "réponse proposée mobile trop étroite dans la carte"
-    assert flash_card.rect["y"] + flash_card.rect["height"] <= flash_controls.rect["y"] + 2, "carte Vrai/Faux empiète sur les boutons"
+    assert flash_card.rect["y"] + flash_card.rect["height"] <= flash_controls.rect["y"] + 2, "carte Vrai/Faux empiète sur les boutons après stabilisation"
+    assert flash_statement.rect["y"] + flash_statement.rect["height"] <= flash_card.rect["y"] + flash_card.rect["height"] + 1, "texte de réponse proposé hors de la carte"
 
 
     pause_btn = driver.find_element(By.ID, "pauseBtn")
