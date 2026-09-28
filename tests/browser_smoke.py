@@ -389,8 +389,12 @@ try:
     assert flash_statement.rect["y"] + flash_statement.rect["height"] <= flash_card.rect["y"] + flash_card.rect["height"] + 1, "texte de réponse proposé hors de la carte"
 
 
+    next_btn_initial = driver.find_element(By.ID, "nextBtn")
+    assert not next_btn_initial.is_displayed(), "Question suivante visible avant toute réponse avec explications activées"
+
     pause_btn = driver.find_element(By.ID, "pauseBtn")
     quit_btn = driver.find_element(By.ID, "quitBtn")
+    assert pause_btn.rect["height"] <= 50 and quit_btn.rect["height"] <= 50, "contrôles Pause/Abandonner encore trop hauts sur mobile"
     pause_style = driver.execute_script("return [getComputedStyle(arguments[0]).backgroundColor,getComputedStyle(arguments[0]).color]", pause_btn)
     quit_style = driver.execute_script("return [getComputedStyle(arguments[0]).backgroundColor,getComputedStyle(arguments[0]).color]", quit_btn)
     assert pause_style == quit_style, "Pause et Abandonner n'ont pas le même style en Vrai/Faux"
