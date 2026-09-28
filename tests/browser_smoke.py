@@ -98,7 +98,7 @@ def select_mobile_subject_all():
     active = driver.switch_to.active_element
     assert "subject-card" in (active.get_attribute("class") or ""), "focus non restauré sur la matière"
 
-def start_mode(mode: str, count: int):
+def start_mode(mode: str, count: int, explanations: bool = False):
     mode_btn = driver.find_element(By.CSS_SELECTOR, f'.mode-btn[data-mode="{mode}"]')
     js_click(mode_btn)
     count_el = driver.find_element(By.ID, "count")
@@ -106,6 +106,12 @@ def start_mode(mode: str, count: int):
     count_el.send_keys(str(count))
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "bouton démarrer désactivé")
     js_click(driver.find_element(By.ID, "startBtn"))
+    if mode == "flashcard":
+        overlay = visible("#flashExplanationOverlay.open")
+        assert driver.execute_script("return arguments[0].inert", overlay) is False
+        assert driver.execute_script("return document.querySelector('#setup').inert") is True
+        wait_until(lambda: driver.execute_script("return document.activeElement && document.activeElement.id") == "flashExplanationYes", "focus non placé dans la popup Vrai/Faux")
+        js_click(driver.find_element(By.ID, "flashExplanationYes" if explanations else "flashExplanationNo"))
     visible("#quiz:not(.hidden)")
 
 def assert_no_console_regressions():
@@ -183,6 +189,21 @@ try:
     wait_until(lambda: driver.find_element(By.ID, "flashLiveResult").get_attribute("textContent").strip() != "", "résultat flash non annoncé")
     wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 2 /"), "carte suivante non avancée")
 
+    # The in-session control must enable explanations immediately and stop auto-advance.
+    toggle = driver.find_element(By.ID, "flashExplanationToggle")
+    js_click(toggle)
+    wait_until(lambda: "activées" in toggle.text.lower(), "activation des explications non appliquée")
+    js_click(driver.find_element(By.ID, "flashTrueBtn"))
+    visible("#feedback:not(.hidden)")
+    visible("#nextBtn")
+    assert "explication" in driver.find_element(By.ID, "feedback").text.lower(), "explication Vrai/Faux absente"
+    counter_with_explanation = driver.find_element(By.ID, "counter").text
+    time.sleep(1.0)
+    assert driver.find_element(By.ID, "counter").text == counter_with_explanation, "avance automatique active malgré les explications"
+    js_click(toggle)
+    wait_until(lambda: "désactivées" in toggle.text.lower(), "désactivation des explications non appliquée")
+    wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "désactivation n'a pas relancé l'enchaînement automatique")
+
     # 3) Mobile: modal focus, full-height layout, visual button balance, error review.
     fresh(390, 844)
 
@@ -199,7 +220,7 @@ try:
     assert driver.switch_to.active_element.get_attribute("id") == "themeToggle", "focus non rendu au bouton principal"
 
     select_mobile_subject_all()
-    start_mode("flashcard", 1)
+    start_mode("flashcard", 1, explanations=True)
 
     quiz = visible("#quiz")
     inner_height = driver.execute_script("return window.innerHeight")
@@ -220,8 +241,15 @@ try:
     truth = truth_map.get((prompt, proposal))
     assert truth is not None, f"impossible de déterminer la vérité de la carte: {prompt!r} / {proposal!r}"
 
-    # Deliberately answer incorrectly so the single-question session has one review item.
+    # Deliberately answer incorrectly: with explanations enabled, correction must appear before results.
     js_click(false_btn if truth else true_btn)
+    visible("#feedback:not(.hidden)")
+    explanation_next = visible("#nextBtn")
+    assert explanation_next.is_displayed(), "bouton suivant invisible avec explications mobile"
+    assert "explication" in driver.find_element(By.ID, "feedback").text.lower(), "explication absente après une erreur mobile"
+    time.sleep(0.9)
+    assert not driver.find_element(By.ID, "results").is_displayed(), "résultats affichés avant validation de l'explication"
+    js_click(explanation_next)
     visible("#results:not(.hidden)")
     assert driver.find_element(By.ID, "finalScore").text.startswith("0 / 1"), "erreur Vrai/Faux non comptabilisée"
 
