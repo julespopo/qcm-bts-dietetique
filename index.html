@@ -544,7 +544,7 @@ html.theme-switching button{
 
 @media(max-width:800px){
   main{padding:13px}.selection-grid{grid-template-columns:1fr}.subject-pane{border-right:0;border-bottom:1px solid var(--line)}
-  .chapter-list{grid-template-columns:1fr}.config-grid{grid-template-columns:1fr}.chapter-header{flex-direction:column}.chapter-actions{justify-content:flex-start}
+  .chapter-list{grid-template-columns:1fr}.config-grid{grid-template-columns:1fr}.config-options{order:-1}.chapter-header{flex-direction:column}.chapter-actions{justify-content:flex-start}
 }
 
 /* Mobile : les chapitres s'ouvrent dans un bottom sheet */
@@ -1255,7 +1255,6 @@ body.quiz-active.flashcard-mode #quitBtn{
       <button id="flashFalseBtn" class="flash-btn false" type="button">← Faux</button>
       <button id="flashTrueBtn" class="flash-btn true" type="button">Vrai →</button>
     </div>
-    <p id="flashHint" class="flash-hint">Glisse à gauche pour Faux • à droite pour Vrai • Entrée : suivante • Espace : pause</p>
   </div>
   <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
   <div class="row quiz-actions">
@@ -1315,7 +1314,7 @@ body.quiz-active.flashcard-mode #quitBtn{
   </section>
 </section>
 
-<footer>Index V7.9.1</footer>
+<footer>Index V7.9.2</footer>
 </main>
 
 <script>
