@@ -265,8 +265,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.9.2</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.9.2")
+    if '<footer>Index V7.9.3</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.9.3")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
     if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
@@ -319,6 +319,24 @@ for html_path in HTML_FILES:
         err(f"{rel}: alignement supérieur de la zone Options absent")
     if '.config-options{order:-1}' not in source:
         err(f"{rel}: Options n'est pas placé avant Nombre de questions sur mobile")
+    if 'body.flashcard-mode .config-options .options{min-height:0;height:0' not in source:
+        err(f"{rel}: bloc Options vide non compacté en Vrai/Faux mobile")
+    if '.resume>.row{display:grid;grid-template-columns:1fr' not in source:
+        err(f"{rel}: carte de reprise mobile non réalignée")
+    if 'flashcard-mode.flash-explanations-on #nextBtn:not(.hidden)' not in source:
+        err(f"{rel}: Question suivante peut être forcé visible avant une réponse")
+    if 'body.quiz-active.flashcard-mode .swipe-stage::before' not in source or 'display:none;' not in source:
+        err(f"{rel}: cartes fantômes mobile non masquées")
+    if 'margin:12px 0 0;' not in source:
+        err(f"{rel}: espacement entre Faux/Vrai et Pause/Abandonner insuffisant")
+    if 'filter:drop-shadow(0 2px 5px rgba(0,0,0,.055))' not in source:
+        err(f"{rel}: ombre mobile arrondie Vrai/Faux absente")
+    if 'border-radius:24px;' not in source:
+        err(f"{rel}: conteneur mobile Vrai/Faux sans rayon d'arrondi")
+    if '@keyframes flash-card-enter-mobile' not in source:
+        err(f"{rel}: animation mobile dédiée de la carte Vrai/Faux absente")
+    if 'font-size:clamp(1.48rem,6.25vw,2.06rem)' not in source:
+        err(f"{rel}: texte court Vrai/Faux mobile non agrandi")
     if 'id="flashHint"' in static_html:
         err(f"{rel}: texte d'aide Vrai/Faux encore présent sous les boutons")
     if 'card.addEventListener("click",()=>{' not in source or 'performance.now()-flashExplanationShownAt<300' not in source:
