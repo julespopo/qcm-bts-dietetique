@@ -329,6 +329,12 @@ for html_path in HTML_FILES:
         err(f"{rel}: cartes fantômes mobile non masquées")
     if 'margin:12px 0 0;' not in source:
         err(f"{rel}: espacement entre Faux/Vrai et Pause/Abandonner insuffisant")
+    if 'box-shadow:0 0 12px rgba(0,0,0,.055)' not in source:
+        err(f"{rel}: ombre mobile de la carte Vrai/Faux encore directionnelle")
+    if '@keyframes flash-card-enter-mobile' not in source:
+        err(f"{rel}: animation mobile dédiée de la carte Vrai/Faux absente")
+    if 'font-size:clamp(1.48rem,6.25vw,2.06rem)' not in source:
+        err(f"{rel}: texte court Vrai/Faux mobile non agrandi")
     if 'id="flashHint"' in static_html:
         err(f"{rel}: texte d'aide Vrai/Faux encore présent sous les boutons")
     if 'card.addEventListener("click",()=>{' not in source or 'performance.now()-flashExplanationShownAt<300' not in source:
