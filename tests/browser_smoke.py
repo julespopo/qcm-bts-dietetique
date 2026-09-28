@@ -219,10 +219,13 @@ try:
     assert explanation_rect["y"] + explanation_rect["height"] <= card_rect["y"] + card_rect["height"] + 1, "explication déborde sous la carte"
     counter_with_explanation = driver.find_element(By.ID, "counter").text
     stopwatch = visible(".flash-explanation-stopwatch")
+    stopwatch_rect = stopwatch.rect
+    assert stopwatch_rect["x"] + stopwatch_rect["width"] >= card_rect["x"] + card_rect["width"] - 90, "chronomètre pas placé à droite"
+    assert stopwatch_rect["y"] <= card_rect["y"] + 90, "chronomètre pas placé en haut de la carte"
     countdown_ring = driver.find_element(By.ID, "flashExplanationCountdownFill")
     assert countdown_ring.tag_name.lower() == "circle", "le décompte n'est pas rendu sous forme de chronomètre circulaire"
     countdown_start = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
-    assert countdown_start in (4, 5), f"décompte initial inattendu: {countdown_start}"
+    assert countdown_start in (6, 7), f"décompte initial inattendu: {countdown_start}"
     ring_start = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
     time.sleep(1.15)
     ring_after = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
@@ -231,10 +234,16 @@ try:
     assert countdown_after < countdown_start, "décompte visuel Vrai/Faux immobile"
     assert driver.find_element(By.ID, "counter").text == counter_with_explanation, "avance avant la fin du délai d'explication"
 
-    js_click(toggle)
-    wait_until(lambda: toggle.get_attribute("aria-pressed") == "false", "désactivation des explications non appliquée")
-    wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "désactivation n'a pas relancé l'enchaînement automatique")
-    driver.find_element(By.TAG_NAME, "body").click()
+    # Enter skips the remaining explanation delay.
+    driver.find_element(By.ID, "flashCard").send_keys(Keys.ENTER)
+    wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "Entrée n'a pas avancé la carte")
+
+    # Space pauses the Vrai/Faux session and resume must keep the next-question position.
+    driver.find_element(By.ID, "flashCard").send_keys(Keys.SPACE)
+    visible("#resumeCard:not(.hidden)")
+    js_click(driver.find_element(By.ID, "resumeBtn"))
+    visible("#quiz:not(.hidden)")
+    assert driver.find_element(By.ID, "counter").text.startswith("Question 3 /"), "pause Espace/reprise a décalé la session"
 
     # 3) Mobile: modal focus, full-height layout, visual button balance, error review.
     fresh(390, 844)
