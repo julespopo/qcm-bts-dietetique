@@ -867,6 +867,12 @@ body.flash-paused .flash-controls{opacity:.48}
 body.flash-pref-open{overflow:hidden}
 body.quiz-active.flashcard-mode #quiz{width:min(720px,100%)}body.quiz-active.flashcard-mode #qMeta{text-align:center}
 @media(max-width:760px){.study-mode-head{display:block}.study-mode-head p{margin-top:4px}.mode-btn{min-height:62px;padding:9px 11px}.swipe-stage{height:min(46dvh,320px)}.flash-card{padding:22px 17px;border-radius:21px}.flash-context{font-size:.89rem;margin-bottom:11px}.flash-statement{font-size:clamp(1.18rem,6vw,1.55rem)}.flash-stamp{top:18px;font-size:1rem}}
+@keyframes flash-card-enter-mobile{
+  0%{opacity:.58;transform:translate3d(0,18px,0) scale(.965);box-shadow:0 0 8px rgba(0,0,0,.04)}
+  58%{opacity:1;transform:translate3d(0,4px,0) scale(.989);box-shadow:0 0 10px rgba(0,0,0,.05)}
+  82%{transform:translate3d(0,-1px,0) scale(1.001)}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1);box-shadow:0 0 12px rgba(0,0,0,.055)}
+}
 @media(prefers-reduced-motion:reduce){.flash-card{transition:none!important}.swipe-stage::before,.swipe-stage::after{transition:none!important}}
 
 
@@ -931,13 +937,16 @@ body.quiz-active.flashcard-mode #quitBtn{
     padding:clamp(16px,3.2vh,28px) 11px;
     border-radius:24px;
     overflow:hidden;
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    box-shadow:0 0 12px rgba(0,0,0,.055);
+  }
+  body.quiz-active.flashcard-mode .flash-card.entering{
+    animation-name:flash-card-enter-mobile;
   }
   body.quiz-active.flashcard-mode .flash-question{
     width:100%;
     max-width:100%;
-    font-size:clamp(.96rem,3.9vw,1.22rem);
-    line-height:1.28;
+    font-size:clamp(1.04rem,4.25vw,1.32rem);
+    line-height:1.27;
     overflow-wrap:anywhere;
   }
   body.quiz-active.flashcard-mode .flash-divider{
@@ -947,14 +956,14 @@ body.quiz-active.flashcard-mode #quitBtn{
   body.quiz-active.flashcard-mode .flash-statement{
     width:100%;
     max-width:100%;
-    font-size:clamp(1.34rem,5.8vw,1.9rem);
-    line-height:1.24;
+    font-size:clamp(1.48rem,6.25vw,2.06rem);
+    line-height:1.22;
     overflow-wrap:anywhere;
   }
   body.quiz-active.flashcard-mode .flash-statement.medium{
     width:100%;
     max-width:100%;
-    font-size:clamp(1.16rem,5vw,1.62rem);
+    font-size:clamp(1.26rem,5.4vw,1.74rem);
   }
   body.quiz-active.flashcard-mode .flash-statement.long{
     width:100%;
