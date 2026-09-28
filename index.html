@@ -1154,7 +1154,7 @@ body.quiz-active.flashcard-mode #quitBtn{
           <div id="flashCardExplanationText" class="flash-card-explanation-text"></div>
           <div class="flash-explanation-countdown" aria-label="Temps avant la prochaine carte">
             <span id="flashExplanationCountdownLabel">Prochaine carte dans</span>
-            <strong id="flashExplanationCountdown">7</strong><span>s</span>
+            <strong id="flashExplanationCountdown">5</strong><span>s</span>
             <div class="flash-explanation-countdown-track" aria-hidden="true">
               <div id="flashExplanationCountdownFill" class="flash-explanation-countdown-fill"></div>
             </div>
@@ -1226,7 +1226,7 @@ body.quiz-active.flashcard-mode #quitBtn{
 (()=>{
 "use strict";
 const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_8_0";
-const FLASH_EXPLANATION_DELAY_MS=7000;
+const FLASH_EXPLANATION_DELAY_MS=5000;
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",mode:"qcm",session:[],index:0,score:0,errors:[],answered:false,reviewingErrors:false,flashExplanationsEnabled:false,flashOutcome:null,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
