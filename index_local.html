@@ -784,10 +784,10 @@ body.flashcard-mode .qcm-only-option{display:none!important}
   margin-top:0;padding-top:0;border-top:0;max-height:100%;overflow:auto;
   overscroll-behavior:contain
 }
-.flash-card-explanation-title{display:flex;align-items:center;gap:7px;color:var(--ok);font-size:.82rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.flash-card-explanation-title{display:flex;align-items:flex-start;gap:7px;min-height:52px;padding-right:62px;color:var(--ok);font-size:.82rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
 .flash-card-explanation-text{margin-top:7px;font-size:.94rem;line-height:1.45;color:var(--text)}
-.flash-explanation-countdown{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;color:var(--muted);font-size:.78rem;font-weight:760}
-.flash-explanation-stopwatch{position:relative;width:48px;height:52px;flex:0 0 48px;display:grid;place-items:end center}
+.flash-explanation-countdown{position:absolute;top:16px;right:18px;z-index:3;margin:0;color:var(--muted);font-size:.78rem;font-weight:760}
+.flash-explanation-stopwatch{position:relative;width:48px;height:52px;display:grid;place-items:end center}
 .flash-explanation-stopwatch::before{content:"";position:absolute;top:0;left:50%;width:14px;height:7px;border:2px solid var(--ok);border-bottom:0;border-radius:4px 4px 0 0;transform:translateX(-50%)}
 .flash-explanation-stopwatch::after{content:"";position:absolute;top:7px;right:2px;width:8px;height:3px;border-radius:999px;background:var(--ok);transform:rotate(38deg);transform-origin:left center}
 .flash-explanation-stopwatch svg{width:44px;height:44px;display:block;overflow:visible}
@@ -1177,13 +1177,13 @@ body.quiz-active.flashcard-mode #quitBtn{
           <div class="flash-card-explanation-title">✓ Explication</div>
           <div id="flashCardExplanationText" class="flash-card-explanation-text"></div>
           <div class="flash-explanation-countdown" aria-label="Temps avant la prochaine carte">
-            <span id="flashExplanationCountdownLabel">Prochaine carte dans</span>
+            <span id="flashExplanationCountdownLabel" class="sr-only">Prochaine carte dans</span>
             <div class="flash-explanation-stopwatch" aria-hidden="true">
               <svg viewBox="0 0 44 44">
                 <circle class="flash-explanation-stopwatch-track" cx="22" cy="22" r="18" pathLength="100"></circle>
                 <circle id="flashExplanationCountdownFill" class="flash-explanation-countdown-fill" cx="22" cy="22" r="18" pathLength="100"></circle>
               </svg>
-              <strong id="flashExplanationCountdown">5</strong>
+              <strong id="flashExplanationCountdown">7</strong>
             </div>
           </div>
         </div>
@@ -1253,7 +1253,7 @@ body.quiz-active.flashcard-mode #quitBtn{
 (()=>{
 "use strict";
 const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_8_0";
-const FLASH_EXPLANATION_DELAY_MS=5000;
+const FLASH_EXPLANATION_DELAY_MS=7000;
 const $=id=>document.getElementById(id);
 const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",mode:"qcm",session:[],index:0,score:0,errors:[],answered:false,reviewingErrors:false,flashExplanationsEnabled:false,flashOutcome:null,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
@@ -2313,8 +2313,9 @@ function quizShortcutAllowed(e){
 function handleQuizKeyboard(e){
   if($("quiz").classList.contains("hidden")||!quizShortcutAllowed(e))return;
   if(state.mode==="flashcard"){
+    if((e.code==="Space"||e.key===" ")&&!state.reviewingErrors){e.preventDefault();pause();return;}
     if(!state.answered&&(e.key==="ArrowLeft"||e.key==="ArrowRight")){e.preventDefault();answerFlashcard(e.key==="ArrowRight");return;}
-    if(e.key==="Enter"&&state.answered&&!$("nextBtn").classList.contains("hidden")){e.preventDefault();next();}
+    if(e.key==="Enter"&&state.answered){e.preventDefault();clearFlashAdvance();next();return;}
     return;
   }
   if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();focusAnswerByOffset(1);return;}
