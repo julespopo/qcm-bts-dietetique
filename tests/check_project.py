@@ -219,7 +219,7 @@ for bank_path in bank_paths:
 required_ids = {
     "setup", "quiz", "results", "choices", "validateBtn", "nextBtn",
     "pauseBtn", "quitBtn", "flashArea", "flashCard", "flashFalseBtn",
-    "flashTrueBtn", "flashExplanationToggle", "flashExplanationOverlay",
+    "flashTrueBtn", "flashExplanationMenuBtn", "flashExplanationOverlay",
     "flashExplanationNo", "flashExplanationYes", "themeToggle", "floatingActions", "timerToggleBtn",
     "timerPresets", "errorBox", "errorText",
 }
