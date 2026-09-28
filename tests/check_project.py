@@ -221,7 +221,8 @@ required_ids = {
     "pauseBtn", "quitBtn", "flashArea", "flashCard", "flashFalseBtn",
     "flashTrueBtn", "flashExplanationMenuBtn", "flashExplanationOverlay",
     "flashExplanationNo", "flashExplanationYes", "flashCardExplanation",
-    "flashCardExplanationText", "flashExplanationCountdown", "flashExplanationCountdownFill",
+    "flashCardExplanationTitle", "flashCardAnswerKey", "flashCardExplanationText",
+    "flashExplanationCountdownWrap", "flashExplanationCountdown", "flashExplanationCountdownFill",
     "themeToggle", "floatingActions", "timerToggleBtn",
     "timerPresets", "errorBox", "errorText",
 }
@@ -280,8 +281,10 @@ for html_path in HTML_FILES:
         err(f"{rel}: délai d'explication Vrai/Faux attendu à 7 secondes")
     if 'class="flash-explanation-stopwatch"' not in static_html or '<circle id="flashExplanationCountdownFill"' not in static_html:
         err(f"{rel}: chronomètre circulaire d'explication Vrai/Faux absent")
-    if 'showFlashcardSuccessExplanation(q)' not in source:
-        err(f"{rel}: explication intégrée à la carte après bonne réponse absente")
+    if 'function showFlashcardExplanation(q,' not in source:
+        err(f"{rel}: correction Vrai/Faux intégrée à la carte absente")
+    if 'showFlashcardExplanation(q,{ok,realTimeout,autoAdvance:ok&&!realTimeout})' not in source:
+        err(f"{rel}: réponses incorrectes non routées vers la carte d'explication")
     if '.flash-card.explanation-visible>#flashQuestion' not in source or '.flash-card.explanation-visible>#flashStatement' not in source:
         err(f"{rel}: question/proposition non masquées pendant l'explication")
     if 'id="flashLiveResult" class="sr-only" role="status" aria-live="polite"' not in static_html:
