@@ -416,6 +416,11 @@ try:
     pause_btn = driver.find_element(By.ID, "pauseBtn")
     quit_btn = driver.find_element(By.ID, "quitBtn")
     assert pause_btn.rect["height"] <= 48 and quit_btn.rect["height"] <= 48, "Pause/Abandonner encore trop hauts sur mobile"
+    flash_controls = driver.find_element(By.ID, "flashSelfControls")
+    quiz_actions = driver.find_element(By.CSS_SELECTOR, ".quiz-actions")
+    controls_gap = quiz_actions.rect["y"] - (flash_controls.rect["y"] + flash_controls.rect["height"])
+    assert controls_gap >= 8, f"Faux/Vrai trop collé à Pause/Abandonner: {controls_gap}px"
+    assert driver.execute_script("return getComputedStyle(document.querySelector('.swipe-stage'),'::before').display") == "none", "carte fantôme arrière encore visible sur mobile"
     pause_style = driver.execute_script("return [getComputedStyle(arguments[0]).backgroundColor,getComputedStyle(arguments[0]).color]", pause_btn)
     quit_style = driver.execute_script("return [getComputedStyle(arguments[0]).backgroundColor,getComputedStyle(arguments[0]).color]", quit_btn)
     assert pause_style == quit_style, "Pause et Abandonner n'ont pas le même style en Vrai/Faux"
