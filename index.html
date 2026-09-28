@@ -987,21 +987,26 @@ body.quiz-active.flashcard-mode #quitBtn{
     position:static;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:8px;
+    gap:6px;
     width:100%;
-    margin:0;
-    padding:7px;
-    border-radius:14px;
+    margin:4px 0 0;
+    padding:4px;
+    border:0;
+    border-radius:11px;
+    background:transparent;
+    box-shadow:none;
   }
   body.quiz-active.flashcard-mode #pauseBtn{
     grid-column:1;
-    min-height:56px;
-    font-size:.94rem;
+    min-height:44px;
+    padding:8px 6px;
+    font-size:.84rem;
   }
   body.quiz-active.flashcard-mode #quitBtn{
     grid-column:2;
-    min-height:56px;
-    font-size:.94rem;
+    min-height:44px;
+    padding:8px 6px;
+    font-size:.84rem;
   }
   body.quiz-active.flashcard-mode #validateBtn,
   body.quiz-active.flashcard-mode #nextBtn{display:none!important}
@@ -1056,12 +1061,13 @@ body.quiz-active.flashcard-mode #quitBtn{
 
 /* Avec explications ou en revue des erreurs Vrai/Faux, la correction est manuelle. */
 @media(max-width:760px), (max-height:560px){
-  body.quiz-active.flashcard-mode.reviewing-errors #nextBtn,
-  body.quiz-active.flashcard-mode.flash-explanations-on #nextBtn{
+  body.quiz-active.flashcard-mode.reviewing-errors #nextBtn:not(.hidden),
+  body.quiz-active.flashcard-mode.flash-explanations-on #nextBtn:not(.hidden){
     display:block!important;
     grid-column:1 / -1;
-    min-height:50px;
-    font-size:.92rem;
+    min-height:42px;
+    padding:8px 6px;
+    font-size:.84rem;
   }
 }
 
@@ -1629,7 +1635,7 @@ function dockThemeButton(side,top=null){
 
   closeFloatingMenu();
   const w=btn.offsetWidth||57,h=btn.offsetHeight||57;
-  const visibleRatio=.30; // ~30% remains visible
+  const visibleRatio=window.innerWidth<=760?.55:.30; // davantage visible sur mobile
   const current=btn.getBoundingClientRect();
   const safeTop=Math.max(18,Math.min(top??current.top,window.innerHeight-h-18));
   const left=side==="left"
@@ -1721,7 +1727,7 @@ function restoreThemeButtonPosition(){
         themeDockedSide=saved.dockedSide;
         btn.classList.add("docked");
         const w=btn.offsetWidth||57,h=btn.offsetHeight||57;
-        const visibleRatio=.30;
+        const visibleRatio=window.innerWidth<=760?.55:.30;
         btn.style.left=(themeDockedSide==="left"?-w*(1-visibleRatio):window.innerWidth-w*visibleRatio)+"px";
         btn.style.top=Math.max(18,Math.min(saved.top,window.innerHeight-h-18))+"px";
         btn.style.right="auto";
