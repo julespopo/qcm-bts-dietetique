@@ -301,6 +301,14 @@ try:
     visible("#results:not(.hidden)")
     assert driver.find_element(By.ID, "finalScore").text.startswith("0 / 1"), "erreur Vrai/Faux non comptabilisée"
 
+    review_panel = visible("#reviewRecommendations:not(.hidden)")
+    review_cards = review_panel.find_elements(By.CSS_SELECTOR, ".review-topic-card")
+    assert len(review_cards) >= 1, "aucun thème À réviser généré après une erreur"
+    assert review_cards[0].find_element(By.CSS_SELECTOR, ".review-topic-name").text.strip(), "nom du thème À réviser absent"
+    assert "erreur" in review_cards[0].find_element(By.CSS_SELECTOR, ".review-topic-errors").text.lower(), "compteur d'erreurs du thème absent"
+    assert review_cards[0].find_element(By.CSS_SELECTOR, "[data-review-topic-index]").is_displayed(), "bouton Réviser ce thème absent"
+    assert driver.find_element(By.ID, "reviewAllTopics").is_displayed(), "bouton Réviser tout absent"
+
     js_click(driver.find_element(By.ID, "retryErrors"))
     visible("#quiz:not(.hidden)")
     prompt = norm(driver.find_element(By.ID, "flashQuestion").text)
