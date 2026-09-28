@@ -221,7 +221,7 @@ required_ids = {
     "pauseBtn", "quitBtn", "flashArea", "flashCard", "flashFalseBtn",
     "flashTrueBtn", "flashExplanationMenuBtn", "flashExplanationOverlay",
     "flashExplanationNo", "flashExplanationYes", "flashCardExplanation",
-    "flashCardExplanationTitle", "flashCardAnswerKey", "flashCardExplanationText",
+    "flashCardExplanationTitle", "flashCardAnswerKey", "flashCardExplanationText", "flashPauseOverlay",
     "flashExplanationCountdownWrap", "flashExplanationCountdown", "flashExplanationCountdownFill",
     "themeToggle", "floatingActions", "timerToggleBtn",
     "timerPresets", "reviewRecommendations", "reviewRecommendationsTitle",
@@ -265,8 +265,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.9.1</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.9.1")
+    if '<footer>Index V7.9.2</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.9.2")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
     if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
@@ -297,6 +297,12 @@ for html_path in HTML_FILES:
         err(f"{rel}: raccourci Espace pour pause Vrai/Faux absent")
     if 'if(e.key==="Enter"&&state.answered){e.preventDefault();clearFlashAdvance();next();return;}' not in source:
         err(f"{rel}: raccourci Entrée pour avancer Vrai/Faux absent")
+    if 'function setFlashPaused(paused)' not in source or 'if(state.mode==="flashcard"){setFlashPaused(!flashPaused);return;}' not in source:
+        err(f"{rel}: pause Vrai/Faux sur place absente")
+    if 'function pauseFlashAutoAdvance()' not in source or 'function resumeFlashAutoAdvance()' not in source:
+        err(f"{rel}: pause/reprise du chrono d'explication absente")
+    if 'id="flashPauseOverlay" class="flash-pause-overlay hidden" aria-hidden="true"' not in static_html:
+        err(f"{rel}: voile de pause Vrai/Faux absent")
     if 'catch(e){console.warn("Sauvegarde locale indisponible."' not in source:
         err(f"{rel}: une erreur localStorage peut interrompre la session")
     if 'if(floatingMenuOpen)closeFloatingMenu();' not in source:
@@ -311,6 +317,10 @@ for html_path in HTML_FILES:
         err(f"{rel}: boutons de révision ciblée absents")
     if '.config-grid{display:grid;grid-template-columns:minmax(180px,240px) 1fr auto;gap:18px;align-items:start}' not in source:
         err(f"{rel}: alignement supérieur de la zone Options absent")
+    if '.config-options{order:-1}' not in source:
+        err(f"{rel}: Options n'est pas placé avant Nombre de questions sur mobile")
+    if 'id="flashHint"' in static_html:
+        err(f"{rel}: texte d'aide Vrai/Faux encore présent sous les boutons")
     if 'card.addEventListener("click",()=>{' not in source or 'performance.now()-flashExplanationShownAt<300' not in source:
         err(f"{rel}: navigation par tap sur la carte d'explication absente")
     if 'combinedLength=prompt.length+proposal.length' not in source:
