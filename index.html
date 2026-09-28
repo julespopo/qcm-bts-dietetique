@@ -792,7 +792,7 @@ body.flashcard-mode .qcm-only-option{display:none!important}
 .flash-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(100%,520px);margin:0 auto}
 .flash-btn{min-height:54px;border:1px solid var(--line);background:var(--tile);color:var(--text);font-size:1rem}.flash-btn.false:hover{border-color:var(--bad);color:var(--bad)}.flash-btn.true:hover{border-color:var(--ok);color:var(--ok)}.flash-btn:disabled{opacity:.42}
 .flash-hint{text-align:center;margin:10px 0 0;font-size:.84rem;color:var(--muted)}.flash-answer-key{margin-top:7px;font-weight:750}
-.flash-card.explanation-visible{justify-content:center;overflow:hidden;cursor:default}
+.flash-card.explanation-visible{justify-content:center;overflow:hidden;cursor:pointer}
 .flash-card.explanation-visible>.flash-question-label,
 .flash-card.explanation-visible>#flashQuestion,
 .flash-card.explanation-visible>.flash-divider,
@@ -2515,6 +2515,7 @@ function showFlashcardExplanation(q,{ok=true,realTimeout=false,autoAdvance=ok&&!
   card.style.transform="";card.style.borderColor="";
   $("flashTrueStamp").style.opacity="0";$("flashFalseStamp").style.opacity="0";resetFlashDeck();
   card.classList.add("explanation-visible");
+  card.style.pointerEvents="auto";
   box.classList.remove("hidden");
   flashExplanationShownAt=performance.now();
   box.classList.toggle("is-error",!ok);
