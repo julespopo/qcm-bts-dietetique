@@ -329,8 +329,10 @@ for html_path in HTML_FILES:
         err(f"{rel}: cartes fantômes mobile non masquées")
     if 'margin:12px 0 0;' not in source:
         err(f"{rel}: espacement entre Faux/Vrai et Pause/Abandonner insuffisant")
-    if 'box-shadow:0 0 12px rgba(0,0,0,.055)' not in source:
-        err(f"{rel}: ombre mobile de la carte Vrai/Faux encore directionnelle")
+    if 'filter:drop-shadow(0 2px 5px rgba(0,0,0,.055))' not in source:
+        err(f"{rel}: ombre mobile arrondie Vrai/Faux absente")
+    if 'border-radius:24px;' not in source:
+        err(f"{rel}: conteneur mobile Vrai/Faux sans rayon d'arrondi")
     if '@keyframes flash-card-enter-mobile' not in source:
         err(f"{rel}: animation mobile dédiée de la carte Vrai/Faux absente")
     if 'font-size:clamp(1.48rem,6.25vw,2.06rem)' not in source:
