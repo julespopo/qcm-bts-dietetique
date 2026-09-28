@@ -257,8 +257,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.8.2</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.8.2")
+    if '<footer>Index V7.8.3</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.8.3")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
     if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
@@ -269,6 +269,18 @@ for html_path in HTML_FILES:
         err(f"{rel}: bouton suivant inaccessible en revue d'erreurs Vrai/Faux mobile")
     if 'id="flashLiveResult" class="sr-only" role="status" aria-live="polite"' not in static_html:
         err(f"{rel}: résultat Vrai/Faux non annoncé aux technologies d'assistance")
+    if 'id="flashExplanationDialog"' not in static_html:
+        err(f"{rel}: popup de choix des explications Vrai/Faux absente")
+    if 'id="flashExplanationToggle"' not in static_html or 'aria-pressed="false"' not in static_html:
+        err(f"{rel}: contrôle des explications Vrai/Faux absent")
+    if 'id="flashExplanationPanel"' not in static_html:
+        err(f"{rel}: panneau d'explication Vrai/Faux absent")
+    if 'flashExplanations:false' not in source:
+        err(f"{rel}: état flashExplanations absent")
+    if 'state.reviewingErrors||state.flashExplanations' not in source:
+        err(f"{rel}: logique d'affichage des explications incomplète")
+    if 'flashExplanations:state.flashExplanations' not in source:
+        err(f"{rel}: préférence d'explication non sauvegardée")
     if 'function quizShortcutAllowed(e)' not in source:
         err(f"{rel}: les raccourcis clavier peuvent intercepter les boutons de contrôle")
     if 'catch(e){console.warn("Sauvegarde locale indisponible."' not in source:

@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.8.2
+# QCM BTS Diététique — V7.8.3
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -413,6 +413,15 @@ Le dépôt contient deux niveaux de tests :
 Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur les pull requests et sur `main`.
 
 # Changelog
+
+## V7.8.3
+
+- Popup au lancement du mode Vrai/Faux pour choisir l'affichage des explications.
+- Explications disponibles après chaque réponse, même correcte.
+- Activation/désactivation possible pendant la série.
+- Préférence conservée lors d'une pause/reprise.
+- Panneau d'explication intégré à la pile de cartes.
+
 
 ## V7.8.2
 

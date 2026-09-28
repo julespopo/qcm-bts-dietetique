@@ -948,6 +948,90 @@ body.quiz-active.flashcard-mode #quitBtn{
   }
 }
 
+
+/* V7.8.3 — explications optionnelles en Vrai/Faux */
+.flash-explanation-dialog{
+  width:min(92vw,520px);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:0;
+  color:var(--text);
+  background:var(--card);
+  box-shadow:0 28px 90px rgba(0,0,0,.28)
+}
+.flash-explanation-dialog::backdrop{
+  background:rgba(11,15,24,.56);
+  backdrop-filter:blur(5px)
+}
+.flash-explanation-dialog-inner{padding:24px}
+.flash-explanation-dialog h2{margin:6px 0 10px;font-size:1.35rem;line-height:1.18}
+.flash-explanation-dialog p{line-height:1.5}
+.flash-explanation-dialog-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.flash-explanation-dialog-actions button{min-height:52px}
+.flash-explanation-dialog-note{margin:12px 0 0;font-size:.82rem;text-align:center}
+
+.flash-explanation-toggle{
+  align-self:center;
+  margin:8px auto 0;
+  min-height:40px;
+  padding:8px 14px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--button-soft);
+  color:var(--muted);
+  font-weight:760;
+  font-size:.88rem;
+  cursor:pointer;
+  transition:transform .16s ease,border-color .16s ease,background .16s ease,color .16s ease
+}
+.flash-explanation-toggle:hover{transform:translateY(-1px)}
+.flash-explanation-toggle[aria-pressed="true"]{
+  color:var(--text);
+  border-color:color-mix(in srgb,var(--accent) 42%,var(--line));
+  background:color-mix(in srgb,var(--accent) 11%,var(--button-soft))
+}
+.flash-explanation-panel{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:var(--tile);
+  box-shadow:0 18px 48px rgba(0,0,0,.13);
+  padding:24px;
+  overflow:auto;
+  text-align:left;
+  animation:flash-explanation-in .22s ease both
+}
+.flash-explanation-panel.hidden{display:none}
+.flash-explanation-panel .flash-explanation-status{font-size:1.02rem;font-weight:850;margin-bottom:10px}
+.flash-explanation-panel .flash-answer-key{margin:0 0 14px}
+.flash-explanation-panel .review-explanation{
+  border-top:1px solid var(--line);
+  padding-top:14px;
+  line-height:1.5
+}
+@keyframes flash-explanation-in{
+  from{opacity:0;transform:translateY(8px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.flash-card{z-index:4}
+
+@media(max-width:760px){
+  body.quiz-active.flashcard-mode.flash-explanation-shown #nextBtn{
+    display:block!important;
+    grid-column:1 / -1;
+    min-height:50px;
+    font-size:.92rem
+  }
+  .flash-explanation-dialog{width:min(94vw,500px);border-radius:20px}
+  .flash-explanation-dialog-inner{padding:20px 16px}
+  .flash-explanation-dialog-actions{grid-template-columns:1fr}
+  .flash-explanation-dialog-actions button{min-height:54px}
+  body.quiz-active.flashcard-mode .flash-explanation-panel{padding:18px;border-radius:22px}
+  body.quiz-active.flashcard-mode .flash-explanation-toggle{min-height:42px;margin-top:7px}
+}
+
 </style>
 </head>
 <body>
@@ -1131,6 +1215,7 @@ body.quiz-active.flashcard-mode #quitBtn{
         <div class="flash-answer-label">RÉPONSE PROPOSÉE</div>
         <div id="flashStatement" class="flash-statement"></div>
       </article>
+      <div id="flashExplanationPanel" class="flash-explanation-panel hidden" tabindex="-1" aria-live="polite"></div>
       <div id="flashResultIcon" class="flash-result-icon" aria-hidden="true"></div>
     </div>
     <div id="flashLiveResult" class="sr-only" role="status" aria-live="polite"></div>
@@ -1138,6 +1223,7 @@ body.quiz-active.flashcard-mode #quitBtn{
       <button id="flashFalseBtn" class="flash-btn false" type="button">← Faux</button>
       <button id="flashTrueBtn" class="flash-btn true" type="button">Vrai →</button>
     </div>
+    <button id="flashExplanationToggle" class="flash-explanation-toggle" type="button" aria-pressed="false">Explications : désactivées</button>
     <p id="flashHint" class="flash-hint">Glisse à gauche pour Faux • à droite pour Vrai</p>
   </div>
   <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
@@ -1177,15 +1263,28 @@ body.quiz-active.flashcard-mode #quitBtn{
   </div>
 </section>
 
-<footer>Index V7.8.2</footer>
+<footer>Index V7.8.3</footer>
 </main>
+
+<dialog id="flashExplanationDialog" class="flash-explanation-dialog" aria-labelledby="flashExplanationTitle" aria-describedby="flashExplanationDescription">
+  <div class="flash-explanation-dialog-inner">
+    <div class="panel-kicker">Mode Vrai / Faux</div>
+    <h2 id="flashExplanationTitle">Afficher les explications entre les questions ?</h2>
+    <p id="flashExplanationDescription">Si tu les actives, l’explication apparaîtra après chaque réponse, même lorsqu’elle est juste. Tu pourras changer ce réglage pendant la série.</p>
+    <div class="flash-explanation-dialog-actions">
+      <button id="flashExplainYes" class="primary" type="button">Avec explications</button>
+      <button id="flashExplainNo" class="secondary" type="button">Sans explications</button>
+    </div>
+    <p class="muted flash-explanation-dialog-note">Échap annule le lancement du questionnaire.</p>
+  </div>
+</dialog>
 
 <script>
 (()=>{
 "use strict";
 const SAVE_KEY="qcm_bts_dietetique_modular_progress_v7_8_0";
 const $=id=>document.getElementById(id);
-const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",mode:"qcm",session:[],index:0,score:0,errors:[],answered:false,reviewingErrors:false,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
+const state={manifest:null,selectedBankIds:new Set(),activeSubject:null,difficultyFilter:"all",mode:"qcm",session:[],index:0,score:0,errors:[],answered:false,reviewingErrors:false,flashExplanations:false,lastFlashResult:null,timerEnabled:false,timerDurationMs:30000,timerEndAt:null,timerRemainingMs:null,timerInterval:null};
 const cache=new Map();
 const THEME_KEY="qcm_bts_theme";
 const THEME_POS_KEY="qcm_bts_theme_button_position";
@@ -1692,7 +1791,7 @@ function subjects(){return [...new Set(state.manifest.banks.map(b=>b.subject||"A
 function banksForSubject(subject){return state.manifest.banks.filter(b=>(b.subject||"Autres")===subject);}
 
 function syncModeUI(){
-  const flash=state.mode==="flashcard";document.body.classList.toggle("flashcard-mode",flash);
+  const flash=state.mode==="flashcard";document.body.classList.toggle("flashcard-mode",flash);syncFlashExplanationToggle();
   document.querySelectorAll(".mode-btn").forEach(btn=>{const active=btn.dataset.mode===state.mode;btn.classList.toggle("selected",active);btn.setAttribute("aria-pressed",active?"true":"false");});
   const startBtn=$("startBtn");if(startBtn&&!startBtn.disabled)startBtn.textContent=flash?"Commencer les cartes":"Commencer";
 }
@@ -2054,7 +2153,7 @@ function getSaved(){try{const s=JSON.parse(localStorage.getItem(SAVE_KEY)||"null
 function saveProgress(){
   if(!state.session.length)return true;
   const resumeIndex=state.answered?state.index+1:state.index;
-  const payload={savedAt:new Date().toISOString(),mode:state.mode,session:state.session,index:resumeIndex,score:state.score,errors:state.errors,shuffleAnswers:$("shuffleAnswers").checked,instantCorrection:$("instantCorrection").checked,reviewingErrors:state.reviewingErrors,timerEnabled:state.timerEnabled,timerDurationMs:state.timerDurationMs,timerRemainingMs:currentRemainingMs()};
+  const payload={savedAt:new Date().toISOString(),mode:state.mode,session:state.session,index:resumeIndex,score:state.score,errors:state.errors,shuffleAnswers:$("shuffleAnswers").checked,instantCorrection:$("instantCorrection").checked,reviewingErrors:state.reviewingErrors,flashExplanations:state.flashExplanations,timerEnabled:state.timerEnabled,timerDurationMs:state.timerDurationMs,timerRemainingMs:currentRemainingMs()};
   try{localStorage.setItem(SAVE_KEY,JSON.stringify(payload));}
   catch(e){console.warn("Sauvegarde locale indisponible.",e);return false;}
   refreshResumeCard();return true;
@@ -2096,15 +2195,80 @@ function focusCorrection(){
   });
 }
 
+let flashExplanationPromptResolver=null;
+function syncFlashExplanationToggle(){
+  const btn=$("flashExplanationToggle");if(!btn)return;
+  const forced=state.reviewingErrors;
+  btn.classList.toggle("hidden",forced);
+  btn.disabled=forced;
+  btn.setAttribute("aria-pressed",state.flashExplanations?"true":"false");
+  btn.textContent=state.flashExplanations?"Explications : activées":"Explications : désactivées";
+}
+function hideFlashExplanationPanel(){
+  document.body.classList.remove("flash-explanation-shown");
+  const panel=$("flashExplanationPanel");if(!panel)return;
+  panel.classList.add("hidden");panel.innerHTML="";
+}
+function showFlashExplanationPanel(q,ok,realTimeout){
+  const panel=$("flashExplanationPanel");if(!panel)return;
+  const expected=q.flashTruth?"vraie":"fausse";
+  const status=realTimeout?'<div class="flash-explanation-status bad">Temps écoulé.</div>':'<div class="flash-explanation-status '+(ok?"ok":"bad")+'">'+(ok?"Bonne réponse.":"Réponse incorrecte.")+'</div>';
+  panel.innerHTML=status+'<div class="flash-answer-key">La réponse proposée était <strong>'+expected+'.</strong></div><div class="review-explanation"><strong>Explication</strong><div style="margin-top:7px">'+esc(q.explanation||"Aucune explication disponible.")+'</div></div>';
+  panel.classList.remove("hidden");
+  document.body.classList.add("flash-explanation-shown");
+  requestAnimationFrame(()=>panel.focus({preventScroll:true}));
+}
+function setFlashExplanations(enabled,{persist=true}={}){
+  state.flashExplanations=!!enabled;
+  syncFlashExplanationToggle();
+  if(state.mode==="flashcard"&&state.answered&&!state.reviewingErrors&&state.lastFlashResult){
+    if(state.flashExplanations){
+      clearFlashAdvance();
+      const {q,ok,realTimeout}=state.lastFlashResult;
+      showFlashExplanationPanel(q,ok,realTimeout);
+      $("nextBtn").classList.remove("hidden");
+      $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Question suivante";
+    }else{
+      hideFlashExplanationPanel();
+      $("nextBtn").classList.add("hidden");
+      scheduleFlashAdvance(320);
+    }
+  }
+  if(persist&&state.session.length)saveProgress();
+}
+function resolveFlashExplanationPrompt(value){
+  const dialog=$("flashExplanationDialog");
+  if(dialog?.open)dialog.close();
+  const resolve=flashExplanationPromptResolver;
+  flashExplanationPromptResolver=null;
+  if(resolve)resolve(value);
+}
+function askFlashExplanationPreference(){
+  const dialog=$("flashExplanationDialog");
+  if(!dialog||typeof dialog.showModal!=="function"){
+    return Promise.resolve(window.confirm("Afficher les explications après chaque réponse, même lorsqu’elle est juste ?"));
+  }
+  if(dialog.open)dialog.close();
+  return new Promise(resolve=>{
+    flashExplanationPromptResolver=resolve;
+    dialog.showModal();
+    requestAnimationFrame(()=>$("flashExplainYes")?.focus({preventScroll:true}));
+  });
+}
 async function start(){
+  if(state.mode==="flashcard"){
+    const preference=await askFlashExplanationPreference();
+    if(preference===null)return;
+    setFlashExplanations(preference,{persist:false});
+  }
   $("startBtn").disabled=true;$("startBtn").textContent="Préparation…";
-  try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=false;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();saveProgress();}
+  try{state.session=await createSessionFromSelection();state.index=0;state.score=0;state.errors=[];state.answered=false;state.reviewingErrors=false;state.lastFlashResult=null;initTimerForNewSession();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion();saveProgress();}
   catch(e){alert(e.message);}finally{$("startBtn").disabled=false;syncModeUI();}
 }
 function resetFlashCardVisual(){const card=$("flashCard"),result=$("flashResultIcon"),stage=$("swipeStage");if(!card)return;stopFlashDragPhysics();flashTargetX=flashTargetY=flashRenderX=flashRenderY=flashRenderVX=flashRenderVY=flashLift=0;card.getAnimations?.().forEach(a=>a.cancel());card.classList.remove("dragging","entering","returning");card.style.transform="";card.style.opacity="";card.style.pointerEvents="";card.style.borderColor="";$("flashFalseStamp").style.opacity="0";$("flashTrueStamp").style.opacity="0";resetFlashDeck();if(stage)stage.classList.remove("impact-success","impact-failure");if(result){result.className="flash-result-icon";result.textContent="";}}
 function animateFlashCardIn(){const card=$("flashCard");if(!card)return;card.classList.remove("entering");void card.offsetWidth;card.classList.add("entering");}
 function renderFlashcardQuestion(q,resumeTimer=false){
-  clearFlashAdvance();
+  clearFlashAdvance();state.lastFlashResult=null;hideFlashExplanationPanel();syncFlashExplanationToggle();
   $("qText").classList.add("hidden");$("normalAnswerArea").classList.add("hidden");$("flashArea").classList.remove("hidden");$("validateBtn").classList.add("hidden");$("nextBtn").classList.add("hidden");
   const proposal=flashProposalText(q),proposalEl=$("flashStatement");
   $("flashQuestion").textContent=q.prompt||"";
@@ -2283,16 +2447,16 @@ function answerFlashcard(userTruth,timedOut=false,throwMeta=null){
   if(result){result.textContent=ok?"✓":"✕";result.className="flash-result-icon "+(ok?"success":"failure");void result.offsetWidth;result.classList.add("show");}
   const flashLive=$("flashLiveResult");if(flashLive){flashLive.textContent="";requestAnimationFrame(()=>{flashLive.textContent=realTimeout?"Temps écoulé.":ok?"Bonne réponse.":"Réponse incorrecte.";});}
   renderLiveQuizStats();$("validateBtn").classList.add("hidden");
-  const expected=q.flashTruth?"Vraie":"Fausse";
-  if(state.reviewingErrors){
-    $("feedback").classList.remove("hidden");
-    const status=realTimeout?'<div class="bad">Temps écoulé.</div>':'<div class="'+(ok?"ok":"bad")+'">'+(ok?"Bonne réponse.":"Réponse incorrecte.")+'</div>';
-    $("feedback").innerHTML=status+'<div class="flash-answer-key">La réponse proposée était <strong>'+expected.toLowerCase()+'.</strong></div><div class="review-explanation"><strong>Explication</strong><div style="margin-top:7px">'+esc(q.explanation||"Aucune explication disponible.")+'</div></div>';
+  state.lastFlashResult={q,ok,realTimeout};
+  const shouldExplain=state.reviewingErrors||state.flashExplanations;
+  if(shouldExplain){
+    $("feedback").classList.add("hidden");$("feedback").innerHTML="";
+    showFlashExplanationPanel(q,ok,realTimeout);
     $("nextBtn").classList.remove("hidden");
-    $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":"Erreur suivante";
-    saveProgress();focusCorrection();
+    $("nextBtn").textContent=state.index===state.session.length-1?"Voir les résultats":state.reviewingErrors?"Erreur suivante":"Question suivante";
+    saveProgress();
   }else{
-    $("feedback").classList.add("hidden");$("feedback").innerHTML="";$("nextBtn").classList.add("hidden");saveProgress();scheduleFlashAdvance(Math.max(560,throwDuration+150));
+    hideFlashExplanationPanel();$("feedback").classList.add("hidden");$("feedback").innerHTML="";$("nextBtn").classList.add("hidden");saveProgress();scheduleFlashAdvance(Math.max(560,throwDuration+150));
   }
 }
 function initFlashSwipe(){
@@ -2470,10 +2634,10 @@ function animateScoreDonut(percent){
   requestAnimationFrame(tick);
 }
 
-function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;document.body.classList.remove("reviewing-errors");exitQuizFocus();
+function finish(){clearFlashAdvance();stopTimerInterval();state.timerEndAt=null;hideFlashExplanationPanel();document.body.classList.remove("reviewing-errors");exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;clearProgress();
 }
-async function resumeSaved(){const s=getSaved();if(!s)return;state.mode=s.mode==="flashcard"?"flashcard":"qcm";syncModeUI();state.session=s.session;state.score=s.score||0;state.errors=s.errors||[];if((s.index||0)>=state.session.length){finish();return;}state.index=s.index||0;state.answered=false;state.reviewingErrors=!!s.reviewingErrors;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
+async function resumeSaved(){const s=getSaved();if(!s)return;state.mode=s.mode==="flashcard"?"flashcard":"qcm";syncModeUI();state.session=s.session;state.score=s.score||0;state.errors=s.errors||[];if((s.index||0)>=state.session.length){finish();return;}state.index=s.index||0;state.answered=false;state.reviewingErrors=!!s.reviewingErrors;state.flashExplanations=!!s.flashExplanations;state.lastFlashResult=null;syncFlashExplanationToggle();$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
 function pause(){clearFlashAdvance();pauseTimer();if(saveProgress()===false){alert("Impossible de sauvegarder la progression sur cet appareil.");startQuestionTimer(true);return;}exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");refreshResumeCard();}
 async function init(){ refreshResumeCard(); }
 
@@ -2507,6 +2671,10 @@ $("timerToggleBtn").addEventListener("click",toggleTimer);
 document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",()=>validate());$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
 $("flashFalseBtn").addEventListener("click",()=>answerFlashcard(false));$("flashTrueBtn").addEventListener("click",()=>answerFlashcard(true));
+$("flashExplanationToggle").addEventListener("click",()=>setFlashExplanations(!state.flashExplanations));
+$("flashExplainYes").addEventListener("click",()=>resolveFlashExplanationPrompt(true));
+$("flashExplainNo").addEventListener("click",()=>resolveFlashExplanationPrompt(false));
+$("flashExplanationDialog").addEventListener("cancel",e=>{e.preventDefault();resolveFlashExplanationPrompt(null);});
 $("quitBtn").addEventListener("click",()=>{if(confirm("Abandonner ce questionnaire et effacer sa progression ?")){clearFlashAdvance();stopTimerInterval();state.reviewingErrors=false;state.timerEnabled=false;state.timerDurationMs=30000;state.timerEndAt=null;state.timerRemainingMs=null;syncTimerSettingsUI();clearProgress();state.session=[];exitQuizFocus();$("quiz").classList.add("hidden");if(state.manifest)$("setup").classList.remove("hidden");}});
 $("resumeBtn").addEventListener("click",resumeSaved);$("discardSavedBtn").addEventListener("click",()=>{if(confirm("Effacer la progression sauvegardée ?"))clearProgress();});
 $("newQuiz").addEventListener("click",()=>{clearFlashAdvance();exitQuizFocus();stopTimerInterval();state.reviewingErrors=false;state.timerEnabled=false;state.timerEndAt=null;state.timerRemainingMs=null;$("results").classList.add("hidden");if(state.manifest){$("setup").classList.remove("hidden");renderSelectionUI();}});
