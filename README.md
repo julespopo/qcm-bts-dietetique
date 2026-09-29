@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.9.3
+# QCM BTS Diététique — V7.9.4
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -427,6 +427,15 @@ Le dépôt contient deux niveaux de tests :
 Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur les pull requests et sur `main`.
 
 # Changelog
+
+## V7.9.4
+
+- Sur mobile QCM, **Valider** occupe toute la largeur.
+- **Mettre en pause** et **Abandonner** sont placés sur une seconde rangée en deux colonnes égales.
+- Le bloc d'actions reste ancré en bas du questionnaire, indépendamment de la longueur de la question ou du nombre de réponses.
+- La zone des propositions devient la zone flexible et scrollable lorsque le contenu est trop long.
+- **Question suivante** reprend la même largeur complète que **Valider** après correction.
+- Versions web et locale synchronisées.
 
 ## V7.9.3
 
