@@ -333,6 +333,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: bouton Valider mobile QCM non pleine largeur")
     if 'body.quiz-active:not(.flashcard-mode) #pauseBtn' not in source or 'body.quiz-active:not(.flashcard-mode) #quitBtn' not in source:
         err(f"{rel}: boutons Pause/Abandonner mobile QCM non répartis")
+    if 'body.quiz-active:not(.flashcard-mode) #normalAnswerArea' not in source or 'flex:1 1 auto' not in source:
+        err(f"{rel}: zone de réponses QCM mobile ne remplit pas l'espace disponible")
     if 'body.quiz-active:not(.flashcard-mode) #choices' not in source or 'overflow-y:auto' not in source:
         err(f"{rel}: zone de réponses QCM mobile non scrollable indépendamment des actions")
     if 'filter:drop-shadow(0 2px 5px rgba(0,0,0,.055))' not in source:
