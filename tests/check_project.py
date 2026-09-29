@@ -265,8 +265,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.9.3</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.9.3")
+    if '<footer>Index V7.9.4</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.9.4")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
     if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
@@ -329,6 +329,14 @@ for html_path in HTML_FILES:
         err(f"{rel}: cartes fantômes mobile non masquées")
     if 'margin:12px 0 0;' not in source:
         err(f"{rel}: espacement entre Faux/Vrai et Pause/Abandonner insuffisant")
+    if 'body.quiz-active:not(.flashcard-mode) #validateBtn' not in source or 'grid-column:1 / -1' not in source:
+        err(f"{rel}: bouton Valider mobile QCM non pleine largeur")
+    if 'body.quiz-active:not(.flashcard-mode) #pauseBtn' not in source or 'body.quiz-active:not(.flashcard-mode) #quitBtn' not in source:
+        err(f"{rel}: boutons Pause/Abandonner mobile QCM non répartis")
+    if 'body.quiz-active:not(.flashcard-mode) #normalAnswerArea' not in source or 'flex:1 1 auto' not in source:
+        err(f"{rel}: zone de réponses QCM mobile ne remplit pas l'espace disponible")
+    if 'body.quiz-active:not(.flashcard-mode) #choices' not in source or 'overflow-y:auto' not in source:
+        err(f"{rel}: zone de réponses QCM mobile non scrollable indépendamment des actions")
     if 'filter:drop-shadow(0 2px 5px rgba(0,0,0,.055))' not in source:
         err(f"{rel}: ombre mobile arrondie Vrai/Faux absente")
     if 'border-radius:24px;' not in source:

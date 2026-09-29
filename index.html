@@ -617,7 +617,11 @@ body.sheet-open{overflow:hidden}
     max-height:calc(100dvh - 10px);
     border-radius:14px;
     padding:10px 10px 7px;
-    display:block;
+  }
+  body.quiz-active:not(.flashcard-mode) #quiz{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
   }
   body.quiz-active #quiz .meta{
     font-size:.79rem;
@@ -636,9 +640,24 @@ body.sheet-open{overflow:hidden}
     line-height:1.28;
     margin:6px 0 8px;
   }
+  body.quiz-active:not(.flashcard-mode) #normalAnswerArea{
+    flex:1 1 auto;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
   body.quiz-active #choices{
     gap:6px;
     margin-top:5px;
+  }
+  body.quiz-active:not(.flashcard-mode) #choices{
+    flex:1 1 auto;
+    min-height:0;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    padding-right:2px;
+    padding-bottom:4px;
   }
   body.quiz-active .choice{
     min-height:46px;
@@ -657,10 +676,15 @@ body.sheet-open{overflow:hidden}
     font-size:.9rem;
     line-height:1.28;
   }
+  body.quiz-active:not(.flashcard-mode) .feedback:not(.hidden){
+    flex:0 0 auto;
+    max-height:24dvh;
+    overflow-y:auto;
+  }
   body.quiz-active .quiz-actions{
     display:grid;
-    grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1fr);
-    gap:5px;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
     padding:6px;
     margin-top:7px;
     border-radius:11px;
@@ -668,14 +692,31 @@ body.sheet-open{overflow:hidden}
   body.quiz-active .quiz-actions button{
     min-width:0;
     min-height:44px;
-    padding:9px 5px;
+    padding:9px 7px;
     font-size:.80rem;
     line-height:1.1;
   }
-  body.quiz-active #validateBtn,
-  body.quiz-active #nextBtn{grid-column:1}
-  body.quiz-active #pauseBtn{grid-column:2}
-  body.quiz-active #quitBtn{grid-column:3}
+  body.quiz-active:not(.flashcard-mode) .quiz-actions{
+    position:static;
+    flex:0 0 auto;
+    width:100%;
+    margin-top:8px;
+  }
+  body.quiz-active:not(.flashcard-mode) #validateBtn,
+  body.quiz-active:not(.flashcard-mode) #nextBtn{
+    grid-column:1 / -1;
+    grid-row:1;
+    min-height:48px;
+    font-size:.9rem;
+  }
+  body.quiz-active:not(.flashcard-mode) #pauseBtn{
+    grid-column:1;
+    grid-row:2;
+  }
+  body.quiz-active:not(.flashcard-mode) #quitBtn{
+    grid-column:2;
+    grid-row:2;
+  }
   body.quiz-active #quiz>p.muted:last-child{
     display:none;
   }
@@ -1381,7 +1422,7 @@ body.quiz-active.flashcard-mode #quitBtn{
   </section>
 </section>
 
-<footer>Index V7.9.3</footer>
+<footer>Index V7.9.4</footer>
 </main>
 
 <script>
