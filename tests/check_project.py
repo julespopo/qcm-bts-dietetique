@@ -265,8 +265,8 @@ for html_path in HTML_FILES:
         err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.9.4</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.9.4")
+    if '<footer>Index V7.9.5</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.9.5")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
     if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
@@ -410,3 +410,5 @@ print(json.dumps(stats, ensure_ascii=False, indent=2))
 print(f"Prompts génériques/dupliqués détectés (non bloquants): {duplicate_prompt_count}")
 for item in warnings:
     print(f"[AVERTISSEMENT] {item}")
+
+# V7.9.5 flash truth randomization
