@@ -1432,7 +1432,7 @@ body.quiz-active.flashcard-mode #quitBtn{
   </section>
 </section>
 
-<footer>Index V7.9.4</footer>
+<footer>Index V7.9.5</footer>
 </main>
 
 <script>
@@ -2298,8 +2298,7 @@ function flashProposalText(q){
   return p.length===1?p[0]:p.map(x=>"• "+x).join("\n");
 }
 function makeFlashcardSession(questions){
-  let wantTrue=Math.random()>=.5;
-  return questions.map(q=>{const card=buildFlashcard(q,wantTrue);wantTrue=!wantTrue;return card;});
+  return questions.map(q=>buildFlashcard(q,Math.random()>=.5));
 }
 async function createSessionFromSelection(){
   const banks=selectedBanks();if(!banks.length)throw new Error("Sélectionne au moins un chapitre.");const pool=[];
