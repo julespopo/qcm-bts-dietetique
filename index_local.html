@@ -640,6 +640,13 @@ body.sheet-open{overflow:hidden}
     line-height:1.28;
     margin:6px 0 8px;
   }
+  body.quiz-active:not(.flashcard-mode) #normalAnswerArea{
+    flex:1 1 auto;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
   body.quiz-active #choices{
     gap:6px;
     margin-top:5px;
