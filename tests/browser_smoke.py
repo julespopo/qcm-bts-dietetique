@@ -349,7 +349,30 @@ try:
     wait_until(lambda: not driver.find_element(By.ID, "flashPauseOverlay").is_displayed(), "bouton Reprendre n'a pas repris le Vrai/Faux")
     assert driver.find_element(By.ID, "counter").text == counter_before_pause, "reprise a décalé la session"
 
-    # 3) Mobile: configuration, reprise, full-height layout, visual button balance, error review.
+    # 3) Mobile QCM: fixed two-row action layout.
+    fresh(390, 844)
+    select_mobile_subject_all()
+    start_mode("qcm", 4)
+
+    qcm_quiz = visible("#quiz")
+    qcm_actions = driver.find_element(By.CSS_SELECTOR, ".quiz-actions")
+    validate_btn_mobile = driver.find_element(By.ID, "validateBtn")
+    pause_btn_mobile = driver.find_element(By.ID, "pauseBtn")
+    quit_btn_mobile = driver.find_element(By.ID, "quitBtn")
+
+    assert validate_btn_mobile.rect["width"] >= qcm_actions.rect["width"] * 0.92, "Valider n'occupe pas toute la largeur sur mobile"
+    assert abs(pause_btn_mobile.rect["width"] - quit_btn_mobile.rect["width"]) <= 4, "Pause/Abandonner ne partagent pas la largeur équitablement"
+    assert pause_btn_mobile.rect["y"] > validate_btn_mobile.rect["y"], "Pause/Abandonner ne sont pas sous Valider"
+    assert abs((pause_btn_mobile.rect["x"] + pause_btn_mobile.rect["width"]) - quit_btn_mobile.rect["x"]) <= 12, "espace incohérent entre Pause et Abandonner"
+    bottom_gap_before = (qcm_quiz.rect["y"] + qcm_quiz.rect["height"]) - (qcm_actions.rect["y"] + qcm_actions.rect["height"])
+    assert bottom_gap_before <= 20, f"barre d'actions QCM trop éloignée du bas: {bottom_gap_before}px"
+
+    # Forcer une correction pour vérifier que la barre reste au même endroit malgré le contenu supplémentaire.
+    answer_current_qcm_wrong()
+    qcm_actions_after = driver.find_element(By.CSS_SELECTOR, ".quiz-actions").rect
+    assert abs(qcm_actions_after["y"] - qcm_actions.rect["y"]) <= 4, "barre d'actions QCM déplacée après affichage de la correction"
+
+    # 4) Mobile: configuration, reprise, full-height layout, visual button balance, error review.
     fresh(390, 844)
 
     options_block = driver.find_element(By.CSS_SELECTOR, ".config-options")
