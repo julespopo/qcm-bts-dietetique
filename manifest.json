@@ -1,6 +1,6 @@
 {
   "appVersion": 2,
-  "updated": "2026-09-27",
+  "updated": "2026-10-13",
   "banks": [
     {
       "id": "BPADN__00_matiere_organique_inorganique",
@@ -63,6 +63,15 @@
       "chapter": "Chapitre 8 — La biologie cellulaire",
       "file": "banques/BPADN/08_biologie_cellulaire.json",
       "count": 30,
+      "version": 3
+    },
+    {
+      "id": "BPADN__09_histologie",
+      "title": "Chapitre 9 — L’histologie",
+      "subject": "BPADN",
+      "chapter": "Chapitre 9 — L’histologie",
+      "file": "banques/BPADN/09_histologie.json",
+      "count": 50,
       "version": 3
     },
     {
