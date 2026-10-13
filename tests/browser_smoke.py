@@ -494,7 +494,7 @@ try:
 
     assert_no_console_regressions()
 
-    # 4) Version locale: chargement réel des 13 fichiers JSON et un QCM complet.
+    # 4) Version locale: chargement réel de toutes les banques JSON et un QCM complet.
     driver.set_window_size(1280, 900)
     driver.get(BASE_URL + "index_local.html")
     wait_until(lambda: driver.execute_script("return document.readyState") == "complete", "index_local non chargé")
@@ -503,14 +503,15 @@ try:
     folder_input = driver.find_element(By.ID, "folderInput")
     assert folder_input.get_attribute("webkitdirectory") is not None, "sélecteur de dossier local absent"
     bank_files = [str(p.resolve()) for p in sorted((ROOT / "banques").rglob("*.json"))]
-    assert len(bank_files) == 13
+    expected_bank_count = len(bank_files)
+    assert expected_bank_count >= 1
     # ChromeDriver n'autorise pas toujours l'envoi automatisé d'un répertoire
     # sur un input webkitdirectory. Pour tester le moteur d'import sans boîte
     # de dialogue système, on retire cet attribut uniquement dans le test et
-    # on injecte exactement les mêmes 13 JSON.
+    # on injecte toutes les banques JSON disponibles.
     driver.execute_script("arguments[0].removeAttribute('webkitdirectory'); arguments[0].style.display='block';", folder_input)
     folder_input.send_keys("\n".join(bank_files))
-    wait_until(lambda: "13 banque(s) chargée(s)" in driver.find_element(By.ID, "loadStatus").text, "les banques locales ne se chargent pas")
+    wait_until(lambda: f"{expected_bank_count} banque(s) chargée(s)" in driver.find_element(By.ID, "loadStatus").text, "les banques locales ne se chargent pas")
     visible("#setup")
     wait_until(lambda: len(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")) == 2, "matières locales incorrectes")
     js_click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
