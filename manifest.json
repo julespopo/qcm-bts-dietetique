@@ -136,6 +136,15 @@
       "file": "banques/Alimentation_Nutrition/03_proteines.json",
       "count": 60,
       "version": 3
+    },
+    {
+      "id": "Promotion_nutrition__01_pnns_egalim_gemrcn",
+      "title": "Promotion de la nutrition — PNNS, EGalim et GEMRCN",
+      "subject": "Santé publique - Promotion de la nutrition",
+      "chapter": "PNNS, EGalim et GEMRCN",
+      "file": "banques/Promotion_nutrition/01_pnns_egalim_gemrcn.json",
+      "count": 51,
+      "version": 3
     }
   ]
 }
