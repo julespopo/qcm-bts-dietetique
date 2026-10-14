@@ -1,0 +1,1334 @@
+{
+  "version": 3,
+  "title": "Promotion de la nutrition — PNNS, EGalim et GEMRCN",
+  "subject": "Santé publique - Promotion de la nutrition",
+  "chapter": "PNNS, EGalim et GEMRCN",
+  "questions": [
+    {
+      "id": "spn-001",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "En quelle année le PNNS a-t-il été lancé ?",
+      "choices": [
+        {
+          "text": "2001",
+          "correct": true
+        },
+        {
+          "text": "1991",
+          "correct": false
+        },
+        {
+          "text": "2011",
+          "correct": false
+        },
+        {
+          "text": "2018",
+          "correct": false
+        }
+      ],
+      "explanation": "Le PNNS est lancé en 2001."
+    },
+    {
+      "id": "spn-002",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel objectif général poursuit le PNNS ?",
+      "choices": [
+        {
+          "text": "Améliorer la santé par la nutrition",
+          "correct": true
+        },
+        {
+          "text": "Fixer les tarifs alimentaires",
+          "correct": false
+        },
+        {
+          "text": "Réglementer les seuls restaurants",
+          "correct": false
+        },
+        {
+          "text": "Remplacer les soins médicaux",
+          "correct": false
+        }
+      ],
+      "explanation": "La nutrition est un déterminant de santé publique."
+    },
+    {
+      "id": "spn-003",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que comprend la nutrition dans l'approche du PNNS ?",
+      "choices": [
+        {
+          "text": "Alimentation et activité physique",
+          "correct": true
+        },
+        {
+          "text": "Alimentation uniquement",
+          "correct": false
+        },
+        {
+          "text": "Sommeil exclusivement",
+          "correct": false
+        },
+        {
+          "text": "Hygiène hospitalière uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "L'approche englobe aussi la sédentarité."
+    },
+    {
+      "id": "spn-004",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel organisme diffuse les repères Manger Bouger ?",
+      "choices": [
+        {
+          "text": "Santé publique France",
+          "correct": true
+        },
+        {
+          "text": "Ministère de l'Intérieur",
+          "correct": false
+        },
+        {
+          "text": "Direction des douanes",
+          "correct": false
+        },
+        {
+          "text": "Cour des comptes",
+          "correct": false
+        }
+      ],
+      "explanation": "Santé publique France élabore et diffuse les recommandations grand public."
+    },
+    {
+      "id": "spn-005",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "En quelle année les repères alimentaires pour les adultes ont-ils été actualisés ?",
+      "choices": [
+        {
+          "text": "2019",
+          "correct": true
+        },
+        {
+          "text": "2004",
+          "correct": false
+        },
+        {
+          "text": "2012",
+          "correct": false
+        },
+        {
+          "text": "2025",
+          "correct": false
+        }
+      ],
+      "explanation": "Santé publique France publie les nouveaux repères en 2019."
+    },
+    {
+      "id": "spn-006",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel repère général est conseillé pour les fruits et légumes ?",
+      "choices": [
+        {
+          "text": "Au moins 5 portions par jour",
+          "correct": true
+        },
+        {
+          "text": "Une portion par semaine",
+          "correct": false
+        },
+        {
+          "text": "Deux portions par mois",
+          "correct": false
+        },
+        {
+          "text": "Dix portions uniquement le dimanche",
+          "correct": false
+        }
+      ],
+      "explanation": "Le repère grand public est au moins cinq fruits et légumes par jour."
+    },
+    {
+      "id": "spn-007",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fréquence de consommation des légumes secs est recommandée ?",
+      "choices": [
+        {
+          "text": "Au moins deux fois par semaine",
+          "correct": true
+        },
+        {
+          "text": "Une fois par mois",
+          "correct": false
+        },
+        {
+          "text": "Uniquement chaque jour",
+          "correct": false
+        },
+        {
+          "text": "Jamais en dehors de l'hiver",
+          "correct": false
+        }
+      ],
+      "explanation": "Les légumes secs sont à consommer au moins deux fois par semaine."
+    },
+    {
+      "id": "spn-008",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle attitude est recommandée pour les produits céréaliers ?",
+      "choices": [
+        {
+          "text": "Privilégier les produits complets ou peu raffinés",
+          "correct": true
+        },
+        {
+          "text": "Éviter tous les féculents",
+          "correct": false
+        },
+        {
+          "text": "Manger uniquement du pain blanc",
+          "correct": false
+        },
+        {
+          "text": "Supprimer toutes les céréales",
+          "correct": false
+        }
+      ],
+      "explanation": "Privilégier le complet ou semi-complet augmente l'apport en fibres."
+    },
+    {
+      "id": "spn-009",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel produit est recommandé comme matière grasse ajoutée ?",
+      "choices": [
+        {
+          "text": "Huiles de colza, noix ou olive",
+          "correct": true
+        },
+        {
+          "text": "Graisse de friture réutilisée",
+          "correct": false
+        },
+        {
+          "text": "Saindoux exclusivement",
+          "correct": false
+        },
+        {
+          "text": "Margarine hydrogénée exclusivement",
+          "correct": false
+        }
+      ],
+      "explanation": "Les recommandations invitent à privilégier notamment colza, noix et olive."
+    },
+    {
+      "id": "spn-010",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle est la principale boisson recommandée au quotidien ?",
+      "choices": [
+        {
+          "text": "Eau",
+          "correct": true
+        },
+        {
+          "text": "Soda",
+          "correct": false
+        },
+        {
+          "text": "Boisson énergisante",
+          "correct": false
+        },
+        {
+          "text": "Jus de fruits sucré",
+          "correct": false
+        }
+      ],
+      "explanation": "L'eau est la boisson à privilégier."
+    },
+    {
+      "id": "spn-011",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle catégorie faut-il limiter d'après les repères actuels ?",
+      "choices": [
+        {
+          "text": "Charcuterie",
+          "correct": true
+        },
+        {
+          "text": "Légumes secs",
+          "correct": false
+        },
+        {
+          "text": "Fruits frais",
+          "correct": false
+        },
+        {
+          "text": "Eau",
+          "correct": false
+        }
+      ],
+      "explanation": "Les repères recommandent de limiter la charcuterie."
+    },
+    {
+      "id": "spn-012",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle limite hebdomadaire est recommandée pour la charcuterie chez l'adulte ?",
+      "choices": [
+        {
+          "text": "150 g",
+          "correct": true
+        },
+        {
+          "text": "500 g",
+          "correct": false
+        },
+        {
+          "text": "350 g",
+          "correct": false
+        },
+        {
+          "text": "700 g",
+          "correct": false
+        }
+      ],
+      "explanation": "Le repère adulte est de ne pas dépasser 150 g de charcuterie par semaine."
+    },
+    {
+      "id": "spn-013",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle limite hebdomadaire est recommandée pour les viandes hors volaille chez l'adulte ?",
+      "choices": [
+        {
+          "text": "500 g",
+          "correct": true
+        },
+        {
+          "text": "150 g",
+          "correct": false
+        },
+        {
+          "text": "1000 g",
+          "correct": false
+        },
+        {
+          "text": "50 g",
+          "correct": false
+        }
+      ],
+      "explanation": "Limiter bœuf, porc, agneau, veau et autres viandes hors volaille à 500 g/semaine."
+    },
+    {
+      "id": "spn-014",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fréquence de poisson est recommandée aux adultes ?",
+      "choices": [
+        {
+          "text": "Deux fois par semaine dont un poisson gras",
+          "correct": true
+        },
+        {
+          "text": "Tous les jours, uniquement maigre",
+          "correct": false
+        },
+        {
+          "text": "Une fois par mois",
+          "correct": false
+        },
+        {
+          "text": "Deux fois par jour",
+          "correct": false
+        }
+      ],
+      "explanation": "Repère : poisson deux fois par semaine, dont un poisson gras."
+    },
+    {
+      "id": "spn-015",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que vise la recommandation de réduction de la sédentarité ?",
+      "choices": [
+        {
+          "text": "Diminuer le temps passé assis et interrompre les périodes prolongées",
+          "correct": true
+        },
+        {
+          "text": "Supprimer uniquement le sport",
+          "correct": false
+        },
+        {
+          "text": "Pratiquer moins de déplacements",
+          "correct": false
+        },
+        {
+          "text": "Remplacer les repas par une promenade",
+          "correct": false
+        }
+      ],
+      "explanation": "Bouger davantage et limiter la sédentarité sont complémentaires."
+    },
+    {
+      "id": "spn-016",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle est la part minimale de produits de qualité et durables dans les achats alimentaires des cantines concernées ?",
+      "choices": [
+        {
+          "text": "50 %",
+          "correct": true
+        },
+        {
+          "text": "20 %",
+          "correct": false
+        },
+        {
+          "text": "35 %",
+          "correct": false
+        },
+        {
+          "text": "75 %",
+          "correct": false
+        }
+      ],
+      "explanation": "L'objectif général est au moins 50 % en valeur d'achats."
+    },
+    {
+      "id": "spn-017",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle part minimale d'achats biologiques est incluse dans cet objectif ?",
+      "choices": [
+        {
+          "text": "20 %",
+          "correct": true
+        },
+        {
+          "text": "5 %",
+          "correct": false
+        },
+        {
+          "text": "50 %",
+          "correct": false
+        },
+        {
+          "text": "40 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Au moins 20 % des achats doivent relever du bio ou de la conversion selon les conditions réglementaires."
+    },
+    {
+      "id": "spn-018",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Les pourcentages EGalim de 50 % et 20 % sont calculés en principe sur :",
+      "choices": [
+        {
+          "text": "La valeur des achats alimentaires",
+          "correct": true
+        },
+        {
+          "text": "Le nombre de convives",
+          "correct": false
+        },
+        {
+          "text": "Le poids des assiettes servies",
+          "correct": false
+        },
+        {
+          "text": "Les calories distribuées",
+          "correct": false
+        }
+      ],
+      "explanation": "Ces cibles se calculent sur les montants des achats alimentaires."
+    },
+    {
+      "id": "spn-019",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle fréquence minimale de menu végétarien s'applique en restauration scolaire ?",
+      "choices": [
+        {
+          "text": "Un par semaine",
+          "correct": true
+        },
+        {
+          "text": "Un par trimestre",
+          "correct": false
+        },
+        {
+          "text": "Deux par an",
+          "correct": false
+        },
+        {
+          "text": "Un par mois",
+          "correct": false
+        }
+      ],
+      "explanation": "La restauration scolaire doit proposer au moins un menu végétarien chaque semaine."
+    },
+    {
+      "id": "spn-020",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un menu végétarien au sens d'EGalim peut-il inclure des œufs ?",
+      "choices": [
+        {
+          "text": "Oui, les œufs ne sont pas exclus",
+          "correct": true
+        },
+        {
+          "text": "Non, jamais",
+          "correct": false
+        },
+        {
+          "text": "Seulement si la viande est aussi présente",
+          "correct": false
+        },
+        {
+          "text": "Uniquement les jours sans produits laitiers",
+          "correct": false
+        }
+      ],
+      "explanation": "Un menu végétarien exclut viande, poisson et fruits de mer, mais peut inclure œufs et laitages."
+    },
+    {
+      "id": "spn-021",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel plat correspond à un menu végétarien au sens d'EGalim ?",
+      "choices": [
+        {
+          "text": "Dahl de lentilles et riz",
+          "correct": true
+        },
+        {
+          "text": "Saumon et pommes vapeur",
+          "correct": false
+        },
+        {
+          "text": "Poulet et légumes",
+          "correct": false
+        },
+        {
+          "text": "Omelette aux lardons",
+          "correct": false
+        }
+      ],
+      "explanation": "Les légumineuses et céréales peuvent constituer la base d'un plat végétarien."
+    },
+    {
+      "id": "spn-022",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Dans les restaurants collectifs de l'État concernés offrant plusieurs menus, quel choix doit être proposé chaque jour ?",
+      "choices": [
+        {
+          "text": "Une option végétarienne",
+          "correct": true
+        },
+        {
+          "text": "Une entrée sans gluten",
+          "correct": false
+        },
+        {
+          "text": "Un dessert sans lactose",
+          "correct": false
+        },
+        {
+          "text": "Un menu uniquement local",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans les établissements publics nationaux visés proposant un choix multiple, une option végétarienne quotidienne est requise."
+    },
+    {
+      "id": "spn-023",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel dispositif vise à diversifier les sources de protéines en restauration collective ?",
+      "choices": [
+        {
+          "text": "Un plan pluriannuel de diversification",
+          "correct": true
+        },
+        {
+          "text": "Un programme obligatoire de jeûne",
+          "correct": false
+        },
+        {
+          "text": "Un quota de boissons sucrées",
+          "correct": false
+        },
+        {
+          "text": "Une suppression de toutes les légumineuses",
+          "correct": false
+        }
+      ],
+      "explanation": "La loi prévoit pour les structures concernées un plan de diversification des protéines."
+    },
+    {
+      "id": "spn-024",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel enjeu est visé par la lutte contre le gaspillage alimentaire en cantine ?",
+      "choices": [
+        {
+          "text": "Réduire les pertes et valoriser les excédents",
+          "correct": true
+        },
+        {
+          "text": "Augmenter systématiquement les portions",
+          "correct": false
+        },
+        {
+          "text": "Jeter tous les repas non servis",
+          "correct": false
+        },
+        {
+          "text": "Interdire les dons alimentaires",
+          "correct": false
+        }
+      ],
+      "explanation": "Prévenir les pertes et mieux valoriser les excédents est un objectif important."
+    },
+    {
+      "id": "spn-025",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle information doit notamment être communiquée aux convives selon les mesures EGalim ?",
+      "choices": [
+        {
+          "text": "La part des produits de qualité et durables",
+          "correct": true
+        },
+        {
+          "text": "Le salaire de chaque cuisinier",
+          "correct": false
+        },
+        {
+          "text": "Le prix payé par chaque élève",
+          "correct": false
+        },
+        {
+          "text": "La composition des stocks de nettoyage",
+          "correct": false
+        }
+      ],
+      "explanation": "Les mesures prévoient l'information des usagers sur la qualité et la durabilité des approvisionnements."
+    },
+    {
+      "id": "spn-026",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel matériau est concerné par des mesures de substitution en restauration collective ?",
+      "choices": [
+        {
+          "text": "Plastique",
+          "correct": true
+        },
+        {
+          "text": "Verre réutilisable",
+          "correct": false
+        },
+        {
+          "text": "Inox",
+          "correct": false
+        },
+        {
+          "text": "Porcelaine",
+          "correct": false
+        }
+      ],
+      "explanation": "Les textes prévoient des mesures de réduction et de substitution des contenants plastiques."
+    },
+    {
+      "id": "spn-027",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Sur 10 000 € d'achats, quel montant minimal correspond à l'objectif général de produits bio ?",
+      "choices": [
+        {
+          "text": "2 000 €",
+          "correct": true
+        },
+        {
+          "text": "500 €",
+          "correct": false
+        },
+        {
+          "text": "5 000 €",
+          "correct": false
+        },
+        {
+          "text": "1 000 €",
+          "correct": false
+        }
+      ],
+      "explanation": "20 % de 10 000 € = 2 000 €."
+    },
+    {
+      "id": "spn-028",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Une cantine achète 45 % de produits éligibles durables et de qualité dont 25 % bio. Atteint-elle l'objectif global de 50 % ?",
+      "choices": [
+        {
+          "text": "Non, le total éligible reste inférieur à 50 %",
+          "correct": true
+        },
+        {
+          "text": "Oui, car 25 % bio suffisent",
+          "correct": false
+        },
+        {
+          "text": "Oui, car bio et durable s'additionnent deux fois",
+          "correct": false
+        },
+        {
+          "text": "Non, car le bio devrait atteindre 50 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Le bio est inclus dans le total des produits éligibles : 45 % reste sous la cible de 50 %."
+    },
+    {
+      "id": "spn-029",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie GEMRCN ?",
+      "choices": [
+        {
+          "text": "Groupe d'étude des marchés de restauration collective et nutrition",
+          "correct": true
+        },
+        {
+          "text": "Groupe européen des menus rapides et de cuisine nouvelle",
+          "correct": false
+        },
+        {
+          "text": "Guide des échanges médicaux et recommandations cliniques nationales",
+          "correct": false
+        },
+        {
+          "text": "Gestion écologique des menus régionaux des cantines nationales",
+          "correct": false
+        }
+      ],
+      "explanation": "L'acronyme désigne un groupe de recommandations nutritionnelles pour la restauration collective."
+    },
+    {
+      "id": "spn-030",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Sur combien de repas successifs sont généralement exprimées les fréquences de la grille GEMRCN scolaire ?",
+      "choices": [
+        {
+          "text": "20",
+          "correct": true
+        },
+        {
+          "text": "5",
+          "correct": false
+        },
+        {
+          "text": "12",
+          "correct": false
+        },
+        {
+          "text": "30",
+          "correct": false
+        }
+      ],
+      "explanation": "La grille scolaire de référence exprime les fréquences sur 20 repas successifs."
+    },
+    {
+      "id": "spn-031",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fréquence maximale concerne les entrées contenant plus de 15 % de lipides ?",
+      "choices": [
+        {
+          "text": "4 sur 20",
+          "correct": true
+        },
+        {
+          "text": "8 sur 20",
+          "correct": false
+        },
+        {
+          "text": "10 sur 20",
+          "correct": false
+        },
+        {
+          "text": "6 sur 20",
+          "correct": false
+        }
+      ],
+      "explanation": "Au maximum quatre entrées de ce type sur 20 repas."
+    },
+    {
+      "id": "spn-032",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fréquence minimale concerne les crudités de légumes ou fruits contenant au moins 50 % de crudités ?",
+      "choices": [
+        {
+          "text": "10 sur 20",
+          "correct": true
+        },
+        {
+          "text": "4 sur 20",
+          "correct": false
+        },
+        {
+          "text": "6 sur 20",
+          "correct": false
+        },
+        {
+          "text": "15 sur 20",
+          "correct": false
+        }
+      ],
+      "explanation": "Au moins 10 crudités sur 20 repas dans la grille scolaire concernée."
+    },
+    {
+      "id": "spn-033",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fréquence maximale concerne les préparations frites ou préfrites à plus de 15 % de lipides ?",
+      "choices": [
+        {
+          "text": "4 sur 20",
+          "correct": true
+        },
+        {
+          "text": "6 sur 20",
+          "correct": false
+        },
+        {
+          "text": "8 sur 20",
+          "correct": false
+        },
+        {
+          "text": "10 sur 20",
+          "correct": false
+        }
+      ],
+      "explanation": "Le plafond de référence est quatre occurrences sur 20."
+    },
+    {
+      "id": "spn-034",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle fréquence maximale concerne les plats protidiques avec un rapport protéines/lipides ≤ 1 ?",
+      "choices": [
+        {
+          "text": "2 sur 20",
+          "correct": true
+        },
+        {
+          "text": "4 sur 20",
+          "correct": false
+        },
+        {
+          "text": "6 sur 20",
+          "correct": false
+        },
+        {
+          "text": "8 sur 20",
+          "correct": false
+        }
+      ],
+      "explanation": "Les plats avec P/L ≤ 1 sont limités à 2 sur 20."
+    },
+    {
+      "id": "spn-035",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fréquence minimale concerne les poissons ou préparations de poisson correspondant aux critères de la grille ?",
+      "choices": [
+        {
+          "text": "4 sur 20",
+          "correct": true
+        },
+        {
+          "text": "2 sur 20",
+          "correct": false
+        },
+        {
+          "text": "6 sur 20",
+          "correct": false
+        },
+        {
+          "text": "8 sur 20",
+          "correct": false
+        }
+      ],
+      "explanation": "Au moins 4 sur 20, avec critères sur part de poisson et P/L."
+    },
+    {
+      "id": "spn-036",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel rapport protéines/lipides est requis pour le poisson comptabilisé dans cette catégorie ?",
+      "choices": [
+        {
+          "text": "P/L ≥ 2",
+          "correct": true
+        },
+        {
+          "text": "P/L ≤ 1",
+          "correct": false
+        },
+        {
+          "text": "P/L = 0,5",
+          "correct": false
+        },
+        {
+          "text": "P/L ≤ 0,2",
+          "correct": false
+        }
+      ],
+      "explanation": "Les préparations de poisson concernées ont un rapport P/L au moins égal à 2."
+    },
+    {
+      "id": "spn-037",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel seuil minimal de poisson est requis dans les préparations comptabilisées dans cette catégorie ?",
+      "choices": [
+        {
+          "text": "70 %",
+          "correct": true
+        },
+        {
+          "text": "30 %",
+          "correct": false
+        },
+        {
+          "text": "50 %",
+          "correct": false
+        },
+        {
+          "text": "90 %",
+          "correct": false
+        }
+      ],
+      "explanation": "La grille vise les préparations comportant au moins 70 % du grammage recommandé en poisson."
+    },
+    {
+      "id": "spn-038",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fréquence minimale concerne les desserts 100 % fruits crus sans sucre ajouté ?",
+      "choices": [
+        {
+          "text": "8 sur 20",
+          "correct": true
+        },
+        {
+          "text": "4 sur 20",
+          "correct": false
+        },
+        {
+          "text": "10 sur 20",
+          "correct": false
+        },
+        {
+          "text": "12 sur 20",
+          "correct": false
+        }
+      ],
+      "explanation": "Au moins huit desserts de fruits crus sans sucre ajouté sur 20."
+    },
+    {
+      "id": "spn-039",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fréquence maximale concerne les desserts comportant plus de 15 % de lipides ?",
+      "choices": [
+        {
+          "text": "3 sur 20",
+          "correct": true
+        },
+        {
+          "text": "6 sur 20",
+          "correct": false
+        },
+        {
+          "text": "8 sur 20",
+          "correct": false
+        },
+        {
+          "text": "10 sur 20",
+          "correct": false
+        }
+      ],
+      "explanation": "Le plafond est trois sur 20 repas."
+    },
+    {
+      "id": "spn-040",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Une cantine sert 6 produits frits ou préfrits à plus de 15 % de lipides sur 20 repas : bilan ?",
+      "choices": [
+        {
+          "text": "Fréquence supérieure au maximum recommandé",
+          "correct": true
+        },
+        {
+          "text": "Conformité car 6 est inférieur à 8",
+          "correct": false
+        },
+        {
+          "text": "Conformité car il n'existe pas de plafond",
+          "correct": false
+        },
+        {
+          "text": "Déficit de 2 repas frits",
+          "correct": false
+        }
+      ],
+      "explanation": "La limite est quatre sur vingt, six la dépassent."
+    },
+    {
+      "id": "spn-041",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "La grille recense 3 services de poisson répondant aux critères sur 20 repas : bilan ?",
+      "choices": [
+        {
+          "text": "Fréquence sous le minimum recommandé",
+          "correct": true
+        },
+        {
+          "text": "Conformité car le minimum est 2",
+          "correct": false
+        },
+        {
+          "text": "Conformité car le poisson n'est pas compté",
+          "correct": false
+        },
+        {
+          "text": "Excès de poisson selon le GEMRCN",
+          "correct": false
+        }
+      ],
+      "explanation": "Le minimum recommandé est quatre services sur vingt."
+    },
+    {
+      "id": "spn-042",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Une cantine sert 9 desserts de fruits crus 100 % sans sucre ajouté sur 20 repas : bilan ?",
+      "choices": [
+        {
+          "text": "Minimum recommandé respecté",
+          "correct": true
+        },
+        {
+          "text": "En dessous du minimum de 10",
+          "correct": false
+        },
+        {
+          "text": "Au-dessus du maximum de 8",
+          "correct": false
+        },
+        {
+          "text": "Non conforme car il faut exactement 8",
+          "correct": false
+        }
+      ],
+      "explanation": "Neuf est supérieur au minimum de huit sur vingt."
+    },
+    {
+      "id": "spn-043",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le statut principal des tableaux GEMRCN eux-mêmes ?",
+      "choices": [
+        {
+          "text": "Recommandations techniques nutritionnelles",
+          "correct": true
+        },
+        {
+          "text": "Texte de loi voté chaque année",
+          "correct": false
+        },
+        {
+          "text": "Norme de sécurité incendie",
+          "correct": false
+        },
+        {
+          "text": "Barème national des prix alimentaires",
+          "correct": false
+        }
+      ],
+      "explanation": "Il faut distinguer recommandations GEMRCN et obligations réglementaires."
+    },
+    {
+      "id": "spn-044",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel nutriment est notamment recherché dans les critères de fréquence de certains fromages ?",
+      "choices": [
+        {
+          "text": "Calcium",
+          "correct": true
+        },
+        {
+          "text": "Vitamine C",
+          "correct": false
+        },
+        {
+          "text": "Iode uniquement",
+          "correct": false
+        },
+        {
+          "text": "Glucose",
+          "correct": false
+        }
+      ],
+      "explanation": "Les critères des fromages utilisent des seuils en calcium par portion."
+    },
+    {
+      "id": "spn-045",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle fréquence minimale vise les fromages contenant au moins 150 mg de calcium par portion ?",
+      "choices": [
+        {
+          "text": "8 sur 20",
+          "correct": true
+        },
+        {
+          "text": "2 sur 20",
+          "correct": false
+        },
+        {
+          "text": "4 sur 20",
+          "correct": false
+        },
+        {
+          "text": "12 sur 20",
+          "correct": false
+        }
+      ],
+      "explanation": "Huit portions de ces fromages sont recommandées sur vingt repas."
+    },
+    {
+      "id": "spn-046",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle fréquence minimale vise les produits laitiers contenant plus de 100 mg de calcium et moins de 5 g de lipides par portion ?",
+      "choices": [
+        {
+          "text": "6 sur 20",
+          "correct": true
+        },
+        {
+          "text": "3 sur 20",
+          "correct": false
+        },
+        {
+          "text": "10 sur 20",
+          "correct": false
+        },
+        {
+          "text": "12 sur 20",
+          "correct": false
+        }
+      ],
+      "explanation": "La fréquence de cette catégorie est au moins six sur vingt."
+    },
+    {
+      "id": "spn-047",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle recommandation porte sur les produits ultra-transformés ?",
+      "choices": [
+        {
+          "text": "En limiter la consommation",
+          "correct": true
+        },
+        {
+          "text": "En consommer à chaque repas",
+          "correct": false
+        },
+        {
+          "text": "Remplacer tous les fruits par ces produits",
+          "correct": false
+        },
+        {
+          "text": "Les considérer toujours équivalents aux aliments bruts",
+          "correct": false
+        }
+      ],
+      "explanation": "Les repères encouragent à réduire les aliments ultra-transformés."
+    },
+    {
+      "id": "spn-048",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle orientation le PNNS privilégie-t-il pour les fruits à coque non salés ?",
+      "choices": [
+        {
+          "text": "Une petite poignée par jour",
+          "correct": true
+        },
+        {
+          "text": "Les supprimer totalement",
+          "correct": false
+        },
+        {
+          "text": "Une poignée une fois par mois",
+          "correct": false
+        },
+        {
+          "text": "Les réserver aux sportifs uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le repère adulte recommande une petite poignée quotidienne de fruits à coque non salés."
+    },
+    {
+      "id": "spn-049",
+      "category": "EGalim",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que signifie « dont 20 % bio » dans l'objectif 50 % durable/de qualité ?",
+      "choices": [
+        {
+          "text": "Le bio compte dans les 50 %",
+          "correct": true
+        },
+        {
+          "text": "Le bio s'ajoute obligatoirement aux 50 %",
+          "correct": false
+        },
+        {
+          "text": "Le bio est exclu des achats",
+          "correct": false
+        },
+        {
+          "text": "Seuls les plats végétariens comptent",
+          "correct": false
+        }
+      ],
+      "explanation": "Les 20 % bio sont une sous-partie des 50 % de produits durables et de qualité."
+    },
+    {
+      "id": "spn-050",
+      "category": "GEMRCN",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Sur 20 repas, 5 entrées à plus de 15 % de lipides sont relevées. Quel constat ?",
+      "choices": [
+        {
+          "text": "La fréquence dépasse le maximum conseillé",
+          "correct": true
+        },
+        {
+          "text": "Le minimum est atteint",
+          "correct": false
+        },
+        {
+          "text": "La fréquence est exactement conforme",
+          "correct": false
+        },
+        {
+          "text": "Les entrées ne sont pas évaluées",
+          "correct": false
+        }
+      ],
+      "explanation": "Cinq dépasse la limite de quatre sur vingt."
+    },
+    {
+      "id": "spn-051",
+      "category": "PNNS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel lien est recherché entre recommandations alimentaires et inégalités sociales de santé ?",
+      "choices": [
+        {
+          "text": "Rendre les choix favorables à la santé accessibles à tous",
+          "correct": true
+        },
+        {
+          "text": "Réserver les recommandations aux sportifs",
+          "correct": false
+        },
+        {
+          "text": "Ne cibler que les cantines privées",
+          "correct": false
+        },
+        {
+          "text": "Écarter les publics vulnérables",
+          "correct": false
+        }
+      ],
+      "explanation": "La promotion nutritionnelle s'inscrit dans une approche populationnelle et de réduction des inégalités."
+    }
+  ]
+}
