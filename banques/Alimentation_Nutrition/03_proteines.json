@@ -1,0 +1,1568 @@
+{
+  "version": 3,
+  "title": "Chapitre 3 — Les protéines et besoins protéiques",
+  "subject": "Alimentation - Nutrition",
+  "chapter": "Chapitre 3 — Les protéines",
+  "questions": [
+    {
+      "id": "an3-001",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quelle famille de nutriments appartiennent les protéines ?",
+      "choices": [
+        {
+          "text": "Macronutriments",
+          "correct": true
+        },
+        {
+          "text": "Vitamines",
+          "correct": false
+        },
+        {
+          "text": "Oligoéléments",
+          "correct": false
+        },
+        {
+          "text": "Eau",
+          "correct": false
+        }
+      ],
+      "explanation": "Les protéines font partie des macronutriments avec les glucides et les lipides."
+    },
+    {
+      "id": "an3-002",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel élément chimique est explicitement présent dans les protéines ?",
+      "choices": [
+        {
+          "text": "Azote",
+          "correct": true
+        },
+        {
+          "text": "Chlore",
+          "correct": false
+        },
+        {
+          "text": "Iode",
+          "correct": false
+        },
+        {
+          "text": "Fluor",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit les protéines comme des molécules comportant de l’azote."
+    },
+    {
+      "id": "an3-003",
+      "category": "Structure",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle est l’unité de base d’une protéine ?",
+      "choices": [
+        {
+          "text": "Acide aminé",
+          "correct": true
+        },
+        {
+          "text": "Acide gras",
+          "correct": false
+        },
+        {
+          "text": "Monosaccharide",
+          "correct": false
+        },
+        {
+          "text": "Nucléotide",
+          "correct": false
+        }
+      ],
+      "explanation": "Une protéine est une séquence d’acides aminés."
+    },
+    {
+      "id": "an3-004",
+      "category": "Structure",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle liaison relie les acides aminés d’une protéine ?",
+      "choices": [
+        {
+          "text": "Liaison peptidique",
+          "correct": true
+        },
+        {
+          "text": "Liaison osidique",
+          "correct": false
+        },
+        {
+          "text": "Liaison ester",
+          "correct": false
+        },
+        {
+          "text": "Liaison phosphodiester",
+          "correct": false
+        }
+      ],
+      "explanation": "La liaison peptidique relie deux acides aminés successifs."
+    },
+    {
+      "id": "an3-005",
+      "category": "Structure",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien d’acides aminés sont couramment utilisés pour fabriquer les protéines selon le cours ?",
+      "choices": [
+        {
+          "text": "20",
+          "correct": true
+        },
+        {
+          "text": "9",
+          "correct": false
+        },
+        {
+          "text": "11",
+          "correct": false
+        },
+        {
+          "text": "40",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours distingue 20 acides aminés protéinogènes."
+    },
+    {
+      "id": "an3-006",
+      "category": "Structure",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien de ces acides aminés sont dits essentiels ?",
+      "choices": [
+        {
+          "text": "9",
+          "correct": true
+        },
+        {
+          "text": "11",
+          "correct": false
+        },
+        {
+          "text": "5",
+          "correct": false
+        },
+        {
+          "text": "20",
+          "correct": false
+        }
+      ],
+      "explanation": "Neuf doivent être apportés par l’alimentation car leur synthèse corporelle est insuffisante."
+    },
+    {
+      "id": "an3-007",
+      "category": "Structure",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Comment sont apportés les acides aminés essentiels ?",
+      "choices": [
+        {
+          "text": "Par l’alimentation",
+          "correct": true
+        },
+        {
+          "text": "Uniquement par synthèse hépatique",
+          "correct": false
+        },
+        {
+          "text": "Uniquement par la respiration",
+          "correct": false
+        },
+        {
+          "text": "Uniquement par l’eau",
+          "correct": false
+        }
+      ],
+      "explanation": "L’organisme ne les synthétise pas en quantité suffisante."
+    },
+    {
+      "id": "an3-008",
+      "category": "Structure",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans le schéma du cours, une protéine est présentée comme :",
+      "choices": [
+        {
+          "text": "Une chaîne de nombreux acides aminés",
+          "correct": true
+        },
+        {
+          "text": "Un acide aminé isolé",
+          "correct": false
+        },
+        {
+          "text": "Un assemblage d’acides gras",
+          "correct": false
+        },
+        {
+          "text": "Un ensemble de minéraux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma distingue acide aminé, peptide et protéine."
+    },
+    {
+      "id": "an3-009",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie « synthèse protéique » ?",
+      "choices": [
+        {
+          "text": "Fabrication de protéines",
+          "correct": true
+        },
+        {
+          "text": "Dégradation de protéines",
+          "correct": false
+        },
+        {
+          "text": "Élimination d’urée",
+          "correct": false
+        },
+        {
+          "text": "Digestion des lipides",
+          "correct": false
+        }
+      ],
+      "explanation": "La synthèse forme de nouvelles protéines à partir d’acides aminés."
+    },
+    {
+      "id": "an3-010",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie « protéolyse » ?",
+      "choices": [
+        {
+          "text": "Dégradation des protéines",
+          "correct": true
+        },
+        {
+          "text": "Fabrication des protéines",
+          "correct": false
+        },
+        {
+          "text": "Absorption du glucose",
+          "correct": false
+        },
+        {
+          "text": "Fabrication des triglycérides",
+          "correct": false
+        }
+      ],
+      "explanation": "La protéolyse correspond à la dégradation des protéines."
+    },
+    {
+      "id": "an3-011",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que désigne le turnover protéique ?",
+      "choices": [
+        {
+          "text": "Renouvellement continu par synthèse et dégradation",
+          "correct": true
+        },
+        {
+          "text": "Stockage définitif des protéines",
+          "correct": false
+        },
+        {
+          "text": "Élimination des lipides",
+          "correct": false
+        },
+        {
+          "text": "Fabrication exclusive d’urée",
+          "correct": false
+        }
+      ],
+      "explanation": "Les protéines ont une durée de vie limitée et sont remplacées."
+    },
+    {
+      "id": "an3-012",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle quantité de protéines est indiquée comme renouvelée chaque jour dans le cours ?",
+      "choices": [
+        {
+          "text": "300 à 400 g",
+          "correct": true
+        },
+        {
+          "text": "3 à 4 g",
+          "correct": false
+        },
+        {
+          "text": "30 à 40 mg",
+          "correct": false
+        },
+        {
+          "text": "2 à 3 kg",
+          "correct": false
+        }
+      ],
+      "explanation": "C’est l’ordre de grandeur indiqué page 2 pour le renouvellement quotidien."
+    },
+    {
+      "id": "an3-013",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Chez le nourrisson en croissance, quel processus prédomine ?",
+      "choices": [
+        {
+          "text": "La synthèse protéique",
+          "correct": true
+        },
+        {
+          "text": "La protéolyse",
+          "correct": false
+        },
+        {
+          "text": "L’excrétion d’urée",
+          "correct": false
+        },
+        {
+          "text": "La néoglucogenèse",
+          "correct": false
+        }
+      ],
+      "explanation": "La synthèse est supérieure à la protéolyse pendant la croissance."
+    },
+    {
+      "id": "an3-014",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Lors d’un jeûne prolongé, quel bilan protéique est décrit ?",
+      "choices": [
+        {
+          "text": "Bilan négatif : protéolyse supérieure à la synthèse",
+          "correct": true
+        },
+        {
+          "text": "Bilan positif permanent",
+          "correct": false
+        },
+        {
+          "text": "Absence totale de protéolyse",
+          "correct": false
+        },
+        {
+          "text": "Synthèse toujours supérieure à la protéolyse",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours indique une mobilisation des protéines à des fins énergétiques."
+    },
+    {
+      "id": "an3-015",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle voie peut produire du glucose à partir de certains acides aminés ?",
+      "choices": [
+        {
+          "text": "Néoglucogenèse",
+          "correct": true
+        },
+        {
+          "text": "Glycogénolyse uniquement",
+          "correct": false
+        },
+        {
+          "text": "Lipogenèse",
+          "correct": false
+        },
+        {
+          "text": "Glycolyse uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Certains acides aminés glucogènes servent de substrats à la néoglucogenèse."
+    },
+    {
+      "id": "an3-016",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Dans quel organe l’ammoniac issu de la dégradation des AA est-il principalement transformé en urée ?",
+      "choices": [
+        {
+          "text": "Foie",
+          "correct": true
+        },
+        {
+          "text": "Poumon",
+          "correct": false
+        },
+        {
+          "text": "Peau",
+          "correct": false
+        },
+        {
+          "text": "Rate",
+          "correct": false
+        }
+      ],
+      "explanation": "Le foie transforme l’ammoniac toxique en urée."
+    },
+    {
+      "id": "an3-017",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Par quel organe l’urée est-elle principalement éliminée ?",
+      "choices": [
+        {
+          "text": "Rein",
+          "correct": true
+        },
+        {
+          "text": "Estomac",
+          "correct": false
+        },
+        {
+          "text": "Pancréas",
+          "correct": false
+        },
+        {
+          "text": "Thyroïde",
+          "correct": false
+        }
+      ],
+      "explanation": "L’urée est acheminée au rein puis éliminée dans l’urine."
+    },
+    {
+      "id": "an3-018",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel risque est associé dans le cours à certaines pathologies augmentant le renouvellement protéique ?",
+      "choices": [
+        {
+          "text": "Fonte musculaire",
+          "correct": true
+        },
+        {
+          "text": "Augmentation systématique de la taille",
+          "correct": false
+        },
+        {
+          "text": "Production d’os supplémentaire",
+          "correct": false
+        },
+        {
+          "text": "Absence de pertes azotées",
+          "correct": false
+        }
+      ],
+      "explanation": "Une hausse du renouvellement peut s’accompagner d’une fonte musculaire."
+    },
+    {
+      "id": "an3-019",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel rôle principal le collagène exerce-t-il ?",
+      "choices": [
+        {
+          "text": "Rôle structural dans les tissus conjonctifs",
+          "correct": true
+        },
+        {
+          "text": "Transport d’oxygène",
+          "correct": false
+        },
+        {
+          "text": "Catalyse digestive",
+          "correct": false
+        },
+        {
+          "text": "Défense par anticorps",
+          "correct": false
+        }
+      ],
+      "explanation": "Le collagène est une protéine structurale des tissus conjonctifs."
+    },
+    {
+      "id": "an3-020",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles protéines assurent la contraction musculaire ?",
+      "choices": [
+        {
+          "text": "Actine et myosine",
+          "correct": true
+        },
+        {
+          "text": "Collagène et kératine",
+          "correct": false
+        },
+        {
+          "text": "Albumine et hémoglobine",
+          "correct": false
+        },
+        {
+          "text": "Lipoprotéines et immunoglobulines",
+          "correct": false
+        }
+      ],
+      "explanation": "Actine et myosine sont les protéines contractiles."
+    },
+    {
+      "id": "an3-021",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quelle fonction correspond une enzyme ?",
+      "choices": [
+        {
+          "text": "Catalyse biologique",
+          "correct": true
+        },
+        {
+          "text": "Transport exclusif des lipides",
+          "correct": false
+        },
+        {
+          "text": "Stockage du calcium",
+          "correct": false
+        },
+        {
+          "text": "Défense par anticorps",
+          "correct": false
+        }
+      ],
+      "explanation": "Les enzymes catalysent les réactions chimiques de l’organisme."
+    },
+    {
+      "id": "an3-022",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle protéine transporte l’oxygène sanguin ?",
+      "choices": [
+        {
+          "text": "Hémoglobine",
+          "correct": true
+        },
+        {
+          "text": "Kératine",
+          "correct": false
+        },
+        {
+          "text": "Actine",
+          "correct": false
+        },
+        {
+          "text": "Élastine",
+          "correct": false
+        }
+      ],
+      "explanation": "L’hémoglobine transporte l’O₂ dans le sang."
+    },
+    {
+      "id": "an3-023",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle famille transporte notamment les lipides et le cholestérol ?",
+      "choices": [
+        {
+          "text": "Lipoprotéines",
+          "correct": true
+        },
+        {
+          "text": "Immunoglobulines",
+          "correct": false
+        },
+        {
+          "text": "Kératines",
+          "correct": false
+        },
+        {
+          "text": "Collagènes",
+          "correct": false
+        }
+      ],
+      "explanation": "Les lipoprotéines assurent un rôle de transport lipidique."
+    },
+    {
+      "id": "an3-024",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle protéine est citée dans la régulation de l’équilibre acido-basique ?",
+      "choices": [
+        {
+          "text": "Albumine",
+          "correct": true
+        },
+        {
+          "text": "Myosine",
+          "correct": false
+        },
+        {
+          "text": "Kératine",
+          "correct": false
+        },
+        {
+          "text": "Élastine",
+          "correct": false
+        }
+      ],
+      "explanation": "L’albumine peut participer à l’effet tampon acido-basique."
+    },
+    {
+      "id": "an3-025",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Comment appelle-t-on les protéines impliquées dans la reconnaissance immunitaire ?",
+      "choices": [
+        {
+          "text": "Immunoglobulines",
+          "correct": true
+        },
+        {
+          "text": "Lipoprotéines",
+          "correct": false
+        },
+        {
+          "text": "Kératines",
+          "correct": false
+        },
+        {
+          "text": "Élastines",
+          "correct": false
+        }
+      ],
+      "explanation": "Les anticorps sont des immunoglobulines."
+    },
+    {
+      "id": "an3-026",
+      "category": "Rôles",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Les hormones peptidiques relèvent principalement de quelle fonction ?",
+      "choices": [
+        {
+          "text": "Signalisation hormonale",
+          "correct": true
+        },
+        {
+          "text": "Contraction musculaire",
+          "correct": false
+        },
+        {
+          "text": "Formation des cheveux",
+          "correct": false
+        },
+        {
+          "text": "Transport d’oxygène",
+          "correct": false
+        }
+      ],
+      "explanation": "Les hormones peptidiques assurent des fonctions de régulation et de signalisation."
+    },
+    {
+      "id": "an3-027",
+      "category": "Recommandations",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle RNP en protéines est indiquée pour l’adulte en bonne santé ?",
+      "choices": [
+        {
+          "text": "0,83 g/kg/jour",
+          "correct": true
+        },
+        {
+          "text": "0,083 g/kg/jour",
+          "correct": false
+        },
+        {
+          "text": "3,5 g/kg/jour",
+          "correct": false
+        },
+        {
+          "text": "8,3 g/kg/jour",
+          "correct": false
+        }
+      ],
+      "explanation": "La référence indiquée par le cours est 0,83 g par kg et par jour."
+    },
+    {
+      "id": "an3-028",
+      "category": "Recommandations",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pour un adulte de 60 kg, combien représente 0,83 g/kg/jour ?",
+      "choices": [
+        {
+          "text": "49,8 g/jour",
+          "correct": true
+        },
+        {
+          "text": "30 g/jour",
+          "correct": false
+        },
+        {
+          "text": "83 g/jour",
+          "correct": false
+        },
+        {
+          "text": "100 g/jour",
+          "correct": false
+        }
+      ],
+      "explanation": "60 × 0,83 = 49,8 g de protéines par jour."
+    },
+    {
+      "id": "an3-029",
+      "category": "Recommandations",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pour un adulte de 75 kg, quelle quantité correspond à 0,83 g/kg/jour ?",
+      "choices": [
+        {
+          "text": "62,25 g/jour",
+          "correct": true
+        },
+        {
+          "text": "45 g/jour",
+          "correct": false
+        },
+        {
+          "text": "75 g/jour",
+          "correct": false
+        },
+        {
+          "text": "93,75 g/jour",
+          "correct": false
+        }
+      ],
+      "explanation": "75 × 0,83 = 62,25 g/jour."
+    },
+    {
+      "id": "an3-030",
+      "category": "Recommandations",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel intervalle d’apports en g/kg/jour est cité chez l’adulte de moins de 60 ans ?",
+      "choices": [
+        {
+          "text": "0,83 à 2,2",
+          "correct": true
+        },
+        {
+          "text": "0,1 à 0,3",
+          "correct": false
+        },
+        {
+          "text": "3 à 5",
+          "correct": false
+        },
+        {
+          "text": "5 à 10",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document indique 0,83 à 2,2 g/kg/jour dans ce contexte."
+    },
+    {
+      "id": "an3-031",
+      "category": "Recommandations",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Cet intervalle correspond approximativement à quelle part de l’AET ?",
+      "choices": [
+        {
+          "text": "10 à 27 %",
+          "correct": true
+        },
+        {
+          "text": "1 à 3 %",
+          "correct": false
+        },
+        {
+          "text": "40 à 60 %",
+          "correct": false
+        },
+        {
+          "text": "70 à 90 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours associe la fourchette de 0,83 à 2,2 g/kg/jour à 10–27 % de l’AET."
+    },
+    {
+      "id": "an3-032",
+      "category": "Besoins physiologiques",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Pourquoi les besoins protéiques sont-ils importants pendant la croissance ?",
+      "choices": [
+        {
+          "text": "Développement tissulaire et cellulaire",
+          "correct": true
+        },
+        {
+          "text": "Arrêt de la synthèse protéique",
+          "correct": false
+        },
+        {
+          "text": "Disparition des besoins énergétiques",
+          "correct": false
+        },
+        {
+          "text": "Suppression du renouvellement",
+          "correct": false
+        }
+      ],
+      "explanation": "Les protéines participent à la croissance des tissus."
+    },
+    {
+      "id": "an3-033",
+      "category": "Besoins physiologiques",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Pourquoi les besoins peuvent-ils augmenter pendant la grossesse ?",
+      "choices": [
+        {
+          "text": "Développement du fœtus et du placenta",
+          "correct": true
+        },
+        {
+          "text": "Absence de renouvellement protéique",
+          "correct": false
+        },
+        {
+          "text": "Transformation de toutes les protéines en lipides",
+          "correct": false
+        },
+        {
+          "text": "Arrêt de la croissance tissulaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours cite les besoins supplémentaires liés au fœtus et au placenta."
+    },
+    {
+      "id": "an3-034",
+      "category": "Besoins physiologiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle situation est citée comme augmentant les besoins protéiques ?",
+      "choices": [
+        {
+          "text": "Brûlure importante",
+          "correct": true
+        },
+        {
+          "text": "Repos sans complication",
+          "correct": false
+        },
+        {
+          "text": "Sommeil normal",
+          "correct": false
+        },
+        {
+          "text": "Hydratation habituelle",
+          "correct": false
+        }
+      ],
+      "explanation": "Une blessure, brûlure ou intervention chirurgicale peut augmenter les besoins."
+    },
+    {
+      "id": "an3-035",
+      "category": "Besoins physiologiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Chez la personne âgée, quelle raison est donnée pour adapter les apports ?",
+      "choices": [
+        {
+          "text": "Renouvellement cellulaire moins efficace",
+          "correct": true
+        },
+        {
+          "text": "Disparition complète de la protéolyse",
+          "correct": false
+        },
+        {
+          "text": "Absence de tout besoin musculaire",
+          "correct": false
+        },
+        {
+          "text": "Suppression des fonctions enzymatiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document signale une efficacité moindre du renouvellement cellulaire."
+    },
+    {
+      "id": "an3-036",
+      "category": "Qualité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Sur quel critère repose notamment la qualité d’une source de protéines ?",
+      "choices": [
+        {
+          "text": "Couverture des besoins en AA indispensables",
+          "correct": true
+        },
+        {
+          "text": "Couleur de l’aliment",
+          "correct": false
+        },
+        {
+          "text": "Teneur en eau seule",
+          "correct": false
+        },
+        {
+          "text": "Prix de vente",
+          "correct": false
+        }
+      ],
+      "explanation": "La qualité protéique est liée à la capacité à satisfaire les besoins en AAE."
+    },
+    {
+      "id": "an3-037",
+      "category": "Qualité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Parmi les aliments suivants, lequel apporte des protéines animales ?",
+      "choices": [
+        {
+          "text": "Œuf",
+          "correct": true
+        },
+        {
+          "text": "Lentille",
+          "correct": false
+        },
+        {
+          "text": "Riz",
+          "correct": false
+        },
+        {
+          "text": "Pois chiche",
+          "correct": false
+        }
+      ],
+      "explanation": "L’œuf fait partie des sources animales citées."
+    },
+    {
+      "id": "an3-038",
+      "category": "Qualité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Parmi les aliments suivants, lequel est une légumineuse ?",
+      "choices": [
+        {
+          "text": "Haricot sec",
+          "correct": true
+        },
+        {
+          "text": "Riz blanc",
+          "correct": false
+        },
+        {
+          "text": "Blé",
+          "correct": false
+        },
+        {
+          "text": "Avoine",
+          "correct": false
+        }
+      ],
+      "explanation": "Les haricots secs sont des légumineuses, sources végétales de protéines."
+    },
+    {
+      "id": "an3-039",
+      "category": "AA essentiels",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel AA fait partie des neuf acides aminés essentiels ?",
+      "choices": [
+        {
+          "text": "Lysine",
+          "correct": true
+        },
+        {
+          "text": "Alanine",
+          "correct": false
+        },
+        {
+          "text": "Glycine",
+          "correct": false
+        },
+        {
+          "text": "Sérine",
+          "correct": false
+        }
+      ],
+      "explanation": "La lysine est un AA indispensable listé page 4."
+    },
+    {
+      "id": "an3-040",
+      "category": "AA essentiels",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel AA ne figure PAS parmi les neuf AA essentiels du cours ?",
+      "choices": [
+        {
+          "text": "Glycine",
+          "correct": true
+        },
+        {
+          "text": "Leucine",
+          "correct": false
+        },
+        {
+          "text": "Tryptophane",
+          "correct": false
+        },
+        {
+          "text": "Histidine",
+          "correct": false
+        }
+      ],
+      "explanation": "La glycine ne figure pas dans la liste VIL-HLM-PTT."
+    },
+    {
+      "id": "an3-041",
+      "category": "AA essentiels",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi correspond le « V » du mémo VIL-HLM-PTT ?",
+      "choices": [
+        {
+          "text": "Valine",
+          "correct": true
+        },
+        {
+          "text": "Vanilline",
+          "correct": false
+        },
+        {
+          "text": "Vitamine",
+          "correct": false
+        },
+        {
+          "text": "Valérine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le mémo VIL-HLM-PTT rappelle les neuf AA indispensables."
+    },
+    {
+      "id": "an3-042",
+      "category": "AA essentiels",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quoi correspond le « P » du mémo VIL-HLM-PTT ?",
+      "choices": [
+        {
+          "text": "Phénylalanine",
+          "correct": true
+        },
+        {
+          "text": "Proline",
+          "correct": false
+        },
+        {
+          "text": "Pyruvate",
+          "correct": false
+        },
+        {
+          "text": "Pepsine",
+          "correct": false
+        }
+      ],
+      "explanation": "La phénylalanine est un AA essentiel."
+    },
+    {
+      "id": "an3-043",
+      "category": "Facteur limitant",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qu’est-ce qu’un AA facteur limitant ?",
+      "choices": [
+        {
+          "text": "Un AA essentiel présent en quantité insuffisante au regard des besoins",
+          "correct": true
+        },
+        {
+          "text": "Un AA présent en quantité illimitée",
+          "correct": false
+        },
+        {
+          "text": "Une enzyme de digestion",
+          "correct": false
+        },
+        {
+          "text": "Une protéine de transport",
+          "correct": false
+        }
+      ],
+      "explanation": "L’insuffisance d’un AAE limite la qualité et la synthèse protéiques."
+    },
+    {
+      "id": "an3-044",
+      "category": "Facteur limitant",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel AA est généralement limitant dans les céréales ?",
+      "choices": [
+        {
+          "text": "Lysine",
+          "correct": true
+        },
+        {
+          "text": "Valine",
+          "correct": false
+        },
+        {
+          "text": "Histidine",
+          "correct": false
+        },
+        {
+          "text": "Tryptophane",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours présente la lysine comme facteur limitant des céréales."
+    },
+    {
+      "id": "an3-045",
+      "category": "Facteur limitant",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel AA est généralement limitant dans les légumineuses ?",
+      "choices": [
+        {
+          "text": "Méthionine",
+          "correct": true
+        },
+        {
+          "text": "Lysine",
+          "correct": false
+        },
+        {
+          "text": "Leucine",
+          "correct": false
+        },
+        {
+          "text": "Valine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours illustre un déficit de méthionine des haricots secs."
+    },
+    {
+      "id": "an3-046",
+      "category": "Complémentarité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi associer riz et haricots secs ?",
+      "choices": [
+        {
+          "text": "Pour compléter leurs apports en AA essentiels",
+          "correct": true
+        },
+        {
+          "text": "Pour supprimer toutes les protéines",
+          "correct": false
+        },
+        {
+          "text": "Pour produire des vitamines B12",
+          "correct": false
+        },
+        {
+          "text": "Pour doubler automatiquement les calories",
+          "correct": false
+        }
+      ],
+      "explanation": "Riz et haricots compensent leurs insuffisances relatives en lysine et méthionine."
+    },
+    {
+      "id": "an3-047",
+      "category": "CEP",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que mesure le coefficient d’efficacité protéique (CEP) ?",
+      "choices": [
+        {
+          "text": "Gain de poids rapporté aux protéines consommées",
+          "correct": true
+        },
+        {
+          "text": "Azote retenu sur azote absorbé",
+          "correct": false
+        },
+        {
+          "text": "Glucose sanguin",
+          "correct": false
+        },
+        {
+          "text": "Lipides éliminés",
+          "correct": false
+        }
+      ],
+      "explanation": "Le CEP utilise la croissance pondérale d’animaux sur 28 jours."
+    },
+    {
+      "id": "an3-048",
+      "category": "CEP",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Un animal gagne 24 g après avoir consommé 12 g de protéines. Quel est le CEP ?",
+      "choices": [
+        {
+          "text": "2",
+          "correct": true
+        },
+        {
+          "text": "0,5",
+          "correct": false
+        },
+        {
+          "text": "12",
+          "correct": false
+        },
+        {
+          "text": "36",
+          "correct": false
+        }
+      ],
+      "explanation": "CEP = 24 / 12 = 2."
+    },
+    {
+      "id": "an3-049",
+      "category": "CUD",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle formule définit le CUD ?",
+      "choices": [
+        {
+          "text": "Azote absorbé / azote ingéré × 100",
+          "correct": true
+        },
+        {
+          "text": "Azote retenu / azote absorbé × 100",
+          "correct": false
+        },
+        {
+          "text": "Gain de poids / eau consommée",
+          "correct": false
+        },
+        {
+          "text": "Azote ingéré / azote retenu × 100",
+          "correct": false
+        }
+      ],
+      "explanation": "Le CUD exprime la part d’azote ingéré qui est absorbée."
+    },
+    {
+      "id": "an3-050",
+      "category": "CUD",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Si 8 g d’azote sont absorbés sur 10 g ingérés, quel est le CUD ?",
+      "choices": [
+        {
+          "text": "80 %",
+          "correct": true
+        },
+        {
+          "text": "20 %",
+          "correct": false
+        },
+        {
+          "text": "125 %",
+          "correct": false
+        },
+        {
+          "text": "8 %",
+          "correct": false
+        }
+      ],
+      "explanation": "CUD = 8 / 10 × 100 = 80 %."
+    },
+    {
+      "id": "an3-051",
+      "category": "VB",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle formule définit la valeur biologique (VB) ?",
+      "choices": [
+        {
+          "text": "Azote retenu / azote absorbé × 100",
+          "correct": true
+        },
+        {
+          "text": "Azote absorbé / azote ingéré × 100",
+          "correct": false
+        },
+        {
+          "text": "Azote ingéré / azote retenu × 100",
+          "correct": false
+        },
+        {
+          "text": "Gain de poids / protéines consommées",
+          "correct": false
+        }
+      ],
+      "explanation": "La VB mesure la fraction retenue de l’azote absorbé."
+    },
+    {
+      "id": "an3-052",
+      "category": "VB",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Si 6 g d’azote sont retenus sur 8 g absorbés, quelle est la VB ?",
+      "choices": [
+        {
+          "text": "75 %",
+          "correct": true
+        },
+        {
+          "text": "60 %",
+          "correct": false
+        },
+        {
+          "text": "80 %",
+          "correct": false
+        },
+        {
+          "text": "133 %",
+          "correct": false
+        }
+      ],
+      "explanation": "VB = 6 / 8 × 100 = 75 %."
+    },
+    {
+      "id": "an3-053",
+      "category": "UPN",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle formule donne l’utilisation protéique nette (UPN) ?",
+      "choices": [
+        {
+          "text": "CUD × VB / 100",
+          "correct": true
+        },
+        {
+          "text": "CUD + VB",
+          "correct": false
+        },
+        {
+          "text": "CUD / VB",
+          "correct": false
+        },
+        {
+          "text": "VB − CUD",
+          "correct": false
+        }
+      ],
+      "explanation": "L’UPN combine la digestibilité et la valeur biologique."
+    },
+    {
+      "id": "an3-054",
+      "category": "UPN",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Si CUD = 80 % et VB = 75 %, quelle est l’UPN ?",
+      "choices": [
+        {
+          "text": "60 %",
+          "correct": true
+        },
+        {
+          "text": "155 %",
+          "correct": false
+        },
+        {
+          "text": "75 %",
+          "correct": false
+        },
+        {
+          "text": "80 %",
+          "correct": false
+        }
+      ],
+      "explanation": "UPN = 80 × 75 / 100 = 60 %."
+    },
+    {
+      "id": "an3-055",
+      "category": "Indice chimique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel paramètre est comparé à une protéine de référence dans l’indice chimique ?",
+      "choices": [
+        {
+          "text": "Teneur en AA essentiel",
+          "correct": true
+        },
+        {
+          "text": "Teneur en eau",
+          "correct": false
+        },
+        {
+          "text": "Quantité de fibres",
+          "correct": false
+        },
+        {
+          "text": "Teneur en sodium",
+          "correct": false
+        }
+      ],
+      "explanation": "Le score chimique évalue la couverture en AA indispensables."
+    },
+    {
+      "id": "an3-056",
+      "category": "PDCAAS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel facteur supplémentaire est intégré au PDCAAS par rapport au seul indice chimique ?",
+      "choices": [
+        {
+          "text": "Digestibilité",
+          "correct": true
+        },
+        {
+          "text": "Couleur des protéines",
+          "correct": false
+        },
+        {
+          "text": "Température du repas",
+          "correct": false
+        },
+        {
+          "text": "Quantité d’eau consommée",
+          "correct": false
+        }
+      ],
+      "explanation": "Le PDCAAS tient compte du profil en AAE et de la digestibilité."
+    },
+    {
+      "id": "an3-057",
+      "category": "Qualité des protéines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel aliment atteint une valeur de 100 dans le tableau d’indice DiSCo/PDCAAS du cours ?",
+      "choices": [
+        {
+          "text": "Œuf (blanc d’œuf)",
+          "correct": true
+        },
+        {
+          "text": "Fève",
+          "correct": false
+        },
+        {
+          "text": "Lentille",
+          "correct": false
+        },
+        {
+          "text": "Pois",
+          "correct": false
+        }
+      ],
+      "explanation": "Le tableau page 7 indique 100 pour le blanc d’œuf."
+    },
+    {
+      "id": "an3-058",
+      "category": "Qualité des protéines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle technique est indiquée comme pouvant améliorer le PDCAAS de certaines protéines végétales ?",
+      "choices": [
+        {
+          "text": "Cuisson",
+          "correct": true
+        },
+        {
+          "text": "Congélation seule",
+          "correct": false
+        },
+        {
+          "text": "Ajout de sel uniquement",
+          "correct": false
+        },
+        {
+          "text": "Coloration",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours mentionne notamment cuisson, extrusion et autoclavage."
+    },
+    {
+      "id": "an3-059",
+      "category": "Écologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel gaz à effet de serre est particulièrement associé aux élevages de ruminants ?",
+      "choices": [
+        {
+          "text": "Méthane (CH₄)",
+          "correct": true
+        },
+        {
+          "text": "Hélium",
+          "correct": false
+        },
+        {
+          "text": "Néon",
+          "correct": false
+        },
+        {
+          "text": "Ozone uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le document cite le méthane comme gaz à fort potentiel de réchauffement."
+    },
+    {
+      "id": "an3-060",
+      "category": "Écologie",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel avantage agronomique est associé aux légumineuses ?",
+      "choices": [
+        {
+          "text": "Fixation biologique de l’azote dans les sols",
+          "correct": true
+        },
+        {
+          "text": "Production directe de méthane",
+          "correct": false
+        },
+        {
+          "text": "Suppression de toute eau nécessaire",
+          "correct": false
+        },
+        {
+          "text": "Émission maximale de CO₂",
+          "correct": false
+        }
+      ],
+      "explanation": "Les légumineuses contribuent à enrichir les sols en azote et à limiter l’usage d’engrais."
+    }
+  ]
+}
