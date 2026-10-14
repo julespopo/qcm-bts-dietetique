@@ -1,6 +1,6 @@
 {
   "appVersion": 2,
-  "updated": "2026-10-13",
+  "updated": "2026-10-14",
   "banks": [
     {
       "id": "BPADN__00_matiere_organique_inorganique",
@@ -127,6 +127,15 @@
       "file": "banques/Sante_publique/06_situation_professionnelle_gaspillage.json",
       "count": 10,
       "version": 1
+    },
+    {
+      "id": "Alimentation_Nutrition__03_proteines",
+      "title": "Chapitre 3 — Les protéines et besoins protéiques",
+      "subject": "Alimentation - Nutrition",
+      "chapter": "Chapitre 3 — Les protéines",
+      "file": "banques/Alimentation_Nutrition/03_proteines.json",
+      "count": 60,
+      "version": 3
     }
   ]
 }
