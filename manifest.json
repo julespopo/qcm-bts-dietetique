@@ -1,6 +1,6 @@
 {
   "appVersion": 2,
-  "updated": "2026-10-14",
+  "updated": "2026-10-21",
   "banks": [
     {
       "id": "BPADN__00_matiere_organique_inorganique",
@@ -72,6 +72,15 @@
       "chapter": "Chapitre 9 — L’histologie",
       "file": "banques/BPADN/09_histologie.json",
       "count": 50,
+      "version": 3
+    },
+    {
+      "id": "BPADN__10_pathologies_cancereuses",
+      "title": "Chapitre 10 — Pathologies cancéreuses",
+      "subject": "BPADN",
+      "chapter": "Chapitre 10 — Pathologies cancéreuses",
+      "file": "banques/BPADN/10_pathologies_cancereuses.json",
+      "count": 90,
       "version": 3
     },
     {

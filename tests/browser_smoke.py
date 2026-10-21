@@ -25,11 +25,17 @@ truth_map: dict[tuple[str, str], bool] = {}
 ambiguous: set[tuple[str, str]] = set()
 qcm_category_counts: dict[tuple[str, str, str], int] = {}
 flash_category_counts: dict[tuple[str, str, str], int] = {}
+desktop_test_subject = ""
+desktop_test_chapter = ""
 for bank_path in sorted((ROOT / "banques").rglob("*.json")):
     data = json.loads(bank_path.read_text(encoding="utf-8"))
     subject = str(data.get("subject", "")).strip()
     chapter = str(data.get("chapter", data.get("title", ""))).strip()
-    for q in data.get("questions", []):
+    questions = data.get("questions", [])
+    if not desktop_test_chapter and len(questions) >= 30 and any(q.get("type") == "multiple" for q in questions):
+        desktop_test_subject = subject
+        desktop_test_chapter = chapter
+    for q in questions:
         category = str(q.get("category", "")).strip() or "Notions générales"
         topic_key = (subject, chapter, category)
         qcm_category_counts[topic_key] = qcm_category_counts.get(topic_key, 0) + 1
@@ -82,13 +88,18 @@ def fresh(width=1280, height=900):
     wait_until(lambda: len(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")) >= 2, "matières non rendues")
 
 def select_one_desktop_bank():
+    assert desktop_test_subject and desktop_test_chapter, "aucune banque de test QCM multiple disponible"
     subjects = driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")
-    js_click(subjects[0])  # desktop: sélectionne tous les chapitres de la matière
+    subject_card = next((el for el in subjects if desktop_test_subject in el.text), None)
+    assert subject_card is not None, f"matière de test introuvable: {desktop_test_subject}"
+    js_click(subject_card)  # desktop: sélectionne tous les chapitres de la matière
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "sélection matière non prise en compte")
     js_click(driver.find_element(By.ID, "toggleAllChapters"))  # tout désélectionner
     wait_until(lambda: driver.find_element(By.ID, "startBtn").get_property("disabled"), "désélection globale non prise en compte")
-    first_chapter = driver.find_elements(By.CSS_SELECTOR, "#chapterList .chapter-card")[0]
-    js_click(first_chapter)
+    chapters = driver.find_elements(By.CSS_SELECTOR, "#chapterList .chapter-card")
+    chapter_card = next((el for el in chapters if desktop_test_chapter in el.text), None)
+    assert chapter_card is not None, f"chapitre de test introuvable: {desktop_test_chapter}"
+    js_click(chapter_card)
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "chapitre unique non sélectionné")
 
 def select_mobile_subject_all():
@@ -513,7 +524,12 @@ try:
     folder_input.send_keys("\n".join(bank_files))
     wait_until(lambda: f"{expected_bank_count} banque(s) chargée(s)" in driver.find_element(By.ID, "loadStatus").text, "les banques locales ne se chargent pas")
     visible("#setup")
-    wait_until(lambda: len(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")) == 2, "matières locales incorrectes")
+    expected_subject_count = len({
+        str(json.loads(Path(path).read_text(encoding="utf-8")).get("subject", "")).strip()
+        for path in bank_files
+        if str(json.loads(Path(path).read_text(encoding="utf-8")).get("subject", "")).strip()
+    })
+    wait_until(lambda: len(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")) == expected_subject_count, "matières locales incorrectes")
     js_click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "sélection locale non prise en compte")
     count_el = driver.find_element(By.ID, "count")
