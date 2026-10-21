@@ -1387,7 +1387,7 @@
       "category": "UPN",
       "type": "single",
       "difficulty": 3,
-      "prompt": "Si coefficient d’utilisation digestive (CUD) = 80 % et valeur biologique (VB) = 75 %, quelle est l’utilisation protéique nette (UPN) ?",
+      "prompt": "Si le coefficient d’utilisation digestive (CUD) = 80 % et la valeur biologique (VB) = 75 %, quelle est l’utilisation protéique nette (UPN) ?",
       "choices": [
         {
           "text": "60 %",
@@ -1465,7 +1465,7 @@
       "category": "Qualité des protéines",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel aliment atteint une valeur de 100 dans le tableau d’indice DiSCo/score des acides aminés corrigé de la digestibilité des protéines (PDCAAS) du cours ?",
+      "prompt": "Quel aliment atteint une valeur de 100 dans le tableau des indices de qualité protéique (DiSCo et PDCAAS) du cours ?",
       "choices": [
         {
           "text": "Œuf (blanc d’œuf)",
