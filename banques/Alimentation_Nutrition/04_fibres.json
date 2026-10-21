@@ -1,0 +1,528 @@
+{
+  "version": 3,
+  "title": "Chapitre 4 — Les fibres alimentaires",
+  "subject": "Alimentation - Nutrition",
+  "chapter": "Chapitre 4 — Les fibres alimentaires",
+  "questions": [
+    {
+      "id": "anf-001",
+      "category": "Notions fondamentales",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle définition convient le mieux aux fibres alimentaires ?",
+      "choices": [
+        {
+          "text": "Des glucides non digestibles par les enzymes humaines et certaines substances associées",
+          "correct": true
+        },
+        {
+          "text": "Des protéines exclusivement animales",
+          "correct": false
+        },
+        {
+          "text": "Des lipides obligatoirement saturés",
+          "correct": false
+        },
+        {
+          "text": "Des vitamines énergétiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Les fibres échappent à la digestion enzymatique dans l'intestin grêle."
+    },
+    {
+      "id": "anf-002",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est le repère français d'apport en fibres souvent retenu chez l'adulte ?",
+      "choices": [
+        {
+          "text": "30 g/j",
+          "correct": true
+        },
+        {
+          "text": "5 g/j",
+          "correct": false
+        },
+        {
+          "text": "10 g/j",
+          "correct": false
+        },
+        {
+          "text": "80 g/j",
+          "correct": false
+        }
+      ],
+      "explanation": "Un objectif d'environ 30 g de fibres par jour est utilisé pour l'adulte."
+    },
+    {
+      "id": "anf-003",
+      "category": "Digestion et métabolisme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle valeur énergétique réglementaire européenne est attribuée aux fibres ?",
+      "choices": [
+        {
+          "text": "2 kcal/g",
+          "correct": true
+        },
+        {
+          "text": "0 kcal/g",
+          "correct": false
+        },
+        {
+          "text": "4 kcal/g",
+          "correct": false
+        },
+        {
+          "text": "9 kcal/g",
+          "correct": false
+        }
+      ],
+      "explanation": "L'étiquetage nutritionnel européen utilise 2 kcal/g pour les fibres."
+    },
+    {
+      "id": "anf-004",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel composé est un constituant majeur des parois végétales ?",
+      "choices": [
+        {
+          "text": "Cellulose",
+          "correct": true
+        },
+        {
+          "text": "Cholestérol",
+          "correct": false
+        },
+        {
+          "text": "Triglycéride",
+          "correct": false
+        },
+        {
+          "text": "Lactose",
+          "correct": false
+        }
+      ],
+      "explanation": "La cellulose est un polysaccharide structural des végétaux."
+    },
+    {
+      "id": "anf-005",
+      "category": "Notions fondamentales",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Pourquoi la cellulose n'est-elle pas hydrolysée par les enzymes digestives humaines ?",
+      "choices": [
+        {
+          "text": "Absence de cellulase adaptée aux liaisons β(1→4)",
+          "correct": true
+        },
+        {
+          "text": "Absence de glucose dans sa structure",
+          "correct": false
+        },
+        {
+          "text": "Présence exclusive de fructose",
+          "correct": false
+        },
+        {
+          "text": "Elle contient des liaisons peptidiques",
+          "correct": false
+        }
+      ],
+      "explanation": "L'humain ne possède pas d'enzymes digestives capables de rompre efficacement les liaisons β(1→4) de la cellulose."
+    },
+    {
+      "id": "anf-006",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel exemple correspond à une fibre généralement soluble et visqueuse ?",
+      "choices": [
+        {
+          "text": "Pectine",
+          "correct": true
+        },
+        {
+          "text": "Cellulose cristalline",
+          "correct": false
+        },
+        {
+          "text": "Cholestérol",
+          "correct": false
+        },
+        {
+          "text": "Glycogène musculaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Les pectines peuvent former des gels visqueux en milieu aqueux."
+    },
+    {
+      "id": "anf-007",
+      "category": "Digestion et métabolisme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel aliment apporte des bêta-glucanes ?",
+      "choices": [
+        {
+          "text": "Avoine",
+          "correct": true
+        },
+        {
+          "text": "Huile de tournesol",
+          "correct": false
+        },
+        {
+          "text": "Viande de bœuf",
+          "correct": false
+        },
+        {
+          "text": "Sucre blanc",
+          "correct": false
+        }
+      ],
+      "explanation": "L'avoine et l'orge contiennent des bêta-glucanes."
+    },
+    {
+      "id": "anf-008",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel effet est associé à certaines fibres visqueuses ?",
+      "choices": [
+        {
+          "text": "Réduction possible du LDL-cholestérol",
+          "correct": true
+        },
+        {
+          "text": "Augmentation obligatoire de la glycémie",
+          "correct": false
+        },
+        {
+          "text": "Absorption complète avant l'intestin grêle",
+          "correct": false
+        },
+        {
+          "text": "Destruction du microbiote",
+          "correct": false
+        }
+      ],
+      "explanation": "Les fibres visqueuses peuvent favoriser une diminution de la cholestérolémie LDL."
+    },
+    {
+      "id": "anf-009",
+      "category": "Notions fondamentales",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel phénomène résulte de la fermentation colique de certaines fibres ?",
+      "choices": [
+        {
+          "text": "Production d'acides gras à chaîne courte",
+          "correct": true
+        },
+        {
+          "text": "Synthèse de saccharose",
+          "correct": false
+        },
+        {
+          "text": "Production systématique de cholestérol alimentaire",
+          "correct": false
+        },
+        {
+          "text": "Transformation des fibres en protéines musculaires",
+          "correct": false
+        }
+      ],
+      "explanation": "Le microbiote peut produire notamment acétate, propionate et butyrate."
+    },
+    {
+      "id": "anf-010",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel acide gras à chaîne courte constitue un carburant important pour les colonocytes ?",
+      "choices": [
+        {
+          "text": "Butyrate",
+          "correct": true
+        },
+        {
+          "text": "Acide palmitique",
+          "correct": false
+        },
+        {
+          "text": "Acide linoléique",
+          "correct": false
+        },
+        {
+          "text": "DHA",
+          "correct": false
+        }
+      ],
+      "explanation": "Le butyrate est une source d'énergie importante pour les cellules du côlon."
+    },
+    {
+      "id": "anf-011",
+      "category": "Digestion et métabolisme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel aliment est une source de fibres ?",
+      "choices": [
+        {
+          "text": "Lentilles",
+          "correct": true
+        },
+        {
+          "text": "Huile pure",
+          "correct": false
+        },
+        {
+          "text": "Beurre",
+          "correct": false
+        },
+        {
+          "text": "Poisson nature",
+          "correct": false
+        }
+      ],
+      "explanation": "Les légumineuses, comme les lentilles, contiennent des fibres."
+    },
+    {
+      "id": "anf-012",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi augmenter les fibres progressivement ?",
+      "choices": [
+        {
+          "text": "Pour améliorer la tolérance digestive",
+          "correct": true
+        },
+        {
+          "text": "Pour empêcher toute fermentation",
+          "correct": false
+        },
+        {
+          "text": "Pour supprimer les besoins en eau",
+          "correct": false
+        },
+        {
+          "text": "Pour réduire obligatoirement la masse musculaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Une augmentation progressive peut limiter ballonnements et inconfort."
+    },
+    {
+      "id": "anf-013",
+      "category": "Notions fondamentales",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi est-il important de boire suffisamment avec des apports élevés en fibres ?",
+      "choices": [
+        {
+          "text": "Pour soutenir le confort digestif et le transit",
+          "correct": true
+        },
+        {
+          "text": "Pour digérer les fibres avec la pepsine",
+          "correct": false
+        },
+        {
+          "text": "Pour annuler leur fermentation",
+          "correct": false
+        },
+        {
+          "text": "Pour transformer les fibres en glucose",
+          "correct": false
+        }
+      ],
+      "explanation": "Une hydratation adaptée accompagne les effets des fibres sur le transit."
+    },
+    {
+      "id": "anf-014",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fibre augmente notamment le volume des selles grâce à sa capacité de rétention d'eau ?",
+      "choices": [
+        {
+          "text": "Son de blé riche en fibres peu fermentescibles",
+          "correct": true
+        },
+        {
+          "text": "Saccharose",
+          "correct": false
+        },
+        {
+          "text": "Cholestérol",
+          "correct": false
+        },
+        {
+          "text": "Acide oléique",
+          "correct": false
+        }
+      ],
+      "explanation": "Certaines fibres, comme celles du son de blé, contribuent à accroître la masse fécale."
+    },
+    {
+      "id": "anf-015",
+      "category": "Digestion et métabolisme",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Les termes « soluble » et « fermentescible » sont-ils synonymes ?",
+      "choices": [
+        {
+          "text": "Non, ce sont deux propriétés différentes",
+          "correct": true
+        },
+        {
+          "text": "Oui, dans tous les cas",
+          "correct": false
+        },
+        {
+          "text": "Oui, uniquement pour la cellulose",
+          "correct": false
+        },
+        {
+          "text": "Non, car aucune fibre ne fermente",
+          "correct": false
+        }
+      ],
+      "explanation": "La solubilité ne prédit pas systématiquement la fermentescibilité ni la viscosité."
+    },
+    {
+      "id": "anf-016",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel phénomène peut ralentir l'absorption du glucose après un repas ?",
+      "choices": [
+        {
+          "text": "La viscosité de certaines fibres dans l'intestin",
+          "correct": true
+        },
+        {
+          "text": "L'absence totale d'eau",
+          "correct": false
+        },
+        {
+          "text": "La digestion de la cellulose par la lactase",
+          "correct": false
+        },
+        {
+          "text": "La production d'amylase par les fibres",
+          "correct": false
+        }
+      ],
+      "explanation": "Les fibres visqueuses peuvent ralentir la vidange gastrique ou l'absorption des nutriments."
+    },
+    {
+      "id": "anf-017",
+      "category": "Notions fondamentales",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel aliment contient généralement davantage de fibres ?",
+      "choices": [
+        {
+          "text": "Pain complet",
+          "correct": true
+        },
+        {
+          "text": "Pain blanc raffiné",
+          "correct": false
+        },
+        {
+          "text": "Huile d'olive",
+          "correct": false
+        },
+        {
+          "text": "Yaourt nature",
+          "correct": false
+        }
+      ],
+      "explanation": "Les produits céréaliers complets conservent davantage de fractions riches en fibres."
+    },
+    {
+      "id": "anf-018",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel est un effet possible des fibres fermentescibles ?",
+      "choices": [
+        {
+          "text": "Modulation du microbiote intestinal",
+          "correct": true
+        },
+        {
+          "text": "Suppression du microbiote",
+          "correct": false
+        },
+        {
+          "text": "Absence complète de gaz",
+          "correct": false
+        },
+        {
+          "text": "Transformation directe en vitamine D",
+          "correct": false
+        }
+      ],
+      "explanation": "La fermentation microbienne peut modifier les populations et l'activité du microbiote."
+    },
+    {
+      "id": "anf-019",
+      "category": "Digestion et métabolisme",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Qu'est-ce qu'un prébiotique ?",
+      "choices": [
+        {
+          "text": "Un substrat utilisé sélectivement par des micro-organismes de l'hôte et apportant un bénéfice de santé",
+          "correct": true
+        },
+        {
+          "text": "Toute substance exclusivement animale",
+          "correct": false
+        },
+        {
+          "text": "Une bactérie vivante administrée en capsule",
+          "correct": false
+        },
+        {
+          "text": "N'importe quel glucide absorbé rapidement",
+          "correct": false
+        }
+      ],
+      "explanation": "Un prébiotique est défini par son utilisation sélective et un bénéfice démontré, pas simplement par sa teneur en fibres."
+    },
+    {
+      "id": "anf-020",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle proposition est exacte concernant les fibres et le transit ?",
+      "choices": [
+        {
+          "text": "Leurs effets dépendent notamment du type de fibre et de sa tolérance",
+          "correct": true
+        },
+        {
+          "text": "Toutes les fibres ont strictement le même effet",
+          "correct": false
+        },
+        {
+          "text": "Elles sont intégralement digérées par l'amylase",
+          "correct": false
+        },
+        {
+          "text": "Elles empêchent systématiquement la constipation",
+          "correct": false
+        }
+      ],
+      "explanation": "Les propriétés physicochimiques des fibres conditionnent leurs effets digestifs."
+    }
+  ]
+}
