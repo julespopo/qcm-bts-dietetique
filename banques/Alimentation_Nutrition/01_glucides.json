@@ -12,6 +12,10 @@
       "prompt": "Quelle est la valeur énergétique conventionnelle des glucides digestibles ?",
       "choices": [
         {
+          "text": "9 kcal/g",
+          "correct": false
+        },
+        {
           "text": "4 kcal/g",
           "correct": true
         },
@@ -21,10 +25,6 @@
         },
         {
           "text": "7 kcal/g",
-          "correct": false
-        },
-        {
-          "text": "9 kcal/g",
           "correct": false
         }
       ],
@@ -64,10 +64,6 @@
       "prompt": "De quels oses le saccharose est-il composé ?",
       "choices": [
         {
-          "text": "Glucose et fructose",
-          "correct": true
-        },
-        {
           "text": "Glucose et glucose",
           "correct": false
         },
@@ -78,6 +74,10 @@
         {
           "text": "Fructose et galactose",
           "correct": false
+        },
+        {
+          "text": "Glucose et fructose",
+          "correct": true
         }
       ],
       "explanation": "Le saccharose est un diholoside constitué de glucose et de fructose."
@@ -90,19 +90,19 @@
       "prompt": "De quels oses le lactose est-il composé ?",
       "choices": [
         {
-          "text": "Glucose et galactose",
-          "correct": true
-        },
-        {
-          "text": "Glucose et fructose",
-          "correct": false
-        },
-        {
           "text": "Glucose et glucose",
           "correct": false
         },
         {
           "text": "Galactose et fructose",
+          "correct": false
+        },
+        {
+          "text": "Glucose et galactose",
+          "correct": true
+        },
+        {
+          "text": "Glucose et fructose",
           "correct": false
         }
       ],
@@ -116,6 +116,10 @@
       "prompt": "Quel diholoside associe deux molécules de glucose ?",
       "choices": [
         {
+          "text": "Tréhalose uniquement dans le lait",
+          "correct": false
+        },
+        {
           "text": "Maltose",
           "correct": true
         },
@@ -125,10 +129,6 @@
         },
         {
           "text": "Lactose",
-          "correct": false
-        },
-        {
-          "text": "Tréhalose uniquement dans le lait",
           "correct": false
         }
       ],
@@ -168,10 +168,6 @@
       "prompt": "Où se trouve principalement le glycogène humain ?",
       "choices": [
         {
-          "text": "Foie et muscles",
-          "correct": true
-        },
-        {
           "text": "Tissu osseux uniquement",
           "correct": false
         },
@@ -182,6 +178,10 @@
         {
           "text": "Plasma uniquement",
           "correct": false
+        },
+        {
+          "text": "Foie et muscles",
+          "correct": true
         }
       ],
       "explanation": "Le glycogène est stocké surtout dans les muscles et le foie."
@@ -194,19 +194,19 @@
       "prompt": "Quelle enzyme commence la digestion de l'amidon dans la bouche ?",
       "choices": [
         {
-          "text": "Amylase salivaire",
-          "correct": true
-        },
-        {
-          "text": "Pepsine",
-          "correct": false
-        },
-        {
           "text": "Lactase",
           "correct": false
         },
         {
           "text": "Trypsine",
+          "correct": false
+        },
+        {
+          "text": "Amylase salivaire",
+          "correct": true
+        },
+        {
+          "text": "Pepsine",
           "correct": false
         }
       ],
@@ -220,6 +220,10 @@
       "prompt": "Quelle enzyme permet de digérer le lactose ?",
       "choices": [
         {
+          "text": "Pepsine",
+          "correct": false
+        },
+        {
           "text": "Lactase",
           "correct": true
         },
@@ -229,10 +233,6 @@
         },
         {
           "text": "Maltase exclusivement",
-          "correct": false
-        },
-        {
-          "text": "Pepsine",
           "correct": false
         }
       ],
@@ -272,10 +272,6 @@
       "prompt": "Que mesure l'index glycémique d'un aliment ?",
       "choices": [
         {
-          "text": "La réponse glycémique relative pour une quantité définie de glucides disponibles",
-          "correct": true
-        },
-        {
           "text": "La teneur totale en fibres uniquement",
           "correct": false
         },
@@ -286,6 +282,10 @@
         {
           "text": "Les calories de 100 g",
           "correct": false
+        },
+        {
+          "text": "La réponse glycémique relative pour une quantité définie de glucides disponibles",
+          "correct": true
         }
       ],
       "explanation": "L'IG compare la réponse glycémique à celle d'un aliment de référence pour une quantité standard de glucides disponibles."
@@ -298,19 +298,19 @@
       "prompt": "Que prend en compte la charge glycémique ?",
       "choices": [
         {
-          "text": "Index glycémique et quantité de glucides disponibles de la portion",
-          "correct": true
-        },
-        {
-          "text": "Uniquement les protéines",
-          "correct": false
-        },
-        {
           "text": "Uniquement la masse d'eau",
           "correct": false
         },
         {
           "text": "Uniquement les acides gras",
+          "correct": false
+        },
+        {
+          "text": "Index glycémique et quantité de glucides disponibles de la portion",
+          "correct": true
+        },
+        {
+          "text": "Uniquement les protéines",
           "correct": false
         }
       ],
@@ -324,6 +324,10 @@
       "prompt": "Combien d'énergie apportent 75 g de glucides digestibles ?",
       "choices": [
         {
+          "text": "225 kcal",
+          "correct": false
+        },
+        {
           "text": "300 kcal",
           "correct": true
         },
@@ -333,10 +337,6 @@
         },
         {
           "text": "150 kcal",
-          "correct": false
-        },
-        {
-          "text": "225 kcal",
           "correct": false
         }
       ],
@@ -376,10 +376,6 @@
       "prompt": "Quel glucide possède des liaisons β(1→4) non hydrolysées par les enzymes digestives humaines ?",
       "choices": [
         {
-          "text": "Cellulose",
-          "correct": true
-        },
-        {
           "text": "Amylose",
           "correct": false
         },
@@ -390,6 +386,10 @@
         {
           "text": "Glycogène",
           "correct": false
+        },
+        {
+          "text": "Cellulose",
+          "correct": true
         }
       ],
       "explanation": "Les enzymes digestives humaines ne dégradent pas les liaisons β(1→4) de la cellulose."
@@ -402,19 +402,19 @@
       "prompt": "Quel aliment apporte principalement des glucides sous forme d'amidon ?",
       "choices": [
         {
-          "text": "Pomme de terre",
-          "correct": true
-        },
-        {
-          "text": "Huile d'olive",
-          "correct": false
-        },
-        {
           "text": "Beurre",
           "correct": false
         },
         {
           "text": "Poisson",
+          "correct": false
+        },
+        {
+          "text": "Pomme de terre",
+          "correct": true
+        },
+        {
+          "text": "Huile d'olive",
           "correct": false
         }
       ],
@@ -428,6 +428,10 @@
       "prompt": "Quelle proposition décrit la glycogénolyse ?",
       "choices": [
         {
+          "text": "Digestion des triglycérides",
+          "correct": false
+        },
+        {
           "text": "Dégradation du glycogène",
           "correct": true
         },
@@ -437,10 +441,6 @@
         },
         {
           "text": "Synthèse des protéines",
-          "correct": false
-        },
-        {
-          "text": "Digestion des triglycérides",
           "correct": false
         }
       ],
@@ -480,10 +480,6 @@
       "prompt": "Que signifie une intolérance au lactose primaire ?",
       "choices": [
         {
-          "text": "Une baisse de l'activité lactasique",
-          "correct": true
-        },
-        {
           "text": "Une allergie systématique aux protéines du lait",
           "correct": false
         },
@@ -494,6 +490,10 @@
         {
           "text": "Un excès de sécrétion de lactase",
           "correct": false
+        },
+        {
+          "text": "Une baisse de l'activité lactasique",
+          "correct": true
         }
       ],
       "explanation": "La diminution de lactase peut entraîner une mauvaise digestion du lactose."
@@ -506,19 +506,19 @@
       "prompt": "Quel est le principal site d'absorption des monosaccharides alimentaires ?",
       "choices": [
         {
-          "text": "Intestin grêle",
-          "correct": true
-        },
-        {
-          "text": "Estomac",
-          "correct": false
-        },
-        {
           "text": "Œsophage",
           "correct": false
         },
         {
           "text": "Côlon uniquement",
+          "correct": false
+        },
+        {
+          "text": "Intestin grêle",
+          "correct": true
+        },
+        {
+          "text": "Estomac",
           "correct": false
         }
       ],
