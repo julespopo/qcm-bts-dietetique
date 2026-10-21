@@ -191,7 +191,7 @@
       "category": "Application",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel aliment est notamment une source d'acide eicosapentaénoïque (EPA) et acide docosahexaénoïque (DHA) ?",
+      "prompt": "Quel aliment est notamment une source d'acide eicosapentaénoïque (EPA) et d'acide docosahexaénoïque (DHA) ?",
       "choices": [
         {
           "text": "Riz blanc",
