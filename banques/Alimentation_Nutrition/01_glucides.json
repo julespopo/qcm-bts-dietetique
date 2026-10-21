@@ -288,7 +288,7 @@
           "correct": true
         }
       ],
-      "explanation": "L'IG compare la réponse glycémique à celle d'un aliment de référence pour une quantité standard de glucides disponibles."
+      "explanation": "L'index glycémique (IG) compare la réponse glycémique à celle d'un aliment de référence pour une quantité standard de glucides disponibles."
     },
     {
       "id": "ang-012",
@@ -314,7 +314,7 @@
           "correct": false
         }
       ],
-      "explanation": "La charge glycémique combine l'IG et la quantité de glucides disponibles consommée."
+      "explanation": "La charge glycémique combine l'index glycémique (IG) et la quantité de glucides disponibles consommée."
     },
     {
       "id": "ang-013",
