@@ -524,7 +524,12 @@ try:
     folder_input.send_keys("\n".join(bank_files))
     wait_until(lambda: f"{expected_bank_count} banque(s) chargée(s)" in driver.find_element(By.ID, "loadStatus").text, "les banques locales ne se chargent pas")
     visible("#setup")
-    wait_until(lambda: len(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")) == 2, "matières locales incorrectes")
+    expected_subject_count = len({
+        str(json.loads(Path(path).read_text(encoding="utf-8")).get("subject", "")).strip()
+        for path in bank_files
+        if str(json.loads(Path(path).read_text(encoding="utf-8")).get("subject", "")).strip()
+    })
+    wait_until(lambda: len(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")) == expected_subject_count, "matières locales incorrectes")
     js_click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "sélection locale non prise en compte")
     count_el = driver.find_element(By.ID, "count")
