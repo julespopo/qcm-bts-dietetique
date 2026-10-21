@@ -202,7 +202,7 @@
           "correct": false
         },
         {
-          "text": "Réduction possible du LDL-cholestérol",
+          "text": "Réduction possible du lipoprotéines de basse densité (LDL)-cholestérol",
           "correct": true
         },
         {
@@ -210,7 +210,7 @@
           "correct": false
         }
       ],
-      "explanation": "Les fibres visqueuses peuvent favoriser une diminution de la cholestérolémie LDL."
+      "explanation": "Les fibres visqueuses peuvent favoriser une diminution de la cholestérolémie lipoprotéines de basse densité (LDL)."
     },
     {
       "id": "anf-009",
@@ -258,7 +258,7 @@
           "correct": false
         },
         {
-          "text": "DHA",
+          "text": "acide docosahexaénoïque (DHA)",
           "correct": false
         }
       ],
