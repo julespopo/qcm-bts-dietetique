@@ -12,6 +12,10 @@
       "prompt": "Quelle définition convient le mieux aux fibres alimentaires ?",
       "choices": [
         {
+          "text": "Des vitamines énergétiques",
+          "correct": false
+        },
+        {
           "text": "Des glucides non digestibles par les enzymes humaines et certaines substances associées",
           "correct": true
         },
@@ -21,10 +25,6 @@
         },
         {
           "text": "Des lipides obligatoirement saturés",
-          "correct": false
-        },
-        {
-          "text": "Des vitamines énergétiques",
           "correct": false
         }
       ],
@@ -64,10 +64,6 @@
       "prompt": "Quelle valeur énergétique réglementaire européenne est attribuée aux fibres ?",
       "choices": [
         {
-          "text": "2 kcal/g",
-          "correct": true
-        },
-        {
           "text": "0 kcal/g",
           "correct": false
         },
@@ -78,6 +74,10 @@
         {
           "text": "9 kcal/g",
           "correct": false
+        },
+        {
+          "text": "2 kcal/g",
+          "correct": true
         }
       ],
       "explanation": "L'étiquetage nutritionnel européen utilise 2 kcal/g pour les fibres."
@@ -90,19 +90,19 @@
       "prompt": "Quel composé est un constituant majeur des parois végétales ?",
       "choices": [
         {
-          "text": "Cellulose",
-          "correct": true
-        },
-        {
-          "text": "Cholestérol",
-          "correct": false
-        },
-        {
           "text": "Triglycéride",
           "correct": false
         },
         {
           "text": "Lactose",
+          "correct": false
+        },
+        {
+          "text": "Cellulose",
+          "correct": true
+        },
+        {
+          "text": "Cholestérol",
           "correct": false
         }
       ],
@@ -116,6 +116,10 @@
       "prompt": "Pourquoi la cellulose n'est-elle pas hydrolysée par les enzymes digestives humaines ?",
       "choices": [
         {
+          "text": "Elle contient des liaisons peptidiques",
+          "correct": false
+        },
+        {
           "text": "Absence de cellulase adaptée aux liaisons β(1→4)",
           "correct": true
         },
@@ -125,10 +129,6 @@
         },
         {
           "text": "Présence exclusive de fructose",
-          "correct": false
-        },
-        {
-          "text": "Elle contient des liaisons peptidiques",
           "correct": false
         }
       ],
@@ -168,10 +168,6 @@
       "prompt": "Quel aliment apporte des bêta-glucanes ?",
       "choices": [
         {
-          "text": "Avoine",
-          "correct": true
-        },
-        {
           "text": "Huile de tournesol",
           "correct": false
         },
@@ -182,6 +178,10 @@
         {
           "text": "Sucre blanc",
           "correct": false
+        },
+        {
+          "text": "Avoine",
+          "correct": true
         }
       ],
       "explanation": "L'avoine et l'orge contiennent des bêta-glucanes."
@@ -194,19 +194,19 @@
       "prompt": "Quel effet est associé à certaines fibres visqueuses ?",
       "choices": [
         {
-          "text": "Réduction possible du LDL-cholestérol",
-          "correct": true
-        },
-        {
-          "text": "Augmentation obligatoire de la glycémie",
-          "correct": false
-        },
-        {
           "text": "Absorption complète avant l'intestin grêle",
           "correct": false
         },
         {
           "text": "Destruction du microbiote",
+          "correct": false
+        },
+        {
+          "text": "Réduction possible du LDL-cholestérol",
+          "correct": true
+        },
+        {
+          "text": "Augmentation obligatoire de la glycémie",
           "correct": false
         }
       ],
@@ -220,6 +220,10 @@
       "prompt": "Quel phénomène résulte de la fermentation colique de certaines fibres ?",
       "choices": [
         {
+          "text": "Transformation des fibres en protéines musculaires",
+          "correct": false
+        },
+        {
           "text": "Production d'acides gras à chaîne courte",
           "correct": true
         },
@@ -229,10 +233,6 @@
         },
         {
           "text": "Production systématique de cholestérol alimentaire",
-          "correct": false
-        },
-        {
-          "text": "Transformation des fibres en protéines musculaires",
           "correct": false
         }
       ],
@@ -272,10 +272,6 @@
       "prompt": "Quel aliment est une source de fibres ?",
       "choices": [
         {
-          "text": "Lentilles",
-          "correct": true
-        },
-        {
           "text": "Huile pure",
           "correct": false
         },
@@ -286,6 +282,10 @@
         {
           "text": "Poisson nature",
           "correct": false
+        },
+        {
+          "text": "Lentilles",
+          "correct": true
         }
       ],
       "explanation": "Les légumineuses, comme les lentilles, contiennent des fibres."
@@ -298,19 +298,19 @@
       "prompt": "Pourquoi augmenter les fibres progressivement ?",
       "choices": [
         {
-          "text": "Pour améliorer la tolérance digestive",
-          "correct": true
-        },
-        {
-          "text": "Pour empêcher toute fermentation",
-          "correct": false
-        },
-        {
           "text": "Pour supprimer les besoins en eau",
           "correct": false
         },
         {
           "text": "Pour réduire obligatoirement la masse musculaire",
+          "correct": false
+        },
+        {
+          "text": "Pour améliorer la tolérance digestive",
+          "correct": true
+        },
+        {
+          "text": "Pour empêcher toute fermentation",
           "correct": false
         }
       ],
@@ -324,6 +324,10 @@
       "prompt": "Pourquoi est-il important de boire suffisamment avec des apports élevés en fibres ?",
       "choices": [
         {
+          "text": "Pour transformer les fibres en glucose",
+          "correct": false
+        },
+        {
           "text": "Pour soutenir le confort digestif et le transit",
           "correct": true
         },
@@ -333,10 +337,6 @@
         },
         {
           "text": "Pour annuler leur fermentation",
-          "correct": false
-        },
-        {
-          "text": "Pour transformer les fibres en glucose",
           "correct": false
         }
       ],
@@ -376,10 +376,6 @@
       "prompt": "Les termes « soluble » et « fermentescible » sont-ils synonymes ?",
       "choices": [
         {
-          "text": "Non, ce sont deux propriétés différentes",
-          "correct": true
-        },
-        {
           "text": "Oui, dans tous les cas",
           "correct": false
         },
@@ -390,6 +386,10 @@
         {
           "text": "Non, car aucune fibre ne fermente",
           "correct": false
+        },
+        {
+          "text": "Non, ce sont deux propriétés différentes",
+          "correct": true
         }
       ],
       "explanation": "La solubilité ne prédit pas systématiquement la fermentescibilité ni la viscosité."
@@ -402,19 +402,19 @@
       "prompt": "Quel phénomène peut ralentir l'absorption du glucose après un repas ?",
       "choices": [
         {
-          "text": "La viscosité de certaines fibres dans l'intestin",
-          "correct": true
-        },
-        {
-          "text": "L'absence totale d'eau",
-          "correct": false
-        },
-        {
           "text": "La digestion de la cellulose par la lactase",
           "correct": false
         },
         {
           "text": "La production d'amylase par les fibres",
+          "correct": false
+        },
+        {
+          "text": "La viscosité de certaines fibres dans l'intestin",
+          "correct": true
+        },
+        {
+          "text": "L'absence totale d'eau",
           "correct": false
         }
       ],
@@ -428,6 +428,10 @@
       "prompt": "Quel aliment contient généralement davantage de fibres ?",
       "choices": [
         {
+          "text": "Yaourt nature",
+          "correct": false
+        },
+        {
           "text": "Pain complet",
           "correct": true
         },
@@ -437,10 +441,6 @@
         },
         {
           "text": "Huile d'olive",
-          "correct": false
-        },
-        {
-          "text": "Yaourt nature",
           "correct": false
         }
       ],
@@ -480,10 +480,6 @@
       "prompt": "Qu'est-ce qu'un prébiotique ?",
       "choices": [
         {
-          "text": "Un substrat utilisé sélectivement par des micro-organismes de l'hôte et apportant un bénéfice de santé",
-          "correct": true
-        },
-        {
           "text": "Toute substance exclusivement animale",
           "correct": false
         },
@@ -494,6 +490,10 @@
         {
           "text": "N'importe quel glucide absorbé rapidement",
           "correct": false
+        },
+        {
+          "text": "Un substrat utilisé sélectivement par des micro-organismes de l'hôte et apportant un bénéfice de santé",
+          "correct": true
         }
       ],
       "explanation": "Un prébiotique est défini par son utilisation sélective et un bénéfice démontré, pas simplement par sa teneur en fibres."
@@ -506,19 +506,19 @@
       "prompt": "Quelle proposition est exacte concernant les fibres et le transit ?",
       "choices": [
         {
-          "text": "Leurs effets dépendent notamment du type de fibre et de sa tolérance",
-          "correct": true
-        },
-        {
-          "text": "Toutes les fibres ont strictement le même effet",
-          "correct": false
-        },
-        {
           "text": "Elles sont intégralement digérées par l'amylase",
           "correct": false
         },
         {
           "text": "Elles empêchent systématiquement la constipation",
+          "correct": false
+        },
+        {
+          "text": "Leurs effets dépendent notamment du type de fibre et de sa tolérance",
+          "correct": true
+        },
+        {
+          "text": "Toutes les fibres ont strictement le même effet",
           "correct": false
         }
       ],
