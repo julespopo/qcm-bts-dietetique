@@ -12,6 +12,10 @@
       "prompt": "Combien d'énergie apporte 1 g de lipides ?",
       "choices": [
         {
+          "text": "7 kcal",
+          "correct": false
+        },
+        {
           "text": "9 kcal",
           "correct": true
         },
@@ -21,10 +25,6 @@
         },
         {
           "text": "2 kcal",
-          "correct": false
-        },
-        {
-          "text": "7 kcal",
           "correct": false
         }
       ],
@@ -64,10 +64,6 @@
       "prompt": "Qu'est-ce qu'un acide gras saturé ?",
       "choices": [
         {
-          "text": "Un acide gras sans double liaison carbone-carbone",
-          "correct": true
-        },
-        {
           "text": "Un acide gras avec trois doubles liaisons",
           "correct": false
         },
@@ -78,6 +74,10 @@
         {
           "text": "Un acide gras contenant du glucose",
           "correct": false
+        },
+        {
+          "text": "Un acide gras sans double liaison carbone-carbone",
+          "correct": true
         }
       ],
       "explanation": "Un acide gras saturé ne comporte pas de double liaison C=C."
@@ -90,19 +90,19 @@
       "prompt": "Qu'est-ce qu'un acide gras mono-insaturé ?",
       "choices": [
         {
-          "text": "Un acide gras avec une double liaison C=C",
-          "correct": true
-        },
-        {
-          "text": "Un acide gras sans double liaison",
-          "correct": false
-        },
-        {
           "text": "Un acide gras à deux groupements glycérol",
           "correct": false
         },
         {
           "text": "Une protéine de transport",
+          "correct": false
+        },
+        {
+          "text": "Un acide gras avec une double liaison C=C",
+          "correct": true
+        },
+        {
+          "text": "Un acide gras sans double liaison",
           "correct": false
         }
       ],
@@ -116,6 +116,10 @@
       "prompt": "À quelle famille appartient l'acide linoléique ?",
       "choices": [
         {
+          "text": "Acides gras saturés",
+          "correct": false
+        },
+        {
           "text": "Oméga-6",
           "correct": true
         },
@@ -125,10 +129,6 @@
         },
         {
           "text": "Oméga-9",
-          "correct": false
-        },
-        {
-          "text": "Acides gras saturés",
           "correct": false
         }
       ],
@@ -168,10 +168,6 @@
       "prompt": "Quels acides gras sont considérés comme indispensables ?",
       "choices": [
         {
-          "text": "Acides linoléique et alpha-linolénique",
-          "correct": true
-        },
-        {
           "text": "Acides palmitique et stéarique",
           "correct": false
         },
@@ -182,6 +178,10 @@
         {
           "text": "Acides gras trans industriels",
           "correct": false
+        },
+        {
+          "text": "Acides linoléique et alpha-linolénique",
+          "correct": true
         }
       ],
       "explanation": "L'organisme humain ne peut synthétiser les précurseurs essentiels des familles oméga-6 et oméga-3."
@@ -194,19 +194,19 @@
       "prompt": "Quel aliment est notamment une source d'EPA et DHA ?",
       "choices": [
         {
-          "text": "Sardine",
-          "correct": true
-        },
-        {
-          "text": "Pomme",
-          "correct": false
-        },
-        {
           "text": "Riz blanc",
           "correct": false
         },
         {
           "text": "Sucre de table",
+          "correct": false
+        },
+        {
+          "text": "Sardine",
+          "correct": true
+        },
+        {
+          "text": "Pomme",
           "correct": false
         }
       ],
@@ -220,6 +220,10 @@
       "prompt": "Quel aliment est particulièrement riche en acide oléique ?",
       "choices": [
         {
+          "text": "Eau minérale",
+          "correct": false
+        },
+        {
           "text": "Huile d'olive",
           "correct": true
         },
@@ -229,10 +233,6 @@
         },
         {
           "text": "Blanc d'œuf",
-          "correct": false
-        },
-        {
-          "text": "Eau minérale",
           "correct": false
         }
       ],
@@ -272,10 +272,6 @@
       "prompt": "Le cholestérol sert notamment de précurseur à quoi ?",
       "choices": [
         {
-          "text": "Hormones stéroïdes et acides biliaires",
-          "correct": true
-        },
-        {
           "text": "Cellulose",
           "correct": false
         },
@@ -286,6 +282,10 @@
         {
           "text": "Glycogène",
           "correct": false
+        },
+        {
+          "text": "Hormones stéroïdes et acides biliaires",
+          "correct": true
         }
       ],
       "explanation": "Le cholestérol entre dans la synthèse de molécules stéroïdes et d'acides biliaires."
@@ -298,19 +298,19 @@
       "prompt": "Quel est le rôle principal des sels biliaires dans la digestion lipidique ?",
       "choices": [
         {
-          "text": "Faciliter l'émulsification et la formation de micelles",
-          "correct": true
-        },
-        {
-          "text": "Hydrolyser directement les protéines",
-          "correct": false
-        },
-        {
           "text": "Transformer le fructose en glucose",
           "correct": false
         },
         {
           "text": "Détruire les vitamines",
+          "correct": false
+        },
+        {
+          "text": "Faciliter l'émulsification et la formation de micelles",
+          "correct": true
+        },
+        {
+          "text": "Hydrolyser directement les protéines",
           "correct": false
         }
       ],
@@ -324,6 +324,10 @@
       "prompt": "Quelle enzyme hydrolyse une grande partie des triglycérides alimentaires dans l'intestin grêle ?",
       "choices": [
         {
+          "text": "Pepsine",
+          "correct": false
+        },
+        {
           "text": "Lipase pancréatique",
           "correct": true
         },
@@ -333,10 +337,6 @@
         },
         {
           "text": "Lactase",
-          "correct": false
-        },
-        {
-          "text": "Pepsine",
           "correct": false
         }
       ],
@@ -376,10 +376,6 @@
       "prompt": "Quelle lipoprotéine transporte une part majeure des triglycérides alimentaires après absorption ?",
       "choices": [
         {
-          "text": "Chylomicrons",
-          "correct": true
-        },
-        {
           "text": "HDL uniquement",
           "correct": false
         },
@@ -390,6 +386,10 @@
         {
           "text": "Hémoglobine",
           "correct": false
+        },
+        {
+          "text": "Chylomicrons",
+          "correct": true
         }
       ],
       "explanation": "Les chylomicrons transportent les lipides d'origine alimentaire depuis l'intestin."
@@ -402,19 +402,19 @@
       "prompt": "Quelle association est correcte concernant les LDL ?",
       "choices": [
         {
-          "text": "Elles assurent notamment l'apport de cholestérol aux tissus",
-          "correct": true
-        },
-        {
-          "text": "Elles transportent uniquement le glucose",
-          "correct": false
-        },
-        {
           "text": "Elles n'existent que dans l'intestin",
           "correct": false
         },
         {
           "text": "Elles sont une enzyme digestive",
+          "correct": false
+        },
+        {
+          "text": "Elles assurent notamment l'apport de cholestérol aux tissus",
+          "correct": true
+        },
+        {
+          "text": "Elles transportent uniquement le glucose",
           "correct": false
         }
       ],
@@ -428,6 +428,10 @@
       "prompt": "Combien de kcal apportent 20 g de lipides ?",
       "choices": [
         {
+          "text": "240 kcal",
+          "correct": false
+        },
+        {
           "text": "180 kcal",
           "correct": true
         },
@@ -437,10 +441,6 @@
         },
         {
           "text": "120 kcal",
-          "correct": false
-        },
-        {
-          "text": "240 kcal",
           "correct": false
         }
       ],
@@ -480,10 +480,6 @@
       "prompt": "Quel phénomène peut altérer une huile riche en acides gras polyinsaturés ?",
       "choices": [
         {
-          "text": "Oxydation lipidique",
-          "correct": true
-        },
-        {
           "text": "Glycogénolyse",
           "correct": false
         },
@@ -494,6 +490,10 @@
         {
           "text": "Coagulation des protéines uniquement",
           "correct": false
+        },
+        {
+          "text": "Oxydation lipidique",
+          "correct": true
         }
       ],
       "explanation": "Les doubles liaisons rendent les acides gras polyinsaturés sensibles à l'oxydation."
@@ -506,19 +506,19 @@
       "prompt": "Quelle affirmation sur les acides gras trans industriels est correcte ?",
       "choices": [
         {
-          "text": "Ils sont à limiter autant que possible",
-          "correct": true
-        },
-        {
-          "text": "Ils sont indispensables à l'organisme",
-          "correct": false
-        },
-        {
           "text": "Ils fournissent zéro calorie",
           "correct": false
         },
         {
           "text": "Ils sont identiques aux fibres",
+          "correct": false
+        },
+        {
+          "text": "Ils sont à limiter autant que possible",
+          "correct": true
+        },
+        {
+          "text": "Ils sont indispensables à l'organisme",
           "correct": false
         }
       ],
