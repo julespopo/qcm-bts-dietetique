@@ -3,12 +3,39 @@
   "updated": "2026-10-21",
   "banks": [
     {
+      "id": "Alimentation_Nutrition__01_glucides",
+      "title": "Chapitre 1 — Les glucides",
+      "subject": "Alimentation - Nutrition",
+      "chapter": "Chapitre 1 — Les glucides",
+      "file": "banques/Alimentation_Nutrition/01_glucides.json",
+      "count": 20,
+      "version": 3
+    },
+    {
+      "id": "Alimentation_Nutrition__02_lipides",
+      "title": "Chapitre 2 — Les lipides",
+      "subject": "Alimentation - Nutrition",
+      "chapter": "Chapitre 2 — Les lipides",
+      "file": "banques/Alimentation_Nutrition/02_lipides.json",
+      "count": 20,
+      "version": 3
+    },
+    {
       "id": "Alimentation_Nutrition__03_proteines",
       "title": "Chapitre 3 — Les protéines et besoins protéiques",
       "subject": "Alimentation - Nutrition",
       "chapter": "Chapitre 3 — Les protéines",
       "file": "banques/Alimentation_Nutrition/03_proteines.json",
       "count": 60,
+      "version": 3
+    },
+    {
+      "id": "Alimentation_Nutrition__04_fibres",
+      "title": "Chapitre 4 — Les fibres alimentaires",
+      "subject": "Alimentation - Nutrition",
+      "chapter": "Chapitre 4 — Les fibres alimentaires",
+      "file": "banques/Alimentation_Nutrition/04_fibres.json",
+      "count": 20,
       "version": 3
     },
     {
