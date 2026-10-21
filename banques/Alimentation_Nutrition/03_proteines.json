@@ -399,7 +399,7 @@
       "category": "Métabolisme",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Dans quel organe l’ammoniac issu de la dégradation des AA est-il principalement transformé en urée ?",
+      "prompt": "Dans quel organe l’ammoniac issu de la dégradation des acides aminés (AA) est-il principalement transformé en urée ?",
       "choices": [
         {
           "text": "Foie",
@@ -685,7 +685,7 @@
       "category": "Recommandations",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Quelle RNP en protéines est indiquée pour l’adulte en bonne santé ?",
+      "prompt": "Quelle référence nutritionnelle pour la population (RNP) en protéines est indiquée pour l’adulte en bonne santé ?",
       "choices": [
         {
           "text": "0,83 g/kg/jour",
@@ -789,7 +789,7 @@
       "category": "Recommandations",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Cet intervalle correspond approximativement à quelle part de l’AET ?",
+      "prompt": "Cet intervalle correspond approximativement à quelle part de l’apport énergétique total (AET) ?",
       "choices": [
         {
           "text": "10 à 27 %",
@@ -808,7 +808,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le cours associe la fourchette de 0,83 à 2,2 g/kg/jour à 10–27 % de l’AET."
+      "explanation": "Le cours associe la fourchette de 0,83 à 2,2 g/kg/jour à 10–27 % de l’apport énergétique total (AET)."
     },
     {
       "id": "an3-032",
@@ -922,7 +922,7 @@
       "prompt": "Sur quel critère repose notamment la qualité d’une source de protéines ?",
       "choices": [
         {
-          "text": "Couverture des besoins en AA indispensables",
+          "text": "Couverture des besoins en acides aminés (AA) indispensables",
           "correct": true
         },
         {
@@ -938,7 +938,7 @@
           "correct": false
         }
       ],
-      "explanation": "La qualité protéique est liée à la capacité à satisfaire les besoins en AAE."
+      "explanation": "La qualité protéique est liée à la capacité à satisfaire les besoins en acides aminés essentiels (AAE)."
     },
     {
       "id": "an3-037",
@@ -997,7 +997,7 @@
       "category": "AA essentiels",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Quel AA fait partie des neuf acides aminés essentiels ?",
+      "prompt": "Quel acides aminés (AA) fait partie des neuf acides aminés essentiels ?",
       "choices": [
         {
           "text": "Lysine",
@@ -1016,14 +1016,14 @@
           "correct": false
         }
       ],
-      "explanation": "La lysine est un AA indispensable listé page 4."
+      "explanation": "La lysine est un acides aminés (AA) indispensable listé page 4."
     },
     {
       "id": "an3-040",
       "category": "AA essentiels",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel AA ne figure PAS parmi les neuf AA essentiels du cours ?",
+      "prompt": "Quel acides aminés (AA) ne figure PAS parmi les neuf acides aminés (AA) essentiels du cours ?",
       "choices": [
         {
           "text": "Glycine",
@@ -1068,7 +1068,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le mémo VIL-HLM-PTT rappelle les neuf AA indispensables."
+      "explanation": "Le mémo VIL-HLM-PTT rappelle les neuf acides aminés (AA) indispensables."
     },
     {
       "id": "an3-042",
@@ -1094,21 +1094,21 @@
           "correct": false
         }
       ],
-      "explanation": "La phénylalanine est un AA essentiel."
+      "explanation": "La phénylalanine est un acides aminés (AA) essentiel."
     },
     {
       "id": "an3-043",
       "category": "Facteur limitant",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Qu’est-ce qu’un AA facteur limitant ?",
+      "prompt": "Qu’est-ce qu’un acides aminés (AA) facteur limitant ?",
       "choices": [
         {
-          "text": "Un AA essentiel présent en quantité insuffisante au regard des besoins",
+          "text": "Un acides aminés (AA) essentiel présent en quantité insuffisante au regard des besoins",
           "correct": true
         },
         {
-          "text": "Un AA présent en quantité illimitée",
+          "text": "Un acides aminés (AA) présent en quantité illimitée",
           "correct": false
         },
         {
@@ -1120,14 +1120,14 @@
           "correct": false
         }
       ],
-      "explanation": "L’insuffisance d’un AAE limite la qualité et la synthèse protéiques."
+      "explanation": "L’insuffisance d’un acides aminés essentiels (AAE) limite la qualité et la synthèse protéiques."
     },
     {
       "id": "an3-044",
       "category": "Facteur limitant",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel AA est généralement limitant dans les céréales ?",
+      "prompt": "Quel acides aminés (AA) est généralement limitant dans les céréales ?",
       "choices": [
         {
           "text": "Lysine",
@@ -1153,7 +1153,7 @@
       "category": "Facteur limitant",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel AA est généralement limitant dans les légumineuses ?",
+      "prompt": "Quel acides aminés (AA) est généralement limitant dans les légumineuses ?",
       "choices": [
         {
           "text": "Méthionine",
@@ -1182,7 +1182,7 @@
       "prompt": "Pourquoi associer riz et haricots secs ?",
       "choices": [
         {
-          "text": "Pour compléter leurs apports en AA essentiels",
+          "text": "Pour compléter leurs apports en acides aminés (AA) essentiels",
           "correct": true
         },
         {
@@ -1224,14 +1224,14 @@
           "correct": false
         }
       ],
-      "explanation": "Le CEP utilise la croissance pondérale d’animaux sur 28 jours."
+      "explanation": "Le coefficient d’efficacité protéique (CEP) utilise la croissance pondérale d’animaux sur 28 jours."
     },
     {
       "id": "an3-048",
       "category": "CEP",
       "type": "single",
       "difficulty": 3,
-      "prompt": "Un animal gagne 24 g après avoir consommé 12 g de protéines. Quel est le CEP ?",
+      "prompt": "Un animal gagne 24 g après avoir consommé 12 g de protéines. Quel est le coefficient d’efficacité protéique (CEP) ?",
       "choices": [
         {
           "text": "2",
@@ -1250,14 +1250,14 @@
           "correct": false
         }
       ],
-      "explanation": "CEP = 24 / 12 = 2."
+      "explanation": "coefficient d’efficacité protéique (CEP) = 24 / 12 = 2."
     },
     {
       "id": "an3-049",
       "category": "CUD",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quelle formule définit le CUD ?",
+      "prompt": "Quelle formule définit le coefficient d’utilisation digestive (CUD) ?",
       "choices": [
         {
           "text": "Azote absorbé / azote ingéré × 100",
@@ -1276,14 +1276,14 @@
           "correct": false
         }
       ],
-      "explanation": "Le CUD exprime la part d’azote ingéré qui est absorbée."
+      "explanation": "Le coefficient d’utilisation digestive (CUD) exprime la part d’azote ingéré qui est absorbée."
     },
     {
       "id": "an3-050",
       "category": "CUD",
       "type": "single",
       "difficulty": 3,
-      "prompt": "Si 8 g d’azote sont absorbés sur 10 g ingérés, quel est le CUD ?",
+      "prompt": "Si 8 g d’azote sont absorbés sur 10 g ingérés, quel est le coefficient d’utilisation digestive (CUD) ?",
       "choices": [
         {
           "text": "80 %",
@@ -1302,7 +1302,7 @@
           "correct": false
         }
       ],
-      "explanation": "CUD = 8 / 10 × 100 = 80 %."
+      "explanation": "coefficient d’utilisation digestive (CUD) = 8 / 10 × 100 = 80 %."
     },
     {
       "id": "an3-051",
@@ -1328,14 +1328,14 @@
           "correct": false
         }
       ],
-      "explanation": "La VB mesure la fraction retenue de l’azote absorbé."
+      "explanation": "La valeur biologique (VB) mesure la fraction retenue de l’azote absorbé."
     },
     {
       "id": "an3-052",
       "category": "VB",
       "type": "single",
       "difficulty": 3,
-      "prompt": "Si 6 g d’azote sont retenus sur 8 g absorbés, quelle est la VB ?",
+      "prompt": "Si 6 g d’azote sont retenus sur 8 g absorbés, quelle est la valeur biologique (VB) ?",
       "choices": [
         {
           "text": "75 %",
@@ -1354,7 +1354,7 @@
           "correct": false
         }
       ],
-      "explanation": "VB = 6 / 8 × 100 = 75 %."
+      "explanation": "valeur biologique (VB) = 6 / 8 × 100 = 75 %."
     },
     {
       "id": "an3-053",
@@ -1364,30 +1364,30 @@
       "prompt": "Quelle formule donne l’utilisation protéique nette (UPN) ?",
       "choices": [
         {
-          "text": "CUD × VB / 100",
+          "text": "coefficient d’utilisation digestive (CUD) × valeur biologique (VB) / 100",
           "correct": true
         },
         {
-          "text": "CUD + VB",
+          "text": "coefficient d’utilisation digestive (CUD) + valeur biologique (VB)",
           "correct": false
         },
         {
-          "text": "CUD / VB",
+          "text": "coefficient d’utilisation digestive (CUD) / valeur biologique (VB)",
           "correct": false
         },
         {
-          "text": "VB − CUD",
+          "text": "valeur biologique (VB) − coefficient d’utilisation digestive (CUD)",
           "correct": false
         }
       ],
-      "explanation": "L’UPN combine la digestibilité et la valeur biologique."
+      "explanation": "L’utilisation protéique nette (UPN) combine la digestibilité et la valeur biologique."
     },
     {
       "id": "an3-054",
       "category": "UPN",
       "type": "single",
       "difficulty": 3,
-      "prompt": "Si CUD = 80 % et VB = 75 %, quelle est l’UPN ?",
+      "prompt": "Si coefficient d’utilisation digestive (CUD) = 80 % et valeur biologique (VB) = 75 %, quelle est l’utilisation protéique nette (UPN) ?",
       "choices": [
         {
           "text": "60 %",
@@ -1406,7 +1406,7 @@
           "correct": false
         }
       ],
-      "explanation": "UPN = 80 × 75 / 100 = 60 %."
+      "explanation": "utilisation protéique nette (UPN) = 80 × 75 / 100 = 60 %."
     },
     {
       "id": "an3-055",
@@ -1416,7 +1416,7 @@
       "prompt": "Quel paramètre est comparé à une protéine de référence dans l’indice chimique ?",
       "choices": [
         {
-          "text": "Teneur en AA essentiel",
+          "text": "Teneur en acides aminés (AA) essentiel",
           "correct": true
         },
         {
@@ -1432,14 +1432,14 @@
           "correct": false
         }
       ],
-      "explanation": "Le score chimique évalue la couverture en AA indispensables."
+      "explanation": "Le score chimique évalue la couverture en acides aminés (AA) indispensables."
     },
     {
       "id": "an3-056",
       "category": "PDCAAS",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel facteur supplémentaire est intégré au PDCAAS par rapport au seul indice chimique ?",
+      "prompt": "Quel facteur supplémentaire est intégré au score des acides aminés corrigé de la digestibilité des protéines (PDCAAS) par rapport au seul indice chimique ?",
       "choices": [
         {
           "text": "Digestibilité",
@@ -1458,14 +1458,14 @@
           "correct": false
         }
       ],
-      "explanation": "Le PDCAAS tient compte du profil en AAE et de la digestibilité."
+      "explanation": "Le score des acides aminés corrigé de la digestibilité des protéines (PDCAAS) tient compte du profil en acides aminés essentiels (AAE) et de la digestibilité."
     },
     {
       "id": "an3-057",
       "category": "Qualité des protéines",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel aliment atteint une valeur de 100 dans le tableau d’indice DiSCo/PDCAAS du cours ?",
+      "prompt": "Quel aliment atteint une valeur de 100 dans le tableau d’indice DiSCo/score des acides aminés corrigé de la digestibilité des protéines (PDCAAS) du cours ?",
       "choices": [
         {
           "text": "Œuf (blanc d’œuf)",
@@ -1491,7 +1491,7 @@
       "category": "Qualité des protéines",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quelle technique est indiquée comme pouvant améliorer le PDCAAS de certaines protéines végétales ?",
+      "prompt": "Quelle technique est indiquée comme pouvant améliorer le score des acides aminés corrigé de la digestibilité des protéines (PDCAAS) de certaines protéines végétales ?",
       "choices": [
         {
           "text": "Cuisson",
