@@ -191,7 +191,7 @@
       "category": "Application",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel aliment est notamment une source d'EPA et DHA ?",
+      "prompt": "Quel aliment est notamment une source d'acide eicosapentaénoïque (EPA) et acide docosahexaénoïque (DHA) ?",
       "choices": [
         {
           "text": "Riz blanc",
@@ -210,7 +210,7 @@
           "correct": false
         }
       ],
-      "explanation": "Les poissons gras apportent des oméga-3 à longue chaîne, EPA et DHA."
+      "explanation": "Les poissons gras apportent des oméga-3 à longue chaîne, acide eicosapentaénoïque (EPA) et acide docosahexaénoïque (DHA)."
     },
     {
       "id": "anl-009",
@@ -254,7 +254,7 @@
           "correct": false
         },
         {
-          "text": "Coder l'ADN",
+          "text": "Coder l'acide désoxyribonucléique (ADN)",
           "correct": false
         },
         {
@@ -376,7 +376,7 @@
       "prompt": "Quelle lipoprotéine transporte une part majeure des triglycérides alimentaires après absorption ?",
       "choices": [
         {
-          "text": "HDL uniquement",
+          "text": "lipoprotéines de haute densité (HDL) uniquement",
           "correct": false
         },
         {
@@ -399,7 +399,7 @@
       "category": "Application",
       "type": "single",
       "difficulty": 3,
-      "prompt": "Quelle association est correcte concernant les LDL ?",
+      "prompt": "Quelle association est correcte concernant les lipoprotéines de basse densité (LDL) ?",
       "choices": [
         {
           "text": "Elles n'existent que dans l'intestin",
@@ -418,7 +418,7 @@
           "correct": false
         }
       ],
-      "explanation": "Les LDL sont des lipoprotéines riches en cholestérol."
+      "explanation": "Les lipoprotéines de basse densité (LDL) sont des lipoprotéines riches en cholestérol."
     },
     {
       "id": "anl-017",
