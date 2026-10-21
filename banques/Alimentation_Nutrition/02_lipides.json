@@ -1,0 +1,528 @@
+{
+  "version": 3,
+  "title": "Chapitre 2 — Les lipides",
+  "subject": "Alimentation - Nutrition",
+  "chapter": "Chapitre 2 — Les lipides",
+  "questions": [
+    {
+      "id": "anl-001",
+      "category": "Notions fondamentales",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien d'énergie apporte 1 g de lipides ?",
+      "choices": [
+        {
+          "text": "9 kcal",
+          "correct": true
+        },
+        {
+          "text": "4 kcal",
+          "correct": false
+        },
+        {
+          "text": "2 kcal",
+          "correct": false
+        },
+        {
+          "text": "7 kcal",
+          "correct": false
+        }
+      ],
+      "explanation": "Les lipides apportent environ 9 kcal par gramme."
+    },
+    {
+      "id": "anl-002",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "De quoi est constitué un triglycéride ?",
+      "choices": [
+        {
+          "text": "Glycérol et trois acides gras",
+          "correct": true
+        },
+        {
+          "text": "Trois glycérols et un acide gras",
+          "correct": false
+        },
+        {
+          "text": "Glucose et fructose",
+          "correct": false
+        },
+        {
+          "text": "Acides aminés uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Un triglycéride comporte un glycérol estérifié par trois acides gras."
+    },
+    {
+      "id": "anl-003",
+      "category": "Digestion et métabolisme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu'est-ce qu'un acide gras saturé ?",
+      "choices": [
+        {
+          "text": "Un acide gras sans double liaison carbone-carbone",
+          "correct": true
+        },
+        {
+          "text": "Un acide gras avec trois doubles liaisons",
+          "correct": false
+        },
+        {
+          "text": "Un acide gras contenant nécessairement du cholestérol",
+          "correct": false
+        },
+        {
+          "text": "Un acide gras contenant du glucose",
+          "correct": false
+        }
+      ],
+      "explanation": "Un acide gras saturé ne comporte pas de double liaison C=C."
+    },
+    {
+      "id": "anl-004",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu'est-ce qu'un acide gras mono-insaturé ?",
+      "choices": [
+        {
+          "text": "Un acide gras avec une double liaison C=C",
+          "correct": true
+        },
+        {
+          "text": "Un acide gras sans double liaison",
+          "correct": false
+        },
+        {
+          "text": "Un acide gras à deux groupements glycérol",
+          "correct": false
+        },
+        {
+          "text": "Une protéine de transport",
+          "correct": false
+        }
+      ],
+      "explanation": "Mono-insaturé signifie une double liaison carbone-carbone."
+    },
+    {
+      "id": "anl-005",
+      "category": "Notions fondamentales",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quelle famille appartient l'acide linoléique ?",
+      "choices": [
+        {
+          "text": "Oméga-6",
+          "correct": true
+        },
+        {
+          "text": "Oméga-3",
+          "correct": false
+        },
+        {
+          "text": "Oméga-9",
+          "correct": false
+        },
+        {
+          "text": "Acides gras saturés",
+          "correct": false
+        }
+      ],
+      "explanation": "L'acide linoléique est un acide gras polyinsaturé essentiel de la famille oméga-6."
+    },
+    {
+      "id": "anl-006",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quelle famille appartient l'acide alpha-linolénique ?",
+      "choices": [
+        {
+          "text": "Oméga-3",
+          "correct": true
+        },
+        {
+          "text": "Oméga-6",
+          "correct": false
+        },
+        {
+          "text": "Oméga-9",
+          "correct": false
+        },
+        {
+          "text": "Acides gras trans",
+          "correct": false
+        }
+      ],
+      "explanation": "L'acide alpha-linolénique (ALA) est un oméga-3 indispensable."
+    },
+    {
+      "id": "anl-007",
+      "category": "Digestion et métabolisme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quels acides gras sont considérés comme indispensables ?",
+      "choices": [
+        {
+          "text": "Acides linoléique et alpha-linolénique",
+          "correct": true
+        },
+        {
+          "text": "Acides palmitique et stéarique",
+          "correct": false
+        },
+        {
+          "text": "Acides oléique et palmitique",
+          "correct": false
+        },
+        {
+          "text": "Acides gras trans industriels",
+          "correct": false
+        }
+      ],
+      "explanation": "L'organisme humain ne peut synthétiser les précurseurs essentiels des familles oméga-6 et oméga-3."
+    },
+    {
+      "id": "anl-008",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel aliment est notamment une source d'EPA et DHA ?",
+      "choices": [
+        {
+          "text": "Sardine",
+          "correct": true
+        },
+        {
+          "text": "Pomme",
+          "correct": false
+        },
+        {
+          "text": "Riz blanc",
+          "correct": false
+        },
+        {
+          "text": "Sucre de table",
+          "correct": false
+        }
+      ],
+      "explanation": "Les poissons gras apportent des oméga-3 à longue chaîne, EPA et DHA."
+    },
+    {
+      "id": "anl-009",
+      "category": "Notions fondamentales",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel aliment est particulièrement riche en acide oléique ?",
+      "choices": [
+        {
+          "text": "Huile d'olive",
+          "correct": true
+        },
+        {
+          "text": "Sucre blanc",
+          "correct": false
+        },
+        {
+          "text": "Blanc d'œuf",
+          "correct": false
+        },
+        {
+          "text": "Eau minérale",
+          "correct": false
+        }
+      ],
+      "explanation": "L'huile d'olive contient majoritairement des acides gras mono-insaturés, notamment l'acide oléique."
+    },
+    {
+      "id": "anl-010",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est une fonction majeure des phospholipides ?",
+      "choices": [
+        {
+          "text": "Constituer les membranes cellulaires",
+          "correct": true
+        },
+        {
+          "text": "Stocker uniquement le glucose",
+          "correct": false
+        },
+        {
+          "text": "Coder l'ADN",
+          "correct": false
+        },
+        {
+          "text": "Hydrolyser l'amidon",
+          "correct": false
+        }
+      ],
+      "explanation": "Les phospholipides sont des constituants amphiphiles des membranes."
+    },
+    {
+      "id": "anl-011",
+      "category": "Digestion et métabolisme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le cholestérol sert notamment de précurseur à quoi ?",
+      "choices": [
+        {
+          "text": "Hormones stéroïdes et acides biliaires",
+          "correct": true
+        },
+        {
+          "text": "Cellulose",
+          "correct": false
+        },
+        {
+          "text": "Lactose",
+          "correct": false
+        },
+        {
+          "text": "Glycogène",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cholestérol entre dans la synthèse de molécules stéroïdes et d'acides biliaires."
+    },
+    {
+      "id": "anl-012",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le rôle principal des sels biliaires dans la digestion lipidique ?",
+      "choices": [
+        {
+          "text": "Faciliter l'émulsification et la formation de micelles",
+          "correct": true
+        },
+        {
+          "text": "Hydrolyser directement les protéines",
+          "correct": false
+        },
+        {
+          "text": "Transformer le fructose en glucose",
+          "correct": false
+        },
+        {
+          "text": "Détruire les vitamines",
+          "correct": false
+        }
+      ],
+      "explanation": "Les sels biliaires favorisent la dispersion et la solubilisation des produits de digestion lipidique."
+    },
+    {
+      "id": "anl-013",
+      "category": "Notions fondamentales",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle enzyme hydrolyse une grande partie des triglycérides alimentaires dans l'intestin grêle ?",
+      "choices": [
+        {
+          "text": "Lipase pancréatique",
+          "correct": true
+        },
+        {
+          "text": "Amylase salivaire",
+          "correct": false
+        },
+        {
+          "text": "Lactase",
+          "correct": false
+        },
+        {
+          "text": "Pepsine",
+          "correct": false
+        }
+      ],
+      "explanation": "La lipase pancréatique assure une grande part de l'hydrolyse des triglycérides dans l'intestin grêle."
+    },
+    {
+      "id": "anl-014",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles vitamines sont liposolubles ?",
+      "choices": [
+        {
+          "text": "A, D, E et K",
+          "correct": true
+        },
+        {
+          "text": "B1, B2 et C",
+          "correct": false
+        },
+        {
+          "text": "C et B12 uniquement",
+          "correct": false
+        },
+        {
+          "text": "B6 et B9 uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Les vitamines A, D, E et K sont liposolubles."
+    },
+    {
+      "id": "anl-015",
+      "category": "Digestion et métabolisme",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle lipoprotéine transporte une part majeure des triglycérides alimentaires après absorption ?",
+      "choices": [
+        {
+          "text": "Chylomicrons",
+          "correct": true
+        },
+        {
+          "text": "HDL uniquement",
+          "correct": false
+        },
+        {
+          "text": "Albumine uniquement",
+          "correct": false
+        },
+        {
+          "text": "Hémoglobine",
+          "correct": false
+        }
+      ],
+      "explanation": "Les chylomicrons transportent les lipides d'origine alimentaire depuis l'intestin."
+    },
+    {
+      "id": "anl-016",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle association est correcte concernant les LDL ?",
+      "choices": [
+        {
+          "text": "Elles assurent notamment l'apport de cholestérol aux tissus",
+          "correct": true
+        },
+        {
+          "text": "Elles transportent uniquement le glucose",
+          "correct": false
+        },
+        {
+          "text": "Elles n'existent que dans l'intestin",
+          "correct": false
+        },
+        {
+          "text": "Elles sont une enzyme digestive",
+          "correct": false
+        }
+      ],
+      "explanation": "Les LDL sont des lipoprotéines riches en cholestérol."
+    },
+    {
+      "id": "anl-017",
+      "category": "Notions fondamentales",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Combien de kcal apportent 20 g de lipides ?",
+      "choices": [
+        {
+          "text": "180 kcal",
+          "correct": true
+        },
+        {
+          "text": "80 kcal",
+          "correct": false
+        },
+        {
+          "text": "120 kcal",
+          "correct": false
+        },
+        {
+          "text": "240 kcal",
+          "correct": false
+        }
+      ],
+      "explanation": "20 × 9 = 180 kcal."
+    },
+    {
+      "id": "anl-018",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pour 2 000 kcal, 35 % de lipides correspondent approximativement à combien de grammes ?",
+      "choices": [
+        {
+          "text": "78 g",
+          "correct": true
+        },
+        {
+          "text": "35 g",
+          "correct": false
+        },
+        {
+          "text": "125 g",
+          "correct": false
+        },
+        {
+          "text": "175 g",
+          "correct": false
+        }
+      ],
+      "explanation": "2 000 × 0,35 ÷ 9 ≈ 77,8 g."
+    },
+    {
+      "id": "anl-019",
+      "category": "Digestion et métabolisme",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel phénomène peut altérer une huile riche en acides gras polyinsaturés ?",
+      "choices": [
+        {
+          "text": "Oxydation lipidique",
+          "correct": true
+        },
+        {
+          "text": "Glycogénolyse",
+          "correct": false
+        },
+        {
+          "text": "Synthèse d'amidon",
+          "correct": false
+        },
+        {
+          "text": "Coagulation des protéines uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Les doubles liaisons rendent les acides gras polyinsaturés sensibles à l'oxydation."
+    },
+    {
+      "id": "anl-020",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle affirmation sur les acides gras trans industriels est correcte ?",
+      "choices": [
+        {
+          "text": "Ils sont à limiter autant que possible",
+          "correct": true
+        },
+        {
+          "text": "Ils sont indispensables à l'organisme",
+          "correct": false
+        },
+        {
+          "text": "Ils fournissent zéro calorie",
+          "correct": false
+        },
+        {
+          "text": "Ils sont identiques aux fibres",
+          "correct": false
+        }
+      ],
+      "explanation": "Les acides gras trans industriels ont des effets défavorables sur le risque cardiovasculaire."
+    }
+  ]
+}
