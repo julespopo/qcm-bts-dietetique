@@ -997,7 +997,7 @@
       "category": "AA essentiels",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Quel acides aminés (AA) fait partie des neuf acides aminés essentiels ?",
+      "prompt": "Quel acide aminé (AA) fait partie des neuf acides aminés essentiels ?",
       "choices": [
         {
           "text": "Lysine",
@@ -1016,14 +1016,14 @@
           "correct": false
         }
       ],
-      "explanation": "La lysine est un acides aminés (AA) indispensable listé page 4."
+      "explanation": "La lysine est un acide aminé (AA) indispensable listé page 4."
     },
     {
       "id": "an3-040",
       "category": "AA essentiels",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel acides aminés (AA) ne figure PAS parmi les neuf acides aminés (AA) essentiels du cours ?",
+      "prompt": "Quel acide aminé (AA) ne figure PAS parmi les neuf acides aminés essentiels (AAE) du cours ?",
       "choices": [
         {
           "text": "Glycine",
@@ -1094,21 +1094,21 @@
           "correct": false
         }
       ],
-      "explanation": "La phénylalanine est un acides aminés (AA) essentiel."
+      "explanation": "La phénylalanine est un acide aminé (AA) essentiel."
     },
     {
       "id": "an3-043",
       "category": "Facteur limitant",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Qu’est-ce qu’un acides aminés (AA) facteur limitant ?",
+      "prompt": "Qu’est-ce qu’un acide aminé (AA) facteur limitant ?",
       "choices": [
         {
-          "text": "Un acides aminés (AA) essentiel présent en quantité insuffisante au regard des besoins",
+          "text": "Un acide aminé (AA) essentiel présent en quantité insuffisante au regard des besoins",
           "correct": true
         },
         {
-          "text": "Un acides aminés (AA) présent en quantité illimitée",
+          "text": "Un acide aminé (AA) présent en quantité illimitée",
           "correct": false
         },
         {
@@ -1120,14 +1120,14 @@
           "correct": false
         }
       ],
-      "explanation": "L’insuffisance d’un acides aminés essentiels (AAE) limite la qualité et la synthèse protéiques."
+      "explanation": "L’insuffisance d’un acide aminé essentiel (AAE) limite la qualité et la synthèse protéiques."
     },
     {
       "id": "an3-044",
       "category": "Facteur limitant",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel acides aminés (AA) est généralement limitant dans les céréales ?",
+      "prompt": "Quel acide aminé (AA) est généralement limitant dans les céréales ?",
       "choices": [
         {
           "text": "Lysine",
@@ -1153,7 +1153,7 @@
       "category": "Facteur limitant",
       "type": "single",
       "difficulty": 2,
-      "prompt": "Quel acides aminés (AA) est généralement limitant dans les légumineuses ?",
+      "prompt": "Quel acide aminé (AA) est généralement limitant dans les légumineuses ?",
       "choices": [
         {
           "text": "Méthionine",
@@ -1182,7 +1182,7 @@
       "prompt": "Pourquoi associer riz et haricots secs ?",
       "choices": [
         {
-          "text": "Pour compléter leurs apports en acides aminés (AA) essentiels",
+          "text": "Pour compléter leurs apports en acide aminé essentiels",
           "correct": true
         },
         {
@@ -1416,7 +1416,7 @@
       "prompt": "Quel paramètre est comparé à une protéine de référence dans l’indice chimique ?",
       "choices": [
         {
-          "text": "Teneur en acides aminés (AA) essentiel",
+          "text": "Teneur en acide aminé essentiel",
           "correct": true
         },
         {
