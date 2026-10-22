@@ -261,8 +261,12 @@ for html_path in HTML_FILES:
         err(f"{rel}: flashExplanationOverlay doit être inert lorsqu'il est fermé")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.9.6</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.9.6")
+    if '<footer>Index V7.9.7</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.9.7")
+    if 'class="flash-explanation-icon hidden"' not in static_html:
+        err(f"{rel}: toggle compact des explications Vrai/Faux absent")
+    if '>💡 Explications</button>' in static_html:
+        err(f"{rel}: ancien bouton texte Explications encore présent")
     if 'id="timerToggleBtn"' in static_html or 'id="timerPresets"' in static_html:
         err(f"{rel}: le minuteur est encore présent dans les réglages")
     if 'id="themeToggle" class="theme-toggle theme-orbit-btn"' not in static_html:
