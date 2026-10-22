@@ -223,8 +223,8 @@ required_ids = {
     "flashExplanationNo", "flashExplanationYes", "flashCardExplanation",
     "flashCardExplanationTitle", "flashCardAnswerKey", "flashCardExplanationText", "flashPauseOverlay",
     "flashExplanationCountdownWrap", "flashExplanationCountdown", "flashExplanationCountdownFill",
-    "themeToggle", "floatingActions", "timerToggleBtn",
-    "timerPresets", "reviewRecommendations", "reviewRecommendationsTitle",
+    "themeToggle", "floatingActions",
+    "reviewRecommendations", "reviewRecommendationsTitle",
     "reviewRecommendationsIntro", "reviewAllTopics", "reviewTopicList",
     "errorBox", "errorText",
 }
@@ -255,18 +255,20 @@ for html_path in HTML_FILES:
         err(f"{rel}: favicon non déclarée")
     if 'id="floatingActions" class="floating-actions" aria-hidden="true" inert' not in static_html:
         err(f"{rel}: floatingActions doit être inert lorsqu'il est fermé")
-    if 'id="timerPresets" class="timer-presets-floating" aria-hidden="true" inert' not in static_html:
-        err(f"{rel}: timerPresets doit être inert lorsqu'il est masqué")
     if 'id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true" inert' not in static_html:
         err(f"{rel}: mobileSheetOverlay doit être inert lorsqu'il est fermé")
     if 'id="flashExplanationOverlay" class="flash-pref-overlay" aria-hidden="true" inert' not in static_html:
         err(f"{rel}: flashExplanationOverlay doit être inert lorsqu'il est fermé")
-    if 'aria-expanded="false" aria-controls="floatingActions"' not in static_html:
-        err(f"{rel}: themeToggle doit exposer aria-expanded/aria-controls")
     if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
         err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.9.5</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.9.5")
+    if '<footer>Index V7.9.6</footer>' not in source:
+        err(f"{rel}: version d'interface attendue V7.9.6")
+    if 'id="timerToggleBtn"' in static_html or 'id="timerPresets"' in static_html:
+        err(f"{rel}: le minuteur est encore présent dans les réglages")
+    if 'id="themeToggle" class="theme-toggle theme-orbit-btn"' not in static_html:
+        err(f"{rel}: le bouton flottant n'est pas le toggle jour/nuit direct")
+    if '⚙' in static_html:
+        err(f"{rel}: l'ancienne roue crantée est encore visible")
     if '@media(max-height:560px)' not in source:
         err(f"{rel}: mode compact petits écrans absent")
     if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
