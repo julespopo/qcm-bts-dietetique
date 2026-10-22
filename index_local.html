@@ -533,6 +533,22 @@ html.theme-switching button{
   color:var(--accent);
   box-shadow:0 0 0 3px var(--bg),0 0 20px rgba(var(--accent-rgb),.24)
 }
+.flash-explanation-inline{
+  align-self:center;
+  margin:8px auto 0;
+  padding:8px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--soft);
+  color:var(--muted);
+  font-weight:750;
+  font-size:.82rem;
+}
+.flash-explanation-inline.active{
+  border-color:rgba(var(--accent-rgb),.72);
+  background:var(--accent-soft);
+  color:var(--accent);
+}
 .timer-presets-floating{
   position:fixed;inset:0;pointer-events:none
 }
@@ -1161,31 +1177,14 @@ body.quiz-active.flashcard-mode #quitBtn{
 </style>
 </head>
 <body>
-<button id="themeToggle" class="theme-toggle" type="button" aria-label="Ouvrir le menu" title="Menu" aria-expanded="false" aria-controls="floatingActions">⚙</button>
+<button id="themeToggle" class="theme-toggle theme-orbit-btn" type="button" aria-label="Activer le mode nuit" title="Mode nuit">
+  <span class="theme-orbit" aria-hidden="true">
+    <span id="themeSun" class="theme-celestial theme-sun">☀</span>
+    <span id="themeMoon" class="theme-celestial theme-moon">☾</span>
+  </span>
+</button>
 
-<div id="floatingActions" class="floating-actions" aria-hidden="true" inert>
-  <button id="themeMenuBtn" class="floating-action-btn theme-orbit-btn" type="button" aria-label="Basculer le mode jour/nuit" title="Mode jour/nuit">
-    <span class="theme-orbit" aria-hidden="true">
-      <span id="themeSun" class="theme-celestial theme-sun">☀</span>
-      <span id="themeMoon" class="theme-celestial theme-moon">☾</span>
-    </span>
-  </button>
-
-  <button id="timerToggleBtn" class="floating-action-btn" type="button" aria-label="Activer le minuteur" title="Timer" aria-pressed="false">
-    ⏱
-  </button>
-
-  <button id="flashExplanationMenuBtn" class="floating-action-btn hidden" type="button" aria-label="Activer les explications Vrai/Faux" title="Explications Vrai/Faux" aria-pressed="false">
-    💡
-  </button>
-
-  <div id="timerPresets" class="timer-presets-floating" aria-hidden="true" inert>
-    <button class="timer-preset-floating" type="button" data-seconds="15">15</button>
-    <button class="timer-preset-floating" type="button" data-seconds="30">30</button>
-    <button class="timer-preset-floating" type="button" data-seconds="45">45</button>
-    <button class="timer-preset-floating" type="button" data-seconds="60">60</button>
-  </div>
-</div>
+<div id="floatingActions" class="floating-actions" aria-hidden="true" inert></div>
 
 <main>
 <header class="card hero visual-hero">
@@ -1373,6 +1372,7 @@ body.quiz-active.flashcard-mode #quitBtn{
       <button id="flashFalseBtn" class="flash-btn false" type="button">← Faux</button>
       <button id="flashTrueBtn" class="flash-btn true" type="button">Vrai →</button>
     </div>
+    <button id="flashExplanationMenuBtn" class="flash-explanation-inline hidden" type="button" aria-label="Activer les explications Vrai/Faux" title="Explications Vrai/Faux" aria-pressed="false">💡 Explications</button>
   </div>
   <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
   <div class="row quiz-actions">
@@ -1432,7 +1432,7 @@ body.quiz-active.flashcard-mode #quitBtn{
   </section>
 </section>
 
-<footer>Index V7.9.5</footer>
+<footer>Index V7.9.6</footer>
 </main>
 
 <script>
@@ -1452,7 +1452,7 @@ let themeDockedSide=null;
 function applyTheme(theme,{animate=false}={}){
   const dark=theme==="dark";
   const root=document.documentElement;
-  const themeBtn=$("themeMenuBtn");
+  const themeBtn=$("themeToggle");
 
   if(animate){
     root.classList.add("theme-switching");
@@ -1933,10 +1933,11 @@ function enableThemeButtonDrag(){
       e.preventDefault();e.stopPropagation();themeDragged=false;return;
     }
     if(themeDockedSide){
-      revealDockedThemeButton(true);
+      revealDockedThemeButton(false);
+      window.setTimeout(toggleTheme,390);
       return;
     }
-    toggleFloatingMenu();
+    toggleTheme();
   });
 
   window.addEventListener("resize",()=>{
@@ -3015,7 +3016,7 @@ function animateScoreDonut(percent){
 function finish(){clearFlashAdvance();resetFlashPauseUI();stopTimerInterval();state.timerEndAt=null;document.body.classList.remove("reviewing-errors");exitQuizFocus();
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;renderReviewRecommendations();clearProgress();
 }
-async function resumeSaved(){const s=getSaved();if(!s)return;state.mode=s.mode==="flashcard"?"flashcard":"qcm";state.flashExplanationsEnabled=!!s.flashExplanationsEnabled;syncModeUI();syncFlashExplanationUI();state.session=s.session;state.score=s.score||0;state.errors=s.errors||[];if((s.index||0)>=state.session.length){finish();return;}state.index=s.index||0;state.answered=false;state.reviewingErrors=!!s.reviewingErrors;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=!!s.timerEnabled;state.timerDurationMs=normalizeTimerDurationMs(s.timerDurationMs);state.timerRemainingMs=state.timerEnabled?Math.max(0,Number(s.timerRemainingMs)||0):null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
+async function resumeSaved(){const s=getSaved();if(!s)return;state.mode=s.mode==="flashcard"?"flashcard":"qcm";state.flashExplanationsEnabled=!!s.flashExplanationsEnabled;syncModeUI();syncFlashExplanationUI();state.session=s.session;state.score=s.score||0;state.errors=s.errors||[];if((s.index||0)>=state.session.length){finish();return;}state.index=s.index||0;state.answered=false;state.reviewingErrors=!!s.reviewingErrors;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=false;state.timerDurationMs=30000;state.timerRemainingMs=null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
 function resetFlashPauseUI(){
   flashPaused=false;document.body.classList.remove("flash-paused");
   const overlay=$("flashPauseOverlay");
@@ -3078,9 +3079,7 @@ document.addEventListener("pointerdown",e=>{
 
 document.querySelectorAll(".difficulty-btn").forEach(btn=>btn.addEventListener("click",()=>setDifficulty(btn.dataset.difficulty)));
 document.querySelectorAll(".mode-btn").forEach(btn=>btn.addEventListener("click",()=>setStudyMode(btn.dataset.mode)));
-$("themeMenuBtn").addEventListener("click",toggleTheme);
-$("timerToggleBtn").addEventListener("click",toggleTimer);
-document.querySelectorAll(".timer-preset-floating").forEach(btn=>btn.addEventListener("click",()=>selectTimerPreset(btn.dataset.seconds)));
+// Le bouton flottant principal bascule directement le thème via enableThemeButtonDrag().
 $("startBtn").addEventListener("click",start);$("validateBtn").addEventListener("click",()=>validate());$("nextBtn").addEventListener("click",next);$("pauseBtn").addEventListener("click",pause);
 $("flashExplanationNo").addEventListener("click",()=>chooseFlashExplanation(false));$("flashExplanationYes").addEventListener("click",()=>chooseFlashExplanation(true));$("flashExplanationMenuBtn").addEventListener("click",toggleFlashExplanations);
 $("flashFalseBtn").addEventListener("click",()=>answerFlashcard(false));$("flashTrueBtn").addEventListener("click",()=>answerFlashcard(true));

@@ -282,10 +282,7 @@ try:
     wait_until(lambda: driver.find_element(By.ID, "flashLiveResult").get_attribute("textContent").strip() != "", "résultat flash non annoncé")
     wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 2 /"), "carte suivante non avancée")
 
-    # The in-session control lives in the floating menu and must immediately change behavior.
-    gear = driver.find_element(By.ID, "themeToggle")
-    js_click(gear)
-    visible("#floatingActions.open")
+    # The in-session explanation control remains directly available in the flashcard UI.
     toggle = visible("#flashExplanationMenuBtn:not(.hidden)")
     assert toggle.get_attribute("aria-pressed") == "false", "état initial des explications incorrect"
     js_click(toggle)
@@ -413,17 +410,13 @@ try:
 
     fresh(390, 844)
 
-    # Floating menu focus/ARIA regression.
-    gear = driver.find_element(By.ID, "themeToggle")
-    js_click(gear)
-    actions = driver.find_element(By.ID, "floatingActions")
-    wait_until(lambda: actions.get_attribute("aria-hidden") == "false", "menu flottant non ouvert")
-    theme = driver.find_element(By.ID, "themeMenuBtn")
-    js_click(theme)
-    theme.send_keys(Keys.ESCAPE)
-    wait_until(lambda: actions.get_attribute("aria-hidden") == "true", "menu flottant non fermé avec Échap")
-    assert driver.execute_script("return arguments[0].inert", actions) is True
-    assert driver.switch_to.active_element.get_attribute("id") == "themeToggle", "focus non rendu au bouton principal"
+    # Direct day/night toggle: no settings menu and no timer control.
+    theme_toggle = driver.find_element(By.ID, "themeToggle")
+    initial_theme = driver.execute_script("return document.documentElement.dataset.theme")
+    js_click(theme_toggle)
+    wait_until(lambda: driver.execute_script("return document.documentElement.dataset.theme") != initial_theme, "toggle jour/nuit direct inactif")
+    assert not driver.find_elements(By.ID, "timerToggleBtn"), "timer encore présent dans l'interface"
+    assert not driver.find_elements(By.ID, "timerPresets"), "préréglages timer encore présents"
 
     select_mobile_subject_all()
     start_mode("flashcard", 1, explanations=True)

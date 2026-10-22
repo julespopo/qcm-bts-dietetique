@@ -1,4 +1,4 @@
-# QCM BTS Diététique — V7.9.5
+# QCM BTS Diététique — V7.9.6
 
 Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
 
@@ -427,6 +427,15 @@ Le dépôt contient deux niveaux de tests :
 Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur les pull requests et sur `main`.
 
 # Changelog
+
+## V7.9.6
+
+- Suppression du minuteur des réglages.
+- La roue crantée flottante est remplacée par un **toggle jour/nuit direct**.
+- Le thème continue d'être mémorisé.
+- Le réglage des explications Vrai/Faux reste accessible directement dans l'interface Vrai/Faux.
+- Une ancienne progression sauvegardée avec le minuteur activé ne réactive plus le chrono à la reprise.
+- Versions web et locale synchronisées.
 
 ## V7.9.5
 
