@@ -285,6 +285,8 @@ try:
     # The in-session explanation control remains directly available in the flashcard UI.
     toggle = visible("#flashExplanationMenuBtn:not(.hidden)")
     assert toggle.get_attribute("aria-pressed") == "false", "état initial des explications incorrect"
+    assert toggle.text.strip() == "💡", "le toggle d'explications doit rester une icône compacte"
+    assert toggle.rect["width"] <= 50 and toggle.rect["height"] <= 50, "toggle d'explications trop volumineux"
     js_click(toggle)
     wait_until(lambda: toggle.get_attribute("aria-pressed") == "true", "activation des explications non appliquée")
 
