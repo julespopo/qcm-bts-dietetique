@@ -1,6 +1,6 @@
 {
   "appVersion": 2,
-  "updated": "2026-10-21",
+  "updated": "2026-11-07",
   "banks": [
     {
       "id": "Alimentation_Nutrition__01_glucides",
@@ -75,6 +75,15 @@
       "version": 3
     },
     {
+      "id": "BPADN__05_vitamines",
+      "title": "Chapitre 5 — Les vitamines",
+      "subject": "BPADN",
+      "chapter": "Chapitre 5 — Les vitamines",
+      "file": "banques/BPADN/05_vitamines.json",
+      "count": 65,
+      "version": 3
+    },
+    {
       "id": "BPADN__06_acides_nucleiques",
       "title": "Chapitre 6 — Les acides nucléiques",
       "subject": "BPADN",
@@ -117,6 +126,15 @@
       "chapter": "Chapitre 10 — Pathologies cancéreuses",
       "file": "banques/BPADN/10_pathologies_cancereuses.json",
       "count": 90,
+      "version": 3
+    },
+    {
+      "id": "BPADN__12_appareil_cardiovasculaire_p1",
+      "title": "Chapitre 12 — L’appareil cardiovasculaire, partie 1",
+      "subject": "BPADN",
+      "chapter": "Chapitre 12 — L’appareil cardiovasculaire, partie 1",
+      "file": "banques/BPADN/12_appareil_cardiovasculaire_p1.json",
+      "count": 70,
       "version": 3
     },
     {
