@@ -131,6 +131,11 @@ def start_mode(mode: str, count: int, explanations: bool = False):
         assert driver.execute_script("return arguments[0].inert", overlay) is False
         assert driver.execute_script("return document.querySelector('#setup').inert") is True
         wait_until(lambda: driver.execute_script("return document.activeElement && document.activeElement.id") == "flashExplanationYes", "focus non placé dans la popup Vrai/Faux")
+        # Tab and Shift+Tab must remain within the modal, including the boundary.
+        driver.find_element(By.ID, "flashExplanationYes").send_keys(Keys.TAB)
+        assert driver.execute_script("return document.activeElement.id") == "flashExplanationNo"
+        driver.find_element(By.ID, "flashExplanationNo").send_keys(Keys.SHIFT, Keys.TAB)
+        assert driver.execute_script("return document.activeElement.id") == "flashExplanationYes"
         js_click(driver.find_element(By.ID, "flashExplanationYes" if explanations else "flashExplanationNo"))
     visible("#quiz:not(.hidden)")
 
@@ -180,6 +185,55 @@ def assert_no_console_regressions():
     assert not bad, "Console navigateur:\n" + "\n".join(bad)
 
 try:
+    # Regression: retain the web save across a failed restore and a visit to local mode.
+    fresh()
+    driver.execute_script("localStorage.setItem('qcm_bts_theme','dark')")
+    driver.refresh()
+    visible("#setup")
+    assert driver.execute_script("return getComputedStyle(document.documentElement).colorScheme") == "dark"
+    select_one_desktop_bank()
+    start_mode("qcm", 2)
+    answer_current_qcm_wrong()
+    js_click(visible("#pauseBtn"))
+    web_key = "qcm_bts_dietetique_modular_progress_v7_8_0"
+    saved = driver.execute_script("return localStorage.getItem(arguments[0])", web_key)
+    driver.get(BASE_URL + "index_local.html")
+    assert not driver.find_element(By.ID, "resumeCard").is_displayed(), "la version locale consomme une sauvegarde web"
+    driver.get(BASE_URL)
+    visible("#resumeCard")
+    driver.execute_script("window.originalFetch=window.fetch;window.fetch=(url,...args)=>String(url).startsWith('banques/')?Promise.reject(new Error('offline-test')):window.originalFetch(url,...args)")
+    js_click(visible("#resumeBtn"))
+    wait.until(lambda d: d.switch_to.alert)
+    assert "sauvegarde est conservée" in driver.switch_to.alert.text
+    driver.switch_to.alert.accept()
+    assert driver.execute_script("return localStorage.getItem(arguments[0])", web_key) == saved
+    assert driver.find_element(By.ID, "setup").is_displayed()
+    driver.execute_script("window.fetch=window.originalFetch")
+    js_click(visible("#resumeBtn"))
+    visible("#quiz:not(.hidden)")
+    assert re.search(r"2\s*/\s*2", driver.find_element(By.ID, "counter").text), "reprise à la mauvaise question"
+    answer_current_qcm_wrong()
+    js_click(visible("#nextBtn"))
+    visible("#results:not(.hidden)")
+    assert driver.find_element(By.ID, "finalScore").text.startswith("0 / 2")
+    assert_no_console_regressions()
+
+    # Regression: a chapter rerender must retain keyboard focus in the mobile dialog.
+    fresh(390, 844)
+    js_click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
+    visible("#mobileSheetOverlay.open")
+    chapter = driver.find_elements(By.CSS_SELECTOR, "#mobileChapterList .chapter-card")[0]
+    bank_id = chapter.get_attribute("data-bank-id")
+    driver.execute_script("arguments[0].focus()", chapter)
+    chapter.send_keys(Keys.ENTER)
+    wait_until(lambda: driver.execute_script("return document.activeElement.dataset.bankId") == bank_id, "focus perdu après sélection d'un chapitre")
+    last = driver.find_elements(By.CSS_SELECTOR, "#mobileChapterList .chapter-card")[-1]
+    driver.execute_script("arguments[0].focus()", last)
+    last.send_keys(Keys.TAB)
+    assert driver.execute_script("return document.activeElement.id") == "mobileSheetClose"
+    driver.find_element(By.ID, "mobileSheetClose").send_keys(Keys.ESCAPE)
+    assert_no_console_regressions()
+
     # 1) Desktop QCM: scoring, per-choice feedback, pause/resume.
     fresh()
 
@@ -500,23 +554,19 @@ try:
 
     assert_no_console_regressions()
 
-    # 4) Version locale: chargement réel de toutes les banques JSON et un QCM complet.
+    # 4) Version locale: double-clic (file://), import réel du dossier et QCM complet.
     driver.set_window_size(1280, 900)
-    driver.get(BASE_URL + "index_local.html")
+    local_url = (ROOT / "index_local.html").as_uri()
+    driver.get(local_url)
     wait_until(lambda: driver.execute_script("return document.readyState") == "complete", "index_local non chargé")
     driver.execute_script("localStorage.clear();")
-    driver.get(BASE_URL + "index_local.html")
+    driver.get(local_url)
     folder_input = driver.find_element(By.ID, "folderInput")
     assert folder_input.get_attribute("webkitdirectory") is not None, "sélecteur de dossier local absent"
     bank_files = [str(p.resolve()) for p in sorted((ROOT / "banques").rglob("*.json"))]
     expected_bank_count = len(bank_files)
     assert expected_bank_count >= 1
-    # ChromeDriver n'autorise pas toujours l'envoi automatisé d'un répertoire
-    # sur un input webkitdirectory. Pour tester le moteur d'import sans boîte
-    # de dialogue système, on retire cet attribut uniquement dans le test et
-    # on injecte toutes les banques JSON disponibles.
-    driver.execute_script("arguments[0].removeAttribute('webkitdirectory'); arguments[0].style.display='block';", folder_input)
-    folder_input.send_keys("\n".join(bank_files))
+    folder_input.send_keys(str(ROOT / "banques"))
     wait_until(lambda: f"{expected_bank_count} banque(s) chargée(s)" in driver.find_element(By.ID, "loadStatus").text, "les banques locales ne se chargent pas")
     visible("#setup")
     expected_subject_count = len({
@@ -532,6 +582,11 @@ try:
     count_el.send_keys("1")
     js_click(driver.find_element(By.ID, "startBtn"))
     visible("#quiz:not(.hidden)")
+    assert not driver.find_element(By.ID, "localLoader").is_displayed(), "le chargeur local empiète sur le questionnaire"
+    driver.set_window_size(390, 844)
+    quiz_rect = driver.find_element(By.ID, "quiz").rect
+    assert quiz_rect["width"] >= driver.execute_script("return window.innerWidth") * 0.90, "quiz local mobile trop étroit"
+    driver.set_window_size(1280, 900)
     inputs = driver.find_elements(By.CSS_SELECTOR, '#choices input[name="ans"]')
     correct = [i for i in inputs if i.get_attribute("data-correct") == "1"]
     assert correct
@@ -565,6 +620,42 @@ try:
     if local_expected:
         assert local_total == local_expected, f"Réviser ce thème local: {local_total} questions au lieu de {local_expected}"
 
+    assert_no_console_regressions()
+    # Local restore after closing the page: the snapshot works before reimporting banks.
+    js_click(driver.find_element(By.ID, "quitBtn"))
+    driver.switch_to.alert.accept()
+    visible("#setup")
+    count_el = driver.find_element(By.ID, "count")
+    count_el.clear()
+    count_el.send_keys("1")
+    js_click(driver.find_element(By.ID, "startBtn"))
+    visible("#quiz:not(.hidden)")
+    answer_current_qcm_wrong()  # saved at index == length, before visiting the results
+    driver.refresh()
+    visible("#resumeCard")
+    js_click(driver.find_element(By.ID, "resumeBtn"))
+    visible("#results:not(.hidden)")
+    assert driver.find_element(By.ID, "finalScore").text.startswith("0 / 1")
+    assert driver.find_element(By.ID, "reviewAllTopics").get_property("disabled"), "thèmes locaux activés sans banques rechargées"
+    js_click(driver.find_element(By.ID, "retryErrors"))
+    visible("#quiz:not(.hidden)")
+    for inp in driver.find_elements(By.CSS_SELECTOR, '#choices input[data-correct="1"]'):
+        js_click(inp)
+    js_click(driver.find_element(By.ID, "validateBtn"))
+    js_click(visible("#nextBtn"))
+    visible("#results:not(.hidden)")
+    assert driver.find_element(By.ID, "finalScore").text.startswith("1 / 1")
+    assert_no_console_regressions()
+
+    # Invalid imports must be reported without creating a broken selectable bank.
+    driver.execute_async_script("""
+      const done=arguments[arguments.length-1], dt=new DataTransfer();
+      dt.items.add(new File([JSON.stringify({questions:[null]})], 'bad.json', {type:'application/json'}));
+      const input=document.getElementById('folderInput');input.files=dt.files;
+      input.dispatchEvent(new Event('change',{bubbles:true}));setTimeout(done,100);
+    """)
+    wait_until(lambda: "Banque invalide" in driver.find_element(By.ID, "loadStatus").text, "import invalide silencieusement accepté")
+    assert not driver.find_element(By.ID, "setup").is_displayed()
     assert_no_console_regressions()
     print("OK — batterie E2E: QCM, Vrai/Faux, À réviser ciblé/global, desktop/mobile + version locale")
 finally:

@@ -240,6 +240,7 @@ body.quiz-active main{
 }
 body.quiz-active .hero,
 body.quiz-active #errorBox,
+body.quiz-active #localLoader,
 body.quiz-active #resumeCard,
 body.quiz-active #setup,
 body.quiz-active #results,
@@ -1464,6 +1465,7 @@ function applyTheme(theme,{animate=false}={}){
   }
 
   root.dataset.theme=dark?"dark":"light";
+  root.style.colorScheme=dark?"dark":"light";
   if(themeBtn){
     themeBtn.classList.toggle("is-dark",dark);
     themeBtn.setAttribute("aria-label",dark?"Activer le mode jour":"Activer le mode nuit");
@@ -1481,7 +1483,7 @@ function applyTheme(theme,{animate=false}={}){
   }
 }
 function storedTheme(){
-  try{return localStorage.getItem(THEME_KEY);}catch{return null;}
+  try{const theme=localStorage.getItem(THEME_KEY);return ["light","dark"].includes(theme)?theme:null;}catch{return null;}
 }
 function initTheme(){
   const saved=storedTheme();
@@ -2030,12 +2032,37 @@ function chooseFlashExplanation(enabled){
   startPreparedSession();
 }
 
+function validQuestion(q){
+  if(!q||typeof q.id!=="string"||!q.id.trim()||typeof q.prompt!=="string"||!q.prompt.trim())return false;
+  if(!["single","multiple"].includes(q.type)||!Array.isArray(q.choices)||q.choices.length<2)return false;
+  if(!q.choices.every(c=>c&&typeof c.text==="string"&&c.text.trim()&&typeof c.correct==="boolean"))return false;
+  const correct=q.choices.filter(c=>c.correct).length;
+  return q.type==="single"?correct===1:correct>=2;
+}
+function validateBank(data,file){
+  if(!data||!Array.isArray(data.questions)||!data.questions.every(validQuestion))throw new Error("Banque invalide : "+file);
+  const ids=data.questions.map(q=>q.id);
+  if(new Set(ids).size!==ids.length)throw new Error("Identifiants de questions dupliqués : "+file);
+  return data;
+}
+function validFlashSnapshot(q){
+  if(!isFlashcardEligible(q)||!Array.isArray(q.flashProposal)||q.flashProposal.length!==1||typeof q.flashTruth!=="boolean")return false;
+  return q.choices.some(c=>c.text.trim()===q.flashProposal[0]&&c.correct===q.flashTruth);
+}
+function validSavedProgress(s,items,errors){
+  return !!s&&["qcm","flashcard"].includes(s.mode||"qcm")&&Array.isArray(items)&&items.length>0&&
+    Number.isInteger(s.index)&&s.index>=0&&s.index<=items.length&&
+    Number.isInteger(s.score)&&s.score>=0&&s.score<=s.index&&
+    Array.isArray(errors)&&errors.length===s.index-s.score;
+}
+
 async function loadManifest(){
   if(location.protocol==="file:") throw new Error("Cette version web doit être ouverte depuis GitHub Pages. Utilise index_local.html pour un test par double-clic.");
   const r=await fetch("manifest.json",{cache:"no-store"});
   if(!r.ok) throw new Error("manifest.json introuvable ("+r.status+")");
   const m=await r.json();
-  if(!m||!Array.isArray(m.banks)) throw new Error("Format de manifest.json invalide.");
+  if(!m||!Array.isArray(m.banks)||!m.banks.every(b=>b&&typeof b.id==="string"&&b.id&&typeof b.file==="string"&&/^banques\/[^?#]+\.json$/.test(b.file)&&!b.file.split("/").includes("..")&&typeof b.title==="string"&&typeof b.subject==="string"&&Number.isInteger(b.count)&&b.count>=0)||
+    new Set(m.banks.map(b=>b.id)).size!==m.banks.length||new Set(m.banks.map(b=>b.file)).size!==m.banks.length)throw new Error("Format de manifest.json invalide.");
   state.manifest=m;
 }
 async function loadBank(file){
@@ -2043,7 +2070,7 @@ async function loadBank(file){
   const r=await fetch(file,{cache:"no-store"});
   if(!r.ok) throw new Error("Impossible de charger "+file);
   const data=await r.json();
-  if(!data||!Array.isArray(data.questions)) throw new Error("Banque invalide : "+file);
+  validateBank(data,file);
   cache.set(file,data);return data;
 }
 
@@ -2084,7 +2111,6 @@ function renderMobileSheet(){
     const id=btn.dataset.bankId;
     if(state.selectedBankIds.has(id))state.selectedBankIds.delete(id);else state.selectedBankIds.add(id);
     renderSelectionUI();
-    renderMobileSheet();
   }));
 }
 let mobileSheetReturnSubject=null;
@@ -2250,10 +2276,17 @@ async function updateAvailable(){
   }
 }
 function renderSelectionUI(){
+  const active=document.activeElement;
+  const focusKey=active?.dataset.bankId||active?.dataset.subject;
+  const focusList=active?.parentElement?.id;
   renderSubjects();
   renderChapters();
   updateAvailable();
   if($("mobileSheetOverlay")?.classList.contains("open"))renderMobileSheet();
+  if(focusKey&&focusList){
+    const replacement=[...$(focusList).querySelectorAll("button")].find(btn=>(btn.dataset.bankId||btn.dataset.subject)===focusKey);
+    replacement?.focus({preventScroll:true});
+  }
 }
 
 function buildFlashcard(q,wantTrue){
@@ -2396,9 +2429,10 @@ function questionRef(q){
   return ref;
 }
 function refsFromSession(){return state.session.map(questionRef);}
-async function rebuildSessionFromRefs(refs){
+async function rebuildSessionFromRefs(refs,mode=state.mode){
   if(!Array.isArray(refs)||!refs.length)return [];
   const files=[...new Set(refs.map(r=>r.file))],lookups=new Map();
+  if(files.some(file=>!state.manifest.banks.some(b=>b.file===file)))throw new Error("Une banque sauvegardée ne figure plus dans le manifest.");
   for(const file of files){
     const data=await loadBank(file),meta=state.manifest.banks.find(b=>b.file===file)||{},m=new Map();
     data.questions.forEach(q=>m.set(q.id,{...q,bankTitle:meta.title||data.title||file,subject:meta.subject||data.subject||"",chapter:meta.chapter||data.chapter||"",bankFile:file}));
@@ -2406,8 +2440,12 @@ async function rebuildSessionFromRefs(refs){
   }
   const rebuilt=refs.map(r=>{
     const q=lookups.get(r.file)?.get(r.id);if(!q)return null;
-    if(state.mode!=="flashcard")return q;
-    if(Array.isArray(r.flashProposal)&&r.flashProposal.length)return {...q,flashProposal:r.flashProposal,flashTruth:!!r.flashTruth};
+    if(mode!=="flashcard")return q;
+    if(Array.isArray(r.flashProposal)&&r.flashProposal.length){
+      const card={...q,flashProposal:r.flashProposal,flashTruth:r.flashTruth};
+      if(!validFlashSnapshot(card))throw new Error("Une proposition Vrai/Faux sauvegardée n'est plus valide.");
+      return card;
+    }
     return buildFlashcard(q,Math.random()>=.5);
   });
   if(rebuilt.some(q=>q===null))throw new Error("Une ou plusieurs questions sauvegardées ne sont plus disponibles.");
@@ -2485,7 +2523,14 @@ function pauseTimer(){
   renderTimer();
 }
 
-function getSaved(){try{const s=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");return s&&Array.isArray(s.refs)&&s.refs.length?s:null;}catch{return null;}}
+function getSaved(){
+  try{
+    const s=JSON.parse(localStorage.getItem(SAVE_KEY)||"null");
+    if(!validSavedProgress(s,s?.refs,s?.errorRefs||[]))return null;
+    const validRef=r=>r&&typeof r.file==="string"&&typeof r.id==="string"&&r.id.length>0;
+    return [...s.refs,...(s.errorRefs||[])].every(validRef)?s:null;
+  }catch{return null;}
+}
 function saveProgress(){
   if(!state.session.length)return true;
   const resumeIndex=state.answered?state.index+1:state.index;
@@ -3046,9 +3091,25 @@ function finish(){clearFlashAdvance();resetFlashPauseUI();stopTimerInterval();st
   $("quiz").classList.add("hidden");$("results").classList.remove("hidden");const total=state.session.length,pct=Math.round(100*state.score/total);$("finalScore").textContent=`${state.score} / ${total} — ${pct} %`;animateScoreDonut(pct);$("summary").textContent=state.errors.length?`${state.errors.length} question(s) à revoir.`:"Aucune erreur sur cette série.";$("retryErrors").disabled=!state.errors.length;renderReviewRecommendations();clearProgress();
 }
 async function resumeSaved(){
-  const s=getSaved();if(!s)return;$("resumeBtn").disabled=true;$("resumeBtn").textContent="Chargement…";
-  try{state.mode=s.mode==="flashcard"?"flashcard":"qcm";state.flashExplanationsEnabled=!!s.flashExplanationsEnabled;syncModeUI();syncFlashExplanationUI();state.session=await rebuildSessionFromRefs(s.refs);if(!state.session.length)throw new Error("Les questions sauvegardées ne sont plus disponibles.");if((s.index||0)>=state.session.length){state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);finish();return;}state.index=s.index||0;state.score=s.score||0;state.errors=await rebuildSessionFromRefs(s.errorRefs||[]);state.answered=false;state.reviewingErrors=!!s.reviewingErrors;$("shuffleAnswers").checked=s.shuffleAnswers!==false;$("instantCorrection").checked=s.instantCorrection!==false;state.timerEnabled=false;state.timerDurationMs=30000;state.timerRemainingMs=null;state.timerEndAt=null;syncTimerSettingsUI();$("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);}
-  catch(e){alert(e.message);clearProgress();}finally{$("resumeBtn").disabled=false;$("resumeBtn").textContent="Reprendre";}
+  const s=getSaved();if(!s)return;
+  $("resumeBtn").disabled=true;$("resumeBtn").textContent="Chargement…";
+  try{
+    const mode=s.mode==="flashcard"?"flashcard":"qcm";
+    const session=await rebuildSessionFromRefs(s.refs,mode);
+    const errors=await rebuildSessionFromRefs(s.errorRefs||[],mode);
+    // Commit the restored state only once every question has loaded successfully.
+    clearFlashAdvance();resetFlashPauseUI();
+    Object.assign(state,{mode,session,errors,index:s.index,score:s.score,answered:false,
+      reviewingErrors:!!s.reviewingErrors,flashExplanationsEnabled:!!s.flashExplanationsEnabled,flashOutcome:null,
+      timerEnabled:false,timerDurationMs:30000,timerRemainingMs:null,timerEndAt:null});
+    syncModeUI();syncFlashExplanationUI();syncTimerSettingsUI();
+    $("shuffleAnswers").checked=s.shuffleAnswers!==false;
+    $("instantCorrection").checked=s.instantCorrection!==false;
+    $("setup").classList.add("hidden");$("resumeCard").classList.add("hidden");$("results").classList.add("hidden");
+    if(state.index===state.session.length){finish();return;}
+    $("quiz").classList.remove("hidden");enterQuizFocus();renderQuestion(true);
+  }catch(e){alert("Reprise impossible : "+e.message+" La sauvegarde est conservée ; réessaie ou abandonne cette progression.");}
+  finally{$("resumeBtn").disabled=false;$("resumeBtn").textContent="Reprendre";}
 }
 function resetFlashPauseUI(){
   flashPaused=false;document.body.classList.remove("flash-paused");
@@ -3100,6 +3161,15 @@ $("mobileSheetOverlay").addEventListener("click",e=>{
   if(e.target===$("mobileSheetOverlay"))closeMobileSheet();
 });
 document.addEventListener("keydown",e=>{
+  const modal=document.querySelector(".flash-pref-overlay.open .flash-pref-dialog, .mobile-sheet-overlay.open .mobile-sheet");
+  if(e.key==="Tab"&&modal){
+    const controls=[...modal.querySelectorAll('button:not(:disabled),input:not(:disabled),[tabindex="0"]')].filter(el=>el.getClientRects().length);
+    const first=controls[0],last=controls[controls.length-1];
+    if(!modal.contains(document.activeElement)||(e.shiftKey&&document.activeElement===first)||(!e.shiftKey&&document.activeElement===last)){
+      e.preventDefault();(e.shiftKey?last:first)?.focus();
+    }
+    return;
+  }
   if(e.key!=="Escape")return;
   if($("flashExplanationOverlay").classList.contains("open")){closeFlashExplanationPrompt();return;}
   if($("mobileSheetOverlay").classList.contains("open")){closeMobileSheet();return;}
@@ -3131,58 +3201,10 @@ $("reviewTopicList").addEventListener("click",e=>{
   if(topic)startReviewTopics([topic]);
 });
 
-function disableAccidentalDoubleTapZoom(){
-  let lastTapTime=0,lastX=0,lastY=0,multiTouchGesture=false;
-
-  document.addEventListener("touchstart",e=>{
-    if(e.touches.length>1){
-      multiTouchGesture=true;
-      lastTapTime=0;
-    }else if(e.touches.length===1){
-      multiTouchGesture=false;
-    }
-  },{passive:true});
-
-  document.addEventListener("touchmove",e=>{
-    if(e.touches.length>1)multiTouchGesture=true;
-  },{passive:true});
-
-  document.addEventListener("touchend",e=>{
-    if(multiTouchGesture){
-      if(e.touches.length===0)multiTouchGesture=false;
-      lastTapTime=0;
-      return;
-    }
-    if(e.touches.length!==0)return;
-
-    const t=e.changedTouches&&e.changedTouches[0];
-    if(!t)return;
-    const now=Date.now();
-    const dt=now-lastTapTime;
-    const dist=Math.hypot(t.clientX-lastX,t.clientY-lastY);
-
-    if(dt>0&&dt<360&&dist<28){
-      // Empêche le zoom double-tap et le second déclenchement accidentel.
-      e.preventDefault();
-      lastTapTime=0;
-      return;
-    }
-
-    lastTapTime=now;
-    lastX=t.clientX;
-    lastY=t.clientY;
-  },{passive:false});
-
-  // Sécurité supplémentaire pour les navigateurs déclenchant dblclick.
-  document.addEventListener("dblclick",e=>{
-    e.preventDefault();
-  },{passive:false});
-}
 
 initTheme();
 state.timerEnabled=false;state.timerDurationMs=30000;syncTimerSettingsUI();
 syncModeUI();syncFlashExplanationUI();initFlashSwipe();
-disableAccidentalDoubleTapZoom();
 restoreThemeButtonPosition();
 enableThemeButtonDrag();
 
@@ -3190,7 +3212,10 @@ window.addEventListener("resize",()=>{
   if(!isMobileSelectionUI()&&$("mobileSheetOverlay").classList.contains("open"))closeMobileSheet();if(floatingMenuOpen)layoutFloatingActions();
 });
 document.addEventListener("keydown",handleQuizKeyboard);
-window.addEventListener("beforeunload",()=>{if(!$("quiz").classList.contains("hidden"))saveProgress();});
+function persistActiveSession(){if(!$("quiz").classList.contains("hidden"))saveProgress();}
+window.addEventListener("beforeunload",persistActiveSession);
+window.addEventListener("pagehide",persistActiveSession);
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")persistActiveSession();});
 init();
 })();
 </script>
