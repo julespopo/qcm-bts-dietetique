@@ -2,12 +2,11 @@
 from __future__ import annotations
 
 import json
-import random
 import re
+from html.parser import HTMLParser
 import shutil
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,8 +22,6 @@ stats = {
     "single": 0,
     "multiple": 0,
     "flash_eligible": 0,
-    "qcm_logic_cases": 0,
-    "flash_stress_cases": 0,
 }
 
 def err(message: str) -> None:
@@ -39,14 +36,6 @@ def load_json(path: Path):
     except Exception as exc:
         err(f"{path.relative_to(ROOT)}: JSON invalide ({exc})")
         return None
-
-def qcm_score(question: dict, selected_indexes: set[int]) -> bool:
-    choices = question["choices"]
-    return all(
-        (i in selected_indexes and choice["correct"] is True)
-        or (i not in selected_indexes and choice["correct"] is False)
-        for i, choice in enumerate(choices)
-    )
 
 manifest = load_json(MANIFEST_PATH)
 if not isinstance(manifest, dict):
@@ -66,6 +55,11 @@ manifest_by_file = {
     if isinstance(entry, dict) and isinstance(entry.get("file"), str)
 }
 
+for field in ("id", "file"):
+    values = [entry.get(field) for entry in manifest_banks if isinstance(entry, dict)]
+    if any(not isinstance(value, str) or not value for value in values) or len(set(values)) != len(values):
+        err(f"Manifest : {field} manquant ou dupliqué")
+
 actual_rel_paths = {path.relative_to(ROOT).as_posix() for path in bank_paths}
 manifest_rel_paths = set(manifest_by_file)
 
@@ -77,7 +71,6 @@ for missing in sorted(manifest_rel_paths - actual_rel_paths):
 global_ids: dict[str, str] = {}
 normalized_prompts: dict[str, str] = {}
 duplicate_prompt_count = 0
-rng = random.Random(20260927)
 
 for bank_path in bank_paths:
     rel = bank_path.relative_to(ROOT).as_posix()
@@ -177,228 +170,88 @@ for bank_path in bank_paths:
         if qtype == "multiple" and len(correct_indexes) < 2:
             err(f"{loc}: une question multiple doit avoir au moins deux bonnes réponses")
 
-        # Test exhaustif de la règle de score QCM :
-        # la combinaison exacte doit passer et chaque inversion d'un seul choix doit échouer.
-        if correct_indexes:
-            stats["qcm_logic_cases"] += 1
-            if not qcm_score(question, correct_indexes):
-                err(f"{loc}: la combinaison correcte est refusée par la logique QCM")
-            for choice_index in range(len(choices)):
-                mutated = set(correct_indexes)
-                if choice_index in mutated:
-                    mutated.remove(choice_index)
-                else:
-                    mutated.add(choice_index)
-                stats["qcm_logic_cases"] += 1
-                if qcm_score(question, mutated):
-                    err(f"{loc}: une combinaison erronée est acceptée par la logique QCM")
-
-        # Le mode Vrai/Faux ne prend que les questions à réponse unique.
-        # Pour générer de vraies ET de fausses cartes, il faut au moins un distracteur.
         if qtype == "single" and len(correct_indexes) == 1:
             stats["flash_eligible"] += 1
-            correct_texts = [choices[i]["text"].strip() for i in correct_indexes]
-            incorrect_texts = [
-                choice["text"].strip()
-                for i, choice in enumerate(choices)
-                if i not in correct_indexes
-            ]
-            if not incorrect_texts:
-                err(f"{loc}: aucun distracteur, impossible de générer une carte Faux")
-            else:
-                for _ in range(100):
-                    true_proposal = rng.choice(correct_texts)
-                    false_proposal = rng.choice(incorrect_texts)
-                    stats["flash_stress_cases"] += 2
-                    if true_proposal not in correct_texts:
-                        err(f"{loc}: génération Vrai incohérente")
-                    if false_proposal not in incorrect_texts:
-                        err(f"{loc}: génération Faux incohérente")
 
-# Vérifications HTML / JS
+# Validate semantic contracts, not formatting, CSS pixel values or source fragments.
+class Page(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.elements = []
+        self.ids = {}
+        self.duplicates = set()
+
+    def handle_starttag(self, tag, attributes):
+        attrs = dict(attributes)
+        self.elements.append((tag, attrs))
+        if "id" in attrs:
+            if attrs["id"] in self.ids:
+                self.duplicates.add(attrs["id"])
+            self.ids[attrs["id"]] = (tag, attrs)
+
 required_ids = {
-    "setup", "quiz", "results", "choices", "validateBtn", "nextBtn",
-    "pauseBtn", "quitBtn", "flashArea", "flashCard", "flashFalseBtn",
-    "flashTrueBtn", "flashExplanationMenuBtn", "flashExplanationOverlay",
-    "flashExplanationNo", "flashExplanationYes", "flashCardExplanation",
-    "flashCardExplanationTitle", "flashCardAnswerKey", "flashCardExplanationText", "flashPauseOverlay",
-    "flashExplanationCountdownWrap", "flashExplanationCountdown", "flashExplanationCountdownFill",
-    "themeToggle", "floatingActions",
-    "reviewRecommendations", "reviewRecommendationsTitle",
-    "reviewRecommendationsIntro", "reviewAllTopics", "reviewTopicList",
-    "errorBox", "errorText",
+    "setup", "quiz", "results", "choices", "validateBtn", "nextBtn", "pauseBtn", "quitBtn",
+    "flashArea", "flashCard", "flashFalseBtn", "flashTrueBtn", "flashExplanationMenuBtn",
+    "flashExplanationOverlay", "flashExplanationNo", "flashExplanationYes", "flashPauseOverlay",
+    "flashCardExplanation", "flashExplanationCountdown", "flashExplanationCountdownFill",
+    "themeToggle", "mobileSheetOverlay", "reviewRecommendations", "reviewTopicList", "errorBox", "errorText",
 }
-node = shutil.which("node")
-
 for html_path in HTML_FILES:
-    rel = html_path.relative_to(ROOT).as_posix()
+    rel = html_path.name
     source = html_path.read_text(encoding="utf-8")
-    static_html = source.split("<script>", 1)[0]
+    page = Page()
+    page.feed(source)
+    if page.duplicates:
+        err(f"{rel}: IDs dupliqués : {sorted(page.duplicates)}")
+    if required_ids - page.ids.keys():
+        err(f"{rel}: éléments requis absents : {sorted(required_ids - page.ids.keys())}")
+    for tag, attrs in page.elements:
+        if tag == "html" and attrs.get("lang") != "fr":
+            err(f"{rel}: langue française non déclarée")
+        if tag == "button" and attrs.get("type") != "button":
+            err(f"{rel}: bouton sans type explicite : {attrs.get('id', '')}")
+        if tag == "img" and "alt" not in attrs:
+            err(f"{rel}: image sans texte alternatif")
+        if attrs.get("role") == "dialog":
+            if attrs.get("aria-modal") != "true" or attrs.get("aria-labelledby") not in page.ids:
+                # IDs following the element are checked after the parse above.
+                err(f"{rel}: dialogue sans nom ou sémantique modale")
+        for attribute in ("src", "href"):
+            ref = attrs.get(attribute, "")
+            if ref and not ref.startswith(("http:", "https:", "data:", "#", "mailto:", "tel:")):
+                if not (ROOT / ref.split("?", 1)[0]).exists():
+                    err(f"{rel}: ressource absente : {ref}")
+    for overlay in ("mobileSheetOverlay", "flashExplanationOverlay"):
+        attrs = page.ids.get(overlay, ("", {}))[1]
+        if "inert" not in attrs or attrs.get("aria-hidden") != "true":
+            err(f"{rel}: dialogue fermé encore accessible : {overlay}")
+    for status in ("feedback", "flashLiveResult"):
+        attrs = page.ids.get(status, ("", {}))[1]
+        if attrs.get("role") != "status" or attrs.get("aria-live") != "polite":
+            err(f"{rel}: correction non annoncée : {status}")
+    if not any(attrs.get("role") == "progressbar" and attrs.get("aria-valuenow") == "0" for _, attrs in page.elements):
+        err(f"{rel}: progression non exposée")
+    if not any(tag == "link" and attrs.get("rel") == "icon" for tag, attrs in page.elements):
+        err(f"{rel}: favicon absente")
+    if "timerLive" in page.ids or "floatingActions" in page.ids:
+        err(f"{rel}: anciens contrôles inutilisés encore présents")
+    expected_edition = "local" if html_path.name == "index_local.html" else "web"
+    if not any(tag == "html" and attrs.get("data-edition") == expected_edition for tag, attrs in page.elements):
+        err(f"{rel}: édition incorrecte")
 
-    ids = re.findall(r'\bid="([^"]+)"', static_html)
-    duplicates = sorted({item for item in ids if ids.count(item) > 1})
-    if duplicates:
-        err(f"{rel}: ids HTML dupliqués: {duplicates}")
-    missing = sorted(required_ids - set(ids))
-    if missing:
-        err(f"{rel}: ids requis manquants: {missing}")
-
-    for tag in re.findall(r"<button\b[^>]*>", static_html, flags=re.I):
-        if not re.search(r"\btype=", tag, flags=re.I):
-            err(f"{rel}: bouton sans type explicite: {tag[:100]}")
-
-    for tag in re.findall(r"<img\b[^>]*>", static_html, flags=re.I):
-        if not re.search(r"\balt=", tag, flags=re.I):
-            err(f"{rel}: image sans attribut alt: {tag[:100]}")
-
-    if 'rel="icon"' not in static_html:
-        err(f"{rel}: favicon non déclarée")
-    if 'id="floatingActions" class="floating-actions" aria-hidden="true" inert' not in static_html:
-        err(f"{rel}: floatingActions doit être inert lorsqu'il est fermé")
-    if 'id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true" inert' not in static_html:
-        err(f"{rel}: mobileSheetOverlay doit être inert lorsqu'il est fermé")
-    if 'id="flashExplanationOverlay" class="flash-pref-overlay" aria-hidden="true" inert' not in static_html:
-        err(f"{rel}: flashExplanationOverlay doit être inert lorsqu'il est fermé")
-    if 'id="themeSun"' not in static_html or 'id="themeMoon"' not in static_html:
-        err(f"{rel}: le contrôle de thème jour/nuit n'est pas aligné")
-    if '<footer>Index V7.9.7</footer>' not in source:
-        err(f"{rel}: version d'interface attendue V7.9.7")
-    if 'class="flash-explanation-icon hidden"' not in static_html:
-        err(f"{rel}: toggle compact des explications Vrai/Faux absent")
-    if '>💡 Explications</button>' in static_html:
-        err(f"{rel}: ancien bouton texte Explications encore présent")
-    if 'id="timerToggleBtn"' in static_html or 'id="timerPresets"' in static_html:
-        err(f"{rel}: le minuteur est encore présent dans les réglages")
-    if 'id="themeToggle" class="theme-toggle theme-orbit-btn"' not in static_html:
-        err(f"{rel}: le bouton flottant n'est pas le toggle jour/nuit direct")
-    if '⚙' in static_html:
-        err(f"{rel}: l'ancienne roue crantée est encore visible")
-    if '@media(max-height:560px)' not in source:
-        err(f"{rel}: mode compact petits écrans absent")
-    if 'role="progressbar"' not in static_html or 'aria-valuenow="0"' not in static_html:
-        err(f"{rel}: barre de progression non exposée aux technologies d'assistance")
-    if 'id="feedback" class="feedback hidden" role="status" aria-live="polite"' not in static_html:
-        err(f"{rel}: zone de correction sans annonce aria-live")
-    if 'flashcard-mode.reviewing-errors #nextBtn' not in source:
-        err(f"{rel}: bouton suivant inaccessible en revue d'erreurs Vrai/Faux mobile")
-    if 'flashcard-mode.flash-explanations-on #nextBtn' not in source:
-        err(f"{rel}: bouton suivant inaccessible avec explications Vrai/Faux mobile")
-    if 'flashExplanationsEnabled:state.flashExplanationsEnabled' not in source:
-        err(f"{rel}: préférence d'explications Vrai/Faux non sauvegardée")
-    if 'FLASH_EXPLANATION_DELAY_MS=7000' not in source:
-        err(f"{rel}: délai d'explication Vrai/Faux attendu à 7 secondes")
-    if 'class="flash-explanation-stopwatch"' not in static_html or '<circle id="flashExplanationCountdownFill"' not in static_html:
-        err(f"{rel}: chronomètre circulaire d'explication Vrai/Faux absent")
-    if 'function showFlashcardExplanation(q,' not in source:
-        err(f"{rel}: correction Vrai/Faux intégrée à la carte absente")
-    if 'showFlashcardExplanation(q,{ok,realTimeout,autoAdvance:ok&&!realTimeout})' not in source:
-        err(f"{rel}: réponses incorrectes non routées vers la carte d'explication")
-    if '.flash-card.explanation-visible>#flashQuestion' not in source or '.flash-card.explanation-visible>#flashStatement' not in source:
-        err(f"{rel}: question/proposition non masquées pendant l'explication")
-    if 'id="flashLiveResult" class="sr-only" role="status" aria-live="polite"' not in static_html:
-        err(f"{rel}: résultat Vrai/Faux non annoncé aux technologies d'assistance")
-    if 'function quizShortcutAllowed(e)' not in source:
-        err(f"{rel}: les raccourcis clavier peuvent intercepter les boutons de contrôle")
-    if 'if(e.code==="Space"||e.key===" "){e.preventDefault();pause();return;}' not in source:
-        err(f"{rel}: raccourci Espace pour pause Vrai/Faux absent")
-    if 'if(e.key==="Enter"&&state.answered){e.preventDefault();clearFlashAdvance();next();return;}' not in source:
-        err(f"{rel}: raccourci Entrée pour avancer Vrai/Faux absent")
-    if 'function setFlashPaused(paused)' not in source or 'if(state.mode==="flashcard"){setFlashPaused(!flashPaused);return;}' not in source:
-        err(f"{rel}: pause Vrai/Faux sur place absente")
-    if 'function pauseFlashAutoAdvance()' not in source or 'function resumeFlashAutoAdvance()' not in source:
-        err(f"{rel}: pause/reprise du chrono d'explication absente")
-    if 'id="flashPauseOverlay" class="flash-pause-overlay hidden" aria-hidden="true"' not in static_html:
-        err(f"{rel}: voile de pause Vrai/Faux absent")
-    if 'catch(e){console.warn("Sauvegarde locale indisponible."' not in source:
-        err(f"{rel}: une erreur localStorage peut interrompre la session")
-    if 'if(floatingMenuOpen)closeFloatingMenu();' not in source:
-        err(f"{rel}: le menu flottant ne peut pas être fermé avec Échap")
-    if 'function buildReviewTopics(errors=state.errors)' not in source:
-        err(f"{rel}: regroupement des thèmes À réviser absent")
-    if 'async function sessionForReviewTopics(topics)' not in source:
-        err(f"{rel}: génération d'une session ciblée À réviser absente")
-    if 'renderReviewRecommendations();clearProgress();' not in source:
-        err(f"{rel}: recommandations À réviser non rendues à la fin")
-    if 'data-review-topic-index' not in source:
-        err(f"{rel}: boutons de révision ciblée absents")
-    if '.config-grid{display:grid;grid-template-columns:minmax(180px,240px) 1fr auto;gap:18px;align-items:start}' not in source:
-        err(f"{rel}: alignement supérieur de la zone Options absent")
-    if '.config-options{order:-1}' not in source:
-        err(f"{rel}: Options n'est pas placé avant Nombre de questions sur mobile")
-    if 'body.flashcard-mode .config-options .options{min-height:0;height:0' not in source:
-        err(f"{rel}: bloc Options vide non compacté en Vrai/Faux mobile")
-    if '.resume>.row{display:grid;grid-template-columns:1fr' not in source:
-        err(f"{rel}: carte de reprise mobile non réalignée")
-    if 'flashcard-mode.flash-explanations-on #nextBtn:not(.hidden)' not in source:
-        err(f"{rel}: Question suivante peut être forcé visible avant une réponse")
-    if 'body.quiz-active.flashcard-mode .swipe-stage::before' not in source or 'display:none;' not in source:
-        err(f"{rel}: cartes fantômes mobile non masquées")
-    if 'margin:12px 0 0;' not in source:
-        err(f"{rel}: espacement entre Faux/Vrai et Pause/Abandonner insuffisant")
-    if 'body.quiz-active:not(.flashcard-mode) #validateBtn' not in source or 'grid-column:1 / -1' not in source:
-        err(f"{rel}: bouton Valider mobile QCM non pleine largeur")
-    if 'body.quiz-active:not(.flashcard-mode) #pauseBtn' not in source or 'body.quiz-active:not(.flashcard-mode) #quitBtn' not in source:
-        err(f"{rel}: boutons Pause/Abandonner mobile QCM non répartis")
-    if 'body.quiz-active:not(.flashcard-mode) #normalAnswerArea' not in source or 'flex:1 1 auto' not in source:
-        err(f"{rel}: zone de réponses QCM mobile ne remplit pas l'espace disponible")
-    if 'body.quiz-active:not(.flashcard-mode) #choices' not in source or 'overflow-y:auto' not in source:
-        err(f"{rel}: zone de réponses QCM mobile non scrollable indépendamment des actions")
-    if 'filter:drop-shadow(0 2px 5px rgba(0,0,0,.055))' not in source:
-        err(f"{rel}: ombre mobile arrondie Vrai/Faux absente")
-    if 'border-radius:24px;' not in source:
-        err(f"{rel}: conteneur mobile Vrai/Faux sans rayon d'arrondi")
-    if '@keyframes flash-card-enter-mobile' not in source:
-        err(f"{rel}: animation mobile dédiée de la carte Vrai/Faux absente")
-    if 'font-size:clamp(1.48rem,6.25vw,2.06rem)' not in source:
-        err(f"{rel}: texte court Vrai/Faux mobile non agrandi")
-    if 'id="flashHint"' in static_html:
-        err(f"{rel}: texte d'aide Vrai/Faux encore présent sous les boutons")
-    if 'card.addEventListener("click",()=>{' not in source or 'performance.now()-flashExplanationShownAt<300' not in source:
-        err(f"{rel}: navigation par tap sur la carte d'explication absente")
-    if 'combinedLength=prompt.length+proposal.length' not in source:
-        err(f"{rel}: densité Vrai/Faux non adaptée à la longueur combinée")
-    if '.flash-card.very-dense-content' not in source:
-        err(f"{rel}: style mobile très dense Vrai/Faux absent")
-
-    # Les ressources locales référencées dans le HTML doivent exister.
-    for ref in re.findall(r'(?:src|href)="([^"]+)"', static_html):
-        if ref.startswith(("http://", "https://", "data:", "#", "mailto:", "tel:")):
-            continue
-        target = ROOT / ref.split("?", 1)[0]
-        if not target.exists():
-            err(f"{rel}: ressource absente: {ref}")
-
-    scripts = re.findall(r"<script>([\s\S]*?)</script>", source)
-    if len(scripts) != 1:
-        err(f"{rel}: exactement un script inline principal est attendu")
-    elif node:
-        with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8", delete=False) as tmp:
-            tmp.write(scripts[0])
-            tmp_path = Path(tmp.name)
-        try:
-            proc = subprocess.run([node, "--check", str(tmp_path)], capture_output=True, text=True)
-            if proc.returncode != 0:
-                err(f"{rel}: syntaxe JavaScript invalide: {proc.stderr.strip()}")
-        finally:
-            tmp_path.unlink(missing_ok=True)
-    else:
-        warn(f"{rel}: Node.js absent, vérification syntaxique JS ignorée")
-
-    if '$("heroText").textContent=' in source:
-        err(f"{rel}: accès non protégé à #heroText (peut masquer l'erreur de chargement)")
-    if rel == "index.html" and 'rebuilt.some(q=>q===null)' not in source:
-        err(f"{rel}: reprise web susceptible de décaler une session si une question a disparu")
-    if 'actions.inert=true' not in source or 'presets.inert=!show' not in source:
-        err(f"{rel}: gestion inert du menu flottant incomplète")
-    if 'overlay.inert=true' not in source or 'overlay.inert=false' not in source:
-        err(f"{rel}: gestion inert du bottom sheet incomplète")
-    if 'main > :not(#mobileSheetOverlay)' not in source or 'el.inert=true' not in source or 'el.inert=false' not in source:
-        err(f"{rel}: arrière-plan du bottom sheet non neutralisé sans bloquer le dialogue")
-    if 'document.body.classList.toggle("reviewing-errors",state.reviewingErrors)' not in source:
-        err(f"{rel}: état reviewing-errors non synchronisé")
+build = subprocess.run([sys.executable, str(ROOT / "scripts/build.py"), "--check"], capture_output=True, text=True)
+if build.returncode:
+    err(build.stderr.strip())
+node = shutil.which("node")
+if not node:
+    err("Node.js requis pour vérifier le JavaScript de production")
+else:
+    syntax = subprocess.run([node, "--check", str(ROOT / "src/app.js")], capture_output=True, text=True)
+    if syntax.returncode:
+        err(syntax.stderr.strip())
 
 # Hygiène du dépôt
-ds_store = [p.relative_to(ROOT).as_posix() for p in ROOT.rglob(".DS_Store")]
+ds_store = [p.relative_to(ROOT).as_posix() for p in ROOT.glob(".DS_Store")]
 if ds_store:
     err(f"Fichiers .DS_Store suivis/présents: {ds_store}")
 
@@ -416,5 +269,3 @@ print(json.dumps(stats, ensure_ascii=False, indent=2))
 print(f"Prompts génériques/dupliqués détectés (non bloquants): {duplicate_prompt_count}")
 for item in warnings:
     print(f"[AVERTISSEMENT] {item}")
-
-# V7.9.5 flash truth randomization

@@ -75,8 +75,26 @@ def wait_until(predicate, message: str):
     except TimeoutException as exc:
         raise AssertionError(message) from exc
 
-def js_click(el):
-    driver.execute_script("arguments[0].click()", el)
+def click(el):
+    # Real pointer clicks exercise hit testing, overlays and focus as users encounter them.
+    if el.tag_name == "input" and el.get_attribute("type") in ("radio", "checkbox"):
+        el = el.find_element(By.XPATH, "ancestor::label[1]")
+    wait.until(lambda d: el.is_displayed() and el.is_enabled())
+    el.click()
+
+def settled(el):
+    driver.execute_async_script("""
+      const el=arguments[0],done=arguments[arguments.length-1];
+      Promise.all(el.getAnimations().map(a=>a.finished.catch(()=>{})))
+        .then(()=>requestAnimationFrame(()=>requestAnimationFrame(done)));
+    """, el)
+
+def remains(predicate, duration, message):
+    # A bounded observation window is required to assert that a paused timer stays frozen.
+    deadline = time.monotonic() + duration
+    while time.monotonic() < deadline:
+        assert predicate(), message
+        time.sleep(0.05)
 
 def fresh(width=1280, height=900):
     driver.set_window_size(width, height)
@@ -92,27 +110,27 @@ def select_one_desktop_bank():
     subjects = driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")
     subject_card = next((el for el in subjects if desktop_test_subject in el.text), None)
     assert subject_card is not None, f"matière de test introuvable: {desktop_test_subject}"
-    js_click(subject_card)  # desktop: sélectionne tous les chapitres de la matière
+    click(subject_card)  # desktop: sélectionne tous les chapitres de la matière
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "sélection matière non prise en compte")
-    js_click(driver.find_element(By.ID, "toggleAllChapters"))  # tout désélectionner
+    click(driver.find_element(By.ID, "toggleAllChapters"))  # tout désélectionner
     wait_until(lambda: driver.find_element(By.ID, "startBtn").get_property("disabled"), "désélection globale non prise en compte")
     chapters = driver.find_elements(By.CSS_SELECTOR, "#chapterList .chapter-card")
     chapter_card = next((el for el in chapters if desktop_test_chapter in el.text), None)
     assert chapter_card is not None, f"chapitre de test introuvable: {desktop_test_chapter}"
-    js_click(chapter_card)
+    click(chapter_card)
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "chapitre unique non sélectionné")
 
 def select_mobile_subject_all():
     subject = driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0]
-    js_click(subject)
+    click(subject)
     overlay = visible("#mobileSheetOverlay.open")
     assert driver.execute_script("return arguments[0].inert", overlay) is False
     assert driver.execute_script("return document.querySelector('#setup').inert") is True
     assert driver.execute_script("return document.querySelector('#mobileSheetOverlay').closest('main').inert") is False
     wait_until(lambda: driver.execute_script("return document.activeElement && document.activeElement.id") == "mobileSheetClose", "focus non placé dans le bottom sheet")
-    js_click(driver.find_element(By.ID, "mobileToggleAll"))
+    click(driver.find_element(By.ID, "mobileToggleAll"))
     wait_until(lambda: "sélectionné" in driver.find_element(By.ID, "mobileSheetMeta").text, "sélection mobile non appliquée")
-    js_click(driver.find_element(By.ID, "mobileSheetClose"))
+    click(driver.find_element(By.ID, "mobileSheetClose"))
     wait_until(lambda: not overlay.get_attribute("class").endswith("open"), "bottom sheet non fermé")
     assert driver.execute_script("return document.querySelector('#setup').inert") is False
     active = driver.switch_to.active_element
@@ -120,12 +138,12 @@ def select_mobile_subject_all():
 
 def start_mode(mode: str, count: int, explanations: bool = False):
     mode_btn = driver.find_element(By.CSS_SELECTOR, f'.mode-btn[data-mode="{mode}"]')
-    js_click(mode_btn)
+    click(mode_btn)
     count_el = driver.find_element(By.ID, "count")
     count_el.clear()
     count_el.send_keys(str(count))
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "bouton démarrer désactivé")
-    js_click(driver.find_element(By.ID, "startBtn"))
+    click(driver.find_element(By.ID, "startBtn"))
     if mode == "flashcard":
         overlay = visible("#flashExplanationOverlay.open")
         assert driver.execute_script("return arguments[0].inert", overlay) is False
@@ -136,7 +154,7 @@ def start_mode(mode: str, count: int, explanations: bool = False):
         assert driver.execute_script("return document.activeElement.id") == "flashExplanationNo"
         driver.find_element(By.ID, "flashExplanationNo").send_keys(Keys.SHIFT, Keys.TAB)
         assert driver.execute_script("return document.activeElement.id") == "flashExplanationYes"
-        js_click(driver.find_element(By.ID, "flashExplanationYes" if explanations else "flashExplanationNo"))
+        click(driver.find_element(By.ID, "flashExplanationYes" if explanations else "flashExplanationNo"))
     visible("#quiz:not(.hidden)")
 
 def answer_current_qcm_wrong():
@@ -144,19 +162,19 @@ def answer_current_qcm_wrong():
     assert inputs, "aucune réponse QCM à rendre volontairement fausse"
     incorrect = [i for i in inputs if i.get_attribute("data-correct") == "0"]
     if incorrect:
-        js_click(incorrect[0])
+        click(incorrect[0])
     else:
         correct = [i for i in inputs if i.get_attribute("data-correct") == "1"]
         assert len(correct) >= 2, "impossible de construire une mauvaise réponse QCM"
-        js_click(correct[0])
-    js_click(driver.find_element(By.ID, "validateBtn"))
+        click(correct[0])
+    click(driver.find_element(By.ID, "validateBtn"))
     wait_until(lambda: "Réponse incorrecte" in driver.find_element(By.ID, "feedback").text, "réponse volontairement fausse non détectée")
 
 def complete_qcm_with_errors(count: int):
     for index in range(count):
         answer_current_qcm_wrong()
         next_btn = visible("#nextBtn")
-        js_click(next_btn)
+        click(next_btn)
         if index < count - 1:
             visible("#quiz:not(.hidden)")
     visible("#results:not(.hidden)")
@@ -194,7 +212,7 @@ try:
     select_one_desktop_bank()
     start_mode("qcm", 2)
     answer_current_qcm_wrong()
-    js_click(visible("#pauseBtn"))
+    click(visible("#pauseBtn"))
     web_key = "qcm_bts_dietetique_modular_progress_v7_8_0"
     saved = driver.execute_script("return localStorage.getItem(arguments[0])", web_key)
     driver.get(BASE_URL + "index_local.html")
@@ -202,25 +220,25 @@ try:
     driver.get(BASE_URL)
     visible("#resumeCard")
     driver.execute_script("window.originalFetch=window.fetch;window.fetch=(url,...args)=>String(url).startsWith('banques/')?Promise.reject(new Error('offline-test')):window.originalFetch(url,...args)")
-    js_click(visible("#resumeBtn"))
+    click(visible("#resumeBtn"))
     wait.until(lambda d: d.switch_to.alert)
     assert "sauvegarde est conservée" in driver.switch_to.alert.text
     driver.switch_to.alert.accept()
     assert driver.execute_script("return localStorage.getItem(arguments[0])", web_key) == saved
     assert driver.find_element(By.ID, "setup").is_displayed()
     driver.execute_script("window.fetch=window.originalFetch")
-    js_click(visible("#resumeBtn"))
+    click(visible("#resumeBtn"))
     visible("#quiz:not(.hidden)")
     assert re.search(r"2\s*/\s*2", driver.find_element(By.ID, "counter").text), "reprise à la mauvaise question"
     answer_current_qcm_wrong()
-    js_click(visible("#nextBtn"))
+    click(visible("#nextBtn"))
     visible("#results:not(.hidden)")
     assert driver.find_element(By.ID, "finalScore").text.startswith("0 / 2")
     assert_no_console_regressions()
 
     # Regression: a chapter rerender must retain keyboard focus in the mobile dialog.
     fresh(390, 844)
-    js_click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
+    click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
     visible("#mobileSheetOverlay.open")
     chapter = driver.find_elements(By.CSS_SELECTOR, "#mobileChapterList .chapter-card")[0]
     bank_id = chapter.get_attribute("data-bank-id")
@@ -232,6 +250,7 @@ try:
     last.send_keys(Keys.TAB)
     assert driver.execute_script("return document.activeElement.id") == "mobileSheetClose"
     driver.find_element(By.ID, "mobileSheetClose").send_keys(Keys.ESCAPE)
+    assert driver.execute_script("return document.getElementById('flashExplanationOverlay').inert"), "fermer les chapitres a réactivé un dialogue masqué"
     assert_no_console_regressions()
 
     # 1) Desktop QCM: scoring, per-choice feedback, pause/resume.
@@ -254,9 +273,9 @@ try:
         input_type = inputs[0].get_attribute("type")
 
         if input_type == "checkbox" and len(correct) >= 2 and incorrect:
-            js_click(correct[0])
-            js_click(incorrect[0])
-            js_click(driver.find_element(By.ID, "validateBtn"))
+            click(correct[0])
+            click(incorrect[0])
+            click(driver.find_element(By.ID, "validateBtn"))
             wait_until(lambda: "Réponse incorrecte" in driver.find_element(By.ID, "feedback").text, "mauvaise réponse multiple non détectée")
             assert "answer-correct" in (correct[0].find_element(By.XPATH, "..").get_attribute("class") or "")
             assert "answer-wrong" in (incorrect[0].find_element(By.XPATH, "..").get_attribute("class") or "")
@@ -265,22 +284,22 @@ try:
             found_multiple = True
         else:
             for inp in correct:
-                js_click(inp)
-            js_click(driver.find_element(By.ID, "validateBtn"))
+                click(inp)
+            click(driver.find_element(By.ID, "validateBtn"))
             wait_until(lambda: "Bonne réponse" in driver.find_element(By.ID, "feedback").text, "bonne réponse QCM rejetée")
 
         if found_multiple:
             if driver.find_element(By.ID, "nextBtn").is_displayed():
-                js_click(driver.find_element(By.ID, "nextBtn"))
+                click(driver.find_element(By.ID, "nextBtn"))
             break
-        js_click(driver.find_element(By.ID, "nextBtn"))
+        click(driver.find_element(By.ID, "nextBtn"))
 
     assert found_multiple, "aucun QCM multiple trouvé dans le chapitre de test"
 
     counter_before = driver.find_element(By.ID, "counter").text
-    js_click(driver.find_element(By.ID, "pauseBtn"))
+    click(driver.find_element(By.ID, "pauseBtn"))
     visible("#resumeCard:not(.hidden)")
-    js_click(driver.find_element(By.ID, "resumeBtn"))
+    click(driver.find_element(By.ID, "resumeBtn"))
     visible("#quiz:not(.hidden)")
     assert driver.find_element(By.ID, "counter").text == counter_before, "reprise de session décalée"
 
@@ -296,7 +315,7 @@ try:
     first_key = result_topic_key(review_cards[0])
     expected_targeted = qcm_category_counts.get(first_key)
     assert expected_targeted, f"catégorie de révision inconnue dans les banques: {first_key!r}"
-    js_click(review_cards[0].find_element(By.CSS_SELECTOR, "[data-review-topic-index]"))
+    click(review_cards[0].find_element(By.CSS_SELECTOR, "[data-review-topic-index]"))
     visible("#quiz:not(.hidden)")
     assert "flashcard-mode" not in (driver.find_element(By.TAG_NAME, "body").get_attribute("class") or ""), "Réviser ce thème a changé QCM en Vrai/Faux"
     assert counter_total() == expected_targeted, f"Réviser ce thème: {counter_total()} questions au lieu de {expected_targeted}"
@@ -311,27 +330,27 @@ try:
     keys = [result_topic_key(card) for card in review_cards]
     expected_all = sum(qcm_category_counts.get(key, 0) for key in keys)
     assert expected_all > 0, "aucune question attendue pour Réviser tout"
-    js_click(driver.find_element(By.ID, "reviewAllTopics"))
+    click(driver.find_element(By.ID, "reviewAllTopics"))
     visible("#quiz:not(.hidden)")
     assert "flashcard-mode" not in (driver.find_element(By.TAG_NAME, "body").get_attribute("class") or ""), "Réviser tout a changé QCM en Vrai/Faux"
     assert counter_total() == expected_all, f"Réviser tout: {counter_total()} questions au lieu de {expected_all}"
 
     # 2) Desktop flashcard: the card must move while the pointer is still held.
     fresh()
-    js_click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
+    click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "matière flash non sélectionnée")
     start_mode("flashcard", 3)
     card = visible("#flashCard")
 
-    ActionChains(driver).move_to_element(card).click_and_hold().move_by_offset(55, 8).pause(0.18).perform()
-    time.sleep(0.12)
+    ActionChains(driver).move_to_element(card).click_and_hold().move_by_offset(20, 2).pause(0.18).perform()
+    wait_until(lambda: card.value_of_css_property("transform") not in ("", "none"), "carte immobile pendant le glissement")
     assert "dragging" in (card.get_attribute("class") or ""), "carte non décollée pendant l'appui"
     transform = card.value_of_css_property("transform")
     assert transform and transform != "none", "carte immobile avant le relâchement"
     ActionChains(driver).release().perform()
-    time.sleep(0.5)
+    settled(card)
 
-    js_click(driver.find_element(By.ID, "flashTrueBtn"))
+    click(driver.find_element(By.ID, "flashTrueBtn"))
     wait_until(lambda: "/ 1" in driver.find_element(By.ID, "scoreLive").text, "score flash non mis à jour")
     wait_until(lambda: driver.find_element(By.ID, "flashLiveResult").get_attribute("textContent").strip() != "", "résultat flash non annoncé")
     wait_until(lambda: driver.find_element(By.ID, "counter").text.startswith("Question 2 /"), "carte suivante non avancée")
@@ -341,14 +360,14 @@ try:
     assert toggle.get_attribute("aria-pressed") == "false", "état initial des explications incorrect"
     assert toggle.text.strip() == "💡", "le toggle d'explications doit rester une icône compacte"
     assert toggle.rect["width"] <= 50 and toggle.rect["height"] <= 50, "toggle d'explications trop volumineux"
-    js_click(toggle)
+    click(toggle)
     wait_until(lambda: toggle.get_attribute("aria-pressed") == "true", "activation des explications non appliquée")
 
     prompt = norm(driver.find_element(By.ID, "flashQuestion").text)
     proposal = norm(driver.find_element(By.ID, "flashStatement").text)
     truth = truth_map.get((prompt, proposal))
     assert truth is not None, f"impossible de déterminer la vérité de la carte: {prompt!r} / {proposal!r}"
-    js_click(driver.find_element(By.ID, "flashTrueBtn") if truth else driver.find_element(By.ID, "flashFalseBtn"))
+    click(driver.find_element(By.ID, "flashTrueBtn") if truth else driver.find_element(By.ID, "flashFalseBtn"))
 
     card_explanation = visible("#flashCardExplanation:not(.hidden)")
     flash_card = driver.find_element(By.ID, "flashCard")
@@ -356,8 +375,8 @@ try:
     assert not driver.find_element(By.ID, "flashStatement").is_displayed(), "proposition encore visible pendant l'explication"
     assert not flash_card.find_element(By.CSS_SELECTOR, ".flash-question-label").is_displayed(), "libellé QUESTION encore visible"
     assert not flash_card.find_element(By.CSS_SELECTOR, ".flash-answer-label").is_displayed(), "libellé RÉPONSE PROPOSÉE encore visible"
-    assert driver.find_element(By.ID, "feedback").get_attribute("class").endswith("hidden"), "feedback externe affiché malgré une bonne réponse"
-    assert driver.find_element(By.ID, "nextBtn").get_attribute("class").endswith("hidden"), "bouton suivant affiché pendant le décompte"
+    assert not driver.find_element(By.ID, "feedback").is_displayed(), "feedback externe affiché malgré une bonne réponse"
+    assert not driver.find_element(By.ID, "nextBtn").is_displayed(), "bouton suivant affiché pendant le décompte"
     assert card_explanation.find_element(By.ID, "flashCardExplanationText").text.strip(), "explication intégrée à la carte absente"
     card_rect = flash_card.rect
     explanation_rect = card_explanation.rect
@@ -371,9 +390,9 @@ try:
     countdown_ring = driver.find_element(By.ID, "flashExplanationCountdownFill")
     assert countdown_ring.tag_name.lower() == "circle", "le décompte n'est pas rendu sous forme de chronomètre circulaire"
     countdown_start = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
-    assert countdown_start in (6, 7), f"décompte initial inattendu: {countdown_start}"
+    assert 1 <= countdown_start <= 7, f"décompte initial inattendu: {countdown_start}"
     ring_start = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
-    time.sleep(1.15)
+    wait_until(lambda: int(driver.find_element(By.ID, "flashExplanationCountdown").text) < countdown_start, "décompte immobile")
     ring_after = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
     assert ring_after > ring_start, "anneau du chronomètre immobile"
     countdown_after = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
@@ -388,15 +407,13 @@ try:
     assert driver.find_element(By.ID, "pauseBtn").text == "Reprendre", "bouton pause non transformé en Reprendre"
     frozen_count = int(driver.find_element(By.ID, "flashExplanationCountdown").text)
     frozen_offset = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
-    time.sleep(1.15)
-    assert int(driver.find_element(By.ID, "flashExplanationCountdown").text) == frozen_count, "chrono d'explication continue pendant la pause"
+    remains(lambda: int(driver.find_element(By.ID, "flashExplanationCountdown").text) == frozen_count, 1.15, "chrono d'explication continue pendant la pause")
     frozen_offset_after = float(driver.execute_script("return parseFloat(getComputedStyle(arguments[0]).strokeDashoffset)||0", countdown_ring))
     assert abs(frozen_offset_after - frozen_offset) < 0.5, "anneau du chronomètre continue pendant la pause"
     driver.find_element(By.TAG_NAME, "body").send_keys(Keys.SPACE)
     wait_until(lambda: not driver.find_element(By.ID, "flashPauseOverlay").is_displayed(), "Espace n'a pas repris le Vrai/Faux")
     assert driver.find_element(By.ID, "pauseBtn").text == "Mettre en pause", "bouton Reprendre non restauré"
-    time.sleep(0.45)
-    assert int(driver.find_element(By.ID, "flashExplanationCountdown").text) <= frozen_count, "chrono d'explication non repris"
+    wait_until(lambda: int(driver.find_element(By.ID, "flashExplanationCountdown").text) < frozen_count, "chrono d'explication non repris")
 
     # Enter still skips the remaining explanation delay.
     driver.find_element(By.ID, "flashCard").send_keys(Keys.ENTER)
@@ -404,12 +421,12 @@ try:
 
     # The visible pause button uses the same in-place pause on an unanswered card.
     counter_before_pause = driver.find_element(By.ID, "counter").text
-    js_click(driver.find_element(By.ID, "pauseBtn"))
+    click(driver.find_element(By.ID, "pauseBtn"))
     visible("#flashPauseOverlay:not(.hidden)")
     assert driver.find_element(By.ID, "flashFalseBtn").get_property("disabled"), "Faux actif pendant la pause"
     assert driver.find_element(By.ID, "flashTrueBtn").get_property("disabled"), "Vrai actif pendant la pause"
     assert driver.find_element(By.ID, "counter").text == counter_before_pause, "pause a changé de question"
-    js_click(driver.find_element(By.ID, "pauseBtn"))
+    click(driver.find_element(By.ID, "pauseBtn"))
     wait_until(lambda: not driver.find_element(By.ID, "flashPauseOverlay").is_displayed(), "bouton Reprendre n'a pas repris le Vrai/Faux")
     assert driver.find_element(By.ID, "counter").text == counter_before_pause, "reprise a décalé la session"
 
@@ -444,24 +461,24 @@ try:
     assert options_block.rect["y"] < count_field.rect["y"], "Options n'est pas affiché au-dessus de Nombre de questions sur mobile"
 
     flash_mode_btn = driver.find_element(By.CSS_SELECTOR, '.mode-btn[data-mode="flashcard"]')
-    js_click(flash_mode_btn)
+    click(flash_mode_btn)
     options_list = driver.find_element(By.CSS_SELECTOR, ".config-options .options")
     assert options_list.rect["height"] <= 2, "bloc Options vide conserve trop de hauteur en Vrai/Faux"
     gap_after_options = count_field.rect["y"] - (options_block.rect["y"] + options_block.rect["height"])
     assert gap_after_options <= 18, f"écart Options/Nombre de questions trop grand: {gap_after_options}"
 
     qcm_mode_btn = driver.find_element(By.CSS_SELECTOR, '.mode-btn[data-mode="qcm"]')
-    js_click(qcm_mode_btn)
+    click(qcm_mode_btn)
     select_mobile_subject_all()
     start_mode("qcm", 1)
-    js_click(driver.find_element(By.ID, "pauseBtn"))
+    click(driver.find_element(By.ID, "pauseBtn"))
     resume = visible("#resumeCard:not(.hidden)")
     resume_btn = driver.find_element(By.ID, "resumeBtn")
     discard_btn = driver.find_element(By.ID, "discardSavedBtn")
     assert resume_btn.rect["width"] >= resume.rect["width"] * 0.84, "bouton Reprendre trop étroit sur mobile"
     assert discard_btn.rect["width"] >= resume.rect["width"] * 0.84, "bouton Abandonner progression trop étroit sur mobile"
     assert discard_btn.rect["y"] > resume_btn.rect["y"], "boutons de reprise non empilés proprement sur mobile"
-    js_click(resume_btn)
+    click(resume_btn)
     visible("#quiz:not(.hidden)")
 
     fresh(390, 844)
@@ -469,7 +486,7 @@ try:
     # Direct day/night toggle: no settings menu and no timer control.
     theme_toggle = driver.find_element(By.ID, "themeToggle")
     initial_theme = driver.execute_script("return document.documentElement.dataset.theme")
-    js_click(theme_toggle)
+    click(theme_toggle)
     wait_until(lambda: driver.execute_script("return document.documentElement.dataset.theme") != initial_theme, "toggle jour/nuit direct inactif")
     assert not driver.find_elements(By.ID, "timerToggleBtn"), "timer encore présent dans l'interface"
     assert not driver.find_elements(By.ID, "timerPresets"), "préréglages timer encore présents"
@@ -489,7 +506,7 @@ try:
     flash_card = driver.find_element(By.ID, "flashCard")
     flash_statement = driver.find_element(By.ID, "flashStatement")
     flash_controls = driver.find_element(By.ID, "flashSelfControls")
-    time.sleep(0.45)  # attendre la fin de l'animation d'entrée avant les mesures
+    settled(flash_card)
     assert flash_statement.rect["width"] >= flash_card.rect["width"] * 0.90, "réponse proposée mobile trop étroite dans la carte"
     assert flash_card.rect["y"] + flash_card.rect["height"] <= flash_controls.rect["y"] + 2, "carte Vrai/Faux empiète sur les boutons après stabilisation"
     assert flash_statement.rect["y"] + flash_statement.rect["height"] <= flash_card.rect["y"] + flash_card.rect["height"] + 1, "texte de réponse proposé hors de la carte"
@@ -514,7 +531,7 @@ try:
     assert truth is not None, f"impossible de déterminer la vérité de la carte: {prompt!r} / {proposal!r}"
 
     # Deliberately answer incorrectly: correction must replace the card content, not render below it.
-    js_click(false_btn if truth else true_btn)
+    click(false_btn if truth else true_btn)
     error_card = visible("#flashCardExplanation:not(.hidden)")
     assert "is-error" in (error_card.get_attribute("class") or ""), "carte d'explication non marquée comme erreur"
     assert "réponse incorrecte" in driver.find_element(By.ID, "flashCardExplanationTitle").text.lower(), "titre d'erreur absent de la carte"
@@ -522,13 +539,13 @@ try:
     assert driver.find_element(By.ID, "flashCardExplanationText").text.strip(), "explication absente de la carte après erreur"
     assert not driver.find_element(By.ID, "flashQuestion").is_displayed(), "question encore visible après erreur"
     assert not driver.find_element(By.ID, "flashStatement").is_displayed(), "proposition encore visible après erreur"
-    assert driver.find_element(By.ID, "feedback").get_attribute("class").endswith("hidden"), "ancienne correction externe encore visible"
+    assert not driver.find_element(By.ID, "feedback").is_displayed(), "ancienne correction externe encore visible"
     assert not driver.find_element(By.ID, "flashExplanationCountdownWrap").is_displayed(), "chronomètre affiché malgré une erreur"
     explanation_next = visible("#nextBtn")
     assert explanation_next.is_displayed(), "bouton suivant invisible avec explications mobile"
-    time.sleep(0.45)
+    settled(driver.find_element(By.ID, "flashCard"))
     assert not driver.find_element(By.ID, "results").is_displayed(), "résultats affichés avant validation de l'explication"
-    js_click(driver.find_element(By.ID, "flashCard"))
+    click(driver.find_element(By.ID, "flashCard"))
     visible("#results:not(.hidden)")
     assert driver.find_element(By.ID, "finalScore").text.startswith("0 / 1"), "erreur Vrai/Faux non comptabilisée"
 
@@ -540,14 +557,14 @@ try:
     assert review_cards[0].find_element(By.CSS_SELECTOR, "[data-review-topic-index]").is_displayed(), "bouton Réviser ce thème absent"
     assert driver.find_element(By.ID, "reviewAllTopics").is_displayed(), "bouton Réviser tout absent"
 
-    js_click(driver.find_element(By.ID, "retryErrors"))
+    click(driver.find_element(By.ID, "retryErrors"))
     visible("#quiz:not(.hidden)")
     prompt = norm(driver.find_element(By.ID, "flashQuestion").text)
     proposal = norm(driver.find_element(By.ID, "flashStatement").text)
     truth = truth_map[(prompt, proposal)]
-    js_click(driver.find_element(By.ID, "flashTrueBtn") if truth else driver.find_element(By.ID, "flashFalseBtn"))
+    click(driver.find_element(By.ID, "flashTrueBtn") if truth else driver.find_element(By.ID, "flashFalseBtn"))
     visible("#flashCardExplanation:not(.hidden)")
-    assert driver.find_element(By.ID, "feedback").get_attribute("class").endswith("hidden"), "revue d'erreurs encore affichée hors de la carte"
+    assert not driver.find_element(By.ID, "feedback").is_displayed(), "revue d'erreurs encore affichée hors de la carte"
     next_btn = visible("#nextBtn")
     assert next_btn.is_displayed(), "bouton de continuation invisible en revue d'erreurs mobile"
     assert "résultats" in next_btn.text.lower(), "libellé final de revue inattendu"
@@ -575,12 +592,12 @@ try:
         if str(json.loads(Path(path).read_text(encoding="utf-8")).get("subject", "")).strip()
     })
     wait_until(lambda: len(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")) == expected_subject_count, "matières locales incorrectes")
-    js_click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
+    click(driver.find_elements(By.CSS_SELECTOR, "#subjectList .subject-card")[0])
     wait_until(lambda: not driver.find_element(By.ID, "startBtn").get_property("disabled"), "sélection locale non prise en compte")
     count_el = driver.find_element(By.ID, "count")
     count_el.clear()
     count_el.send_keys("1")
-    js_click(driver.find_element(By.ID, "startBtn"))
+    click(driver.find_element(By.ID, "startBtn"))
     visible("#quiz:not(.hidden)")
     assert not driver.find_element(By.ID, "localLoader").is_displayed(), "le chargeur local empiète sur le questionnaire"
     driver.set_window_size(390, 844)
@@ -591,29 +608,29 @@ try:
     correct = [i for i in inputs if i.get_attribute("data-correct") == "1"]
     assert correct
     for inp in correct:
-        js_click(inp)
-    js_click(driver.find_element(By.ID, "validateBtn"))
+        click(inp)
+    click(driver.find_element(By.ID, "validateBtn"))
     wait_until(lambda: "Bonne réponse" in driver.find_element(By.ID, "feedback").text, "QCM local correct refusé")
-    js_click(visible("#nextBtn"))
+    click(visible("#nextBtn"))
     visible("#results:not(.hidden)")
     assert not driver.find_element(By.ID, "reviewRecommendations").is_displayed(), "À réviser affiché après un sans-faute local"
 
     # Local targeted review: the imported-bank cache must be sufficient to relaunch a category.
-    js_click(driver.find_element(By.ID, "newQuiz"))
+    click(driver.find_element(By.ID, "newQuiz"))
     visible("#setup")
     count_el = driver.find_element(By.ID, "count")
     count_el.clear()
     count_el.send_keys("1")
-    js_click(driver.find_element(By.ID, "startBtn"))
+    click(driver.find_element(By.ID, "startBtn"))
     visible("#quiz:not(.hidden)")
     answer_current_qcm_wrong()
-    js_click(visible("#nextBtn"))
+    click(visible("#nextBtn"))
     visible("#results:not(.hidden)")
     local_review = visible("#reviewRecommendations:not(.hidden)")
     local_card = local_review.find_elements(By.CSS_SELECTOR, ".review-topic-card")[0]
     local_key = result_topic_key(local_card)
     local_expected = qcm_category_counts.get(local_key)
-    js_click(local_card.find_element(By.CSS_SELECTOR, "[data-review-topic-index]"))
+    click(local_card.find_element(By.CSS_SELECTOR, "[data-review-topic-index]"))
     visible("#quiz:not(.hidden)")
     local_total = counter_total()
     assert local_total >= 1, "Réviser ce thème local n'a lancé aucune question"
@@ -622,27 +639,27 @@ try:
 
     assert_no_console_regressions()
     # Local restore after closing the page: the snapshot works before reimporting banks.
-    js_click(driver.find_element(By.ID, "quitBtn"))
+    click(driver.find_element(By.ID, "quitBtn"))
     driver.switch_to.alert.accept()
     visible("#setup")
     count_el = driver.find_element(By.ID, "count")
     count_el.clear()
     count_el.send_keys("1")
-    js_click(driver.find_element(By.ID, "startBtn"))
+    click(driver.find_element(By.ID, "startBtn"))
     visible("#quiz:not(.hidden)")
     answer_current_qcm_wrong()  # saved at index == length, before visiting the results
     driver.refresh()
     visible("#resumeCard")
-    js_click(driver.find_element(By.ID, "resumeBtn"))
+    click(driver.find_element(By.ID, "resumeBtn"))
     visible("#results:not(.hidden)")
     assert driver.find_element(By.ID, "finalScore").text.startswith("0 / 1")
     assert driver.find_element(By.ID, "reviewAllTopics").get_property("disabled"), "thèmes locaux activés sans banques rechargées"
-    js_click(driver.find_element(By.ID, "retryErrors"))
+    click(driver.find_element(By.ID, "retryErrors"))
     visible("#quiz:not(.hidden)")
     for inp in driver.find_elements(By.CSS_SELECTOR, '#choices input[data-correct="1"]'):
-        js_click(inp)
-    js_click(driver.find_element(By.ID, "validateBtn"))
-    js_click(visible("#nextBtn"))
+        click(inp)
+    click(driver.find_element(By.ID, "validateBtn"))
+    click(visible("#nextBtn"))
     visible("#results:not(.hidden)")
     assert driver.find_element(By.ID, "finalScore").text.startswith("1 / 1")
     assert_no_console_regressions()

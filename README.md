@@ -1,709 +1,161 @@
-# QCM BTS Diététique — V7.9.7
+# QCM BTS Diététique
 
-Application de révision modulaire en HTML / JavaScript conçue pour fonctionner :
+Application statique de révision : **22 banques, 776 questions**, regroupées par
+matière, chapitre et difficulté. Aucun compte ni serveur de données n'est nécessaire.
 
-- en ligne via GitHub Pages ;
-- en local sans serveur ;
-- sur ordinateur, tablette et téléphone ;
-- avec des banques de questions JSON organisées par matière et par chapitre.
+## Utiliser l'application
 
----
+- **En ligne** : [ouvrir le site](https://julespopo.github.io/qcm-bts-dietetique/).
+- **Hors ligne** : conserver `index_local.html`, le dossier `banques/`, les images
+  `assets/` et `favicon.svg`. Ouvrir `index_local.html` par double-clic puis choisir
+  le dossier `banques`. Les sous-dossiers sont importés automatiquement.
+- **Tester la version web sur sa machine** : lancer `python3 -m http.server 8000`
+  depuis le dépôt puis ouvrir [localhost:8000](http://localhost:8000).
 
-## 1. Structure du projet
+Sur ordinateur, cliquer sur une matière sélectionne ou désélectionne ses chapitres.
+Sur mobile, cela ouvre un dialogue permettant de choisir les chapitres. Filtrer
+ensuite la difficulté et choisir le nombre de questions.
+
+### QCM et Vrai/Faux
+
+Le QCM demande la combinaison exacte des bonnes réponses, sans crédit partiel.
+Les questions à plusieurs réponses sont signalées. Après validation, les réponses
+correctes, incorrectes et oubliées sont distinguées et la correction est affichée.
+
+Le mode Vrai/Faux utilise uniquement les questions à réponse unique. Il présente
+une question et une proposition à juger avec les boutons **Faux / Vrai**, un
+balayage horizontal ou les flèches gauche/droite au clavier.
+
+La popup de départ et l'icône **💡** permettent de choisir les explications :
+
+- avec explications, une bonne réponse affiche la correction pendant **7 secondes**
+  avant de continuer ; une erreur attend une action sur « Question suivante » ;
+- sans explications, la carte suivante arrive après l'animation du résultat ;
+- en révision des erreurs, la correction reste toujours visible jusqu'à validation.
+
+Il n'y a pas de limite de temps pour répondre. Le décompte de 7 secondes concerne
+uniquement la lecture d'une explication après une bonne réponse.
+
+### Clavier, thème et pause
+
+En QCM, les flèches déplacent le focus entre les choix, Espace sélectionne une
+réponse et Entrée valide ou continue. En Vrai/Faux, les flèches répondent, Espace
+met en pause/reprend et Entrée passe une explication déjà affichée. Les raccourcis
+ne détournent pas les boutons ou champs de saisie. Tab reste dans les dialogues ;
+Échap ferme le dialogue de sélection ou de préférences.
+
+Le bouton flottant **☀ / ☾** change le thème. Il reste déplaçable et peut se ranger
+partiellement sur le bord de l'écran. Le thème de l'appareil s'applique au premier
+lancement ; un choix manuel est mémorisé. La préférence de réduction des animations
+est respectée.
+
+« Mettre en pause » sauvegarde un QCM et revient à la sélection. En Vrai/Faux, la
+pause reste sur la carte et fige aussi le décompte d'explication. Les réponses
+validées sont enregistrées ; une reprise après fermeture continue à la prochaine
+question non répondue. Une correction en cours de lecture n'est pas rejouée après
+fermeture de la page.
+
+Les sauvegardes restent dans le navigateur, sur cet appareil et cette origine.
+Les formats web/local sont séparés ; les anciennes sauvegardes locales sont
+migrées lors de leur prochaine écriture. Les anciennes propriétés du minuteur
+sont ignorées sans invalider la progression. Un échec réseau de reprise conserve
+la sauvegarde. En local, la série sauvegardée et « Revoir mes erreurs » fonctionnent
+sans réimport ; la révision d'un **thème complet** nécessite de recharger les banques.
+
+## Développer et publier
 
 ```text
-QCM_BTS_Dietetique_WEB_MODULAIRE_V7_3/
-│
-├── index.html
-├── index_local.html
-├── manifest.json
-├── generer_manifest.py
-├── README.md
-│
-└── banques/
-    ├── BPADN/
-    │   ├── 00_matiere_organique_inorganique.json
-    │   ├── 01_glucides.json
-    │   ├── 02_lipides.json
-    │   ├── 03_protides.json
-    │   ├── 06_acides_nucleiques.json
-    │   ├── 07_milieu_interieur.json
-    │   └── 08_biologie_cellulaire.json
-    │
-    └── Sante_publique/
-        ├── 01_concepts_sante.json
-        ├── 02_determinants_sante.json
-        ├── 03_mesure_etat_sante_population.json
-        ├── 04_pnns.json
-        ├── 05_gaspillage_alimentaire.json
-        └── 06_situation_professionnelle_gaspillage.json
+src/
+  app.js              moteur commun et différences d'accès web/local
+  styles.css          styles communs
+  page.html           modèle HTML commun
+  local-loader.html   sélecteur propre à l'édition locale
+scripts/build.py      génération des deux éditions autonomes
+index.html            sortie générée pour GitHub Pages
+index_local.html      sortie générée pour ouverture par double-clic
+banques/              contenu pédagogique JSON
+manifest.json         catalogue généré des banques
 ```
 
-Le projet contient actuellement **13 banques** et **330 questions**.
+Modifier **`src/`**, puis régénérer les pages :
 
----
-
-## 2. Principe général
-
-Le projet sépare complètement :
-
-- le moteur du QCM : `index.html` ;
-- les banques de questions : fichiers `.json` ;
-- le catalogue des banques : `manifest.json`.
-
-Cela permet d'ajouter progressivement des matières et des chapitres sans alourdir le fichier principal.
-
-Chaque fichier JSON correspond à un chapitre ou à un thème.
-
----
-
-## 3. Sélection des matières et chapitres
-
-### Sur ordinateur
-
-L'écran de sélection est divisé en deux parties :
-
-- à gauche : les matières ;
-- à droite : les chapitres de la matière active.
-
-Une matière ou un chapitre sélectionné est indiqué par un **halo lumineux sobre**.
-
-Il n'y a pas de bouton ON/OFF ni de coche sur les cartes.
-
-Un clic sur une matière permet de sélectionner ou désélectionner rapidement ses chapitres.
-
-Les chapitres restent également sélectionnables individuellement.
-
-### Sur téléphone
-
-Toucher une matière ouvre ses chapitres dans une **fenêtre flottante / bottom sheet**.
-
-Cette fenêtre contient :
-
-- la liste des chapitres ;
-- un bouton unique `Tout sélectionner` / `Tout désélectionner` ;
-- un bouton de fermeture.
-
-Cela évite d'avoir à faire défiler la page entre les matières et les chapitres.
-
----
-
-## 4. Menu flottant
-
-L'interface de réglages ne repose plus sur une fenêtre ou un panneau.
-
-À l'état neutre, un seul bouton flottant `⚙` est visible.
-
-Lorsqu'on le touche ou qu'on clique dessus, il se déploie en deux boutons flottants indépendants :
-
-- `☾ / ☀` : bascule immédiatement entre le mode nuit et le mode jour ;
-- `⏱` : active ou désactive le minuteur.
-
-Aucun cadre ne contient ces boutons.
-
-Lorsque le minuteur est activé, quatre petits boutons supplémentaires apparaissent autour de lui :
-
-- `15`
-- `30`
-- `45`
-- `60`
-
-Ils correspondent au nombre de secondes maximum par question.
-
-Le bouton principal reste déplaçable à la souris ou au doigt.
-
-Lorsqu'il est amené près du bord gauche ou droit, il peut se ranger partiellement hors de l'écran : environ 30 % de l'icône restent visibles. Un clic sur cette partie visible ramène le bouton entièrement à l'écran puis ouvre automatiquement le menu radial.
-
-## 5. Mode jour / nuit
-
-Le changement de thème se trouve dans le menu `⚙ Réglages`.
-
-Au premier lancement, le site suit automatiquement le thème clair ou sombre de l'appareil / navigateur.
-
-Si l'utilisateur choisit manuellement un thème, ce choix est mémorisé dans le navigateur et devient prioritaire.
-
-Le thème ne dépend pas de l'heure.
-
----
-
-## 6. Minuteur par question
-
-Le minuteur est **désactivé par défaut**.
-
-Il s'active directement via l'icône `⏱` du menu flottant.
-
-Lorsqu'il est activé, quatre durées sont disponibles :
-
-- **17 secondes**
-- **30 secondes**
-- **47 secondes**
-- **60 secondes**
-
-Une seule durée est active à la fois.
-
-Chaque nouvelle question repart avec le temps complet.
-
-Si le temps arrive à zéro :
-
-1. la question est automatiquement terminée ;
-2. la correction s'affiche ;
-3. la question est comptée comme incorrecte si la réponse n'était pas correcte ;
-4. l'utilisateur passe ensuite manuellement à la question suivante.
-
-La mise en pause conserve le temps restant de la question en cours.
-
-## 7. Difficulté du questionnaire
-
-Avant de lancer une session, l'utilisateur peut filtrer les questions par difficulté :
-
-- **Tous niveaux**
-- **Facile** — niveau 1
-- **Intermédiaire** — niveau 2
-- **Difficile** — niveau 3
-
-Le nombre de questions disponibles est recalculé en fonction :
-
-- des matières sélectionnées ;
-- des chapitres sélectionnés ;
-- du niveau choisi.
-
-Le nombre demandé est automatiquement limité au nombre de questions réellement disponibles.
-
-Les banques actuelles contiennent :
-
-- 139 questions de niveau 1 ;
-- 170 questions de niveau 2 ;
-- 21 questions de niveau 3.
-
-Cette répartition évoluera naturellement avec l'ajout de nouvelles banques.
-
-## 8. Mode focus pendant le questionnaire
-
-Lorsqu'une session commence, l'interface passe automatiquement en **mode focus** :
-
-- le reste de la page est masqué ;
-- sur téléphone, le nom du chapitre / de la banque est retiré pendant la session afin de libérer de la hauteur ;
-- la carte du questionnaire est centrée dans la fenêtre ;
-- la question et les propositions sont regroupées dans cette carte ;
-- les boutons `Valider`, `Mettre en pause` et `Abandonner` restent accessibles grâce à une barre d'actions fixe en bas de la carte ;
-- après validation, la vue se repositionne automatiquement pour rendre la correction visible.
-
-Si le contenu d'une question dépasse la hauteur disponible, seul l'intérieur de la carte du quiz défile.
-
-## 9. Réponses et navigation
-
-Les réponses sont affichées **verticalement, une sous l'autre**, afin de limiter les mouvements des yeux et faciliter la lecture.
-
-Les cartes de réponse sont volontairement assez grandes pour être confortables sur ordinateur comme sur mobile.
-
-Les boutons radio et cases à cocher natifs sont masqués : **aucune coche ni aucun rond n'est affiché**. La sélection est indiquée uniquement par le halo de la carte choisie.
-
-### Navigation clavier sur ordinateur
-
-Pendant un questionnaire :
-
-- `↑` / `↓` / `←` / `→` : naviguer entre les réponses ;
-- `Espace` : sélectionner ou désélectionner la réponse active ;
-- `Entrée` : valider la réponse ;
-- après validation, `Entrée` : passer à la question suivante.
-
-La première réponse reçoit automatiquement le focus à chaque nouvelle question.
-
-### À réviser après une session
-
-Lorsqu'au moins une réponse est incorrecte, la page Résultats affiche un bloc **À réviser**.
-
-Les erreurs sont regroupées automatiquement par :
-
-- matière ;
-- chapitre ;
-- catégorie de question.
-
-Pour chaque thème, le nombre d'erreurs est affiché. **Réviser ce thème** relance toutes les questions disponibles de cette catégorie, et **Réviser tout** regroupe toutes les catégories identifiées pendant la session.
-
-Le bouton **Revoir mes erreurs** reste disponible séparément : il repose uniquement les questions ratées, tandis que **À réviser** permet de retravailler l'ensemble du thème concerné.
-
----
-
-## 10. Mobile et zoom
-
-Sur téléphone :
-
-- le double-tap zoom accidentel est neutralisé sur les contrôles ;
-- le zoom à deux doigts reste disponible ;
-- le scroll à un doigt reste disponible ;
-- le bouton Réglages est déplaçable au doigt.
-
----
-
-## 11. Pause et reprise
-
-Une session en cours peut être sauvegardée automatiquement dans le navigateur.
-
-La reprise conserve notamment :
-
-- la question actuelle ;
-- le score ;
-- les erreurs ;
-- les options choisies ;
-- le temps restant si le minuteur est actif.
-
----
-
-## 12. Utilisation en ligne avec GitHub Pages
-
-Le fichier principal du site est :
-
-```text
-index.html
+```sh
+python3 scripts/build.py
 ```
 
-Le site lit automatiquement :
+Les pages produites embarquent le même JavaScript et le même CSS. Elles n'utilisent
+pas d'import de module réseau, afin de fonctionner aussi en `file://`. Leur seule
+différence d'interface est le chargeur local ; leur mode d'accès aux banques et
+leur format de sauvegarde sont choisis par l'attribut `data-edition`.
 
-```text
-manifest.json
-```
+Après ajout ou modification d'une banque :
 
-puis charge uniquement les banques JSON nécessaires au questionnaire.
-
-Pour publier une mise à jour avec GitHub Desktop :
-
-```text
-1. Modifier les fichiers dans le dossier local du dépôt
-2. Ouvrir GitHub Desktop
-3. Vérifier les changements
-4. Commit to main
-5. Push origin
-```
-
-GitHub Pages met ensuite le site à jour.
-
----
-
-## 13. Utilisation locale sans serveur
-
-Pour une utilisation locale, ouvrir :
-
-```text
-index_local.html
-```
-
-Puis sélectionner le dossier :
-
-```text
-banques/
-```
-
-Le navigateur lit récursivement les sous-dossiers et importe les banques JSON.
-
-Cette version ne nécessite ni serveur local ni connexion internet.
-
----
-
-## 14. Ajouter une nouvelle matière
-
-Créer un nouveau dossier dans `banques`.
-
-Exemple :
-
-```text
-banques/Alimentation_therapeutique/
-```
-
-Puis ajouter les banques JSON correspondantes :
-
-```text
-banques/Alimentation_therapeutique/01_diabete.json
-banques/Alimentation_therapeutique/02_insuffisance_renale.json
-```
-
-Ensuite, depuis le dossier du projet :
-
-```bash
+```sh
 python3 generer_manifest.py
 ```
 
-Le script parcourt récursivement tous les sous-dossiers de `banques` et reconstruit automatiquement `manifest.json`.
+Committer les sources, les pages générées et le manifest avec la modification.
+La CI les vérifie **sans les réécrire** et ne commite plus automatiquement dans
+`main`. La publication GitHub Pages reste basée sur les fichiers présents dans
+`main`. Aucun outil de compilation n'est nécessaire chez l'utilisateur final.
 
-Il faut ensuite envoyer sur GitHub :
+## Vérifications
 
-- les nouveaux fichiers JSON ;
-- le nouveau `manifest.json`.
+Python 3.12 et Node.js 22 sont utilisés en CI. Installer les dépendances de test :
 
-Il n'est normalement pas nécessaire de modifier `index.html`.
+```sh
+python3 -m pip install -r requirements-tests.txt
+npm ci
+npx playwright install chromium firefox webkit
+# Sous Linux, installer aussi les dépendances système :
+# npx playwright install --with-deps chromium firefox webkit
+```
 
----
+Vérifications sans navigateur :
 
-## 15. Ajouter un nouveau chapitre
+```sh
+python3 scripts/build.py --check
+python3 tests/test_build.py
+python3 generer_manifest.py --check
+python3 tests/test_manifest.py
+python3 tests/check_project.py
+node tests/runtime.mjs
+```
 
-Exemple :
+Pour les parcours navigateur, démarrer le serveur dans un autre terminal :
 
-```text
-banques/BPADN/07_enzymologie.json
+```sh
+python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
 Puis lancer :
 
-```bash
-python3 generer_manifest.py
+```sh
+python3 tests/browser_smoke.py
+npm run test:browsers
 ```
 
-et pousser les modifications sur GitHub.
-
----
-
-## 16. Format d'une banque JSON
-
-Chaque banque contient notamment :
-
-```json
-{
-  "subject": "BPADN",
-  "chapter": "Les glucides",
-  "questions": [
-    {
-      "id": "exemple_001",
-      "type": "single",
-      "difficulty": 2,
-      "prompt": "Question...",
-      "choices": [
-        {
-          "text": "Réponse A",
-          "correct": true
-        },
-        {
-          "text": "Réponse B",
-          "correct": false
-        }
-      ],
-      "explanation": "Explication de la réponse."
-    }
-  ]
-}
-```
-
-Types actuellement utilisés :
-
-```text
-single   → une seule bonne réponse
-multiple → plusieurs bonnes réponses
-```
-
-La difficulté est numérique : `1` = facile, `2` = intermédiaire, `3` = difficile.
-
----
-
-## 17. Matières actuellement disponibles
-
-### BPADN
-
-- Matière organique et inorganique
-- Glucides
-- Lipides
-- Protides
-- Acides nucléiques
-- Milieu intérieur
-- Biologie cellulaire
-
-### Santé publique
-
-- Concepts de santé
-- Déterminants de santé
-- Mesure de l'état de santé d'une population
-- PNNS
-- Gaspillage alimentaire
-- Situation professionnelle — gaspillage alimentaire
-
----
-
-
-### Contrôles automatiques
-
-Le dépôt contient les contrôles suivants :
-
-- `python3 generer_manifest.py --check` vérifie le manifest committé sans le modifier ;
-- `python3 tests/check_project.py` vérifie banques, manifest, ressources, accessibilité structurelle et syntaxe JavaScript ;
-- `node tests/runtime.mjs` exécute les fonctions JavaScript réelles des deux pages : score QCM, génération Vrai/Faux, validation et sauvegardes ;
-- `tests/browser_smoke.py` est exécuté dans GitHub Actions avec Chrome/Selenium pour tester de vrais parcours desktop et mobile.
-
-Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur les pull requests et sur `main`. Le test local ouvre `index_local.html` en `file://` avec un véritable import de dossier.
-
-La [revue générale du 7 novembre 2026](AUDIT.md) décrit les corrections, la dette restante et les limites de validation. Les sauvegardes web et locales sont séparées ; les anciennes sauvegardes locales sont migrées à leur prochaine sauvegarde. Après réouverture locale, recharge le dossier pour réviser des thèmes complets ; la série sauvegardée et « Revoir mes erreurs » fonctionnent sans ce rechargement.
-
-# Changelog
-
-## V7.9.7
-
-- Le bouton texte **Explications** du mode Vrai/Faux est remplacé par une petite icône 💡 on/off.
-- L'icône est alignée à droite entre les boutons **Faux/Vrai** et les actions de session.
-- L'état actif reste visible via la couleur d'accent et `aria-pressed`.
-- Versions web et locale synchronisées.
-
-## V7.9.6
-
-- Suppression du minuteur des réglages.
-- La roue crantée flottante est remplacée par un **toggle jour/nuit direct**.
-- Le thème continue d'être mémorisé.
-- Le réglage des explications Vrai/Faux reste accessible directement dans l'interface Vrai/Faux.
-- Une ancienne progression sauvegardée avec le minuteur activé ne réactive plus le chrono à la reprise.
-- Versions web et locale synchronisées.
-
-## V7.9.5
-
-- Le mode **Vrai/Faux** ne force plus une alternance Vrai → Faux → Vrai → Faux.
-- La vérité de chaque carte est désormais tirée indépendamment, ce qui produit des séquences naturellement aléatoires.
-- La vérité tirée reste enregistrée dans la session pour garantir une pause/reprise cohérente.
-- Versions web et locale synchronisées.
-
-## V7.9.4
-
-- Sur mobile QCM, **Valider** occupe toute la largeur.
-- **Mettre en pause** et **Abandonner** sont placés sur une seconde rangée en deux colonnes égales.
-- Le bloc d'actions reste ancré en bas du questionnaire, indépendamment de la longueur de la question ou du nombre de réponses.
-- La zone des propositions devient la zone flexible et scrollable lorsque le contenu est trop long.
-- **Question suivante** reprend la même largeur complète que **Valider** après correction.
-- Versions web et locale synchronisées.
-
-## V7.9.3
-
-- En Vrai/Faux mobile, le bloc **Options** se compacte lorsqu'aucune option n'est disponible afin de réduire l'espace avant **Nombre de questions**.
-- La carte **Questionnaire en pause** est réalignée sur mobile avec des boutons pleine largeur et une hiérarchie plus propre.
-- Le panneau inférieur du Vrai/Faux mobile est allégé : **Pause** et **Abandonner** sont plus compacts.
-- **Question suivante** n'est affiché qu'après une réponse lorsqu'il est réellement nécessaire.
-- Le bouton flottant reste davantage visible lorsqu'il est docké sur le bord d'un écran mobile.
-- Les versions web et locale restent synchronisées.
-
-## V7.9.2
-
-- Sur mobile, le bloc **Options** est affiché avant **Nombre de questions**.
-- Le texte d'aide sous les boutons **Faux / Vrai** a été supprimé pour alléger l'écran et récupérer de la hauteur.
-- En Vrai/Faux, **Espace** et le bouton **Mettre en pause** ne quittent plus le questionnaire : un voile **En pause** apparaît directement sur la carte.
-- Pendant cette pause, les swipes, réponses, animations et chronomètres sont gelés ; **Espace** ou **Reprendre** relance la session au même endroit.
-- Le comportement historique de pause du QCM classique reste inchangé.
-- Les versions web et locale restent synchronisées.
-
-## V7.9.1
-
-- Correction de l'alignement du bloc **Options** dans la configuration : son titre reste en haut de sa colonne.
-- En Vrai/Faux avec explications, un clic ou tap sur la **carte d'explication** passe à la question suivante, en complément de `Entrée` et du bouton **Question suivante**.
-- Un délai anti-clic accidentel évite qu'un swipe ayant donné la réponse saute immédiatement la correction.
-- Sur mobile, la question et la réponse proposée utilisent davantage la largeur de la carte.
-- La densité typographique s'adapte désormais à la longueur combinée **question + réponse proposée**.
-- La carte mobile reste contenue au-dessus des boutons **Faux / Vrai**, y compris avec des contenus plus longs.
-- Les corrections sont appliquées aux versions web et locale.
-
-## V7.9.0
-
-- Ajout d'un bloc **À réviser** sur la page Résultats lorsqu'une session contient des erreurs.
-- Regroupement automatique des erreurs par matière, chapitre et `category` déjà présente dans les banques JSON.
-- Classement des thèmes par nombre d'erreurs décroissant.
-- **Réviser ce thème** crée une nouvelle session avec toutes les questions disponibles de la catégorie concernée.
-- **Réviser tout** rassemble les questions de toutes les catégories à retravailler en évitant les doublons.
-- Le fonctionnement respecte le mode actif : QCM reste QCM et Vrai/Faux reste Vrai/Faux.
-- Aucun changement du format des 330 questions existantes n'est nécessaire.
-- Fonctionnalité disponible dans `index.html` et `index_local.html`.
-
-## V7.8.3
-
-- Avant chaque session **Vrai/Faux**, une popup demande si les explications doivent être affichées après chaque réponse.
-- Avec les explications activées, toute correction s’affiche directement dans la carte : une bonne réponse montre l’explication seule pendant 7 secondes puis enchaîne automatiquement ; une erreur remplace la question par « Réponse incorrecte », la vérité attendue et l’explication, puis reste affichée jusqu’à validation.
-- Sans explications, le comportement rapide reste inchangé : animation de résultat puis passage automatique à la carte suivante.
-- Une action **💡 Explications** dans le menu flottant permet d’activer ou désactiver ce comportement pendant la session.
-- Le réglage est conservé lors d’une pause/reprise et fonctionne aussi sur la version locale.
-- Les tests navigateur couvrent les deux choix de la popup et le basculement du réglage en cours de session.
-
-## V7.8.2
-
-- Renforcement de l’accessibilité du menu flottant (`inert`, focus et `aria-expanded`).
-- Ajout d’une favicon explicite.
-- Correction du chemin d’erreur lorsque le manifest ne peut pas être chargé.
-- Ajout de tests automatisés de structure, banques, manifest, logique QCM, Vrai/Faux et syntaxe JavaScript.
-- Ajout d’un workflow GitHub Actions de contrôle qualité sur les PR et sur `main`.
-- Nettoyage des fichiers système macOS suivis par erreur.
-
-
-## V7.8.0
-
-- Les 7 banques BPADN ont été recréées à partir des cours fournis, avec 30 questions par chapitre.
-- Les intitulés BPADN sont uniformisés au format `Chapitre X — Nom du chapitre` et les fichiers 6, 7 et 8 suivent désormais leur vraie numérotation.
-- Nouveau choix **QCM / Vrai-Faux** avant de démarrer une session.
-- Chaque flashcard affiche simultanément une **question** et une **réponse proposée**.
-- Le mode Vrai/Faux utilise uniquement les **questions à réponse unique**, afin que la réponse proposée puisse être jugée sans ambiguïté ; les QCM à réponses multiples restent disponibles en mode QCM classique.
-- L’utilisateur juge uniquement la véracité de cette réponse : **gauche = Faux**, **droite = Vrai**.
-- Les questions à réponses multiples restent réservées au mode QCM classique ; le mode Vrai/Faux utilise uniquement les questions à réponse unique.
-- Boutons **Faux / Vrai** et raccourcis clavier gauche / droite disponibles.
-- Grand ✓ / ✕, animation d’impact et arrivée glissée de la carte suivante conservés.
-- En révision des erreurs, l’explication est affichée avant de passer à l’erreur suivante.
-- Score, progression, minuteur, pause/reprise et révision des erreurs conservés.
-- Chapitre 0 BPADN uniformisé en version 3.
-- Nettoyage des fichiers macOS parasites via `.gitignore`.
-- Footer : `Index V7.8.0`.
-
-## V7.7.2
-
-- Nouvelle direction visuelle avec de vraies illustrations raster générées spécialement pour le projet.
-- Suppression du rendu géométrique / SVG précédent.
-- Ajout d'un dossier `assets/images/`.
-- Images converties en WebP transparent pour réduire le poids du site.
-- Illustration nutritionnelle dans le header.
-- Illustrations dédiées pour :
-  - Matières
-  - Chapitres
-  - Difficulté
-  - Résultats
-- Mise en page responsive sur mobile et ordinateur.
-- Footer mis à jour : `Index V7.7.2`.
-
-## V7.6.4
-
-- Contraste renforcé entre les éléments sélectionnés et non sélectionnés en mode nuit.
-- Le mode jour reste inchangé.
-- Matières et chapitres sélectionnés :
-  - fond violet plus visible ;
-  - bordure plus lumineuse ;
-  - halo renforcé.
-- Difficulté sélectionnée plus identifiable en mode sombre.
-- Réponses sélectionnées plus distinctes avant validation.
-- Choix du timer et état actif du timer plus visibles.
-- Les éléments non sélectionnés sont légèrement plus mats pour accentuer la différence.
-- Footer mis à jour : `Index V7.6.4`.
-
-## V7.6.3
-
-- Ajout d'un graphique circulaire animé sur la page Résultats.
-- Le pourcentage s'anime de 0 % jusqu'au score obtenu.
-- La couleur de l'anneau s'adapte au score.
-- Le bouton ⚙ peut désormais être rangé partiellement hors de l'écran :
-  - environ 30 % restent visibles ;
-  - un clic sur la partie visible le ramène entièrement dans l'écran ;
-  - le menu radial s'ouvre automatiquement après son retour.
-- La position rangée du bouton est mémorisée.
-- Suppression de la ligne `300 questions disponibles • 2 matières • sélection par chapitres` sous le titre.
-- Le footer affiche `Index V7.6.3`.
-
-## V7.6.2
-
-- Correction renforcée du bug `Temps écoulé`.
-- La validation manuelle et l'expiration du timer utilisent désormais deux chemins séparés.
-- Un intervalle de timer obsolète est automatiquement neutralisé si le timer est désactivé.
-- Optimisation du mode Focus sur téléphone :
-  - suppression du chapitre / de la banque pendant la question ;
-  - marges et espacements réduits ;
-  - réponses plus compactes ;
-  - barre Valider / Pause / Abandonner compacte et toujours accessible ;
-  - meilleure utilisation de la hauteur de l'écran.
-- Renforcement du fond et du contraste des icônes du menu flottant et des choix 15 / 30 / 45 / 60 s.
-- Le bas de la page affiche désormais uniquement la version réelle de l'index : `Index V7.6.2`.
-
-## V7.6.1
-
-- Correction d'un bug où un clic normal sur `Valider` pouvait afficher `Temps écoulé`.
-- Le message `Temps écoulé` n'apparaît désormais que lorsque le timer atteint réellement zéro.
-- Pour les questions à choix multiples, le nombre exact de bonnes réponses n'est plus révélé.
-- Le texte affiche simplement : `Plusieurs réponses sont attendues.`
-
-## V7.6
-
-- Retour de l'icône `⚙` sur le bouton principal du menu flottant.
-- Ajout d'un mode focus automatique pendant les questionnaires.
-- Questionnaire centré dans la fenêtre.
-- Barre d'actions du quiz maintenue accessible en bas de la carte.
-- Recentrage automatique vers la correction après validation.
-- Ajout du filtre de difficulté :
-  - Tous niveaux
-  - Facile
-  - Intermédiaire
-  - Difficile
-- Recalcul dynamique du nombre de questions disponibles selon la difficulté.
-- Affichage des libellés de difficulté dans les questions au lieu des valeurs numériques.
-
-## V7.5
-
-- Remplacement de la fenêtre Réglages par un menu flottant sans panneau.
-- État neutre : seule l'icône `☰` est visible.
-- Un clic sur `☰` déploie deux icônes indépendantes :
-  - Jour / Nuit ;
-  - Timer.
-- Jour / Nuit bascule immédiatement sans ouvrir de sous-menu.
-- Le bouton Timer active / désactive directement le minuteur.
-- Lorsque le timer est actif, les choix 15 / 30 / 45 / 60 s apparaissent comme de petits boutons flottants.
-- Aucun cadre ou fond commun autour des icônes déployées.
-- Déplacement et aimantation du bouton principal conservés.
-
-## V7.4
-
-- Suppression des coches / ronds visibles dans les réponses.
-- Sélection des réponses indiquée uniquement par un halo.
-- Menu Réglages simplifié.
-- Mode jour / nuit représenté uniquement par son icône.
-- Timer activable / désactivable sans checkbox visible.
-- Remplacement du champ numérique du timer par quatre durées fixes :
-  - 15 s
-  - 30 s
-  - 45 s
-  - 60 s
-- Timer toujours désactivé par défaut.
-
-## V7.3
-
-- Nouveau menu `⚙ Réglages` flottant.
-- Mode jour / nuit déplacé dans le menu Réglages.
-- Minuteur optionnel par question.
-- Minuteur désactivé par défaut.
-- Durée réglable de 15 à 300 secondes.
-- Retour des réponses en disposition verticale.
-- Conservation de la navigation clavier.
-- Conservation du bottom sheet mobile pour les chapitres.
-- Bouton Réglages déplaçable et aimanté au coin le plus proche.
-- Double-tap zoom neutralisé sur les contrôles.
-- Pinch-to-zoom conservé.
-
-## V7.2
-
-- Navigation clavier améliorée.
-- Agrandissement du bouton flottant.
-- Ajout d'une marge avec les bords.
-- Première version du minuteur.
-- Agrandissement des cartes de réponse.
-
-## V7.1
-
-- Aimantation automatique du bouton flottant au coin le plus proche.
-- Amélioration du comportement tactile.
-- Réduction des zooms accidentels sur iPhone.
-
-## V7
-
-- Bottom sheet des chapitres sur téléphone.
-- Interface différente automatiquement entre desktop et mobile.
-- Bouton unique `Tout sélectionner / Tout désélectionner`.
-- Amélioration du déplacement tactile du bouton flottant.
-
----
-
-## Objectif du projet
-
-Construire progressivement une plateforme de révision BTS Diététique simple à maintenir, utilisable toute l'année et partageable avec d'autres étudiants, sans avoir à reconstruire l'application à chaque nouveau cours.
-
-
-## Assets visuels — V7.7.2
-
-Les images visuelles sont désormais stockées séparément :
-
-```text
-assets/
-└── images/
-    ├── hero-nutrition.webp
-    ├── matieres.webp
-    ├── chapitres.webp
-    ├── difficulte.webp
-    └── resultats.webp
-```
-
-Les images ont été optimisées au format WebP avec transparence pour préserver une bonne qualité tout en réduisant le poids du chargement.
-
-Pour cette version, il faut téléverser **le dossier `assets/` une seule fois** sur GitHub en même temps que le nouvel `index.html`.
-
-Les futures mises à jour qui ne modifient pas ces images pourront de nouveau être faites en remplaçant uniquement `index.html`.
-
-- En Vrai/Faux avec explications, une bonne réponse affiche uniquement l’explication pendant 7 secondes avec un petit chronomètre circulaire en haut à droite avant l’enchaînement automatique. **Entrée** permet de passer plus vite à la suivante et **Espace** met la session en pause.
+- `check_project.py` vérifie les banques, les IDs, les ressources, la sémantique
+  HTML et la fraîcheur des pages, sans dépendre d'une mise en forme CSS précise.
+- `runtime.mjs` charge la fabrique JavaScript complète : score des 776 questions,
+  combinaisons exactes et inversions, génération Vrai/Faux, stockage, migration,
+  reprise interrompue, mutualisation des requêtes et pause du décompte avec horloge
+  simulée. Il ne découpe plus le code par des marqueurs textuels.
+- Selenium vérifie les gestes, dimensions utiles, explications, révisions, pauses
+  et reprises avec Chrome. Les clics utilisent les contrôles réels ; les animations
+  sont attendues jusqu'à leur fin. Une fenêtre d'observation est conservée pour
+  vérifier qu'un décompte en pause reste immobile.
+- Playwright vérifie Chromium, Firefox et WebKit en tailles desktop/mobile, les
+  dialogues clavier, les thèmes et l'accessibilité avec axe sur les états principaux.
+  L'import local réel et sa reprise sont testés en `file://` pour chaque moteur.
+  Les captures sont déposées dans `test-results/` et conservées par la CI.
+
+Les versions des paquets Node sont verrouillées par `package-lock.json` et celle
+de Selenium par `requirements-tests.txt`. Les tests vérifient la structure et le
+fonctionnement, sans valider scientifiquement les formulations des banques.
+
+Les contrôles axe et WebKit complètent la couverture ; ils ne remplacent pas une
+session avec VoiceOver/NVDA ni un essai sur iPhone ou Android physique. Safari natif
+peut dépendre de réglages d'automatisation propres à la machine.
+
+Voir [AUDIT.md](AUDIT.md) pour les constats et le bilan du nettoyage.
