@@ -1,0 +1,2 @@
+# Browser automation used by tests/browser_smoke.py
+selenium==4.32.0

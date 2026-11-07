@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="fr" data-edition="@@EDITION@@">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes">
+<meta name="theme-color" content="#4f46e5">
+<title>QCM BTS Diététique</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+@@STYLES@@</style>
+</head>
+<body>
+<button id="themeToggle" class="theme-toggle theme-orbit-btn" type="button" aria-label="Activer le mode nuit" title="Mode nuit">
+  <span class="theme-orbit" aria-hidden="true">
+    <span id="themeSun" class="theme-celestial theme-sun">☀</span>
+    <span id="themeMoon" class="theme-celestial theme-moon">☾</span>
+  </span>
+</button>
+
+
+
+<main>
+<header class="card hero visual-hero">
+  <div class="visual-hero-copy">
+    <h1>QCM BTS Diététique</h1>
+  </div>
+  <img class="visual-hero-image" src="assets/images/hero-nutrition.webp" alt="" aria-hidden="true">
+</header>
+
+<section id="errorBox" class="card error-card hidden">
+  <h2>Impossible de charger les banques</h2>
+  <p id="errorText"></p>
+</section>
+
+@@LOCAL_LOADER@@
+<section id="resumeCard" class="card resume hidden">
+  <h2>Questionnaire en pause</h2>
+  <p id="resumeText"></p>
+  <div class="row">
+    <button id="resumeBtn" class="primary" type="button">Reprendre</button>
+    <button id="discardSavedBtn" class="danger" type="button">Abandonner cette progression</button>
+  </div>
+</section>
+
+<section id="setup" class="hidden">
+  <div class="card selection-shell">
+    <div class="selection-grid">
+      <aside class="subject-pane">
+        <div class="panel-kicker">Étape 1</div>
+        <div class="visual-section-title"><img src="assets/images/matieres.webp" alt="" aria-hidden="true"><h2>Matières</h2></div>
+        <p class="muted">Sélectionne une matière pour accéder à ses chapitres. Tu peux ensuite choisir les chapitres à inclure ou les désélectionner.</p>
+        <div id="subjectList" class="subject-list"></div>
+      </aside>
+
+      <div class="chapter-pane">
+        <div class="chapter-header">
+          <div>
+            <div class="panel-kicker">Étape 2</div>
+            <div class="visual-section-title"><img src="assets/images/chapitres.webp" alt="" aria-hidden="true"><h2 id="activeSubjectTitle">Chapitres</h2></div>
+            <p id="activeSubjectMeta" class="muted"></p>
+          </div>
+          <div class="chapter-actions">
+          <button id="toggleAllChapters" class="tiny-btn" type="button">Tout sélectionner</button>
+        </div>
+        </div>
+        <div id="chapterList" class="chapter-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card config-card">
+    <div class="study-mode-block">
+      <div class="study-mode-head">
+        <div><div class="panel-kicker">Mode de révision</div><strong>Choisis comment tu veux t’entraîner</strong></div>
+        <p class="muted">Même sélection de matières, chapitres et difficulté pour les deux modes.</p>
+      </div>
+      <div class="mode-options" role="group" aria-label="Mode de révision">
+        <button class="mode-btn selected" type="button" data-mode="qcm" aria-pressed="true"><span>QCM</span><small>Réponses classiques</small></button>
+        <button class="mode-btn" type="button" data-mode="flashcard" aria-pressed="false"><span>Vrai / Faux</span><small>Question + réponse proposée</small></button>
+      </div>
+    </div>
+    <div class="config-grid">
+      <div class="field">
+        <label for="count">Nombre de questions</label>
+        <input id="count" type="number" min="1" value="20">
+      </div>
+      <div class="config-options">
+        <div class="panel-kicker">Options</div>
+        <div class="options">
+          <label class="qcm-only-option"><input id="shuffleAnswers" type="checkbox" checked> Mélanger les réponses</label>
+          <label class="qcm-only-option"><input id="instantCorrection" type="checkbox" checked> Correction immédiate</label>
+        </div>
+      </div>
+      <button id="startBtn" class="primary" type="button">Commencer</button>
+    </div>
+
+    <div class="difficulty-block">
+      <div class="difficulty-intro">
+        <img class="difficulty-visual" src="assets/images/difficulte.webp" alt="" aria-hidden="true">
+        <div>
+          <div class="panel-kicker">Difficulté</div>
+          <p class="muted difficulty-help">Choisis le niveau des questions à inclure dans le tirage.</p>
+        </div>
+      </div>
+      <div class="difficulty-options" role="group" aria-label="Difficulté du questionnaire">
+        <button class="difficulty-btn selected" type="button" data-difficulty="all" aria-pressed="true">
+          <span>Tous niveaux</span><small id="diffCountAll">—</small>
+        </button>
+        <button class="difficulty-btn" type="button" data-difficulty="1" aria-pressed="false">
+          <span>Facile</span><small id="diffCount1">—</small>
+        </button>
+        <button class="difficulty-btn" type="button" data-difficulty="2" aria-pressed="false">
+          <span>Intermédiaire</span><small id="diffCount2">—</small>
+        </button>
+        <button class="difficulty-btn" type="button" data-difficulty="3" aria-pressed="false">
+          <span>Difficile</span><small id="diffCount3">—</small>
+        </button>
+      </div>
+    </div>
+
+    <div class="summary-line">
+      <span id="selectionSummary" class="summary-strong"></span>
+      <span id="available" class="muted"></span>
+    </div>
+  </div>
+</section>
+
+
+<div id="mobileSheetOverlay" class="mobile-sheet-overlay" aria-hidden="true" inert>
+  <section class="mobile-sheet" role="dialog" aria-modal="true" aria-labelledby="mobileSheetTitle">
+    <div class="mobile-sheet-handle"></div>
+    <div class="mobile-sheet-header">
+      <div>
+        <h2 id="mobileSheetTitle" class="mobile-sheet-title">Chapitres</h2>
+        <div id="mobileSheetMeta" class="mobile-sheet-meta"></div>
+      </div>
+      <button id="mobileSheetClose" class="mobile-sheet-close" type="button" aria-label="Fermer">×</button>
+    </div>
+    <div class="mobile-sheet-body">
+      <div class="mobile-sheet-actions">
+        <button id="mobileToggleAll" class="tiny-btn" type="button">Tout sélectionner</button>
+      </div>
+      <div id="mobileChapterList" class="mobile-sheet-list"></div>
+    </div>
+  </section>
+</div>
+
+<section id="quiz" class="card quiz-card hidden">
+  <div class="meta">
+    <span id="counter"></span>
+    <span class="live-stats"><span id="scoreLive"></span><span id="remainingLive"></span></span>
+  </div>
+  <div class="progress" role="progressbar" aria-label="Progression du questionnaire" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progressBar"></div></div>
+  <div id="qMeta" class="muted"></div>
+  <div id="qText" class="question"></div>
+  <div id="normalAnswerArea">
+    <form id="choices"></form>
+    <p class="keyboard-hint">Clavier : ↑ ↓ pour parcourir • Espace pour sélectionner • Entrée pour valider / continuer</p>
+  </div>
+  <div id="flashArea" class="flash-area hidden">
+    <div id="swipeStage" class="swipe-stage">
+      <article id="flashCard" class="flash-card" tabindex="0" aria-label="Carte Vrai ou Faux">
+        <div id="flashFalseStamp" class="flash-stamp false" aria-hidden="true">FAUX</div>
+        <div id="flashTrueStamp" class="flash-stamp true" aria-hidden="true">VRAI</div>
+        <div class="flash-question-label">QUESTION</div>
+        <div id="flashQuestion" class="flash-question"></div>
+        <div class="flash-divider" aria-hidden="true"></div>
+        <div class="flash-answer-label">RÉPONSE PROPOSÉE</div>
+        <div id="flashStatement" class="flash-statement"></div>
+        <div id="flashCardExplanation" class="flash-card-explanation hidden">
+          <div id="flashCardExplanationTitle" class="flash-card-explanation-title">✓ Explication</div>
+          <div id="flashCardAnswerKey" class="flash-card-answer-key hidden"></div>
+          <div id="flashCardExplanationText" class="flash-card-explanation-text"></div>
+          <div id="flashExplanationCountdownWrap" class="flash-explanation-countdown" aria-label="Temps avant la prochaine carte">
+            <span id="flashExplanationCountdownLabel" class="sr-only">Prochaine carte dans</span>
+            <div class="flash-explanation-stopwatch" aria-hidden="true">
+              <svg viewBox="0 0 44 44">
+                <circle class="flash-explanation-stopwatch-track" cx="22" cy="22" r="18" pathLength="100"></circle>
+                <circle id="flashExplanationCountdownFill" class="flash-explanation-countdown-fill" cx="22" cy="22" r="18" pathLength="100"></circle>
+              </svg>
+              <strong id="flashExplanationCountdown">7</strong>
+            </div>
+          </div>
+        </div>
+      </article>
+      <div id="flashPauseOverlay" class="flash-pause-overlay hidden" aria-hidden="true">
+        <div class="flash-pause-copy">
+          <strong>En pause</strong>
+          <span>Espace ou Reprendre pour continuer</span>
+        </div>
+      </div>
+      <div id="flashResultIcon" class="flash-result-icon" aria-hidden="true"></div>
+    </div>
+    <div id="flashLiveResult" class="sr-only" role="status" aria-live="polite"></div>
+    <div id="flashSelfControls" class="flash-controls">
+      <button id="flashFalseBtn" class="flash-btn false" type="button">← Faux</button>
+      <button id="flashTrueBtn" class="flash-btn true" type="button">Vrai →</button>
+    </div>
+    <div class="flash-explanation-toggle-row">
+      <button id="flashExplanationMenuBtn" class="flash-explanation-icon hidden" type="button" aria-label="Activer les explications Vrai/Faux" title="Explications désactivées" aria-pressed="false">💡</button>
+    </div>
+  </div>
+  <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+  <div class="row quiz-actions">
+    <button id="validateBtn" class="primary" type="button">Valider</button>
+    <button id="nextBtn" class="secondary hidden" type="button">Question suivante</button>
+    <button id="pauseBtn" class="secondary" type="button">Mettre en pause</button>
+    <button id="quitBtn" class="danger" type="button">Abandonner</button>
+  </div>
+  <p class="muted" style="font-size:.88rem;margin-bottom:0">La progression est sauvegardée automatiquement sur cet appareil.</p>
+</section>
+
+<div id="flashExplanationOverlay" class="flash-pref-overlay" aria-hidden="true" inert>
+  <section class="flash-pref-dialog" role="dialog" aria-modal="true" aria-labelledby="flashExplanationTitle" aria-describedby="flashExplanationText">
+    <div class="panel-kicker">Vrai / Faux</div>
+    <h2 id="flashExplanationTitle">Afficher les explications ?</h2>
+    <p id="flashExplanationText">Veux-tu voir l’explication après chaque réponse, même quand elle est juste ? Tu pourras changer ce réglage pendant la session.</p>
+    <div class="flash-pref-actions">
+      <button id="flashExplanationNo" class="secondary" type="button">Non, enchaîner</button>
+      <button id="flashExplanationYes" class="primary" type="button">Oui, afficher</button>
+    </div>
+  </section>
+</div>
+
+<section id="results" class="card results-card hidden">
+  <div class="visual-section-title result-title"><img src="assets/images/resultats.webp" alt="" aria-hidden="true"><h2>Résultats</h2></div>
+
+  <div class="result-overview">
+    <div id="scoreDonut" class="score-donut" role="img" aria-label="Score">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="score-donut-track" cx="60" cy="60" r="48"></circle>
+        <circle id="scoreDonutProgress" class="score-donut-progress" cx="60" cy="60" r="48" pathLength="100"></circle>
+      </svg>
+      <div class="score-donut-center">
+        <strong id="scoreDonutPercent">0%</strong>
+        <span>score</span>
+      </div>
+    </div>
+
+    <div class="result-copy">
+      <div id="finalScore" class="score"></div>
+      <p id="summary"></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <button id="retryErrors" class="primary" type="button">Revoir mes erreurs</button>
+    <button id="newQuiz" class="secondary" type="button">Nouveau questionnaire</button>
+  </div>
+
+  <section id="reviewRecommendations" class="review-recommendations hidden" aria-labelledby="reviewRecommendationsTitle">
+    <div class="review-recommendations-head">
+      <h3 id="reviewRecommendationsTitle">📚 À réviser</h3>
+      <button id="reviewAllTopics" class="primary" type="button">Réviser tout ce qui est à revoir</button>
+    </div>
+    <p id="reviewRecommendationsIntro" class="review-recommendations-intro"></p>
+    <div id="reviewTopicList" class="review-topic-list"></div>
+  </section>
+</section>
+
+<footer>Index V7.9.7</footer>
+</main>
+
+<script>
+@@SCRIPT@@</script>
+</body>
+</html>

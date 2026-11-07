@@ -26,66 +26,97 @@ Aucun contenu pédagogique n'a été modifié.
 | Générateur changeant la date à chaque exécution | Diffs quotidiens sans changement de banques | Date conservée si les métadonnées sont identiques |
 | Test local retirant `webkitdirectory` et utilisant HTTP | Perte des chemins de sous-dossiers ; plusieurs noms identiques écrasés dans le cache de test | Véritable import du dossier et exécution de la version locale en `file://` |
 
-## Architecture et dette restante
+## Nettoyage complémentaire
 
-L'application est un site statique sans backend ni dépendance JS de production.
-Le manifest décrit les banques chargées à la demande ; la version locale utilise
-un import de fichiers et un cache mémoire. Les textes des questions et choix
-sont insérés par `textContent` ou échappés avant insertion HTML. Les banques
-versionnées passent les contrôles structurels : 603 questions à réponse unique,
-173 à réponses multiples. Neuf prompts génériques ou répétés sont signalés par
-le contrôle existant, sans présumer d'une erreur pédagogique.
+Le suivi de cette revue remplace les deux moteurs copiés par une source commune :
+`src/app.js`, `src/styles.css`, `src/page.html` et le petit chargeur local. Le script
+`scripts/build.py` produit les deux pages autonomes ; `--check` garantit qu'elles
+correspondent aux sources committées. L'ouverture locale ne dépend d'aucun import
+JavaScript réseau. Une fabrique d'application sépare l'initialisation du montage
+DOM ; les tests chargent le fichier complet sans découpage textuel.
 
-Les deux pages contiennent chacune environ 3 200 lignes de HTML/CSS/JS avec
-beaucoup de code dupliqué. Les différences de persistance sont intentionnelles :
-références légères côté web, questions complètes pour reprendre hors ligne côté
-local. Une future génération des deux pages depuis une source commune réduirait
-les divergences. Cette revue évite une réécriture générale ; les nouveaux contrats
-de validation partagés sont comparés automatiquement entre les deux pages.
+Le minuteur de réponse, ses propriétés d'état et de sauvegarde, les expirations
+associées et l'ancien menu radial vide ont été supprimés. Le bouton de thème reste
+déplaçable ; le délai de lecture Vrai/Faux de sept secondes conserve son propre
+cycle de pause/reprise. Les anciennes sauvegardes contenant des champs de minuteur
+restent lisibles ; ces champs n'ont plus d'effet et ne sont plus écrits.
 
-Le minuteur et une partie de l'ancien menu flottant restent dans le code alors
-que leur interface a été retirée. Leur suppression mérite un changement séparé,
-car ils sont encore reliés à la pause, aux timers d'explication et aux sauvegardes.
-Le cache web ne mutualise pas les requêtes simultanées sur une même banque ; les
-compteurs utilisent toutefois un identifiant de requête pour ignorer les résultats
-périmés. Ce point représente surtout une dette de performance.
+Les accès simultanés à une banque web partagent maintenant la même requête.
+Une requête échouée est retirée du cache des requêtes en cours pour permettre
+une nouvelle tentative. Les tests couvrent la mutualisation et cette récupération.
 
-`tests/check_project.py` contient de nombreux contrôles sur des chaînes exactes
-de CSS/JS et une version précise de footer : une reformulation ou un formatage
-inoffensif peut les faire échouer. Ses tests de score et de hasard reproduisent
-les règles en Python ; ils ne prouvent pas seuls le comportement du JavaScript.
-Le nouveau test `runtime.mjs` exécute les fonctions de production des deux pages,
-notamment le score QCM pour les 776 questions, les combinaisons exactes et chaque
-inversion d'un choix, ainsi que la génération Vrai/Faux des 603 questions éligibles.
-Les tests Selenium gardent des attentes de dimensions et quelques délais liés aux
-animations : utiles pour les régressions visuelles, mais sensibles aux différences
-de navigateur. Ils utilisent souvent des clics JS ; les nouveaux contrôles clavier
-complètent cette couverture sans remplacer un audit manuel avec lecteur d'écran.
+Les contrôles sur des fragments exacts de CSS/JS, un numéro de footer et la
+reproduction du score en Python ont été retirés. Les contrats HTML sont vérifiés
+avec un parseur ; le JavaScript réel est testé pour les combinaisons exactes et
+chaque inversion de choix des 776 questions, les propositions Vrai/Faux des 603
+questions éligibles, les sauvegardes, références disparues et migrations. Une
+horloge simulée vérifie le gel et la reprise du décompte sans attendre plusieurs
+secondes. La suite Selenium utilise de vrais clics sur les contrôles et leurs
+libellés, attend les animations et observe les changements d'état. Le geste de
+test non validant reste sous le seuil de validation même avec une vitesse élevée.
 
-La CI installe Selenium sans verrouillage de version ; cela peut faire évoluer
-le comportement des tests indépendamment du dépôt. Le workflow de manifest reste
-autorisé à committer directement sur `main` et ne sérialise pas ses exécutions :
-deux modifications rapprochées peuvent provoquer un conflit de push. Les PR doivent
-désormais inclure leur manifest à jour, ce qui réduit le besoin de cette réparation
-automatique sans changer le workflow de publication existant.
+Les versions Node de test sont verrouillées par `package-lock.json` et Selenium
+par `requirements-tests.txt`. La CI est en lecture seule pour le contenu ; le
+workflow qui committait le manifest directement dans main a été retiré. Sources,
+pages et manifest doivent appartenir à la même PR. Les exécutions obsolètes d'une
+même branche sont annulées par un groupe de concurrence.
+
+### Défauts supplémentaires trouvés par les nouveaux contrôles
+
+- Le texte atténué sur fond clair et les boutons principaux sur fond violet en
+  thème nuit avaient un contraste insuffisant. Les couleurs de texte et de survol
+  ont été ajustées ; les contrôles axe sont exécutés sans exclusion de règle.
+- La fermeture du dialogue des chapitres remettait tous les éléments de fond à
+  `inert=false`, y compris la popup d'explications encore masquée. Les états inert
+  antérieurs sont désormais mémorisés puis restaurés ; une régression dédiée
+  et axe vérifient ce parcours mobile.
+- Le bouton de thème recouvrait une partie d'Abandonner sur petit écran. Sa position
+  par défaut en cours de quiz est maintenant en haut, avec un espace réservé dans
+  l'en-tête ; les positions choisies manuellement restent prioritaires. Un contrôle
+  géométrique interdit le chevauchement des actions principales.
+- Une variable CSS `--accent-soft` n'existait pas ; l'icône d'explications utilise
+  désormais la couleur partagée `--soft`.
+- La préférence de réduction des animations est étendue aux dialogues, au placement
+  du thème et au défilement. Le décompte textuel conserve sa durée normale.
+
+Le README a été réécrit autour du fonctionnement actuel ; ses anciens exemples
+de minuteur, menu radial et nombres de banques obsolètes ont été retirés.
+Aucun fichier des banques ni son contenu pédagogique n'a été changé.
 
 ## Validation et limites
 
-Commandes de contrôle :
-
 ```sh
+python3 scripts/build.py --check
+python3 tests/test_build.py
 python3 generer_manifest.py --check
 python3 tests/test_manifest.py
 python3 tests/check_project.py
 node tests/runtime.mjs
-# Dans un autre terminal : python3 -m http.server 8000 --bind 127.0.0.1
+# Serveur dans un autre terminal : python3 -m http.server 8000 --bind 127.0.0.1
 python3 tests/browser_smoke.py
+npm run test:browsers
 ```
 
-Les parcours couvrent score simple/multiple, corrections, revue ciblée/globale,
-Vrai/Faux avec et sans explications, décompte et pause, reprise après rechargement,
-panne réseau, thèmes, dialogues clavier, affichages desktop/mobile et import local
-réel. Le navigateur local utilisé est Chrome ; l'émulation de taille ne remplace
-pas des essais sur Safari/iOS, Android physique ou avec lecteur d'écran. Le comportement
-réel d'une fermeture forcée par l'OS reste dépendant du navigateur. Les sauvegardes
-restent locales à l'appareil et à l'origine ; elles ne constituent pas une synchronisation.
+La matrice Playwright couvre Chromium, Firefox et WebKit, chacun en tailles
+1280 × 900 et 390 × 844, avec des parcours QCM, reprise après rechargement,
+Vrai/Faux, explications, pause, clavier, thèmes et résultats. Chaque moteur
+vérifie aussi un import réel du dossier et une reprise locale en `file://`.
+Le contrôle axe WCAG A/AA est exécuté sur la configuration jour, la sélection
+nuit, le QCM nuit, les résultats, le dialogue, la carte et sa correction, ainsi
+que le chargeur local. Les captures desktop/mobile sont conservées en CI.
+Selenium garde la couverture détaillée des gestes et révisions ciblées/globales.
+
+Les tests de comportement ne constituent pas une validation scientifique des
+banques. Neuf prompts génériques/répétés sont signalés sans modification pédagogique.
+Les sauvegardes restent propres au navigateur, à l'appareil et à l'origine.
+
+Safari natif a été essayé via safaridriver, mais la session a expiré lors de la
+connexion à Safari sur cette machine. Les parcours WebKit ont été vérifiés ; ils
+ne prouvent pas un essai dans Safari natif ou sur iPhone physique. Aucun lecteur
+d'écran réel (VoiceOver/NVDA) ni appareil Android physique n'a été piloté. Les
+règles axe, le focus clavier et les noms accessibles complètent la couverture,
+sans remplacer une écoute et une navigation humaines. La fermeture forcée par
+l'OS et le stockage effacé par le navigateur restent hors du contrôle de l'app.
+
+Références des outils : [Playwright](https://playwright.dev/docs/intro),
+[axe-core](https://github.com/dequelabs/axe-core).

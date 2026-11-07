@@ -7,6 +7,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -20,12 +24,17 @@ jobs:
       - name: Installer Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.12"
 
       - name: Installer Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+
+      - name: Vérifier les pages générées
+        run: |
+          python3 scripts/build.py --check
+          python3 tests/test_build.py
 
       - name: Vérifier le manifest committé
         run: |
@@ -39,7 +48,7 @@ jobs:
         run: node tests/runtime.mjs
 
       - name: Installer Selenium
-        run: python3 -m pip install --disable-pip-version-check selenium
+        run: python3 -m pip install --disable-pip-version-check -r requirements-tests.txt
 
       - name: Tester les parcours navigateur
         run: |
@@ -47,3 +56,31 @@ jobs:
           SERVER_PID=$!
           trap 'kill $SERVER_PID' EXIT
           python3 tests/browser_smoke.py
+
+  browsers-and-accessibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Installer les dépendances verrouillées
+        run: npm ci
+      - name: Installer les navigateurs
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Tester Chromium, Firefox, WebKit et l'accessibilité
+        run: |
+          python3 -m http.server 8000 --bind 127.0.0.1 >/tmp/qcm-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID' EXIT
+          npm run test:browsers
+      - name: Conserver les captures de vérification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-screenshots
+          path: test-results/
