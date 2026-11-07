@@ -148,9 +148,7 @@ body {
     sans-serif;
   background: var(--bg);
   color: var(--text);
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
+  transition: background 0.2s ease;
 }
 main {
   max-width: 1120px;
@@ -1202,7 +1200,6 @@ html.theme-switching .quiz-actions,
 html.theme-switching button {
   transition:
     background-color 0.42s ease,
-    color 0.42s ease,
     border-color 0.42s ease,
     box-shadow 0.42s ease !important;
 }
@@ -2686,4 +2683,13 @@ body.quiz-active.flashcard-mode #quitBtn {
     padding-right: 42px;
     min-height: 36px;
   }
+}
+
+/* Resolve heading colors directly: inherited color transitions can leave stale
+   light-theme colors in WebKit while the containing surfaces are already dark. */
+h1,
+h2,
+h3,
+.study-mode-head strong {
+  color: var(--text);
 }

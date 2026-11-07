@@ -76,6 +76,10 @@ même branche sont annulées par un groupe de concurrence.
   géométrique interdit le chevauchement des actions principales.
 - Une variable CSS `--accent-soft` n'existait pas ; l'icône d'explications utilise
   désormais la couleur partagée `--soft`.
+- La CI WebKit/Linux a également révélé une couleur de titre héritée restant
+  claire après le passage en mode nuit : la couleur des titres est désormais
+  résolue directement et les transitions de couleur héritées ont été retirées.
+  La matrice vérifie explicitement ces couleurs avant le contrôle axe.
 - La préférence de réduction des animations est étendue aux dialogues, au placement
   du thème et au défilement. Le décompte textuel conserve sa durée normale.
 

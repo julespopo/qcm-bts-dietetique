@@ -92,6 +92,26 @@ for (const [name, engine] of Object.entries({ chromium, firefox, webkit })) {
           "dark",
         );
         await expect(page.locator("html")).not.toHaveClass(/theme-switching/);
+        const expectedText = await page.evaluate(() => {
+          const probe = document.createElement("span");
+          probe.style.color = "var(--text)";
+          document.body.appendChild(probe);
+          const color = getComputedStyle(probe).color;
+          probe.remove();
+          return color;
+        });
+        await expect(page.locator("h2").first()).toHaveCSS(
+          "color",
+          expectedText,
+        );
+        await expect(page.locator("#activeSubjectTitle")).toHaveCSS(
+          "color",
+          expectedText,
+        );
+        await expect(page.locator(".study-mode-head strong")).toHaveCSS(
+          "color",
+          expectedText,
+        );
         await audit(page, `${label}: sélection nuit`);
         await page.locator("#count").fill("2");
         await page.locator("#startBtn").click();
