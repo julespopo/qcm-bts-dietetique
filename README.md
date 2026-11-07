@@ -419,12 +419,16 @@ La difficulté est numérique : `1` = facile, `2` = intermédiaire, `3` = diffic
 
 ### Contrôles automatiques
 
-Le dépôt contient deux niveaux de tests :
+Le dépôt contient les contrôles suivants :
 
-- `python3 tests/check_project.py` vérifie banques, manifest, logique QCM/Vrai-Faux, ressources, accessibilité structurelle et syntaxe JavaScript ;
+- `python3 generer_manifest.py --check` vérifie le manifest committé sans le modifier ;
+- `python3 tests/check_project.py` vérifie banques, manifest, ressources, accessibilité structurelle et syntaxe JavaScript ;
+- `node tests/runtime.mjs` exécute les fonctions JavaScript réelles des deux pages : score QCM, génération Vrai/Faux, validation et sauvegardes ;
 - `tests/browser_smoke.py` est exécuté dans GitHub Actions avec Chrome/Selenium pour tester de vrais parcours desktop et mobile.
 
-Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur les pull requests et sur `main`.
+Le workflow `.github/workflows/quality-check.yml` exécute ces contrôles sur les pull requests et sur `main`. Le test local ouvre `index_local.html` en `file://` avec un véritable import de dossier.
+
+La [revue générale du 7 novembre 2026](AUDIT.md) décrit les corrections, la dette restante et les limites de validation. Les sauvegardes web et locales sont séparées ; les anciennes sauvegardes locales sont migrées à leur prochaine sauvegarde. Après réouverture locale, recharge le dossier pour réviser des thèmes complets ; la série sauvegardée et « Revoir mes erreurs » fonctionnent sans ce rechargement.
 
 # Changelog
 

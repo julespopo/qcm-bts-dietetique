@@ -27,11 +27,16 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Régénérer le manifest pour le contrôle
-        run: python3 generer_manifest.py
+      - name: Vérifier le manifest committé
+        run: |
+          python3 generer_manifest.py --check
+          python3 tests/test_manifest.py
 
       - name: Tester la structure, les banques et le JavaScript
         run: python3 tests/check_project.py
+
+      - name: Tester les fonctions JavaScript réelles
+        run: node tests/runtime.mjs
 
       - name: Installer Selenium
         run: python3 -m pip install --disable-pip-version-check selenium

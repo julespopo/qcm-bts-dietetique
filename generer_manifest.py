@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import argparse
 import json
 from datetime import date
 
 root = Path(__file__).resolve().parent
 banks_dir = root / "banques"
+
+parser = argparse.ArgumentParser(description="Générer ou vérifier le manifest des banques")
+parser.add_argument("--check", action="store_true", help="vérifier sans modifier manifest.json")
+args = parser.parse_args()
 
 banks = []
 
@@ -31,20 +36,27 @@ for path in sorted(banks_dir.rglob("*.json")):
         "version": data.get("version", 1)
     })
 
-manifest = {
-    "appVersion": 2,
-    "updated": date.today().isoformat(),
-    "banks": banks
-}
+manifest_path = root / "manifest.json"
+try:
+    previous = json.loads(manifest_path.read_text(encoding="utf-8"))
+except (OSError, ValueError):
+    previous = {}
 
-(root / "manifest.json").write_text(
-    json.dumps(manifest, ensure_ascii=False, indent=2),
-    encoding="utf-8"
-)
-
-print(
-    f"manifest.json mis à jour : "
-    f"{len(banks)} banque(s), "
-    f"{sum(b['count'] for b in banks)} questions, "
-    f"{len(set(b['subject'] for b in banks))} matière(s)."
-)
+up_to_date = previous.get("appVersion") == 2 and previous.get("banks") == banks
+if args.check:
+    if not up_to_date:
+        parser.exit(1, "Manifest obsolète : lancer python3 generer_manifest.py et committer manifest.json.\n")
+    print("OK — manifest à jour")
+else:
+    manifest = {
+        "appVersion": 2,
+        # Ne pas créer de diff quotidien quand les banques n'ont pas changé.
+        "updated": previous.get("updated", date.today().isoformat()) if up_to_date else date.today().isoformat(),
+        "banks": banks,
+    }
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(
+        f"manifest.json mis à jour : {len(banks)} banque(s), "
+        f"{sum(b['count'] for b in banks)} questions, "
+        f"{len(set(b['subject'] for b in banks))} matière(s)."
+    )
