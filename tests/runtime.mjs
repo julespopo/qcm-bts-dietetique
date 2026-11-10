@@ -301,5 +301,5 @@ for (const file of ["index.html", "index_local.html"]) {
   }
 }
 console.log(
-  "OK — production JS: QCM scoring on 776 questions (exact sets and inversions), Vrai/Faux, bank/save validation, offline restore, legacy migration and web/local parity",
+  `OK — production JS: QCM scoring on ${banks.reduce((n, bank) => n + bank.questions.length, 0)} questions (exact sets and inversions), Vrai/Faux, bank/save validation, offline restore, legacy migration and web/local parity`,
 );

@@ -1,6 +1,6 @@
 # QCM BTS Diététique
 
-Application statique de révision : **22 banques, 776 questions**, regroupées par
+Application statique de révision : **23 banques, 886 questions**, regroupées par
 matière, chapitre et difficulté. Aucun compte ni serveur de données n'est nécessaire.
 
 ## Utiliser l'application
@@ -137,7 +137,7 @@ npm run test:browsers
 
 - `check_project.py` vérifie les banques, les IDs, les ressources, la sémantique
   HTML et la fraîcheur des pages, sans dépendre d'une mise en forme CSS précise.
-- `runtime.mjs` charge la fabrique JavaScript complète : score des 776 questions,
+- `runtime.mjs` charge la fabrique JavaScript complète : score de toutes les questions,
   combinaisons exactes et inversions, génération Vrai/Faux, stockage, migration,
   reprise interrompue, mutualisation des requêtes et pause du décompte avec horloge
   simulée. Il ne découpe plus le code par des marqueurs textuels.

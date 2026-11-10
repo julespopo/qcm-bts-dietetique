@@ -1,6 +1,6 @@
 {
   "appVersion": 2,
-  "updated": "2026-11-07",
+  "updated": "2026-11-10",
   "banks": [
     {
       "id": "Alimentation_Nutrition__01_glucides",
@@ -136,6 +136,15 @@
       "file": "banques/BPADN/12_appareil_cardiovasculaire_p1.json",
       "count": 70,
       "version": 3
+    },
+    {
+      "id": "BPADN__15_systeme_neuromusculaire",
+      "title": "Chapitre 15 — Le système neuromusculaire",
+      "subject": "BPADN",
+      "chapter": "Chapitre 15 — Le système neuromusculaire",
+      "file": "banques/BPADN/15_systeme_neuromusculaire.json",
+      "count": 110,
+      "version": 1
     },
     {
       "id": "Promotion_nutrition__01_pnns_egalim_gemrcn",
