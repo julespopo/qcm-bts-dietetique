@@ -1,0 +1,3250 @@
+{
+  "version": 1,
+  "title": "Chapitre 15 — Le système neuromusculaire",
+  "subject": "BPADN",
+  "chapter": "Chapitre 15 — Le système neuromusculaire",
+  "source": {
+    "title": "Chapitre 15 — Le système neuromusculaire",
+    "pageCount": 71
+  },
+  "questions": [
+    {
+      "id": "bp15-001",
+      "category": "Organisation du système nerveux",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle fonction générale caractérise le système nerveux ?",
+      "choices": [
+        {
+          "text": "Produire exclusivement les cellules sanguines",
+          "correct": false
+        },
+        {
+          "text": "Communiquer et coordonner les fonctions de l’organisme",
+          "correct": true
+        },
+        {
+          "text": "Stocker les sels minéraux dans le squelette",
+          "correct": false
+        },
+        {
+          "text": "Assurer uniquement la digestion des lipides",
+          "correct": false
+        }
+      ],
+      "explanation": "Le système nerveux transmet et traite des informations afin de coordonner les activités de l’organisme.",
+      "sourcePages": [
+        5
+      ]
+    },
+    {
+      "id": "bp15-002",
+      "category": "Organisation du système nerveux",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Comment se compare généralement la réponse nerveuse à la réponse endocrine ?",
+      "choices": [
+        {
+          "text": "Elle est toujours plus lente",
+          "correct": false
+        },
+        {
+          "text": "Elle est plus rapide",
+          "correct": true
+        },
+        {
+          "text": "Elle fonctionne sans interaction avec le système endocrinien",
+          "correct": false
+        },
+        {
+          "text": "Elle nécessite uniquement des hormones circulantes",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours présente une commande nerveuse rapide, complémentaire de la régulation endocrine et en interaction avec elle.",
+      "sourcePages": [
+        5,
+        31
+      ]
+    },
+    {
+      "id": "bp15-003",
+      "category": "Organisation du système nerveux",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels éléments appartiennent au système nerveux central (SNC) ?",
+      "choices": [
+        {
+          "text": "L’encéphale",
+          "correct": true
+        },
+        {
+          "text": "Les nerfs spinaux",
+          "correct": false
+        },
+        {
+          "text": "La moelle épinière",
+          "correct": true
+        },
+        {
+          "text": "Les nerfs crâniens",
+          "correct": false
+        }
+      ],
+      "explanation": "Le SNC regroupe l’encéphale et la moelle épinière ; les nerfs appartiennent au système nerveux périphérique.",
+      "sourcePages": [
+        6,
+        11,
+        29
+      ]
+    },
+    {
+      "id": "bp15-004",
+      "category": "Organisation du système nerveux",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles subdivisions du système nerveux périphérique sont distinguées dans le cours ?",
+      "choices": [
+        {
+          "text": "Le système nerveux somatique",
+          "correct": true
+        },
+        {
+          "text": "Le cortex cérébral",
+          "correct": false
+        },
+        {
+          "text": "Le cervelet",
+          "correct": false
+        },
+        {
+          "text": "Le système nerveux autonome",
+          "correct": true
+        }
+      ],
+      "explanation": "Le schéma d’organisation distingue, au sein du SNP, le système somatique et le système autonome ou végétatif.",
+      "sourcePages": [
+        6,
+        28
+      ]
+    },
+    {
+      "id": "bp15-005",
+      "category": "Organisation du système nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel ensemble de structures constitue l’encéphale dans le cours ?",
+      "choices": [
+        {
+          "text": "Cervelet, vertèbres, méninges et nerfs spinaux",
+          "correct": false
+        },
+        {
+          "text": "Cerveau, nerfs spinaux, ganglions et moelle épinière",
+          "correct": false
+        },
+        {
+          "text": "Moelle épinière, nerfs crâniens et muscles",
+          "correct": false
+        },
+        {
+          "text": "Cerveau, diencéphale, tronc cérébral et cervelet",
+          "correct": true
+        }
+      ],
+      "explanation": "L’encéphale comprend les grandes structures cérébrales, le diencéphale, le tronc cérébral et le cervelet.",
+      "sourcePages": [
+        11,
+        13
+      ]
+    },
+    {
+      "id": "bp15-006",
+      "category": "Organisation du système nerveux",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quels deux grands types cellulaires constituent le tissu nerveux ?",
+      "choices": [
+        {
+          "text": "Les neurones et les fibres musculaires uniquement",
+          "correct": false
+        },
+        {
+          "text": "Les cellules gliales et les cellules musculaires uniquement",
+          "correct": false
+        },
+        {
+          "text": "Les neurones et les cellules gliales",
+          "correct": true
+        },
+        {
+          "text": "Les neurones et les hématies uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le tissu nerveux comporte des neurones et des cellules gliales, également appelées névroglie.",
+      "sourcePages": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "bp15-007",
+      "category": "Organisation du système nerveux",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle partie du neurone contient son noyau ?",
+      "choices": [
+        {
+          "text": "La gaine de myéline",
+          "correct": false
+        },
+        {
+          "text": "Un nœud de Ranvier",
+          "correct": false
+        },
+        {
+          "text": "Le corps cellulaire",
+          "correct": true
+        },
+        {
+          "text": "La fente synaptique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma du neurone situe le noyau dans le corps cellulaire.",
+      "sourcePages": [
+        7
+      ]
+    },
+    {
+      "id": "bp15-008",
+      "category": "Organisation du système nerveux",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel prolongement du neurone est entouré de myéline sur le schéma du cours ?",
+      "choices": [
+        {
+          "text": "L’axone",
+          "correct": true
+        },
+        {
+          "text": "L’arborisation terminale uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le corps cellulaire entier",
+          "correct": false
+        },
+        {
+          "text": "Les dendrites au contact du corps cellulaire",
+          "correct": false
+        }
+      ],
+      "explanation": "La gaine de myéline entoure des segments de l’axone représenté.",
+      "sourcePages": [
+        7
+      ]
+    },
+    {
+      "id": "bp15-009",
+      "category": "Organisation du système nerveux",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Comment nomme-t-on les interruptions entre deux segments de myéline d’un axone ?",
+      "choices": [
+        {
+          "text": "Les corps de Nissl",
+          "correct": false
+        },
+        {
+          "text": "Les ventricules cérébraux",
+          "correct": false
+        },
+        {
+          "text": "Les nœuds de Ranvier",
+          "correct": true
+        },
+        {
+          "text": "Les plaques motrices",
+          "correct": false
+        }
+      ],
+      "explanation": "Les interruptions de la gaine de myéline sont les nœuds de Ranvier.",
+      "sourcePages": [
+        7
+      ]
+    },
+    {
+      "id": "bp15-010",
+      "category": "Organisation du système nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quoi correspondent les corps de Nissl décrits dans le cours ?",
+      "choices": [
+        {
+          "text": "Des vésicules d’acétylcholine dans la fente synaptique",
+          "correct": false
+        },
+        {
+          "text": "Des espaces remplis de liquide cérébrospinal",
+          "correct": false
+        },
+        {
+          "text": "Des interruptions de la gaine de myéline",
+          "correct": false
+        },
+        {
+          "text": "Des amas de réticulum endoplasmique granuleux dans le corps cellulaire du neurone",
+          "correct": true
+        }
+      ],
+      "explanation": "Les corps de Nissl sont des amas de REG dans le corps cellulaire des neurones.",
+      "sourcePages": [
+        26
+      ]
+    },
+    {
+      "id": "bp15-011",
+      "category": "Substances grise et blanche",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle structure neuronale caractérise principalement la substance grise dans le cours ?",
+      "choices": [
+        {
+          "text": "Les seuls espaces contenant du LCS",
+          "correct": false
+        },
+        {
+          "text": "Les seuls axones myélinisés",
+          "correct": false
+        },
+        {
+          "text": "Les corps cellulaires des neurones",
+          "correct": true
+        },
+        {
+          "text": "Les seules gaines de myéline",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours associe la substance grise aux corps cellulaires et au traitement des informations.",
+      "sourcePages": [
+        11
+      ]
+    },
+    {
+      "id": "bp15-012",
+      "category": "Substances grise et blanche",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle structure caractérise principalement la substance blanche ?",
+      "choices": [
+        {
+          "text": "Les axones myélinisés",
+          "correct": true
+        },
+        {
+          "text": "Les seuls corps cellulaires des neurones",
+          "correct": false
+        },
+        {
+          "text": "Le liquide cérébrospinal",
+          "correct": false
+        },
+        {
+          "text": "Les seules synapses de la plaque motrice",
+          "correct": false
+        }
+      ],
+      "explanation": "La substance blanche est riche en axones myélinisés et participe à la transmission des informations.",
+      "sourcePages": [
+        11
+      ]
+    },
+    {
+      "id": "bp15-013",
+      "category": "Substances grise et blanche",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle répartition est décrite au niveau du cortex et de la substance blanche des hémisphères cérébraux ?",
+      "choices": [
+        {
+          "text": "Un cortex périphérique de substance grise et une substance blanche plus centrale",
+          "correct": true
+        },
+        {
+          "text": "Une substance blanche située seulement dans les méninges",
+          "correct": false
+        },
+        {
+          "text": "Une absence de substance grise dans les hémisphères",
+          "correct": false
+        },
+        {
+          "text": "Un cortex de substance blanche entourant uniquement de la substance grise",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans la description du cerveau, la substance grise forme le cortex périphérique et la substance blanche occupe une position plus centrale.",
+      "sourcePages": [
+        17
+      ]
+    },
+    {
+      "id": "bp15-014",
+      "category": "Substances grise et blanche",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle répartition des substances grise et blanche caractérise une coupe de moelle épinière ?",
+      "choices": [
+        {
+          "text": "La substance grise est centrale et la substance blanche l’entoure",
+          "correct": true
+        },
+        {
+          "text": "La substance blanche est uniquement au centre du papillon gris",
+          "correct": false
+        },
+        {
+          "text": "La moelle épinière ne contient pas de substance blanche",
+          "correct": false
+        },
+        {
+          "text": "La substance grise est uniquement dans les méninges",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans la moelle épinière, la substance grise centrale a une forme de papillon et est entourée de substance blanche.",
+      "sourcePages": [
+        24,
+        25
+      ]
+    },
+    {
+      "id": "bp15-015",
+      "category": "Protection du SNC",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles structures osseuses protègent respectivement l’encéphale et la moelle épinière ?",
+      "choices": [
+        {
+          "text": "La boîte crânienne et les vertèbres",
+          "correct": true
+        },
+        {
+          "text": "Le bassin et les omoplates",
+          "correct": false
+        },
+        {
+          "text": "Les clavicules et les fémurs",
+          "correct": false
+        },
+        {
+          "text": "Le sternum et les côtes",
+          "correct": false
+        }
+      ],
+      "explanation": "La boîte crânienne protège l’encéphale et les vertèbres protègent la moelle épinière.",
+      "sourcePages": [
+        14,
+        15
+      ]
+    },
+    {
+      "id": "bp15-016",
+      "category": "Protection du SNC",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel ordre des méninges va du tissu nerveux vers l’extérieur ?",
+      "choices": [
+        {
+          "text": "Arachnoïde → dure-mère → pie-mère",
+          "correct": false
+        },
+        {
+          "text": "Pie-mère → arachnoïde → dure-mère",
+          "correct": true
+        },
+        {
+          "text": "Pie-mère → dure-mère → arachnoïde",
+          "correct": false
+        },
+        {
+          "text": "Dure-mère → pie-mère → arachnoïde",
+          "correct": false
+        }
+      ],
+      "explanation": "La pie-mère est au contact du tissu nerveux, suivie de l’arachnoïde puis de la dure-mère, la plus externe.",
+      "sourcePages": [
+        14
+      ]
+    },
+    {
+      "id": "bp15-017",
+      "category": "Protection du SNC",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle méninge est accolée au tissu nerveux ?",
+      "choices": [
+        {
+          "text": "La pie-mère",
+          "correct": true
+        },
+        {
+          "text": "L’arachnoïde",
+          "correct": false
+        },
+        {
+          "text": "Le périoste vertébral",
+          "correct": false
+        },
+        {
+          "text": "La dure-mère",
+          "correct": false
+        }
+      ],
+      "explanation": "La pie-mère est la méninge la plus interne, au contact du tissu nerveux.",
+      "sourcePages": [
+        14
+      ]
+    },
+    {
+      "id": "bp15-018",
+      "category": "Protection du SNC",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Entre quelles méninges se trouve l’espace sous-arachnoïdien ?",
+      "choices": [
+        {
+          "text": "Entre l’arachnoïde et la pie-mère",
+          "correct": true
+        },
+        {
+          "text": "Entre la dure-mère et l’os du crâne",
+          "correct": false
+        },
+        {
+          "text": "Entre la pie-mère et le cortex",
+          "correct": false
+        },
+        {
+          "text": "Entre deux couches de substance blanche",
+          "correct": false
+        }
+      ],
+      "explanation": "L’espace sous-arachnoïdien se situe entre l’arachnoïde et la pie-mère ; le LCS y circule.",
+      "sourcePages": [
+        14,
+        16
+      ]
+    },
+    {
+      "id": "bp15-019",
+      "category": "Protection du SNC",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels rôles du liquide cérébrospinal (LCS ou LCR) sont mentionnés dans le cours ?",
+      "choices": [
+        {
+          "text": "Remplacer les méninges et les vertèbres",
+          "correct": false
+        },
+        {
+          "text": "Protéger le SNC contre les chocs",
+          "correct": true
+        },
+        {
+          "text": "Participer à la nutrition et à l’élimination des déchets du SNC",
+          "correct": true
+        },
+        {
+          "text": "Produire les ponts actine–myosine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le LCS contribue aux échanges du SNC et amortit les chocs ; les protections osseuses et méningées restent nécessaires.",
+      "sourcePages": [
+        14
+      ]
+    },
+    {
+      "id": "bp15-020",
+      "category": "Protection du SNC",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Où le liquide cérébrospinal est-il produit selon le cours ?",
+      "choices": [
+        {
+          "text": "Dans les nœuds de Ranvier",
+          "correct": false
+        },
+        {
+          "text": "Dans le réticulum sarcoplasmique",
+          "correct": false
+        },
+        {
+          "text": "Dans les plaques motrices",
+          "correct": false
+        },
+        {
+          "text": "Dans les ventricules cérébraux",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours indique une production du LCS dans les ventricules, qui forment des cavités communicantes de l’encéphale.",
+      "sourcePages": [
+        14,
+        17
+      ]
+    },
+    {
+      "id": "bp15-021",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle structure relie les deux hémisphères cérébraux ?",
+      "choices": [
+        {
+          "text": "Le corps calleux",
+          "correct": true
+        },
+        {
+          "text": "La moelle épinière",
+          "correct": false
+        },
+        {
+          "text": "Le cervelet",
+          "correct": false
+        },
+        {
+          "text": "Le pont de Varole",
+          "correct": false
+        }
+      ],
+      "explanation": "Les deux hémisphères cérébraux sont reliés par le corps calleux.",
+      "sourcePages": [
+        17
+      ]
+    },
+    {
+      "id": "bp15-022",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels noms désignent des lobes cérébraux présentés dans le cours ?",
+      "choices": [
+        {
+          "text": "Frontal et pariétal",
+          "correct": true
+        },
+        {
+          "text": "Sacré et médullaire",
+          "correct": false
+        },
+        {
+          "text": "Rachidien et coccygien",
+          "correct": false
+        },
+        {
+          "text": "Temporal et occipital",
+          "correct": true
+        }
+      ],
+      "explanation": "Les quatre lobes présentés sont les lobes frontal, pariétal, temporal et occipital.",
+      "sourcePages": [
+        17,
+        18
+      ]
+    },
+    {
+      "id": "bp15-023",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel lobe est notamment impliqué dans les mouvements volontaires et la planification ?",
+      "choices": [
+        {
+          "text": "Le lobe occipital",
+          "correct": false
+        },
+        {
+          "text": "Le lobe temporal uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le lobe pariétal uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le lobe frontal",
+          "correct": true
+        }
+      ],
+      "explanation": "Le tableau associe le lobe frontal à la motricité volontaire, au raisonnement, à la planification et à la prise de décision.",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "bp15-024",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel lobe participe au traitement du toucher, de la température et de la douleur ?",
+      "choices": [
+        {
+          "text": "Le cervelet uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le lobe temporal uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le lobe pariétal",
+          "correct": true
+        },
+        {
+          "text": "Le lobe occipital",
+          "correct": false
+        }
+      ],
+      "explanation": "Le lobe pariétal intervient notamment dans le traitement des informations sensorielles et le repérage spatial.",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "bp15-025",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel lobe est notamment impliqué dans l’audition et la compréhension du langage ?",
+      "choices": [
+        {
+          "text": "Le bulbe rachidien",
+          "correct": false
+        },
+        {
+          "text": "Le lobe temporal",
+          "correct": true
+        },
+        {
+          "text": "Le lobe occipital",
+          "correct": false
+        },
+        {
+          "text": "Le lobe pariétal uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le tableau attribue au lobe temporal l’audition, la mémoire et la compréhension du langage, entre autres fonctions.",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "bp15-026",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel lobe traite principalement les informations visuelles dans le tableau du cours ?",
+      "choices": [
+        {
+          "text": "Le lobe occipital",
+          "correct": true
+        },
+        {
+          "text": "Le lobe temporal",
+          "correct": false
+        },
+        {
+          "text": "Le lobe pariétal",
+          "correct": false
+        },
+        {
+          "text": "Le lobe frontal",
+          "correct": false
+        }
+      ],
+      "explanation": "Le lobe occipital, situé à l’arrière du cerveau, participe au traitement et à l’interprétation de la vision.",
+      "sourcePages": [
+        18
+      ]
+    },
+    {
+      "id": "bp15-027",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel rôle est attribué au thalamus ?",
+      "choices": [
+        {
+          "text": "La régulation principale de la soif et de la prise alimentaire",
+          "correct": false
+        },
+        {
+          "text": "La production de mélatonine assurant le rythme jour/nuit",
+          "correct": false
+        },
+        {
+          "text": "Un relais de traitement d’informations sensorielles, motrices et nociceptives",
+          "correct": true
+        },
+        {
+          "text": "La coordination de l’équilibre et des mouvements",
+          "correct": false
+        }
+      ],
+      "explanation": "Le thalamus est constitué de noyaux de substance grise intervenant comme relais dans plusieurs traitements de l’information.",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "bp15-028",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles fonctions sont associées à l’hypothalamus dans le cours ?",
+      "choices": [
+        {
+          "text": "La régulation de la prise alimentaire et de la soif",
+          "correct": true
+        },
+        {
+          "text": "La thermorégulation et le lien avec l’hypophyse",
+          "correct": true
+        },
+        {
+          "text": "Le glissement direct des filaments musculaires",
+          "correct": false
+        },
+        {
+          "text": "La formation de la gaine de myéline autour de chaque axone",
+          "correct": false
+        }
+      ],
+      "explanation": "L’hypothalamus participe à plusieurs régulations de l’homéostasie et assure un lien avec le système endocrinien par l’hypophyse.",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "bp15-029",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle glande du diencéphale produit la mélatonine ?",
+      "choices": [
+        {
+          "text": "L’hypothalamus",
+          "correct": false
+        },
+        {
+          "text": "L’épiphyse, ou glande pinéale",
+          "correct": true
+        },
+        {
+          "text": "L’hypophyse",
+          "correct": false
+        },
+        {
+          "text": "Le thalamus",
+          "correct": false
+        }
+      ],
+      "explanation": "L’épiphyse produit la mélatonine et contribue à la régulation du rythme jour/nuit.",
+      "sourcePages": [
+        21
+      ]
+    },
+    {
+      "id": "bp15-030",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles structures appartiennent au tronc cérébral ?",
+      "choices": [
+        {
+          "text": "Le bulbe rachidien",
+          "correct": true
+        },
+        {
+          "text": "Le pont de Varole",
+          "correct": true
+        },
+        {
+          "text": "Le mésencéphale",
+          "correct": true
+        },
+        {
+          "text": "Le corps calleux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le tronc cérébral comprend le mésencéphale, le pont et le bulbe rachidien.",
+      "sourcePages": [
+        22
+      ]
+    },
+    {
+      "id": "bp15-031",
+      "category": "Encéphale et fonctions cérébrales",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle fonction caractérise particulièrement le cervelet dans le cours ?",
+      "choices": [
+        {
+          "text": "Le traitement principal des informations visuelles dans le cortex",
+          "correct": false
+        },
+        {
+          "text": "L’équilibre et la coordination des mouvements",
+          "correct": true
+        },
+        {
+          "text": "La production du LCS dans les ventricules",
+          "correct": false
+        },
+        {
+          "text": "La production de mélatonine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cervelet reçoit diverses informations et participe à l’équilibre ainsi qu’à la coordination des mouvements dans l’espace.",
+      "sourcePages": [
+        23
+      ]
+    },
+    {
+      "id": "bp15-032",
+      "category": "Moelle épinière et nerfs périphériques",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien de segments médullaires sont décrits pour la moelle épinière ?",
+      "choices": [
+        {
+          "text": "33",
+          "correct": false
+        },
+        {
+          "text": "24",
+          "correct": false
+        },
+        {
+          "text": "12",
+          "correct": false
+        },
+        {
+          "text": "31",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours décrit 31 segments : 8 cervicaux, 12 thoraciques, 5 lombaires, 5 sacrés et 1 coccygien.",
+      "sourcePages": [
+        24
+      ]
+    },
+    {
+      "id": "bp15-033",
+      "category": "Moelle épinière et nerfs périphériques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quel niveau vertébral la moelle épinière se termine-t-elle selon le cours ?",
+      "choices": [
+        {
+          "text": "C1–C2",
+          "correct": false
+        },
+        {
+          "text": "T1–T2",
+          "correct": false
+        },
+        {
+          "text": "Au dernier segment coccygien de la colonne",
+          "correct": false
+        },
+        {
+          "text": "L1–L2",
+          "correct": true
+        }
+      ],
+      "explanation": "La moelle épinière se termine vers L1–L2, bien qu’elle comporte des segments médullaires sacrés et coccygien.",
+      "sourcePages": [
+        24
+      ]
+    },
+    {
+      "id": "bp15-034",
+      "category": "Moelle épinière et nerfs périphériques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Par quelle racine les informations sensitives arrivent-elles à la moelle épinière ?",
+      "choices": [
+        {
+          "text": "Le corps calleux",
+          "correct": false
+        },
+        {
+          "text": "La racine dorsale",
+          "correct": true
+        },
+        {
+          "text": "Le pédoncule cérébelleux",
+          "correct": false
+        },
+        {
+          "text": "La racine ventrale",
+          "correct": false
+        }
+      ],
+      "explanation": "Les voies sensitives afférentes empruntent la racine dorsale ; la racine ventrale véhicule les efférences motrices.",
+      "sourcePages": [
+        24,
+        25
+      ]
+    },
+    {
+      "id": "bp15-035",
+      "category": "Moelle épinière et nerfs périphériques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où se trouvent les corps cellulaires des neurones sensitifs spinaux ?",
+      "choices": [
+        {
+          "text": "Dans la corne ventrale uniquement",
+          "correct": false
+        },
+        {
+          "text": "Dans le ganglion spinal, ou ganglion rachidien",
+          "correct": true
+        },
+        {
+          "text": "Dans le réticulum sarcoplasmique",
+          "correct": false
+        },
+        {
+          "text": "Dans la plaque motrice",
+          "correct": false
+        }
+      ],
+      "explanation": "Le ganglion spinal situé sur la racine dorsale contient les corps cellulaires des neurones sensitifs.",
+      "sourcePages": [
+        24,
+        25
+      ]
+    },
+    {
+      "id": "bp15-036",
+      "category": "Moelle épinière et nerfs périphériques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle association décrit la sortie motrice de la moelle épinière ?",
+      "choices": [
+        {
+          "text": "Corps cellulaire du motoneurone dans la corne ventrale ; axone sortant par la racine ventrale",
+          "correct": true
+        },
+        {
+          "text": "Corps cellulaire dans le ganglion spinal ; sortie par la racine dorsale",
+          "correct": false
+        },
+        {
+          "text": "Corps cellulaire dans le muscle ; sortie par le canal de l’épendyme",
+          "correct": false
+        },
+        {
+          "text": "Corps cellulaire dans le cortex ; sortie directe par une méninge",
+          "correct": false
+        }
+      ],
+      "explanation": "Les corps cellulaires des motoneurones spinaux se situent dans la corne ventrale et leurs axones empruntent la racine ventrale.",
+      "sourcePages": [
+        24,
+        64
+      ]
+    },
+    {
+      "id": "bp15-037",
+      "category": "Moelle épinière et nerfs périphériques",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que désigne un plexus nerveux ?",
+      "choices": [
+        {
+          "text": "Un réseau complexe de filets nerveux réunis entre eux",
+          "correct": true
+        },
+        {
+          "text": "Une protéine du filament fin",
+          "correct": false
+        },
+        {
+          "text": "Une interruption de myéline sur un axone",
+          "correct": false
+        },
+        {
+          "text": "Une cavité du cerveau contenant du LCS",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours définit un plexus comme un réseau complexe de filets nerveux ou de vaisseaux anastomosés.",
+      "sourcePages": [
+        29
+      ]
+    },
+    {
+      "id": "bp15-038",
+      "category": "Moelle épinière et nerfs périphériques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Combien de paires de nerfs crâniens sont représentées sur le schéma du cours ?",
+      "choices": [
+        {
+          "text": "12",
+          "correct": true
+        },
+        {
+          "text": "8",
+          "correct": false
+        },
+        {
+          "text": "24",
+          "correct": false
+        },
+        {
+          "text": "31",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma des nerfs crâniens les numérote de I à XII, soit douze paires.",
+      "sourcePages": [
+        30
+      ]
+    },
+    {
+      "id": "bp15-039",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle caractéristique définit le système nerveux autonome (SNA) ?",
+      "choices": [
+        {
+          "text": "Il fonctionne seulement pendant le sommeil",
+          "correct": false
+        },
+        {
+          "text": "Il adapte les fonctions internes sans dépendre du contrôle volontaire",
+          "correct": true
+        },
+        {
+          "text": "Il commande uniquement les mouvements volontaires du squelette",
+          "correct": false
+        },
+        {
+          "text": "Il est composé uniquement du cortex cérébral",
+          "correct": false
+        }
+      ],
+      "explanation": "Le SNA contrôle les fonctions internes et les adapte aux besoins de l’organisme de façon indépendante de la volonté.",
+      "sourcePages": [
+        31
+      ]
+    },
+    {
+      "id": "bp15-040",
+      "category": "Système nerveux autonome",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles fonctions relèvent du système nerveux autonome dans le cours ?",
+      "choices": [
+        {
+          "text": "La contraction ou la relaxation des muscles lisses",
+          "correct": true
+        },
+        {
+          "text": "Les sécrétions",
+          "correct": true
+        },
+        {
+          "text": "L’activité cardiaque",
+          "correct": true
+        },
+        {
+          "text": "La commande volontaire exclusive des muscles squelettiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Le SNA règle notamment le cœur, les muscles lisses et les sécrétions ; la commande des muscles squelettiques relève du système somatique.",
+      "sourcePages": [
+        31,
+        33,
+        39
+      ]
+    },
+    {
+      "id": "bp15-041",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles sont les trois divisions du système nerveux autonome citées dans le cours ?",
+      "choices": [
+        {
+          "text": "Dorsal, ventral et latéral",
+          "correct": false
+        },
+        {
+          "text": "Parasympathique, orthosympathique et entérique",
+          "correct": true
+        },
+        {
+          "text": "Frontal, pariétal et occipital",
+          "correct": false
+        },
+        {
+          "text": "Sensitif, sarcoplasmique et cortical",
+          "correct": false
+        }
+      ],
+      "explanation": "Le SNA comporte les divisions parasympathique, orthosympathique et entérique.",
+      "sourcePages": [
+        28,
+        33
+      ]
+    },
+    {
+      "id": "bp15-042",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où se situent les plexus constituant le système nerveux entérique ?",
+      "choices": [
+        {
+          "text": "Dans les tendons uniquement",
+          "correct": false
+        },
+        {
+          "text": "Dans les ventricules cérébraux",
+          "correct": false
+        },
+        {
+          "text": "Dans le corps calleux",
+          "correct": false
+        },
+        {
+          "text": "Dans le tractus gastro-intestinal",
+          "correct": true
+        }
+      ],
+      "explanation": "Le système entérique est formé de plexus nerveux du tractus gastro-intestinal, en relation avec les systèmes para- et orthosympathique.",
+      "sourcePages": [
+        33
+      ]
+    },
+    {
+      "id": "bp15-043",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quelle situation est surtout associé le système parasympathique ?",
+      "choices": [
+        {
+          "text": "À la production exclusive de mouvements réflexes spinaux",
+          "correct": false
+        },
+        {
+          "text": "À la seule contraction volontaire intense",
+          "correct": false
+        },
+        {
+          "text": "Au repos et à la digestion",
+          "correct": true
+        },
+        {
+          "text": "À la destruction de tous les influx nerveux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le parasympathique favorise les activités de base, dont la digestion, et limite la dépense énergétique.",
+      "sourcePages": [
+        35
+      ]
+    },
+    {
+      "id": "bp15-044",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle situation mobilise particulièrement le système orthosympathique ?",
+      "choices": [
+        {
+          "text": "Une situation d’urgence ou une activité physique intense",
+          "correct": true
+        },
+        {
+          "text": "Une phase de repos consacrée à la digestion",
+          "correct": false
+        },
+        {
+          "text": "Le maintien des activités digestives de base après le repas",
+          "correct": false
+        },
+        {
+          "text": "Une situation favorisant surtout l’économie d’énergie et l’élimination des déchets",
+          "correct": false
+        }
+      ],
+      "explanation": "Le système orthosympathique prépare l’organisme à l’action, notamment en situation d’urgence ou d’effort intense.",
+      "sourcePages": [
+        35
+      ]
+    },
+    {
+      "id": "bp15-045",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel effet cardiaque le schéma associe-t-il au parasympathique ?",
+      "choices": [
+        {
+          "text": "Un ralentissement du cœur",
+          "correct": true
+        },
+        {
+          "text": "Une augmentation de la réponse cardiaque de préparation à l’effort",
+          "correct": false
+        },
+        {
+          "text": "Une accélération du rythme cardiaque",
+          "correct": false
+        },
+        {
+          "text": "Une libération de noradrénaline par la voie parasympathique décrite",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma oppose le ralentissement cardiaque parasympathique à l’accélération orthosympathique.",
+      "sourcePages": [
+        32
+      ]
+    },
+    {
+      "id": "bp15-046",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel effet le schéma associe-t-il à l’orthosympathique au niveau des bronches ?",
+      "choices": [
+        {
+          "text": "Un relâchement de la commande autonome des bronches au profit de la commande volontaire",
+          "correct": false
+        },
+        {
+          "text": "Une action exclusivement digestive, sans effet sur les bronches",
+          "correct": false
+        },
+        {
+          "text": "Une dilatation des bronches",
+          "correct": true
+        },
+        {
+          "text": "Un rétrécissement des bronches",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma présente une dilatation bronchique sous l’effet de l’orthosympathique, à l’opposé de l’effet parasympathique.",
+      "sourcePages": [
+        32
+      ]
+    },
+    {
+      "id": "bp15-047",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel effet le schéma associe-t-il au parasympathique au niveau de la pupille ?",
+      "choices": [
+        {
+          "text": "Une action exclusivement cardiaque, sans effet pupillaire",
+          "correct": false
+        },
+        {
+          "text": "Une dilatation de la pupille",
+          "correct": false
+        },
+        {
+          "text": "Une constriction de la pupille",
+          "correct": true
+        },
+        {
+          "text": "Une commande volontaire de la pupille par le système somatique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma associe le parasympathique à la constriction pupillaire et l’orthosympathique à la dilatation.",
+      "sourcePages": [
+        32
+      ]
+    },
+    {
+      "id": "bp15-048",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Combien de neurones successifs composent la voie efférente autonome classique représentée ?",
+      "choices": [
+        {
+          "text": "Un seul neurone reliant toujours directement le cortex à l’organe",
+          "correct": false
+        },
+        {
+          "text": "Trois neurones tous situés dans le cortex",
+          "correct": false
+        },
+        {
+          "text": "Aucun neurone, seulement des hormones",
+          "correct": false
+        },
+        {
+          "text": "Deux : un neurone préganglionnaire puis un neurone postganglionnaire",
+          "correct": true
+        }
+      ],
+      "explanation": "La voie autonome classique comporte une synapse ganglionnaire entre deux neurones reliant le SNC à l’effecteur.",
+      "sourcePages": [
+        36,
+        39
+      ]
+    },
+    {
+      "id": "bp15-049",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle organisation des fibres caractérise la voie parasympathique décrite ?",
+      "choices": [
+        {
+          "text": "Une absence de ganglion entre le SNC et l’effecteur",
+          "correct": false
+        },
+        {
+          "text": "Une fibre préganglionnaire courte et une fibre postganglionnaire longue",
+          "correct": false
+        },
+        {
+          "text": "Deux fibres toujours de même longueur",
+          "correct": false
+        },
+        {
+          "text": "Une fibre préganglionnaire longue et une fibre postganglionnaire courte",
+          "correct": true
+        }
+      ],
+      "explanation": "Les ganglions parasympathiques sont proches des organes ou dans leur paroi : la fibre préganglionnaire est longue et la fibre postganglionnaire courte.",
+      "sourcePages": [
+        37
+      ]
+    },
+    {
+      "id": "bp15-050",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où sont situés les corps cellulaires préganglionnaires parasympathiques selon le cours ?",
+      "choices": [
+        {
+          "text": "Dans la glande pinéale uniquement",
+          "correct": false
+        },
+        {
+          "text": "Dans le tronc cérébral ou la moelle épinière sacrée",
+          "correct": true
+        },
+        {
+          "text": "Dans le muscle squelettique uniquement",
+          "correct": false
+        },
+        {
+          "text": "Dans la peau et le tissu adipeux uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours décrit l’origine crânio-sacrée des neurones préganglionnaires parasympathiques.",
+      "sourcePages": [
+        37
+      ]
+    },
+    {
+      "id": "bp15-051",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel neurotransmetteur est libéré aux deux synapses de la voie parasympathique décrite ?",
+      "choices": [
+        {
+          "text": "L’acétylcholine",
+          "correct": true
+        },
+        {
+          "text": "La noradrénaline aux deux synapses",
+          "correct": false
+        },
+        {
+          "text": "La mélatonine",
+          "correct": false
+        },
+        {
+          "text": "L’acétylcholinestérase",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans la voie parasympathique décrite, les neurones pré- et postganglionnaires libèrent de l’acétylcholine.",
+      "sourcePages": [
+        37
+      ]
+    },
+    {
+      "id": "bp15-052",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle organisation des fibres caractérise la voie orthosympathique classique décrite ?",
+      "choices": [
+        {
+          "text": "Une fibre préganglionnaire courte et une fibre postganglionnaire longue",
+          "correct": true
+        },
+        {
+          "text": "Une fibre préganglionnaire longue et une fibre postganglionnaire courte",
+          "correct": false
+        },
+        {
+          "text": "Des fibres uniquement localisées dans la paroi digestive",
+          "correct": false
+        },
+        {
+          "text": "Un motoneurone unique sans relais ganglionnaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Les ganglions orthosympathiques décrits sont proches de la moelle épinière : la fibre préganglionnaire est courte et la fibre postganglionnaire longue.",
+      "sourcePages": [
+        38
+      ]
+    },
+    {
+      "id": "bp15-053",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quels médiateurs sont libérés successivement dans la voie orthosympathique classique décrite ?",
+      "choices": [
+        {
+          "text": "Mélatonine au ganglion, puis ATP à l’organe",
+          "correct": false
+        },
+        {
+          "text": "Acétylcholinestérase au ganglion, puis calcium à l’organe",
+          "correct": false
+        },
+        {
+          "text": "Acétylcholine au ganglion, puis noradrénaline à l’organe",
+          "correct": true
+        },
+        {
+          "text": "Noradrénaline au ganglion, puis acétylcholine à l’organe",
+          "correct": false
+        }
+      ],
+      "explanation": "La voie classique présentée libère l’acétylcholine par le neurone préganglionnaire et la noradrénaline par le neurone postganglionnaire.",
+      "sourcePages": [
+        38
+      ]
+    },
+    {
+      "id": "bp15-054",
+      "category": "Système nerveux autonome",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel schéma distingue correctement la commande somatique de la voie autonome classique ?",
+      "choices": [
+        {
+          "text": "Un motoneurone rejoint le muscle squelettique ; une chaîne de deux neurones rejoint l’effecteur autonome",
+          "correct": true
+        },
+        {
+          "text": "Deux neurones rejoignent toujours le muscle squelettique ; un seul rejoint tous les viscères",
+          "correct": false
+        },
+        {
+          "text": "Les deux voies sont dépourvues de neurotransmetteurs",
+          "correct": false
+        },
+        {
+          "text": "La commande somatique utilise seulement des hormones ; la commande autonome seulement du LCS",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma compare la commande somatique à un neurone avec les voies autonomes classiques à deux neurones.",
+      "sourcePages": [
+        39
+      ]
+    },
+    {
+      "id": "bp15-055",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel ordre de grandeur du potentiel de repos est indiqué pour un neurone de mammifère ?",
+      "choices": [
+        {
+          "text": "Environ +70 mV",
+          "correct": false
+        },
+        {
+          "text": "Environ −70 V",
+          "correct": false
+        },
+        {
+          "text": "Exactement 0 mV",
+          "correct": false
+        },
+        {
+          "text": "Environ −70 mV",
+          "correct": true
+        }
+      ],
+      "explanation": "L’encadré du cours donne environ −70 mV pour un neurone de mammifère ; il distingue ces valeurs de celles du tableau mesuré chez le calmar.",
+      "sourcePages": [
+        41
+      ]
+    },
+    {
+      "id": "bp15-056",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle répartition du potassium est indiquée pour un neurone de mammifère ?",
+      "choices": [
+        {
+          "text": "Une concentration plus élevée à l’extérieur qu’à l’intérieur",
+          "correct": false
+        },
+        {
+          "text": "Une concentration plus élevée à l’intérieur qu’à l’extérieur",
+          "correct": true
+        },
+        {
+          "text": "Une concentration strictement nulle à l’intérieur",
+          "correct": false
+        },
+        {
+          "text": "Une concentration identique des deux côtés de la membrane",
+          "correct": false
+        }
+      ],
+      "explanation": "L’encadré indique environ 140 mM de K⁺ dans la cellule contre 5 mM à l’extérieur.",
+      "sourcePages": [
+        41
+      ]
+    },
+    {
+      "id": "bp15-057",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle répartition du sodium est indiquée pour un neurone de mammifère ?",
+      "choices": [
+        {
+          "text": "Une absence de sodium dans le milieu extracellulaire",
+          "correct": false
+        },
+        {
+          "text": "Une concentration plus élevée à l’intérieur qu’à l’extérieur",
+          "correct": false
+        },
+        {
+          "text": "Une concentration identique des deux côtés de la membrane",
+          "correct": false
+        },
+        {
+          "text": "Une concentration plus élevée à l’extérieur qu’à l’intérieur",
+          "correct": true
+        }
+      ],
+      "explanation": "L’encadré indique environ 15 mM de Na⁺ dans la cellule contre 145 mM à l’extérieur.",
+      "sourcePages": [
+        41
+      ]
+    },
+    {
+      "id": "bp15-058",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quels gradients se combinent pour former le gradient électrochimique d’un ion ?",
+      "choices": [
+        {
+          "text": "La fréquence cardiaque et le volume de LCS",
+          "correct": false
+        },
+        {
+          "text": "Le gradient de concentration et le gradient électrique",
+          "correct": true
+        },
+        {
+          "text": "Le gradient thermique et la vitesse de digestion",
+          "correct": false
+        },
+        {
+          "text": "Le gradient de pression et la longueur du sarcomère",
+          "correct": false
+        }
+      ],
+      "explanation": "La force électrochimique résulte des différences de concentration et de charge électrique de part et d’autre de la membrane.",
+      "sourcePages": [
+        41
+      ]
+    },
+    {
+      "id": "bp15-059",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel mouvement ionique est associé à la phase de dépolarisation du potentiel d’action neuronal ?",
+      "choices": [
+        {
+          "text": "La sortie de K⁺ comme mécanisme principal de la phase ascendante",
+          "correct": false
+        },
+        {
+          "text": "L’entrée de Na⁺ par les canaux sodiques ouverts",
+          "correct": true
+        },
+        {
+          "text": "La fermeture des canaux sodiques sans autre courant entrant",
+          "correct": false
+        },
+        {
+          "text": "Une entrée de Cl⁻ rendant le potentiel plus négatif",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma associe la dépolarisation à l’augmentation de la conductance au Na⁺ et à son entrée dans le neurone.",
+      "sourcePages": [
+        42,
+        44
+      ]
+    },
+    {
+      "id": "bp15-060",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel mouvement ionique participe à la repolarisation du potentiel d’action neuronal ?",
+      "choices": [
+        {
+          "text": "L’entrée continue de Na⁺ comme seul mécanisme",
+          "correct": false
+        },
+        {
+          "text": "La sortie de K⁺ à travers les canaux potassiques",
+          "correct": true
+        },
+        {
+          "text": "Une entrée de K⁺ comme mécanisme principal de retour vers le repos",
+          "correct": false
+        },
+        {
+          "text": "La fermeture des canaux potassiques associée à une entrée de Na⁺",
+          "correct": false
+        }
+      ],
+      "explanation": "L’augmentation plus tardive de la conductance au K⁺ permet sa sortie et participe à la repolarisation.",
+      "sourcePages": [
+        42
+      ]
+    },
+    {
+      "id": "bp15-061",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quoi correspond une hyperpolarisation membranaire ?",
+      "choices": [
+        {
+          "text": "Un potentiel plus négatif que le potentiel de repos",
+          "correct": true
+        },
+        {
+          "text": "Un potentiel toujours égal à zéro",
+          "correct": false
+        },
+        {
+          "text": "Une contraction de la cellule musculaire",
+          "correct": false
+        },
+        {
+          "text": "Une disparition de la membrane",
+          "correct": false
+        }
+      ],
+      "explanation": "Le tracé du cours montre une hyperpolarisation lorsque le potentiel passe en dessous de sa valeur de repos.",
+      "sourcePages": [
+        42,
+        45
+      ]
+    },
+    {
+      "id": "bp15-062",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle condition est nécessaire au déclenchement d’un potentiel d’action dans le schéma présenté ?",
+      "choices": [
+        {
+          "text": "Atteindre le seuil de déclenchement dans la zone excitable",
+          "correct": true
+        },
+        {
+          "text": "Produire n’importe quelle dépolarisation, même très faible",
+          "correct": false
+        },
+        {
+          "text": "Transformer la substance grise en substance blanche",
+          "correct": false
+        },
+        {
+          "text": "Hydrolyser la totalité de l’ATP du neurone",
+          "correct": false
+        }
+      ],
+      "explanation": "Une dépolarisation sous le seuil ne déclenche pas de potentiel d’action ; le seuil doit être atteint dans la zone de déclenchement.",
+      "sourcePages": [
+        42,
+        43
+      ]
+    },
+    {
+      "id": "bp15-063",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que signifie la loi du tout ou rien pour le potentiel d’action d’une fibre ?",
+      "choices": [
+        {
+          "text": "Toute stimulation, même sous le seuil, déclenche un potentiel d’action",
+          "correct": false
+        },
+        {
+          "text": "L’amplitude de chaque potentiel d’action augmente proportionnellement à la stimulation",
+          "correct": false
+        },
+        {
+          "text": "Toutes les fibres d’un nerf doivent toujours décharger simultanément",
+          "correct": false
+        },
+        {
+          "text": "Une fois le seuil atteint, un potentiel d’action complet est déclenché",
+          "correct": true
+        }
+      ],
+      "explanation": "La loi du tout ou rien concerne le déclenchement du potentiel d’action d’une fibre ; elle ne décrit pas l’amplitude globale d’un nerf entier.",
+      "sourcePages": [
+        43,
+        47
+      ]
+    },
+    {
+      "id": "bp15-064",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel état des canaux sodiques est associé à la période réfractaire représentée ?",
+      "choices": [
+        {
+          "text": "Un état ouvert qui autorise immédiatement un nouveau potentiel d’action identique",
+          "correct": false
+        },
+        {
+          "text": "Une augmentation permanente du nombre de canaux sodiques ouverts",
+          "correct": false
+        },
+        {
+          "text": "Un état inactivé, distinct de l’état fermé de repos",
+          "correct": true
+        },
+        {
+          "text": "L’état fermé de repos, déjà disponible pour une nouvelle ouverture",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma distingue trois états du canal sodique : fermé au repos, ouvert, puis inactivé.",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "bp15-065",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel rôle de la période réfractaire est illustré dans la propagation de l’influx ?",
+      "choices": [
+        {
+          "text": "Transformer chaque potentiel d’action en potentiel de récepteur gradué",
+          "correct": false
+        },
+        {
+          "text": "Accroître l’amplitude du potentiel d’action à chaque segment parcouru",
+          "correct": false
+        },
+        {
+          "text": "Limiter la réexcitation immédiate de la zone venant de décharger et favoriser la propagation vers l’avant",
+          "correct": true
+        },
+        {
+          "text": "Permettre la réexcitation instantanée de la zone qui vient de décharger",
+          "correct": false
+        }
+      ],
+      "explanation": "L’inactivation temporaire des canaux dans la zone venant de décharger participe au caractère unidirectionnel de la propagation physiologique.",
+      "sourcePages": [
+        44
+      ]
+    },
+    {
+      "id": "bp15-066",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel effet un potentiel postsynaptique excitateur (PPSE) a-t-il sur la membrane ?",
+      "choices": [
+        {
+          "text": "Il la dépolarise et la rapproche du seuil de déclenchement",
+          "correct": true
+        },
+        {
+          "text": "Il supprime définitivement tous les récepteurs",
+          "correct": false
+        },
+        {
+          "text": "Il l’hyperpolarise nécessairement loin du seuil",
+          "correct": false
+        },
+        {
+          "text": "Il raccourcit un sarcomère",
+          "correct": false
+        }
+      ],
+      "explanation": "Un PPSE est une réponse postsynaptique dépolarisante qui favorise l’atteinte du seuil.",
+      "sourcePages": [
+        45,
+        50
+      ]
+    },
+    {
+      "id": "bp15-067",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel effet est illustré pour un potentiel postsynaptique inhibiteur (PPSI) ?",
+      "choices": [
+        {
+          "text": "Un potentiel d’action obligatoire à chaque PPSI",
+          "correct": false
+        },
+        {
+          "text": "Une hyperpolarisation qui s’oppose à l’atteinte du seuil",
+          "correct": true
+        },
+        {
+          "text": "Une augmentation irréversible du sodium extracellulaire",
+          "correct": false
+        },
+        {
+          "text": "Une activation de tous les muscles du corps",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma d’intégration montre des réponses inhibitrices hyperpolarisantes, qui limitent l’effet des entrées excitatrices.",
+      "sourcePages": [
+        45
+      ]
+    },
+    {
+      "id": "bp15-068",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Que montre l’intégration des signaux excitateurs et inhibiteurs par un neurone ?",
+      "choices": [
+        {
+          "text": "Le neurone additionne uniquement les signaux inhibiteurs",
+          "correct": false
+        },
+        {
+          "text": "Le déclenchement éventuel d’un potentiel d’action dépend de leur sommation et du seuil atteint",
+          "correct": true
+        },
+        {
+          "text": "Les PPSI et les PPSE ont toujours le même effet sur le seuil",
+          "correct": false
+        },
+        {
+          "text": "Chaque PPSE, même très faible, déclenche toujours un potentiel d’action",
+          "correct": false
+        }
+      ],
+      "explanation": "Les potentiels postsynaptiques se combinent ; leur résultante peut atteindre ou non le seuil de déclenchement.",
+      "sourcePages": [
+        45
+      ]
+    },
+    {
+      "id": "bp15-069",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment l’intensité d’un potentiel de récepteur est-elle codée dans le cours ?",
+      "choices": [
+        {
+          "text": "Par la longueur de la moelle épinière",
+          "correct": false
+        },
+        {
+          "text": "Par le nombre de ventricules cérébraux",
+          "correct": false
+        },
+        {
+          "text": "Par la taille du noyau neuronal",
+          "correct": false
+        },
+        {
+          "text": "Par l’amplitude de la dépolarisation",
+          "correct": true
+        }
+      ],
+      "explanation": "Le potentiel de récepteur est un potentiel gradué dont l’amplitude varie avec la stimulation.",
+      "sourcePages": [
+        46
+      ]
+    },
+    {
+      "id": "bp15-070",
+      "category": "Potentiels et codage nerveux",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quels paramètres participent au codage du message sensoriel présenté dans le cours ?",
+      "choices": [
+        {
+          "text": "Le nombre de fibres recrutées",
+          "correct": true
+        },
+        {
+          "text": "La multiplication des méninges",
+          "correct": false
+        },
+        {
+          "text": "Une augmentation obligatoire de l’amplitude de chaque potentiel d’action d’une même fibre",
+          "correct": false
+        },
+        {
+          "text": "La fréquence des potentiels d’action",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours distingue le codage en fréquence des potentiels d’action et le recrutement de fibres, sans faire varier l’amplitude du potentiel d’action individuel.",
+      "sourcePages": [
+        46,
+        47
+      ]
+    },
+    {
+      "id": "bp15-071",
+      "category": "Potentiels et codage nerveux",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pourquoi le potentiel global d’un nerf peut-il varier avec l’intensité de stimulation ?",
+      "choices": [
+        {
+          "text": "Parce que le nerf ne contient qu’un seul axone",
+          "correct": false
+        },
+        {
+          "text": "Parce que le nombre de fibres recrutées peut varier",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’une fibre isolée abandonne la loi du tout ou rien",
+          "correct": false
+        },
+        {
+          "text": "Parce que toutes les fibres d’un nerf ont toujours la même vitesse",
+          "correct": false
+        }
+      ],
+      "explanation": "Un nerf contient plusieurs fibres hétérogènes ; la réponse globale dépend du nombre de fibres activées et ne suit pas le tout ou rien d’une fibre isolée.",
+      "sourcePages": [
+        47
+      ]
+    },
+    {
+      "id": "bp15-072",
+      "category": "Synapses",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Par quelles structures une synapse électrique transmet-elle directement le courant ?",
+      "choices": [
+        {
+          "text": "Des ponts actine–myosine",
+          "correct": false
+        },
+        {
+          "text": "Des vésicules de mélatonine uniquement",
+          "correct": false
+        },
+        {
+          "text": "Des jonctions communicantes, ou jonctions GAP",
+          "correct": true
+        },
+        {
+          "text": "Des ventricules remplis de LCS",
+          "correct": false
+        }
+      ],
+      "explanation": "Une synapse électrique repose sur un couplage direct entre cellules par des jonctions GAP.",
+      "sourcePages": [
+        48
+      ]
+    },
+    {
+      "id": "bp15-073",
+      "category": "Synapses",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel mécanisme caractérise une synapse chimique ?",
+      "choices": [
+        {
+          "text": "Le passage direct du noyau d’une cellule à l’autre",
+          "correct": false
+        },
+        {
+          "text": "La circulation du LCS entre deux muscles",
+          "correct": false
+        },
+        {
+          "text": "Le glissement des filaments fins entre deux neurones",
+          "correct": false
+        },
+        {
+          "text": "La libération d’un neurotransmetteur dans une fente synaptique",
+          "correct": true
+        }
+      ],
+      "explanation": "La synapse chimique transmet le signal grâce à un neurotransmetteur libéré par la cellule présynaptique et reconnu par la cellule postsynaptique.",
+      "sourcePages": [
+        48,
+        50
+      ]
+    },
+    {
+      "id": "bp15-074",
+      "category": "Synapses",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quels types de jonctions chimiques sont cités dans le cours ?",
+      "choices": [
+        {
+          "text": "Les synapses neuromusculaires",
+          "correct": true
+        },
+        {
+          "text": "Les synapses neuro-glandulaires",
+          "correct": true
+        },
+        {
+          "text": "Les synapses neuro-neuronales",
+          "correct": true
+        },
+        {
+          "text": "Les jonctions entre deux ventricules cérébraux",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cours distingue des synapses entre neurones, entre neurone et muscle, et entre neurone et cellule glandulaire.",
+      "sourcePages": [
+        48
+      ]
+    },
+    {
+      "id": "bp15-075",
+      "category": "Synapses",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle entrée ionique déclenche l’exocytose des neurotransmetteurs dans la synapse chimique représentée ?",
+      "choices": [
+        {
+          "text": "L’entrée de Cl⁻ dans la cellule postsynaptique",
+          "correct": false
+        },
+        {
+          "text": "L’entrée de Ca²⁺ dans le bouton présynaptique",
+          "correct": true
+        },
+        {
+          "text": "L’entrée de Na⁺ dans la cellule postsynaptique",
+          "correct": false
+        },
+        {
+          "text": "L’entrée de K⁺ dans la cellule postsynaptique",
+          "correct": false
+        }
+      ],
+      "explanation": "L’arrivée du potentiel d’action ouvre des canaux calciques présynaptiques ; l’entrée de Ca²⁺ déclenche l’exocytose des vésicules.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "bp15-076",
+      "category": "Synapses",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où les neurotransmetteurs sont-ils stockés avant leur libération dans la synapse chimique représentée ?",
+      "choices": [
+        {
+          "text": "Dans les récepteurs-canaux de la cellule postsynaptique",
+          "correct": false
+        },
+        {
+          "text": "Dans les gaines de myéline entourant l’axone",
+          "correct": false
+        },
+        {
+          "text": "Dans la fente synaptique, avant l’arrivée du potentiel d’action",
+          "correct": false
+        },
+        {
+          "text": "Dans des vésicules du bouton présynaptique",
+          "correct": true
+        }
+      ],
+      "explanation": "Les neurotransmetteurs sont contenus dans des vésicules synaptiques qui fusionnent avec la membrane présynaptique lors de l’exocytose.",
+      "sourcePages": [
+        49,
+        50
+      ]
+    },
+    {
+      "id": "bp15-077",
+      "category": "Synapses",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Sur quelles structures postsynaptiques le neurotransmetteur se fixe-t-il dans le schéma de correction ?",
+      "choices": [
+        {
+          "text": "Les segments de myéline de l’axone présynaptique",
+          "correct": false
+        },
+        {
+          "text": "Les canaux calciques du bouton présynaptique",
+          "correct": false
+        },
+        {
+          "text": "Les vésicules encore présentes dans la terminaison présynaptique",
+          "correct": false
+        },
+        {
+          "text": "Des récepteurs-canaux de la membrane postsynaptique",
+          "correct": true
+        }
+      ],
+      "explanation": "Dans le schéma, le neurotransmetteur se fixe à des récepteurs-canaux postsynaptiques, modifiant la perméabilité de la membrane.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "bp15-078",
+      "category": "Synapses",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel enchaînement correspond à la synapse chimique excitatrice représentée ?",
+      "choices": [
+        {
+          "text": "PA présynaptique → entrée de Ca²⁺ → exocytose du neurotransmetteur → activation de récepteurs postsynaptiques",
+          "correct": true
+        },
+        {
+          "text": "PA présynaptique → fixation du neurotransmetteur → entrée de Ca²⁺ → exocytose",
+          "correct": false
+        },
+        {
+          "text": "PA présynaptique → entrée de Na⁺ postsynaptique → exocytose → entrée de Ca²⁺ présynaptique",
+          "correct": false
+        },
+        {
+          "text": "Entrée de Ca²⁺ → PA présynaptique → fixation postsynaptique → exocytose",
+          "correct": false
+        }
+      ],
+      "explanation": "L’arrivée du potentiel d’action précède l’entrée de Ca²⁺, l’exocytose puis la fixation du neurotransmetteur sur ses récepteurs postsynaptiques.",
+      "sourcePages": [
+        50
+      ]
+    },
+    {
+      "id": "bp15-079",
+      "category": "Jonction neuromusculaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles cellules sont en contact fonctionnel dans une jonction neuromusculaire squelettique ?",
+      "choices": [
+        {
+          "text": "Deux cellules de la pie-mère",
+          "correct": false
+        },
+        {
+          "text": "Une cellule osseuse et un adipocyte",
+          "correct": false
+        },
+        {
+          "text": "Un motoneurone et une fibre musculaire squelettique",
+          "correct": true
+        },
+        {
+          "text": "Deux hématies",
+          "correct": false
+        }
+      ],
+      "explanation": "La jonction neuromusculaire assure la transmission du message du motoneurone à la fibre musculaire.",
+      "sourcePages": [
+        51,
+        52
+      ]
+    },
+    {
+      "id": "bp15-080",
+      "category": "Jonction neuromusculaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel neurotransmetteur est libéré par le motoneurone à la plaque motrice ?",
+      "choices": [
+        {
+          "text": "L’acétylcholinestérase",
+          "correct": false
+        },
+        {
+          "text": "L’acétylcholine",
+          "correct": true
+        },
+        {
+          "text": "La noradrénaline",
+          "correct": false
+        },
+        {
+          "text": "La mélatonine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le motoneurone libère de l’acétylcholine, qui se fixe sur des récepteurs-canaux de la plaque motrice.",
+      "sourcePages": [
+        52
+      ]
+    },
+    {
+      "id": "bp15-081",
+      "category": "Jonction neuromusculaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel effet immédiat l’acétylcholine exerce-t-elle à la plaque motrice dans le schéma du cours ?",
+      "choices": [
+        {
+          "text": "Elle hydrolyse l’acétylcholinestérase dans la fente",
+          "correct": false
+        },
+        {
+          "text": "Elle masque directement les sites de liaison de la myosine sur l’actine",
+          "correct": false
+        },
+        {
+          "text": "Elle provoque l’ouverture de récepteurs-canaux et une entrée de Na⁺ dépolarisante",
+          "correct": true
+        },
+        {
+          "text": "Elle provoque directement la recapture de tout le calcium musculaire",
+          "correct": false
+        }
+      ],
+      "explanation": "La fixation de l’ACh ouvre ses récepteurs-canaux ; l’entrée de Na⁺ contribue à la dépolarisation de la plaque motrice.",
+      "sourcePages": [
+        52
+      ]
+    },
+    {
+      "id": "bp15-082",
+      "category": "Jonction neuromusculaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Par quelles structures le potentiel d’action musculaire se propage-t-il vers l’intérieur de la fibre ?",
+      "choices": [
+        {
+          "text": "Le sarcolemme puis les tubules transverses T",
+          "correct": true
+        },
+        {
+          "text": "Le ganglion spinal puis la racine dorsale",
+          "correct": false
+        },
+        {
+          "text": "La fente synaptique puis les vésicules du motoneurone",
+          "correct": false
+        },
+        {
+          "text": "Les seuls filaments d’actine puis de myosine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le potentiel d’action musculaire se propage sur le sarcolemme puis dans les tubules T, avant la libération du calcium du réticulum sarcoplasmique.",
+      "sourcePages": [
+        52,
+        55
+      ]
+    },
+    {
+      "id": "bp15-083",
+      "category": "Jonction neuromusculaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel compartiment libère le calcium nécessaire à la contraction musculaire présentée ?",
+      "choices": [
+        {
+          "text": "Le bouton synaptique du motoneurone, directement vers la troponine",
+          "correct": false
+        },
+        {
+          "text": "La fente synaptique, comme réservoir unique du calcium musculaire",
+          "correct": false
+        },
+        {
+          "text": "Le réticulum sarcoplasmique",
+          "correct": true
+        },
+        {
+          "text": "Les tubules T, comme réservoir indiqué dans le mécanisme du cours",
+          "correct": false
+        }
+      ],
+      "explanation": "Le calcium déclenchant la contraction est libéré par le réticulum sarcoplasmique de la fibre musculaire.",
+      "sourcePages": [
+        52,
+        54
+      ]
+    },
+    {
+      "id": "bp15-084",
+      "category": "Jonction neuromusculaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle enzyme met fin au signal de l’acétylcholine dans la fente neuromusculaire ?",
+      "choices": [
+        {
+          "text": "L’acétylcholinestérase",
+          "correct": true
+        },
+        {
+          "text": "La mélatonine",
+          "correct": false
+        },
+        {
+          "text": "La myosine",
+          "correct": false
+        },
+        {
+          "text": "La troponine",
+          "correct": false
+        }
+      ],
+      "explanation": "L’acétylcholinestérase hydrolyse l’acétylcholine présente dans la fente synaptique.",
+      "sourcePages": [
+        52
+      ]
+    },
+    {
+      "id": "bp15-085",
+      "category": "Contraction musculaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel énoncé décrit la contraction musculaire dans le cours ?",
+      "choices": [
+        {
+          "text": "Le muscle doit toujours s’allonger sans développer de tension",
+          "correct": false
+        },
+        {
+          "text": "Le muscle cesse obligatoirement toute consommation d’ATP",
+          "correct": false
+        },
+        {
+          "text": "Le muscle transforme ses fibres en cellules nerveuses",
+          "correct": false
+        },
+        {
+          "text": "Le muscle se raccourcit ou développe une tension pour produire un mouvement ou maintenir une posture",
+          "correct": true
+        }
+      ],
+      "explanation": "Une contraction peut produire un raccourcissement ou un développement de tension, pour le mouvement ou le maintien postural.",
+      "sourcePages": [
+        54
+      ]
+    },
+    {
+      "id": "bp15-086",
+      "category": "Contraction musculaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles protéines constituent respectivement les filaments fins et épais du sarcomère ?",
+      "choices": [
+        {
+          "text": "L’actine et la myosine",
+          "correct": true
+        },
+        {
+          "text": "L’acétylcholine et l’acétylcholinestérase",
+          "correct": false
+        },
+        {
+          "text": "La mélatonine et la troponine",
+          "correct": false
+        },
+        {
+          "text": "La myosine et l’actine",
+          "correct": false
+        }
+      ],
+      "explanation": "Les schémas identifient l’actine comme filament fin et la myosine comme filament épais.",
+      "sourcePages": [
+        56,
+        58
+      ]
+    },
+    {
+      "id": "bp15-087",
+      "category": "Contraction musculaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Sur quelle protéine le calcium se fixe-t-il pour déclencher le déplacement de la tropomyosine ?",
+      "choices": [
+        {
+          "text": "L’acétylcholinestérase de la fente synaptique",
+          "correct": false
+        },
+        {
+          "text": "La troponine",
+          "correct": true
+        },
+        {
+          "text": "La tropomyosine directement, sans intervention de la troponine",
+          "correct": false
+        },
+        {
+          "text": "La tête de myosine à la place de l’ATP",
+          "correct": false
+        }
+      ],
+      "explanation": "Le Ca²⁺ se fixe à la troponine ; la tropomyosine se déplace alors et découvre les sites de liaison de la myosine sur l’actine.",
+      "sourcePages": [
+        52,
+        54,
+        57
+      ]
+    },
+    {
+      "id": "bp15-088",
+      "category": "Contraction musculaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel rôle la tropomyosine joue-t-elle au repos sur le filament d’actine ?",
+      "choices": [
+        {
+          "text": "Elle expose en permanence tous les sites de liaison à la myosine",
+          "correct": false
+        },
+        {
+          "text": "Elle assure la recapture active du calcium dans le réticulum",
+          "correct": false
+        },
+        {
+          "text": "Elle masque les sites de fixation de la myosine",
+          "correct": true
+        },
+        {
+          "text": "Elle hydrolyse l’acétylcholine de la fente synaptique",
+          "correct": false
+        }
+      ],
+      "explanation": "Au repos, la tropomyosine masque les sites de liaison sur l’actine ; le calcium permet leur démasquage via la troponine.",
+      "sourcePages": [
+        57
+      ]
+    },
+    {
+      "id": "bp15-089",
+      "category": "Contraction musculaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle modification du sarcomère accompagne son raccourcissement ?",
+      "choices": [
+        {
+          "text": "Les filaments d’actine glissent entre les filaments de myosine et les stries Z se rapprochent",
+          "correct": true
+        },
+        {
+          "text": "Les filaments de myosine deviennent des axones",
+          "correct": false
+        },
+        {
+          "text": "Les stries Z s’éloignent nécessairement",
+          "correct": false
+        },
+        {
+          "text": "Les filaments d’actine disparaissent",
+          "correct": false
+        }
+      ],
+      "explanation": "La contraction repose sur le glissement des filaments et l’augmentation de leur chevauchement, avec rapprochement des stries Z.",
+      "sourcePages": [
+        56,
+        58
+      ]
+    },
+    {
+      "id": "bp15-090",
+      "category": "Contraction musculaire",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle propriété des filaments d’actine et de myosine est illustrée pendant le raccourcissement du sarcomère ?",
+      "choices": [
+        {
+          "text": "La myosine devient de la tropomyosine",
+          "correct": false
+        },
+        {
+          "text": "Leur longueur reste la même tandis que leur chevauchement augmente",
+          "correct": true
+        },
+        {
+          "text": "L’actine est remplacée par du LCS",
+          "correct": false
+        },
+        {
+          "text": "Leur longueur diminue par destruction de leurs extrémités",
+          "correct": false
+        }
+      ],
+      "explanation": "Le modèle de glissement représente un raccourcissement du sarcomère sans raccourcissement des filaments eux-mêmes.",
+      "sourcePages": [
+        56,
+        58
+      ]
+    },
+    {
+      "id": "bp15-091",
+      "category": "Contraction musculaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel événement provoque le détachement de la tête de myosine liée à l’actine ?",
+      "choices": [
+        {
+          "text": "La libération d’ADP et de Pi accompagnant le coup de force",
+          "correct": false
+        },
+        {
+          "text": "La fixation du Ca²⁺ sur la troponine comme mécanisme direct de détachement",
+          "correct": false
+        },
+        {
+          "text": "La fixation d’une nouvelle molécule d’ATP sur la myosine",
+          "correct": true
+        },
+        {
+          "text": "L’hydrolyse de l’acétylcholine à la plaque motrice comme mécanisme direct de séparation",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans le cycle présenté, la fixation d’ATP sur la myosine entraîne sa séparation de l’actine.",
+      "sourcePages": [
+        59,
+        60
+      ]
+    },
+    {
+      "id": "bp15-092",
+      "category": "Contraction musculaire",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel rôle l’hydrolyse de l’ATP joue-t-elle sur la tête de myosine ?",
+      "choices": [
+        {
+          "text": "Elle empêche tout nouveau changement de conformation de la tête de myosine",
+          "correct": false
+        },
+        {
+          "text": "Elle masque les sites de fixation de la myosine sur l’actine",
+          "correct": false
+        },
+        {
+          "text": "Elle fournit directement le neurotransmetteur de la plaque motrice",
+          "correct": false
+        },
+        {
+          "text": "Elle fournit l’énergie nécessaire à son changement de conformation avant une nouvelle liaison à l’actine",
+          "correct": true
+        }
+      ],
+      "explanation": "L’hydrolyse de l’ATP en ADP et phosphate inorganique permet le changement de conformation de la tête de myosine.",
+      "sourcePages": [
+        59,
+        60
+      ]
+    },
+    {
+      "id": "bp15-093",
+      "category": "Contraction musculaire",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel événement du cycle actine–myosine accompagne le pivotement de la tête et le glissement ?",
+      "choices": [
+        {
+          "text": "La fixation d’une nouvelle molécule d’ATP provoquant le détachement",
+          "correct": false
+        },
+        {
+          "text": "Le retour de la tropomyosine sur les sites de liaison de l’actine",
+          "correct": false
+        },
+        {
+          "text": "La libération des produits de l’hydrolyse de l’ATP après la liaison à l’actine",
+          "correct": true
+        },
+        {
+          "text": "La recapture de tout le calcium avant la formation d’un pont",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cycle du cours associe la libération des produits ADP et Pi à un changement de conformation de la tête de myosine qui tire l’actine vers le centre du sarcomère.",
+      "sourcePages": [
+        59,
+        60
+      ]
+    },
+    {
+      "id": "bp15-094",
+      "category": "Contraction musculaire",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels rôles de l’ATP dans le fonctionnement musculaire sont présentés ?",
+      "choices": [
+        {
+          "text": "Constituer la gaine de myéline du motoneurone",
+          "correct": false
+        },
+        {
+          "text": "Remplacer la troponine comme récepteur du Ca²⁺",
+          "correct": false
+        },
+        {
+          "text": "Participer au cycle accrochage–détachement des têtes de myosine",
+          "correct": true
+        },
+        {
+          "text": "Fournir l’énergie pour la recapture du Ca²⁺ lors du relâchement",
+          "correct": true
+        }
+      ],
+      "explanation": "L’ATP est nécessaire au cycle des ponts actine–myosine et à la recapture du calcium dans le réticulum sarcoplasmique.",
+      "sourcePages": [
+        54,
+        56
+      ]
+    },
+    {
+      "id": "bp15-095",
+      "category": "Contraction musculaire",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel enchaînement relie correctement le signal nerveux à la contraction musculaire ?",
+      "choices": [
+        {
+          "text": "ACh → fixation directe sur la troponine → recapture de Ca²⁺ → glissement",
+          "correct": false
+        },
+        {
+          "text": "ACh → PA musculaire → libération de Ca²⁺ → troponine → glissement actine–myosine",
+          "correct": true
+        },
+        {
+          "text": "Libération de Ca²⁺ → ACh → hydrolyse des filaments → PA musculaire",
+          "correct": false
+        },
+        {
+          "text": "PA musculaire → hydrolyse de l’ACh → masquage de l’actine → glissement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le signal neuromusculaire déclenche un potentiel d’action musculaire, puis une libération de Ca²⁺ et l’activation du mécanisme de glissement des filaments.",
+      "sourcePages": [
+        52,
+        54,
+        56
+      ]
+    },
+    {
+      "id": "bp15-096",
+      "category": "Arc réflexe",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel trajet général décrit un arc réflexe ?",
+      "choices": [
+        {
+          "text": "Récepteur → effecteur directement, sans voie nerveuse",
+          "correct": false
+        },
+        {
+          "text": "Centre nerveux → récepteur → effecteur → voie afférente",
+          "correct": false
+        },
+        {
+          "text": "Récepteur → voie efférente → centre nerveux → voie afférente → effecteur",
+          "correct": false
+        },
+        {
+          "text": "Récepteur → voie afférente → centre nerveux → voie efférente → effecteur",
+          "correct": true
+        }
+      ],
+      "explanation": "Le circuit réflexe reçoit une information par une voie sensitive, l’intègre dans un centre nerveux et produit une commande vers un effecteur.",
+      "sourcePages": [
+        63
+      ]
+    },
+    {
+      "id": "bp15-097",
+      "category": "Arc réflexe",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie le terme « afférent » dans le circuit réflexe représenté ?",
+      "choices": [
+        {
+          "text": "Qui part du centre nerveux vers le muscle effecteur",
+          "correct": false
+        },
+        {
+          "text": "Qui transporte le LCS vers les ventricules",
+          "correct": false
+        },
+        {
+          "text": "Qui conduit uniquement les hormones vers le foie",
+          "correct": false
+        },
+        {
+          "text": "Qui conduit l’information sensitive vers le centre nerveux",
+          "correct": true
+        }
+      ],
+      "explanation": "La voie afférente amène l’information du récepteur au centre nerveux ; la voie efférente transmet la commande vers l’effecteur.",
+      "sourcePages": [
+        63,
+        64
+      ]
+    },
+    {
+      "id": "bp15-098",
+      "category": "Arc réflexe",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel stimulus déclenche le réflexe myotatique représenté ?",
+      "choices": [
+        {
+          "text": "La fermeture des ventricules",
+          "correct": false
+        },
+        {
+          "text": "La destruction de l’actine",
+          "correct": false
+        },
+        {
+          "text": "La production de mélatonine",
+          "correct": false
+        },
+        {
+          "text": "L’étirement du muscle",
+          "correct": true
+        }
+      ],
+      "explanation": "Le schéma du réflexe myotatique commence par un étirement du muscle.",
+      "sourcePages": [
+        64
+      ]
+    },
+    {
+      "id": "bp15-099",
+      "category": "Arc réflexe",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel récepteur détecte l’étirement dans le réflexe myotatique présenté ?",
+      "choices": [
+        {
+          "text": "La plaque motrice du muscle",
+          "correct": false
+        },
+        {
+          "text": "Le ganglion spinal comme capteur intramusculaire",
+          "correct": false
+        },
+        {
+          "text": "Le fuseau neuromusculaire",
+          "correct": true
+        },
+        {
+          "text": "Le motoneurone comme récepteur sensoriel intramusculaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Le fuseau neuromusculaire est le récepteur sensoriel de l’étirement musculaire dans ce réflexe.",
+      "sourcePages": [
+        47,
+        64
+      ]
+    },
+    {
+      "id": "bp15-100",
+      "category": "Arc réflexe",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel centre nerveux assure le relais du réflexe myotatique représenté ?",
+      "choices": [
+        {
+          "text": "Le ganglion spinal comme seul centre intégrateur",
+          "correct": false
+        },
+        {
+          "text": "La moelle épinière",
+          "correct": true
+        },
+        {
+          "text": "Le cortex occipital",
+          "correct": false
+        },
+        {
+          "text": "Le cervelet comme centre du circuit spinal dessiné",
+          "correct": false
+        }
+      ],
+      "explanation": "Le schéma montre une afférence sensitive vers la moelle épinière et une efférence motrice revenant au muscle.",
+      "sourcePages": [
+        64
+      ]
+    },
+    {
+      "id": "bp15-101",
+      "category": "Arc réflexe",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle réponse du muscle étiré est produite par le réflexe myotatique présenté ?",
+      "choices": [
+        {
+          "text": "Sa contraction",
+          "correct": true
+        },
+        {
+          "text": "La sécrétion de LCS par ses fibres",
+          "correct": false
+        },
+        {
+          "text": "Sa transformation en tissu nerveux",
+          "correct": false
+        },
+        {
+          "text": "La disparition de tous ses filaments",
+          "correct": false
+        }
+      ],
+      "explanation": "L’étirement du muscle déclenche une réponse motrice conduisant à sa contraction.",
+      "sourcePages": [
+        64
+      ]
+    },
+    {
+      "id": "bp15-102",
+      "category": "Arc réflexe",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel trajet correspond au réflexe myotatique spinal représenté ?",
+      "choices": [
+        {
+          "text": "Fuseau neuromusculaire → racine dorsale → moelle épinière → racine ventrale → plaque motrice",
+          "correct": true
+        },
+        {
+          "text": "Fuseau neuromusculaire → racine ventrale → moelle épinière → racine dorsale → plaque motrice",
+          "correct": false
+        },
+        {
+          "text": "Fuseau neuromusculaire → racine dorsale → ventricule cérébral → racine ventrale",
+          "correct": false
+        },
+        {
+          "text": "Plaque motrice → racine dorsale → ganglion spinal → fuseau neuromusculaire",
+          "correct": false
+        }
+      ],
+      "explanation": "L’information sensitive entre par la racine dorsale, puis la commande motrice quitte la moelle par la racine ventrale vers le muscle.",
+      "sourcePages": [
+        24,
+        64
+      ]
+    },
+    {
+      "id": "bp15-103",
+      "category": "Repères pathologiques et terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle maladie de la liste du cours est également appelée sclérose latérale amyotrophique (SLA) ?",
+      "choices": [
+        {
+          "text": "La maladie de Parkinson",
+          "correct": false
+        },
+        {
+          "text": "La maladie d’Alzheimer",
+          "correct": false
+        },
+        {
+          "text": "La démence à corps de Lewy",
+          "correct": false
+        },
+        {
+          "text": "La maladie de Charcot",
+          "correct": true
+        }
+      ],
+      "explanation": "Le support associe la maladie de Charcot à la SLA et la décrit comme une maladie des motoneurones.",
+      "sourcePages": [
+        68
+      ]
+    },
+    {
+      "id": "bp15-104",
+      "category": "Repères pathologiques et terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel tissu ou système la racine « myo- » désigne-t-elle ?",
+      "choices": [
+        {
+          "text": "Le foie",
+          "correct": false
+        },
+        {
+          "text": "Le nerf",
+          "correct": false
+        },
+        {
+          "text": "La moelle",
+          "correct": false
+        },
+        {
+          "text": "Le muscle",
+          "correct": true
+        }
+      ],
+      "explanation": "Dans le tableau de terminologie, « myo- » signifie muscle.",
+      "sourcePages": [
+        69
+      ]
+    },
+    {
+      "id": "bp15-105",
+      "category": "Repères pathologiques et terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi la racine « neuro- » renvoie-t-elle dans le tableau du cours ?",
+      "choices": [
+        {
+          "text": "Au nerf",
+          "correct": true
+        },
+        {
+          "text": "Au muscle",
+          "correct": false
+        },
+        {
+          "text": "Au rein",
+          "correct": false
+        },
+        {
+          "text": "À l’os",
+          "correct": false
+        }
+      ],
+      "explanation": "Les racines « neuro- » et « névro- » renvoient au nerf.",
+      "sourcePages": [
+        69
+      ]
+    },
+    {
+      "id": "bp15-106",
+      "category": "Repères pathologiques et terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi la racine « myélo- » renvoie-t-elle dans le contexte neuromusculaire du cours ?",
+      "choices": [
+        {
+          "text": "Au tendon",
+          "correct": false
+        },
+        {
+          "text": "À l’actine",
+          "correct": false
+        },
+        {
+          "text": "Au cœur",
+          "correct": false
+        },
+        {
+          "text": "À la moelle",
+          "correct": true
+        }
+      ],
+      "explanation": "Dans ce contexte de terminologie nerveuse, « myélo- » désigne la moelle.",
+      "sourcePages": [
+        69
+      ]
+    },
+    {
+      "id": "bp15-107",
+      "category": "Synthèse neuromusculaire",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel circuit relie correctement un message sensitif spinal à une réponse motrice musculaire ?",
+      "choices": [
+        {
+          "text": "Neurone sensitif → racine ventrale → intégration médullaire → racine dorsale motrice",
+          "correct": false
+        },
+        {
+          "text": "Motoneurone → ganglion spinal → récepteur musculaire → cortex visuel",
+          "correct": false
+        },
+        {
+          "text": "Récepteur sensitif → plaque motrice directement, sans centre nerveux",
+          "correct": false
+        },
+        {
+          "text": "Neurone sensitif → racine dorsale → intégration médullaire → motoneurone → jonction neuromusculaire",
+          "correct": true
+        }
+      ],
+      "explanation": "Une entrée sensitive peut être intégrée par la moelle, qui transmet ensuite une commande par un motoneurone vers la jonction neuromusculaire.",
+      "sourcePages": [
+        24,
+        52,
+        64
+      ]
+    },
+    {
+      "id": "bp15-108",
+      "category": "Synthèse neuromusculaire",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle distinction entre les deux rôles du calcium dans la transmission neuromusculaire est correcte ?",
+      "choices": [
+        {
+          "text": "Dans le bouton nerveux il déclenche l’exocytose ; dans la fibre musculaire il se fixe à la troponine",
+          "correct": true
+        },
+        {
+          "text": "Dans le bouton nerveux il hydrolyse l’ACh ; dans la fibre il produit la mélatonine",
+          "correct": false
+        },
+        {
+          "text": "Dans le bouton nerveux il se fixe à la troponine ; dans la fibre il libère l’ACh",
+          "correct": false
+        },
+        {
+          "text": "Dans les deux cellules il remplace l’ATP dans toutes ses fonctions",
+          "correct": false
+        }
+      ],
+      "explanation": "Le calcium intervient à deux étapes différentes : l’entrée présynaptique favorise la libération d’ACh, puis le calcium libéré dans la fibre permet l’activation des filaments via la troponine.",
+      "sourcePages": [
+        52,
+        54
+      ]
+    },
+    {
+      "id": "bp15-109",
+      "category": "Synthèse neuromusculaire",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles associations structure–fonction sont correctes dans le fonctionnement neuromusculaire ?",
+      "choices": [
+        {
+          "text": "Acétylcholinestérase — hydrolyse de l’acétylcholine",
+          "correct": true
+        },
+        {
+          "text": "Tropomyosine — production de mélatonine",
+          "correct": false
+        },
+        {
+          "text": "Corps calleux — stockage du calcium musculaire",
+          "correct": false
+        },
+        {
+          "text": "Ganglion spinal — corps cellulaires de neurones sensitifs",
+          "correct": true
+        }
+      ],
+      "explanation": "Le ganglion spinal contient les corps cellulaires sensitifs et l’acétylcholinestérase termine le signal cholinergique ; le stockage du calcium et la mélatonine relèvent d’autres structures.",
+      "sourcePages": [
+        21,
+        24,
+        52
+      ]
+    },
+    {
+      "id": "bp15-110",
+      "category": "Synthèse neuromusculaire",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels intérêts professionnels de l’étude du système neuromusculaire sont cités pour le diététicien ?",
+      "choices": [
+        {
+          "text": "Adapter les apports et contribuer à prévenir la perte musculaire",
+          "correct": true
+        },
+        {
+          "text": "Remplacer le diagnostic médical des maladies neurologiques",
+          "correct": false
+        },
+        {
+          "text": "Collaborer avec les autres professionnels de santé",
+          "correct": true
+        },
+        {
+          "text": "Comprendre les besoins énergétiques et nutritionnels liés à l’activité musculaire",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours relie ces connaissances à l’adaptation nutritionnelle, à la prévention de la perte musculaire et au travail pluridisciplinaire, sans attribuer au diététicien le diagnostic médical des maladies neurologiques.",
+      "sourcePages": [
+        3
+      ]
+    }
+  ]
+}
