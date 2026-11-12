@@ -1,0 +1,694 @@
+{
+  "version": 1,
+  "title": "Microbiologie — Spores, levures et moisissures",
+  "subject": "Sécurité alimentaire",
+  "chapter": "Microbiologie — Spores, levures et moisissures",
+  "questions": [
+    {
+      "id": "sa-sl-001",
+      "category": "Endospores",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi sert une endospore bactérienne ?",
+      "choices": [
+        {
+          "text": "À survivre à des conditions défavorables",
+          "correct": true
+        },
+        {
+          "text": "À multiplier immédiatement la population par dix",
+          "correct": false
+        },
+        {
+          "text": "À réaliser une photosynthèse",
+          "correct": false
+        },
+        {
+          "text": "À produire des anticorps",
+          "correct": false
+        }
+      ],
+      "explanation": "L'endospore est une forme de résistance, différente d'une forme végétative en croissance.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 15 — Endospores"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-002",
+      "category": "Endospores",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Une bactérie forme une endospore. Quel est le bilan numérique de cette transformation ?",
+      "choices": [
+        {
+          "text": "Une cellule donne systématiquement deux spores",
+          "correct": false
+        },
+        {
+          "text": "Une cellule donne mille cellules actives",
+          "correct": false
+        },
+        {
+          "text": "Une cellule donne une spore, sans multiplication",
+          "correct": true
+        },
+        {
+          "text": "La population devient une population de levures",
+          "correct": false
+        }
+      ],
+      "explanation": "La sporulation n'est pas un mode de multiplication bactérienne.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 15 — Endospores"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-003",
+      "category": "Endospores",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quels genres bactériens comprennent des espèces sporulantes importantes en alimentation ?",
+      "choices": [
+        {
+          "text": "Bacillus et Clostridium",
+          "correct": true
+        },
+        {
+          "text": "Saccharomyces et Penicillium",
+          "correct": false
+        },
+        {
+          "text": "Salmonella et Listeria",
+          "correct": false
+        },
+        {
+          "text": "Norovirus et virus de l'hépatite A",
+          "correct": false
+        }
+      ],
+      "explanation": "B. cereus et C. perfringens sont notamment des bactéries sporulantes impliquées dans des accidents alimentaires.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 15 — Endospores"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-004",
+      "category": "Germination",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que se passe-t-il lors de la germination d'une endospore ?",
+      "choices": [
+        {
+          "text": "Elle redonne une cellule végétative lorsque les conditions le permettent",
+          "correct": true
+        },
+        {
+          "text": "Elle perd définitivement toute possibilité de croissance",
+          "correct": false
+        },
+        {
+          "text": "Elle devient une mycotoxine",
+          "correct": false
+        },
+        {
+          "text": "Elle donne un noyau eucaryote",
+          "correct": false
+        }
+      ],
+      "explanation": "La germination permet le retour à une forme active, capable de se multiplier dans un milieu favorable.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 15 — Germination"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-005",
+      "category": "Résistance",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi une pasteurisation ne suffit-elle pas à éliminer le risque lié aux endospores ?",
+      "choices": [
+        {
+          "text": "Elle transforme toutes les spores en virus",
+          "correct": false
+        },
+        {
+          "text": "Des endospores peuvent survivre au traitement",
+          "correct": true
+        },
+        {
+          "text": "Elle augmente obligatoirement la quantité d'oxygène",
+          "correct": false
+        },
+        {
+          "text": "Elle ne concerne que les aliments secs",
+          "correct": false
+        }
+      ],
+      "explanation": "La résistance des spores impose d'associer traitement adapté, maîtrise du refroidissement et conditions de conservation.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 15 — Résistance"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-006",
+      "category": "Refroidissement",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel risque présente un grand volume de plat cuit refroidi trop lentement ?",
+      "choices": [
+        {
+          "text": "L'absence certaine de tout danger grâce à la cuisson passée",
+          "correct": false
+        },
+        {
+          "text": "La destruction automatique de toutes les bactéries",
+          "correct": false
+        },
+        {
+          "text": "La disparition de l'eau de l'aliment",
+          "correct": false
+        },
+        {
+          "text": "La germination de spores survivantes suivie d'une multiplication",
+          "correct": true
+        }
+      ],
+      "explanation": "Un refroidissement lent peut laisser des bactéries sporulantes se développer après la cuisson.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 16 — Refroidissement"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-007",
+      "category": "Refroidissement",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel repère de refroidissement rapide s'applique usuellement aux préparations concernées en restauration collective, sans procédure dérogatoire validée ?",
+      "choices": [
+        {
+          "text": "Atteindre +37 °C et y conserver le plat",
+          "correct": false
+        },
+        {
+          "text": "Rester huit heures entre +63 °C et +10 °C",
+          "correct": false
+        },
+        {
+          "text": "Refroidir uniquement jusqu'à +25 °C",
+          "correct": false
+        },
+        {
+          "text": "Traverser la plage +63 °C à +10 °C en deux heures au maximum",
+          "correct": true
+        }
+      ],
+      "explanation": "L'objectif porte sur la température à cœur ; une autre combinaison exige une analyse des dangers validée.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 16 — Refroidissement"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-008",
+      "category": "Refroidissement",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Après ce refroidissement rapide, quelle plage convient à l'enceinte de stockage des préparations concernées ?",
+      "choices": [
+        {
+          "text": "0 à +3 °C",
+          "correct": true
+        },
+        {
+          "text": "+15 à +20 °C",
+          "correct": false
+        },
+        {
+          "text": "+50 à +55 °C",
+          "correct": false
+        },
+        {
+          "text": "+30 à +37 °C",
+          "correct": false
+        }
+      ],
+      "explanation": "La maîtrise du refroidissement doit être suivie d'un stockage au froid adapté ; le froid ne stérilise pas.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 16 — Refroidissement"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-009",
+      "category": "Levures",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel mode de multiplication est fréquent chez Saccharomyces cerevisiae ?",
+      "choices": [
+        {
+          "text": "La conjugaison comme unique division",
+          "correct": false
+        },
+        {
+          "text": "La sporulation bactérienne",
+          "correct": false
+        },
+        {
+          "text": "L'appertisation",
+          "correct": false
+        },
+        {
+          "text": "Le bourgeonnement",
+          "correct": true
+        }
+      ],
+      "explanation": "Un bourgeon se développe sur la cellule mère puis peut s'en séparer pour former une cellule fille.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 17 — Levures"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-010",
+      "category": "Levures",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel ensemble de structures est compatible avec une levure ?",
+      "choices": [
+        {
+          "text": "Capside virale seule",
+          "correct": false
+        },
+        {
+          "text": "Noyau, mitochondries, membrane et paroi",
+          "correct": true
+        },
+        {
+          "text": "Nucléoïde sans noyau ni organites membranaires",
+          "correct": false
+        },
+        {
+          "text": "Absence de matériel génétique",
+          "correct": false
+        }
+      ],
+      "explanation": "La levure est un champignon unicellulaire eucaryote possédant une paroi.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 17 — Levures"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-011",
+      "category": "Fermentation alcoolique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quels produits sont associés à la fermentation alcoolique des levures ?",
+      "choices": [
+        {
+          "text": "Calcium et chlorophylle",
+          "correct": false
+        },
+        {
+          "text": "Éthanol et dioxyde de carbone",
+          "correct": true
+        },
+        {
+          "text": "Acide chlorhydrique et protéines musculaires",
+          "correct": false
+        },
+        {
+          "text": "Urée et oxygène",
+          "correct": false
+        }
+      ],
+      "explanation": "La fermentation alcoolique transforme les sucres en éthanol et CO₂ et fournit une faible quantité d'ATP.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 18 — Fermentation alcoolique"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-012",
+      "category": "Fermentation alcoolique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel produit de la fermentation fait lever la pâte à pain ?",
+      "choices": [
+        {
+          "text": "L'urée",
+          "correct": false
+        },
+        {
+          "text": "Le dioxygène",
+          "correct": false
+        },
+        {
+          "text": "Le calcium",
+          "correct": false
+        },
+        {
+          "text": "Le CO₂",
+          "correct": true
+        }
+      ],
+      "explanation": "Le gaz carbonique retenu dans la pâte contribue à son augmentation de volume.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 18 — Fermentation alcoolique"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-013",
+      "category": "Métabolisme",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Que décrit l'effet Crabtree chez Saccharomyces cerevisiae ?",
+      "choices": [
+        {
+          "text": "La disparition du besoin de carbone",
+          "correct": false
+        },
+        {
+          "text": "La transformation des bactéries en champignons",
+          "correct": false
+        },
+        {
+          "text": "La destruction de la levure par toute trace de glucose",
+          "correct": false
+        },
+        {
+          "text": "Une fermentation possible malgré la présence d'oxygène quand le glucose est abondant",
+          "correct": true
+        }
+      ],
+      "explanation": "Une forte disponibilité du glucose peut orienter cette levure vers la fermentation même en aérobiose.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 18 — Métabolisme"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-014",
+      "category": "Moisissures",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu'est-ce qu'une hyphe ?",
+      "choices": [
+        {
+          "text": "Un filament constituant une moisissure",
+          "correct": true
+        },
+        {
+          "text": "Une toxine intestinale",
+          "correct": false
+        },
+        {
+          "text": "Une endospore bactérienne",
+          "correct": false
+        },
+        {
+          "text": "Un ribosome libre",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ensemble des hyphes constitue le mycélium d'un champignon filamenteux.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 18 — Moisissures"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-015",
+      "category": "Spores fongiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle différence distingue les spores de moisissures des endospores bactériennes ?",
+      "choices": [
+        {
+          "text": "Les spores fongiques sont toutes des bactéries dormantes",
+          "correct": false
+        },
+        {
+          "text": "Les spores fongiques servent à la reproduction et à la dissémination",
+          "correct": true
+        },
+        {
+          "text": "Les deux sont exclusivement des toxines",
+          "correct": false
+        },
+        {
+          "text": "Les endospores bactériennes multiplient la population",
+          "correct": false
+        }
+      ],
+      "explanation": "Le même mot « spore » recouvre des fonctions différentes chez ces organismes.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 19 — Spores fongiques"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-016",
+      "category": "Conservation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi une confiture peut-elle moisir malgré sa forte teneur en sucre ?",
+      "choices": [
+        {
+          "text": "Le sucre stérilise toujours seulement le fond du pot",
+          "correct": false
+        },
+        {
+          "text": "Les moisissures n'ont besoin d'aucune eau",
+          "correct": false
+        },
+        {
+          "text": "Toutes les moisissures sont des virus",
+          "correct": false
+        },
+        {
+          "text": "Certaines moisissures tolèrent une faible activité de l'eau",
+          "correct": true
+        }
+      ],
+      "explanation": "Les exigences en aw varient selon les espèces ; le sucrage n'est pas une garantie universelle de stérilité.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 19 — Conservation"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-017",
+      "category": "Mycotoxines",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu'appelle-t-on mycotoxine ?",
+      "choices": [
+        {
+          "text": "Une structure de locomotion bactérienne",
+          "correct": false
+        },
+        {
+          "text": "Une vitamine produite par tous les champignons",
+          "correct": false
+        },
+        {
+          "text": "Une substance toxique produite par certaines moisissures",
+          "correct": true
+        },
+        {
+          "text": "Un antibiotique nécessairement inoffensif",
+          "correct": false
+        }
+      ],
+      "explanation": "Certaines moisissures peuvent produire des métabolites toxiques dans les denrées.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 19 — Mycotoxines"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-018",
+      "category": "Mycotoxines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi une cuisson ordinaire ne sécurise-t-elle pas nécessairement un aliment moisi ?",
+      "choices": [
+        {
+          "text": "Les mycotoxines sont toujours des cellules vivantes",
+          "correct": false
+        },
+        {
+          "text": "Certaines mycotoxines résistent à la chaleur",
+          "correct": true
+        },
+        {
+          "text": "Une toxine disparaît dès que le champignon n'est plus visible",
+          "correct": false
+        },
+        {
+          "text": "La cuisson transforme toutes les moisissures en ferments utiles",
+          "correct": false
+        }
+      ],
+      "explanation": "Des mycotoxines peuvent persister après destruction ou retrait du champignon.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 19 — Mycotoxines"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-019",
+      "category": "Mycotoxines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle association est présentée dans le cours ?",
+      "choices": [
+        {
+          "text": "Aflatoxines et fabrication normale du yaourt",
+          "correct": false
+        },
+        {
+          "text": "Patuline et coloration de Gram",
+          "correct": false
+        },
+        {
+          "text": "Aflatoxines et absence garantie de champignons",
+          "correct": false
+        },
+        {
+          "text": "Patuline et pommes altérées par certaines moisissures",
+          "correct": true
+        }
+      ],
+      "explanation": "La patuline est notamment associée à certaines altérations de pommes et de produits à base de pomme.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 19 — Mycotoxines"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-020",
+      "category": "Moisissures utiles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel rôle joue Penicillium roqueforti dans les fromages à pâte persillée ?",
+      "choices": [
+        {
+          "text": "Il participe à l'affinage",
+          "correct": true
+        },
+        {
+          "text": "Il produit la levée de la pâte à pain",
+          "correct": false
+        },
+        {
+          "text": "Il remplace le calcium du lait",
+          "correct": false
+        },
+        {
+          "text": "Il garantit l'absence de tout autre microbe",
+          "correct": false
+        }
+      ],
+      "explanation": "Des souches sélectionnées sont employées pour l'affinage ; cela ne rend pas toutes les moisissures alimentaires acceptables.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 20 — Moisissures utiles"
+        }
+      ]
+    },
+    {
+      "id": "sa-sl-021",
+      "category": "Décision professionnelle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "En restauration collective, que faire d'un fruit accidentellement moisi ?",
+      "choices": [
+        {
+          "text": "Le considérer comme un aliment affiné",
+          "correct": false
+        },
+        {
+          "text": "Le mélanger à des fruits sains pour diluer le problème",
+          "correct": false
+        },
+        {
+          "text": "L'écarter selon la procédure de gestion des denrées altérées",
+          "correct": true
+        },
+        {
+          "text": "Retirer uniquement la tache et le servir cru",
+          "correct": false
+        }
+      ],
+      "explanation": "La contamination peut dépasser la partie visible ; une moisissure accidentelle ne se traite pas comme un ferment d'affinage contrôlé.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 20 — Décision professionnelle"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "document": "Cours Le monde microbien bacteries.pdf"
+    },
+    {
+      "document": "Cours Le monde microbien bacteries.docx"
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "references": [
+      "https://info.agriculture.gouv.fr/boagri/instruction-N2012-8206/telechargement"
+    ]
+  }
+}

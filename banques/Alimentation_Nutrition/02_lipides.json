@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "title": "Chapitre 2 — Les lipides",
   "subject": "Alimentation - Nutrition",
   "chapter": "Chapitre 2 — Les lipides",
@@ -523,6 +523,529 @@
         }
       ],
       "explanation": "Les acides gras trans industriels ont des effets défavorables sur le risque cardiovasculaire."
+    },
+    {
+      "id": "anl-021",
+      "category": "Nomenclature",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que signifie C18:2 n-6 pour un acide gras ?",
+      "choices": [
+        {
+          "text": "6 carbones et 18 doubles liaisons",
+          "correct": false
+        },
+        {
+          "text": "18 carbones, 2 doubles liaisons, première double liaison à 6 carbones du méthyle terminal",
+          "correct": true
+        },
+        {
+          "text": "18 carbones sans double liaison",
+          "correct": false
+        },
+        {
+          "text": "18 doubles liaisons et 2 carbones",
+          "correct": false
+        }
+      ],
+      "explanation": "La notation indique longueur de chaîne, nombre d'insaturations et famille oméga depuis l'extrémité méthyle.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 2 — Nomenclature"
+        }
+      ]
+    },
+    {
+      "id": "anl-022",
+      "category": "Acides gras",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel acide gras est noté C18:3 n-3 ?",
+      "choices": [
+        {
+          "text": "L'acide alpha-linolénique, ALA",
+          "correct": true
+        },
+        {
+          "text": "L'acide oléique",
+          "correct": false
+        },
+        {
+          "text": "L'acide palmitique",
+          "correct": false
+        },
+        {
+          "text": "L'acide linoléique, LA",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ALA est un précurseur de la famille oméga-3 et possède trois doubles liaisons.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 3 — Acides gras"
+        }
+      ]
+    },
+    {
+      "id": "anl-023",
+      "category": "Acides gras",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel acide gras est le précurseur majeur de la famille oméga-6 dans le cours ?",
+      "choices": [
+        {
+          "text": "Le DHA",
+          "correct": false
+        },
+        {
+          "text": "L'acide alpha-linolénique",
+          "correct": false
+        },
+        {
+          "text": "L'acide oléique",
+          "correct": false
+        },
+        {
+          "text": "L'acide linoléique",
+          "correct": true
+        }
+      ],
+      "explanation": "Le LA est un acide gras polyinsaturé C18:2 n-6 dont dérive notamment l'acide arachidonique.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 3 — Acides gras"
+        }
+      ]
+    },
+    {
+      "id": "anl-024",
+      "category": "DHA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le DHA doit-il être considéré au-delà de son seul apport énergétique ?",
+      "choices": [
+        {
+          "text": "Il participe à la structure et au fonctionnement du cerveau et de la rétine",
+          "correct": true
+        },
+        {
+          "text": "Il ne peut se trouver dans aucune membrane",
+          "correct": false
+        },
+        {
+          "text": "Il remplace toutes les protéines des membranes",
+          "correct": false
+        },
+        {
+          "text": "Il est le principal glucide du cerveau",
+          "correct": false
+        }
+      ],
+      "explanation": "Le DHA est un acide gras à longue chaîne, notamment présent dans les membranes des tissus nerveux et de la rétine.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 4 — DHA"
+        }
+      ]
+    },
+    {
+      "id": "anl-025",
+      "category": "Sources",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle distinction entre huiles végétales et poissons gras est pertinente pour les oméga-3 ?",
+      "choices": [
+        {
+          "text": "L'ALA et le DHA sont exactement la même molécule",
+          "correct": false
+        },
+        {
+          "text": "Certaines huiles apportent surtout de l'ALA, les poissons gras apportent notamment EPA et DHA",
+          "correct": true
+        },
+        {
+          "text": "Les poissons gras n'apportent aucun oméga-3",
+          "correct": false
+        },
+        {
+          "text": "Toutes les huiles contiennent autant de DHA que le poisson",
+          "correct": false
+        }
+      ],
+      "explanation": "Les sources végétales d'ALA et les sources d'EPA/DHA ne sont pas interchangeables molécule pour molécule.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 3-4 — Sources"
+        }
+      ]
+    },
+    {
+      "id": "anl-026",
+      "category": "Synthèse",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle limite explique l'intérêt des apports alimentaires de DHA ?",
+      "choices": [
+        {
+          "text": "L'organisme transforme librement tous les oméga-6 en oméga-3",
+          "correct": false
+        },
+        {
+          "text": "Le DHA ne peut être absorbé",
+          "correct": false
+        },
+        {
+          "text": "Sa synthèse à partir de l'ALA est limitée",
+          "correct": true
+        },
+        {
+          "text": "L'ALA est un sucre sans rapport avec les acides gras",
+          "correct": false
+        }
+      ],
+      "explanation": "La conversion de l'ALA en dérivés à longue chaîne est limitée, particulièrement pour le DHA.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 2 — Synthèse"
+        }
+      ]
+    },
+    {
+      "id": "anl-027",
+      "category": "Synthèse",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Les familles oméga-3 et oméga-6 sont-elles librement interconvertibles chez l'humain ?",
+      "choices": [
+        {
+          "text": "Non, leurs précurseurs relèvent de deux familles distinctes",
+          "correct": true
+        },
+        {
+          "text": "Oui, le LA devient toujours de l'ALA sans limite",
+          "correct": false
+        },
+        {
+          "text": "Oui, l'acide oléique remplace tous leurs précurseurs",
+          "correct": false
+        },
+        {
+          "text": "Oui, le DHA est un acide gras saturé intermédiaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Des voies partagent certaines enzymes, mais cela ne permet pas de convertir librement une famille en l'autre.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 2 — Synthèse"
+        }
+      ]
+    },
+    {
+      "id": "anl-028",
+      "category": "Références adultes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans les références Anses du cours, quel intervalle concerne les lipides totaux chez l'adulte ?",
+      "choices": [
+        {
+          "text": "5 à 10 % de l'AET",
+          "correct": false
+        },
+        {
+          "text": "Exactement 100 % de l'AET",
+          "correct": false
+        },
+        {
+          "text": "70 à 80 % de l'AET",
+          "correct": false
+        },
+        {
+          "text": "35 à 40 % de l'AET",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cours utilise les références françaises Anses ; des valeurs issues d'autres organismes ne doivent pas être mélangées sans les nommer.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 7 — Références adultes"
+        }
+      ]
+    },
+    {
+      "id": "anl-029",
+      "category": "Calculs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pour 2 100 kcal/j, combien de lipides représentent 35 à 40 % de l'AET ?",
+      "choices": [
+        {
+          "text": "Environ 8 à 9 g/j",
+          "correct": false
+        },
+        {
+          "text": "Environ 184 à 210 g/j",
+          "correct": false
+        },
+        {
+          "text": "Environ 82 à 93 g/j",
+          "correct": true
+        },
+        {
+          "text": "Environ 35 à 40 g/j",
+          "correct": false
+        }
+      ],
+      "explanation": "2 100 × 0,35 ÷ 9 ≈ 81,7 g ; 2 100 × 0,40 ÷ 9 ≈ 93,3 g.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 8 — Calculs"
+        }
+      ]
+    },
+    {
+      "id": "anl-030",
+      "category": "Références adultes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quels pourcentages de l'AET le cours retient-il pour le LA et l'ALA chez l'adulte ?",
+      "choices": [
+        {
+          "text": "LA : 40 % ; ALA : 10 %",
+          "correct": false
+        },
+        {
+          "text": "LA : 1 % ; ALA : 4 %",
+          "correct": false
+        },
+        {
+          "text": "LA : 0 % ; ALA : 0 %",
+          "correct": false
+        },
+        {
+          "text": "LA : 4 % ; ALA : 1 %",
+          "correct": true
+        }
+      ],
+      "explanation": "Ces références concernent la contribution à l'énergie totale, pas la proportion dans le poids d'une huile.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 7 — Références adultes"
+        }
+      ]
+    },
+    {
+      "id": "anl-031",
+      "category": "Calculs",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pour 2 100 kcal/j et une référence ALA de 1 % de l'AET, quelle quantité obtient-on ?",
+      "choices": [
+        {
+          "text": "Environ 2,3 g/j",
+          "correct": true
+        },
+        {
+          "text": "Environ 21 g/j",
+          "correct": false
+        },
+        {
+          "text": "Environ 1 mg/j",
+          "correct": false
+        },
+        {
+          "text": "Environ 23 g/j",
+          "correct": false
+        }
+      ],
+      "explanation": "2 100 × 0,01 ÷ 9 ≈ 2,33 g d'ALA par jour.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 8 — Calculs"
+        }
+      ]
+    },
+    {
+      "id": "anl-032",
+      "category": "Références adultes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel apport quotidien combiné EPA + DHA figure dans les références adultes du cours ?",
+      "choices": [
+        {
+          "text": "500 g/j",
+          "correct": false
+        },
+        {
+          "text": "500 mg/j",
+          "correct": true
+        },
+        {
+          "text": "50 g/j",
+          "correct": false
+        },
+        {
+          "text": "5 mg/j",
+          "correct": false
+        }
+      ],
+      "explanation": "La référence du cours associe 250 mg d'EPA et 250 mg de DHA ; l'unité milligramme est essentielle.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 7 — Références adultes"
+        }
+      ]
+    },
+    {
+      "id": "anl-033",
+      "category": "Références adultes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans ces références, quelle limite concerne le total des acides gras saturés ?",
+      "choices": [
+        {
+          "text": "Au plus 12 % de l'AET",
+          "correct": true
+        },
+        {
+          "text": "Exactement 12 g pour tous les adultes",
+          "correct": false
+        },
+        {
+          "text": "Au plus 1 % du poids de chaque repas",
+          "correct": false
+        },
+        {
+          "text": "Au moins 50 % de l'AET",
+          "correct": false
+        }
+      ],
+      "explanation": "Le repère porte sur la contribution à l'apport énergétique total ; il ne définit pas une quantité en grammes identique pour tous.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 7 — Références adultes"
+        }
+      ]
+    },
+    {
+      "id": "anl-034",
+      "category": "Références adultes",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle limite spécifique concerne la somme des acides laurique, myristique et palmitique dans le cours ?",
+      "choices": [
+        {
+          "text": "Au plus 8 % de l'AET",
+          "correct": true
+        },
+        {
+          "text": "100 % de tous les lipides",
+          "correct": false
+        },
+        {
+          "text": "Au moins 35 % de l'AET",
+          "correct": false
+        },
+        {
+          "text": "Au plus 8 mg/j",
+          "correct": false
+        }
+      ],
+      "explanation": "Cette limite spécifique ne doit pas être confondue avec celle de l'ensemble des acides gras saturés.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 7 — Références adultes"
+        }
+      ]
+    },
+    {
+      "id": "anl-035",
+      "category": "Comparaison d'huiles",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Une huile apporte, pour une même quantité, 18,1 g de LA et 8,2 g d'ALA. Quel rapport LA/ALA obtient-on ?",
+      "choices": [
+        {
+          "text": "Environ 0,22",
+          "correct": false
+        },
+        {
+          "text": "Environ 2,2",
+          "correct": true
+        },
+        {
+          "text": "Environ 10",
+          "correct": false
+        },
+        {
+          "text": "Environ 22",
+          "correct": false
+        }
+      ],
+      "explanation": "18,1 ÷ 8,2 ≈ 2,21. Les deux teneurs doivent être exprimées dans la même unité et pour la même quantité d'huile.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 9-10 — Comparaison d'huiles"
+        }
+      ]
+    },
+    {
+      "id": "anl-036",
+      "category": "Comparaison d'huiles",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi est-il utile de varier les huiles plutôt que de se fier seulement à leur quantité totale de lipides ?",
+      "choices": [
+        {
+          "text": "Toutes contiennent exactement les mêmes acides gras",
+          "correct": false
+        },
+        {
+          "text": "Le profil d'une huile dépend uniquement du prix",
+          "correct": false
+        },
+        {
+          "text": "Une huile ne contient jamais de lipides",
+          "correct": false
+        },
+        {
+          "text": "Leur profil en acides gras diffère",
+          "correct": true
+        }
+      ],
+      "explanation": "Les proportions d'ALA, de LA, d'acide oléique et d'acides gras saturés varient selon les huiles.",
+      "sourceRefs": [
+        {
+          "document": "Cours besoins en lipides.pdf",
+          "section": "p. 9-10 — Comparaison d'huiles"
+        }
+      ]
     }
-  ]
+  ],
+  "sources": [
+    {
+      "document": "Cours besoins en lipides.pdf"
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "references": [
+      "https://www.anses.fr/fr/system/files/NUT2012SA0103Ra-1.pdf"
+    ]
+  }
 }

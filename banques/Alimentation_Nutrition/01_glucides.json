@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "title": "Chapitre 1 — Les glucides",
   "subject": "Alimentation - Nutrition",
   "chapter": "Chapitre 1 — Les glucides",
@@ -523,6 +523,433 @@
         }
       ],
       "explanation": "La majorité des monosaccharides est absorbée par l'épithélium de l'intestin grêle."
+    },
+    {
+      "id": "ang-021",
+      "category": "Index glycémique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pour déterminer un IG, pourquoi compare-t-on des prises contenant la même quantité de glucides disponibles ?",
+      "choices": [
+        {
+          "text": "Pour garantir la même teneur en vitamines",
+          "correct": false
+        },
+        {
+          "text": "Pour imposer le même poids total d'aliment",
+          "correct": false
+        },
+        {
+          "text": "Pour supprimer toute variabilité entre individus",
+          "correct": false
+        },
+        {
+          "text": "Pour comparer les réponses sans les confondre avec une différence de dose glucidique",
+          "correct": true
+        }
+      ],
+      "explanation": "La comparaison standardise la quantité de glucides disponibles, pas nécessairement le poids des aliments.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 1 — Index glycémique"
+        }
+      ]
+    },
+    {
+      "id": "ang-022",
+      "category": "Index glycémique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Dans un exercice, l'aire glycémique incrémentale est de 120 pour l'aliment et de 200 pour le glucose. Quel IG obtient-on ?",
+      "choices": [
+        {
+          "text": "167",
+          "correct": false
+        },
+        {
+          "text": "40",
+          "correct": false
+        },
+        {
+          "text": "60",
+          "correct": true
+        },
+        {
+          "text": "120",
+          "correct": false
+        }
+      ],
+      "explanation": "IG = 120 ÷ 200 × 100 = 60, avec le glucose comme référence 100.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 1 — Index glycémique"
+        }
+      ]
+    },
+    {
+      "id": "ang-023",
+      "category": "Variabilité de l'IG",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi ne peut-on pas attribuer un effet glycémique identique à toutes les préparations d'un même aliment ?",
+      "choices": [
+        {
+          "text": "La structure et la préparation peuvent modifier l'accessibilité de l'amidon aux enzymes",
+          "correct": true
+        },
+        {
+          "text": "Toute cuisson supprime l'absorption intestinale",
+          "correct": false
+        },
+        {
+          "text": "L'IG dépend uniquement du nom de l'aliment",
+          "correct": false
+        },
+        {
+          "text": "Tout broyage élimine les glucides",
+          "correct": false
+        }
+      ],
+      "explanation": "Cuisson, broyage et matrice alimentaire peuvent modifier la réponse ; leur effet n'est pas une loi identique pour tous les produits.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 2 — Variabilité de l'IG"
+        }
+      ]
+    },
+    {
+      "id": "ang-024",
+      "category": "Amidon",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle différence structurale oppose l'amylose à l'amylopectine ?",
+      "choices": [
+        {
+          "text": "L'amylose est essentiellement linéaire, l'amylopectine ramifiée",
+          "correct": true
+        },
+        {
+          "text": "L'amylose est un lipide et l'amylopectine une protéine",
+          "correct": false
+        },
+        {
+          "text": "Les deux sont des disaccharides du lait",
+          "correct": false
+        },
+        {
+          "text": "L'amylose contient uniquement du fructose",
+          "correct": false
+        }
+      ],
+      "explanation": "Ces deux polymères de glucose contribuent aux propriétés de l'amidon et à son comportement digestif.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 2 — Amidon"
+        }
+      ]
+    },
+    {
+      "id": "ang-025",
+      "category": "Interprétation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Peut-on déduire l'IG uniquement du classement « glucide simple » ou « glucide complexe » ?",
+      "choices": [
+        {
+          "text": "Oui, le nombre de carbones détermine seul l'IG",
+          "correct": false
+        },
+        {
+          "text": "Oui, tout glucide simple a un IG supérieur à tout amidon",
+          "correct": false
+        },
+        {
+          "text": "Non, la nature précise et la matrice de l'aliment comptent aussi",
+          "correct": true
+        },
+        {
+          "text": "Oui, tout amidon a un IG nul",
+          "correct": false
+        }
+      ],
+      "explanation": "La structure chimique ne suffit pas à classer tous les aliments selon leur réponse glycémique.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 2 — Interprétation"
+        }
+      ]
+    },
+    {
+      "id": "ang-026",
+      "category": "Charge glycémique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Une portion apporte 30 g de glucides disponibles avec un IG donné de 50. Quelle est sa charge glycémique calculée ?",
+      "choices": [
+        {
+          "text": "150",
+          "correct": false
+        },
+        {
+          "text": "1,5",
+          "correct": false
+        },
+        {
+          "text": "50",
+          "correct": false
+        },
+        {
+          "text": "15",
+          "correct": true
+        }
+      ],
+      "explanation": "CG = IG × glucides disponibles de la portion ÷ 100 = 50 × 30 ÷ 100 = 15.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 3 — Charge glycémique"
+        }
+      ]
+    },
+    {
+      "id": "ang-027",
+      "category": "Charge glycémique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pour l'exemple du cours, IG = 75 et 8 g de glucides disponibles par portion. Quelle CG obtient-on ?",
+      "choices": [
+        {
+          "text": "6",
+          "correct": true
+        },
+        {
+          "text": "75",
+          "correct": false
+        },
+        {
+          "text": "60",
+          "correct": false
+        },
+        {
+          "text": "83",
+          "correct": false
+        }
+      ],
+      "explanation": "75 × 8 ÷ 100 = 6. L'exercice montre qu'un IG élevé n'implique pas une grande quantité de glucides dans une petite portion.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 3 — Charge glycémique"
+        }
+      ]
+    },
+    {
+      "id": "ang-028",
+      "category": "Charge glycémique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À IG identique, que devient la charge glycémique calculée si la quantité de glucides de la portion double ?",
+      "choices": [
+        {
+          "text": "Elle reste nécessairement identique",
+          "correct": false
+        },
+        {
+          "text": "Elle est divisée par deux",
+          "correct": false
+        },
+        {
+          "text": "Elle devient égale à l'IG",
+          "correct": false
+        },
+        {
+          "text": "Elle double",
+          "correct": true
+        }
+      ],
+      "explanation": "La CG est proportionnelle à la quantité de glucides disponibles de la portion dans cette formule.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 3 — Charge glycémique"
+        }
+      ]
+    },
+    {
+      "id": "ang-029",
+      "category": "Références adultes",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel intervalle de contribution énergétique des glucides est retenu dans ce cours pour l'adulte ?",
+      "choices": [
+        {
+          "text": "Exactement 100 % de l'AET",
+          "correct": false
+        },
+        {
+          "text": "40 à 55 % de l'AET",
+          "correct": true
+        },
+        {
+          "text": "80 à 95 % de l'AET",
+          "correct": false
+        },
+        {
+          "text": "5 à 10 % de l'AET",
+          "correct": false
+        }
+      ],
+      "explanation": "L'intervalle de référence adulte est de 40 à 55 % de l'apport énergétique total ; il ne s'agit pas d'un pourcentage du poids des aliments.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 3 — Références adultes"
+        }
+      ]
+    },
+    {
+      "id": "ang-030",
+      "category": "Références adultes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pour un exercice à 2 400 kcal/j, à quelle quantité de glucides correspond une contribution de 40 à 55 % de l'AET ?",
+      "choices": [
+        {
+          "text": "600 à 825 g/j",
+          "correct": false
+        },
+        {
+          "text": "40 à 55 g/j",
+          "correct": false
+        },
+        {
+          "text": "240 à 330 g/j",
+          "correct": true
+        },
+        {
+          "text": "96 à 132 g/j",
+          "correct": false
+        }
+      ],
+      "explanation": "2 400 × 0,40 ÷ 4 = 240 g ; 2 400 × 0,55 ÷ 4 = 330 g de glucides digestibles.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 3 — Références adultes"
+        }
+      ]
+    },
+    {
+      "id": "ang-031",
+      "category": "Sucres",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment interpréter la limite Anses de 100 g/j de sucres chez l'adulte sain, hors lactose et galactose ?",
+      "choices": [
+        {
+          "text": "Comme une quantité minimale de sucre à ajouter",
+          "correct": false
+        },
+        {
+          "text": "Comme une limite supérieure, pas un objectif à atteindre",
+          "correct": true
+        },
+        {
+          "text": "Comme 100 g de saccharose ajoutés en plus des fruits",
+          "correct": false
+        },
+        {
+          "text": "Comme une limite concernant tous les glucides, amidon compris",
+          "correct": false
+        }
+      ],
+      "explanation": "Cette limite porte sur les sucres totaux concernés, naturellement présents ou ajoutés ; elle ne constitue pas un besoin.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 3 — Sucres"
+        }
+      ]
+    },
+    {
+      "id": "ang-032",
+      "category": "Sucres",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pour appliquer cette limite de sucres, faut-il compter uniquement le sucre ajouté à table ?",
+      "choices": [
+        {
+          "text": "Oui, les sucres des aliments ne comptent jamais",
+          "correct": false
+        },
+        {
+          "text": "Oui, seules les boissons chaudes sont concernées",
+          "correct": false
+        },
+        {
+          "text": "Non, il faut compter aussi toutes les fibres",
+          "correct": false
+        },
+        {
+          "text": "Non, il faut prendre en compte les sucres concernés de l'ensemble de l'alimentation",
+          "correct": true
+        }
+      ],
+      "explanation": "La distinction entre sucres totaux concernés et seuls sucres ajoutés évite de sous-estimer les apports.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 3 — Sucres"
+        }
+      ]
+    },
+    {
+      "id": "ang-033",
+      "category": "Sources",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle association décrit correctement une source naturelle de sucre ?",
+      "choices": [
+        {
+          "text": "Poisson : amidon ; sel : fructose",
+          "correct": false
+        },
+        {
+          "text": "Fruit : fructose ; lait : lactose",
+          "correct": true
+        },
+        {
+          "text": "Huile : lactose ; beurre : amidon",
+          "correct": false
+        },
+        {
+          "text": "Viande : saccharose ; eau : maltose",
+          "correct": false
+        }
+      ],
+      "explanation": "Les sucres peuvent être naturellement présents dans des aliments qui apportent aussi d'autres nutriments.",
+      "sourceRefs": [
+        {
+          "document": "Les besoins en glucides.pdf",
+          "section": "p. 5 — Sources"
+        }
+      ]
     }
-  ]
+  ],
+  "sources": [
+    {
+      "document": "Les besoins en glucides.pdf"
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "references": [
+      "https://www.anses.fr/fr/system/files/NUT2012SA0103Ra-1.pdf"
+    ]
+  }
 }

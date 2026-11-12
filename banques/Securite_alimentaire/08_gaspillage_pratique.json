@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "title": "Gaspillage alimentaire — Diagnostic et pratiques professionnelles",
+  "subject": "Sécurité alimentaire",
+  "chapter": "Gaspillage alimentaire — Diagnostic et pratiques professionnelles",
+  "questions": [
+    {
+      "id": "sa-gp-001",
+      "category": "Diagnostic — Mesures",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Une cantine jette 18 kg de restes comestibles pour 300 repas servis. Quel indicateur obtient-on ?",
+      "choices": [
+        {
+          "text": "6 g par repas",
+          "correct": false
+        },
+        {
+          "text": "18 g par repas",
+          "correct": false
+        },
+        {
+          "text": "60 g par repas",
+          "correct": true
+        },
+        {
+          "text": "600 g par repas",
+          "correct": false
+        }
+      ],
+      "explanation": "18 000 g ÷ 300 repas = 60 g/repas. Le périmètre de pesée doit rester le même pour comparer les résultats.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Diagnostic — Mesures"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-002",
+      "category": "Diagnostic — Évolution",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Les restes passent de 80 à 60 g par repas à périmètre comparable. Quelle réduction relative cela représente-t-il ?",
+      "choices": [
+        {
+          "text": "25 %",
+          "correct": true
+        },
+        {
+          "text": "33,3 %",
+          "correct": false
+        },
+        {
+          "text": "20 %",
+          "correct": false
+        },
+        {
+          "text": "75 %",
+          "correct": false
+        }
+      ],
+      "explanation": "La baisse est de 20 g par rapport aux 80 g initiaux : 20 ÷ 80 × 100 = 25 %.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Diagnostic — Évolution"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-003",
+      "category": "Diagnostic — Comparabilité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi distinguer les quantités non servies des retours d'assiette ?",
+      "choices": [
+        {
+          "text": "Elles orientent vers des causes et des actions différentes",
+          "correct": true
+        },
+        {
+          "text": "Les retours d'assiette sont toujours réutilisables",
+          "correct": false
+        },
+        {
+          "text": "Cela dispense de mesurer le nombre de repas",
+          "correct": false
+        },
+        {
+          "text": "Les quantités non servies ne peuvent jamais être pesées",
+          "correct": false
+        }
+      ],
+      "explanation": "Surproduction, organisation du service et acceptabilité des plats ne se corrigent pas exactement de la même façon.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Diagnostic — Comparabilité"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-004",
+      "category": "Diagnostic — Coûts",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le coût complet du gaspillage peut-il dépasser le prix d'achat des denrées jetées ?",
+      "choices": [
+        {
+          "text": "Il correspond uniquement au nombre de poubelles",
+          "correct": false
+        },
+        {
+          "text": "Il inclut aussi des ressources mobilisées pour préparer et gérer ces denrées",
+          "correct": true
+        },
+        {
+          "text": "Il exclut tous les coûts de production",
+          "correct": false
+        },
+        {
+          "text": "Il est nécessairement égal à la valeur HT des achats",
+          "correct": false
+        }
+      ],
+      "explanation": "Le temps de travail, l'énergie et la gestion des déchets contribuent au coût complet selon la méthode retenue.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Diagnostic — Coûts"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-005",
+      "category": "Diagnostic — Mesures",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi rapporter les masses gaspillées au nombre de repas réellement servis ?",
+      "choices": [
+        {
+          "text": "Pour rendre toute pesée inutile",
+          "correct": false
+        },
+        {
+          "text": "Pour supprimer les pertes non servies des mesures",
+          "correct": false
+        },
+        {
+          "text": "Pour augmenter artificiellement le nombre de convives",
+          "correct": false
+        },
+        {
+          "text": "Pour tenir compte des variations de fréquentation",
+          "correct": true
+        }
+      ],
+      "explanation": "Une masse totale plus faible peut simplement résulter d'une baisse du nombre de repas.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Diagnostic — Mesures"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-006",
+      "category": "Dates — DDM",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie la mention « à consommer de préférence avant » ?",
+      "choices": [
+        {
+          "text": "Une obligation de congeler le jour même",
+          "correct": false
+        },
+        {
+          "text": "Une date limite de consommation",
+          "correct": false
+        },
+        {
+          "text": "Une date de durabilité minimale",
+          "correct": true
+        },
+        {
+          "text": "Une preuve de stérilité après ouverture",
+          "correct": false
+        }
+      ],
+      "explanation": "La DDM porte sur la durabilité et les qualités du produit ; elle ne se confond pas avec la DLC.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Dates — DDM"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-007",
+      "category": "Dates — DDM",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un dépassement de DDM impose-t-il toujours de jeter un produit ?",
+      "choices": [
+        {
+          "text": "Oui, la DDM est toujours une limite sanitaire stricte",
+          "correct": false
+        },
+        {
+          "text": "Non, tout produit reste sûr sans limite après sa DDM",
+          "correct": false
+        },
+        {
+          "text": "Non, même si son emballage est anormalement gonflé",
+          "correct": false
+        },
+        {
+          "text": "Non, il faut évaluer son état et les conditions de conservation applicables",
+          "correct": true
+        }
+      ],
+      "explanation": "Une DDM dépassée n'implique pas automatiquement un danger, mais elle ne dispense jamais de vérifier intégrité, stockage et éventuelles altérations.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Dates — DDM"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-008",
+      "category": "Dates — DLC",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que faire d'une denrée dont la date limite de consommation est dépassée ?",
+      "choices": [
+        {
+          "text": "Ne pas la servir et appliquer la procédure de retrait",
+          "correct": true
+        },
+        {
+          "text": "La mélanger à un produit plus récent",
+          "correct": false
+        },
+        {
+          "text": "Remplacer la date sur l'emballage",
+          "correct": false
+        },
+        {
+          "text": "La servir si elle sent bon",
+          "correct": false
+        }
+      ],
+      "explanation": "La DLC est une limite sanitaire ; l'odeur ou l'aspect ne permettent pas d'écarter tous les dangers.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Dates — DLC"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-009",
+      "category": "Dates — Après ouverture",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi une date figurant sur un emballage fermé ne suffit-elle pas toujours après ouverture ?",
+      "choices": [
+        {
+          "text": "Tous les aliments ouverts se conservent un mois",
+          "correct": false
+        },
+        {
+          "text": "Une durée et des conditions spécifiques après ouverture peuvent s'appliquer",
+          "correct": true
+        },
+        {
+          "text": "La date devient automatiquement une DDM",
+          "correct": false
+        },
+        {
+          "text": "L'ouverture stérilise le produit",
+          "correct": false
+        }
+      ],
+      "explanation": "Les indications après ouverture et les conditions de manipulation doivent être prises en compte.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Dates — Après ouverture"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-010",
+      "category": "Hiérarchie — Valorisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans la hiérarchie légale, quelle solution passe avant l'alimentation animale pour des denrées encore adaptées à l'alimentation humaine ?",
+      "choices": [
+        {
+          "text": "La méthanisation systématique",
+          "correct": false
+        },
+        {
+          "text": "Le don ou la transformation pour l'alimentation humaine",
+          "correct": true
+        },
+        {
+          "text": "Le compostage systématique",
+          "correct": false
+        },
+        {
+          "text": "La destruction volontaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Après la prévention, la priorité va à la consommation humaine par don ou transformation, sous réserve de sécurité et des règles applicables.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Hiérarchie — Valorisation"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-011",
+      "category": "Hiérarchie — Valorisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le compostage de nourriture comestible évitable constitue-t-il la meilleure prévention du gaspillage ?",
+      "choices": [
+        {
+          "text": "Non, éviter la perte et préserver l'usage alimentaire humain sont prioritaires",
+          "correct": true
+        },
+        {
+          "text": "Oui, le compostage supprime les achats inutiles",
+          "correct": false
+        },
+        {
+          "text": "Oui, cela autorise à surproduire",
+          "correct": false
+        },
+        {
+          "text": "Oui, composter équivaut toujours à prévenir",
+          "correct": false
+        }
+      ],
+      "explanation": "La valorisation des déchets ne remplace pas les actions qui évitent leur production.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Hiérarchie — Valorisation"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-012",
+      "category": "Dons — Sécurité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La volonté de donner un surplus permet-elle d'ignorer la chaîne du froid ?",
+      "choices": [
+        {
+          "text": "Non, le don doit préserver la sécurité sanitaire et la traçabilité",
+          "correct": true
+        },
+        {
+          "text": "Oui, si la DDM est lisible",
+          "correct": false
+        },
+        {
+          "text": "Oui, si le don est gratuit",
+          "correct": false
+        },
+        {
+          "text": "Oui, si l'association accepte verbalement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le don n'exonère pas du respect des températures, des durées et des conditions de remise des denrées.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Dons — Sécurité"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-013",
+      "category": "Biodéchets — Tri",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est le rôle du tri à la source des biodéchets ?",
+      "choices": [
+        {
+          "text": "Séparer ces déchets pour permettre une valorisation adaptée",
+          "correct": true
+        },
+        {
+          "text": "Rendre à nouveau consommables tous les restes d'assiette",
+          "correct": false
+        },
+        {
+          "text": "Remplacer le lavage des mains",
+          "correct": false
+        },
+        {
+          "text": "Garantir la baisse des achats sans autre action",
+          "correct": false
+        }
+      ],
+      "explanation": "Le tri facilite une filière de valorisation ; il doit compléter les actions de prévention.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Biodéchets — Tri"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-014",
+      "category": "Service — Ajustement",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Une action anti-gaspillage réduit les restes mais entraîne des portions insuffisantes. Quel bilan en tirer ?",
+      "choices": [
+        {
+          "text": "Il faut supprimer toute possibilité de resservice",
+          "correct": false
+        },
+        {
+          "text": "Il faut ajuster l'action pour préserver les apports et l'accès à une portion adaptée",
+          "correct": true
+        },
+        {
+          "text": "Le nombre de restes est le seul critère utile",
+          "correct": false
+        },
+        {
+          "text": "L'action est réussie quelle que soit la couverture nutritionnelle",
+          "correct": false
+        }
+      ],
+      "explanation": "La réduction du gaspillage doit être compatible avec la satisfaction des besoins nutritionnels et des convives.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Service — Ajustement"
+        }
+      ]
+    },
+    {
+      "id": "sa-gp-015",
+      "category": "Service — Évaluation",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle méthode permet d'évaluer une action anti-gaspillage de façon interprétable ?",
+      "choices": [
+        {
+          "text": "Ne mesurer que le jour de l'inauguration",
+          "correct": false
+        },
+        {
+          "text": "Comparer avant et après avec un périmètre de pesée comparable, puis analyser les résultats",
+          "correct": true
+        },
+        {
+          "text": "Changer simultanément l'unité, le public et les déchets comptés sans le noter",
+          "correct": false
+        },
+        {
+          "text": "Comparer une masse annuelle à une masse par repas",
+          "correct": false
+        }
+      ],
+      "explanation": "Un protocole cohérent et la prise en compte de la fréquentation permettent de distinguer une amélioration d'un changement de mesure.",
+      "sourceRefs": [
+        {
+          "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx",
+          "section": "Service — Évaluation"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "document": "Chapitre 3 Gaspillage alimentaire BTS1.docx"
+    },
+    {
+      "document": "Chapitre 4 Gaspillage alimentaire.pptx"
+    },
+    {
+      "document": "Développement durable et alimentation durable.docx"
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "references": [
+      "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041598884"
+    ]
+  }
+}

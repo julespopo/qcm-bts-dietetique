@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "title": "Chapitre 3 — Les protéines et besoins protéiques",
   "subject": "Alimentation - Nutrition",
   "chapter": "Chapitre 3 — Les protéines",
@@ -1563,6 +1563,273 @@
         }
       ],
       "explanation": "Les légumineuses contribuent à enrichir les sols en azote et à limiter l’usage d’engrais."
+    },
+    {
+      "id": "an3-061",
+      "category": "Qualité — Indice chimique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Dans un exercice, les rapports à la référence pour trois acides aminés indispensables sont 80 %, 110 % et 95 %. Quel indice chimique retient-on pour cet ensemble ?",
+      "choices": [
+        {
+          "text": "110 %",
+          "correct": false
+        },
+        {
+          "text": "285 %",
+          "correct": false
+        },
+        {
+          "text": "95 %",
+          "correct": false
+        },
+        {
+          "text": "80 %",
+          "correct": true
+        }
+      ],
+      "explanation": "L'acide aminé dont le rapport est le plus faible est limitant ; on ne retient pas la moyenne des rapports.",
+      "sourceRefs": [
+        {
+          "document": "Cours les besoins en protéines.docx",
+          "section": "Qualité — Indice chimique"
+        }
+      ]
+    },
+    {
+      "id": "an3-062",
+      "category": "Qualité — PDCAAS",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Dans le modèle du cours, un indice chimique de 80 % et une digestibilité de 90 % donnent quel PDCAAS ?",
+      "choices": [
+        {
+          "text": "72 %, soit 0,72",
+          "correct": true
+        },
+        {
+          "text": "8 %, soit 0,08",
+          "correct": false
+        },
+        {
+          "text": "170 %, soit 1,70",
+          "correct": false
+        },
+        {
+          "text": "112,5 %, soit 1,125",
+          "correct": false
+        }
+      ],
+      "explanation": "80 × 90 ÷ 100 = 72 %. Il faut rester cohérent entre valeurs en pourcentage et valeurs décimales.",
+      "sourceRefs": [
+        {
+          "document": "Cours les besoins en protéines.docx",
+          "section": "Qualité — PDCAAS"
+        }
+      ]
+    },
+    {
+      "id": "an3-063",
+      "category": "Qualité — Comparaison",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Deux protéines ont le même indice chimique mais des digestibilités différentes. Dans ce modèle, leur PDCAAS est-il nécessairement identique ?",
+      "choices": [
+        {
+          "text": "Oui, le PDCAAS ne concerne que l'énergie",
+          "correct": false
+        },
+        {
+          "text": "Oui, l'indice chimique est le seul facteur",
+          "correct": false
+        },
+        {
+          "text": "Oui, les protéines animales ont toutes un score égal",
+          "correct": false
+        },
+        {
+          "text": "Non, la correction par la digestibilité les différencie",
+          "correct": true
+        }
+      ],
+      "explanation": "Le score combine le profil en acides aminés indispensables et la digestibilité de la protéine.",
+      "sourceRefs": [
+        {
+          "document": "Cours les besoins en protéines.docx",
+          "section": "Qualité — Comparaison"
+        }
+      ]
+    },
+    {
+      "id": "an3-064",
+      "category": "Cuisson — Structure",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle distinction faut-il faire entre dénaturation et hydrolyse d'une protéine ?",
+      "choices": [
+        {
+          "text": "La dénaturation modifie l'organisation spatiale ; l'hydrolyse coupe des liaisons peptidiques",
+          "correct": true
+        },
+        {
+          "text": "Les deux désignent obligatoirement la destruction de tous les acides aminés",
+          "correct": false
+        },
+        {
+          "text": "La dénaturation transforme la protéine en lipide",
+          "correct": false
+        },
+        {
+          "text": "L'hydrolyse ne modifie jamais la chaîne polypeptidique",
+          "correct": false
+        }
+      ],
+      "explanation": "Une cuisson peut dénaturer une protéine sans hydrolyser systématiquement ses liaisons peptidiques.",
+      "sourceRefs": [
+        {
+          "document": "Cours les besoins en protéines.docx",
+          "section": "Cuisson — Structure"
+        }
+      ]
+    },
+    {
+      "id": "an3-065",
+      "category": "Applications — Portions",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un aliment contient 18 g de protéines pour 100 g. Combien une portion de 150 g en apporte-t-elle ?",
+      "choices": [
+        {
+          "text": "150 g",
+          "correct": false
+        },
+        {
+          "text": "12 g",
+          "correct": false
+        },
+        {
+          "text": "27 g",
+          "correct": true
+        },
+        {
+          "text": "18 g",
+          "correct": false
+        }
+      ],
+      "explanation": "18 × 150 ÷ 100 = 27 g. La masse de l'aliment ne doit pas être confondue avec la masse de protéines.",
+      "sourceRefs": [
+        {
+          "document": "Cours les besoins en protéines.docx",
+          "section": "Applications — Portions"
+        }
+      ]
+    },
+    {
+      "id": "an3-066",
+      "category": "Applications — Énergie",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Une ration apporte 75 g de protéines pour 2 000 kcal. Quelle part de l'AET provient des protéines ?",
+      "choices": [
+        {
+          "text": "30 %",
+          "correct": false
+        },
+        {
+          "text": "3,75 %",
+          "correct": false
+        },
+        {
+          "text": "75 %",
+          "correct": false
+        },
+        {
+          "text": "15 %",
+          "correct": true
+        }
+      ],
+      "explanation": "75 × 4 = 300 kcal ; 300 ÷ 2 000 × 100 = 15 %.",
+      "sourceRefs": [
+        {
+          "document": "Cours les besoins en protéines.docx",
+          "section": "Applications — Énergie"
+        }
+      ]
+    },
+    {
+      "id": "an3-067",
+      "category": "Métabolisme — Renouvellement",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi un renouvellement quotidien important des protéines corporelles n'implique-t-il pas d'en manger autant en une journée ?",
+      "choices": [
+        {
+          "text": "Une partie des acides aminés issus de la dégradation est réutilisée",
+          "correct": true
+        },
+        {
+          "text": "L'organisme transforme tout l'azote en calcium",
+          "correct": false
+        },
+        {
+          "text": "Toutes les protéines corporelles proviennent directement de la veille",
+          "correct": false
+        },
+        {
+          "text": "Les protéines ne sont jamais dégradées",
+          "correct": false
+        }
+      ],
+      "explanation": "Le renouvellement comprend dégradation et synthèse avec recyclage ; les besoins alimentaires ne sont pas égaux au flux total renouvelé.",
+      "sourceRefs": [
+        {
+          "document": "Cours les besoins en protéines.docx",
+          "section": "Métabolisme — Renouvellement"
+        }
+      ]
+    },
+    {
+      "id": "an3-068",
+      "category": "Rôles — Molécules",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Parmi les molécules suivantes, laquelle n'est pas une protéine ?",
+      "choices": [
+        {
+          "text": "L'insuline",
+          "correct": false
+        },
+        {
+          "text": "L'acétylcholine",
+          "correct": true
+        },
+        {
+          "text": "L'hémoglobine",
+          "correct": false
+        },
+        {
+          "text": "Le collagène",
+          "correct": false
+        }
+      ],
+      "explanation": "L'acétylcholine est un neurotransmetteur ; toutes les molécules de signalisation ne sont pas des protéines.",
+      "sourceRefs": [
+        {
+          "document": "Cours les besoins en protéines.docx",
+          "section": "Rôles — Molécules"
+        }
+      ]
     }
-  ]
+  ],
+  "sources": [
+    {
+      "document": "Cours les besoins en protéines.docx"
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "references": [
+      "https://biochim-agro.univ-lille.fr/proteines/co/ch1_II_a.html"
+    ]
+  }
 }

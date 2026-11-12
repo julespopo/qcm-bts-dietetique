@@ -1,6 +1,6 @@
 {
   "appVersion": 2,
-  "updated": "2026-11-10",
+  "updated": "2026-11-12",
   "banks": [
     {
       "id": "Alimentation_Nutrition__01_glucides",
@@ -8,8 +8,8 @@
       "subject": "Alimentation - Nutrition",
       "chapter": "Chapitre 1 — Les glucides",
       "file": "banques/Alimentation_Nutrition/01_glucides.json",
-      "count": 20,
-      "version": 3
+      "count": 33,
+      "version": 4
     },
     {
       "id": "Alimentation_Nutrition__02_lipides",
@@ -17,8 +17,8 @@
       "subject": "Alimentation - Nutrition",
       "chapter": "Chapitre 2 — Les lipides",
       "file": "banques/Alimentation_Nutrition/02_lipides.json",
-      "count": 20,
-      "version": 3
+      "count": 36,
+      "version": 4
     },
     {
       "id": "Alimentation_Nutrition__03_proteines",
@@ -26,8 +26,8 @@
       "subject": "Alimentation - Nutrition",
       "chapter": "Chapitre 3 — Les protéines",
       "file": "banques/Alimentation_Nutrition/03_proteines.json",
-      "count": 60,
-      "version": 3
+      "count": 68,
+      "version": 4
     },
     {
       "id": "Alimentation_Nutrition__04_fibres",
@@ -37,6 +37,24 @@
       "file": "banques/Alimentation_Nutrition/04_fibres.json",
       "count": 20,
       "version": 3
+    },
+    {
+      "id": "Alimentation_Nutrition__05_fruits_legumes",
+      "title": "Sciences des aliments — Fruits et légumes",
+      "subject": "Alimentation - Nutrition",
+      "chapter": "Sciences des aliments — Fruits et légumes",
+      "file": "banques/Alimentation_Nutrition/05_fruits_legumes.json",
+      "count": 30,
+      "version": 1
+    },
+    {
+      "id": "Alimentation_Nutrition__06_gemrcn_pratique",
+      "title": "Restauration collective — Construire et analyser les menus",
+      "subject": "Alimentation - Nutrition",
+      "chapter": "Restauration collective — Construire et analyser les menus",
+      "file": "banques/Alimentation_Nutrition/06_gemrcn_pratique.json",
+      "count": 24,
+      "version": 1
     },
     {
       "id": "BPADN__00_matiere_organique_inorganique",
@@ -207,6 +225,78 @@
       "chapter": "Situation professionnelle",
       "file": "banques/Sante_publique/06_situation_professionnelle_gaspillage.json",
       "count": 10,
+      "version": 1
+    },
+    {
+      "id": "Securite_alimentaire__01_monde_microbien_structure",
+      "title": "Microbiologie — Le monde microbien et la structure bactérienne",
+      "subject": "Sécurité alimentaire",
+      "chapter": "Microbiologie — Le monde microbien et la structure bactérienne",
+      "file": "banques/Securite_alimentaire/01_monde_microbien_structure.json",
+      "count": 22,
+      "version": 1
+    },
+    {
+      "id": "Securite_alimentaire__02_croissance_conservation",
+      "title": "Microbiologie — Croissance et conservation des aliments",
+      "subject": "Sécurité alimentaire",
+      "chapter": "Microbiologie — Croissance et conservation des aliments",
+      "file": "banques/Securite_alimentaire/02_croissance_conservation.json",
+      "count": 26,
+      "version": 1
+    },
+    {
+      "id": "Securite_alimentaire__03_spores_levures_moisissures",
+      "title": "Microbiologie — Spores, levures et moisissures",
+      "subject": "Sécurité alimentaire",
+      "chapter": "Microbiologie — Spores, levures et moisissures",
+      "file": "banques/Securite_alimentaire/03_spores_levures_moisissures.json",
+      "count": 21,
+      "version": 1
+    },
+    {
+      "id": "Securite_alimentaire__04_pouvoir_pathogene_tiac",
+      "title": "Microbiologie — Pouvoir pathogène et TIAC",
+      "subject": "Sécurité alimentaire",
+      "chapter": "Microbiologie — Pouvoir pathogène et TIAC",
+      "file": "banques/Securite_alimentaire/04_pouvoir_pathogene_tiac.json",
+      "count": 20,
+      "version": 1
+    },
+    {
+      "id": "Securite_alimentaire__05_alimentation_durable",
+      "title": "Alimentation durable — Enjeux, systèmes et outils",
+      "subject": "Sécurité alimentaire",
+      "chapter": "Alimentation durable — Enjeux, systèmes et outils",
+      "file": "banques/Securite_alimentaire/05_alimentation_durable.json",
+      "count": 22,
+      "version": 1
+    },
+    {
+      "id": "Securite_alimentaire__06_labels_qualite",
+      "title": "Qualité alimentaire — Labels, signes et logos",
+      "subject": "Sécurité alimentaire",
+      "chapter": "Qualité alimentaire — Labels, signes et logos",
+      "file": "banques/Securite_alimentaire/06_labels_qualite.json",
+      "count": 18,
+      "version": 1
+    },
+    {
+      "id": "Securite_alimentaire__07_reglementation_restauration",
+      "title": "Restauration collective — Réglementation et achats durables",
+      "subject": "Sécurité alimentaire",
+      "chapter": "Restauration collective — Réglementation et achats durables",
+      "file": "banques/Securite_alimentaire/07_reglementation_restauration.json",
+      "count": 14,
+      "version": 1
+    },
+    {
+      "id": "Securite_alimentaire__08_gaspillage_pratique",
+      "title": "Gaspillage alimentaire — Diagnostic et pratiques professionnelles",
+      "subject": "Sécurité alimentaire",
+      "chapter": "Gaspillage alimentaire — Diagnostic et pratiques professionnelles",
+      "file": "banques/Securite_alimentaire/08_gaspillage_pratique.json",
+      "count": 15,
       "version": 1
     }
   ]

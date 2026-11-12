@@ -1,0 +1,600 @@
+{
+  "version": 1,
+  "title": "Qualité alimentaire — Labels, signes et logos",
+  "subject": "Sécurité alimentaire",
+  "chapter": "Qualité alimentaire — Labels, signes et logos",
+  "questions": [
+    {
+      "id": "sa-lq-001",
+      "category": "Signes officiels",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel ensemble rassemble les cinq grandes familles de signes officiels de qualité et d'origine du cours ?",
+      "choices": [
+        {
+          "text": "Local, naturel, artisanal, premium et frais",
+          "correct": false
+        },
+        {
+          "text": "Nutri-Score, DLC, DDM, code-barres et Triman",
+          "correct": false
+        },
+        {
+          "text": "AOP/AOC, IGP, STG, Label Rouge et agriculture biologique",
+          "correct": true
+        },
+        {
+          "text": "MSC, ASC, FSC, PEFC et code-barres",
+          "correct": false
+        }
+      ],
+      "explanation": "Ces signes encadrés par des cahiers des charges ne garantissent pas tous la même caractéristique.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Signes officiels"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-002",
+      "category": "AOP",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel lien au territoire caractérise une AOP alimentaire ?",
+      "choices": [
+        {
+          "text": "Seul l'emballage doit être réalisé dans la zone",
+          "correct": false
+        },
+        {
+          "text": "Le produit peut provenir de toute région sans lien particulier",
+          "correct": false
+        },
+        {
+          "text": "Les étapes de production, transformation et élaboration se déroulent dans l'aire définie",
+          "correct": true
+        },
+        {
+          "text": "Seule la vente doit avoir lieu dans la zone",
+          "correct": false
+        }
+      ],
+      "explanation": "L'AOP protège une origine et un lien fort entre le produit, le territoire et les savoir-faire.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "AOP"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-003",
+      "category": "IGP",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle exigence géographique caractérise une IGP ?",
+      "choices": [
+        {
+          "text": "Aucun lien avec une origine géographique",
+          "correct": false
+        },
+        {
+          "text": "Toutes les étapes obligatoirement dans chaque commune française",
+          "correct": false
+        },
+        {
+          "text": "Au moins une étape dans l'aire définie, avec un lien du produit à cette origine",
+          "correct": true
+        },
+        {
+          "text": "Uniquement le lieu d'achat par le consommateur",
+          "correct": false
+        }
+      ],
+      "explanation": "L'IGP protège un produit dont une qualité, la réputation ou une caractéristique est liée à une origine.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "IGP"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-004",
+      "category": "STG",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que protège principalement une spécialité traditionnelle garantie ?",
+      "choices": [
+        {
+          "text": "Une absence garantie de tout micro-organisme",
+          "correct": false
+        },
+        {
+          "text": "Une composition ou un mode de production traditionnel",
+          "correct": true
+        },
+        {
+          "text": "Une teneur minimale universelle en protéines",
+          "correct": false
+        },
+        {
+          "text": "Un lieu géographique unique obligatoire",
+          "correct": false
+        }
+      ],
+      "explanation": "La STG valorise une tradition, sans constituer une garantie d'origine géographique comme une AOP.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "STG"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-005",
+      "category": "Label Rouge",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle caractéristique le Label Rouge atteste-t-il principalement ?",
+      "choices": [
+        {
+          "text": "Une origine biologique obligatoire",
+          "correct": false
+        },
+        {
+          "text": "Un prix obligatoirement inférieur",
+          "correct": false
+        },
+        {
+          "text": "Une qualité supérieure par rapport aux produits courants comparables",
+          "correct": true
+        },
+        {
+          "text": "Une teneur en sel toujours nulle",
+          "correct": false
+        }
+      ],
+      "explanation": "La qualité supérieure est définie et contrôlée dans un cahier des charges, avec notamment une dimension sensorielle.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Label Rouge"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-006",
+      "category": "Label Rouge",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Peut-on assimiler le Label Rouge à la démarche Bleu-Blanc-Cœur ?",
+      "choices": [
+        {
+          "text": "Oui, les deux noms désignent exactement le même signe officiel",
+          "correct": false
+        },
+        {
+          "text": "Oui, l'un est seulement l'ancien nom de l'autre",
+          "correct": false
+        },
+        {
+          "text": "Non, ce sont des démarches distinctes",
+          "correct": true
+        },
+        {
+          "text": "Oui, tout produit de l'une porte automatiquement l'autre",
+          "correct": false
+        }
+      ],
+      "explanation": "Un signe officiel et une démarche particulière doivent être identifiés séparément et vérifiés sur le produit concerné.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Label Rouge"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-007",
+      "category": "Agriculture biologique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que renseigne d'abord le signe agriculture biologique ?",
+      "choices": [
+        {
+          "text": "Une teneur en vitamines toujours supérieure",
+          "correct": false
+        },
+        {
+          "text": "Une origine française obligatoire",
+          "correct": false
+        },
+        {
+          "text": "Le respect d'un mode de production encadré",
+          "correct": true
+        },
+        {
+          "text": "Une absence absolue de microbes",
+          "correct": false
+        }
+      ],
+      "explanation": "Le bio répond à des règles de production et de contrôle ; il n'implique ni stérilité ni supériorité nutritionnelle systématique.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Agriculture biologique"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-008",
+      "category": "Agriculture biologique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un fruit biologique doit-il être lavé et manipulé selon les règles d'hygiène adaptées ?",
+      "choices": [
+        {
+          "text": "Seulement si le fruit est importé",
+          "correct": false
+        },
+        {
+          "text": "Non, les parasites ne peuvent pas toucher les cultures bio",
+          "correct": false
+        },
+        {
+          "text": "Non, le logo bio signifie stérile",
+          "correct": false
+        },
+        {
+          "text": "Oui, le mode de production ne supprime pas les contaminations possibles",
+          "correct": true
+        }
+      ],
+      "explanation": "Les exigences d'hygiène concernent aussi les produits biologiques.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Agriculture biologique"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-009",
+      "category": "Agriculture biologique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi « bio » ne signifie-t-il pas « absence de toute substance utilisée pour protéger les cultures » ?",
+      "choices": [
+        {
+          "text": "Le bio concerne uniquement l'emballage",
+          "correct": false
+        },
+        {
+          "text": "Tous les pesticides de synthèse y sont libres d'emploi",
+          "correct": false
+        },
+        {
+          "text": "Certains produits et pratiques sont autorisés par le cahier des charges biologique",
+          "correct": true
+        },
+        {
+          "text": "Le logo remplace la réglementation",
+          "correct": false
+        }
+      ],
+      "explanation": "La réglementation biologique restreint les intrants et prévoit des substances autorisées ; la formule « aucun traitement » est inexacte.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Agriculture biologique"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-010",
+      "category": "Contrôles",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel rôle l'INAO exerce-t-il dans le système français des signes officiels ?",
+      "choices": [
+        {
+          "text": "Le rôle d'une simple marque privée de supermarché",
+          "correct": false
+        },
+        {
+          "text": "La fabrication de tous les produits sous AOP",
+          "correct": false
+        },
+        {
+          "text": "Un rôle public de reconnaissance et de supervision des dispositifs de contrôle",
+          "correct": true
+        },
+        {
+          "text": "Le contrôle sanitaire unique de toutes les cuisines",
+          "correct": false
+        }
+      ],
+      "explanation": "L'INAO est un établissement public ; les contrôles de certification sont réalisés par des organismes indépendants habilités selon le dispositif.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Contrôles"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-011",
+      "category": "Contrôles",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi consulter le cahier des charges d'un signe de qualité ?",
+      "choices": [
+        {
+          "text": "Pour connaître précisément les garanties et les conditions d'utilisation",
+          "correct": true
+        },
+        {
+          "text": "Pour conclure automatiquement à l'absence d'allergènes",
+          "correct": false
+        },
+        {
+          "text": "Pour remplacer l'étiquette nutritionnelle par la couleur du logo",
+          "correct": false
+        },
+        {
+          "text": "Pour supposer que tous les labels garantissent la même chose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le nom ou l'aspect d'un logo ne suffisent pas à déduire l'ensemble de ses garanties.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Contrôles"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-012",
+      "category": "Pêche et aquaculture",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quel domaine le logo MSC se rapporte-t-il ?",
+      "choices": [
+        {
+          "text": "L'élevage de volailles",
+          "correct": false
+        },
+        {
+          "text": "La pêche de poissons et produits de la mer sauvages",
+          "correct": true
+        },
+        {
+          "text": "L'agriculture biologique de tous les produits",
+          "correct": false
+        },
+        {
+          "text": "La certification des forêts",
+          "correct": false
+        }
+      ],
+      "explanation": "MSC concerne une démarche de pêche durable ; il ne doit pas être confondu avec ASC pour l'aquaculture.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Pêche et aquaculture"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-013",
+      "category": "Pêche et aquaculture",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quel domaine le logo ASC se rapporte-t-il ?",
+      "choices": [
+        {
+          "text": "La forêt uniquement",
+          "correct": false
+        },
+        {
+          "text": "Les céréales Label Rouge uniquement",
+          "correct": false
+        },
+        {
+          "text": "L'aquaculture",
+          "correct": true
+        },
+        {
+          "text": "Les fromages AOP",
+          "correct": false
+        }
+      ],
+      "explanation": "ASC concerne des productions aquacoles et se distingue des démarches portant sur la pêche sauvage.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Pêche et aquaculture"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-014",
+      "category": "HVE",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Sur quoi porte la certification haute valeur environnementale ?",
+      "choices": [
+        {
+          "text": "Le goût supérieur de tous les aliments",
+          "correct": false
+        },
+        {
+          "text": "Les performances environnementales d'une exploitation agricole",
+          "correct": true
+        },
+        {
+          "text": "L'absence de bactéries dans chaque portion",
+          "correct": false
+        },
+        {
+          "text": "Le taux de protéines de chaque produit",
+          "correct": false
+        }
+      ],
+      "explanation": "HVE est une certification d'exploitation ; elle ne se confond pas avec le cahier des charges biologique.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "HVE"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-015",
+      "category": "Commerce équitable",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle dimension le commerce équitable met-il particulièrement en avant ?",
+      "choices": [
+        {
+          "text": "Une stérilisation systématique",
+          "correct": false
+        },
+        {
+          "text": "Une absence obligatoire de tout emballage",
+          "correct": false
+        },
+        {
+          "text": "Une production exclusivement française",
+          "correct": false
+        },
+        {
+          "text": "Des relations commerciales et une rémunération plus équitables pour les producteurs",
+          "correct": true
+        }
+      ],
+      "explanation": "Le commerce équitable vise notamment les conditions économiques et sociales des producteurs.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Commerce équitable"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-016",
+      "category": "Forêts et emballages",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi un logo FSC ou PEFC sur un emballage ne décrit-il pas la qualité nutritionnelle de l'aliment ?",
+      "choices": [
+        {
+          "text": "Il concerne les matières issues de la forêt et leur gestion",
+          "correct": true
+        },
+        {
+          "text": "Il garantit exactement 30 g de fibres par jour",
+          "correct": false
+        },
+        {
+          "text": "Il remplace une DLC",
+          "correct": false
+        },
+        {
+          "text": "Il certifie obligatoirement l'aliment biologique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le périmètre du logo doit être identifié : il peut concerner l'emballage et non la denrée qu'il contient.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Forêts et emballages"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-017",
+      "category": "Lecture critique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La mention « naturel » permet-elle à elle seule d'identifier une AOP ou une certification biologique ?",
+      "choices": [
+        {
+          "text": "Oui, toutes ces expressions sont synonymes",
+          "correct": false
+        },
+        {
+          "text": "Oui, si le produit est vendu au marché",
+          "correct": false
+        },
+        {
+          "text": "Non, il faut vérifier le signe et ses garanties",
+          "correct": true
+        },
+        {
+          "text": "Oui, si l'emballage est vert",
+          "correct": false
+        }
+      ],
+      "explanation": "Une promesse commerciale ne vaut pas automatiquement signe officiel ni certification.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Lecture critique"
+        }
+      ]
+    },
+    {
+      "id": "sa-lq-018",
+      "category": "Lecture critique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel réflexe permet d'éviter de surinterpréter un label ?",
+      "choices": [
+        {
+          "text": "Distinguer origine, mode de production, qualité sensorielle et critères environnementaux",
+          "correct": true
+        },
+        {
+          "text": "Ignorer la liste des ingrédients",
+          "correct": false
+        },
+        {
+          "text": "Déduire de tout logo une qualité supérieure sur tous les plans",
+          "correct": false
+        },
+        {
+          "text": "Remplacer les conditions de conservation par le prix",
+          "correct": false
+        }
+      ],
+      "explanation": "Les différentes démarches ont des objets et des périmètres distincts qui peuvent se compléter.",
+      "sourceRefs": [
+        {
+          "document": "Labels signes et logos de qualité et developpement durable.docx",
+          "section": "Lecture critique"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "document": "Labels signes et logos de qualité et developpement durable.docx"
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "references": [
+      "https://inao.gouv.fr/controle",
+      "https://inao.gouv.fr/label-rouge",
+      "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/les-signes-officiels-de-la-qualite-et-de-lorigine-des-produits-alimentaires",
+      "https://fr.asc-aqua.org/",
+      "https://www.msc.org/fr",
+      "https://inao.gouv.fr/produire-en-agriculture-biologique"
+    ]
+  }
+}

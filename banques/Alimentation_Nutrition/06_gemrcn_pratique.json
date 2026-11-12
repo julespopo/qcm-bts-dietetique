@@ -1,0 +1,794 @@
+{
+  "version": 1,
+  "title": "Restauration collective — Construire et analyser les menus",
+  "subject": "Alimentation - Nutrition",
+  "chapter": "Restauration collective — Construire et analyser les menus",
+  "questions": [
+    {
+      "id": "an-gm-001",
+      "category": "Structure des repas",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Dans un repas scolaire à quatre composantes, quel ensemble doit être conservé ?",
+      "choices": [
+        {
+          "text": "Deux entrées et deux desserts uniquement",
+          "correct": false
+        },
+        {
+          "text": "Plat principal, garniture, produit laitier et entrée ou dessert",
+          "correct": true
+        },
+        {
+          "text": "Entrée, pain, sauce et boisson uniquement",
+          "correct": false
+        },
+        {
+          "text": "Plat principal et trois boissons",
+          "correct": false
+        }
+      ],
+      "explanation": "Le repas comporte un plat principal, une garniture et un produit laitier, complétés par une entrée et/ou un dessert.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "3 — Structure des repas"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-002",
+      "category": "Plan et menus",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle différence distingue un plan alimentaire d'un menu ?",
+      "choices": [
+        {
+          "text": "Le menu précède obligatoirement toute réflexion sur les fréquences",
+          "correct": false
+        },
+        {
+          "text": "Les deux désignent uniquement la facture du fournisseur",
+          "correct": false
+        },
+        {
+          "text": "Le plan fixe des familles de plats, le menu les traduit en préparations concrètes",
+          "correct": true
+        },
+        {
+          "text": "Le plan ne concerne que l'ordre de passage au self",
+          "correct": false
+        }
+      ],
+      "explanation": "Une trame « crudité, viande en morceaux, légumes cuits… » devient un menu avec des recettes identifiées.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "3 — Plan et menus"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-003",
+      "category": "Condiments",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Comment gérer le sel et les sauces d'accompagnement en restauration scolaire ?",
+      "choices": [
+        {
+          "text": "Les servir en fonction des plats, sans libre accès systématique",
+          "correct": true
+        },
+        {
+          "text": "Remplacer l'eau par une sauce liquide",
+          "correct": false
+        },
+        {
+          "text": "Supprimer obligatoirement tout assaisonnement",
+          "correct": false
+        },
+        {
+          "text": "Les laisser toujours en libre accès sans lien avec les plats",
+          "correct": false
+        }
+      ],
+      "explanation": "La maîtrise des assaisonnements vise notamment les apports en sel et en matières grasses.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "3 — Condiments"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-004",
+      "category": "P/L",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un plat contient 12 g de protéines et 25 g de lipides pour 100 g. Quel est son rapport P/L ?",
+      "choices": [
+        {
+          "text": "13",
+          "correct": false
+        },
+        {
+          "text": "2,08",
+          "correct": false
+        },
+        {
+          "text": "37",
+          "correct": false
+        },
+        {
+          "text": "0,48",
+          "correct": true
+        }
+      ],
+      "explanation": "P/L = 12 ÷ 25 = 0,48. Le rapport est inférieur à 1 : le plat apporte plus de lipides que de protéines.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "3 — P/L"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-005",
+      "category": "P/L",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Un poisson apporte 20 g de protéines et 13 g de lipides pour 100 g. Que peut-on conclure pour le critère P/L ≥ 2 du GEMRCN 2015 ?",
+      "choices": [
+        {
+          "text": "Il ne contient aucun oméga-3",
+          "correct": false
+        },
+        {
+          "text": "Il ne peut jamais être servi",
+          "correct": false
+        },
+        {
+          "text": "Il le satisfait car 20 est supérieur à 13",
+          "correct": false
+        },
+        {
+          "text": "Il ne le satisfait pas, sans que cela retire son intérêt comme poisson gras",
+          "correct": true
+        }
+      ],
+      "explanation": "20 ÷ 13 ≈ 1,54 : ce critère de grille et la qualité des acides gras évaluent des caractéristiques distinctes.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "3 — P/L"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-006",
+      "category": "Calcium par portion",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un fromage contient 600 mg de calcium pour 100 g. Combien une portion de 25 g en apporte-t-elle ?",
+      "choices": [
+        {
+          "text": "600 mg",
+          "correct": false
+        },
+        {
+          "text": "150 mg",
+          "correct": true
+        },
+        {
+          "text": "2 400 mg",
+          "correct": false
+        },
+        {
+          "text": "24 mg",
+          "correct": false
+        }
+      ],
+      "explanation": "600 × 25 ÷ 100 = 150 mg. Le classement doit utiliser l'apport de la portion réellement servie.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "3 — Calcium par portion"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-007",
+      "category": "Sucres par portion",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un dessert contient 18 g de sucres pour 100 g et sa portion est de 125 g. Quel apport de sucres obtient-on ?",
+      "choices": [
+        {
+          "text": "22,5 g",
+          "correct": true
+        },
+        {
+          "text": "225 g",
+          "correct": false
+        },
+        {
+          "text": "18 g",
+          "correct": false
+        },
+        {
+          "text": "14,4 g",
+          "correct": false
+        }
+      ],
+      "explanation": "18 × 125 ÷ 100 = 22,5 g ; la valeur pour 100 g ne doit pas être confondue avec celle de la portion.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "3 — Sucres par portion"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-008",
+      "category": "Classement",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Une entrée contient 80 % de céleri cru et 17 % de lipides. Comment l'analyser dans la grille du cours ?",
+      "choices": [
+        {
+          "text": "Comme un poisson à P/L ≥ 2",
+          "correct": false
+        },
+        {
+          "text": "Uniquement comme un fruit cru en dessert",
+          "correct": false
+        },
+        {
+          "text": "Comme une crudité et comme une entrée à plus de 15 % de lipides",
+          "correct": true
+        },
+        {
+          "text": "Comme un produit laitier riche en calcium",
+          "correct": false
+        }
+      ],
+      "explanation": "Une préparation peut répondre simultanément à plusieurs critères ; le classement n'est pas exclusif.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "4 — Classement"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-009",
+      "category": "Classement",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Une entrée à 10 % de lipides doit-elle être comptée parmi les entrées à plus de 15 % de lipides ?",
+      "choices": [
+        {
+          "text": "Oui, car 10 est supérieur à 15",
+          "correct": false
+        },
+        {
+          "text": "Oui, toute entrée compte dans ce critère",
+          "correct": false
+        },
+        {
+          "text": "Oui, si elle contient du fromage quel que soit son taux",
+          "correct": false
+        },
+        {
+          "text": "Non",
+          "correct": true
+        }
+      ],
+      "explanation": "Les fiches techniques et les seuils précis priment sur le seul nom du plat.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "4 — Classement"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-010",
+      "category": "Classement",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le nom « poisson pané » ne suffit-il pas pour son classement nutritionnel ?",
+      "choices": [
+        {
+          "text": "Le mot poisson garantit un P/L supérieur à 2",
+          "correct": false
+        },
+        {
+          "text": "Tout aliment pané contient exactement 15 % de lipides",
+          "correct": false
+        },
+        {
+          "text": "Tous les poissons panés ont la même composition",
+          "correct": false
+        },
+        {
+          "text": "Il faut connaître notamment sa part de poisson, son P/L et sa teneur en lipides",
+          "correct": true
+        }
+      ],
+      "explanation": "Les recettes et les produits fournisseurs diffèrent ; plusieurs critères doivent être vérifiés.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "4 — Classement"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-011",
+      "category": "Viandes non hachées",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel plat entre dans le critère du cours concernant les viandes non hachées de bœuf, veau, agneau ou abats ?",
+      "choices": [
+        {
+          "text": "Un sauté de bœuf en morceaux",
+          "correct": true
+        },
+        {
+          "text": "Un rôti de porc",
+          "correct": false
+        },
+        {
+          "text": "Une escalope de dinde",
+          "correct": false
+        },
+        {
+          "text": "Un steak haché de bœuf",
+          "correct": false
+        }
+      ],
+      "explanation": "Ce critère porte sur des espèces et des présentations précises ; il ne regroupe pas tous les plats de viande.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "4 — Viandes non hachées"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-012",
+      "category": "Calcium",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans la grille GEMRCN scolaire du cours, quelle fréquence minimale vise les fromages apportant entre 100 et moins de 150 mg de calcium par portion ?",
+      "choices": [
+        {
+          "text": "Au maximum 2 fois sur 20 repas",
+          "correct": false
+        },
+        {
+          "text": "4 fois sur 20 repas",
+          "correct": true
+        },
+        {
+          "text": "1 fois sur 20 repas",
+          "correct": false
+        },
+        {
+          "text": "20 fois sur 20 repas",
+          "correct": false
+        }
+      ],
+      "explanation": "Cette catégorie complète celle des fromages à au moins 150 mg de calcium et celle des laitages répondant aux critères.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "4 — Calcium"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-013",
+      "category": "Desserts sucrés",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans la grille du cours, un dessert à 22 g de sucres par portion et 8 % de lipides entre-t-il dans la catégorie des desserts sucrés à limiter ?",
+      "choices": [
+        {
+          "text": "Non, car seuls les sucres ajoutés sont comptés",
+          "correct": false
+        },
+        {
+          "text": "Non, car tous les desserts à moins de 15 % de lipides sont libres de limite",
+          "correct": false
+        },
+        {
+          "text": "Oui, il dépasse 20 g de sucres et reste sous 15 % de lipides",
+          "correct": true
+        },
+        {
+          "text": "Non, car il faut dépasser 50 g de sucres",
+          "correct": false
+        }
+      ],
+      "explanation": "Le critère combine des sucres simples totaux par portion et une teneur lipidique en pourcentage.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "4 — Desserts sucrés"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-014",
+      "category": "Catégories",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un plat absent des catégories de fréquence est-il automatiquement interdit ?",
+      "choices": [
+        {
+          "text": "Oui, s'il n'est pas un dessert",
+          "correct": false
+        },
+        {
+          "text": "Non, il peut participer à la variété du menu",
+          "correct": true
+        },
+        {
+          "text": "Non, donc aucune règle ne s'applique à lui",
+          "correct": false
+        },
+        {
+          "text": "Oui, tous les plats doivent figurer dans une seule catégorie",
+          "correct": false
+        }
+      ],
+      "explanation": "La grille fixe certains minimums et maximums ; elle ne décrit pas à elle seule toute l'offre alimentaire.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "4 — Catégories"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-015",
+      "category": "Grammages",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Dans les tableaux du cours, à quoi correspond habituellement le grammage d'une portion prête à consommer ?",
+      "choices": [
+        {
+          "text": "Au poids net servi, cuit et égoutté, selon les précisions du tableau",
+          "correct": true
+        },
+        {
+          "text": "Au poids acheté avant toutes les pertes, sans exception",
+          "correct": false
+        },
+        {
+          "text": "Au poids brut avec emballage",
+          "correct": false
+        },
+        {
+          "text": "Au poids de sauce uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Il faut lire les exceptions éventuelles : avec os, à l'unité ou sous une autre présentation.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "5 — Grammages"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-016",
+      "category": "Grammages",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel outil aide à obtenir des portions régulières pendant le service ?",
+      "choices": [
+        {
+          "text": "Un ustensile de service calibré avec des contrôles de pesée",
+          "correct": true
+        },
+        {
+          "text": "Une estimation sans contrôle pour chaque assiette",
+          "correct": false
+        },
+        {
+          "text": "Le nombre de logos sur l'emballage",
+          "correct": false
+        },
+        {
+          "text": "Le seul diamètre de la table",
+          "correct": false
+        }
+      ],
+      "explanation": "Le portionnement et la pesée de portions témoins permettent de vérifier la quantité réellement servie.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "5 — Grammages"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-017",
+      "category": "Calculs de production",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Dans un exercice, il faut 50 g de viande cuite pour 450 repas et 70 g pour 750 repas. Quelle quantité totale cuite faut-il prévoir ?",
+      "choices": [
+        {
+          "text": "75 kg",
+          "correct": true
+        },
+        {
+          "text": "22,5 kg",
+          "correct": false
+        },
+        {
+          "text": "52,5 kg",
+          "correct": false
+        },
+        {
+          "text": "120 kg",
+          "correct": false
+        }
+      ],
+      "explanation": "450 × 50 = 22 500 g et 750 × 70 = 52 500 g, soit 75 000 g = 75 kg. Ce n'est pas directement le poids brut à acheter.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "5 — Calculs de production"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-018",
+      "category": "Calculs de production",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Une recette doit fournir 75 kg cuits avec un rendement de cuisson donné de 75 %. Quel poids cru comestible faut-il prévoir dans cet exercice ?",
+      "choices": [
+        {
+          "text": "150 kg",
+          "correct": false
+        },
+        {
+          "text": "75 kg",
+          "correct": false
+        },
+        {
+          "text": "56,25 kg",
+          "correct": false
+        },
+        {
+          "text": "100 kg",
+          "correct": true
+        }
+      ],
+      "explanation": "Poids cru × 0,75 = 75 kg ; le poids cru nécessaire est donc 75 ÷ 0,75 = 100 kg, hors autres pertes éventuelles.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "5 — Calculs de production"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-019",
+      "category": "Personnes âgées",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi un dîner en EHPAD ne doit-il pas être réduit systématiquement à un potage et un dessert ?",
+      "choices": [
+        {
+          "text": "Le potage contient toujours assez de tous les nutriments",
+          "correct": false
+        },
+        {
+          "text": "Le dîner ne compte pas dans l'apport journalier",
+          "correct": false
+        },
+        {
+          "text": "Les personnes âgées n'ont besoin de protéines qu'au déjeuner",
+          "correct": false
+        },
+        {
+          "text": "Il doit contribuer à couvrir les besoins, notamment protéiques",
+          "correct": true
+        }
+      ],
+      "explanation": "Le maintien d'un véritable repas doit être adapté à la personne et à son état nutritionnel.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "6 — Personnes âgées"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-020",
+      "category": "Personnes âgées",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel levier peut être envisagé pour une personne âgée qui mange de petits volumes ?",
+      "choices": [
+        {
+          "text": "Supprimer systématiquement les produits protéiques",
+          "correct": false
+        },
+        {
+          "text": "Servir uniquement de l'eau",
+          "correct": false
+        },
+        {
+          "text": "Augmenter le volume sans tenir compte de l'appétit",
+          "correct": false
+        },
+        {
+          "text": "Un enrichissement adapté et, si nécessaire, un fractionnement des prises",
+          "correct": true
+        }
+      ],
+      "explanation": "Les choix d'enrichissement et de texture s'adaptent à la situation de la personne et aux consignes de prise en charge.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "6 — Personnes âgées"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-021",
+      "category": "Rythme des repas",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Entre un dîner à 18 h et un petit-déjeuner à 8 h 30, quelle est la durée du jeûne nocturne ?",
+      "choices": [
+        {
+          "text": "12 h",
+          "correct": false
+        },
+        {
+          "text": "8 h 30",
+          "correct": false
+        },
+        {
+          "text": "10 h 30",
+          "correct": false
+        },
+        {
+          "text": "14 h 30",
+          "correct": true
+        }
+      ],
+      "explanation": "De 18 h à minuit : 6 h ; puis 8 h 30, soit 14 h 30. Le cours recommande de limiter cette durée et d'adapter les horaires ou les collations.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "6 — Rythme des repas"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-022",
+      "category": "Textures",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel principe doit guider une adaptation de texture en institution ?",
+      "choices": [
+        {
+          "text": "Supprimer les protéines pour faciliter la déglutition",
+          "correct": false
+        },
+        {
+          "text": "Répondre aux difficultés évaluées tout en préservant les apports et le plaisir de manger",
+          "correct": true
+        },
+        {
+          "text": "Mixer systématiquement tous les repas de tous les résidents",
+          "correct": false
+        },
+        {
+          "text": "Modifier la texture sans tenir compte des consignes individuelles",
+          "correct": false
+        }
+      ],
+      "explanation": "Les besoins diffèrent selon les troubles de mastication ou de déglutition et nécessitent une adaptation appropriée.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "6 — Textures"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-023",
+      "category": "Analyse de menus",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est la première information à identifier avant de choisir une grille de contrôle nutritionnel ?",
+      "choices": [
+        {
+          "text": "Le nom commercial du logiciel uniquement",
+          "correct": false
+        },
+        {
+          "text": "La couleur des plateaux uniquement",
+          "correct": false
+        },
+        {
+          "text": "La population et le secteur de restauration concernés",
+          "correct": true
+        },
+        {
+          "text": "Le nombre de fenêtres de la cuisine",
+          "correct": false
+        }
+      ],
+      "explanation": "Les règles et les repères varient selon le public et le secteur ; le périmètre d'analyse doit être défini.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "8 — Analyse de menus"
+        }
+      ]
+    },
+    {
+      "id": "an-gm-024",
+      "category": "Analyse de menus",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Après le remplacement d'un plat pour corriger une fréquence, quelle vérification est nécessaire ?",
+      "choices": [
+        {
+          "text": "Vérifier uniquement que le nom du nouveau plat est différent",
+          "correct": false
+        },
+        {
+          "text": "Recontrôler les autres critères et les obligations du plan alimentaire",
+          "correct": true
+        },
+        {
+          "text": "Supprimer les repas végétariens pour simplifier",
+          "correct": false
+        },
+        {
+          "text": "Ignorer les fiches techniques du nouveau produit",
+          "correct": false
+        }
+      ],
+      "explanation": "Une correction peut affecter plusieurs catégories, les apports et d'autres obligations ; il faut vérifier le résultat global.",
+      "sourceRefs": [
+        {
+          "document": "Cours GEMRCN restauration collective CORRIGE.docx",
+          "section": "8 — Analyse de menus"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "document": "Cours GEMRCN restauration collective CORRIGE.docx"
+    },
+    {
+      "document": "Cours GEMRCN restauration collective.docx"
+    },
+    {
+      "document": "GEMRCN restauration collective.pptx"
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "references": [
+      "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000024614763",
+      "https://draaf.auvergne-rhone-alpes.agriculture.gouv.fr/recommandation-nutrition-version-juillet-2015-a150.html"
+    ]
+  }
+}
