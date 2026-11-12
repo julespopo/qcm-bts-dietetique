@@ -1,0 +1,973 @@
+{
+  "version": 1,
+  "title": "Sciences des aliments — Fruits et légumes",
+  "subject": "Alimentation - Nutrition",
+  "chapter": "Sciences des aliments — Fruits et légumes",
+  "questions": [
+    {
+      "id": "an-fl-001",
+      "category": "Classification",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel légume est un fruit au sens botanique ?",
+      "choices": [
+        {
+          "text": "La carotte",
+          "correct": false
+        },
+        {
+          "text": "La salade verte",
+          "correct": false
+        },
+        {
+          "text": "La courgette",
+          "correct": true
+        },
+        {
+          "text": "L'oignon",
+          "correct": false
+        }
+      ],
+      "explanation": "La courgette provient de la fleur ; les classements botanique et culinaire ne se superposent pas toujours.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 4 — Classification"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-002",
+      "category": "Classification",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle partie de la plante consomme-t-on principalement dans la carotte ?",
+      "choices": [
+        {
+          "text": "Le fruit",
+          "correct": false
+        },
+        {
+          "text": "Le bulbe",
+          "correct": false
+        },
+        {
+          "text": "La fleur",
+          "correct": false
+        },
+        {
+          "text": "La racine",
+          "correct": true
+        }
+      ],
+      "explanation": "La carotte est un légume-racine, comme le navet ou le radis.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 4 — Classification"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-003",
+      "category": "Classification",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel ensemble correspond à des légumes-fleurs dans la classification du cours ?",
+      "choices": [
+        {
+          "text": "Chou-fleur et brocoli",
+          "correct": true
+        },
+        {
+          "text": "Oignon et ail",
+          "correct": false
+        },
+        {
+          "text": "Carotte et navet",
+          "correct": false
+        },
+        {
+          "text": "Tomate et courgette",
+          "correct": false
+        }
+      ],
+      "explanation": "La partie consommée permet de distinguer légumes-feuilles, racines, fleurs, bulbes ou fruits.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 4 — Classification"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-004",
+      "category": "Familles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel fruit est particulièrement riche en lipides par rapport aux fruits aqueux courants ?",
+      "choices": [
+        {
+          "text": "La pastèque",
+          "correct": false
+        },
+        {
+          "text": "La groseille",
+          "correct": false
+        },
+        {
+          "text": "L'avocat",
+          "correct": true
+        },
+        {
+          "text": "La fraise",
+          "correct": false
+        }
+      ],
+      "explanation": "L'avocat appartient aux fruits oléagineux ; il constitue une exception à la faible teneur lipidique des fruits aqueux.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 5 — Familles"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-005",
+      "category": "Familles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel aliment se distingue par sa richesse en amidon parmi les fruits cités ?",
+      "choices": [
+        {
+          "text": "La framboise",
+          "correct": false
+        },
+        {
+          "text": "La pastèque",
+          "correct": false
+        },
+        {
+          "text": "Le citron",
+          "correct": false
+        },
+        {
+          "text": "La châtaigne",
+          "correct": true
+        }
+      ],
+      "explanation": "La châtaigne est un fruit amylacé : sa composition diffère de celle d'un fruit aqueux courant.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 5 — Familles"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-006",
+      "category": "Familles",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi distinguer fruits séchés et fruits à coque ?",
+      "choices": [
+        {
+          "text": "Les deux termes désignent toujours les mêmes aliments",
+          "correct": false
+        },
+        {
+          "text": "Les fruits séchés ne contiennent plus de glucides",
+          "correct": false
+        },
+        {
+          "text": "Les premiers sont déshydratés, les seconds ont notamment un profil lipidique différent",
+          "correct": true
+        },
+        {
+          "text": "Tous les fruits à coque contiennent uniquement de l'eau",
+          "correct": false
+        }
+      ],
+      "explanation": "Raisin sec et noix ne sont pas interchangeables sur le plan de leur composition.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 5 — Familles"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-007",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel constituant représente généralement la majeure partie de la masse des fruits et légumes frais aqueux ?",
+      "choices": [
+        {
+          "text": "Le sodium",
+          "correct": false
+        },
+        {
+          "text": "Les lipides",
+          "correct": false
+        },
+        {
+          "text": "Les protéines",
+          "correct": false
+        },
+        {
+          "text": "L'eau",
+          "correct": true
+        }
+      ],
+      "explanation": "La forte teneur en eau contribue à leur faible densité énergétique, avec des exceptions selon la famille.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 9 — Composition"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-008",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quels nutriments sont notamment apportés par de nombreux fruits et légumes ?",
+      "choices": [
+        {
+          "text": "Vitamine B12 en quantité fiable et vitamine D systématiquement",
+          "correct": false
+        },
+        {
+          "text": "Uniquement des protéines complètes",
+          "correct": false
+        },
+        {
+          "text": "Fibres, potassium, vitamine C et vitamine B9",
+          "correct": true
+        },
+        {
+          "text": "Uniquement des lipides saturés",
+          "correct": false
+        }
+      ],
+      "explanation": "La composition varie selon l'espèce, la maturité, le stockage et la préparation.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 9-10 — Composition"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-009",
+      "category": "Composition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi une teneur moyenne en vitamine C ne doit-elle pas être appliquée à tous les fruits ?",
+      "choices": [
+        {
+          "text": "Les espèces et les conditions de stockage ou de préparation diffèrent",
+          "correct": true
+        },
+        {
+          "text": "Seule la couleur de l'emballage détermine la teneur",
+          "correct": false
+        },
+        {
+          "text": "La vitamine C est toujours absente des fruits",
+          "correct": false
+        },
+        {
+          "text": "Tous les fruits possèdent exactement la même composition",
+          "correct": false
+        }
+      ],
+      "explanation": "Une moyenne de famille ne remplace pas les données de l'aliment précis, dans son état de consommation.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 9-10 — Composition"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-010",
+      "category": "Organoleptique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi correspond la flaveur d'un fruit ?",
+      "choices": [
+        {
+          "text": "À l'ensemble des sensations gustatives et olfactives",
+          "correct": true
+        },
+        {
+          "text": "Uniquement à sa teneur en eau",
+          "correct": false
+        },
+        {
+          "text": "Uniquement à sa masse",
+          "correct": false
+        },
+        {
+          "text": "Uniquement à sa date de récolte",
+          "correct": false
+        }
+      ],
+      "explanation": "Les sucres, les acides et les composés aromatiques contribuent à la perception sensorielle.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 16 — Organoleptique"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-011",
+      "category": "Pigments",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel pigment est associé à la couleur verte de nombreux légumes ?",
+      "choices": [
+        {
+          "text": "La chlorophylle",
+          "correct": true
+        },
+        {
+          "text": "Le lactose",
+          "correct": false
+        },
+        {
+          "text": "La caséine",
+          "correct": false
+        },
+        {
+          "text": "L'hémoglobine",
+          "correct": false
+        }
+      ],
+      "explanation": "Les pigments végétaux participent à la couleur ; leur stabilité peut être modifiée par la préparation.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 16 — Pigments"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-012",
+      "category": "Pigments",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quelle famille appartient le bêta-carotène de certains végétaux orange ?",
+      "choices": [
+        {
+          "text": "Les lipopolysaccharides",
+          "correct": false
+        },
+        {
+          "text": "Les sels biliaires",
+          "correct": false
+        },
+        {
+          "text": "Les caroténoïdes",
+          "correct": true
+        },
+        {
+          "text": "Les protéines musculaires",
+          "correct": false
+        }
+      ],
+      "explanation": "Certains caroténoïdes, dont le bêta-carotène, ont une activité provitaminique A.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 16 — Pigments"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-013",
+      "category": "Maturation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel gaz intervient dans le mûrissement des fruits climactériques ?",
+      "choices": [
+        {
+          "text": "Le chlore",
+          "correct": false
+        },
+        {
+          "text": "Le diazote uniquement",
+          "correct": false
+        },
+        {
+          "text": "L'éthylène",
+          "correct": true
+        },
+        {
+          "text": "Le monoxyde de carbone",
+          "correct": false
+        }
+      ],
+      "explanation": "Certains fruits produisent de l'éthylène, qui peut aussi agir sur les produits entreposés à proximité.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 19 — Maturation"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-014",
+      "category": "Maturation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle évolution accompagne souvent la maturation d'un fruit riche en amidon ?",
+      "choices": [
+        {
+          "text": "Une transformation de tous les sucres en calcium",
+          "correct": false
+        },
+        {
+          "text": "Une disparition de tout composé aromatique",
+          "correct": false
+        },
+        {
+          "text": "Une transformation d'une partie de l'amidon en sucres",
+          "correct": true
+        },
+        {
+          "text": "Une stérilisation naturelle de la chair",
+          "correct": false
+        }
+      ],
+      "explanation": "Les changements de glucides, de texture et d'arômes contribuent aux qualités du fruit mûr.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 19 — Maturation"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-015",
+      "category": "Maturation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel changement explique notamment le ramollissement de nombreux fruits pendant leur maturation ?",
+      "choices": [
+        {
+          "text": "La formation d'os dans la chair",
+          "correct": false
+        },
+        {
+          "text": "La production de peptidoglycane humain",
+          "correct": false
+        },
+        {
+          "text": "Des modifications des constituants des parois, notamment des pectines",
+          "correct": true
+        },
+        {
+          "text": "L'augmentation systématique des lipides à 100 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Les transformations des parois cellulaires modifient la fermeté des tissus végétaux.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 19 — Maturation"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-016",
+      "category": "Préparation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi éviter un trempage prolongé des légumes dans l'eau ?",
+      "choices": [
+        {
+          "text": "Il garantit une stérilisation",
+          "correct": false
+        },
+        {
+          "text": "Il transforme toutes les fibres en lipides",
+          "correct": false
+        },
+        {
+          "text": "Il peut favoriser la diffusion de composés hydrosolubles dans l'eau",
+          "correct": true
+        },
+        {
+          "text": "Il rend les légumes nécessairement plus riches en vitamine C",
+          "correct": false
+        }
+      ],
+      "explanation": "Le lavage est nécessaire, mais sa durée et les conditions de préparation influencent les pertes.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 20 — Préparation"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-017",
+      "category": "Préparation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi préparer des crudités au plus près du service, dans des conditions maîtrisées ?",
+      "choices": [
+        {
+          "text": "Pour limiter notamment l'oxydation et les altérations après découpe",
+          "correct": true
+        },
+        {
+          "text": "Pour fabriquer des vitamines par contact avec l'air",
+          "correct": false
+        },
+        {
+          "text": "Pour supprimer le besoin de lavage",
+          "correct": false
+        },
+        {
+          "text": "Pour rendre inutile la maîtrise du froid",
+          "correct": false
+        }
+      ],
+      "explanation": "La découpe augmente les surfaces exposées et peut accélérer les modifications du produit.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 20 — Préparation"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-018",
+      "category": "Cuisson",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel mode de cuisson limite généralement la diffusion des nutriments dans une grande quantité d'eau ?",
+      "choices": [
+        {
+          "text": "Une cuisson jusqu'à dégradation complète",
+          "correct": false
+        },
+        {
+          "text": "Une cuisson vapeur adaptée",
+          "correct": true
+        },
+        {
+          "text": "Une ébullition prolongée dans beaucoup d'eau ensuite jetée",
+          "correct": false
+        },
+        {
+          "text": "Un trempage d'une journée après découpe",
+          "correct": false
+        }
+      ],
+      "explanation": "La vapeur et les durées adaptées peuvent réduire les pertes par diffusion, sans garantir la conservation intégrale des vitamines.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 20 — Cuisson"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-019",
+      "category": "Cuisson",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La cuisson conserve-t-elle nécessairement toute la vitamine C d'un légume ?",
+      "choices": [
+        {
+          "text": "Non, la vitamine C est sensible aux conditions de traitement",
+          "correct": true
+        },
+        {
+          "text": "Oui, elle est totalement thermostable",
+          "correct": false
+        },
+        {
+          "text": "Non, car tous les minéraux disparaissent aussi",
+          "correct": false
+        },
+        {
+          "text": "Oui, toute cuisson double sa quantité",
+          "correct": false
+        }
+      ],
+      "explanation": "Chaleur, oxygène, durée et diffusion dans l'eau influencent les pertes vitaminiques.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 20 — Cuisson"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-020",
+      "category": "Blanchiment",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est l'un des objectifs du blanchiment avant surgélation de légumes ?",
+      "choices": [
+        {
+          "text": "Obtenir obligatoirement une stérilité complète",
+          "correct": false
+        },
+        {
+          "text": "Inactiver des enzymes responsables d'altérations",
+          "correct": true
+        },
+        {
+          "text": "Supprimer tous les glucides",
+          "correct": false
+        },
+        {
+          "text": "Transformer les légumes en produits de quatrième gamme",
+          "correct": false
+        }
+      ],
+      "explanation": "Le blanchiment contribue à stabiliser les qualités du produit ; il ne remplace pas une stérilisation.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 16 — Blanchiment"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-021",
+      "category": "Fruits séchés",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi 100 g de raisins secs apportent-ils plus de glucides que 100 g de raisin frais ?",
+      "choices": [
+        {
+          "text": "Le séchage ajoute nécessairement du saccharose",
+          "correct": false
+        },
+        {
+          "text": "Le retrait d'eau concentre les constituants dans la masse restante",
+          "correct": true
+        },
+        {
+          "text": "Le raisin frais ne contient aucun glucide",
+          "correct": false
+        },
+        {
+          "text": "Le séchage transforme toute l'eau en sucre",
+          "correct": false
+        }
+      ],
+      "explanation": "Une comparaison pour 100 g doit tenir compte de la concentration liée à la déshydratation.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 21 — Fruits séchés"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-022",
+      "category": "Oléagineux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle conséquence nutritionnelle faut-il retenir pour les noix et les amandes ?",
+      "choices": [
+        {
+          "text": "Leur richesse lipidique augmente leur densité énergétique",
+          "correct": true
+        },
+        {
+          "text": "Elles sont uniquement constituées de sucres simples",
+          "correct": false
+        },
+        {
+          "text": "Elles ne contiennent aucun nutriment énergétique",
+          "correct": false
+        },
+        {
+          "text": "Elles ont la même teneur en eau qu'une pastèque",
+          "correct": false
+        }
+      ],
+      "explanation": "Les fruits à coque apportent aussi des fibres et des micronutriments ; ils diffèrent des fruits aqueux.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 21 — Oléagineux"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-023",
+      "category": "Première gamme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quelle gamme appartiennent les fruits et légumes frais non transformés selon le classement usuel du cours ?",
+      "choices": [
+        {
+          "text": "La troisième gamme",
+          "correct": false
+        },
+        {
+          "text": "La deuxième gamme",
+          "correct": false
+        },
+        {
+          "text": "La première gamme",
+          "correct": true
+        },
+        {
+          "text": "La cinquième gamme",
+          "correct": false
+        }
+      ],
+      "explanation": "La première gamme correspond aux produits frais ; leur durée de vie dépend du produit et du stockage.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 23 — Première gamme"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-024",
+      "category": "Deuxième gamme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle gamme correspond aux fruits et légumes en conserve appertisée ?",
+      "choices": [
+        {
+          "text": "La quatrième gamme",
+          "correct": false
+        },
+        {
+          "text": "La première gamme",
+          "correct": false
+        },
+        {
+          "text": "La cinquième gamme",
+          "correct": false
+        },
+        {
+          "text": "La deuxième gamme",
+          "correct": true
+        }
+      ],
+      "explanation": "L'appertisation associe conditionnement hermétique et traitement thermique adapté.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 23 — Deuxième gamme"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-025",
+      "category": "Troisième gamme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle gamme correspond aux fruits et légumes surgelés ?",
+      "choices": [
+        {
+          "text": "La troisième gamme",
+          "correct": true
+        },
+        {
+          "text": "La première gamme",
+          "correct": false
+        },
+        {
+          "text": "La deuxième gamme",
+          "correct": false
+        },
+        {
+          "text": "La quatrième gamme",
+          "correct": false
+        }
+      ],
+      "explanation": "La troisième gamme regroupe les produits conservés par congélation ou surgélation.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 23 — Troisième gamme"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-026",
+      "category": "Quatrième gamme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Une salade crue, lavée, découpée et prête à l'emploi appartient à quelle gamme ?",
+      "choices": [
+        {
+          "text": "La deuxième gamme",
+          "correct": false
+        },
+        {
+          "text": "La quatrième gamme",
+          "correct": true
+        },
+        {
+          "text": "La troisième gamme",
+          "correct": false
+        },
+        {
+          "text": "La cinquième gamme",
+          "correct": false
+        }
+      ],
+      "explanation": "Les produits crus prêts à l'emploi nécessitent le respect des températures et de la durée de conservation indiquées.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 23 — Quatrième gamme"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-027",
+      "category": "Cinquième gamme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel exemple correspond à la cinquième gamme dans le cours ?",
+      "choices": [
+        {
+          "text": "Une pomme entière fraîche",
+          "correct": false
+        },
+        {
+          "text": "Des haricots crus surgelés",
+          "correct": false
+        },
+        {
+          "text": "Des légumes cuits conditionnés et conservés réfrigérés",
+          "correct": true
+        },
+        {
+          "text": "Une boîte de petits pois appertisée",
+          "correct": false
+        }
+      ],
+      "explanation": "La cinquième gamme concerne des produits cuits prêts à l'emploi, avec une conservation et une durée de vie à respecter.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 23 — Cinquième gamme"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-028",
+      "category": "Place dans l'alimentation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi un jus ne remplace-t-il pas systématiquement un fruit entier sur le plan nutritionnel ?",
+      "choices": [
+        {
+          "text": "Le jus ne contient jamais de sucres",
+          "correct": false
+        },
+        {
+          "text": "La matrice et les apports en fibres peuvent différer",
+          "correct": true
+        },
+        {
+          "text": "Le fruit entier ne contient aucune eau",
+          "correct": false
+        },
+        {
+          "text": "Un jus est toujours stérile après ouverture",
+          "correct": false
+        }
+      ],
+      "explanation": "La transformation modifie notamment la structure de l'aliment ; la quantité consommée compte également.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 26 — Place dans l'alimentation"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-029",
+      "category": "Environnement",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un fruit local produit sous serre chauffée a-t-il nécessairement moins d'impact qu'un fruit produit ailleurs ?",
+      "choices": [
+        {
+          "text": "Oui, la distance annule tous les autres impacts",
+          "correct": false
+        },
+        {
+          "text": "Non, le mode de production et les autres étapes doivent être comparés",
+          "correct": true
+        },
+        {
+          "text": "Oui, une serre ne consomme aucune énergie",
+          "correct": false
+        },
+        {
+          "text": "Oui, le prix suffit à le démontrer",
+          "correct": false
+        }
+      ],
+      "explanation": "La saisonnalité, le chauffage, le transport et le stockage participent au bilan environnemental.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 28 — Environnement"
+        }
+      ]
+    },
+    {
+      "id": "an-fl-030",
+      "category": "Application",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans un exercice, un fruit apporte 12 g de glucides pour 100 g. Combien une portion comestible de 150 g en apporte-t-elle ?",
+      "choices": [
+        {
+          "text": "180 g",
+          "correct": false
+        },
+        {
+          "text": "8 g",
+          "correct": false
+        },
+        {
+          "text": "12 g",
+          "correct": false
+        },
+        {
+          "text": "18 g",
+          "correct": true
+        }
+      ],
+      "explanation": "12 × 150 ÷ 100 = 18 g ; cette valeur est celle de l'exercice, pas celle de tous les fruits.",
+      "sourceRefs": [
+        {
+          "document": "SDC Fruits et Legumes BTS.pptx",
+          "section": "Diapo 9 — Application"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "document": "SDC Fruits et Legumes BTS.pptx"
+    }
+  ]
+}

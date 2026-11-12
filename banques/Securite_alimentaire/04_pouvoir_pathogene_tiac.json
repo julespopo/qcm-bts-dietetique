@@ -1,0 +1,662 @@
+{
+  "version": 1,
+  "title": "Microbiologie — Pouvoir pathogène et TIAC",
+  "subject": "Sécurité alimentaire",
+  "chapter": "Microbiologie — Pouvoir pathogène et TIAC",
+  "questions": [
+    {
+      "id": "sa-pt-001",
+      "category": "Relations avec l'hôte",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que décrit le commensalisme ?",
+      "choices": [
+        {
+          "text": "Une destruction de tous les microbes de l'hôte",
+          "correct": false
+        },
+        {
+          "text": "Une infection toujours mortelle",
+          "correct": false
+        },
+        {
+          "text": "Une vie associée à l'hôte sans trouble pour celui-ci",
+          "correct": true
+        },
+        {
+          "text": "Une multiplication uniquement dans le sol",
+          "correct": false
+        }
+      ],
+      "explanation": "Une relation commensale ne provoque pas de dommage dans les conditions considérées.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 21 — Relations avec l'hôte"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-002",
+      "category": "Relations avec l'hôte",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que signifie « pathogène opportuniste » ?",
+      "choices": [
+        {
+          "text": "Pouvant provoquer une maladie lorsque certaines conditions favorables apparaissent",
+          "correct": true
+        },
+        {
+          "text": "Provoquant une maladie chez toute personne exposée",
+          "correct": false
+        },
+        {
+          "text": "Ne possédant aucun matériel génétique",
+          "correct": false
+        },
+        {
+          "text": "Ne provoquant jamais de maladie",
+          "correct": false
+        }
+      ],
+      "explanation": "Une fragilisation des défenses peut permettre à un micro-organisme habituellement toléré de provoquer une maladie.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 21 — Relations avec l'hôte"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-003",
+      "category": "Relations avec l'hôte",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Pourquoi un porteur sain peut-il contaminer un aliment ?",
+      "choices": [
+        {
+          "text": "L'absence de symptômes prouve sa stérilité",
+          "correct": false
+        },
+        {
+          "text": "Seules les personnes fiévreuses portent des bactéries",
+          "correct": false
+        },
+        {
+          "text": "Il peut héberger un germe sans présenter de symptômes",
+          "correct": true
+        },
+        {
+          "text": "Les germes quittent toujours le corps avant les symptômes",
+          "correct": false
+        }
+      ],
+      "explanation": "L'hygiène des mains reste nécessaire même en l'absence de maladie apparente.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 21 — Relations avec l'hôte"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-004",
+      "category": "Invasion",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quoi correspond le pouvoir invasif d'une bactérie ?",
+      "choices": [
+        {
+          "text": "À sa capacité à pénétrer et à se multiplier dans les tissus de l'hôte",
+          "correct": true
+        },
+        {
+          "text": "À sa capacité exclusive à produire du CO₂ dans le pain",
+          "correct": false
+        },
+        {
+          "text": "À la couleur obtenue au Gram",
+          "correct": false
+        },
+        {
+          "text": "À la quantité de sel d'une denrée",
+          "correct": false
+        }
+      ],
+      "explanation": "Adhésion, franchissement des barrières et résistance aux défenses contribuent au pouvoir invasif.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 21 — Invasion"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-005",
+      "category": "Défenses",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel élément constitue une barrière mécanique de l'hôte ?",
+      "choices": [
+        {
+          "text": "Un plasmide bactérien",
+          "correct": false
+        },
+        {
+          "text": "Une entérotoxine",
+          "correct": false
+        },
+        {
+          "text": "La peau intacte",
+          "correct": true
+        },
+        {
+          "text": "Une endospore",
+          "correct": false
+        }
+      ],
+      "explanation": "La peau et les muqueuses contribuent aux défenses, avec les sécrétions, le microbiote et le système immunitaire.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 21 — Défenses"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-006",
+      "category": "Toxines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qu'est-ce qu'une intoxination alimentaire au sens du cours ?",
+      "choices": [
+        {
+          "text": "Une maladie due à une toxine déjà présente dans l'aliment ingéré",
+          "correct": true
+        },
+        {
+          "text": "Une carence en dioxygène de l'aliment",
+          "correct": false
+        },
+        {
+          "text": "Une multiplication des virus dans une boîte de conserve",
+          "correct": false
+        },
+        {
+          "text": "Une allergie à toute protéine animale",
+          "correct": false
+        }
+      ],
+      "explanation": "La toxine préformée peut rester dangereuse même lorsque la bactérie productrice n'est plus viable.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 22 — Toxines"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-007",
+      "category": "Toxines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans une toxi-infection au sens mécanistique du cours, où les toxines sont-elles produites ?",
+      "choices": [
+        {
+          "text": "Jamais par un micro-organisme",
+          "correct": false
+        },
+        {
+          "text": "Uniquement dans l'emballage vide",
+          "correct": false
+        },
+        {
+          "text": "Dans l'organisme après ingestion des bactéries vivantes",
+          "correct": true
+        },
+        {
+          "text": "Uniquement dans le sol avant récolte",
+          "correct": false
+        }
+      ],
+      "explanation": "Le mécanisme se distingue de l'ingestion d'une toxine déjà préformée dans la denrée.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 22 — Toxines"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-008",
+      "category": "Toxines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est la nature du LPS associé aux endotoxines des Gram négatif ?",
+      "choices": [
+        {
+          "text": "Un organite de levure",
+          "correct": false
+        },
+        {
+          "text": "Un sucre propre aux fruits",
+          "correct": false
+        },
+        {
+          "text": "Un lipopolysaccharide de leur membrane externe",
+          "correct": true
+        },
+        {
+          "text": "Un anticorps de l'hôte",
+          "correct": false
+        }
+      ],
+      "explanation": "La partie lipidique A du LPS est responsable de son activité endotoxinique.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 22 — Toxines"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-009",
+      "category": "Toxines",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel système une neurotoxine cible-t-elle principalement ?",
+      "choices": [
+        {
+          "text": "La fermentation du lait",
+          "correct": false
+        },
+        {
+          "text": "La conservation des vitamines",
+          "correct": false
+        },
+        {
+          "text": "Le système nerveux",
+          "correct": true
+        },
+        {
+          "text": "La coloration de la paroi",
+          "correct": false
+        }
+      ],
+      "explanation": "Les toxines botulique et tétanique sont des exemples de neurotoxines.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 22 — Toxines"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-010",
+      "category": "Toxines",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Une entérotoxine agit principalement sur quel appareil ?",
+      "choices": [
+        {
+          "text": "La paroi végétale",
+          "correct": false
+        },
+        {
+          "text": "L'appareil digestif",
+          "correct": true
+        },
+        {
+          "text": "L'appareil auditif",
+          "correct": false
+        },
+        {
+          "text": "Le noyau d'une levure uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Les entérotoxines perturbent notamment le fonctionnement intestinal.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 22 — Toxines"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-011",
+      "category": "Thermorésistance",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi réchauffer un plat contaminé par S. aureus ne suffit-il pas toujours à le sécuriser ?",
+      "choices": [
+        {
+          "text": "La chaleur crée obligatoirement des spores de staphylocoque",
+          "correct": false
+        },
+        {
+          "text": "Le staphylocoque est toujours un virus",
+          "correct": false
+        },
+        {
+          "text": "Ses entérotoxines peuvent résister à la chaleur",
+          "correct": true
+        },
+        {
+          "text": "Toute toxine disparaît au-dessus de +40 °C",
+          "correct": false
+        }
+      ],
+      "explanation": "La destruction des bactéries et l'inactivation des toxines sont deux objectifs différents.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 22 — Thermorésistance"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-012",
+      "category": "Neurotoxines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel effet caractérise la toxine botulique dans le cours ?",
+      "choices": [
+        {
+          "text": "Une augmentation de la teneur en calcium des muscles",
+          "correct": false
+        },
+        {
+          "text": "Un blocage de la transmission neuromusculaire entraînant une paralysie flasque",
+          "correct": true
+        },
+        {
+          "text": "Une fermentation du lactose",
+          "correct": false
+        },
+        {
+          "text": "Une coloration violette de la peau",
+          "correct": false
+        }
+      ],
+      "explanation": "La toxine botulique empêche la commande normale de la contraction musculaire.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 23 — Neurotoxines"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-013",
+      "category": "Doses",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que signifie DL50 dans une étude toxicologique ?",
+      "choices": [
+        {
+          "text": "Le nombre maximal de bactéries autorisé dans toute denrée",
+          "correct": false
+        },
+        {
+          "text": "Une dose entraînant la mort de 50 % du groupe étudié dans les conditions de l'essai",
+          "correct": true
+        },
+        {
+          "text": "La dose recommandée pour la moitié des repas",
+          "correct": false
+        },
+        {
+          "text": "La température tuant 50 % des bactéries en une minute",
+          "correct": false
+        }
+      ],
+      "explanation": "Cette mesure dépend du protocole, de l'espèce et de la voie d'exposition ; ce n'est pas une dose sûre.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 23 — Doses"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-014",
+      "category": "TIAC",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel ensemble de faits évoque une TIAC selon la définition de surveillance ?",
+      "choices": [
+        {
+          "text": "Deux maladies sans aucun lien alimentaire possible",
+          "correct": false
+        },
+        {
+          "text": "La présence de levures dans une pâte à pain",
+          "correct": false
+        },
+        {
+          "text": "Une seule assiette présentant une mauvaise couleur",
+          "correct": false
+        },
+        {
+          "text": "Au moins deux cas similaires pouvant être reliés à une même origine alimentaire",
+          "correct": true
+        }
+      ],
+      "explanation": "Une TIAC correspond à des cas groupés de symptômes similaires, généralement digestifs, rattachables à une origine alimentaire commune.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 23 — TIAC"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-015",
+      "category": "TIAC",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Une TIAC suspectée doit-elle être signalée aux autorités sanitaires compétentes ?",
+      "choices": [
+        {
+          "text": "Non, si aucun résultat de laboratoire n'est encore disponible",
+          "correct": false
+        },
+        {
+          "text": "Oui, les TIAC font l'objet d'une déclaration obligatoire",
+          "correct": true
+        },
+        {
+          "text": "Non, uniquement après publication d'une étude scientifique",
+          "correct": false
+        },
+        {
+          "text": "Seulement si tous les convives sont hospitalisés",
+          "correct": false
+        }
+      ],
+      "explanation": "La suspicion doit déclencher l'alerte et l'application des procédures de l'établissement, sans attendre une confirmation microbiologique.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 23 — TIAC"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-016",
+      "category": "Prévention",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel couple aliment-situation est classiquement associé au risque Bacillus cereus dans le cours ?",
+      "choices": [
+        {
+          "text": "Huile pure conservée fermée",
+          "correct": false
+        },
+        {
+          "text": "Riz cuit maintenu tiède trop longtemps",
+          "correct": true
+        },
+        {
+          "text": "Eau stérile dans son emballage intact",
+          "correct": false
+        },
+        {
+          "text": "Sel sec récemment conditionné",
+          "correct": false
+        }
+      ],
+      "explanation": "Des spores peuvent survivre à la cuisson de féculents, puis germer si la conservation est mal maîtrisée.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 23 — Prévention"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-017",
+      "category": "Prévention",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel risque doit être maîtrisé lors de la préparation de volailles crues puis d'aliments prêts à consommer ?",
+      "choices": [
+        {
+          "text": "La disparition du calcium sous l'effet du froid",
+          "correct": false
+        },
+        {
+          "text": "La contamination croisée par les mains ou les ustensiles",
+          "correct": true
+        },
+        {
+          "text": "La création d'une AOP",
+          "correct": false
+        },
+        {
+          "text": "La transformation du poulet en levure",
+          "correct": false
+        }
+      ],
+      "explanation": "La séparation des opérations et l'hygiène évitent de transférer des germes du cru vers des denrées prêtes à être consommées.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 23 — Prévention"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-018",
+      "category": "Prévention",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que faire d'une conserve anormalement bombée ?",
+      "choices": [
+        {
+          "text": "La goûter pour vérifier l'absence de toxine",
+          "correct": false
+        },
+        {
+          "text": "L'écarter sans la goûter et suivre la procédure de non-conformité",
+          "correct": true
+        },
+        {
+          "text": "La servir si son odeur paraît normale",
+          "correct": false
+        },
+        {
+          "text": "La réchauffer légèrement puis la refermer",
+          "correct": false
+        }
+      ],
+      "explanation": "Un défaut de conserve impose une mise à l'écart ; l'aspect, l'odeur ou le goût ne permettent pas d'exclure un danger.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 23 — Prévention"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-019",
+      "category": "Interprétation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Peut-on identifier avec certitude le germe responsable d'une TIAC à partir du seul délai d'apparition des symptômes ?",
+      "choices": [
+        {
+          "text": "Oui, chaque germe possède un délai unique à la minute près",
+          "correct": false
+        },
+        {
+          "text": "Oui, tout délai court prouve un virus",
+          "correct": false
+        },
+        {
+          "text": "Oui, tout délai long exclut une origine alimentaire",
+          "correct": false
+        },
+        {
+          "text": "Non, les délais se recouvrent et une investigation est nécessaire",
+          "correct": true
+        }
+      ],
+      "explanation": "Les durées d'incubation orientent l'enquête sans remplacer les données épidémiologiques et microbiologiques.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 23 — Interprétation"
+        }
+      ]
+    },
+    {
+      "id": "sa-pt-020",
+      "category": "Vulnérabilité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Pourquoi les pratiques d'hygiène sont-elles particulièrement importantes en EHPAD ?",
+      "choices": [
+        {
+          "text": "Le froid y stérilise les aliments",
+          "correct": false
+        },
+        {
+          "text": "Les bactéries y perdent toute virulence",
+          "correct": false
+        },
+        {
+          "text": "Les résidents peuvent être plus vulnérables aux infections",
+          "correct": true
+        },
+        {
+          "text": "Les personnes âgées ne peuvent pas être porteuses saines",
+          "correct": false
+        }
+      ],
+      "explanation": "L'âge, l'état de santé et les défenses de l'hôte influencent la gravité du risque infectieux.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 21-23 — Vulnérabilité"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "document": "Cours Le monde microbien bacteries.pdf"
+    },
+    {
+      "document": "Cours Le monde microbien bacteries.docx"
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "references": [
+      "https://www.santepubliquefrance.fr/toxi-infections-alimentaires-collectives/donnees"
+    ]
+  }
+}

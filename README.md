@@ -1,6 +1,6 @@
 # QCM BTS Diététique
 
-Application statique de révision : **23 banques, 886 questions**, regroupées par
+Application statique de révision : **33 banques, 1 135 questions**, regroupées par
 matière, chapitre et difficulté. Aucun compte ni serveur de données n'est nécessaire.
 
 ## Utiliser l'application
@@ -61,6 +61,13 @@ migrées lors de leur prochaine écriture. Les anciennes propriétés du minuteu
 sont ignorées sans invalider la progression. Un échec réseau de reprise conserve
 la sauvegarde. En local, la série sauvegardée et « Revoir mes erreurs » fonctionnent
 sans réimport ; la révision d'un **thème complet** nécessite de recharger les banques.
+
+## Couverture des cours
+
+Les quatre matières sont **BPADN**, **Alimentation - Nutrition**, **Santé publique**
+et **Sécurité alimentaire**. Les supports complémentaires des enseignants
+enrichissent les matières existantes. Le [classement des cours et les vérifications](docs/CLASSEMENT_COURS.md)
+détaille les ajouts, les doublons regroupés et les précautions pédagogiques.
 
 ## Développer et publier
 

@@ -1,0 +1,720 @@
+{
+  "version": 1,
+  "title": "Microbiologie — Le monde microbien et la structure bactérienne",
+  "subject": "Sécurité alimentaire",
+  "chapter": "Microbiologie — Le monde microbien et la structure bactérienne",
+  "questions": [
+    {
+      "id": "sa-ms-001",
+      "category": "Diversité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle distinction cellulaire sépare une bactérie d'une levure ?",
+      "choices": [
+        {
+          "text": "Les deux possèdent un noyau délimité",
+          "correct": false
+        },
+        {
+          "text": "La bactérie est procaryote et la levure eucaryote",
+          "correct": true
+        },
+        {
+          "text": "La levure est un virus",
+          "correct": false
+        },
+        {
+          "text": "La bactérie est eucaryote et la levure procaryote",
+          "correct": false
+        }
+      ],
+      "explanation": "La bactérie ne possède pas de noyau délimité par une enveloppe, contrairement à la levure.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 2 — Diversité"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-002",
+      "category": "Diversité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Pourquoi les virus ont-ils besoin d'une cellule hôte pour se multiplier ?",
+      "choices": [
+        {
+          "text": "Ils utilisent la machinerie de cette cellule",
+          "correct": true
+        },
+        {
+          "text": "Ils se divisent par scissiparité dans l'eau",
+          "correct": false
+        },
+        {
+          "text": "Ils réalisent seuls toutes les synthèses dans l'aliment",
+          "correct": false
+        },
+        {
+          "text": "Le sel leur fournit un noyau",
+          "correct": false
+        }
+      ],
+      "explanation": "Les virus sont acellulaires : ils ne se multiplient pas de façon autonome dans une denrée.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 2 — Diversité"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-003",
+      "category": "Diversité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle proposition décrit la diversité des microbes alimentaires ?",
+      "choices": [
+        {
+          "text": "Tous sont visibles individuellement à l'œil nu",
+          "correct": false
+        },
+        {
+          "text": "Tous provoquent une maladie",
+          "correct": false
+        },
+        {
+          "text": "Certains sont utiles, d'autres altèrent les aliments ou sont pathogènes",
+          "correct": true
+        },
+        {
+          "text": "Tous sont nécessaires à la fabrication du pain",
+          "correct": false
+        }
+      ],
+      "explanation": "Fermentations, altération et pouvoir pathogène correspondent à des situations différentes.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 2 — Diversité"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-004",
+      "category": "Classification",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que représente un nœud dans un arbre phylogénétique ?",
+      "choices": [
+        {
+          "text": "Un groupe de bactéries nécessairement pathogènes",
+          "correct": false
+        },
+        {
+          "text": "Une température de conservation",
+          "correct": false
+        },
+        {
+          "text": "Un ancêtre commun aux lignées qui en dérivent",
+          "correct": true
+        },
+        {
+          "text": "Le nombre de chromosomes d'une cellule",
+          "correct": false
+        }
+      ],
+      "explanation": "La phylogénie représente les relations de parenté, notamment étudiées par les caractères moléculaires.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 3 — Classification"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-005",
+      "category": "Classification",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quels sont les trois domaines présentés dans le cours ?",
+      "choices": [
+        {
+          "text": "Animaux, aliments et minéraux",
+          "correct": false
+        },
+        {
+          "text": "Virus, antibiotiques et champignons",
+          "correct": false
+        },
+        {
+          "text": "Bactéries, Archées et Eucaryotes",
+          "correct": true
+        },
+        {
+          "text": "Bacilles, coques et toxines",
+          "correct": false
+        }
+      ],
+      "explanation": "Les archées et les bactéries sont procaryotes ; les eucaryotes possèdent un noyau.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 3 — Classification"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-006",
+      "category": "Morphologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quelle forme correspond un bacille ?",
+      "choices": [
+        {
+          "text": "Un bâtonnet",
+          "correct": true
+        },
+        {
+          "text": "Un filament de moisissure uniquement",
+          "correct": false
+        },
+        {
+          "text": "Un amas de virus",
+          "correct": false
+        },
+        {
+          "text": "Une sphère",
+          "correct": false
+        }
+      ],
+      "explanation": "La forme en bâtonnet est dite bacillaire ; les coques ont une forme sphérique.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 5 — Morphologie"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-007",
+      "category": "Morphologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel ordre de grandeur convient à la taille d'une bactérie courante ?",
+      "choices": [
+        {
+          "text": "Le mètre",
+          "correct": false
+        },
+        {
+          "text": "Le décimètre",
+          "correct": false
+        },
+        {
+          "text": "Le centimètre",
+          "correct": false
+        },
+        {
+          "text": "Le micromètre",
+          "correct": true
+        }
+      ],
+      "explanation": "Les bactéries courantes mesurent environ 0,5 à 5 µm, avec des variations selon les espèces.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 5 — Morphologie"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-008",
+      "category": "Biofilm",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi un biofilm complique-t-il l'hygiène des équipements ?",
+      "choices": [
+        {
+          "text": "Des microbes adhèrent à la surface au sein d'une matrice protectrice",
+          "correct": true
+        },
+        {
+          "text": "Il transforme toutes les bactéries en virus",
+          "correct": false
+        },
+        {
+          "text": "Il rend la surface automatiquement stérile",
+          "correct": false
+        },
+        {
+          "text": "Il supprime les nutriments de l'environnement",
+          "correct": false
+        }
+      ],
+      "explanation": "L'adhésion et la matrice du biofilm rendent son élimination plus difficile qu'un simple rinçage.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 5 — Biofilm"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-009",
+      "category": "Structures",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle structure bactérienne réalise la synthèse des protéines ?",
+      "choices": [
+        {
+          "text": "Le plasmide seul",
+          "correct": false
+        },
+        {
+          "text": "Le flagelle",
+          "correct": false
+        },
+        {
+          "text": "La capsule",
+          "correct": false
+        },
+        {
+          "text": "Les ribosomes",
+          "correct": true
+        }
+      ],
+      "explanation": "Les ribosomes assemblent les acides aminés en protéines à partir de l'information portée par l'ARN.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 6 — Structures"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-010",
+      "category": "Structures",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Où se situe le chromosome d'une bactérie typique ?",
+      "choices": [
+        {
+          "text": "Dans une mitochondrie",
+          "correct": false
+        },
+        {
+          "text": "Dans un noyau entouré d'une enveloppe",
+          "correct": false
+        },
+        {
+          "text": "Dans une région du cytoplasme appelée nucléoïde",
+          "correct": true
+        },
+        {
+          "text": "Dans le flagelle",
+          "correct": false
+        }
+      ],
+      "explanation": "Le nucléoïde contient l'ADN chromosomique sans enveloppe nucléaire.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 6 — Structures"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-011",
+      "category": "Structures",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est le rôle majeur de la membrane plasmique bactérienne ?",
+      "choices": [
+        {
+          "text": "Remplacer l'ADN chromosomique",
+          "correct": false
+        },
+        {
+          "text": "Assurer exclusivement la locomotion",
+          "correct": false
+        },
+        {
+          "text": "Contrôler les échanges entre la cellule et son milieu",
+          "correct": true
+        },
+        {
+          "text": "Produire les anticorps de l'hôte",
+          "correct": false
+        }
+      ],
+      "explanation": "La membrane délimite la cellule et intervient dans les transports et le métabolisme énergétique.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 6 — Structures"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-012",
+      "category": "Structures",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel constituant caractérise la paroi de nombreuses bactéries ?",
+      "choices": [
+        {
+          "text": "L'hémoglobine",
+          "correct": false
+        },
+        {
+          "text": "Le peptidoglycane",
+          "correct": true
+        },
+        {
+          "text": "La cellulose uniquement",
+          "correct": false
+        },
+        {
+          "text": "Le glycogène uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le peptidoglycane associe des chaînes glucidiques et des peptides et contribue à la rigidité de la paroi.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 6 — Structures"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-013",
+      "category": "Structures",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle structure permet la mobilité de certaines bactéries ?",
+      "choices": [
+        {
+          "text": "Le ribosome",
+          "correct": false
+        },
+        {
+          "text": "Le flagelle",
+          "correct": true
+        },
+        {
+          "text": "La capsule seule",
+          "correct": false
+        },
+        {
+          "text": "Le nucléoïde",
+          "correct": false
+        }
+      ],
+      "explanation": "Les flagelles sont des appendices impliqués dans le déplacement de nombreuses bactéries mobiles.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 6 — Structures"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-014",
+      "category": "Structures",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel rôle peut jouer une capsule bactérienne dans la virulence ?",
+      "choices": [
+        {
+          "text": "Limiter la phagocytose par les cellules de défense",
+          "correct": true
+        },
+        {
+          "text": "Détruire tous les antibiotiques du milieu",
+          "correct": false
+        },
+        {
+          "text": "Empêcher toute adhésion à une surface",
+          "correct": false
+        },
+        {
+          "text": "Créer un noyau eucaryote",
+          "correct": false
+        }
+      ],
+      "explanation": "La capsule peut protéger la bactérie contre les défenses de l'hôte ; elle n'est pas présente chez toutes les bactéries.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 6 — Structures"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-015",
+      "category": "Structures",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qu'est-ce qu'un plasmide bactérien ?",
+      "choices": [
+        {
+          "text": "Une toxine obligatoirement présente",
+          "correct": false
+        },
+        {
+          "text": "Un ribosome agrandi",
+          "correct": false
+        },
+        {
+          "text": "Une molécule d'ADN distincte du chromosome pouvant porter des gènes supplémentaires",
+          "correct": true
+        },
+        {
+          "text": "Un organite de respiration entouré d'une membrane",
+          "correct": false
+        }
+      ],
+      "explanation": "Certains plasmides portent des gènes de résistance ou de virulence et peuvent être transmis entre bactéries.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 6 — Structures"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-016",
+      "category": "Structures",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle fonction distingue les fimbriae des flagelles ?",
+      "choices": [
+        {
+          "text": "Les fimbriae assurent toujours la photosynthèse",
+          "correct": false
+        },
+        {
+          "text": "Les fimbriae participent surtout à l'adhésion",
+          "correct": true
+        },
+        {
+          "text": "Les fimbriae stockent tout l'ADN chromosomique",
+          "correct": false
+        },
+        {
+          "text": "Les fimbriae produisent des anticorps",
+          "correct": false
+        }
+      ],
+      "explanation": "Les fimbriae permettent notamment la fixation aux surfaces ou aux cellules de l'hôte.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 6 — Structures"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-017",
+      "category": "Structures",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel phénomène permet un transfert d'ADN par contact entre bactéries ?",
+      "choices": [
+        {
+          "text": "La conjugaison",
+          "correct": true
+        },
+        {
+          "text": "La phagocytose",
+          "correct": false
+        },
+        {
+          "text": "La pasteurisation",
+          "correct": false
+        },
+        {
+          "text": "La sporulation",
+          "correct": false
+        }
+      ],
+      "explanation": "Un pilus de conjugaison peut participer au transfert d'ADN entre une bactérie donneuse et une receveuse.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 6 — Structures"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-018",
+      "category": "Gram",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Après une coloration de Gram correctement réalisée, quelle couleur ont les Gram positifs ?",
+      "choices": [
+        {
+          "text": "Rose",
+          "correct": false
+        },
+        {
+          "text": "Verte",
+          "correct": false
+        },
+        {
+          "text": "Incolore systématiquement",
+          "correct": false
+        },
+        {
+          "text": "Violette",
+          "correct": true
+        }
+      ],
+      "explanation": "Les Gram positifs retiennent le complexe violet-lugol lors de la décoloration.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 7 — Gram"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-019",
+      "category": "Gram",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle structure distingue classiquement les bactéries Gram négatif ?",
+      "choices": [
+        {
+          "text": "Une membrane externe contenant des lipopolysaccharides",
+          "correct": true
+        },
+        {
+          "text": "Une paroi constituée uniquement de cellulose",
+          "correct": false
+        },
+        {
+          "text": "Des mitochondries respiratoires",
+          "correct": false
+        },
+        {
+          "text": "Un noyau contenant le chromosome",
+          "correct": false
+        }
+      ],
+      "explanation": "Les Gram négatif possèdent une couche mince de peptidoglycane et une membrane externe contenant du LPS.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 7 — Gram"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-020",
+      "category": "Gram",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans la coloration de Gram, quel réactif intervient lors de la décoloration ?",
+      "choices": [
+        {
+          "text": "L'alcool",
+          "correct": true
+        },
+        {
+          "text": "Le chlorure de sodium seul",
+          "correct": false
+        },
+        {
+          "text": "Le glucose",
+          "correct": false
+        },
+        {
+          "text": "L'amidon",
+          "correct": false
+        }
+      ],
+      "explanation": "Après le violet et le lugol, l'alcool décolore les Gram négatif avant la contre-coloration rose.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 6-7 — Gram"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-021",
+      "category": "Gram",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel couple associe correctement une bactérie à son groupe de Gram ?",
+      "choices": [
+        {
+          "text": "Salmonella : Gram négatif",
+          "correct": true
+        },
+        {
+          "text": "Escherichia coli : Gram positif",
+          "correct": false
+        },
+        {
+          "text": "Staphylococcus aureus : Gram négatif",
+          "correct": false
+        },
+        {
+          "text": "Listeria : Gram négatif",
+          "correct": false
+        }
+      ],
+      "explanation": "Salmonella et E. coli sont Gram négatif ; Listeria et Staphylococcus sont Gram positif.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 7 — Gram"
+        }
+      ]
+    },
+    {
+      "id": "sa-ms-022",
+      "category": "p. 2 et 7 — Interprétation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "La coloration de Gram suffit-elle à conclure qu'une bactérie est dangereuse ?",
+      "choices": [
+        {
+          "text": "Oui, toutes les Gram positives sont inoffensives",
+          "correct": false
+        },
+        {
+          "text": "Non, elle renseigne sur sa structure, pas à elle seule sur sa pathogénicité",
+          "correct": true
+        },
+        {
+          "text": "Oui, rose signifie absence de toxines",
+          "correct": false
+        },
+        {
+          "text": "Oui, toutes les Gram négatives sont utiles",
+          "correct": false
+        }
+      ],
+      "explanation": "Des espèces utiles et pathogènes existent dans les deux groupes ; une identification et un contexte sont nécessaires.",
+      "sourceRefs": [
+        {
+          "document": "Cours Le monde microbien bacteries.pdf",
+          "section": "p. 2 et 7 — Interprétation"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "document": "Cours Le monde microbien bacteries.pdf"
+    },
+    {
+      "document": "Cours Le monde microbien bacteries.docx"
+    }
+  ]
+}

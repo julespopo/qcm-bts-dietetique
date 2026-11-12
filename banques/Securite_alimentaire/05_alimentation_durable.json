@@ -1,0 +1,723 @@
+{
+  "version": 1,
+  "title": "Alimentation durable — Enjeux, systèmes et outils",
+  "subject": "Sécurité alimentaire",
+  "chapter": "Alimentation durable — Enjeux, systèmes et outils",
+  "questions": [
+    {
+      "id": "sa-ad-001",
+      "category": "Trois piliers",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quels piliers doivent être articulés dans une démarche de développement durable ?",
+      "choices": [
+        {
+          "text": "Environnemental, économique et social",
+          "correct": true
+        },
+        {
+          "text": "Visuel, gustatif et sonore uniquement",
+          "correct": false
+        },
+        {
+          "text": "Énergétique, glucidique et lipidique uniquement",
+          "correct": false
+        },
+        {
+          "text": "Transport, emballage et publicité uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "La durabilité associe préservation des ressources, viabilité économique et justice sociale.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "1 — Trois piliers"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-002",
+      "category": "Ressources",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quelle condition une ressource renouvelable peut-elle être préservée ?",
+      "choices": [
+        {
+          "text": "Elle n'a besoin d'aucun suivi",
+          "correct": false
+        },
+        {
+          "text": "Elle peut être prélevée sans limite",
+          "correct": false
+        },
+        {
+          "text": "Les prélèvements doivent rester compatibles avec son renouvellement",
+          "correct": true
+        },
+        {
+          "text": "Elle doit être consommée uniquement hors saison",
+          "correct": false
+        }
+      ],
+      "explanation": "Une ressource renouvelable peut être épuisée si elle est exploitée plus vite qu'elle ne se régénère.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "1 — Ressources"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-003",
+      "category": "Agenda 2030",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien d'Objectifs de développement durable composent l'Agenda 2030 ?",
+      "choices": [
+        {
+          "text": "100",
+          "correct": false
+        },
+        {
+          "text": "50",
+          "correct": false
+        },
+        {
+          "text": "3",
+          "correct": false
+        },
+        {
+          "text": "17",
+          "correct": true
+        }
+      ],
+      "explanation": "L'Agenda 2030 organise les engagements internationaux autour de 17 ODD complémentaires.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "2 — Agenda 2030"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-004",
+      "category": "ODD 2",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel objectif correspond à l'ODD 2 ?",
+      "choices": [
+        {
+          "text": "Éliminer la faim, améliorer la nutrition et promouvoir une agriculture durable",
+          "correct": true
+        },
+        {
+          "text": "Réserver les aliments de qualité aux ménages aisés",
+          "correct": false
+        },
+        {
+          "text": "Traiter uniquement le recyclage du plastique",
+          "correct": false
+        },
+        {
+          "text": "Supprimer tout commerce alimentaire",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ODD 2 relie accès à l'alimentation, sécurité alimentaire, nutrition et durabilité agricole.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "3 — ODD 2"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-005",
+      "category": "ODD 12",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quel ODD se rattache directement la consommation et la production responsables ?",
+      "choices": [
+        {
+          "text": "ODD 16",
+          "correct": false
+        },
+        {
+          "text": "ODD 7",
+          "correct": false
+        },
+        {
+          "text": "ODD 12",
+          "correct": true
+        },
+        {
+          "text": "ODD 4",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ODD 12 concerne notamment l'utilisation des ressources et la réduction des pertes et gaspillages.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "2 — ODD 12"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-006",
+      "category": "Sécurité alimentaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quels sont les quatre piliers de la sécurité alimentaire présentés dans le cours ?",
+      "choices": [
+        {
+          "text": "Goût, couleur, prix et publicité",
+          "correct": false
+        },
+        {
+          "text": "Cuisson, congélation, découpe et épluchage",
+          "correct": false
+        },
+        {
+          "text": "Protéines, lipides, glucides et fibres",
+          "correct": false
+        },
+        {
+          "text": "Disponibilité, accès, utilisation et stabilité",
+          "correct": true
+        }
+      ],
+      "explanation": "La sécurité alimentaire est plus large que la seule absence de danger sanitaire dans une denrée.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "3 — Sécurité alimentaire"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-007",
+      "category": "Accès",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un territoire dispose de nourriture, mais certains ménages ne peuvent pas l'acheter. Quel pilier est directement en difficulté ?",
+      "choices": [
+        {
+          "text": "La coloration de Gram",
+          "correct": false
+        },
+        {
+          "text": "La stérilisation des conserves",
+          "correct": false
+        },
+        {
+          "text": "L'accès économique à l'alimentation",
+          "correct": true
+        },
+        {
+          "text": "La disponibilité physique nécessairement absente",
+          "correct": false
+        }
+      ],
+      "explanation": "La présence de denrées ne garantit pas que tous puissent y accéder financièrement.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "3 — Accès"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-008",
+      "category": "Stabilité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel exemple illustre une atteinte à la stabilité de la sécurité alimentaire ?",
+      "choices": [
+        {
+          "text": "Un accès régulier à une offre suffisante",
+          "correct": false
+        },
+        {
+          "text": "Une diversification fiable des fournisseurs",
+          "correct": false
+        },
+        {
+          "text": "Des ruptures répétées d'approvisionnement au cours de l'année",
+          "correct": true
+        },
+        {
+          "text": "Une amélioration durable du revenu des ménages",
+          "correct": false
+        }
+      ],
+      "explanation": "La stabilité concerne la continuité dans le temps de la disponibilité, de l'accès et de l'utilisation des denrées.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "3 — Stabilité"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-009",
+      "category": "Alimentation durable",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Pourquoi l'accessibilité financière fait-elle partie de l'alimentation durable ?",
+      "choices": [
+        {
+          "text": "Une offre durable doit pouvoir répondre aux besoins de tous",
+          "correct": true
+        },
+        {
+          "text": "Le prix suffit à mesurer la sécurité sanitaire",
+          "correct": false
+        },
+        {
+          "text": "La durabilité exclut les enjeux sociaux",
+          "correct": false
+        },
+        {
+          "text": "Un aliment cher est toujours plus nutritif",
+          "correct": false
+        }
+      ],
+      "explanation": "Les dimensions nutritionnelles, environnementales, économiques et socioculturelles doivent être combinées.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "5 — Alimentation durable"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-010",
+      "category": "Alimentation durable",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un menu équilibré nutritionnellement est-il automatiquement durable ?",
+      "choices": [
+        {
+          "text": "Oui, s'il contient au moins un label privé",
+          "correct": false
+        },
+        {
+          "text": "Oui, les nutriments résument tous les impacts",
+          "correct": false
+        },
+        {
+          "text": "Non, ses impacts environnementaux et sociaux doivent aussi être examinés",
+          "correct": true
+        },
+        {
+          "text": "Oui, si son emballage est vert",
+          "correct": false
+        }
+      ],
+      "explanation": "La qualité nutritionnelle est nécessaire mais ne décrit pas à elle seule l'ensemble des critères de durabilité.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "5 — Alimentation durable"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-011",
+      "category": "Acceptabilité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi tenir compte des habitudes culturelles lors de la conception d'une offre durable ?",
+      "choices": [
+        {
+          "text": "Pour supprimer toute diversification",
+          "correct": false
+        },
+        {
+          "text": "Pour favoriser une alimentation acceptable et effectivement consommée",
+          "correct": true
+        },
+        {
+          "text": "Pour privilégier systématiquement le produit le plus cher",
+          "correct": false
+        },
+        {
+          "text": "Pour éviter toute évaluation nutritionnelle",
+          "correct": false
+        }
+      ],
+      "explanation": "L'acceptabilité socioculturelle fait partie des critères d'un régime alimentaire durable.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "5 — Acceptabilité"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-012",
+      "category": "Systèmes alimentaires",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles étapes entrent dans un système alimentaire ?",
+      "choices": [
+        {
+          "text": "Uniquement la digestion humaine",
+          "correct": false
+        },
+        {
+          "text": "Uniquement l'élevage",
+          "correct": false
+        },
+        {
+          "text": "Production, transformation, distribution, consommation et gestion des déchets",
+          "correct": true
+        },
+        {
+          "text": "Uniquement le passage en caisse",
+          "correct": false
+        }
+      ],
+      "explanation": "Le système alimentaire comprend les acteurs et les activités de l'amont agricole jusqu'à la gestion des déchets.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "6 — Systèmes alimentaires"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-013",
+      "category": "Impacts",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi la distance parcourue ne suffit-elle pas à comparer deux aliments sur le plan environnemental ?",
+      "choices": [
+        {
+          "text": "La production, le stockage et le mode de transport comptent aussi",
+          "correct": true
+        },
+        {
+          "text": "Seul l'emballage détermine l'impact",
+          "correct": false
+        },
+        {
+          "text": "Tous les transports émettent exactement la même quantité de gaz à effet de serre",
+          "correct": false
+        },
+        {
+          "text": "Un aliment local n'utilise aucune énergie",
+          "correct": false
+        }
+      ],
+      "explanation": "La comparaison doit considérer plusieurs étapes du cycle de vie, et pas seulement les kilomètres.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "6 — Impacts"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-014",
+      "category": "ACV",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que cherche à évaluer une analyse du cycle de vie d'un aliment ?",
+      "choices": [
+        {
+          "text": "Ses impacts environnementaux sur les différentes étapes de son existence",
+          "correct": true
+        },
+        {
+          "text": "Uniquement sa teneur en sucre",
+          "correct": false
+        },
+        {
+          "text": "Uniquement le temps passé dans l'assiette",
+          "correct": false
+        },
+        {
+          "text": "La généalogie de tous les producteurs",
+          "correct": false
+        }
+      ],
+      "explanation": "L'ACV prend en compte un périmètre allant des ressources et de la production à la fin de vie.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "6 — ACV"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-015",
+      "category": "AGRIBALYSE",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi sert principalement la base AGRIBALYSE ?",
+      "choices": [
+        {
+          "text": "À diagnostiquer une TIAC individuelle",
+          "correct": false
+        },
+        {
+          "text": "À fournir des données d'impacts environnementaux des produits agricoles et alimentaires",
+          "correct": true
+        },
+        {
+          "text": "À calculer la valeur biologique d'une protéine",
+          "correct": false
+        },
+        {
+          "text": "À délivrer un label d'origine",
+          "correct": false
+        }
+      ],
+      "explanation": "AGRIBALYSE fournit des données d'ACV ; ce n'est pas un label certifiant un produit particulier.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "6 — AGRIBALYSE"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-016",
+      "category": "PEF",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est l'intérêt de la méthode européenne PEF ?",
+      "choices": [
+        {
+          "text": "Définir les menus médicaux individuels",
+          "correct": false
+        },
+        {
+          "text": "Harmoniser l'évaluation de l'empreinte environnementale des produits",
+          "correct": true
+        },
+        {
+          "text": "Remplacer toutes les analyses microbiologiques",
+          "correct": false
+        },
+        {
+          "text": "Mesurer uniquement les calories",
+          "correct": false
+        }
+      ],
+      "explanation": "Une méthode commune facilite des comparaisons fondées sur des règles cohérentes.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "6 — PEF"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-017",
+      "category": "Comparaison",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pour comparer deux repas à l'aide de données environnementales, quelle précaution est nécessaire ?",
+      "choices": [
+        {
+          "text": "Ignorer les quantités réellement servies",
+          "correct": false
+        },
+        {
+          "text": "Comparer un kilogramme de l'un à une portion de l'autre sans conversion",
+          "correct": false
+        },
+        {
+          "text": "Additionner directement des litres d'eau et des kilogrammes de CO₂",
+          "correct": false
+        },
+        {
+          "text": "Utiliser des périmètres et des unités comparables",
+          "correct": true
+        }
+      ],
+      "explanation": "Une comparaison exige des unités, des quantités et un périmètre cohérents ; les résultats comportent des limites méthodologiques.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "6 — Comparaison"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-018",
+      "category": "Agroécologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle pratique illustre une approche agroécologique ?",
+      "choices": [
+        {
+          "text": "Ignorer les écosystèmes environnants",
+          "correct": false
+        },
+        {
+          "text": "Épuiser les sols pour maximiser une récolte unique",
+          "correct": false
+        },
+        {
+          "text": "Diversifier les cultures en s'appuyant sur les processus écologiques",
+          "correct": true
+        },
+        {
+          "text": "Supprimer toute rotation par principe",
+          "correct": false
+        }
+      ],
+      "explanation": "L'agroécologie mobilise les interactions biologiques pour concilier production, ressources et résilience.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "6 — Agroécologie"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-019",
+      "category": "PAT",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel rôle peut jouer un projet alimentaire territorial ?",
+      "choices": [
+        {
+          "text": "Imposer un aliment unique à tous les habitants",
+          "correct": false
+        },
+        {
+          "text": "Coordonner les acteurs locaux autour d'un système alimentaire plus durable et accessible",
+          "correct": true
+        },
+        {
+          "text": "Remplacer tout contrôle sanitaire",
+          "correct": false
+        },
+        {
+          "text": "Garantir une AOP à tous les produits locaux",
+          "correct": false
+        }
+      ],
+      "explanation": "Un PAT met en relation collectivités, producteurs, transformateurs, restauration et citoyens.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "6 — PAT"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-020",
+      "category": "Politiques publiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle articulation résume le rôle transversal de la SNANC ?",
+      "choices": [
+        {
+          "text": "Relier les enjeux d'alimentation, de nutrition et de climat",
+          "correct": true
+        },
+        {
+          "text": "Définir la seule couleur des emballages",
+          "correct": false
+        },
+        {
+          "text": "Limiter la politique alimentaire au sport",
+          "correct": false
+        },
+        {
+          "text": "Remplacer la chaîne du froid par un label",
+          "correct": false
+        }
+      ],
+      "explanation": "La coordination de ces dimensions évite de traiter séparément santé, accès à l'alimentation et environnement.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "7 — Politiques publiques"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-021",
+      "category": "Sécurité sanitaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Une démarche de restauration durable permet-elle de réduire les exigences sanitaires ?",
+      "choices": [
+        {
+          "text": "Oui, si le produit est local",
+          "correct": false
+        },
+        {
+          "text": "Oui, si les déchets sont compostés",
+          "correct": false
+        },
+        {
+          "text": "Oui, si le repas est végétarien",
+          "correct": false
+        },
+        {
+          "text": "Non, la maîtrise des dangers sanitaires reste indispensable",
+          "correct": true
+        }
+      ],
+      "explanation": "L'origine, le mode de production ou l'objectif de réduction des déchets ne dispensent pas de garantir la sécurité des repas.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "9 — Sécurité sanitaire"
+        }
+      ]
+    },
+    {
+      "id": "sa-ad-022",
+      "category": "PMS",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel ensemble décrit les éléments du plan de maîtrise sanitaire ?",
+      "choices": [
+        {
+          "text": "Uniquement les menus et les factures d'électricité",
+          "correct": false
+        },
+        {
+          "text": "Bonnes pratiques d'hygiène, procédures fondées sur HACCP et gestion de la traçabilité et des non-conformités",
+          "correct": true
+        },
+        {
+          "text": "Uniquement les affiches de développement durable",
+          "correct": false
+        },
+        {
+          "text": "Uniquement le calendrier des produits de saison",
+          "correct": false
+        }
+      ],
+      "explanation": "Le PMS organise la maîtrise sanitaire ; une politique d'achats durables ne le remplace pas.",
+      "sourceRefs": [
+        {
+          "document": "Développement durable et alimentation durable.docx",
+          "section": "9 — PMS"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "document": "Développement durable et alimentation durable.docx"
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "references": [
+      "https://agriculture.gouv.fr/la-reglementation-sur-lhygiene-des-aliments"
+    ]
+  }
+}

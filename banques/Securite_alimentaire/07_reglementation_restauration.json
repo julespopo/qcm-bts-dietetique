@@ -1,0 +1,476 @@
+{
+  "version": 1,
+  "title": "Restauration collective — Réglementation et achats durables",
+  "subject": "Sécurité alimentaire",
+  "chapter": "Restauration collective — Réglementation et achats durables",
+  "questions": [
+    {
+      "id": "sa-rc-001",
+      "category": "ÉGalim 2 — Relations commerciales",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel objectif distingue particulièrement ÉGalim 2 dans les supports ?",
+      "choices": [
+        {
+          "text": "Définir les index glycémiques de chaque fruit",
+          "correct": false
+        },
+        {
+          "text": "Remplacer les règles d'hygiène",
+          "correct": false
+        },
+        {
+          "text": "Fixer la coloration de Gram",
+          "correct": false
+        },
+        {
+          "text": "Mieux protéger la rémunération des agriculteurs dans les relations commerciales",
+          "correct": true
+        }
+      ],
+      "explanation": "ÉGalim 2 agit notamment sur la construction du prix et la contractualisation dans les filières agricoles et alimentaires.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "ÉGalim 2 — Relations commerciales"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-002",
+      "category": "Achats — Justificatifs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment justifier qu'un achat entre dans une catégorie de produits durables et de qualité ?",
+      "choices": [
+        {
+          "text": "Conserver des documents établissant l'éligibilité du produit",
+          "correct": true
+        },
+        {
+          "text": "Compter tous les produits vendus à proximité comme éligibles",
+          "correct": false
+        },
+        {
+          "text": "Utiliser seulement le nom du fournisseur",
+          "correct": false
+        },
+        {
+          "text": "Se fier uniquement à une couleur verte sur l'emballage",
+          "correct": false
+        }
+      ],
+      "explanation": "Factures, certificats et fiches produits doivent permettre de rattacher les achats aux critères réglementaires applicables.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Achats — Justificatifs"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-003",
+      "category": "Achats — Origine locale",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un produit est acheté à dix kilomètres de la cantine. Est-il automatiquement éligible aux objectifs ÉGalim de qualité et durabilité ?",
+      "choices": [
+        {
+          "text": "Oui, quelle que soit sa production",
+          "correct": false
+        },
+        {
+          "text": "Oui, tout produit local est automatiquement bio",
+          "correct": false
+        },
+        {
+          "text": "Non, son éligibilité doit être établie selon les catégories prévues",
+          "correct": true
+        },
+        {
+          "text": "Oui, si le fournisseur est connu personnellement",
+          "correct": false
+        }
+      ],
+      "explanation": "La proximité ne suffit pas à elle seule à démontrer l'appartenance aux catégories réglementaires.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Achats — Origine locale"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-004",
+      "category": "Achats — Calculs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Sur 40 000 € HT d'achats annuels, 8 800 € HT sont bio. Quelle est la part bio ?",
+      "choices": [
+        {
+          "text": "44 %",
+          "correct": false
+        },
+        {
+          "text": "22 %",
+          "correct": true
+        },
+        {
+          "text": "8,8 %",
+          "correct": false
+        },
+        {
+          "text": "11 %",
+          "correct": false
+        }
+      ],
+      "explanation": "8 800 ÷ 40 000 × 100 = 22 %. On raisonne sur la même période et sur les valeurs d'achat hors taxes.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Achats — Calculs"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-005",
+      "category": "Achats — Calculs",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Une cantine compte 12 000 € de produits éligibles, dont 5 000 € bio. Quel total éligible doit-elle déclarer, sans autres achats concernés ?",
+      "choices": [
+        {
+          "text": "7 000 €",
+          "correct": false
+        },
+        {
+          "text": "17 000 €",
+          "correct": false
+        },
+        {
+          "text": "12 000 €",
+          "correct": true
+        },
+        {
+          "text": "5 000 €",
+          "correct": false
+        }
+      ],
+      "explanation": "Les achats bio sont déjà inclus dans le total éligible : les ajouter une deuxième fois provoquerait un double comptage.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Achats — Calculs"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-006",
+      "category": "Achats — Viandes et poissons",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel seuil général de viandes et poissons durables et de qualité est prévu pour les restaurants collectifs concernés, hors taux renforcé de l'État ?",
+      "choices": [
+        {
+          "text": "Au moins 60 % en valeur",
+          "correct": true
+        },
+        {
+          "text": "Au moins 6 % en valeur",
+          "correct": false
+        },
+        {
+          "text": "100 % dans tous les restaurants sans distinction",
+          "correct": false
+        },
+        {
+          "text": "Exactement 20 % du nombre de portions",
+          "correct": false
+        }
+      ],
+      "explanation": "Le sous-objectif porte sur la valeur des catégories de viandes et produits de la pêche visées par le texte, et non sur tous les achats alimentaires.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Achats — Viandes et poissons"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-007",
+      "category": "Achats — Viandes et poissons",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel taux renforcé concerne les restaurants collectifs gérés par l'État, ses établissements publics et les entreprises publiques nationales ?",
+      "choices": [
+        {
+          "text": "100 % des viandes et poissons concernés durables et de qualité",
+          "correct": true
+        },
+        {
+          "text": "10 % seulement",
+          "correct": false
+        },
+        {
+          "text": "50 % uniquement des desserts",
+          "correct": false
+        },
+        {
+          "text": "30 % du nombre total de convives",
+          "correct": false
+        }
+      ],
+      "explanation": "Le taux renforcé doit être distingué du seuil général de 60 % pour ces catégories.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Achats — Viandes et poissons"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-008",
+      "category": "Achats — Vérification 2026",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Au 12 novembre 2026, 50 % d'achats éligibles dont 20 % bio suffisent-ils à prouver à eux seuls le respect de tous les sous-objectifs d'approvisionnement ?",
+      "choices": [
+        {
+          "text": "Non, il faut notamment contrôler le sous-objectif de 30 % prévu par la version 2026 du texte",
+          "correct": true
+        },
+        {
+          "text": "Oui, aucune autre vérification n'est nécessaire",
+          "correct": false
+        },
+        {
+          "text": "Oui, le seuil de 60 % porte sur les desserts",
+          "correct": false
+        },
+        {
+          "text": "Oui, l'origine locale remplace tous les sous-objectifs",
+          "correct": false
+        }
+      ],
+      "explanation": "Depuis la modification d'août 2026 de l'article L230-5-1, les catégories visées aux 2° à 3° bis doivent aussi atteindre 30 % en valeur. Les autres obligations doivent être vérifiées séparément.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Achats — Vérification 2026"
+        },
+        {
+          "document": "Code rural et de la pêche maritime",
+          "section": "Article L230-5-1, version en vigueur depuis le 20 août 2026",
+          "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054715617"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-009",
+      "category": "Menus — Végétarien",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un menu contenant du poisson peut-il être présenté comme le menu végétarien réglementaire ?",
+      "choices": [
+        {
+          "text": "Oui, si la portion est inférieure à 70 g",
+          "correct": false
+        },
+        {
+          "text": "Oui, si le plat contient des légumes",
+          "correct": false
+        },
+        {
+          "text": "Oui, si le poisson est bio",
+          "correct": false
+        },
+        {
+          "text": "Non, un menu végétarien exclut viande, poisson, crustacés et fruits de mer",
+          "correct": true
+        }
+      ],
+      "explanation": "Le menu végétarien peut inclure des œufs et des produits laitiers, mais pas de poisson.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Menus — Végétarien"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-010",
+      "category": "Menus — Champ d'application",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Peut-on appliquer sans vérification à tous les EHPAD une règle décrite pour les cantines scolaires ?",
+      "choices": [
+        {
+          "text": "Oui, si l'établissement possède une cuisine",
+          "correct": false
+        },
+        {
+          "text": "Non, il faut vérifier le secteur et le texte applicable",
+          "correct": true
+        },
+        {
+          "text": "Oui, le GEMRCN remplace tous les textes",
+          "correct": false
+        },
+        {
+          "text": "Oui, tous les secteurs ont exactement les mêmes obligations",
+          "correct": false
+        }
+      ],
+      "explanation": "Une obligation sectorielle ne se généralise pas automatiquement à l'ensemble de la restauration collective.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Menus — Champ d'application"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-011",
+      "category": "Suivi — Ma cantine",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quoi sert la télédéclaration annuelle des achats sur « ma cantine » ?",
+      "choices": [
+        {
+          "text": "À remplacer les relevés de température",
+          "correct": false
+        },
+        {
+          "text": "À obtenir automatiquement une AOP",
+          "correct": false
+        },
+        {
+          "text": "À suivre les approvisionnements et l'application des mesures en restauration collective",
+          "correct": true
+        },
+        {
+          "text": "À calculer les symptômes d'une TIAC",
+          "correct": false
+        }
+      ],
+      "explanation": "La plateforme accompagne le suivi réglementaire des achats ; les justificatifs et le suivi interne restent nécessaires.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Suivi — Ma cantine"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-012",
+      "category": "AGEC — Économie circulaire",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel modèle la loi AGEC cherche-t-elle à favoriser ?",
+      "choices": [
+        {
+          "text": "Une augmentation obligatoire des emballages jetables",
+          "correct": false
+        },
+        {
+          "text": "Une consommation systématiquement suivie de destruction",
+          "correct": false
+        },
+        {
+          "text": "Une suppression de toute information de tri",
+          "correct": false
+        },
+        {
+          "text": "Une économie circulaire limitant le gaspillage et favorisant le réemploi",
+          "correct": true
+        }
+      ],
+      "explanation": "La démarche considère l'ensemble du cycle de vie, avec prévention, réemploi et valorisation des ressources.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "AGEC — Économie circulaire"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-013",
+      "category": "AGEC — Information de tri",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi sert l'info-tri associée au Triman sur les emballages concernés ?",
+      "choices": [
+        {
+          "text": "À préciser les consignes de tri des différents éléments",
+          "correct": true
+        },
+        {
+          "text": "À donner la température de cuisson à cœur",
+          "correct": false
+        },
+        {
+          "text": "À identifier un micro-organisme pathogène",
+          "correct": false
+        },
+        {
+          "text": "À garantir que l'aliment est biologique",
+          "correct": false
+        }
+      ],
+      "explanation": "La consigne porte sur le tri des éléments et ne constitue pas une garantie nutritionnelle ou sanitaire de l'aliment.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "AGEC — Information de tri"
+        }
+      ]
+    },
+    {
+      "id": "sa-rc-014",
+      "category": "Veille réglementaire",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel réflexe adopter devant une date d'interdiction ou un seuil figurant dans un ancien cours ?",
+      "choices": [
+        {
+          "text": "Remplacer le texte par le logo du fournisseur",
+          "correct": false
+        },
+        {
+          "text": "Vérifier le texte en vigueur, sa date et son champ d'application",
+          "correct": true
+        },
+        {
+          "text": "Appliquer la date sans vérifier les modifications",
+          "correct": false
+        },
+        {
+          "text": "Choisir la règle la moins contraignante sans justification",
+          "correct": false
+        }
+      ],
+      "explanation": "Les règles évoluent et peuvent prévoir des transitions ou des exceptions ; les sources officielles datées font référence.",
+      "sourceRefs": [
+        {
+          "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx",
+          "section": "Veille réglementaire"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "document": "Lois Egalim 1 et 2, lois climat et résilience en restauration collective.docx"
+    },
+    {
+      "document": "Développement durable et alimentation durable.docx"
+    }
+  ],
+  "verification": {
+    "date": "2026-11-12",
+    "references": [
+      "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000054715617",
+      "https://driaaf.ile-de-france.agriculture.gouv.fr/la-loi-egalim-en-restauration-collective-memo-pratique-a-l-attention-des-elus-a4312.html"
+    ]
+  }
+}
