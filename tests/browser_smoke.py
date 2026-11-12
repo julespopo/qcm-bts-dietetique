@@ -545,7 +545,10 @@ try:
     assert explanation_next.is_displayed(), "bouton suivant invisible avec explications mobile"
     settled(driver.find_element(By.ID, "flashCard"))
     assert not driver.find_element(By.ID, "results").is_displayed(), "résultats affichés avant validation de l'explication"
-    click(driver.find_element(By.ID, "flashCard"))
+    # A deliberate tap must follow the brief guard against carrying the answer
+    # click over to the explanation. Animation completion alone can precede it
+    # on fast CI runners. Keep a real pointer click to exercise card hit testing.
+    ActionChains(driver).move_to_element(driver.find_element(By.ID, "flashCard")).pause(0.4).click().perform()
     visible("#results:not(.hidden)")
     assert driver.find_element(By.ID, "finalScore").text.startswith("0 / 1"), "erreur Vrai/Faux non comptabilisée"
 
