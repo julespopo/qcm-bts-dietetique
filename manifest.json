@@ -1,6 +1,6 @@
 {
   "appVersion": 2,
-  "updated": "2026-11-12",
+  "updated": "2026-11-16",
   "banks": [
     {
       "id": "Alimentation_Nutrition__01_glucides",
@@ -89,7 +89,7 @@
       "subject": "BPADN",
       "chapter": "Chapitre 3 — Les protides",
       "file": "banques/BPADN/03_protides.json",
-      "count": 30,
+      "count": 31,
       "version": 3
     },
     {

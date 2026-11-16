@@ -116,7 +116,7 @@
           "correct": false
         },
         {
-          "text": "Traiter uniquement le recyclage du plastique",
+          "text": "Garantir l’accès à l’eau potable et à l’assainissement pour l’ensemble de la population",
           "correct": false
         },
         {
@@ -304,7 +304,7 @@
           "correct": false
         },
         {
-          "text": "Oui, les nutriments résument tous les impacts",
+          "text": "Oui, car la qualité nutritionnelle résume à elle seule les impacts environnementaux et sociaux",
           "correct": false
         },
         {
@@ -368,7 +368,7 @@
           "correct": false
         },
         {
-          "text": "Uniquement l'élevage",
+          "text": "Uniquement la production agricole et la distribution, la consommation relevant de choix individuels",
           "correct": false
         },
         {
@@ -432,7 +432,7 @@
           "correct": true
         },
         {
-          "text": "Uniquement sa teneur en sucre",
+          "text": "Uniquement les émissions liées au transport de l’aliment jusqu’au lieu de vente",
           "correct": false
         },
         {
@@ -472,7 +472,7 @@
           "correct": false
         },
         {
-          "text": "À délivrer un label d'origine",
+          "text": "À délivrer un label environnemental officiel aux produits agricoles les moins polluants",
           "correct": false
         }
       ],
@@ -596,7 +596,7 @@
           "correct": true
         },
         {
-          "text": "Remplacer tout contrôle sanitaire",
+          "text": "Remplacer les contrôles sanitaires officiels par une certification locale des producteurs",
           "correct": false
         },
         {
@@ -652,7 +652,7 @@
       "prompt": "Une démarche de restauration durable permet-elle de réduire les exigences sanitaires ?",
       "choices": [
         {
-          "text": "Oui, si le produit est local",
+          "text": "Oui, car les produits locaux et de saison présentent moins de dangers microbiologiques",
           "correct": false
         },
         {
@@ -684,7 +684,7 @@
       "prompt": "Quel ensemble décrit les éléments du plan de maîtrise sanitaire ?",
       "choices": [
         {
-          "text": "Uniquement les menus et les factures d'électricité",
+          "text": "Les menus, le plan alimentaire et la politique d’achats durables de l’établissement, sans procédure d’hygiène",
           "correct": false
         },
         {

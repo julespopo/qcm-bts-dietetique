@@ -156,9 +156,13 @@
         {
           "text": "Leviers d’action préférés par les élèves",
           "correct": true
+        },
+        {
+          "text": "Le salaire des agents de restauration",
+          "correct": false
         }
       ],
-      "explanation": "Ces cinq dimensions sont explicitement demandées dans la situation professionnelle."
+      "explanation": "Le questionnaire explore notamment les habitudes au réfectoire et à la maison, les raisons du gaspillage, la connaissance des enjeux et les leviers préférés des élèves. Le salaire des agents n’en fait pas partie."
     },
     {
       "id": "sp-sit-007",
@@ -208,9 +212,13 @@
         {
           "text": "Détailler le déroulé, les temps et les consignes",
           "correct": true
+        },
+        {
+          "text": "Supprimer toute évaluation de l’atelier",
+          "correct": false
         }
       ],
-      "explanation": "Ces étapes sont listées dans les tâches de la semaine du 21 au 25 septembre."
+      "explanation": "Concevoir un atelier suppose de définir des objectifs pédagogiques, des animations, des supports adaptés, un déroulé détaillé, et de prévoir son évaluation."
     },
     {
       "id": "sp-sit-009",
@@ -234,9 +242,13 @@
         {
           "text": "La traçabilité de l’analyse sensorielle",
           "correct": true
+        },
+        {
+          "text": "La décoration de la salle",
+          "correct": false
         }
       ],
-      "explanation": "Le document demande d’identifier les CCP et allergènes, de respecter l’hygiène et d’assurer une traçabilité lors de l’analyse sensorielle."
+      "explanation": "Les points de vigilance sont les CCP, les allergènes réglementaires, les règles d’hygiène et de sécurité et la traçabilité de l’analyse sensorielle. La décoration n’est pas un point de vigilance sanitaire."
     },
     {
       "id": "sp-sit-010",
@@ -260,9 +272,13 @@
         {
           "text": "Établir le coût des préparations",
           "correct": true
+        },
+        {
+          "text": "Rédiger le PNNS de l’établissement",
+          "correct": false
         }
       ],
-      "explanation": "Ces tâches apparaissent dans la semaine du 28 septembre au 2 octobre."
+      "explanation": "Les tâches finales sont les affiches de sensibilisation, le protocole d’utilisation des œufs coquilles, l’explication de la marche en avant et le coût des préparations. Le PNNS est un programme national, pas un document d’établissement."
     }
   ]
 }

@@ -398,7 +398,7 @@
       "id": "ang-016",
       "category": "Application",
       "type": "single",
-      "difficulty": 3,
+      "difficulty": 1,
       "prompt": "Quel aliment apporte principalement des glucides sous forme d'amidon ?",
       "choices": [
         {
@@ -424,7 +424,7 @@
       "id": "ang-017",
       "category": "Notions fondamentales",
       "type": "single",
-      "difficulty": 3,
+      "difficulty": 2,
       "prompt": "Quelle proposition décrit la glycogénolyse ?",
       "choices": [
         {

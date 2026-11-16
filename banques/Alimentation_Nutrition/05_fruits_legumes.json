@@ -176,7 +176,7 @@
           "correct": false
         },
         {
-          "text": "Les fruits séchés ne contiennent plus de glucides",
+          "text": "Les fruits séchés ont perdu leurs glucides au séchage, alors que les fruits à coque en sont très riches",
           "correct": false
         },
         {
@@ -304,7 +304,7 @@
           "correct": true
         },
         {
-          "text": "Uniquement à sa teneur en eau",
+          "text": "Uniquement aux sensations perçues par la langue, sans intervention de l’odorat",
           "correct": false
         },
         {
@@ -472,7 +472,7 @@
           "correct": true
         },
         {
-          "text": "L'augmentation systématique des lipides à 100 %",
+          "text": "Une accumulation de lipides dans les cellules de la chair, qui remplacent l’eau",
           "correct": false
         }
       ],
@@ -908,7 +908,7 @@
       "prompt": "Un fruit local produit sous serre chauffée a-t-il nécessairement moins d'impact qu'un fruit produit ailleurs ?",
       "choices": [
         {
-          "text": "Oui, la distance annule tous les autres impacts",
+          "text": "Oui, car la distance parcourue suffit à classer les impacts, quel que soit le mode de production",
           "correct": false
         },
         {

@@ -248,7 +248,7 @@
           "correct": false
         }
       ],
-      "explanation": "Ces notations figurent dans les exemples du chapitre."
+      "explanation": "La notation Cx:y donne le nombre de carbones puis de doubles liaisons : butyrique C4:0, palmitique C16:0, stéarique C18:0, oléique C18:1 ω-9. L’acide linoléique est C18:2 ω-6, pas saturé."
     },
     {
       "id": "bp2-010",
@@ -690,7 +690,7 @@
           "correct": false
         }
       ],
-      "explanation": "Ces trois familles de dérivés sont explicitement citées."
+      "explanation": "Le noyau stérol du cholestérol sert de base aux acides biliaires (foie), à la vitamine D3 (peau, sous UVB) et aux hormones stéroïdes (cortisol, hormones sexuelles)."
     },
     {
       "id": "bp2-027",
@@ -734,7 +734,7 @@
           "correct": true
         },
         {
-          "text": "Transport de l’oxygène",
+          "text": "Participation à la coagulation sanguine par activation des facteurs hépatiques",
           "correct": false
         },
         {
@@ -779,7 +779,7 @@
       "category": "Synthèse",
       "type": "multiple",
       "difficulty": 3,
-      "prompt": "Quelles propositions résument correctement le chapitre ?",
+      "prompt": "Quelles associations entre lipides et rôles sont exactes ?",
       "choices": [
         {
           "text": "TAG = réserve lipidique",
@@ -802,7 +802,7 @@
           "correct": false
         }
       ],
-      "explanation": "Ces notions figurent dans la synthèse du chapitre."
+      "explanation": "TAG = réserve, glycérophospholipides = membranes (amphiphiles), sphingomyéline = gaine de myéline, cholestérol = précurseur des acides biliaires, de la vitamine D3 et des hormones stéroïdes. Les lipides fournissent 9 kcal/g, pas 4."
     }
   ]
 }

@@ -376,7 +376,7 @@
       "prompt": "Quelle lipoprotéine transporte une part majeure des triglycérides alimentaires après absorption ?",
       "choices": [
         {
-          "text": "lipoprotéines de haute densité (HDL) uniquement",
+          "text": "HDL (lipoprotéines de haute densité) uniquement",
           "correct": false
         },
         {

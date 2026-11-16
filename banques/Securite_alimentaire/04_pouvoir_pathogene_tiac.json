@@ -48,7 +48,7 @@
           "correct": true
         },
         {
-          "text": "Provoquant une maladie chez toute personne exposée",
+          "text": "Provoquant une maladie chez toute personne exposée, quel que soit l’état de ses défenses",
           "correct": false
         },
         {
@@ -236,7 +236,7 @@
       "prompt": "Quelle est la nature du LPS associé aux endotoxines des Gram négatif ?",
       "choices": [
         {
-          "text": "Un organite de levure",
+          "text": "Une protéine sécrétée par les Gram positif dans le milieu extérieur",
           "correct": false
         },
         {
@@ -364,7 +364,7 @@
       "prompt": "Quel effet caractérise la toxine botulique dans le cours ?",
       "choices": [
         {
-          "text": "Une augmentation de la teneur en calcium des muscles",
+          "text": "Une contraction musculaire permanente due à une libération excessive d’acétylcholine",
           "correct": false
         },
         {
@@ -404,7 +404,7 @@
           "correct": true
         },
         {
-          "text": "La dose recommandée pour la moitié des repas",
+          "text": "La dose maximale sans effet observé, utilisée comme seuil de sécurité pour l’alimentation humaine",
           "correct": false
         },
         {
@@ -428,7 +428,7 @@
       "prompt": "Quel ensemble de faits évoque une TIAC selon la définition de surveillance ?",
       "choices": [
         {
-          "text": "Deux maladies sans aucun lien alimentaire possible",
+          "text": "Un seul cas grave, confirmé au laboratoire, même sans lien établi avec un repas ou un aliment",
           "correct": false
         },
         {
@@ -564,7 +564,7 @@
           "correct": true
         },
         {
-          "text": "La servir si son odeur paraît normale",
+          "text": "La servir après une cuisson prolongée si son odeur et son aspect paraissent normaux",
           "correct": false
         },
         {

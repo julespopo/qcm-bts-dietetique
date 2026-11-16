@@ -286,9 +286,13 @@
         {
           "text": "Environnementaux et sociaux",
           "correct": true
+        },
+        {
+          "text": "Uniquement les aspects cliniques individuels",
+          "correct": false
         }
       ],
-      "explanation": "Le cours cite des dimensions curatives, préventives, éducatives, environnementales et sociales."
+      "explanation": "La santé publique prend en compte des aspects curatifs, préventifs, éducatifs, environnementaux et sociaux. Elle raisonne à l’échelle des populations, pas seulement de la consultation individuelle."
     },
     {
       "id": "sp-c1-012",
@@ -364,9 +368,13 @@
         {
           "text": "Réduire les inégalités de santé",
           "correct": true
+        },
+        {
+          "text": "Remplacer la médecine de soins",
+          "correct": false
         }
       ],
-      "explanation": "Le cours cite ces quatre objectifs et ajoute l’organisation du système de santé."
+      "explanation": "La santé publique observe l’état de santé, prévient les maladies, informe et éduque, réduit les inégalités et organise le système de santé. Elle complète les soins, elle ne les remplace pas."
     },
     {
       "id": "sp-c1-015",
@@ -514,7 +522,7 @@
           "correct": false
         },
         {
-          "text": "La baisse du commerce mondial",
+          "text": "La baisse des échanges internationaux et la disparition progressive des maladies transmises par les animaux",
           "correct": false
         },
         {
@@ -592,7 +600,7 @@
           "correct": false
         },
         {
-          "text": "Parce qu’elle ignore l’environnement",
+          "text": "Parce qu’elle concerne toutes les maladies du monde, quels que soient leurs déterminants et leurs territoires",
           "correct": false
         },
         {
@@ -640,7 +648,7 @@
           "correct": true
         },
         {
-          "text": "La santé publique ne concerne jamais les individus",
+          "text": "La santé publique soigne chaque patient individuellement tandis que la santé individuelle décrit l’état d’une population",
           "correct": false
         },
         {

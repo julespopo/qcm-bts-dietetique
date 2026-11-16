@@ -1,6 +1,6 @@
 # QCM BTS Diététique
 
-Application statique de révision : **33 banques, 1 135 questions**, regroupées par
+Application statique de révision : **33 banques, 1 136 questions**, regroupées par
 matière, chapitre et difficulté. Aucun compte ni serveur de données n'est nécessaire.
 
 ## Utiliser l'application

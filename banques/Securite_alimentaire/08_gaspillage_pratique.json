@@ -116,7 +116,7 @@
           "correct": true
         },
         {
-          "text": "Il exclut tous les coûts de production",
+          "text": "Il ne correspond qu’au coût de collecte et de traitement des biodéchets par la commune",
           "correct": false
         },
         {
@@ -268,7 +268,7 @@
       "prompt": "Pourquoi une date figurant sur un emballage fermé ne suffit-elle pas toujours après ouverture ?",
       "choices": [
         {
-          "text": "Tous les aliments ouverts se conservent un mois",
+          "text": "La date d’origine reste valable sans condition, quel que soit le mode de conservation",
           "correct": false
         },
         {
@@ -300,7 +300,7 @@
       "prompt": "Dans la hiérarchie légale, quelle solution passe avant l'alimentation animale pour des denrées encore adaptées à l'alimentation humaine ?",
       "choices": [
         {
-          "text": "La méthanisation systématique",
+          "text": "La méthanisation pour produire de l’énergie renouvelable",
           "correct": false
         },
         {
@@ -340,7 +340,7 @@
           "correct": false
         },
         {
-          "text": "Oui, cela autorise à surproduire",
+          "text": "Oui, car la valorisation des déchets est placée en tête de la hiérarchie légale",
           "correct": false
         },
         {
@@ -368,7 +368,7 @@
           "correct": true
         },
         {
-          "text": "Oui, si la DDM est lisible",
+          "text": "Oui, si l’association s’engage à consommer les denrées le jour même",
           "correct": false
         },
         {

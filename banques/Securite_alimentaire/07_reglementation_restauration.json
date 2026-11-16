@@ -16,7 +16,7 @@
           "correct": false
         },
         {
-          "text": "Remplacer les règles d'hygiène",
+          "text": "Imposer 50 % de produits durables et de qualité dans la restauration collective",
           "correct": false
         },
         {
@@ -240,7 +240,7 @@
           "correct": true
         },
         {
-          "text": "Oui, aucune autre vérification n'est nécessaire",
+          "text": "Oui, car ces deux seuils sont les seuls objectifs d’approvisionnement prévus par le texte en vigueur",
           "correct": false
         },
         {
@@ -277,7 +277,7 @@
           "correct": false
         },
         {
-          "text": "Oui, si le plat contient des légumes",
+          "text": "Oui, un menu végétarien exclut uniquement la viande et peut contenir du poisson ou des fruits de mer",
           "correct": false
         },
         {
@@ -341,7 +341,7 @@
           "correct": false
         },
         {
-          "text": "À obtenir automatiquement une AOP",
+          "text": "À obtenir une subvention automatique de l’État pour chaque produit bio acheté dans l’année",
           "correct": false
         },
         {

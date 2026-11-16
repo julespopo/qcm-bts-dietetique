@@ -20,7 +20,7 @@
           "correct": false
         },
         {
-          "text": "Uniquement au plasma sanguin",
+          "text": "À l’ensemble des liquides contenus à l’intérieur des cellules de l’organisme",
           "correct": false
         },
         {
@@ -68,7 +68,7 @@
           "correct": true
         },
         {
-          "text": "La destruction des globules rouges",
+          "text": "La variation libre des constantes du milieu intérieur selon les apports alimentaires et l’activité de la journée",
           "correct": false
         },
         {
@@ -124,7 +124,7 @@
           "correct": false
         },
         {
-          "text": "Toujours contre le gradient avec ATP",
+          "text": "Du milieu le plus concentré en solutés vers le moins concentré, grâce à une pompe membranaire consommant de l’ATP",
           "correct": false
         },
         {
@@ -314,7 +314,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le cours présente plusieurs systèmes tampons contribuant au maintien du pH."
+      "explanation": "Les tampons limitent les variations de pH : couple acide carbonique/bicarbonate (le principal dans le sang), phosphates et protéines (dont l’hémoglobine). Glucose et glycogène n’ont pas de rôle tampon."
     },
     {
       "id": "bp7-013",
@@ -574,7 +574,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le cours distingue ces trois étapes successives."
+      "explanation": "Le vaisseau lésé se contracte (spasme vasculaire), les plaquettes forment un clou plaquettaire, puis la coagulation consolide le tout par un réseau de fibrine."
     },
     {
       "id": "bp7-023",
@@ -622,7 +622,7 @@
           "correct": false
         },
         {
-          "text": "La synthèse de l’ATP",
+          "text": "La formation d’un caillot de fibrine qui arrête définitivement l’hémorragie sans réparer les tissus",
           "correct": false
         }
       ],
@@ -652,7 +652,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le document distingue ces grandes phases de la cicatrisation."
+      "explanation": "La cicatrisation passe par une phase vasculaire et inflammatoire (nettoyage), une phase de réparation (bourgeon, collagène) puis une phase de maturation et de remodelage de la cicatrice."
     },
     {
       "id": "bp7-026",
@@ -674,7 +674,7 @@
           "correct": false
         },
         {
-          "text": "Elles constituent le seul tampon sanguin",
+          "text": "Elles fournissent l’essentiel de l’énergie nécessaire à la cicatrisation, à la place des glucides et des lipides",
           "correct": false
         }
       ],
@@ -696,7 +696,7 @@
           "correct": false
         },
         {
-          "text": "Elle synthétise le glycogène",
+          "text": "Elle active les facteurs de coagulation fabriqués par le foie",
           "correct": false
         },
         {
@@ -760,14 +760,14 @@
           "correct": false
         }
       ],
-      "explanation": "Ces associations relient les fonctions du plasma et de l’hémostase."
+      "explanation": "L’albumine retient l’eau dans les vaisseaux (pression oncotique), les bicarbonates tamponnent le pH, les plaquettes forment le clou plaquettaire et la fibrine le réseau du caillot."
     },
     {
       "id": "bp7-030",
       "category": "Synthèse",
       "type": "multiple",
       "difficulty": 3,
-      "prompt": "Quelles propositions résument correctement le milieu intérieur ?",
+      "prompt": "Quelles affirmations sur le milieu intérieur sont exactes ?",
       "choices": [
         {
           "text": "Il comprend les liquides extracellulaires",
@@ -790,7 +790,7 @@
           "correct": false
         }
       ],
-      "explanation": "Ces quatre notions structurent le chapitre 7."
+      "explanation": "Le milieu intérieur regroupe les liquides extracellulaires (plasma, liquide interstitiel, lymphe) ; l’homéostasie en maintient les constantes et l’osmose participe aux échanges d’eau. Le cytosol est intracellulaire."
     }
   ]
 }

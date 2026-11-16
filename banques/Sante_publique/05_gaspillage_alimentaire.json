@@ -20,7 +20,7 @@
           "correct": false
         },
         {
-          "text": "Uniquement les restes des ménages",
+          "text": "Uniquement les restes d’assiette des ménages, à l’exclusion des pertes de production, de transformation et de distribution",
           "correct": false
         },
         {
@@ -28,7 +28,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le corpus reprend cette définition législative du gaspillage alimentaire."
+      "explanation": "La définition légale vise toute nourriture destinée à l’humain et perdue, jetée ou dégradée, à n’importe quelle étape : production, transformation, distribution, restauration ou foyers."
     },
     {
       "id": "sp-gas-002",
@@ -124,7 +124,7 @@
           "correct": false
         },
         {
-          "text": "Supprimer 100 % du gaspillage en 2025",
+          "text": "Réduire de 50 % par rapport à 2020, avec une échéance unique en 2030 pour tous les secteurs d’activité",
           "correct": false
         },
         {
@@ -184,7 +184,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le corpus présente cette hiérarchie des actions de lutte contre le gaspillage."
+      "explanation": "La loi Garot hiérarchise les actions : d’abord éviter le gaspillage, puis donner ou transformer pour l’alimentation humaine, ensuite valoriser en alimentation animale, et en dernier composter ou méthaniser."
     },
     {
       "id": "sp-gas-008",
@@ -236,7 +236,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le corpus cite l’obligation de proposer un « gourmet bag »."
+      "explanation": "Depuis le 1er juillet 2021, les restaurants commerciaux doivent proposer à leurs clients d’emporter gratuitement leurs restes dans un contenant réutilisable ou recyclable : le « gourmet bag »."
     },
     {
       "id": "sp-gas-010",
@@ -276,7 +276,7 @@
           "correct": true
         },
         {
-          "text": "Augmenter uniquement la production agricole",
+          "text": "Augmenter la production agricole nationale et les exportations, sans objectif d’accès, de qualité ni de durabilité de l’alimentation",
           "correct": false
         },
         {
@@ -288,33 +288,33 @@
           "correct": false
         }
       ],
-      "explanation": "Le corpus reprend la finalité du PNA inscrite dans le Code rural."
+      "explanation": "Inscrite dans le Code rural, la finalité du PNA associe sécurité sanitaire, santé, diversité, qualité, quantité suffisante, conditions économiques acceptables et durabilité."
     },
     {
       "id": "sp-gas-012",
       "category": "PNA3",
       "type": "multiple",
       "difficulty": 1,
-      "prompt": "Quels sont les trois axes fondamentaux du PNA3 « Territoires en action » ?",
+      "prompt": "Quels sont les trois axes thématiques du PNA3 « Territoires en action » (2019-2023) ?",
       "choices": [
         {
           "text": "Justice sociale",
           "correct": true
         },
         {
-          "text": "Évolution de l’offre alimentaire et information des consommateurs",
+          "text": "Lutte contre le gaspillage alimentaire",
           "correct": true
         },
         {
-          "text": "Lutte contre le gaspillage et éducation alimentaire",
+          "text": "Éducation alimentaire",
           "correct": true
         },
         {
-          "text": "Uniquement soutien à l’exportation",
+          "text": "Soutien à l’exportation agroalimentaire",
           "correct": false
         }
       ],
-      "explanation": "Le document cite ces trois axes."
+      "explanation": "Le PNA3 repose sur trois axes thématiques : justice sociale, lutte contre le gaspillage alimentaire et éducation alimentaire. La restauration collective et les projets alimentaires territoriaux (PAT) sont ses deux leviers transversaux, pas des axes."
     },
     {
       "id": "sp-gas-013",
@@ -354,7 +354,7 @@
           "correct": true
         },
         {
-          "text": "Contrôler uniquement les prix alimentaires",
+          "text": "Contrôler les établissements de restauration et sanctionner ceux qui ne respectent pas les objectifs anti-gaspillage",
           "correct": false
         },
         {
@@ -416,9 +416,13 @@
         {
           "text": "Cuisiner les restes",
           "correct": true
+        },
+        {
+          "text": "Acheter en grande quantité pour profiter des promotions",
+          "correct": false
         }
       ],
-      "explanation": "Le corpus présente ces compétences comme favorisant l’autonomie alimentaire."
+      "explanation": "Lire les dates, bien conserver, organiser les repas, ajuster les quantités et cuisiner les restes renforcent l’autonomie alimentaire. Acheter en grande quantité sans anticiper favorise au contraire le gaspillage."
     },
     {
       "id": "sp-gas-017",
@@ -442,9 +446,13 @@
         {
           "text": "Travailler sur la présentation des plats",
           "correct": true
+        },
+        {
+          "text": "Augmenter systématiquement les portions",
+          "correct": false
         }
       ],
-      "explanation": "Le corpus propose ces actions ainsi que la valorisation des biodéchets."
+      "explanation": "Ajuster les portions, recueillir l’avis des usagers, former les équipes, soigner la présentation et valoriser les biodéchets réduisent le gaspillage. Augmenter les portions accroît les restes."
     },
     {
       "id": "sp-gas-018",
@@ -592,7 +600,7 @@
           "correct": false
         },
         {
-          "text": "Ils ne peuvent pas modifier leurs comportements",
+          "text": "Leurs habitudes alimentaires sont déjà définitivement fixées, ce qui permet de mesurer le gaspillage scolaire sans biais d’apprentissage",
           "correct": false
         },
         {
@@ -624,9 +632,13 @@
         {
           "text": "Habitude de jeter ce qui n’est pas consommé",
           "correct": true
+        },
+        {
+          "text": "Portions trop petites",
+          "correct": false
         }
       ],
-      "explanation": "Le corpus cite ces raisons et insiste sur l’adaptation de l’offre aux besoins réels."
+      "explanation": "Les raisons citées sont des portions trop grandes, des plats peu appréciés, un manque d’anticipation et l’habitude de jeter. Ce sont des portions trop grandes, et non trop petites, qui génèrent des restes."
     },
     {
       "id": "sp-gas-025",
@@ -650,9 +662,13 @@
         {
           "text": "Compostage ou méthanisation dans certains établissements",
           "correct": true
+        },
+        {
+          "text": "Augmentation des quantités servies par défaut",
+          "correct": false
         }
       ],
-      "explanation": "Le corpus cite ces exemples d’actions de réduction, sensibilisation et valorisation des déchets."
+      "explanation": "Assiettes petite faim / grande faim, bornes de réservation, sensibilisation et valorisation des déchets sont citées. Servir davantage par défaut irait à l’encontre de l’objectif."
     }
   ]
 }

@@ -116,7 +116,7 @@
           "correct": false
         },
         {
-          "text": "Elle devient une mycotoxine",
+          "text": "Elle se divise en deux endospores filles, ce qui multiplie la population résistante",
           "correct": false
         },
         {
@@ -208,7 +208,7 @@
           "correct": false
         },
         {
-          "text": "Rester huit heures entre +63 °C et +10 °C",
+          "text": "Traverser la plage +63 °C à +10 °C en six heures au maximum, à température ambiante",
           "correct": false
         },
         {
@@ -396,7 +396,7 @@
       "prompt": "Que décrit l'effet Crabtree chez Saccharomyces cerevisiae ?",
       "choices": [
         {
-          "text": "La disparition du besoin de carbone",
+          "text": "Un arrêt complet de la fermentation dès qu’une trace d’oxygène est présente dans le milieu",
           "correct": false
         },
         {

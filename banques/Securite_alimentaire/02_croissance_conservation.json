@@ -428,7 +428,7 @@
       "prompt": "Que décrit le terme « mésophile » ?",
       "choices": [
         {
-          "text": "Un germe qui exige une congélation",
+          "text": "Un micro-organisme dont la croissance optimale se situe à basse température, proche de 0 °C",
           "correct": false
         },
         {
@@ -684,7 +684,7 @@
       "prompt": "Quelle définition physique correspond à l'activité de l'eau aw ?",
       "choices": [
         {
-          "text": "Le rapport masse de sel sur masse de sucre",
+          "text": "Le quotient de la masse d’eau libre par la masse d’eau totale de l’aliment, exprimé en pourcentage",
           "correct": false
         },
         {

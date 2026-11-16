@@ -139,7 +139,7 @@
       "category": "Structure",
       "type": "single",
       "difficulty": 1,
-      "prompt": "Combien de ces acides aminés sont dits essentiels ?",
+      "prompt": "Combien d’acides aminés compte la liste VIL-HLM-PTT des acides aminés essentiels du cours ?",
       "choices": [
         {
           "text": "9",
@@ -158,7 +158,7 @@
           "correct": false
         }
       ],
-      "explanation": "Neuf doivent être apportés par l’alimentation car leur synthèse corporelle est insuffisante."
+      "explanation": "La liste VIL-HLM-PTT compte 9 acides aminés : les 8 strictement indispensables chez l’adulte et l’histidine. L’histidine est indispensable chez le nourrisson et semi-indispensable chez l’adulte."
     },
     {
       "id": "an3-007",
@@ -210,7 +210,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le schéma distingue acide aminé, peptide et protéine."
+      "explanation": "Un acide aminé est l’unité ; quelques acides aminés forment un peptide ; une protéine est une longue chaîne de nombreux acides aminés."
     },
     {
       "id": "an3-009",
@@ -314,7 +314,7 @@
           "correct": false
         }
       ],
-      "explanation": "C’est l’ordre de grandeur indiqué page 2 pour le renouvellement quotidien."
+      "explanation": "Environ 300 à 400 g de protéines corporelles sont renouvelées chaque jour, bien plus que les apports alimentaires, grâce au recyclage des acides aminés."
     },
     {
       "id": "an3-013",
@@ -366,7 +366,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le cours indique une mobilisation des protéines à des fins énergétiques."
+      "explanation": "Pendant un jeûne prolongé, l’organisme dégrade ses protéines (surtout musculaires) pour produire du glucose et de l’énergie : la protéolyse dépasse la synthèse, le bilan est négatif."
     },
     {
       "id": "an3-015",
@@ -930,7 +930,7 @@
           "correct": false
         },
         {
-          "text": "Teneur en eau seule",
+          "text": "Teneur en eau de l’aliment, quelle que soit sa composition en acides aminés",
           "correct": false
         },
         {
@@ -1016,7 +1016,7 @@
           "correct": false
         }
       ],
-      "explanation": "La lysine est un acide aminé (AA) indispensable listé page 4."
+      "explanation": "La lysine fait partie des neuf acides aminés essentiels (mémo VIL-HLM-PTT). Alanine, glycine et sérine sont synthétisées par l’organisme."
     },
     {
       "id": "an3-040",
@@ -1104,11 +1104,11 @@
       "prompt": "Qu’est-ce qu’un acide aminé (AA) facteur limitant ?",
       "choices": [
         {
-          "text": "Un acide aminé (AA) essentiel présent en quantité insuffisante au regard des besoins",
+          "text": "Un acide aminé essentiel présent en quantité insuffisante au regard des besoins",
           "correct": true
         },
         {
-          "text": "Un acide aminé (AA) présent en quantité illimitée",
+          "text": "Un acide aminé non essentiel présent en excès, qui freine l’absorption des autres",
           "correct": false
         },
         {
@@ -1120,7 +1120,7 @@
           "correct": false
         }
       ],
-      "explanation": "L’insuffisance d’un acide aminé essentiel (AAE) limite la qualité et la synthèse protéiques."
+      "explanation": "L’acide aminé limitant est l’acide aminé essentiel le moins bien couvert par rapport aux besoins : il limite la synthèse protéique et donc la qualité de la protéine."
     },
     {
       "id": "an3-044",
@@ -1182,7 +1182,7 @@
       "prompt": "Pourquoi associer riz et haricots secs ?",
       "choices": [
         {
-          "text": "Pour compléter leurs apports en acide aminé essentiels",
+          "text": "Pour compléter leurs apports en acides aminés essentiels",
           "correct": true
         },
         {
@@ -1250,7 +1250,7 @@
           "correct": false
         }
       ],
-      "explanation": "coefficient d’efficacité protéique (CEP) = 24 / 12 = 2."
+      "explanation": "CEP = gain de poids ÷ protéines consommées = 24 ÷ 12 = 2."
     },
     {
       "id": "an3-049",
@@ -1302,7 +1302,7 @@
           "correct": false
         }
       ],
-      "explanation": "coefficient d’utilisation digestive (CUD) = 8 / 10 × 100 = 80 %."
+      "explanation": "CUD = azote absorbé ÷ azote ingéré × 100 = 8 ÷ 10 × 100 = 80 %."
     },
     {
       "id": "an3-051",
@@ -1354,7 +1354,7 @@
           "correct": false
         }
       ],
-      "explanation": "valeur biologique (VB) = 6 / 8 × 100 = 75 %."
+      "explanation": "VB = azote retenu ÷ azote absorbé × 100 = 6 ÷ 8 × 100 = 75 %."
     },
     {
       "id": "an3-053",
@@ -1364,23 +1364,23 @@
       "prompt": "Quelle formule donne l’utilisation protéique nette (UPN) ?",
       "choices": [
         {
-          "text": "coefficient d’utilisation digestive (CUD) × valeur biologique (VB) / 100",
+          "text": "CUD × VB / 100",
           "correct": true
         },
         {
-          "text": "coefficient d’utilisation digestive (CUD) + valeur biologique (VB)",
+          "text": "(CUD + VB) / 100",
           "correct": false
         },
         {
-          "text": "coefficient d’utilisation digestive (CUD) / valeur biologique (VB)",
+          "text": "CUD / VB × 100",
           "correct": false
         },
         {
-          "text": "valeur biologique (VB) − coefficient d’utilisation digestive (CUD)",
+          "text": "VB − CUD",
           "correct": false
         }
       ],
-      "explanation": "L’utilisation protéique nette (UPN) combine la digestibilité et la valeur biologique."
+      "explanation": "UPN = CUD × VB / 100 : l’utilisation protéique nette combine la part d’azote absorbée (coefficient d’utilisation digestive) et la part d’azote absorbé retenue (valeur biologique)."
     },
     {
       "id": "an3-054",
@@ -1406,7 +1406,7 @@
           "correct": false
         }
       ],
-      "explanation": "utilisation protéique nette (UPN) = 80 × 75 / 100 = 60 %."
+      "explanation": "UPN = CUD × VB / 100 = 80 × 75 / 100 = 60 %."
     },
     {
       "id": "an3-055",
@@ -1484,7 +1484,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le tableau page 7 indique 100 pour le blanc d’œuf."
+      "explanation": "Le blanc d’œuf sert de référence : il atteint la valeur maximale de 100, car il couvre tous les besoins en acides aminés indispensables avec une excellente digestibilité."
     },
     {
       "id": "an3-058",

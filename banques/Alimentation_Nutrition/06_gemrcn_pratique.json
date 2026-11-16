@@ -20,7 +20,7 @@
           "correct": true
         },
         {
-          "text": "Entrée, pain, sauce et boisson uniquement",
+          "text": "Plat principal, garniture et deux desserts, sans produit laitier",
           "correct": false
         },
         {
@@ -148,7 +148,7 @@
           "correct": false
         },
         {
-          "text": "Il le satisfait car 20 est supérieur à 13",
+          "text": "Il le satisfait, car sa teneur en protéines est supérieure à sa teneur en lipides",
           "correct": false
         },
         {
@@ -248,7 +248,7 @@
           "correct": true
         },
         {
-          "text": "Comme un produit laitier riche en calcium",
+          "text": "Uniquement comme une crudité, le critère des lipides ne s’appliquant pas aux légumes",
           "correct": false
         }
       ],
@@ -308,7 +308,7 @@
           "correct": false
         },
         {
-          "text": "Tous les poissons panés ont la même composition",
+          "text": "Il suffit de connaître la masse totale de la portion, quelle que soit sa composition",
           "correct": false
         },
         {
@@ -692,7 +692,7 @@
           "correct": true
         },
         {
-          "text": "Mixer systématiquement tous les repas de tous les résidents",
+          "text": "Mixer systématiquement tous les repas des résidents pour simplifier et sécuriser le service",
           "correct": false
         },
         {

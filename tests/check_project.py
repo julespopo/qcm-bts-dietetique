@@ -16,6 +16,8 @@ HTML_FILES = [ROOT / "index.html", ROOT / "index_local.html"]
 
 errors: list[str] = []
 warnings: list[str] = []
+# Part maximale de questions à réponse unique dont la bonne réponse est la plus longue.
+LONGEST_ANSWER_MAX_RATIO = 0.45
 stats = {
     "banks": 0,
     "questions": 0,
@@ -98,6 +100,7 @@ for bank_path in bank_paths:
         err(f"{rel}: version invalide ({version!r})")
 
     local_ids: set[str] = set()
+    single_count = longest_count = 0
     for index, question in enumerate(questions, start=1):
         stats["questions"] += 1
         loc = f"{rel} question #{index}"
@@ -172,6 +175,23 @@ for bank_path in bank_paths:
 
         if qtype == "single" and len(correct_indexes) == 1:
             stats["flash_eligible"] += 1
+
+        # Biais de construction : une question devinable sans connaître le cours.
+        if qtype == "multiple" and correct_indexes and len(correct_indexes) == len(choices):
+            err(f"{loc} ({qid}): toutes les propositions sont justes — cocher tout suffit ; ajouter au moins un distracteur")
+        if qtype == "single" and len(correct_indexes) == 1 and len(choice_texts) == len(choices):
+            lengths = [len(t) for t in choice_texts]
+            good = lengths[next(iter(correct_indexes))]
+            single_count += 1
+            if good == max(lengths) and lengths.count(good) == 1:
+                longest_count += 1
+
+    # La bonne réponse ne doit pas être trop souvent la plus longue (hasard ≈ 25 %).
+    if single_count >= 10 and longest_count / single_count > LONGEST_ANSWER_MAX_RATIO:
+        err(
+            f"{rel}: la bonne réponse est la plus longue dans {longest_count}/{single_count} questions "
+            f"à réponse unique (> {LONGEST_ANSWER_MAX_RATIO:.0%}) — allonger des distracteurs"
+        )
 
 # Validate semantic contracts, not formatting, CSS pixel values or source fragments.
 class Page(HTMLParser):

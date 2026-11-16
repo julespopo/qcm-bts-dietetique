@@ -42,7 +42,7 @@
           "correct": true
         },
         {
-          "text": "Soigner uniquement les personnes hospitalisées",
+          "text": "Soigner les personnes hospitalisées pour une maladie chronique grâce à des régimes adaptés",
           "correct": false
         },
         {
@@ -78,9 +78,13 @@
         {
           "text": "Des déterminants sociaux, culturels, économiques, sensoriels et cognitifs",
           "correct": true
+        },
+        {
+          "text": "Le seul calcul des calories ingérées",
+          "correct": false
         }
       ],
-      "explanation": "Le document définit la nutrition au sens large, au-delà de la seule alimentation."
+      "explanation": "Dans le PNNS, la nutrition comprend l’alimentation, l’activité physique, la sédentarité et leurs déterminants sociaux, culturels, économiques, sensoriels et cognitifs. Elle ne se réduit pas aux calories."
     },
     {
       "id": "sp-pnns-004",
@@ -106,7 +110,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le document relie le PNNS aux dimensions physique, mentale et sociale de la santé."
+      "explanation": "La nutrition protège contre des pathologies (santé physique), influence l’équilibre psychologique (santé mentale) et la réduction des inégalités nutritionnelles concerne la santé sociale : on retrouve les trois dimensions de la définition de l’OMS."
     },
     {
       "id": "sp-pnns-005",
@@ -236,7 +240,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le document structure le PNNS 5 autour de ces trois axes."
+      "explanation": "Le PNNS 5 (2026-2030) agit sur l’environnement (accès à des environnements nutritionnels durables), sur les comportements (comportements sains et durables) et sur les milieux de vie (espaces promoteurs de santé)."
     },
     {
       "id": "sp-pnns-010",

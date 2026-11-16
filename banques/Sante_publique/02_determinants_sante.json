@@ -24,7 +24,7 @@
           "correct": false
         },
         {
-          "text": "Aux seuls traitements médicaux",
+          "text": "Aux seuls facteurs biologiques et génétiques transmis par les parents, indépendamment des conditions de vie",
           "correct": false
         }
       ],
@@ -102,11 +102,11 @@
           "correct": true
         },
         {
-          "text": "Caractéristiques socioéconomiques",
-          "correct": true
+          "text": "Systèmes d’éducation et de santé",
+          "correct": false
         }
       ],
-      "explanation": "Le cours distingue ces quatre catégories."
+      "explanation": "Le champ des caractéristiques individuelles comprend les caractéristiques biologiques et génétiques, les compétences personnelles et sociales, les habitudes de vie et les caractéristiques socioéconomiques. Les systèmes d’éducation et de santé sont administrés par l’État."
     },
     {
       "id": "sp-c2-005",
@@ -146,7 +146,7 @@
           "correct": true
         },
         {
-          "text": "Des caractéristiques uniquement innées",
+          "text": "Des caractéristiques innées transmises par les parents et non modifiables au cours de la vie",
           "correct": false
         },
         {
@@ -182,9 +182,13 @@
         {
           "text": "Comportements liés à la sécurité",
           "correct": true
+        },
+        {
+          "text": "Groupe sanguin",
+          "correct": false
         }
       ],
-      "explanation": "Le cours cite l’ensemble de ces comportements parmi les habitudes de vie."
+      "explanation": "Alimentation et activité physique, tabac, alcool et drogues, hygiène et soins, comportements liés à la sécurité sont des habitudes de vie. Le groupe sanguin est une caractéristique biologique, pas un comportement."
     },
     {
       "id": "sp-c2-008",
@@ -198,8 +202,8 @@
           "correct": true
         },
         {
-          "text": "L’occupation",
-          "correct": true
+          "text": "L’âge",
+          "correct": false
         },
         {
           "text": "Le type d’emploi",
@@ -210,7 +214,7 @@
           "correct": true
         }
       ],
-      "explanation": "Le cours cite la scolarité, l’occupation, le type d’emploi et le revenu."
+      "explanation": "La scolarité, l’occupation, le type d’emploi et le revenu sont des caractéristiques socioéconomiques. L’âge est une caractéristique biologique."
     },
     {
       "id": "sp-c2-009",
@@ -234,9 +238,13 @@
         {
           "text": "Quartier ou ville",
           "correct": true
+        },
+        {
+          "text": "Contexte démographique",
+          "correct": false
         }
       ],
-      "explanation": "Le cours inclut notamment famille, école, hébergement, travail, quartier, village ou ville."
+      "explanation": "Famille, école, hébergement, travail, quartier, village ou ville sont des milieux de vie. Le contexte démographique fait partie du contexte global."
     },
     {
       "id": "sp-c2-010",
@@ -254,15 +262,15 @@
           "correct": true
         },
         {
-          "text": "Aménagement du territoire",
-          "correct": true
+          "text": "Habitudes de vie",
+          "correct": false
         },
         {
           "text": "Programmes de soutien à l’emploi et de solidarité",
           "correct": true
         }
       ],
-      "explanation": "Le cours cite ces différents systèmes comme déterminants de santé."
+      "explanation": "L’éducation, la santé et les services sociaux, l’aménagement du territoire et les programmes de soutien à l’emploi et de solidarité sont des systèmes administrés par l’État. Les habitudes de vie sont des caractéristiques individuelles."
     },
     {
       "id": "sp-c2-011",
@@ -280,15 +288,15 @@
           "correct": true
         },
         {
-          "text": "Le contexte démographique",
-          "correct": true
+          "text": "Le milieu familial",
+          "correct": false
         },
         {
           "text": "Le contexte social et culturel",
           "correct": true
         }
       ],
-      "explanation": "Le cours présente ces quatre composantes du contexte global."
+      "explanation": "Le contexte global comprend les contextes politique et législatif, économique, démographique, social et culturel. Le milieu familial est un milieu de vie."
     },
     {
       "id": "sp-c2-012",
@@ -328,7 +336,7 @@
           "correct": true
         },
         {
-          "text": "Parce qu’il se limite à informer les individus",
+          "text": "Parce qu’il se limite à informer chaque personne sur ses choix alimentaires, sans agir sur son environnement ni sur les inégalités",
           "correct": false
         },
         {
@@ -358,7 +366,7 @@
           "correct": false
         },
         {
-          "text": "Uniquement les taxes publiques",
+          "text": "Uniquement les taxes et réglementations décidées par l’État sur les produits alimentaires",
           "correct": false
         },
         {
@@ -388,11 +396,11 @@
           "correct": true
         },
         {
-          "text": "Formation des préférences sociales",
-          "correct": true
+          "text": "Élaboration des repères nutritionnels officiels du PNNS",
+          "correct": false
         }
       ],
-      "explanation": "Le cours cite explicitement ces leviers parmi les déterminants commerciaux."
+      "explanation": "Publicité et promotion, lobbying, financement de la recherche et formation des préférences sociales sont des leviers du secteur privé. Les repères du PNNS sont élaborés par les autorités publiques."
     },
     {
       "id": "sp-c2-016",
@@ -468,9 +476,13 @@
         {
           "text": "Aux conditions de vie",
           "correct": true
+        },
+        {
+          "text": "Au seul hasard, sans lien avec la position sociale",
+          "correct": false
         }
       ],
-      "explanation": "Le cours évoque le gradient social et des conditions de vie inéquitables influençant l’accès aux ressources et aux soins."
+      "explanation": "Les inégalités sociales de santé suivent un gradient social lié aux revenus, à l’éducation, à la profession et aux conditions de vie. Elles sont systématiques et construites par la société, pas aléatoires."
     },
     {
       "id": "sp-c2-019",
@@ -518,7 +530,7 @@
           "correct": false
         },
         {
-          "text": "Exclusivement à des aliments gratuits",
+          "text": "Exclusivement à des aliments gratuits distribués par l’aide alimentaire, quelle que soit leur qualité",
           "correct": false
         }
       ],
@@ -566,7 +578,7 @@
           "correct": false
         },
         {
-          "text": "Une interdiction de toute aide ciblée",
+          "text": "Des paniers de fruits et légumes réservés aux seules femmes enceintes en situation de précarité, sans aucune action pour les autres femmes enceintes",
           "correct": false
         },
         {
@@ -622,7 +634,7 @@
           "correct": false
         },
         {
-          "text": "Un synonyme strict de danger",
+          "text": "Un élément qui cause directement et à coup sûr la maladie chez toute personne exposée, quelle que soit la dose reçue",
           "correct": false
         }
       ],
@@ -648,7 +660,7 @@
           "correct": false
         },
         {
-          "text": "Parce qu’il est toujours individuel",
+          "text": "Parce qu’il ne regroupe que des influences négatives sur la santé, à la différence du facteur de risque",
           "correct": false
         }
       ],

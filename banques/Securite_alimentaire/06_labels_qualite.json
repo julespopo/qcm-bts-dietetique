@@ -56,7 +56,7 @@
           "correct": true
         },
         {
-          "text": "Seule la vente doit avoir lieu dans la zone",
+          "text": "Au moins une des étapes de production, transformation ou élaboration se déroule dans l’aire définie",
           "correct": false
         }
       ],
@@ -76,7 +76,7 @@
       "prompt": "Quelle exigence géographique caractérise une IGP ?",
       "choices": [
         {
-          "text": "Aucun lien avec une origine géographique",
+          "text": "Toutes les étapes de production, transformation et élaboration dans l’aire définie",
           "correct": false
         },
         {
@@ -140,7 +140,7 @@
       "prompt": "Quelle caractéristique le Label Rouge atteste-t-il principalement ?",
       "choices": [
         {
-          "text": "Une origine biologique obligatoire",
+          "text": "Un lien obligatoire entre toutes les étapes de production et une aire géographique définie",
           "correct": false
         },
         {
@@ -280,7 +280,7 @@
           "correct": true
         },
         {
-          "text": "Le logo remplace la réglementation",
+          "text": "Le cahier des charges bio autorise librement tous les pesticides de synthèse homologués",
           "correct": false
         }
       ],
@@ -300,7 +300,7 @@
       "prompt": "Quel rôle l'INAO exerce-t-il dans le système français des signes officiels ?",
       "choices": [
         {
-          "text": "Le rôle d'une simple marque privée de supermarché",
+          "text": "Un rôle d’organisme privé chargé de vendre les produits sous signe officiel de qualité",
           "correct": false
         },
         {
@@ -428,7 +428,7 @@
       "prompt": "Sur quoi porte la certification haute valeur environnementale ?",
       "choices": [
         {
-          "text": "Le goût supérieur de tous les aliments",
+          "text": "La qualité gustative supérieure des produits issus d’une exploitation",
           "correct": false
         },
         {
@@ -468,7 +468,7 @@
           "correct": false
         },
         {
-          "text": "Une production exclusivement française",
+          "text": "Une production exclusivement française, garantie par un cahier des charges public et contrôlé",
           "correct": false
         },
         {
@@ -560,7 +560,7 @@
           "correct": true
         },
         {
-          "text": "Ignorer la liste des ingrédients",
+          "text": "Considérer que tous les logos garantissent à la fois origine, qualité sensorielle et respect de l’environnement",
           "correct": false
         },
         {

@@ -16,7 +16,7 @@
           "correct": true
         },
         {
-          "text": "Une opinion sans mesure",
+          "text": "Une opinion d’experts décrivant une situation sans recourir à aucune donnée chiffrée ni méthode de mesure",
           "correct": false
         },
         {
@@ -184,7 +184,7 @@
           "correct": false
         }
       ],
-      "explanation": "Le cours insiste sur la relativité des indicateurs et la nécessité d’en combiner plusieurs."
+      "explanation": "Un indicateur ne mesure qu’une dimension d’une situation : il faut en combiner plusieurs (mortalité, morbidité, conditions de vie…) pour en avoir une vue d’ensemble."
     },
     {
       "id": "sp-c3-008",
@@ -286,9 +286,13 @@
         {
           "text": "Évaluer des politiques de santé",
           "correct": true
+        },
+        {
+          "text": "Poser un diagnostic médical individuel",
+          "correct": false
         }
       ],
-      "explanation": "Le cours cite ces usages pour orienter prévention, décisions et politiques."
+      "explanation": "Mesurer l’état de santé d’une population permet de repérer les priorités, comparer, identifier des groupes vulnérables et évaluer les politiques. Le diagnostic individuel relève de la clinique."
     },
     {
       "id": "sp-c3-012",
@@ -302,7 +306,7 @@
           "correct": true
         },
         {
-          "text": "Au nombre moyen d’enfants par femme",
+          "text": "Au nombre moyen d’enfants par femme en âge de procréer, exprimé pour une année donnée et en pour mille",
           "correct": false
         },
         {
@@ -484,7 +488,7 @@
           "correct": true
         },
         {
-          "text": "Uniquement aux nouveaux cas",
+          "text": "Au nombre de nouveaux cas d’une maladie apparus dans une population pendant une période donnée, sans les anciens",
           "correct": false
         },
         {
@@ -536,7 +540,7 @@
           "correct": true
         },
         {
-          "text": "À l’âge maximal possible d’un être humain",
+          "text": "À l’âge moyen auquel sont décédées les personnes mortes au cours de l’année dans la population",
           "correct": false
         },
         {
@@ -614,7 +618,7 @@
           "correct": true
         },
         {
-          "text": "Les indicateurs remplacent entièrement le PNNS",
+          "text": "Les indicateurs fixent les objectifs et le PNNS se contente de les publier, sans action sur la population",
           "correct": false
         },
         {
@@ -650,9 +654,13 @@
         {
           "text": "Open Food Facts",
           "correct": true
+        },
+        {
+          "text": "Météo-France",
+          "correct": false
         }
       ],
-      "explanation": "Le cours cite notamment ANSES/Ciqual, Santé publique France, DREES, INSEE, Ministère de l’Agriculture/SSP et Open Food Facts."
+      "explanation": "ANSES/Ciqual, Santé publique France, DREES, INSEE, le ministère de l’Agriculture (SSP) et Open Food Facts fournissent des données utiles. Météo-France ne produit pas de données de nutrition ou de santé."
     }
   ]
 }
