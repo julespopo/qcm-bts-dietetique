@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 240" aria-hidden="true">
+  <!-- Épi de blé -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M352 232C350 180 344 120 330 62" fill="none" stroke="#E3B85C" stroke-width="4"/>
+    <g fill="#E3B85C">
+      <ellipse cx="329" cy="52" rx="7" ry="13" transform="rotate(-12 329 52)"/>
+      <ellipse cx="321" cy="76" rx="6.5" ry="12" transform="rotate(-42 321 76)"/>
+      <ellipse cx="343" cy="72" rx="6.5" ry="12" transform="rotate(22 343 72)"/>
+      <ellipse cx="325" cy="99" rx="6.5" ry="12" transform="rotate(-42 325 99)"/>
+      <ellipse cx="347" cy="95" rx="6.5" ry="12" transform="rotate(22 347 95)"/>
+      <ellipse cx="329" cy="122" rx="6.5" ry="12" transform="rotate(-42 329 122)"/>
+      <ellipse cx="350" cy="118" rx="6.5" ry="12" transform="rotate(22 350 118)"/>
+    </g>
+    <path d="M360 200c14-12 30-14 44-10-12 12-28 16-44 10z" fill="#8FBF9F"/>
+  </g>
+  <!-- Assiette équilibrée -->
+  <circle cx="230" cy="150" r="86" fill="#0E3328" opacity=".35"/>
+  <circle cx="226" cy="142" r="84" fill="#F7F5EF"/>
+  <circle cx="226" cy="142" r="66" fill="#FFFFFF"/>
+  <circle cx="226" cy="142" r="66" fill="none" stroke="#E7E1D2" stroke-width="3"/>
+  <!-- Moitié légumes -->
+  <path d="M226 142V80a62 62 0 0 0 0 124z" fill="#DCEBE3"/>
+  <g fill="#3E8A6B">
+    <circle cx="196" cy="112" r="12"/><circle cx="185" cy="124" r="10"/><circle cx="206" cy="124" r="10"/>
+  </g>
+  <path d="M195 124v18" stroke="#2C6B52" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#6FB58A">
+    <path d="M178 160c6-16 22-20 34-14-6 14-20 20-34 14z"/>
+    <path d="M196 182c2-14 14-20 26-18-2 12-14 20-26 18z"/>
+  </g>
+  <circle cx="214" cy="100" r="6" fill="#D2553A"/>
+  <circle cx="171" cy="144" r="6" fill="#D2553A"/>
+  <!-- Quart féculents -->
+  <path d="M226 142h62a62 62 0 0 0-62-62z" fill="#F6E7C1"/>
+  <g fill="#E3B85C">
+    <ellipse cx="248" cy="104" rx="5" ry="3" transform="rotate(-30 248 104)"/>
+    <ellipse cx="262" cy="114" rx="5" ry="3" transform="rotate(20 262 114)"/>
+    <ellipse cx="242" cy="122" rx="5" ry="3" transform="rotate(60 242 122)"/>
+    <ellipse cx="270" cy="130" rx="5" ry="3" transform="rotate(-10 270 130)"/>
+    <ellipse cx="254" cy="130" rx="5" ry="3" transform="rotate(40 254 130)"/>
+    <ellipse cx="238" cy="96" rx="5" ry="3" transform="rotate(80 238 96)"/>
+  </g>
+  <!-- Quart protéines / carottes -->
+  <path d="M226 142h62a62 62 0 0 1-62 62z" fill="#FBE3D6"/>
+  <g fill="#E07A4A">
+    <circle cx="248" cy="166" r="11"/><circle cx="268" cy="156" r="9"/><circle cx="244" cy="188" r="9"/>
+  </g>
+  <g fill="#F4A37A">
+    <circle cx="248" cy="166" r="5"/><circle cx="268" cy="156" r="4"/><circle cx="244" cy="188" r="4"/>
+  </g>
+  <path d="M265 182c8-4 14-2 16 4-8 4-14 2-16-4z" fill="#C2552D"/>
+  <!-- Couverts -->
+  <g fill="none" stroke="#F7F5EF" stroke-width="5" stroke-linecap="round">
+    <path d="M112 72v150"/>
+    <path d="M102 72v26a10 10 0 0 0 20 0V72"/>
+  </g>
+  <!-- Pomme -->
+  <g transform="translate(26 14)">
+    <path d="M384 128c-10-12-34-10-38 12-4 22 12 46 24 46 6 0 8-3 14-3s8 3 14 3c12 0 28-24 24-46-4-22-28-24-38-12z" fill="#D2553A"/>
+    <path d="M362 144c2-8 8-12 14-12" fill="none" stroke="#F4A37A" stroke-width="4" stroke-linecap="round"/>
+    <path d="M384 128c0-8 2-14 6-18" fill="none" stroke="#7A4A2A" stroke-width="4" stroke-linecap="round"/>
+    <path d="M390 116c8-10 20-10 26-6-6 10-18 12-26 6z" fill="#6FB58A"/>
+  </g>
+</svg>

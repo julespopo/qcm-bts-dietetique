@@ -54,7 +54,7 @@
       }
 
       const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.setAttribute("content", dark ? "#0f1319" : "#4f46e5");
+      if (meta) meta.setAttribute("content", dark ? "#0f1714" : "#1f6b52");
 
       if (animate) {
         window.setTimeout(() => {
