@@ -1,0 +1,2119 @@
+{
+  "version": 1,
+  "title": "Chapitre 12 — L’appareil cardiovasculaire, partie 2",
+  "subject": "BPADN",
+  "chapter": "Chapitre 12 — L’appareil cardiovasculaire, partie 2",
+  "questions": [
+    {
+      "id": "bp12b-001",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Employé seul, que désigne le mot « systole » ?",
+      "choices": [
+        {
+          "text": "La contraction des ventricules",
+          "correct": true
+        },
+        {
+          "text": "Le relâchement des oreillettes",
+          "correct": false
+        },
+        {
+          "text": "Le relâchement des ventricules",
+          "correct": false
+        },
+        {
+          "text": "La fermeture de toutes les valves",
+          "correct": false
+        }
+      ],
+      "explanation": "Systole (grec sustolê) = contraction, diastole = relâchement. Employés seuls, ces mots désignent les ventricules."
+    },
+    {
+      "id": "bp12b-002",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie le préfixe « iso- » dans « contraction isovolumique » ?",
+      "choices": [
+        {
+          "text": "Électricité",
+          "correct": false
+        },
+        {
+          "text": "Égal",
+          "correct": true
+        },
+        {
+          "text": "Rapide",
+          "correct": false
+        },
+        {
+          "text": "Absence",
+          "correct": false
+        }
+      ],
+      "explanation": "Iso- = égal : pendant la contraction isovolumique, le volume du ventricule reste constant car toutes les valves sont fermées."
+    },
+    {
+      "id": "bp12b-003",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que désigne le terme « bradycardie » ?",
+      "choices": [
+        {
+          "text": "Un bruit cardiaque anormal",
+          "correct": false
+        },
+        {
+          "text": "Un rythme cardiaque rapide",
+          "correct": false
+        },
+        {
+          "text": "Un rythme cardiaque lent",
+          "correct": true
+        },
+        {
+          "text": "Un rythme cardiaque irrégulier",
+          "correct": false
+        }
+      ],
+      "explanation": "Brady- = lent, -cardie = cœur. Au repos chez l’adulte, on parle de bradycardie en dessous de 60 battements par minute."
+    },
+    {
+      "id": "bp12b-004",
+      "category": "Terminologie",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles associations entre racine ou suffixe et sens sont exactes ?",
+      "choices": [
+        {
+          "text": "stétho- : poitrine",
+          "correct": true
+        },
+        {
+          "text": "auscult- : écouter",
+          "correct": true
+        },
+        {
+          "text": "-graphie : instrument pour observer",
+          "correct": false
+        },
+        {
+          "text": "-gramme : tracé obtenu",
+          "correct": true
+        }
+      ],
+      "explanation": "-gramme = tracé obtenu, stétho- = poitrine, auscult- = écouter. -graphie désigne la technique d’enregistrement ; l’instrument pour observer, c’est -scope."
+    },
+    {
+      "id": "bp12b-005",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie « arythmie » ?",
+      "choices": [
+        {
+          "text": "Un cœur qui bat trop vite",
+          "correct": false
+        },
+        {
+          "text": "Une absence totale de battements",
+          "correct": false
+        },
+        {
+          "text": "Un rythme déclenché par le nœud sinusal",
+          "correct": false
+        },
+        {
+          "text": "Un rythme irrégulier",
+          "correct": true
+        }
+      ],
+      "explanation": "Le préfixe a- (ou dys-) exprime l’absence ou l’anomalie : une arythmie est un rythme irrégulier. Un rythme déclenché par le nœud sinusal est un rythme sinusal, normal."
+    },
+    {
+      "id": "bp12b-006",
+      "category": "Automatisme cardiaque",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’appelle-t-on automatisme cardiaque ?",
+      "choices": [
+        {
+          "text": "La capacité du cœur à se contracter de façon rythmique et spontanée, sans commande nerveuse",
+          "correct": true
+        },
+        {
+          "text": "L’adaptation de la fréquence cardiaque à l’effort par le système nerveux autonome",
+          "correct": false
+        },
+        {
+          "text": "La fermeture automatique des valves grâce à de petits muscles propres à chaque valvule",
+          "correct": false
+        },
+        {
+          "text": "La contraction du cœur déclenchée à chaque battement par un ordre du cerveau",
+          "correct": false
+        }
+      ],
+      "explanation": "L’automatisme est assuré par le tissu nodal : le cœur bat seul. Le système nerveux ne déclenche pas les battements, il en module seulement la fréquence."
+    },
+    {
+      "id": "bp12b-007",
+      "category": "Automatisme cardiaque",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels faits prouvent l’automatisme cardiaque ?",
+      "choices": [
+        {
+          "text": "Le cœur de l’embryon bat dès la 4e semaine, avant d’être innervé",
+          "correct": true
+        },
+        {
+          "text": "Le cœur s’arrête dès que le nerf X est sectionné",
+          "correct": false
+        },
+        {
+          "text": "Un cœur isolé et alimenté en liquide oxygéné continue de battre",
+          "correct": true
+        },
+        {
+          "text": "Un cœur greffé bat alors que ses nerfs ont été sectionnés",
+          "correct": true
+        }
+      ],
+      "explanation": "Cœur isolé, cœur greffé et cœur embryonnaire battent sans commande nerveuse. Sectionner le nerf X n’arrête pas le cœur : il bat au contraire plus vite."
+    },
+    {
+      "id": "bp12b-008",
+      "category": "Automatisme cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi un cœur greffé bat-il au repos plus vite qu’un cœur normal, vers 90 à 110 / min ?",
+      "choices": [
+        {
+          "text": "Parce que le cerveau lui envoie davantage d’ordres pour compenser la greffe",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’il n’est plus freiné par le nerf X, ses nerfs ayant été sectionnés",
+          "correct": true
+        },
+        {
+          "text": "Parce que le cœur greffé reçoit plus d’hormones thyroïdiennes",
+          "correct": false
+        },
+        {
+          "text": "Parce que le nœud auriculo-ventriculaire remplace le nœud sinusal après la greffe",
+          "correct": false
+        }
+      ],
+      "explanation": "Privé de ses nerfs, le cœur greffé suit le rythme propre du nœud sinusal, sans le frein du nerf X : c’est la preuve que le rythme de base vient du cœur lui-même."
+    },
+    {
+      "id": "bp12b-009",
+      "category": "Automatisme cardiaque",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel rôle joue le système nerveux dans les battements cardiaques ?",
+      "choices": [
+        {
+          "text": "Il n’a aucune influence sur le cœur",
+          "correct": false
+        },
+        {
+          "text": "Il déclenche chaque battement",
+          "correct": false
+        },
+        {
+          "text": "Il accélère ou ralentit le rythme imposé par le nœud sinusal",
+          "correct": true
+        },
+        {
+          "text": "Il ferme les valves entre deux battements",
+          "correct": false
+        }
+      ],
+      "explanation": "Le système nerveux ne déclenche pas les battements : il module la fréquence fixée par le nœud sinusal (régulation vue en partie 4)."
+    },
+    {
+      "id": "bp12b-010",
+      "category": "Automatisme cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est la fréquence spontanée du nœud sinusal, sans le frein du nerf X ?",
+      "choices": [
+        {
+          "text": "Environ 180 / min",
+          "correct": false
+        },
+        {
+          "text": "Environ 20 à 40 / min",
+          "correct": false
+        },
+        {
+          "text": "Environ 40 à 60 / min",
+          "correct": false
+        },
+        {
+          "text": "Environ 100 / min",
+          "correct": true
+        }
+      ],
+      "explanation": "Le nœud sinusal a un rythme propre d’environ 100 / min. Au repos, le nerf X le freine : la fréquence cardiaque descend vers 60 à 80 / min."
+    },
+    {
+      "id": "bp12b-011",
+      "category": "Automatisme cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est la fréquence spontanée du nœud auriculo-ventriculaire ?",
+      "choices": [
+        {
+          "text": "Environ 40 à 60 / min",
+          "correct": true
+        },
+        {
+          "text": "Environ 20 à 40 / min",
+          "correct": false
+        },
+        {
+          "text": "Environ 60 à 80 / min",
+          "correct": false
+        },
+        {
+          "text": "Environ 100 / min",
+          "correct": false
+        }
+      ],
+      "explanation": "Le nœud auriculo-ventriculaire bat spontanément à 40 à 60 / min : il prend le relais si le nœud sinusal est défaillant. Le réseau de Purkinje, à 20 à 40 / min, est un relais de secours insuffisant."
+    },
+    {
+      "id": "bp12b-012",
+      "category": "Automatisme cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi est-ce le nœud sinusal qui impose son rythme à tout le cœur ?",
+      "choices": [
+        {
+          "text": "Parce qu’il est situé dans le ventricule gauche, la cavité la plus puissante",
+          "correct": false
+        },
+        {
+          "text": "Parce que c’est le centre le plus rapide du tissu nodal",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’il est le plus lent et laisse le temps aux ventricules de se remplir",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’il est le seul tissu cardiaque innervé par le nerf X",
+          "correct": false
+        }
+      ],
+      "explanation": "Le centre le plus rapide impose son rythme : c’est le nœud sinusal (≈ 100 / min). Un rythme normal qu’il déclenche est appelé rythme sinusal."
+    },
+    {
+      "id": "bp12b-013",
+      "category": "Automatisme cardiaque",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Si le nœud sinusal ne fonctionne plus, que se passe-t-il ?",
+      "choices": [
+        {
+          "text": "Le cœur s’arrête forcément",
+          "correct": false
+        },
+        {
+          "text": "Les ventricules se contractent avant les oreillettes, à 100 / min",
+          "correct": false
+        },
+        {
+          "text": "Le nœud auriculo-ventriculaire prend le relais à un rythme plus lent",
+          "correct": true
+        },
+        {
+          "text": "Le cerveau commande directement chaque battement",
+          "correct": false
+        }
+      ],
+      "explanation": "Le nœud auriculo-ventriculaire prend le relais à 40 à 60 / min. Si ce rythme est insuffisant, un stimulateur cardiaque (pacemaker) peut envoyer l’impulsion électrique."
+    },
+    {
+      "id": "bp12b-014",
+      "category": "Automatisme cardiaque",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’est-ce qu’un rythme sinusal ?",
+      "choices": [
+        {
+          "text": "Un rythme de secours imposé par le réseau de Purkinje",
+          "correct": false
+        },
+        {
+          "text": "Un rythme irrégulier dû à une valve qui fuit",
+          "correct": false
+        },
+        {
+          "text": "Un rythme accéléré lors d’un effort intense",
+          "correct": false
+        },
+        {
+          "text": "Un rythme normal, déclenché par le nœud sinusal",
+          "correct": true
+        }
+      ],
+      "explanation": "Le rythme sinusal est le rythme normal du cœur, déclenché par le nœud sinusal. Sur l’ECG, chaque complexe QRS est alors précédé d’une onde P."
+    },
+    {
+      "id": "bp12b-015",
+      "category": "Automatisme cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que fait un stimulateur cardiaque (pacemaker) artificiel ?",
+      "choices": [
+        {
+          "text": "Il envoie une petite impulsion électrique quand le tissu nodal ne le fait plus correctement",
+          "correct": true
+        },
+        {
+          "text": "Il remplace les valves cardiaques qui ne se ferment plus correctement",
+          "correct": false
+        },
+        {
+          "text": "Il enregistre en continu l’ECG sans agir sur le cœur",
+          "correct": false
+        },
+        {
+          "text": "Il pompe le sang à la place du ventricule gauche défaillant",
+          "correct": false
+        }
+      ],
+      "explanation": "Le premier pacemaker implanté l’a été en 1958, chez Arne Larsson, dont le cœur battait trop lentement. L’appareil supplée un tissu nodal défaillant."
+    },
+    {
+      "id": "bp12b-016",
+      "category": "Propagation de l’excitation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est l’ordre de propagation de l’excitation dans le cœur ?",
+      "choices": [
+        {
+          "text": "Réseau de Purkinje → branches → faisceau de His → nœud auriculo-ventriculaire → oreillettes → nœud sinusal",
+          "correct": false
+        },
+        {
+          "text": "Nœud sinusal → oreillettes → nœud auriculo-ventriculaire → faisceau de His → branches → réseau de Purkinje",
+          "correct": true
+        },
+        {
+          "text": "Nœud auriculo-ventriculaire → nœud sinusal → oreillettes → réseau de Purkinje → branches → faisceau de His",
+          "correct": false
+        },
+        {
+          "text": "Nœud sinusal → faisceau de His → oreillettes → réseau de Purkinje → nœud auriculo-ventriculaire → branches",
+          "correct": false
+        }
+      ],
+      "explanation": "L’excitation naît au nœud sinusal, diffuse dans les oreillettes, est retardée au nœud auriculo-ventriculaire, puis parcourt très vite le faisceau de His, ses branches et le réseau de Purkinje."
+    },
+    {
+      "id": "bp12b-017",
+      "category": "Propagation de l’excitation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où l’excitation est-elle ralentie, et pourquoi ?",
+      "choices": [
+        {
+          "text": "Au nœud sinusal, pour laisser le temps aux valves sigmoïdes de s’ouvrir",
+          "correct": false
+        },
+        {
+          "text": "Au faisceau de His, pour éviter que les oreillettes se contractent en même temps",
+          "correct": false
+        },
+        {
+          "text": "Au nœud auriculo-ventriculaire, pour que les oreillettes finissent de remplir les ventricules",
+          "correct": true
+        },
+        {
+          "text": "Au réseau de Purkinje, pour que les ventricules se contractent un par un",
+          "correct": false
+        }
+      ],
+      "explanation": "La conduction est retardée d’environ 0,1 s au nœud auriculo-ventriculaire : les oreillettes finissent de vider leur sang dans les ventricules avant la contraction ventriculaire."
+    },
+    {
+      "id": "bp12b-018",
+      "category": "Propagation de l’excitation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est la durée approximative du retard de conduction au nœud auriculo-ventriculaire ?",
+      "choices": [
+        {
+          "text": "1 s",
+          "correct": false
+        },
+        {
+          "text": "0,01 s",
+          "correct": false
+        },
+        {
+          "text": "0,8 s",
+          "correct": false
+        },
+        {
+          "text": "0,1 s",
+          "correct": true
+        }
+      ],
+      "explanation": "Le retard est d’environ 0,1 s. Il est inclus dans l’intervalle PR de l’ECG (0,12 à 0,20 s)."
+    },
+    {
+      "id": "bp12b-019",
+      "category": "Propagation de l’excitation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans quel sens les ventricules se contractent-ils ?",
+      "choices": [
+        {
+          "text": "De la pointe vers la base, ce qui chasse le sang vers les artères",
+          "correct": true
+        },
+        {
+          "text": "De façon désordonnée, cellule par cellule",
+          "correct": false
+        },
+        {
+          "text": "De la base vers la pointe, en commençant par les valves",
+          "correct": false
+        },
+        {
+          "text": "Le ventricule droit d’abord, puis le gauche",
+          "correct": false
+        }
+      ],
+      "explanation": "Grâce à la conduction très rapide du réseau de Purkinje, les ventricules se contractent ensemble, de la pointe vers la base : le sang est chassé vers les artères."
+    },
+    {
+      "id": "bp12b-020",
+      "category": "Propagation de l’excitation",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles affirmations sur l’excitation et la contraction cardiaques sont exactes ?",
+      "choices": [
+        {
+          "text": "La conduction est très rapide dans le réseau de Purkinje",
+          "correct": true
+        },
+        {
+          "text": "L’excitation électrique précède et déclenche la contraction",
+          "correct": true
+        },
+        {
+          "text": "La contraction précède l’excitation électrique",
+          "correct": false
+        },
+        {
+          "text": "Les oreillettes se contractent avant les ventricules",
+          "correct": true
+        }
+      ],
+      "explanation": "L’excitation électrique précède toujours la contraction de la zone concernée. Les oreillettes se contractent d’abord, puis les ventricules, ensemble."
+    },
+    {
+      "id": "bp12b-021",
+      "category": "Révolution cardiaque",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’est-ce qu’une révolution cardiaque ?",
+      "choices": [
+        {
+          "text": "Le trajet complet du sang dans l’organisme",
+          "correct": false
+        },
+        {
+          "text": "La succession d’une systole et d’une diastole",
+          "correct": true
+        },
+        {
+          "text": "La propagation de l’excitation dans le tissu nodal",
+          "correct": false
+        },
+        {
+          "text": "La contraction simultanée des quatre cavités",
+          "correct": false
+        }
+      ],
+      "explanation": "La révolution, ou cycle cardiaque, est la succession d’une systole et d’une diastole. Le trajet du sang dans l’organisme correspond à la circulation."
+    },
+    {
+      "id": "bp12b-022",
+      "category": "Révolution cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À 75 battements par minute, combien dure une révolution cardiaque ?",
+      "choices": [
+        {
+          "text": "1,25 s",
+          "correct": false
+        },
+        {
+          "text": "0,3 s",
+          "correct": false
+        },
+        {
+          "text": "0,8 s",
+          "correct": true
+        },
+        {
+          "text": "0,5 s",
+          "correct": false
+        }
+      ],
+      "explanation": "Durée d’une révolution = 60 / FC = 60 / 75 = 0,8 s, dont environ 0,3 s de systole ventriculaire et 0,5 s de diastole ventriculaire."
+    },
+    {
+      "id": "bp12b-023",
+      "category": "Révolution cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Au repos, comment se répartit une révolution de 0,8 s ?",
+      "choices": [
+        {
+          "text": "Systole et diastole durent chacune 0,4 s",
+          "correct": false
+        },
+        {
+          "text": "Systole ventriculaire ≈ 0,5 s ; diastole ventriculaire ≈ 0,3 s",
+          "correct": false
+        },
+        {
+          "text": "Systole ventriculaire ≈ 0,1 s ; diastole ventriculaire ≈ 0,7 s",
+          "correct": false
+        },
+        {
+          "text": "Systole ventriculaire ≈ 0,3 s ; diastole ventriculaire ≈ 0,5 s",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cœur passe plus de temps à se relâcher qu’à se contracter : environ 0,3 s de systole et 0,5 s de diastole ventriculaire."
+    },
+    {
+      "id": "bp12b-024",
+      "category": "Révolution cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quel moment de la révolution a lieu la systole auriculaire ?",
+      "choices": [
+        {
+          "text": "À la fin de la diastole ventriculaire",
+          "correct": true
+        },
+        {
+          "text": "Au début de la systole ventriculaire",
+          "correct": false
+        },
+        {
+          "text": "Pendant la relaxation isovolumique",
+          "correct": false
+        },
+        {
+          "text": "Pendant l’éjection ventriculaire",
+          "correct": false
+        }
+      ],
+      "explanation": "La systole auriculaire survient à la fin de la diastole ventriculaire : elle complète le remplissage des ventricules."
+    },
+    {
+      "id": "bp12b-025",
+      "category": "Révolution cardiaque",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Dans quel sens le sang se déplace-t-il toujours ?",
+      "choices": [
+        {
+          "text": "De la pression la plus faible vers la pression la plus forte",
+          "correct": false
+        },
+        {
+          "text": "De la pression la plus forte vers la pression la plus faible",
+          "correct": true
+        },
+        {
+          "text": "Toujours du cœur gauche vers le cœur droit",
+          "correct": false
+        },
+        {
+          "text": "Dans le sens imposé par la contraction des valves",
+          "correct": false
+        }
+      ],
+      "explanation": "Règle à appliquer partout : le sang va de la pression la plus forte vers la plus faible. Les valves sont passives et suivent ces différences de pression."
+    },
+    {
+      "id": "bp12b-026",
+      "category": "Révolution cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quand une valve cardiaque s’ouvre-t-elle ?",
+      "choices": [
+        {
+          "text": "Quand la pression devient plus forte en aval qu’en amont",
+          "correct": false
+        },
+        {
+          "text": "Quand les muscles de la valve se contractent",
+          "correct": false
+        },
+        {
+          "text": "Quand la pression est plus forte en amont qu’en aval",
+          "correct": true
+        },
+        {
+          "text": "À chaque onde T de l’ECG, quelle que soit la pression",
+          "correct": false
+        }
+      ],
+      "explanation": "Une valve s’ouvre quand la pression est plus forte en amont, et se ferme quand elle devient plus forte en aval. Ce sont les contractions des cavités qui créent ces différences."
+    },
+    {
+      "id": "bp12b-027",
+      "category": "Révolution cardiaque",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pourquoi le myocarde du ventricule gauche est-il surtout irrigué pendant la diastole ?",
+      "choices": [
+        {
+          "text": "Parce que les artères coronaires naissent de l’oreillette gauche, qui se remplit en diastole",
+          "correct": false
+        },
+        {
+          "text": "Parce que le sang veineux du myocarde ne peut repartir que pendant la systole",
+          "correct": false
+        },
+        {
+          "text": "Parce que la valve aortique est ouverte pendant la diastole et alimente les coronaires",
+          "correct": false
+        },
+        {
+          "text": "Parce que pendant la systole, le muscle contracté comprime ses propres artères coronaires",
+          "correct": true
+        }
+      ],
+      "explanation": "Pendant la systole, le muscle contracté écrase ses propres artères. Une tachycardie, qui raccourcit surtout la diastole, réduit donc le temps d’irrigation du myocarde."
+    },
+    {
+      "id": "bp12b-028",
+      "category": "Révolution cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pour savoir si la valve aortique est ouverte, quelles pressions faut-il comparer ?",
+      "choices": [
+        {
+          "text": "La pression du ventricule gauche et celle de l’aorte",
+          "correct": true
+        },
+        {
+          "text": "La pression des deux oreillettes",
+          "correct": false
+        },
+        {
+          "text": "La pression de l’oreillette gauche et celle du ventricule gauche",
+          "correct": false
+        },
+        {
+          "text": "La pression du ventricule droit et celle de l’artère pulmonaire",
+          "correct": false
+        }
+      ],
+      "explanation": "On compare les deux pressions de part et d’autre de la valve : ventricule gauche / aorte pour la valve aortique, oreillette gauche / ventricule gauche pour la mitrale."
+    },
+    {
+      "id": "bp12b-029",
+      "category": "Phases du cycle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est l’ordre des 4 phases du cycle cardiaque, en partant du remplissage ?",
+      "choices": [
+        {
+          "text": "Remplissage → contraction isovolumique → relaxation isovolumique → éjection",
+          "correct": false
+        },
+        {
+          "text": "Remplissage → contraction isovolumique → éjection → relaxation isovolumique",
+          "correct": true
+        },
+        {
+          "text": "Remplissage → relaxation isovolumique → éjection → contraction isovolumique",
+          "correct": false
+        },
+        {
+          "text": "Remplissage → éjection → contraction isovolumique → relaxation isovolumique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cycle enchaîne remplissage ventriculaire, contraction isovolumique, éjection, puis relaxation isovolumique, avant un nouveau remplissage."
+    },
+    {
+      "id": "bp12b-030",
+      "category": "Phases du cycle",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles affirmations sur la contraction isovolumique sont exactes ?",
+      "choices": [
+        {
+          "text": "Toutes les valves sont fermées",
+          "correct": true
+        },
+        {
+          "text": "Le volume du ventricule diminue",
+          "correct": false
+        },
+        {
+          "text": "Le sang est éjecté dans l’aorte",
+          "correct": false
+        },
+        {
+          "text": "La pression du ventricule augmente très vite",
+          "correct": true
+        }
+      ],
+      "explanation": "Pendant la contraction isovolumique, le ventricule se contracte valves fermées : sa pression monte très vite mais son volume reste constant (≈ 120 mL). L’éjection n’a pas encore commencé."
+    },
+    {
+      "id": "bp12b-031",
+      "category": "Phases du cycle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pendant la phase d’éjection, quel est l’état des valves du cœur gauche ?",
+      "choices": [
+        {
+          "text": "Mitrale et aortique ouvertes",
+          "correct": false
+        },
+        {
+          "text": "Mitrale ouverte, aortique fermée",
+          "correct": false
+        },
+        {
+          "text": "Mitrale fermée, aortique ouverte",
+          "correct": true
+        },
+        {
+          "text": "Mitrale et aortique fermées",
+          "correct": false
+        }
+      ],
+      "explanation": "Pendant l’éjection, la pression du ventricule gauche dépasse celle de l’aorte : la valve aortique s’ouvre, la mitrale reste fermée et le volume ventriculaire passe d’environ 120 à 50 mL."
+    },
+    {
+      "id": "bp12b-032",
+      "category": "Phases du cycle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pendant la phase de remplissage ventriculaire, quel est l’état des valves du cœur gauche ?",
+      "choices": [
+        {
+          "text": "Mitrale et aortique ouvertes",
+          "correct": false
+        },
+        {
+          "text": "Mitrale et aortique fermées",
+          "correct": false
+        },
+        {
+          "text": "Mitrale fermée, aortique ouverte",
+          "correct": false
+        },
+        {
+          "text": "Mitrale ouverte, aortique fermée",
+          "correct": true
+        }
+      ],
+      "explanation": "Pendant le remplissage, le sang passe de l’oreillette au ventricule par la mitrale ouverte ; la valve aortique est fermée. Le volume passe d’environ 50 à 120 mL."
+    },
+    {
+      "id": "bp12b-033",
+      "category": "Phases du cycle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment le ventricule se remplit-il principalement ?",
+      "choices": [
+        {
+          "text": "Surtout passivement, la systole auriculaire complétant le remplissage",
+          "correct": true
+        },
+        {
+          "text": "Grâce à l’aspiration produite par la fermeture de la valve aortique",
+          "correct": false
+        },
+        {
+          "text": "Uniquement grâce à la contraction des oreillettes",
+          "correct": false
+        },
+        {
+          "text": "Pendant la contraction isovolumique, valves ouvertes",
+          "correct": false
+        }
+      ],
+      "explanation": "Le sang passe de l’oreillette au ventricule surtout passivement ; la systole auriculaire, à la fin de la diastole, ne fait que compléter le remplissage."
+    },
+    {
+      "id": "bp12b-034",
+      "category": "Phases du cycle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que se passe-t-il pendant la relaxation isovolumique ?",
+      "choices": [
+        {
+          "text": "Le ventricule éjecte ses derniers millilitres de sang dans l’aorte",
+          "correct": false
+        },
+        {
+          "text": "Le ventricule se relâche valves fermées et sa pression chute, à volume constant",
+          "correct": true
+        },
+        {
+          "text": "Le ventricule se remplit par la mitrale ouverte et son volume augmente",
+          "correct": false
+        },
+        {
+          "text": "Les oreillettes se contractent pour vider leur sang dans les ventricules",
+          "correct": false
+        }
+      ],
+      "explanation": "Après la fermeture aortique (B2), le ventricule se relâche toutes valves fermées : sa pression chute à volume constant (≈ 50 mL), jusqu’à l’ouverture de la mitrale."
+    },
+    {
+      "id": "bp12b-035",
+      "category": "Phases du cycle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles phases constituent la systole ventriculaire ?",
+      "choices": [
+        {
+          "text": "Le remplissage et la contraction isovolumique",
+          "correct": false
+        },
+        {
+          "text": "La relaxation isovolumique et le remplissage",
+          "correct": false
+        },
+        {
+          "text": "La contraction isovolumique et l’éjection",
+          "correct": true
+        },
+        {
+          "text": "L’éjection et la relaxation isovolumique",
+          "correct": false
+        }
+      ],
+      "explanation": "Systole ventriculaire = contraction isovolumique + éjection (phases 2 et 3). Diastole ventriculaire = relaxation isovolumique + remplissage (phases 4 et 1)."
+    },
+    {
+      "id": "bp12b-036",
+      "category": "Phases du cycle",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel événement marque la fin de la contraction isovolumique et le début de l’éjection ?",
+      "choices": [
+        {
+          "text": "La fermeture de la valve aortique, quand la pression du VG devient inférieure à celle de l’aorte",
+          "correct": false
+        },
+        {
+          "text": "L’ouverture de la valve mitrale, quand la pression du VG devient inférieure à celle de l’oreillette",
+          "correct": false
+        },
+        {
+          "text": "La fermeture de la valve mitrale, quand la pression du VG dépasse celle de l’oreillette",
+          "correct": false
+        },
+        {
+          "text": "L’ouverture de la valve aortique, quand la pression du VG dépasse celle de l’aorte",
+          "correct": true
+        }
+      ],
+      "explanation": "Chaque événement se lit au croisement de deux courbes : la valve aortique s’ouvre quand la pression du ventricule gauche devient supérieure à la pression aortique."
+    },
+    {
+      "id": "bp12b-037",
+      "category": "Phases du cycle",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel événement provoque la fermeture de la valve mitrale ?",
+      "choices": [
+        {
+          "text": "La pression du ventricule gauche devient supérieure à celle de l’oreillette gauche",
+          "correct": true
+        },
+        {
+          "text": "La pression de l’oreillette gauche devient supérieure à celle du ventricule gauche",
+          "correct": false
+        },
+        {
+          "text": "La pression de l’aorte devient supérieure à celle du ventricule gauche",
+          "correct": false
+        },
+        {
+          "text": "La pression du ventricule gauche devient supérieure à celle de l’aorte",
+          "correct": false
+        }
+      ],
+      "explanation": "Dès que le ventricule gauche commence à se contracter, sa pression dépasse celle de l’oreillette : la mitrale se ferme (B1), début de la contraction isovolumique."
+    },
+    {
+      "id": "bp12b-038",
+      "category": "Phases du cycle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Le cœur droit suit-il les mêmes phases que le cœur gauche ?",
+      "choices": [
+        {
+          "text": "Non, il se contracte en alternance avec le cœur gauche",
+          "correct": false
+        },
+        {
+          "text": "Oui, au même moment, mais à des pressions plus basses",
+          "correct": true
+        },
+        {
+          "text": "Non, il n’a pas de phase de contraction isovolumique",
+          "correct": false
+        },
+        {
+          "text": "Oui, et avec les mêmes pressions que le cœur gauche",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cœur droit suit les mêmes phases au même moment (valves tricuspide et pulmonaire), mais avec des pressions plus basses."
+    },
+    {
+      "id": "bp12b-039",
+      "category": "Phases du cycle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel pic de pression atteignent le ventricule droit et le ventricule gauche lors de l’éjection ?",
+      "choices": [
+        {
+          "text": "≈ 120 mmHg des deux côtés",
+          "correct": false
+        },
+        {
+          "text": "≈ 120 mmHg à droite et ≈ 25 mmHg à gauche",
+          "correct": false
+        },
+        {
+          "text": "≈ 25 mmHg à droite et ≈ 120 mmHg à gauche",
+          "correct": true
+        },
+        {
+          "text": "≈ 70 mmHg à droite et ≈ 70 mmHg à gauche",
+          "correct": false
+        }
+      ],
+      "explanation": "Pour un même volume éjecté, le ventricule gauche doit produire une pression bien plus élevée (≈ 120 contre ≈ 25 mmHg) : d’où sa paroi plus épaisse."
+    },
+    {
+      "id": "bp12b-040",
+      "category": "Volumes ventriculaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que désigne le volume télédiastolique (VTD) ?",
+      "choices": [
+        {
+          "text": "Le volume qui reste dans le ventricule à la fin de l’éjection",
+          "correct": false
+        },
+        {
+          "text": "Le volume éjecté par minute",
+          "correct": false
+        },
+        {
+          "text": "Le volume éjecté à chaque battement",
+          "correct": false
+        },
+        {
+          "text": "Le volume du ventricule à la fin du remplissage",
+          "correct": true
+        }
+      ],
+      "explanation": "« Télé- » = à la fin : le VTD est le volume du ventricule à la fin de la diastole, donc à la fin du remplissage (≈ 120 mL au repos)."
+    },
+    {
+      "id": "bp12b-041",
+      "category": "Volumes ventriculaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est la valeur approximative du volume télésystolique (VTS) au repos ?",
+      "choices": [
+        {
+          "text": "≈ 50 mL",
+          "correct": true
+        },
+        {
+          "text": "≈ 70 mL",
+          "correct": false
+        },
+        {
+          "text": "≈ 120 mL",
+          "correct": false
+        },
+        {
+          "text": "0 mL",
+          "correct": false
+        }
+      ],
+      "explanation": "Le VTS, volume restant à la fin de l’éjection, est d’environ 50 mL : le ventricule ne se vide jamais complètement."
+    },
+    {
+      "id": "bp12b-042",
+      "category": "Volumes ventriculaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment calcule-t-on le volume d’éjection systolique (VES) ?",
+      "choices": [
+        {
+          "text": "VES = VTD + VTS",
+          "correct": false
+        },
+        {
+          "text": "VES = VTD − VTS",
+          "correct": true
+        },
+        {
+          "text": "VES = VTS − VTD",
+          "correct": false
+        },
+        {
+          "text": "VES = DC × FC",
+          "correct": false
+        }
+      ],
+      "explanation": "VES = VTD − VTS = 120 − 50 = 70 mL au repos."
+    },
+    {
+      "id": "bp12b-043",
+      "category": "Volumes ventriculaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Avec un VTD de 130 mL et un VTS de 60 mL, quel est le VES ?",
+      "choices": [
+        {
+          "text": "130 mL",
+          "correct": false
+        },
+        {
+          "text": "60 mL",
+          "correct": false
+        },
+        {
+          "text": "70 mL",
+          "correct": true
+        },
+        {
+          "text": "190 mL",
+          "correct": false
+        }
+      ],
+      "explanation": "VES = VTD − VTS = 130 − 60 = 70 mL."
+    },
+    {
+      "id": "bp12b-044",
+      "category": "Volumes ventriculaires",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Que vaut la fraction d’éjection pour un VTD de 120 mL et un VES de 70 mL ?",
+      "choices": [
+        {
+          "text": "Environ 70 %",
+          "correct": false
+        },
+        {
+          "text": "Environ 171 %",
+          "correct": false
+        },
+        {
+          "text": "Environ 42 %",
+          "correct": false
+        },
+        {
+          "text": "Environ 58 %",
+          "correct": true
+        }
+      ],
+      "explanation": "FE = VES / VTD = 70 / 120 ≈ 58 %. Elle est normalement d’au moins 50 %, se mesure par échographie et diminue dans certaines insuffisances cardiaques."
+    },
+    {
+      "id": "bp12b-045",
+      "category": "Volumes ventriculaires",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Le ventricule se vide-t-il complètement à chaque battement ?",
+      "choices": [
+        {
+          "text": "Non, il reste environ 50 mL à la fin de l’éjection",
+          "correct": true
+        },
+        {
+          "text": "Oui, le volume télésystolique est nul",
+          "correct": false
+        },
+        {
+          "text": "Oui, sauf pendant un effort intense",
+          "correct": false
+        },
+        {
+          "text": "Non, il n’éjecte que 10 % de son volume",
+          "correct": false
+        }
+      ],
+      "explanation": "Le ventricule éjecte environ 70 mL sur 120 : il reste toujours un volume télésystolique d’environ 50 mL."
+    },
+    {
+      "id": "bp12b-046",
+      "category": "Électrocardiogramme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’enregistre l’électrocardiogramme (ECG) ?",
+      "choices": [
+        {
+          "text": "La force de contraction du cœur",
+          "correct": false
+        },
+        {
+          "text": "L’activité électrique du cœur",
+          "correct": true
+        },
+        {
+          "text": "Les pressions dans les cavités",
+          "correct": false
+        },
+        {
+          "text": "Les bruits produits par les valves",
+          "correct": false
+        }
+      ],
+      "explanation": "L’ECG enregistre l’activité électrique, pas la contraction. Chaque activation électrique est cependant suivie, quelques centièmes de seconde plus tard, de la contraction de la zone concernée."
+    },
+    {
+      "id": "bp12b-047",
+      "category": "Électrocardiogramme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Combien d’électrodes sont utilisées pour un ECG standard, selon le cours ?",
+      "choices": [
+        {
+          "text": "12 : toutes sur le thorax",
+          "correct": false
+        },
+        {
+          "text": "2 : une sur chaque bras",
+          "correct": false
+        },
+        {
+          "text": "10 : 4 aux membres et 6 sur le thorax",
+          "correct": true
+        },
+        {
+          "text": "4 : une sur chaque membre",
+          "correct": false
+        }
+      ],
+      "explanation": "Des électrodes captent à la peau les petits courants créés par l’excitation cardiaque : 4 aux membres et 6 sur le thorax."
+    },
+    {
+      "id": "bp12b-048",
+      "category": "Électrocardiogramme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi correspond l’onde P ?",
+      "choices": [
+        {
+          "text": "À l’activation électrique des ventricules",
+          "correct": false
+        },
+        {
+          "text": "Au retour au repos des ventricules",
+          "correct": false
+        },
+        {
+          "text": "À la fermeture des valves sigmoïdes",
+          "correct": false
+        },
+        {
+          "text": "À l’activation électrique des oreillettes",
+          "correct": true
+        }
+      ],
+      "explanation": "L’onde P traduit la dépolarisation des oreillettes ; elle est suivie de la systole auriculaire."
+    },
+    {
+      "id": "bp12b-049",
+      "category": "Électrocardiogramme",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi correspond le complexe QRS ?",
+      "choices": [
+        {
+          "text": "À l’activation électrique des ventricules",
+          "correct": true
+        },
+        {
+          "text": "À l’activation électrique des oreillettes",
+          "correct": false
+        },
+        {
+          "text": "Au premier bruit du cœur",
+          "correct": false
+        },
+        {
+          "text": "Au retour au repos des oreillettes",
+          "correct": false
+        }
+      ],
+      "explanation": "Le complexe QRS traduit la dépolarisation des ventricules ; il précède la systole ventriculaire."
+    },
+    {
+      "id": "bp12b-050",
+      "category": "Électrocardiogramme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quoi correspond l’onde T ?",
+      "choices": [
+        {
+          "text": "À l’activation électrique des ventricules",
+          "correct": false
+        },
+        {
+          "text": "Au retour au repos électrique des ventricules",
+          "correct": true
+        },
+        {
+          "text": "À la contraction des oreillettes",
+          "correct": false
+        },
+        {
+          "text": "Au retard de conduction au nœud auriculo-ventriculaire",
+          "correct": false
+        }
+      ],
+      "explanation": "L’onde T traduit la repolarisation des ventricules, c’est-à-dire leur retour au repos électrique ; elle précède la fin de la systole."
+    },
+    {
+      "id": "bp12b-051",
+      "category": "Électrocardiogramme",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles affirmations sur l’ECG sont exactes ?",
+      "choices": [
+        {
+          "text": "Le complexe QRS précède la contraction des ventricules",
+          "correct": true
+        },
+        {
+          "text": "L’onde T correspond à la contraction des oreillettes",
+          "correct": false
+        },
+        {
+          "text": "L’onde P correspond à l’activation des oreillettes",
+          "correct": true
+        },
+        {
+          "text": "Le tracé mesure la force de contraction du cœur",
+          "correct": false
+        }
+      ],
+      "explanation": "P = activation des oreillettes, QRS = activation des ventricules (avant leur contraction), T = retour au repos des ventricules. L’ECG est un enregistrement électrique, pas mécanique."
+    },
+    {
+      "id": "bp12b-052",
+      "category": "Électrocardiogramme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que représente l’intervalle PR ?",
+      "choices": [
+        {
+          "text": "La durée totale d’une révolution cardiaque, d’une onde R à la suivante",
+          "correct": false
+        },
+        {
+          "text": "Le temps de retour au repos électrique des ventricules après l’éjection",
+          "correct": false
+        },
+        {
+          "text": "Le temps de passage de l’excitation des oreillettes aux ventricules, retard au nœud auriculo-ventriculaire compris",
+          "correct": true
+        },
+        {
+          "text": "La durée de la contraction des ventricules, du début de la systole à l’ouverture des valves",
+          "correct": false
+        }
+      ],
+      "explanation": "L’intervalle PR (≈ 0,12 à 0,20 s) mesure le passage de l’excitation des oreillettes aux ventricules. C’est l’intervalle RR qui donne la durée d’une révolution."
+    },
+    {
+      "id": "bp12b-053",
+      "category": "Électrocardiogramme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que désigne le terme « dépolarisation » ?",
+      "choices": [
+        {
+          "text": "Le retour d’une cellule à son état de repos",
+          "correct": false
+        },
+        {
+          "text": "La contraction d’une cellule musculaire",
+          "correct": false
+        },
+        {
+          "text": "La fermeture d’une valve cardiaque",
+          "correct": false
+        },
+        {
+          "text": "L’activation électrique d’une cellule",
+          "correct": true
+        }
+      ],
+      "explanation": "Dépolarisation = activation électrique ; repolarisation = retour au repos. P et QRS sont des dépolarisations, T une repolarisation."
+    },
+    {
+      "id": "bp12b-054",
+      "category": "Fréquence cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Sur un papier déroulé à 25 mm/s, à quelle durée correspond un grand carreau (5 mm) ?",
+      "choices": [
+        {
+          "text": "0,2 s",
+          "correct": true
+        },
+        {
+          "text": "1 s",
+          "correct": false
+        },
+        {
+          "text": "0,5 s",
+          "correct": false
+        },
+        {
+          "text": "0,04 s",
+          "correct": false
+        }
+      ],
+      "explanation": "À 25 mm/s, 1 mm (petit carreau) = 0,04 s et 5 mm (grand carreau) = 0,2 s."
+    },
+    {
+      "id": "bp12b-055",
+      "category": "Fréquence cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment calcule-t-on la fréquence cardiaque à partir de l’intervalle RR exprimé en secondes ?",
+      "choices": [
+        {
+          "text": "FC = 300 × RR",
+          "correct": false
+        },
+        {
+          "text": "FC = 60 / RR",
+          "correct": true
+        },
+        {
+          "text": "FC = RR × 60",
+          "correct": false
+        },
+        {
+          "text": "FC = RR / 60",
+          "correct": false
+        }
+      ],
+      "explanation": "FC = 60 / RR. Astuce : FC ≈ 300 / nombre de grands carreaux entre deux ondes R."
+    },
+    {
+      "id": "bp12b-056",
+      "category": "Fréquence cardiaque",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Un ECG montre un intervalle RR de 0,6 s. Quelles conclusions sont exactes ?",
+      "choices": [
+        {
+          "text": "Une révolution cardiaque dure 0,6 s",
+          "correct": true
+        },
+        {
+          "text": "La FC est de 60 / min",
+          "correct": false
+        },
+        {
+          "text": "Il s’agit d’une bradycardie",
+          "correct": false
+        },
+        {
+          "text": "La FC est de 100 / min",
+          "correct": true
+        }
+      ],
+      "explanation": "FC = 60 / 0,6 = 100 / min, limite haute de la normale ; l’intervalle RR est la durée d’une révolution. Ce n’est pas une bradycardie (< 60 / min)."
+    },
+    {
+      "id": "bp12b-057",
+      "category": "Fréquence cardiaque",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Sur un ECG à 25 mm/s, l’intervalle RR mesure 6 grands carreaux. Quelle est la FC et comment l’interpréter ?",
+      "choices": [
+        {
+          "text": "125 / min : tachycardie",
+          "correct": false
+        },
+        {
+          "text": "30 / min : bradycardie",
+          "correct": false
+        },
+        {
+          "text": "50 / min : bradycardie",
+          "correct": true
+        },
+        {
+          "text": "75 / min : fréquence normale",
+          "correct": false
+        }
+      ],
+      "explanation": "RR = 6 × 0,2 = 1,2 s, donc FC = 60 / 1,2 = 50 / min : c’est une bradycardie, qui peut être normale chez un sportif entraîné."
+    },
+    {
+      "id": "bp12b-058",
+      "category": "Fréquence cardiaque",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Sur un ECG à 25 mm/s, l’intervalle RR mesure 12 petits carreaux. Quelle est la FC ?",
+      "choices": [
+        {
+          "text": "Environ 80 / min",
+          "correct": false
+        },
+        {
+          "text": "Environ 50 / min",
+          "correct": false
+        },
+        {
+          "text": "Environ 250 / min",
+          "correct": false
+        },
+        {
+          "text": "Environ 125 / min",
+          "correct": true
+        }
+      ],
+      "explanation": "RR = 12 × 0,04 = 0,48 s, donc FC = 60 / 0,48 = 125 / min : tachycardie."
+    },
+    {
+      "id": "bp12b-059",
+      "category": "Fréquence cardiaque",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle fréquence cardiaque de repos est considérée comme normale chez l’adulte ?",
+      "choices": [
+        {
+          "text": "De 60 à 100 / min",
+          "correct": true
+        },
+        {
+          "text": "De 100 à 140 / min",
+          "correct": false
+        },
+        {
+          "text": "De 40 à 60 / min",
+          "correct": false
+        },
+        {
+          "text": "De 20 à 40 / min",
+          "correct": false
+        }
+      ],
+      "explanation": "FC de repos normale : 60 à 100 / min. En dessous de 60, bradycardie ; au-dessus de 100, tachycardie."
+    },
+    {
+      "id": "bp12b-060",
+      "category": "Fréquence cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Avec la méthode des grands carreaux, quelle FC donne un intervalle RR de 4 grands carreaux ?",
+      "choices": [
+        {
+          "text": "40 / min",
+          "correct": false
+        },
+        {
+          "text": "75 / min",
+          "correct": true
+        },
+        {
+          "text": "60 / min",
+          "correct": false
+        },
+        {
+          "text": "120 / min",
+          "correct": false
+        }
+      ],
+      "explanation": "FC ≈ 300 / 4 = 75 / min. On retrouve le même résultat avec RR = 4 × 0,2 = 0,8 s et 60 / 0,8 = 75 / min."
+    },
+    {
+      "id": "bp12b-061",
+      "category": "Bruits du cœur",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi correspond le premier bruit du cœur (B1) ?",
+      "choices": [
+        {
+          "text": "À la fermeture des valves sigmoïdes",
+          "correct": false
+        },
+        {
+          "text": "À l’ouverture des valves sigmoïdes",
+          "correct": false
+        },
+        {
+          "text": "À la fermeture des valves auriculo-ventriculaires",
+          "correct": true
+        },
+        {
+          "text": "À la contraction du muscle cardiaque",
+          "correct": false
+        }
+      ],
+      "explanation": "B1, le « toum », est dû à la fermeture des valves auriculo-ventriculaires (tricuspide et mitrale) au début de la systole. Les bruits viennent de la fermeture des valves, pas du muscle."
+    },
+    {
+      "id": "bp12b-062",
+      "category": "Bruits du cœur",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi correspond le deuxième bruit du cœur (B2) ?",
+      "choices": [
+        {
+          "text": "À la fermeture des valves auriculo-ventriculaires",
+          "correct": false
+        },
+        {
+          "text": "À l’ouverture de la valve mitrale",
+          "correct": false
+        },
+        {
+          "text": "À la contraction des oreillettes",
+          "correct": false
+        },
+        {
+          "text": "À la fermeture des valves sigmoïdes",
+          "correct": true
+        }
+      ],
+      "explanation": "B2, le « ta », sec, aigu et bref, est dû à la fermeture des valves sigmoïdes (aortique et pulmonaire), au début de la diastole."
+    },
+    {
+      "id": "bp12b-063",
+      "category": "Bruits du cœur",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles affirmations sur les bruits du cœur sont exactes ?",
+      "choices": [
+        {
+          "text": "Les bruits sont produits par la contraction du muscle",
+          "correct": false
+        },
+        {
+          "text": "B1 est plus sourd, plus grave et plus long que B2",
+          "correct": true
+        },
+        {
+          "text": "B1 marque le début de la systole ventriculaire",
+          "correct": true
+        },
+        {
+          "text": "B2 marque le début de la systole ventriculaire",
+          "correct": false
+        }
+      ],
+      "explanation": "B1 (« toum ») ouvre la systole, B2 (« ta ») ouvre la diastole. Les deux bruits viennent de la fermeture des valves."
+    },
+    {
+      "id": "bp12b-064",
+      "category": "Bruits du cœur",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quelle période correspond le grand silence entre B2 et le B1 suivant ?",
+      "choices": [
+        {
+          "text": "À la diastole ventriculaire",
+          "correct": true
+        },
+        {
+          "text": "À la systole auriculaire seule",
+          "correct": false
+        },
+        {
+          "text": "À la systole ventriculaire",
+          "correct": false
+        },
+        {
+          "text": "À la contraction isovolumique seule",
+          "correct": false
+        }
+      ],
+      "explanation": "Petit silence (B1 → B2) = systole ventriculaire ; grand silence (B2 → B1) = diastole, plus longue."
+    },
+    {
+      "id": "bp12b-065",
+      "category": "Bruits du cœur",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qu’est-ce qu’un souffle cardiaque ?",
+      "choices": [
+        {
+          "text": "L’onde de l’ECG qui précède la contraction des ventricules",
+          "correct": false
+        },
+        {
+          "text": "Un bruit anormal, souvent lié à une valve rétrécie ou qui fuit",
+          "correct": true
+        },
+        {
+          "text": "Le bruit normal de fermeture des valves sigmoïdes",
+          "correct": false
+        },
+        {
+          "text": "Un ralentissement de la conduction au nœud auriculo-ventriculaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Un souffle est un bruit anormal entendu à l’auscultation, souvent dû à une valve rétrécie ou qui fuit."
+    },
+    {
+      "id": "bp12b-066",
+      "category": "Bruits du cœur",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qui a inventé le stéthoscope, et en quelle année ?",
+      "choices": [
+        {
+          "text": "Pasteur, en 1885",
+          "correct": false
+        },
+        {
+          "text": "Larsson, en 1958",
+          "correct": false
+        },
+        {
+          "text": "Laennec, en 1816",
+          "correct": true
+        },
+        {
+          "text": "Laennec, en 1958",
+          "correct": false
+        }
+      ],
+      "explanation": "En 1816, le médecin français Laennec invente le stéthoscope, d’abord un simple cylindre de papier roulé. Arne Larsson est le premier patient à avoir reçu un pacemaker implanté (1958)."
+    },
+    {
+      "id": "bp12b-067",
+      "category": "Baro-électro-phonocardiogramme",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que réunit un baro-électro-phonocardiogramme sur un même axe du temps ?",
+      "choices": [
+        {
+          "text": "Les bruits du cœur, la glycémie et la pression artérielle",
+          "correct": false
+        },
+        {
+          "text": "L’ECG, la température et la fréquence respiratoire",
+          "correct": false
+        },
+        {
+          "text": "Les pressions, les volumes et le débit sanguin des organes",
+          "correct": false
+        },
+        {
+          "text": "Les pressions, l’ECG et les bruits du cœur",
+          "correct": true
+        }
+      ],
+      "explanation": "Baro- = pressions, électro- = ECG, phono- = bruits. On lit le document de haut en bas, à un même instant."
+    },
+    {
+      "id": "bp12b-068",
+      "category": "Baro-électro-phonocardiogramme",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Sur un baro-électro-phonocardiogramme, quelle onde de l’ECG précède le début de la systole ventriculaire ?",
+      "choices": [
+        {
+          "text": "Le complexe QRS",
+          "correct": true
+        },
+        {
+          "text": "L’intervalle RR",
+          "correct": false
+        },
+        {
+          "text": "L’onde P",
+          "correct": false
+        },
+        {
+          "text": "L’onde T",
+          "correct": false
+        }
+      ],
+      "explanation": "Le complexe QRS (activation des ventricules) précède la contraction ventriculaire et B1 ; la fin de l’onde T précède B2."
+    },
+    {
+      "id": "bp12b-069",
+      "category": "Baro-électro-phonocardiogramme",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle succession d’événements est correcte au cours d’un cycle ?",
+      "choices": [
+        {
+          "text": "Contraction ventriculaire → QRS → B2 ; fin de T → B1",
+          "correct": false
+        },
+        {
+          "text": "QRS → contraction ventriculaire → B1 ; fin de T → B2",
+          "correct": true
+        },
+        {
+          "text": "Onde P → B1 → contraction ventriculaire ; QRS → B2",
+          "correct": false
+        },
+        {
+          "text": "B1 → QRS → contraction ventriculaire ; onde P → B2",
+          "correct": false
+        }
+      ],
+      "explanation": "L’activation électrique précède la contraction : QRS, puis contraction ventriculaire et B1 (fermeture des valves AV) ; à la fin de T, B2 (fermeture des sigmoïdes)."
+    },
+    {
+      "id": "bp12b-070",
+      "category": "Débit cardiaque",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle relation relie le débit cardiaque (DC), la fréquence cardiaque (FC) et le volume d’éjection systolique (VES) ?",
+      "choices": [
+        {
+          "text": "DC = VES − FC",
+          "correct": false
+        },
+        {
+          "text": "DC = VTD − VTS",
+          "correct": false
+        },
+        {
+          "text": "DC = FC × VES",
+          "correct": true
+        },
+        {
+          "text": "DC = FC / VES",
+          "correct": false
+        }
+      ],
+      "explanation": "DC = FC × VES. VTD − VTS donne le VES, pas le débit."
+    },
+    {
+      "id": "bp12b-071",
+      "category": "Débit cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le débit cardiaque de repos d’un adulte ?",
+      "choices": [
+        {
+          "text": "Environ 20 à 25 L/min",
+          "correct": false
+        },
+        {
+          "text": "Environ 0,5 L/min",
+          "correct": false
+        },
+        {
+          "text": "Environ 70 L/min",
+          "correct": false
+        },
+        {
+          "text": "Environ 5 L/min",
+          "correct": true
+        }
+      ],
+      "explanation": "Au repos, DC ≈ 70 / min × 70 mL ≈ 5 L/min, soit à peu près tout le volume sanguin en une minute. À l’effort intense, il atteint 20 à 25 L/min."
+    },
+    {
+      "id": "bp12b-072",
+      "category": "Débit cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Au repos, FC = 72 / min et VES = 70 mL. Quel est le débit cardiaque ?",
+      "choices": [
+        {
+          "text": "Environ 5 L/min",
+          "correct": true
+        },
+        {
+          "text": "Environ 1 L/min",
+          "correct": false
+        },
+        {
+          "text": "Environ 50 L/min",
+          "correct": false
+        },
+        {
+          "text": "Environ 142 L/min",
+          "correct": false
+        }
+      ],
+      "explanation": "DC = 72 × 70 = 5 040 mL/min ≈ 5,0 L/min. On divise par 1 000 pour passer des mL/min aux L/min."
+    },
+    {
+      "id": "bp12b-073",
+      "category": "Débit cardiaque",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "À l’effort, FC = 160 / min et VES = 110 mL. Quel est le débit cardiaque ?",
+      "choices": [
+        {
+          "text": "27 L/min",
+          "correct": false
+        },
+        {
+          "text": "17,6 L/min",
+          "correct": true
+        },
+        {
+          "text": "176 L/min",
+          "correct": false
+        },
+        {
+          "text": "1,76 L/min",
+          "correct": false
+        }
+      ],
+      "explanation": "DC = 160 × 110 = 17 600 mL/min = 17,6 L/min, soit environ 3,5 fois le débit de repos."
+    },
+    {
+      "id": "bp12b-074",
+      "category": "Débit cardiaque",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Un débit cardiaque est de 6 L/min pour une FC de 80 / min. Quel est le VES ?",
+      "choices": [
+        {
+          "text": "750 mL",
+          "correct": false
+        },
+        {
+          "text": "7,5 mL",
+          "correct": false
+        },
+        {
+          "text": "75 mL",
+          "correct": true
+        },
+        {
+          "text": "480 mL",
+          "correct": false
+        }
+      ],
+      "explanation": "VES = DC / FC = 6 000 mL/min ÷ 80 / min = 75 mL. Il faut d’abord convertir le débit en mL/min."
+    },
+    {
+      "id": "bp12b-075",
+      "category": "Débit cardiaque",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles valeurs caractérisent un effort intense chez l’adulte ?",
+      "choices": [
+        {
+          "text": "VES d’environ 300 mL",
+          "correct": false
+        },
+        {
+          "text": "Débit cardiaque d’environ 20 à 25 L/min",
+          "correct": true
+        },
+        {
+          "text": "VES d’environ 100 à 120 mL",
+          "correct": true
+        },
+        {
+          "text": "FC jusqu’à environ 180 à 200 / min",
+          "correct": true
+        }
+      ],
+      "explanation": "À l’effort intense, la FC monte vers 180 à 200 / min et le VES vers 100 à 120 mL : le débit atteint 20 à 25 L/min, et peut dépasser 35 L/min chez l’athlète d’endurance."
+    },
+    {
+      "id": "bp12b-076",
+      "category": "Débit cardiaque",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que représente le débit cardiaque ?",
+      "choices": [
+        {
+          "text": "Le volume de sang éjecté par un ventricule à chaque battement",
+          "correct": false
+        },
+        {
+          "text": "Le volume de sang restant dans le ventricule à la fin de l’éjection",
+          "correct": false
+        },
+        {
+          "text": "Le volume de sang éjecté par les deux ventricules réunis en une seconde",
+          "correct": false
+        },
+        {
+          "text": "Le volume de sang éjecté par un ventricule en une minute",
+          "correct": true
+        }
+      ],
+      "explanation": "Le débit cardiaque est le volume éjecté par un ventricule par minute (≈ 5 L/min au repos). Le volume éjecté à chaque battement est le VES."
+    },
+    {
+      "id": "bp12b-077",
+      "category": "Cas clinique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Lucas, 19 ans, en période d’examens, boit chaque jour 4 canettes de boisson énergisante et 2 cafés. Il se plaint de palpitations. Sa révolution cardiaque dure 0,52 s. Quelle est sa fréquence cardiaque ?",
+      "choices": [
+        {
+          "text": "Environ 115 / min : tachycardie",
+          "correct": true
+        },
+        {
+          "text": "Environ 160 / min : tachycardie",
+          "correct": false
+        },
+        {
+          "text": "Environ 52 / min : bradycardie",
+          "correct": false
+        },
+        {
+          "text": "Environ 75 / min : fréquence normale",
+          "correct": false
+        }
+      ],
+      "explanation": "FC = 60 / 0,52 ≈ 115 / min, supérieure à 100 / min : Lucas est en tachycardie au repos."
+    },
+    {
+      "id": "bp12b-078",
+      "category": "Cas clinique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Sur l’ECG de Lucas, chaque complexe QRS est précédé d’une onde P. Que peut-on en déduire ?",
+      "choices": [
+        {
+          "text": "Son rythme est imposé par le nœud auriculo-ventriculaire, plus lent",
+          "correct": false
+        },
+        {
+          "text": "Son rythme est sinusal : il est bien déclenché par le nœud sinusal",
+          "correct": true
+        },
+        {
+          "text": "Ses valves sigmoïdes ne se ferment plus correctement",
+          "correct": false
+        },
+        {
+          "text": "Ses ventricules se contractent avant ses oreillettes",
+          "correct": false
+        }
+      ],
+      "explanation": "Une onde P avant chaque QRS signifie que l’activation part des oreillettes, donc du nœud sinusal : le rythme est sinusal, mais accéléré."
+    },
+    {
+      "id": "bp12b-079",
+      "category": "Cas clinique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Lucas a une FC d’environ 115 / min et un VES d’environ 60 mL. Quel est son débit cardiaque ?",
+      "choices": [
+        {
+          "text": "Environ 0,7 L/min, très en dessous de la normale",
+          "correct": false
+        },
+        {
+          "text": "Environ 69 L/min, proche d’un effort maximal",
+          "correct": false
+        },
+        {
+          "text": "Environ 6,9 L/min, au-dessus de la valeur de repos habituelle",
+          "correct": true
+        },
+        {
+          "text": "Environ 5 L/min, identique à la valeur de repos habituelle",
+          "correct": false
+        }
+      ],
+      "explanation": "DC = 115 × 60 ≈ 6 900 mL/min ≈ 6,9 L/min, contre environ 5 L/min habituellement au repos."
+    },
+    {
+      "id": "bp12b-080",
+      "category": "Cas clinique",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "La révolution de Lucas dure 0,52 s au lieu de 0,8 s, mais sa systole reste proche de 0,3 s. Quelles conséquences sont exactes ?",
+      "choices": [
+        {
+          "text": "Le remplissage des ventricules dispose de moins de temps",
+          "correct": true
+        },
+        {
+          "text": "C’est surtout la diastole qui est raccourcie",
+          "correct": true
+        },
+        {
+          "text": "L’irrigation du myocarde par les coronaires est réduite",
+          "correct": true
+        },
+        {
+          "text": "La durée de l’éjection est doublée",
+          "correct": false
+        }
+      ],
+      "explanation": "La diastole passe d’environ 0,5 s à 0,22 s : les ventricules ont moins de temps pour se remplir, et le myocarde, irrigué surtout en diastole, reçoit moins de sang."
+    },
+    {
+      "id": "bp12b-081",
+      "category": "Cas clinique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Une canette de 250 mL et un café contiennent chacun environ 80 mg de caféine. Combien Lucas en consomme-t-il par jour, comparé au repère de l’EFSA ?",
+      "choices": [
+        {
+          "text": "Environ 320 mg, en dessous du maximum de 400 mg par jour",
+          "correct": false
+        },
+        {
+          "text": "Environ 160 mg, en dessous du maximum de 200 mg par jour",
+          "correct": false
+        },
+        {
+          "text": "Environ 480 mg, en dessous du maximum de 600 mg par jour",
+          "correct": false
+        },
+        {
+          "text": "Environ 480 mg, au-dessus du maximum de 400 mg par jour",
+          "correct": true
+        }
+      ],
+      "explanation": "(4 + 2) × 80 = 480 mg de caféine par jour, au-dessus du repère EFSA de 400 mg par jour chez l’adulte (et 200 mg au maximum en une prise). Il faut réduire progressivement les boissons énergisantes et le café."
+    }
+  ],
+  "sources": [
+    {
+      "document": "Chapitre 12 cardiovasculaire Partie 2.pdf"
+    }
+  ]
+}

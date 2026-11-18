@@ -1,6 +1,6 @@
 {
   "appVersion": 2,
-  "updated": "2026-11-16",
+  "updated": "2026-11-18",
   "banks": [
     {
       "id": "Alimentation_Nutrition__01_glucides",
@@ -154,6 +154,15 @@
       "file": "banques/BPADN/12_appareil_cardiovasculaire_p1.json",
       "count": 70,
       "version": 3
+    },
+    {
+      "id": "BPADN__12_appareil_cardiovasculaire_p2",
+      "title": "Chapitre 12 — L’appareil cardiovasculaire, partie 2",
+      "subject": "BPADN",
+      "chapter": "Chapitre 12 — L’appareil cardiovasculaire, partie 2",
+      "file": "banques/BPADN/12_appareil_cardiovasculaire_p2.json",
+      "count": 81,
+      "version": 1
     },
     {
       "id": "BPADN__15_systeme_neuromusculaire",
