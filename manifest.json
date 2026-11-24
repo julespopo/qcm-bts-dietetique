@@ -1,6 +1,6 @@
 {
   "appVersion": 2,
-  "updated": "2026-11-18",
+  "updated": "2026-11-24",
   "banks": [
     {
       "id": "Alimentation_Nutrition__01_glucides",
@@ -93,6 +93,15 @@
       "version": 3
     },
     {
+      "id": "BPADN__04_enzymes",
+      "title": "Chapitre 4 — Les enzymes",
+      "subject": "BPADN",
+      "chapter": "Chapitre 4 — Les enzymes",
+      "file": "banques/BPADN/04_enzymes.json",
+      "count": 89,
+      "version": 1
+    },
+    {
       "id": "BPADN__05_vitamines",
       "title": "Chapitre 5 — Les vitamines",
       "subject": "BPADN",
@@ -162,6 +171,15 @@
       "chapter": "Chapitre 12 — L’appareil cardiovasculaire, partie 2",
       "file": "banques/BPADN/12_appareil_cardiovasculaire_p2.json",
       "count": 81,
+      "version": 1
+    },
+    {
+      "id": "BPADN__14_appareil_digestif_p1",
+      "title": "Chapitre 14 — L’appareil digestif, partie 1",
+      "subject": "BPADN",
+      "chapter": "Chapitre 14 — L’appareil digestif, partie 1",
+      "file": "banques/BPADN/14_appareil_digestif_p1.json",
+      "count": 82,
       "version": 1
     },
     {

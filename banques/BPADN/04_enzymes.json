@@ -1,0 +1,2327 @@
+{
+  "version": 1,
+  "title": "Chapitre 4 — Les enzymes",
+  "subject": "BPADN",
+  "chapter": "Chapitre 4 — Les enzymes",
+  "questions": [
+    {
+      "id": "bp4-001",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel suffixe est la marque des enzymes ?",
+      "choices": [
+        {
+          "text": "-ase",
+          "correct": true
+        },
+        {
+          "text": "-émie",
+          "correct": false
+        },
+        {
+          "text": "-ine",
+          "correct": false
+        },
+        {
+          "text": "-ose",
+          "correct": false
+        }
+      ],
+      "explanation": "Le suffixe -ase désigne les enzymes ; il indique le substrat (lipase, lactase, amylase) ou la réaction (déshydrogénase, transférase). -ose désigne les sucres."
+    },
+    {
+      "id": "bp4-002",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Sur quel substrat agit la lactase ?",
+      "choices": [
+        {
+          "text": "Les lipides",
+          "correct": false
+        },
+        {
+          "text": "Le lactose",
+          "correct": true
+        },
+        {
+          "text": "Les protéines du lait",
+          "correct": false
+        },
+        {
+          "text": "L’amidon",
+          "correct": false
+        }
+      ],
+      "explanation": "La lactase agit sur le lactose : elle l’hydrolyse en glucose et galactose, qui sont les produits de la réaction."
+    },
+    {
+      "id": "bp4-003",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que désigne le terme « isoenzymes » ?",
+      "choices": [
+        {
+          "text": "Des enzymes qui agissent toutes au même pH optimal",
+          "correct": false
+        },
+        {
+          "text": "Des enzymes qui ont la même structure mais catalysent des réactions différentes",
+          "correct": false
+        },
+        {
+          "text": "Des enzymes qui catalysent la même réaction mais ont une structure différente",
+          "correct": true
+        },
+        {
+          "text": "La partie protéique d’une enzyme, inactive sans son coenzyme",
+          "correct": false
+        }
+      ],
+      "explanation": "Iso- = même : les isoenzymes catalysent la même réaction avec des structures différentes. La partie protéique seule est l’apoenzyme."
+    },
+    {
+      "id": "bp4-004",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que signifie « amylasémie » ?",
+      "choices": [
+        {
+          "text": "La digestion de l’amidon dans la bouche",
+          "correct": false
+        },
+        {
+          "text": "Une carence en amylase salivaire",
+          "correct": false
+        },
+        {
+          "text": "L’excès d’amidon dans l’alimentation",
+          "correct": false
+        },
+        {
+          "text": "La présence d’amylase dans le sang",
+          "correct": true
+        }
+      ],
+      "explanation": "Le suffixe -émie signifie « dans le sang » : l’amylasémie et la lipasémie sont les taux sanguins d’amylase et de lipase, dosés en cas de pancréatite."
+    },
+    {
+      "id": "bp4-005",
+      "category": "Terminologie",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles associations entre préfixe et sens sont exactes ?",
+      "choices": [
+        {
+          "text": "holo- : entier, complet",
+          "correct": true
+        },
+        {
+          "text": "iso- : opposé, contraire",
+          "correct": false
+        },
+        {
+          "text": "allo- : autre",
+          "correct": true
+        },
+        {
+          "text": "apo- : partie protéique seule",
+          "correct": true
+        }
+      ],
+      "explanation": "Apo- = partie protéique seule (apoenzyme), holo- = entier (holoenzyme), allo- = autre (site allostérique). Iso- signifie même ou égal."
+    },
+    {
+      "id": "bp4-006",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Dans la réaction catalysée par la lactase, que sont le glucose et le galactose ?",
+      "choices": [
+        {
+          "text": "Les produits",
+          "correct": true
+        },
+        {
+          "text": "Les inhibiteurs",
+          "correct": false
+        },
+        {
+          "text": "Les substrats",
+          "correct": false
+        },
+        {
+          "text": "Les coenzymes",
+          "correct": false
+        }
+      ],
+      "explanation": "Le lactose est le substrat de la lactase ; le glucose et le galactose, issus de la réaction, en sont les produits."
+    },
+    {
+      "id": "bp4-007",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’est-ce qu’une enzyme ?",
+      "choices": [
+        {
+          "text": "Un glucide qui sert de réserve d’énergie pour les réactions cellulaires",
+          "correct": false
+        },
+        {
+          "text": "Une protéine qui catalyse une réaction biochimique spécifique sans être consommée",
+          "correct": true
+        },
+        {
+          "text": "Une vitamine qui accélère toutes les réactions chimiques de l’organisme",
+          "correct": false
+        },
+        {
+          "text": "Une protéine qui fournit l’énergie nécessaire à une réaction en se dégradant",
+          "correct": false
+        }
+      ],
+      "explanation": "L’enzyme est un catalyseur biologique, presque toujours une protéine, spécifique d’un substrat et d’une réaction, et intacte en fin de réaction."
+    },
+    {
+      "id": "bp4-008",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Une enzyme est-elle consommée par la réaction qu’elle catalyse ?",
+      "choices": [
+        {
+          "text": "Oui, elle est détruite à chaque réaction et doit être resynthétisée",
+          "correct": false
+        },
+        {
+          "text": "Non, mais elle ne peut servir qu’une seule fois",
+          "correct": false
+        },
+        {
+          "text": "Non, elle est intacte et peut catalyser des milliers de réactions",
+          "correct": true
+        },
+        {
+          "text": "Oui, elle est transformée en produit",
+          "correct": false
+        }
+      ],
+      "explanation": "L’enzyme sort intacte de chaque cycle catalytique : une enzyme moyenne peut catalyser jusqu’à 10 000 réactions par seconde."
+    },
+    {
+      "id": "bp4-009",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Toutes les enzymes sont-elles des protéines ?",
+      "choices": [
+        {
+          "text": "Non, ce sont des vitamines du groupe B",
+          "correct": false
+        },
+        {
+          "text": "Non, la plupart sont des lipides",
+          "correct": false
+        },
+        {
+          "text": "Oui, sans aucune exception, car seules les protéines peuvent former un site actif",
+          "correct": false
+        },
+        {
+          "text": "Presque toutes, à l’exception rare de quelques ARN catalytiques",
+          "correct": true
+        }
+      ],
+      "explanation": "La quasi-totalité des enzymes sont des protéines. Quelques ARN catalytiques (ribozymes) font exception, mais ils sont hors programme."
+    },
+    {
+      "id": "bp4-010",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment une enzyme accélère-t-elle une réaction ?",
+      "choices": [
+        {
+          "text": "Elle abaisse l’énergie d’activation de la réaction",
+          "correct": true
+        },
+        {
+          "text": "Elle augmente fortement la température du milieu",
+          "correct": false
+        },
+        {
+          "text": "Elle fournit de l’ATP aux molécules qui réagissent",
+          "correct": false
+        },
+        {
+          "text": "Elle augmente l’énergie d’activation de la réaction",
+          "correct": false
+        }
+      ],
+      "explanation": "Pour réagir, il faut franchir une barrière énergétique, l’énergie d’activation. L’enzyme abaisse cette barrière, ce qui rend la réaction possible à la température du corps."
+    },
+    {
+      "id": "bp4-011",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Une enzyme modifie-t-elle le résultat de la réaction qu’elle catalyse ?",
+      "choices": [
+        {
+          "text": "Non, mais elle inverse le sens de la réaction",
+          "correct": false
+        },
+        {
+          "text": "Non, elle change seulement la vitesse de la réaction",
+          "correct": true
+        },
+        {
+          "text": "Oui, elle change la nature des produits formés",
+          "correct": false
+        },
+        {
+          "text": "Oui, elle double la quantité de produits formés",
+          "correct": false
+        }
+      ],
+      "explanation": "L’enzyme ne modifie pas le résultat de la réaction : elle en change seulement la vitesse, ce qui rend possible en quelques millisecondes ce qui prendrait des années sans elle."
+    },
+    {
+      "id": "bp4-012",
+      "category": "Définition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Combien d’enzymes différentes travaillent dans le corps humain, selon le cours ?",
+      "choices": [
+        {
+          "text": "Une vingtaine",
+          "correct": false
+        },
+        {
+          "text": "Environ 200",
+          "correct": false
+        },
+        {
+          "text": "Plus de 5 000",
+          "correct": true
+        },
+        {
+          "text": "Une seule, présente partout",
+          "correct": false
+        }
+      ],
+      "explanation": "Plus de 5 000 enzymes différentes fonctionnent dans notre corps : sans elles, la vie serait impossible."
+    },
+    {
+      "id": "bp4-013",
+      "category": "Définition",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles affirmations sur l’échelle de l’action enzymatique sont exactes ?",
+      "choices": [
+        {
+          "text": "Une réaction peut être accélérée jusqu’à 10¹⁷ fois",
+          "correct": true
+        },
+        {
+          "text": "Sans enzyme, certaines réactions prendraient des millions d’années",
+          "correct": true
+        },
+        {
+          "text": "Une enzyme moyenne catalyse jusqu’à 10 000 réactions par seconde",
+          "correct": true
+        },
+        {
+          "text": "Une enzyme ne catalyse qu’une seule réaction au cours de sa vie",
+          "correct": false
+        }
+      ],
+      "explanation": "Une enzyme moyenne catalyse jusqu’à 10 000 réactions par seconde (plus d’un million pour certaines) et peut accélérer une réaction jusqu’à 10¹⁷ fois."
+    },
+    {
+      "id": "bp4-014",
+      "category": "Classes d’enzymes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quelle classe appartiennent toutes les enzymes digestives ?",
+      "choices": [
+        {
+          "text": "Les ligases",
+          "correct": false
+        },
+        {
+          "text": "Les transférases",
+          "correct": false
+        },
+        {
+          "text": "Les oxydoréductases",
+          "correct": false
+        },
+        {
+          "text": "Les hydrolases",
+          "correct": true
+        }
+      ],
+      "explanation": "Lipase, amylase, lactase et protéases coupent leur substrat par hydrolyse (ajout d’eau) : ce sont toutes des hydrolases, la classe 3."
+    },
+    {
+      "id": "bp4-015",
+      "category": "Classes d’enzymes",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles associations entre classe d’enzymes et type de réaction sont exactes ?",
+      "choices": [
+        {
+          "text": "Oxydoréductases : transferts d’électrons",
+          "correct": true
+        },
+        {
+          "text": "Transférases : transfert d’un groupement, comme un phosphate",
+          "correct": true
+        },
+        {
+          "text": "Ligases : coupure sans eau avec formation d’une double liaison",
+          "correct": false
+        },
+        {
+          "text": "Hydrolases : coupure avec ajout d’eau",
+          "correct": true
+        }
+      ],
+      "explanation": "Les ligases unissent deux molécules en utilisant de l’ATP. La coupure sans eau avec formation d’une double liaison caractérise les lyases."
+    },
+    {
+      "id": "bp4-016",
+      "category": "Classes d’enzymes",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Les kinases transfèrent un groupement phosphate. À quelle classe appartiennent-elles ?",
+      "choices": [
+        {
+          "text": "Les transférases",
+          "correct": true
+        },
+        {
+          "text": "Les isomérases",
+          "correct": false
+        },
+        {
+          "text": "Les hydrolases",
+          "correct": false
+        },
+        {
+          "text": "Les lyases",
+          "correct": false
+        }
+      ],
+      "explanation": "Les transférases transfèrent un groupement (méthyl, phosphate) d’une molécule à une autre ; les kinases en sont l’exemple type."
+    },
+    {
+      "id": "bp4-017",
+      "category": "Site actif et spécificité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’est-ce que le site actif d’une enzyme ?",
+      "choices": [
+        {
+          "text": "Le coenzyme vitaminique associé à la partie protéique",
+          "correct": false
+        },
+        {
+          "text": "La petite région 3D où le substrat se fixe et où la réaction a lieu",
+          "correct": true
+        },
+        {
+          "text": "La région de l’enzyme où se fixent uniquement les inhibiteurs",
+          "correct": false
+        },
+        {
+          "text": "La séquence d’acides aminés située à l’extrémité de la chaîne",
+          "correct": false
+        }
+      ],
+      "explanation": "Le site actif est une « poche » formée par le repliement de la chaîne peptidique. Le substrat s’y fixe et y est transformé."
+    },
+    {
+      "id": "bp4-018",
+      "category": "Site actif et spécificité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi une enzyme dénaturée par la chaleur devient-elle inactive ?",
+      "choices": [
+        {
+          "text": "Parce qu’elle perd son coenzyme sans changer de forme",
+          "correct": false
+        },
+        {
+          "text": "Parce que la chaleur rompt toutes ses liaisons peptidiques",
+          "correct": false
+        },
+        {
+          "text": "Parce que la perte de sa structure 3D détruit son site actif",
+          "correct": true
+        },
+        {
+          "text": "Parce que la chaleur transforme son substrat en inhibiteur",
+          "correct": false
+        }
+      ],
+      "explanation": "La dénaturation détruit la structure 3D de la protéine, donc la forme du site actif : le substrat ne peut plus s’y fixer. Les liaisons peptidiques, elles, restent intactes."
+    },
+    {
+      "id": "bp4-019",
+      "category": "Site actif et spécificité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "En quoi consiste la double spécificité d’une enzyme ?",
+      "choices": [
+        {
+          "text": "Elle a besoin à la fois d’un coenzyme et d’un ion métallique",
+          "correct": false
+        },
+        {
+          "text": "Elle possède toujours deux sites actifs identiques",
+          "correct": false
+        },
+        {
+          "text": "Elle agit à la fois dans deux organes différents",
+          "correct": false
+        },
+        {
+          "text": "Elle ne reconnaît qu’un substrat et ne catalyse qu’un type de réaction",
+          "correct": true
+        }
+      ],
+      "explanation": "Spécificité de substrat : la forme du site actif ne laisse entrer qu’un substrat (ou un groupe proche). Spécificité de réaction : pour ce substrat, l’enzyme ne réalise qu’une transformation."
+    },
+    {
+      "id": "bp4-020",
+      "category": "Site actif et spécificité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "La lactase hydrolyse le lactose. Qu’en est-il du saccharose ?",
+      "choices": [
+        {
+          "text": "Elle ne l’hydrolyse pas : c’est la spécificité de substrat",
+          "correct": true
+        },
+        {
+          "text": "Elle le transforme en lactose",
+          "correct": false
+        },
+        {
+          "text": "Elle l’hydrolyse aussi, car le lactose et le saccharose sont deux diholosides",
+          "correct": false
+        },
+        {
+          "text": "Elle l’hydrolyse seulement à pH acide",
+          "correct": false
+        }
+      ],
+      "explanation": "La forme du site actif de la lactase n’accueille que le lactose : c’est la spécificité de substrat. Le saccharose est hydrolysé par une autre enzyme, la saccharase."
+    },
+    {
+      "id": "bp4-021",
+      "category": "Site actif et spécificité",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Le pyruvate peut donner 4 produits différents. Qu’est-ce qui détermine celui qui est formé ?",
+      "choices": [
+        {
+          "text": "La quantité de pyruvate disponible",
+          "correct": false
+        },
+        {
+          "text": "L’enzyme qui agit sur lui",
+          "correct": true
+        },
+        {
+          "text": "La température du milieu uniquement",
+          "correct": false
+        },
+        {
+          "text": "L’ordre d’arrivée des molécules d’eau",
+          "correct": false
+        }
+      ],
+      "explanation": "Pour un même substrat, chaque enzyme ne réalise qu’une transformation : c’est l’enzyme qui détermine la réaction et oriente les molécules dans les voies métaboliques."
+    },
+    {
+      "id": "bp4-022",
+      "category": "Site actif et spécificité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel modèle de fixation du substrat est aujourd’hui retenu comme le plus réaliste ?",
+      "choices": [
+        {
+          "text": "Le modèle de la double hélice",
+          "correct": false
+        },
+        {
+          "text": "Le modèle clé-serrure, avec un site actif rigide dont la forme ne change jamais",
+          "correct": false
+        },
+        {
+          "text": "L’ajustement induit, avec un site actif souple qui se déforme",
+          "correct": true
+        },
+        {
+          "text": "Le modèle de la mosaïque fluide",
+          "correct": false
+        }
+      ],
+      "explanation": "L’ajustement induit (Koshland, 1958) : l’arrivée du substrat déforme légèrement le site actif, comme une main dans un gant. Le modèle clé-serrure (Fischer, 1894) est plus simple mais un peu obsolète."
+    },
+    {
+      "id": "bp4-023",
+      "category": "Site actif et spécificité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qui a proposé le modèle clé-serrure, et en quelle année ?",
+      "choices": [
+        {
+          "text": "Koshland, en 1958",
+          "correct": false
+        },
+        {
+          "text": "Koshland, en 1894",
+          "correct": false
+        },
+        {
+          "text": "Michaelis, en 1958",
+          "correct": false
+        },
+        {
+          "text": "Fischer, en 1894",
+          "correct": true
+        }
+      ],
+      "explanation": "Le modèle clé-serrure a été proposé par Fischer en 1894 ; le modèle de l’ajustement induit par Koshland en 1958."
+    },
+    {
+      "id": "bp4-024",
+      "category": "Cycle catalytique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle équation résume le cycle catalytique ?",
+      "choices": [
+        {
+          "text": "E + S ⇌ ES → E + P",
+          "correct": true
+        },
+        {
+          "text": "E + P ⇌ EP → E + S",
+          "correct": false
+        },
+        {
+          "text": "E + S → P, l’enzyme disparaissant",
+          "correct": false
+        },
+        {
+          "text": "S + P ⇌ SP → E",
+          "correct": false
+        }
+      ],
+      "explanation": "L’enzyme (E) fixe le substrat (S) pour former le complexe ES, catalyse sa transformation, puis libère le produit (P) et redevient disponible."
+    },
+    {
+      "id": "bp4-025",
+      "category": "Cycle catalytique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est l’ordre des étapes du cycle catalytique ?",
+      "choices": [
+        {
+          "text": "Transformation → rencontre → fixation → libération",
+          "correct": false
+        },
+        {
+          "text": "Rencontre → fixation → transformation → libération",
+          "correct": true
+        },
+        {
+          "text": "Fixation → rencontre → libération → transformation",
+          "correct": false
+        },
+        {
+          "text": "Rencontre → transformation → fixation → libération",
+          "correct": false
+        }
+      ],
+      "explanation": "E et S se rencontrent, S se fixe dans le site actif (complexe ES), S est transformé en P, puis E libère P et peut recommencer."
+    },
+    {
+      "id": "bp4-026",
+      "category": "Coenzymes et cofacteurs",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’obtient-on en associant une apoenzyme et son coenzyme ?",
+      "choices": [
+        {
+          "text": "Une apoenzyme inactive",
+          "correct": false
+        },
+        {
+          "text": "Une isoenzyme",
+          "correct": false
+        },
+        {
+          "text": "Une holoenzyme active",
+          "correct": true
+        },
+        {
+          "text": "Un complexe enzyme-substrat",
+          "correct": false
+        }
+      ],
+      "explanation": "Apoenzyme (partie protéique, inactive seule) + coenzyme = holoenzyme, la forme active de l’enzyme."
+    },
+    {
+      "id": "bp4-027",
+      "category": "Coenzymes et cofacteurs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un coenzyme est-il une petite protéine ?",
+      "choices": [
+        {
+          "text": "Non, c’est toujours un ion métallique",
+          "correct": false
+        },
+        {
+          "text": "Oui, c’est un fragment de l’apoenzyme",
+          "correct": false
+        },
+        {
+          "text": "Oui, c’est une petite protéine qui s’associe à l’apoenzyme pour la rendre active",
+          "correct": false
+        },
+        {
+          "text": "Non, c’est une petite molécule organique, souvent dérivée d’une vitamine B",
+          "correct": true
+        }
+      ],
+      "explanation": "Un coenzyme est un cofacteur organique, une petite molécule non protéique, le plus souvent dérivée d’une vitamine du groupe B."
+    },
+    {
+      "id": "bp4-028",
+      "category": "Coenzymes et cofacteurs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles sont les deux familles de cofacteurs enzymatiques ?",
+      "choices": [
+        {
+          "text": "Les ions métalliques et les coenzymes",
+          "correct": true
+        },
+        {
+          "text": "Les apoenzymes et les holoenzymes",
+          "correct": false
+        },
+        {
+          "text": "Les substrats et les produits",
+          "correct": false
+        },
+        {
+          "text": "Les inhibiteurs et les activateurs",
+          "correct": false
+        }
+      ],
+      "explanation": "Les cofacteurs sont des ions métalliques (Mg²⁺, Zn²⁺, Fe²⁺, Cu²⁺…), apportés par les minéraux et oligoéléments, ou des coenzymes organiques, souvent issus des vitamines B."
+    },
+    {
+      "id": "bp4-029",
+      "category": "Coenzymes et cofacteurs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "De quelles vitamines dérivent la plupart des coenzymes ?",
+      "choices": [
+        {
+          "text": "De la vitamine D uniquement",
+          "correct": false
+        },
+        {
+          "text": "Des vitamines du groupe B",
+          "correct": true
+        },
+        {
+          "text": "Des vitamines liposolubles A, D, E et K",
+          "correct": false
+        },
+        {
+          "text": "De la vitamine C uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "La plupart des coenzymes dérivent des vitamines B : NAD⁺ (B3), FAD (B2), coenzyme A (B5), PLP (B6), TPP (B1)."
+    },
+    {
+      "id": "bp4-030",
+      "category": "Coenzymes et cofacteurs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "De quelle vitamine dérive le coenzyme NAD⁺ ?",
+      "choices": [
+        {
+          "text": "B6 (pyridoxine)",
+          "correct": false
+        },
+        {
+          "text": "B1 (thiamine)",
+          "correct": false
+        },
+        {
+          "text": "B3 (niacine, PP)",
+          "correct": true
+        },
+        {
+          "text": "B2 (riboflavine)",
+          "correct": false
+        }
+      ],
+      "explanation": "Le NAD⁺ dérive de la vitamine B3 (niacine, ou PP) et transporte des électrons pour les oxydoréductases."
+    },
+    {
+      "id": "bp4-031",
+      "category": "Coenzymes et cofacteurs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "De quelle vitamine dérive le coenzyme FAD ?",
+      "choices": [
+        {
+          "text": "B3 (niacine, PP)",
+          "correct": false
+        },
+        {
+          "text": "B5 (acide pantothénique)",
+          "correct": false
+        },
+        {
+          "text": "B12 (cobalamine)",
+          "correct": false
+        },
+        {
+          "text": "B2 (riboflavine)",
+          "correct": true
+        }
+      ],
+      "explanation": "Le FAD dérive de la vitamine B2 (riboflavine) ; comme le NAD⁺, c’est un coenzyme d’oxydoréduction."
+    },
+    {
+      "id": "bp4-032",
+      "category": "Coenzymes et cofacteurs",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles associations entre coenzyme, vitamine et rôle sont exactes ?",
+      "choices": [
+        {
+          "text": "NAD⁺ : vitamine B12, synthèse de l’ADN",
+          "correct": false
+        },
+        {
+          "text": "Coenzyme A : vitamine B5, transfert de groupements acyl",
+          "correct": true
+        },
+        {
+          "text": "Pyridoxal-phosphate : vitamine B6, transaminations",
+          "correct": true
+        },
+        {
+          "text": "TPP : vitamine B1, décarboxylations",
+          "correct": true
+        }
+      ],
+      "explanation": "CoA (B5) transfère des groupements acyl, le PLP (B6) intervient dans les transaminations, la TPP (B1) dans les décarboxylations. Le NAD⁺ dérive de la B3 et transfère des électrons."
+    },
+    {
+      "id": "bp4-033",
+      "category": "Coenzymes et cofacteurs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le rôle des coenzymes d’oxydoréduction comme NAD⁺ et FAD ?",
+      "choices": [
+        {
+          "text": "Prendre les électrons des nutriments et les apporter à la chaîne respiratoire, qui produit l’ATP",
+          "correct": true
+        },
+        {
+          "text": "Hydrolyser les nutriments dans la lumière intestinale avant leur absorption par les entérocytes",
+          "correct": false
+        },
+        {
+          "text": "Transporter les lipides dans le sang jusqu’aux tissus de stockage",
+          "correct": false
+        },
+        {
+          "text": "Fournir directement l’énergie des nutriments sous forme de kilocalories",
+          "correct": false
+        }
+      ],
+      "explanation": "Les coenzymes d’oxydoréduction captent les électrons (sous forme de 2 H) lors de l’oxydation des nutriments et les apportent à la chaîne respiratoire, qui produit l’ATP."
+    },
+    {
+      "id": "bp4-034",
+      "category": "Coenzymes et cofacteurs",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi une carence en vitamine B3 ou B2 entraîne-t-elle de la fatigue ?",
+      "choices": [
+        {
+          "text": "La carence bloque les enzymes digestives, qui ne peuvent plus hydrolyser l’amidon",
+          "correct": false
+        },
+        {
+          "text": "Les coenzymes d’oxydoréduction manquent, l’oxydation des nutriments ralentit et la production d’ATP diminue",
+          "correct": true
+        },
+        {
+          "text": "Ces vitamines apportent normalement une grande partie de l’énergie de la ration, sous forme de kilocalories",
+          "correct": false
+        },
+        {
+          "text": "La carence provoque une dénaturation de toutes les enzymes de l’organisme",
+          "correct": false
+        }
+      ],
+      "explanation": "Sans B3 (pellagre) ou B2, les coenzymes NAD⁺ et FAD sont insuffisants : les nutriments sont moins bien oxydés et la cellule produit moins d’ATP."
+    },
+    {
+      "id": "bp4-035",
+      "category": "Coenzymes et cofacteurs",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Une carence en vitamine B peut-elle inactiver des enzymes ?",
+      "choices": [
+        {
+          "text": "Oui, certaines enzymes qui ont besoin de coenzymes dérivés des vitamines B",
+          "correct": true
+        },
+        {
+          "text": "Oui, mais uniquement les enzymes digestives",
+          "correct": false
+        },
+        {
+          "text": "Oui, toutes les enzymes de l’organisme sans exception",
+          "correct": false
+        },
+        {
+          "text": "Oui, et elle perturbe les métabolismes glucidique, lipidique et protéique",
+          "correct": true
+        }
+      ],
+      "explanation": "Seules les enzymes qui utilisent un coenzyme dérivé d’une vitamine B sont touchées, mais elles interviennent dans tous les métabolismes : glucides, lipides et protéines."
+    },
+    {
+      "id": "bp4-036",
+      "category": "Facteurs d’activité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quels sont les 4 facteurs qui influencent l’activité enzymatique ?",
+      "choices": [
+        {
+          "text": "La température, la couleur du milieu, la masse de l’enzyme et le temps",
+          "correct": false
+        },
+        {
+          "text": "La concentration en produit, en eau, en sel et en sucre",
+          "correct": false
+        },
+        {
+          "text": "Le pH, la température, la concentration en substrat et la concentration en enzyme",
+          "correct": true
+        },
+        {
+          "text": "Le pH, la lumière, la concentration en oxygène et la pression atmosphérique",
+          "correct": false
+        }
+      ],
+      "explanation": "Les 4 facteurs sont le pH, la température, la concentration en substrat [S] et la concentration en enzyme [E]."
+    },
+    {
+      "id": "bp4-037",
+      "category": "Facteurs d’activité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le pH modifie-t-il l’activité d’une enzyme ?",
+      "choices": [
+        {
+          "text": "Il fournit les électrons nécessaires à la réaction",
+          "correct": false
+        },
+        {
+          "text": "Il modifie la séquence d’acides aminés de l’enzyme en rompant ses liaisons peptidiques",
+          "correct": false
+        },
+        {
+          "text": "Il augmente la quantité d’enzyme produite par la cellule",
+          "correct": false
+        },
+        {
+          "text": "Il change l’ionisation des acides aminés du site actif, donc sa forme",
+          "correct": true
+        }
+      ],
+      "explanation": "Le pH modifie la charge (ionisation) des acides aminés du site actif, ce qui change sa forme. Loin du pH optimal, l’activité baisse, voire l’enzyme est dénaturée."
+    },
+    {
+      "id": "bp4-038",
+      "category": "Facteurs d’activité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le pH optimal de la pepsine ?",
+      "choices": [
+        {
+          "text": "Environ 1,5 à 2",
+          "correct": true
+        },
+        {
+          "text": "Environ 6,8 à 7",
+          "correct": false
+        },
+        {
+          "text": "Environ 7,5 à 8,5",
+          "correct": false
+        },
+        {
+          "text": "Environ 9 à 10",
+          "correct": false
+        }
+      ],
+      "explanation": "La pepsine agit dans l’estomac acide, à pH 1,5 à 2 ; elle serait inactivée dans l’intestin."
+    },
+    {
+      "id": "bp4-039",
+      "category": "Facteurs d’activité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle enzyme a un pH optimal d’environ 7,5 à 8,5 ?",
+      "choices": [
+        {
+          "text": "La pepsine",
+          "correct": false
+        },
+        {
+          "text": "La trypsine",
+          "correct": true
+        },
+        {
+          "text": "La phosphatase alcaline",
+          "correct": false
+        },
+        {
+          "text": "L’amylase salivaire",
+          "correct": false
+        }
+      ],
+      "explanation": "La trypsine agit dans l’intestin, à pH 7,5 à 8,5. L’amylase salivaire agit vers pH 7, la pepsine vers pH 2 et la phosphatase alcaline vers pH 9 à 10."
+    },
+    {
+      "id": "bp4-040",
+      "category": "Facteurs d’activité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que devient l’activité d’une enzyme humaine au-dessus de sa température optimale ?",
+      "choices": [
+        {
+          "text": "Elle reste maximale tant que le pH est optimal",
+          "correct": false
+        },
+        {
+          "text": "Elle continue d’augmenter indéfiniment",
+          "correct": false
+        },
+        {
+          "text": "Elle chute jusqu’à zéro, par dénaturation irréversible",
+          "correct": true
+        },
+        {
+          "text": "Elle diminue puis revient à la normale en refroidissant",
+          "correct": false
+        }
+      ],
+      "explanation": "Sous l’optimum (≈ 37 °C), l’activité augmente avec la température ; au-dessus, l’enzyme est dénaturée de façon irréversible et l’activité tombe à zéro."
+    },
+    {
+      "id": "bp4-041",
+      "category": "Facteurs d’activité",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle est la température optimale des enzymes humaines ?",
+      "choices": [
+        {
+          "text": "Environ 90 °C",
+          "correct": false
+        },
+        {
+          "text": "Environ 20 °C",
+          "correct": false
+        },
+        {
+          "text": "Environ 4 °C",
+          "correct": false
+        },
+        {
+          "text": "Environ 37 °C",
+          "correct": true
+        }
+      ],
+      "explanation": "Les enzymes humaines ont leur activité maximale vers 37 °C. Les enzymes de bactéries thermophiles, actives vers 90 °C, servent dans les lessives et la PCR."
+    },
+    {
+      "id": "bp4-042",
+      "category": "Facteurs d’activité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment évolue la vitesse de réaction quand la concentration en substrat augmente ?",
+      "choices": [
+        {
+          "text": "Elle augmente puis atteint un plateau quand tous les sites actifs sont occupés",
+          "correct": true
+        },
+        {
+          "text": "Elle augmente sans limite, proportionnellement au substrat ajouté",
+          "correct": false
+        },
+        {
+          "text": "Elle reste constante, quelle que soit la quantité de substrat",
+          "correct": false
+        },
+        {
+          "text": "Elle diminue, car le substrat en excès inhibe l’enzyme",
+          "correct": false
+        }
+      ],
+      "explanation": "La courbe de [S] est une courbe de saturation : la vitesse augmente puis plafonne quand toutes les enzymes sont occupées."
+    },
+    {
+      "id": "bp4-043",
+      "category": "Facteurs d’activité",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Si le substrat est en excès, comment évolue la vitesse quand la concentration en enzyme augmente ?",
+      "choices": [
+        {
+          "text": "Elle atteint vite un plateau, quelle que soit la quantité d’enzyme",
+          "correct": false
+        },
+        {
+          "text": "Elle est proportionnelle à la concentration en enzyme",
+          "correct": true
+        },
+        {
+          "text": "Elle diminue",
+          "correct": false
+        },
+        {
+          "text": "Elle reste constante",
+          "correct": false
+        }
+      ],
+      "explanation": "Substrat en excès : la vitesse est proportionnelle à [E] (relation linéaire). Plus il y a d’enzymes, plus la réaction est rapide."
+    },
+    {
+      "id": "bp4-044",
+      "category": "Facteurs d’activité",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Dans quelles conditions l’activité d’une enzyme est-elle maximale ?",
+      "choices": [
+        {
+          "text": "À sa température optimale",
+          "correct": true
+        },
+        {
+          "text": "À concentration en substrat saturante",
+          "correct": true
+        },
+        {
+          "text": "À n’importe quelle concentration en enzyme",
+          "correct": false
+        },
+        {
+          "text": "À son pH optimal",
+          "correct": true
+        }
+      ],
+      "explanation": "Le maximum est atteint au pH et à la température optimaux, avec un substrat saturant. La concentration en enzyme agit sur la vitesse, pas sur ce maximum en soi."
+    },
+    {
+      "id": "bp4-045",
+      "category": "Cinétique enzymatique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que représente la vitesse initiale (Vi) d’une réaction enzymatique ?",
+      "choices": [
+        {
+          "text": "La vitesse atteinte quand tous les sites actifs sont occupés",
+          "correct": false
+        },
+        {
+          "text": "La concentration en substrat qui donne la moitié de la vitesse maximale",
+          "correct": false
+        },
+        {
+          "text": "La quantité de produit formée par unité de temps au début de la réaction",
+          "correct": true
+        },
+        {
+          "text": "Le temps nécessaire pour consommer tout le substrat",
+          "correct": false
+        }
+      ],
+      "explanation": "Vi correspond à la pente à l’origine de la courbe : la quantité de produit formée par unité de temps au début de la réaction."
+    },
+    {
+      "id": "bp4-046",
+      "category": "Cinétique enzymatique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quand la vitesse maximale (Vmax) est-elle atteinte ?",
+      "choices": [
+        {
+          "text": "Dès le début de la réaction",
+          "correct": false
+        },
+        {
+          "text": "Quand la température dépasse l’optimum",
+          "correct": false
+        },
+        {
+          "text": "Quand le substrat est presque épuisé, à la fin de la réaction",
+          "correct": false
+        },
+        {
+          "text": "Quand tous les sites actifs sont occupés, l’enzyme étant saturée",
+          "correct": true
+        }
+      ],
+      "explanation": "Vmax est atteinte quand l’enzyme est saturée : tous ses sites actifs sont occupés. Elle dépend de la concentration en enzyme."
+    },
+    {
+      "id": "bp4-047",
+      "category": "Cinétique enzymatique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que représente la constante de Michaelis (Km) ?",
+      "choices": [
+        {
+          "text": "La concentration en substrat pour laquelle Vi = Vmax / 2",
+          "correct": true
+        },
+        {
+          "text": "La vitesse maximale divisée par deux",
+          "correct": false
+        },
+        {
+          "text": "La concentration en produit à la fin de la réaction",
+          "correct": false
+        },
+        {
+          "text": "La concentration en enzyme nécessaire pour saturer le substrat",
+          "correct": false
+        }
+      ],
+      "explanation": "Km est la concentration en substrat qui donne la moitié de la vitesse maximale. Plus Km est faible, plus l’affinité de l’enzyme pour son substrat est forte."
+    },
+    {
+      "id": "bp4-048",
+      "category": "Cinétique enzymatique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que traduit un Km faible ?",
+      "choices": [
+        {
+          "text": "Une enzyme dénaturée",
+          "correct": false
+        },
+        {
+          "text": "Une forte affinité de l’enzyme pour son substrat",
+          "correct": true
+        },
+        {
+          "text": "Une vitesse maximale très faible",
+          "correct": false
+        },
+        {
+          "text": "Une faible affinité de l’enzyme pour son substrat",
+          "correct": false
+        }
+      ],
+      "explanation": "Un Km faible signifie qu’il faut peu de substrat pour atteindre Vmax / 2 : l’enzyme a une forte affinité pour son substrat."
+    },
+    {
+      "id": "bp4-049",
+      "category": "Cinétique enzymatique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "L’hexokinase (muscle, cerveau) a une forte affinité pour le glucose, la glucokinase du foie une faible affinité. Quelle conséquence est exacte ?",
+      "choices": [
+        {
+          "text": "La glucokinase fonctionne même à glycémie normale ; l’hexokinase n’agit qu’après un repas riche en sucres",
+          "correct": false
+        },
+        {
+          "text": "L’hexokinase a un Km élevé et ne se sature jamais, même quand la glycémie est très haute",
+          "correct": false
+        },
+        {
+          "text": "L’hexokinase fonctionne même à glycémie normale ; la glucokinase agit surtout après un repas, pour stocker le glucose",
+          "correct": true
+        },
+        {
+          "text": "Les deux enzymes ont le même Km et agissent toujours ensemble, quelle que soit la glycémie",
+          "correct": false
+        }
+      ],
+      "explanation": "Forte affinité = Km faible : l’hexokinase capte le glucose même à glycémie normale. La glucokinase, de faible affinité, n’agit vraiment que quand la glycémie monte après un repas, ce qui permet le stockage."
+    },
+    {
+      "id": "bp4-050",
+      "category": "Cinétique enzymatique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle allure a la courbe Vi = f([S]) d’une enzyme michaélienne ?",
+      "choices": [
+        {
+          "text": "Sigmoïde",
+          "correct": false
+        },
+        {
+          "text": "Rectiligne",
+          "correct": false
+        },
+        {
+          "text": "En cloche",
+          "correct": false
+        },
+        {
+          "text": "Hyperbolique",
+          "correct": true
+        }
+      ],
+      "explanation": "Les enzymes michaéliennes ont une courbe hyperbolique et se caractérisent par Vmax et Km. Les enzymes allostériques ont une courbe sigmoïde."
+    },
+    {
+      "id": "bp4-051",
+      "category": "Enzymes allostériques",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles caractéristiques correspondent aux enzymes allostériques ?",
+      "choices": [
+        {
+          "text": "Elles comportent plusieurs sous-unités (structure quaternaire)",
+          "correct": true
+        },
+        {
+          "text": "Ce sont souvent des enzymes clés des voies métaboliques",
+          "correct": true
+        },
+        {
+          "text": "Leur courbe Vi = f([S]) est sigmoïde",
+          "correct": true
+        },
+        {
+          "text": "Leur courbe Vi = f([S]) est hyperbolique",
+          "correct": false
+        }
+      ],
+      "explanation": "Les enzymes allostériques sont des oligomères à courbe sigmoïde, régulés par des effecteurs ; ce sont souvent des enzymes clés, comme la PFK1 de la glycolyse."
+    },
+    {
+      "id": "bp4-052",
+      "category": "Enzymes allostériques",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Que signifie la coopérativité d’une enzyme allostérique ?",
+      "choices": [
+        {
+          "text": "La fixation d’un substrat facilite la fixation des suivants",
+          "correct": true
+        },
+        {
+          "text": "Le substrat et l’inhibiteur se fixent ensemble sur le site actif",
+          "correct": false
+        },
+        {
+          "text": "L’enzyme a besoin à la fois d’un coenzyme et d’un ion métallique",
+          "correct": false
+        },
+        {
+          "text": "Deux enzymes différentes catalysent ensemble la même réaction",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans une enzyme allostérique à plusieurs sous-unités, la fixation d’un substrat facilite celle des suivants : c’est ce qui donne la courbe sigmoïde."
+    },
+    {
+      "id": "bp4-053",
+      "category": "Enzymes allostériques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel exemple d’enzyme michaélienne est donné dans le cours ?",
+      "choices": [
+        {
+          "text": "La PFK1",
+          "correct": false
+        },
+        {
+          "text": "L’hexokinase",
+          "correct": true
+        },
+        {
+          "text": "L’HMG-CoA réductase",
+          "correct": false
+        },
+        {
+          "text": "La glycogène phosphorylase",
+          "correct": false
+        }
+      ],
+      "explanation": "L’hexokinase, monomère à courbe hyperbolique, est l’exemple d’enzyme michaélienne ; la PFK1 est l’exemple d’enzyme allostérique."
+    },
+    {
+      "id": "bp4-054",
+      "category": "Inhibition",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles affirmations sur un inhibiteur compétitif sont exactes ?",
+      "choices": [
+        {
+          "text": "Il ressemble structuralement au substrat",
+          "correct": true
+        },
+        {
+          "text": "Il se fixe sur le site actif",
+          "correct": true
+        },
+        {
+          "text": "Il peut être déplacé par un ajout important de substrat",
+          "correct": true
+        },
+        {
+          "text": "Il se fixe sur un site allostérique et déforme l’enzyme",
+          "correct": false
+        }
+      ],
+      "explanation": "L’inhibiteur compétitif, semblable au substrat, occupe le site actif ; un excès de substrat le « détrône ». C’est l’inhibiteur non compétitif qui se fixe sur un site allostérique et déforme l’enzyme."
+    },
+    {
+      "id": "bp4-055",
+      "category": "Inhibition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où se fixe un inhibiteur non compétitif ?",
+      "choices": [
+        {
+          "text": "Sur le site actif, à la place du substrat auquel il ressemble beaucoup",
+          "correct": false
+        },
+        {
+          "text": "Sur le substrat, qu’il transforme en produit",
+          "correct": false
+        },
+        {
+          "text": "Sur un site allostérique, différent du site actif, et il déforme l’enzyme",
+          "correct": true
+        },
+        {
+          "text": "Sur le coenzyme, qu’il remplace",
+          "correct": false
+        }
+      ],
+      "explanation": "L’inhibiteur non compétitif se fixe ailleurs que sur le site actif et déforme l’enzyme : ajouter du substrat ne la débloque pas."
+    },
+    {
+      "id": "bp4-056",
+      "category": "Inhibition",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Ajouter beaucoup de substrat lève-t-il l’effet d’un inhibiteur non compétitif ?",
+      "choices": [
+        {
+          "text": "Oui, car l’inhibiteur est transformé en produit",
+          "correct": false
+        },
+        {
+          "text": "Non, car l’inhibiteur détruit le substrat",
+          "correct": false
+        },
+        {
+          "text": "Oui, car un excès de substrat déplace l’inhibiteur hors du site actif",
+          "correct": false
+        },
+        {
+          "text": "Non, car l’inhibiteur agit sur un autre site et déforme l’enzyme",
+          "correct": true
+        }
+      ],
+      "explanation": "C’est la différence clé : un excès de substrat déplace un inhibiteur compétitif, mais pas un inhibiteur non compétitif, fixé sur un autre site."
+    },
+    {
+      "id": "bp4-057",
+      "category": "Régulation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel effet a un effecteur allostérique activateur ?",
+      "choices": [
+        {
+          "text": "Il augmente l’affinité pour le substrat : la courbe se décale vers la gauche",
+          "correct": true
+        },
+        {
+          "text": "Il diminue l’affinité pour le substrat : la courbe se décale vers la droite",
+          "correct": false
+        },
+        {
+          "text": "Il occupe le site actif à la place du substrat",
+          "correct": false
+        },
+        {
+          "text": "Il dénature l’enzyme de façon irréversible",
+          "correct": false
+        }
+      ],
+      "explanation": "Un effecteur positif augmente l’affinité et décale la courbe vers la gauche ; un effecteur négatif la diminue et décale la courbe vers la droite."
+    },
+    {
+      "id": "bp4-058",
+      "category": "Régulation",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Comment la PFK1, enzyme clé de la glycolyse, est-elle régulée ?",
+      "choices": [
+        {
+          "text": "Elle n’est régulée par aucun effecteur",
+          "correct": false
+        },
+        {
+          "text": "Activée par l’AMP, inhibée par l’ATP et le citrate",
+          "correct": true
+        },
+        {
+          "text": "Activée par l’ATP, inhibée par l’AMP",
+          "correct": false
+        },
+        {
+          "text": "Activée par le citrate, inhibée par l’AMP et le glucose",
+          "correct": false
+        }
+      ],
+      "explanation": "L’AMP signale un manque d’énergie et active la PFK1 ; l’ATP et le citrate signalent une énergie abondante et l’inhibent."
+    },
+    {
+      "id": "bp4-059",
+      "category": "Régulation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qu’est-ce que la rétro-inhibition ?",
+      "choices": [
+        {
+          "text": "La chaleur inhibe toutes les enzymes d’une voie métabolique",
+          "correct": false
+        },
+        {
+          "text": "Le substrat inhibe sa propre transformation quand il manque",
+          "correct": false
+        },
+        {
+          "text": "Le produit final d’une voie inhibe l’enzyme clé quand il s’accumule",
+          "correct": true
+        },
+        {
+          "text": "Une enzyme digestive inhibe les enzymes pancréatiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Le produit final freine l’enzyme clé de sa propre voie quand il s’accumule. Exemple : le cholestérol freine l’HMG-CoA réductase, enzyme clé de sa synthèse."
+    },
+    {
+      "id": "bp4-060",
+      "category": "Régulation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle enzyme clé de la synthèse du cholestérol est freinée par le cholestérol et ciblée par les statines ?",
+      "choices": [
+        {
+          "text": "La lipase pancréatique",
+          "correct": false
+        },
+        {
+          "text": "La cyclo-oxygénase (COX)",
+          "correct": false
+        },
+        {
+          "text": "La glycogène synthase",
+          "correct": false
+        },
+        {
+          "text": "L’HMG-CoA réductase",
+          "correct": true
+        }
+      ],
+      "explanation": "Le cholestérol freine l’HMG-CoA réductase (rétro-inhibition). Les statines l’inhibent aussi : le foie produit moins de cholestérol et le LDL baisse."
+    },
+    {
+      "id": "bp4-061",
+      "category": "Régulation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles enzymes l’insuline et le glucagon activent-ils ?",
+      "choices": [
+        {
+          "text": "Insuline : enzymes de stockage comme la glycogène synthase ; glucagon : enzymes de mobilisation comme la glycogène phosphorylase",
+          "correct": true
+        },
+        {
+          "text": "Ces hormones n’agissent que sur les enzymes digestives du pancréas et de l’intestin",
+          "correct": false
+        },
+        {
+          "text": "Insuline : enzymes de mobilisation comme la glycogène phosphorylase ; glucagon : enzymes de stockage comme la glycogène synthase",
+          "correct": false
+        },
+        {
+          "text": "Les deux hormones activent les mêmes enzymes, mais à des moments différents de la journée",
+          "correct": false
+        }
+      ],
+      "explanation": "Après un repas, l’insuline active les enzymes de stockage ; pendant le jeûne, le glucagon active les enzymes de mobilisation des réserves."
+    },
+    {
+      "id": "bp4-062",
+      "category": "Inhibiteurs et médicaments",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle enzyme l’orlistat, traitement de l’obésité, inhibe-t-il ?",
+      "choices": [
+        {
+          "text": "L’HMG-CoA réductase",
+          "correct": false
+        },
+        {
+          "text": "La lipase pancréatique",
+          "correct": true
+        },
+        {
+          "text": "L’amylase salivaire",
+          "correct": false
+        },
+        {
+          "text": "La lactase",
+          "correct": false
+        }
+      ],
+      "explanation": "L’orlistat inhibe la lipase pancréatique : environ 30 % des lipides ne sont pas digérés, d’où une perte de poids mais aussi des effets digestifs indésirables."
+    },
+    {
+      "id": "bp4-063",
+      "category": "Inhibiteurs et médicaments",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment l’aspirine diminue-t-elle la douleur et l’inflammation ?",
+      "choices": [
+        {
+          "text": "En bloquant la chaîne respiratoire des cellules nerveuses",
+          "correct": false
+        },
+        {
+          "text": "En activant l’HMG-CoA réductase, ce qui augmente la synthèse de cholestérol",
+          "correct": false
+        },
+        {
+          "text": "En inhibant la cyclo-oxygénase (COX), ce qui réduit la production de prostaglandines",
+          "correct": true
+        },
+        {
+          "text": "En inhibant la lipase pancréatique, ce qui réduit l’absorption des graisses",
+          "correct": false
+        }
+      ],
+      "explanation": "L’aspirine et les anti-inflammatoires inhibent la COX : moins de prostaglandines, donc moins de douleur et d’inflammation."
+    },
+    {
+      "id": "bp4-064",
+      "category": "Inhibiteurs et médicaments",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles associations entre molécule et enzyme ou mécanisme visé sont exactes ?",
+      "choices": [
+        {
+          "text": "Cyanure : enzymes de la chaîne respiratoire",
+          "correct": true
+        },
+        {
+          "text": "Statines : HMG-CoA réductase",
+          "correct": true
+        },
+        {
+          "text": "Pénicilline : enzyme de la paroi bactérienne",
+          "correct": true
+        },
+        {
+          "text": "Orlistat : amylase salivaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Statines → HMG-CoA réductase, pénicilline → enzyme de la paroi bactérienne, cyanure → chaîne respiratoire (plus d’ATP). L’orlistat inhibe la lipase pancréatique."
+    },
+    {
+      "id": "bp4-065",
+      "category": "Enzymes digestives",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que contient la bile, fabriquée par le foie ?",
+      "choices": [
+        {
+          "text": "De la lipase et de l’amylase, qui digèrent les graisses et l’amidon",
+          "correct": false
+        },
+        {
+          "text": "De la pepsine et de la trypsine",
+          "correct": false
+        },
+        {
+          "text": "De la lactase et de la maltase",
+          "correct": false
+        },
+        {
+          "text": "Des sels biliaires émulsifiants, mais aucune enzyme",
+          "correct": true
+        }
+      ],
+      "explanation": "La bile ne contient pas d’enzymes : ses sels biliaires émulsionnent les lipides, ce qui augmente la surface d’action de la lipase."
+    },
+    {
+      "id": "bp4-066",
+      "category": "Enzymes digestives",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle enzyme commence la digestion de l’amidon dans la bouche ?",
+      "choices": [
+        {
+          "text": "L’α-amylase salivaire",
+          "correct": true
+        },
+        {
+          "text": "La lipase",
+          "correct": false
+        },
+        {
+          "text": "La pepsine",
+          "correct": false
+        },
+        {
+          "text": "La lactase",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans la bouche, à pH 6,8 à 7, l’α-amylase salivaire commence l’hydrolyse de l’amidon."
+    },
+    {
+      "id": "bp4-067",
+      "category": "Enzymes digestives",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles enzymes le pancréas déverse-t-il dans le duodénum ?",
+      "choices": [
+        {
+          "text": "Lipase",
+          "correct": true
+        },
+        {
+          "text": "α-amylase",
+          "correct": true
+        },
+        {
+          "text": "Pepsine",
+          "correct": false
+        },
+        {
+          "text": "Trypsine et chymotrypsine",
+          "correct": true
+        }
+      ],
+      "explanation": "Le suc pancréatique contient α-amylase, lipase, trypsine, chymotrypsine et carboxypeptidases. La pepsine est gastrique."
+    },
+    {
+      "id": "bp4-068",
+      "category": "Enzymes digestives",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles enzymes se trouvent à la bordure en brosse de l’intestin grêle ?",
+      "choices": [
+        {
+          "text": "Peptidases",
+          "correct": true
+        },
+        {
+          "text": "Lactase, maltase et saccharase",
+          "correct": true
+        },
+        {
+          "text": "Pepsine",
+          "correct": false
+        },
+        {
+          "text": "α-amylase salivaire",
+          "correct": false
+        }
+      ],
+      "explanation": "À la bordure en brosse, lactase, maltase et saccharase hydrolysent les diholosides et les peptidases coupent les petits peptides en acides aminés libres."
+    },
+    {
+      "id": "bp4-069",
+      "category": "Enzymes digestives",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi les sels biliaires sont-ils indispensables à la digestion des lipides ?",
+      "choices": [
+        {
+          "text": "Ils activent la pepsine dans l’estomac",
+          "correct": false
+        },
+        {
+          "text": "Ils émulsionnent les grosses gouttes de graisse et multiplient la surface d’action de la lipase",
+          "correct": true
+        },
+        {
+          "text": "Ils neutralisent l’acidité pour activer la lactase",
+          "correct": false
+        },
+        {
+          "text": "Ils hydrolysent eux-mêmes les triglycérides en acides gras et en glycérol, à la place de la lipase",
+          "correct": false
+        }
+      ],
+      "explanation": "Les lipides sont hydrophobes et forment de grosses gouttes. Les sels biliaires les dispersent en gouttelettes : la surface accessible à la lipase est multipliée par environ 100."
+    },
+    {
+      "id": "bp4-070",
+      "category": "Enzymes digestives",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi les protéases digestives sont-elles sécrétées sous forme inactive (proenzymes) ?",
+      "choices": [
+        {
+          "text": "Pour qu’elles résistent à la chaleur des aliments",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’elles ont besoin de vitamine B pour être fabriquées",
+          "correct": false
+        },
+        {
+          "text": "Pour éviter qu’elles digèrent le pancréas qui les produit",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’elles agissent uniquement dans la bouche",
+          "correct": false
+        }
+      ],
+      "explanation": "Les protéases sont sécrétées inactives puis activées sur place ; sinon elles provoqueraient l’autolyse du pancréas."
+    },
+    {
+      "id": "bp4-071",
+      "category": "Enzymes digestives",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle enzyme active le trypsinogène en trypsine dans l’intestin ?",
+      "choices": [
+        {
+          "text": "La lipase pancréatique",
+          "correct": false
+        },
+        {
+          "text": "L’amylase salivaire",
+          "correct": false
+        },
+        {
+          "text": "La pepsine gastrique, qui descend de l’estomac",
+          "correct": false
+        },
+        {
+          "text": "L’entérokinase de la bordure en brosse",
+          "correct": true
+        }
+      ],
+      "explanation": "L’entérokinase active le trypsinogène en trypsine, qui active ensuite les autres proenzymes pancréatiques : c’est une activation en cascade."
+    },
+    {
+      "id": "bp4-072",
+      "category": "Enzymes digestives",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Sous quelle forme inactive la pepsine est-elle sécrétée ?",
+      "choices": [
+        {
+          "text": "Le pepsinogène",
+          "correct": true
+        },
+        {
+          "text": "L’apoenzyme pepsine",
+          "correct": false
+        },
+        {
+          "text": "Le chymotrypsinogène",
+          "correct": false
+        },
+        {
+          "text": "Le trypsinogène",
+          "correct": false
+        }
+      ],
+      "explanation": "La pepsine est sécrétée par l’estomac sous forme de pepsinogène ; elle coupe les grosses protéines en gros peptides à pH 2."
+    },
+    {
+      "id": "bp4-073",
+      "category": "Enzymes digestives",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Après quels acides aminés la trypsine coupe-t-elle les protéines ?",
+      "choices": [
+        {
+          "text": "Après l’acide aminé C-terminal uniquement",
+          "correct": false
+        },
+        {
+          "text": "Après la lysine ou l’arginine, acides aminés basiques",
+          "correct": true
+        },
+        {
+          "text": "Après la phénylalanine, la tyrosine ou le tryptophane",
+          "correct": false
+        },
+        {
+          "text": "Après la glycine uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "La trypsine coupe après Lys ou Arg (basiques) ; la chymotrypsine après les acides aminés aromatiques (Phe, Tyr, Trp) ; les carboxypeptidases coupent l’acide aminé C-terminal."
+    },
+    {
+      "id": "bp4-074",
+      "category": "Enzymes digestives",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Sous quelle forme les protéines sont-elles finalement absorbées par les entérocytes ?",
+      "choices": [
+        {
+          "text": "Sous forme de proenzymes",
+          "correct": false
+        },
+        {
+          "text": "Sous forme de gros peptides",
+          "correct": false
+        },
+        {
+          "text": "Sous forme d’acides aminés libres",
+          "correct": true
+        },
+        {
+          "text": "Sous forme de protéines entières",
+          "correct": false
+        }
+      ],
+      "explanation": "La cascade de protéases, terminée par les peptidases de la bordure en brosse, réduit les protéines en acides aminés libres, absorbés par les entérocytes."
+    },
+    {
+      "id": "bp4-075",
+      "category": "Pathologies",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle est la carence enzymatique la plus fréquente au monde ?",
+      "choices": [
+        {
+          "text": "Le déficit en amylase salivaire",
+          "correct": false
+        },
+        {
+          "text": "Le déficit en trypsine",
+          "correct": false
+        },
+        {
+          "text": "Le déficit en pepsine",
+          "correct": false
+        },
+        {
+          "text": "Le déficit en lactase (intolérance au lactose)",
+          "correct": true
+        }
+      ],
+      "explanation": "L’intolérance au lactose, due à une baisse de production de lactase après le sevrage, concerne environ 70 % des adultes dans le monde."
+    },
+    {
+      "id": "bp4-076",
+      "category": "Pathologies",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi l’intolérance au lactose provoque-t-elle gaz et ballonnements ?",
+      "choices": [
+        {
+          "text": "Le lactose non digéré arrive dans le côlon, où il est fermenté par le microbiote",
+          "correct": true
+        },
+        {
+          "text": "Le lactose bloque la sécrétion des sels biliaires",
+          "correct": false
+        },
+        {
+          "text": "Le lactose est absorbé en excès par l’intestin grêle et fermente dans le sang",
+          "correct": false
+        },
+        {
+          "text": "La lactase en excès détruit la paroi de l’intestin grêle",
+          "correct": false
+        }
+      ],
+      "explanation": "Faute de lactase, le lactose atteint le côlon : le microbiote le fermente et produit des gaz (H₂, CH₄) et des acides organiques, d’où ballonnements, douleurs et diarrhée osmotique."
+    },
+    {
+      "id": "bp4-077",
+      "category": "Pathologies",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel test permet de diagnostiquer une intolérance au lactose ?",
+      "choices": [
+        {
+          "text": "La coloration de Gram des selles",
+          "correct": false
+        },
+        {
+          "text": "Le test respiratoire à l’hydrogène (H₂)",
+          "correct": true
+        },
+        {
+          "text": "Le dosage de la lipasémie",
+          "correct": false
+        },
+        {
+          "text": "Le dosage de la troponine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le test respiratoire à l’H₂ détecte l’hydrogène produit par la fermentation colique du lactose. On utilise aussi le test de tolérance oral et l’éviction-réintroduction."
+    },
+    {
+      "id": "bp4-078",
+      "category": "Pathologies",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels conseils diététiques conviennent en cas d’intolérance au lactose ?",
+      "choices": [
+        {
+          "text": "Supprimer tous les produits laitiers à vie",
+          "correct": false
+        },
+        {
+          "text": "Réduire le lactose plutôt que l’évincer strictement",
+          "correct": true
+        },
+        {
+          "text": "Veiller aux apports en calcium",
+          "correct": true
+        },
+        {
+          "text": "Privilégier les yaourts et fromages affinés, souvent bien tolérés",
+          "correct": true
+        }
+      ],
+      "explanation": "Le diététicien conseille de réduire sans évincer strictement, d’utiliser yaourts, fromages affinés, laits délactosés ou lactase en comprimés, et de surveiller le calcium."
+    },
+    {
+      "id": "bp4-079",
+      "category": "Pathologies",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Que provoque la mucoviscidose sur la digestion, et comment la compense-t-on ?",
+      "choices": [
+        {
+          "text": "Un défaut de sels biliaires compensé par un régime riche en lipides",
+          "correct": false
+        },
+        {
+          "text": "Un excès d’enzymes pancréatiques qui digèrent la paroi de l’intestin, compensé par un régime pauvre en protéines",
+          "correct": false
+        },
+        {
+          "text": "Une carence en enzymes pancréatiques avec stéatorrhée, compensée par des extraits pancréatiques et des vitamines ADEK",
+          "correct": true
+        },
+        {
+          "text": "Une carence en lactase compensée par la suppression des produits laitiers",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans la mucoviscidose, les enzymes pancréatiques manquent : les graisses non digérées passent dans les selles (stéatorrhée). On donne des extraits pancréatiques et des vitamines liposolubles ADEK."
+    },
+    {
+      "id": "bp4-080",
+      "category": "Enzymes dans l’industrie",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle enzyme de la présure fait cailler le lait pour fabriquer le fromage ?",
+      "choices": [
+        {
+          "text": "L’amylase",
+          "correct": false
+        },
+        {
+          "text": "La lactase",
+          "correct": false
+        },
+        {
+          "text": "La pectinase",
+          "correct": false
+        },
+        {
+          "text": "La chymosine",
+          "correct": true
+        }
+      ],
+      "explanation": "La présure contient de la chymosine (bovine à l’origine), qui fait cailler le lait ; elle est utilisée depuis environ 8 000 ans."
+    },
+    {
+      "id": "bp4-081",
+      "category": "Enzymes dans l’industrie",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quoi servent les pectinases dans la fabrication des jus de fruits ?",
+      "choices": [
+        {
+          "text": "Elles cassent la pectine, ce qui clarifie le jus et améliore le rendement",
+          "correct": true
+        },
+        {
+          "text": "Elles ajoutent des vitamines au jus",
+          "correct": false
+        },
+        {
+          "text": "Elles transforment l’amidon des fruits en sucres fermentescibles par les levures",
+          "correct": false
+        },
+        {
+          "text": "Elles font cailler les protéines du jus",
+          "correct": false
+        }
+      ],
+      "explanation": "Les pectinases dégradent la pectine : le jus est moins trouble et le rendement meilleur. Ce sont les amylases du malt qui transforment l’amidon en sucres pour la bière."
+    },
+    {
+      "id": "bp4-082",
+      "category": "Enzymes dans l’industrie",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles enzymes sont ajoutées aux lessives ?",
+      "choices": [
+        {
+          "text": "Des lipases contre les taches grasses",
+          "correct": true
+        },
+        {
+          "text": "Des kinases contre les taches de fruits",
+          "correct": false
+        },
+        {
+          "text": "Des protéases contre les taches de sang ou d’œuf",
+          "correct": true
+        },
+        {
+          "text": "Des amylases contre les taches d’amidon",
+          "correct": true
+        }
+      ],
+      "explanation": "Protéases, lipases et amylases dégradent les taches correspondantes, et restent efficaces à basse température, d’où des économies d’énergie."
+    },
+    {
+      "id": "bp4-083",
+      "category": "Enzymes dans l’industrie",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle part des enzymes industrielles représentent les protéases, selon le cours ?",
+      "choices": [
+        {
+          "text": "Environ 5 %",
+          "correct": false
+        },
+        {
+          "text": "Environ 40 %",
+          "correct": true
+        },
+        {
+          "text": "Environ 100 %",
+          "correct": false
+        },
+        {
+          "text": "Environ 70 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Les protéases représentent environ 40 % des enzymes industrielles (lessive, cuir, viande) et les amylases environ 30 % (amidon, biocarburants)."
+    },
+    {
+      "id": "bp4-084",
+      "category": "Bilan enzymatique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi certaines enzymes augmentent-elles dans le sang quand un organe souffre ?",
+      "choices": [
+        {
+          "text": "L’organe malade fabrique davantage d’enzymes et les sécrète dans le sang pour réparer ses tissus",
+          "correct": false
+        },
+        {
+          "text": "Les enzymes du sang se multiplient pour combattre l’infection",
+          "correct": false
+        },
+        {
+          "text": "Les cellules lésées laissent fuir dans le sang les enzymes qu’elles contiennent",
+          "correct": true
+        },
+        {
+          "text": "Le foie libère toutes ses enzymes dès qu’un organe est atteint",
+          "correct": false
+        }
+      ],
+      "explanation": "Les enzymes restent normalement dans leurs cellules. En cas de nécrose ou d’obstruction, elles fuient dans le sang et deviennent des marqueurs diagnostiques."
+    },
+    {
+      "id": "bp4-085",
+      "category": "Bilan enzymatique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle enzyme sanguine est le marqueur le plus spécifique du foie ?",
+      "choices": [
+        {
+          "text": "La lipasémie",
+          "correct": false
+        },
+        {
+          "text": "La CPK",
+          "correct": false
+        },
+        {
+          "text": "L’amylasémie",
+          "correct": false
+        },
+        {
+          "text": "L’ALAT (TGP)",
+          "correct": true
+        }
+      ],
+      "explanation": "L’ALAT est surtout hépatique et augmente dans les hépatites et la cirrhose. L’ASAT est moins spécifique : on la trouve aussi dans les muscles et le cœur."
+    },
+    {
+      "id": "bp4-086",
+      "category": "Bilan enzymatique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel dosage est le marqueur de référence de la pancréatite aiguë ?",
+      "choices": [
+        {
+          "text": "Une lipasémie supérieure à 3 fois la normale",
+          "correct": true
+        },
+        {
+          "text": "Une ALAT supérieure à 40 UI/L, signe d’atteinte du pancréas",
+          "correct": false
+        },
+        {
+          "text": "Une GGT supérieure à 55 UI/L",
+          "correct": false
+        },
+        {
+          "text": "Une CPK supérieure à 200 UI/L",
+          "correct": false
+        }
+      ],
+      "explanation": "Dans la pancréatite aiguë, les enzymes pancréatiques passent dans le sang : une lipasémie supérieure à 3 fois la normale est le marqueur de référence."
+    },
+    {
+      "id": "bp4-087",
+      "category": "Bilan enzymatique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle enzyme sanguine est associée à l’alcoolisme chronique ?",
+      "choices": [
+        {
+          "text": "La lactase",
+          "correct": false
+        },
+        {
+          "text": "La GGT",
+          "correct": true
+        },
+        {
+          "text": "La CPK",
+          "correct": false
+        },
+        {
+          "text": "L’amylasémie",
+          "correct": false
+        }
+      ],
+      "explanation": "La GGT, enzyme du foie et des voies biliaires (normale < 55 UI/L), augmente notamment dans l’alcoolisme chronique."
+    },
+    {
+      "id": "bp4-088",
+      "category": "Bilan enzymatique",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles associations entre enzyme sanguine et organe sont exactes ?",
+      "choices": [
+        {
+          "text": "PAL (phosphatase alcaline) : foie et os",
+          "correct": true
+        },
+        {
+          "text": "CPK : muscle",
+          "correct": true
+        },
+        {
+          "text": "ALAT : rein",
+          "correct": false
+        },
+        {
+          "text": "Amylasémie et lipasémie : pancréas",
+          "correct": true
+        }
+      ],
+      "explanation": "CPK → muscle (et cœur), PAL → foie et os, amylasémie et lipasémie → pancréas, ALAT → foie."
+    },
+    {
+      "id": "bp4-089",
+      "category": "Bilan enzymatique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel marqueur dose-t-on aujourd’hui pour confirmer un infarctus du myocarde ?",
+      "choices": [
+        {
+          "text": "L’ASAT, enzyme présente dans le foie, les muscles et le cœur",
+          "correct": false
+        },
+        {
+          "text": "La CPK, enzyme musculaire",
+          "correct": false
+        },
+        {
+          "text": "La troponine, protéine cardiaque non enzymatique",
+          "correct": true
+        },
+        {
+          "text": "La lipasémie",
+          "correct": false
+        }
+      ],
+      "explanation": "On dose aujourd’hui la troponine, une protéine cardiaque qui n’est pas une enzyme. L’ASAT et la CPK sont d’anciens marqueurs de l’infarctus."
+    }
+  ],
+  "sources": [
+    {
+      "document": "Chapitre 4 Enzymes.pdf"
+    }
+  ]
+}

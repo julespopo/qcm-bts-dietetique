@@ -1,0 +1,2145 @@
+{
+  "version": 1,
+  "title": "Chapitre 14 — L’appareil digestif, partie 1",
+  "subject": "BPADN",
+  "chapter": "Chapitre 14 — L’appareil digestif, partie 1",
+  "questions": [
+    {
+      "id": "bp14-001",
+      "category": "Fonctions",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles sont les deux grandes fonctions de l’appareil digestif ?",
+      "choices": [
+        {
+          "text": "La digestion et l’absorption",
+          "correct": true
+        },
+        {
+          "text": "L’absorption et la thermorégulation",
+          "correct": false
+        },
+        {
+          "text": "La digestion et l’excrétion urinaire",
+          "correct": false
+        },
+        {
+          "text": "La respiration et la circulation",
+          "correct": false
+        }
+      ],
+      "explanation": "L’appareil digestif dégrade les aliments en nutriments absorbables (digestion), puis les fait passer dans le milieu intérieur, le sang et la lymphe (absorption)."
+    },
+    {
+      "id": "bp14-002",
+      "category": "Fonctions",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’est-ce que la digestion ?",
+      "choices": [
+        {
+          "text": "L’élimination des déchets de l’organisme par les urines",
+          "correct": false
+        },
+        {
+          "text": "La dégradation mécanique et chimique des aliments en nutriments absorbables",
+          "correct": true
+        },
+        {
+          "text": "Le stockage des nutriments dans le foie et le tissu adipeux",
+          "correct": false
+        },
+        {
+          "text": "Le passage des nutriments de l’intestin vers le sang et la lymphe",
+          "correct": false
+        }
+      ],
+      "explanation": "La digestion transforme les macromolécules complexes des aliments en nutriments absorbables, par des processus mécaniques et chimiques. Le passage dans le sang et la lymphe est l’absorption."
+    },
+    {
+      "id": "bp14-003",
+      "category": "Fonctions",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Vers quels liquides du milieu intérieur les nutriments absorbés sont-ils transportés ?",
+      "choices": [
+        {
+          "text": "La salive et le mucus",
+          "correct": false
+        },
+        {
+          "text": "Le liquide cérébrospinal",
+          "correct": false
+        },
+        {
+          "text": "Le sang et la lymphe",
+          "correct": true
+        },
+        {
+          "text": "La bile et le suc pancréatique",
+          "correct": false
+        }
+      ],
+      "explanation": "L’absorption fait passer les nutriments dans le milieu intérieur : le sang, et la lymphe pour les lipides absorbés sous forme de chylomicrons."
+    },
+    {
+      "id": "bp14-004",
+      "category": "Anatomie du tube digestif",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle est la longueur approximative du tube digestif, de la bouche à l’anus ?",
+      "choices": [
+        {
+          "text": "Environ 50 cm",
+          "correct": false
+        },
+        {
+          "text": "Environ 1 m",
+          "correct": false
+        },
+        {
+          "text": "Environ 25 m",
+          "correct": false
+        },
+        {
+          "text": "Environ 8 m",
+          "correct": true
+        }
+      ],
+      "explanation": "Le tube digestif mesure environ 8 m de la bouche à l’anus ; l’intestin grêle en représente à lui seul 4 à 6 m."
+    },
+    {
+      "id": "bp14-005",
+      "category": "Anatomie du tube digestif",
+      "type": "multiple",
+      "difficulty": 1,
+      "prompt": "Quelles sont les grandes glandes annexes du tube digestif ?",
+      "choices": [
+        {
+          "text": "Le foie, avec la vésicule biliaire",
+          "correct": true
+        },
+        {
+          "text": "La rate",
+          "correct": false
+        },
+        {
+          "text": "Les glandes salivaires",
+          "correct": true
+        },
+        {
+          "text": "Le pancréas",
+          "correct": true
+        }
+      ],
+      "explanation": "Les glandes annexes sont les glandes salivaires, le foie (avec la vésicule biliaire, qui stocke la bile) et le pancréas. La rate n’est pas une glande digestive."
+    },
+    {
+      "id": "bp14-006",
+      "category": "Anatomie du tube digestif",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel type de muscle est la langue ?",
+      "choices": [
+        {
+          "text": "Un muscle strié",
+          "correct": true
+        },
+        {
+          "text": "Un muscle lisse",
+          "correct": false
+        },
+        {
+          "text": "Ce n’est pas un muscle mais un tissu conjonctif",
+          "correct": false
+        },
+        {
+          "text": "Un muscle cardiaque",
+          "correct": false
+        }
+      ],
+      "explanation": "La langue est un muscle strié qui occupe le plancher de la cavité buccale ; elle porte les bourgeons du goût."
+    },
+    {
+      "id": "bp14-007",
+      "category": "Anatomie du tube digestif",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que relie l’œsophage ?",
+      "choices": [
+        {
+          "text": "La bouche au pharynx",
+          "correct": false
+        },
+        {
+          "text": "Le pharynx au cardia de l’estomac",
+          "correct": true
+        },
+        {
+          "text": "Le larynx à la trachée",
+          "correct": false
+        },
+        {
+          "text": "L’estomac au duodénum",
+          "correct": false
+        }
+      ],
+      "explanation": "L’œsophage relie le pharynx au cardia de l’estomac. Il traverse trois régions : cervicale, thoracique et abdominale."
+    },
+    {
+      "id": "bp14-008",
+      "category": "Anatomie du tube digestif",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le rôle du sphincter œsophagien inférieur (cardia) ?",
+      "choices": [
+        {
+          "text": "Contrôler l’arrivée de la bile et du suc pancréatique dans le duodénum",
+          "correct": false
+        },
+        {
+          "text": "Empêcher l’air ou les reflux d’entrer dans les voies respiratoires, à la jonction avec le pharynx",
+          "correct": false
+        },
+        {
+          "text": "Laisser passer le bol alimentaire puis se refermer pour empêcher l’acide gastrique de remonter",
+          "correct": true
+        },
+        {
+          "text": "Évacuer le chyme vers le duodénum par petites quantités",
+          "correct": false
+        }
+      ],
+      "explanation": "Le sphincter œsophagien inférieur, à la jonction avec l’estomac, empêche le reflux acide. Le sphincter supérieur protège les voies respiratoires ; le pylore évacue le chyme ; le sphincter d’Oddi contrôle l’arrivée de la bile."
+    },
+    {
+      "id": "bp14-009",
+      "category": "Anatomie du tube digestif",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quels sphincters délimitent l’estomac ?",
+      "choices": [
+        {
+          "text": "Le sphincter d’Oddi et le pylore",
+          "correct": false
+        },
+        {
+          "text": "La valve iléo-cæcale et le cardia",
+          "correct": false
+        },
+        {
+          "text": "Le pylore en haut et le cardia en bas",
+          "correct": false
+        },
+        {
+          "text": "Le cardia en haut et le pylore en bas",
+          "correct": true
+        }
+      ],
+      "explanation": "L’estomac, en forme de poche, est situé entre l’œsophage et le duodénum, délimité par le cardia en haut et le pylore en bas."
+    },
+    {
+      "id": "bp14-010",
+      "category": "Anatomie du tube digestif",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans quel ordre se succèdent les segments de l’intestin grêle ?",
+      "choices": [
+        {
+          "text": "Duodénum → jéjunum → iléon",
+          "correct": true
+        },
+        {
+          "text": "Duodénum → iléon → jéjunum",
+          "correct": false
+        },
+        {
+          "text": "Iléon → jéjunum → duodénum",
+          "correct": false
+        },
+        {
+          "text": "Jéjunum → duodénum → iléon",
+          "correct": false
+        }
+      ],
+      "explanation": "L’intestin grêle comprend le duodénum (25 à 30 cm), le jéjunum (environ 2 m) puis l’iléon (3 à 4 m), qui rejoint le cæcum."
+    },
+    {
+      "id": "bp14-011",
+      "category": "Anatomie du tube digestif",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est la longueur de l’intestin grêle ?",
+      "choices": [
+        {
+          "text": "Environ 15 à 20 m",
+          "correct": false
+        },
+        {
+          "text": "Environ 4 à 6 m",
+          "correct": true
+        },
+        {
+          "text": "Environ 1,5 m",
+          "correct": false
+        },
+        {
+          "text": "Environ 25 à 30 cm",
+          "correct": false
+        }
+      ],
+      "explanation": "L’intestin grêle mesure environ 4 à 6 m. Le duodénum ne mesure que 25 à 30 cm et le côlon environ 1,5 m."
+    },
+    {
+      "id": "bp14-012",
+      "category": "Anatomie du tube digestif",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où l’iléon rejoint-il le gros intestin ?",
+      "choices": [
+        {
+          "text": "Au côlon sigmoïde, dernière portion du côlon avant le rectum",
+          "correct": false
+        },
+        {
+          "text": "Au duodénum",
+          "correct": false
+        },
+        {
+          "text": "Au cæcum, au niveau de la jonction iléo-cæcale",
+          "correct": true
+        },
+        {
+          "text": "Au rectum",
+          "correct": false
+        }
+      ],
+      "explanation": "L’iléon rejoint le cæcum à la jonction iléo-cæcale, contrôlée par la valve iléo-cæcale."
+    },
+    {
+      "id": "bp14-013",
+      "category": "Anatomie du tube digestif",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans quel ordre se succèdent les parties du gros intestin ?",
+      "choices": [
+        {
+          "text": "Cæcum → côlon descendant → côlon transverse → côlon ascendant → sigmoïde → rectum",
+          "correct": false
+        },
+        {
+          "text": "Sigmoïde → côlon ascendant → côlon transverse → côlon descendant → cæcum → rectum",
+          "correct": false
+        },
+        {
+          "text": "Côlon transverse → cæcum → côlon ascendant → sigmoïde → côlon descendant → rectum",
+          "correct": false
+        },
+        {
+          "text": "Cæcum → côlon ascendant → côlon transverse → côlon descendant → sigmoïde → rectum",
+          "correct": true
+        }
+      ],
+      "explanation": "Le gros intestin (≈ 1,5 m) comprend le cæcum, les côlons ascendant, transverse et descendant, le sigmoïde, puis le rectum et l’anus."
+    },
+    {
+      "id": "bp14-014",
+      "category": "Anatomie du tube digestif",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel rôle est attribué à l’appendice, attaché au cæcum ?",
+      "choices": [
+        {
+          "text": "Un rôle immunitaire, grâce à son tissu lymphoïde",
+          "correct": true
+        },
+        {
+          "text": "La sécrétion de la bile",
+          "correct": false
+        },
+        {
+          "text": "La production d’enzymes digestives",
+          "correct": false
+        },
+        {
+          "text": "L’absorption des vitamines liposolubles",
+          "correct": false
+        }
+      ],
+      "explanation": "L’appendice, attaché au cæcum, contient du tissu lymphoïde : il a un rôle immunitaire."
+    },
+    {
+      "id": "bp14-015",
+      "category": "Goût",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où se trouvent les bourgeons du goût ?",
+      "choices": [
+        {
+          "text": "Dans les glandes salivaires",
+          "correct": false
+        },
+        {
+          "text": "Sur la muqueuse de la langue, du palais, de l’épiglotte et du pharynx",
+          "correct": true
+        },
+        {
+          "text": "Sur la muqueuse de l’œsophage et de l’estomac, pour goûter le bol alimentaire avalé",
+          "correct": false
+        },
+        {
+          "text": "Uniquement à la pointe de la langue",
+          "correct": false
+        }
+      ],
+      "explanation": "Les bourgeons du goût, regroupés dans les papilles gustatives, se trouvent sur la langue mais aussi sur le palais, l’épiglotte et le pharynx. On en compte environ 10 000."
+    },
+    {
+      "id": "bp14-016",
+      "category": "Goût",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles sont les cinq saveurs perçues par l’être humain ?",
+      "choices": [
+        {
+          "text": "Sucré, salé, acide, amer et piquant",
+          "correct": false
+        },
+        {
+          "text": "Sucré, salé, gras, amer et umami",
+          "correct": false
+        },
+        {
+          "text": "Sucré, salé, acide, amer et umami",
+          "correct": true
+        },
+        {
+          "text": "Sucré, acide, amer, piquant et astringent",
+          "correct": false
+        }
+      ],
+      "explanation": "On perçoit cinq saveurs : sucrée, salée, acide, amère et umami. Le piquant est une sensation de douleur, pas une saveur."
+    },
+    {
+      "id": "bp14-017",
+      "category": "Goût",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quelle molécule est associée la saveur umami ?",
+      "choices": [
+        {
+          "text": "La caféine",
+          "correct": false
+        },
+        {
+          "text": "Le saccharose",
+          "correct": false
+        },
+        {
+          "text": "Le chlorure de sodium",
+          "correct": false
+        },
+        {
+          "text": "Le glutamate",
+          "correct": true
+        }
+      ],
+      "explanation": "L’umami, saveur « savoureuse » du glutamate (parmesan, tomate mûre, soja), a été identifié en 1908 par K. Ikeda et reconnu comme 5e saveur au début des années 2000."
+    },
+    {
+      "id": "bp14-018",
+      "category": "Goût",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel trajet suit le message nerveux gustatif jusqu’à sa perception consciente ?",
+      "choices": [
+        {
+          "text": "Nerfs crâniens → tronc cérébral → thalamus → cortex du lobe insulaire",
+          "correct": true
+        },
+        {
+          "text": "Nerfs spinaux → moelle épinière → cervelet → lobe occipital",
+          "correct": false
+        },
+        {
+          "text": "Nerfs crâniens → hypothalamus → hypophyse → lobe frontal",
+          "correct": false
+        },
+        {
+          "text": "Nerf X → bulbe rachidien → moelle épinière → lobe pariétal",
+          "correct": false
+        }
+      ],
+      "explanation": "Les cellules gustatives, activées par les molécules dissoutes dans la salive, émettent un message qui emprunte les nerfs crâniens, puis le tronc cérébral, le thalamus et le cortex insulaire."
+    },
+    {
+      "id": "bp14-019",
+      "category": "Goût",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quels nerfs crâniens transmettent le goût ?",
+      "choices": [
+        {
+          "text": "Le nerf hypoglosse (XII) pour la pointe",
+          "correct": false
+        },
+        {
+          "text": "Le nerf facial (VII) pour les 2/3 antérieurs de la langue",
+          "correct": true
+        },
+        {
+          "text": "Le nerf glossopharyngien (IX) pour le 1/3 postérieur",
+          "correct": true
+        },
+        {
+          "text": "Le nerf optique (II) pour la partie centrale",
+          "correct": false
+        }
+      ],
+      "explanation": "Le goût passe par le nerf facial (VII, 2/3 antérieurs) et le glossopharyngien (IX, 1/3 postérieur). Le nerf hypoglosse (XII) commande les mouvements de la langue."
+    },
+    {
+      "id": "bp14-020",
+      "category": "Goût",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Les molécules sapides doivent être dans quel état pour activer les cellules gustatives ?",
+      "choices": [
+        {
+          "text": "Hydrolysées par la pepsine",
+          "correct": false
+        },
+        {
+          "text": "Dissoutes dans la salive",
+          "correct": true
+        },
+        {
+          "text": "Fixées sur les dents",
+          "correct": false
+        },
+        {
+          "text": "À l’état gazeux",
+          "correct": false
+        }
+      ],
+      "explanation": "Les cellules gustatives sont activées par les molécules dissoutes dans la salive."
+    },
+    {
+      "id": "bp14-021",
+      "category": "Glandes annexes",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien de paires de glandes salivaires principales possède l’être humain ?",
+      "choices": [
+        {
+          "text": "2 paires",
+          "correct": false
+        },
+        {
+          "text": "6 paires",
+          "correct": false
+        },
+        {
+          "text": "3 paires",
+          "correct": true
+        },
+        {
+          "text": "1 paire",
+          "correct": false
+        }
+      ],
+      "explanation": "Il existe trois paires de glandes salivaires : les parotides, les sublinguales et les submandibulaires."
+    },
+    {
+      "id": "bp14-022",
+      "category": "Glandes annexes",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles glandes sont des glandes salivaires ?",
+      "choices": [
+        {
+          "text": "Les submandibulaires",
+          "correct": true
+        },
+        {
+          "text": "Les parotides",
+          "correct": true
+        },
+        {
+          "text": "Les glandes de Lieberkühn",
+          "correct": false
+        },
+        {
+          "text": "Les sublinguales",
+          "correct": true
+        }
+      ],
+      "explanation": "Les trois paires de glandes salivaires sont les parotides, les sublinguales et les submandibulaires. Les glandes de Lieberkühn sont des cryptes de l’intestin."
+    },
+    {
+      "id": "bp14-023",
+      "category": "Glandes annexes",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel organe fabrique la bile, et où est-elle stockée ?",
+      "choices": [
+        {
+          "text": "L’estomac la fabrique, le foie la stocke",
+          "correct": false
+        },
+        {
+          "text": "Le pancréas la fabrique, le duodénum la stocke",
+          "correct": false
+        },
+        {
+          "text": "La vésicule biliaire la fabrique, le foie la stocke",
+          "correct": false
+        },
+        {
+          "text": "Le foie la fabrique, la vésicule biliaire la stocke",
+          "correct": true
+        }
+      ],
+      "explanation": "Le foie, plus gros organe abdominal aux plus de 300 fonctions, sécrète la bile ; la vésicule biliaire, logée sous son lobe droit, la stocke."
+    },
+    {
+      "id": "bp14-024",
+      "category": "Glandes annexes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quels canaux s’unissent pour former le canal cholédoque ?",
+      "choices": [
+        {
+          "text": "Le canal cystique et le canal hépatique commun",
+          "correct": true
+        },
+        {
+          "text": "Le canal hépatique commun et le conduit pancréatique",
+          "correct": false
+        },
+        {
+          "text": "Les deux canaux de Wirsung",
+          "correct": false
+        },
+        {
+          "text": "Le conduit pancréatique et le canal cystique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le canal cystique (venant de la vésicule) et le canal hépatique commun (venant du foie) forment le canal cholédoque."
+    },
+    {
+      "id": "bp14-025",
+      "category": "Glandes annexes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où le canal cholédoque et le conduit pancréatique débouchent-ils ?",
+      "choices": [
+        {
+          "text": "Dans le cæcum, au niveau de la jonction iléo-cæcale, contrôlée par la valve iléo-cæcale",
+          "correct": false
+        },
+        {
+          "text": "Dans le duodénum, à l’ampoule hépatopancréatique (de Vater), contrôlée par le sphincter d’Oddi",
+          "correct": true
+        },
+        {
+          "text": "Dans l’estomac, au niveau du pylore, contrôlé par le sphincter œsophagien inférieur",
+          "correct": false
+        },
+        {
+          "text": "Dans le jéjunum, au niveau des valvules conniventes, contrôlées par le plexus de Meissner",
+          "correct": false
+        }
+      ],
+      "explanation": "Bile et suc pancréatique arrivent ensemble dans le duodénum par l’ampoule de Vater, dont l’ouverture est contrôlée par le sphincter d’Oddi."
+    },
+    {
+      "id": "bp14-026",
+      "category": "Glandes annexes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que signifie qu’une glande comme le pancréas est amphicrine ?",
+      "choices": [
+        {
+          "text": "Elle stocke la bile produite par le foie",
+          "correct": false
+        },
+        {
+          "text": "Elle sécrète uniquement des hormones dans le sang",
+          "correct": false
+        },
+        {
+          "text": "Elle est à la fois exocrine et endocrine",
+          "correct": true
+        },
+        {
+          "text": "Elle sécrète uniquement des enzymes digestives",
+          "correct": false
+        }
+      ],
+      "explanation": "Le pancréas est amphicrine : exocrine (suc pancréatique, digestion) et endocrine (hormones de régulation de la glycémie)."
+    },
+    {
+      "id": "bp14-027",
+      "category": "Glandes annexes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles parties comprend la vésicule biliaire ?",
+      "choices": [
+        {
+          "text": "Le cardia, le fundus et l’antre",
+          "correct": false
+        },
+        {
+          "text": "La tête, le corps et la queue",
+          "correct": false
+        },
+        {
+          "text": "L’apex, la base et le septum",
+          "correct": false
+        },
+        {
+          "text": "Le fundus, le corps et le col",
+          "correct": true
+        }
+      ],
+      "explanation": "La vésicule biliaire comprend le fundus (fond de la poche), le corps et le col."
+    },
+    {
+      "id": "bp14-028",
+      "category": "Histologie de la paroi",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles sont les 4 couches de la paroi du tube digestif, de la lumière vers l’extérieur ?",
+      "choices": [
+        {
+          "text": "Muqueuse → sous-muqueuse → musculeuse → séreuse ou adventice",
+          "correct": true
+        },
+        {
+          "text": "Séreuse → musculeuse → sous-muqueuse → muqueuse",
+          "correct": false
+        },
+        {
+          "text": "Muqueuse → musculeuse → sous-muqueuse → séreuse ou adventice",
+          "correct": false
+        },
+        {
+          "text": "Sous-muqueuse → muqueuse → séreuse → musculeuse",
+          "correct": false
+        }
+      ],
+      "explanation": "De la lumière vers l’extérieur : la muqueuse, la sous-muqueuse, la musculeuse, puis la séreuse (dans le péritoine) ou l’adventice (hors du péritoine)."
+    },
+    {
+      "id": "bp14-029",
+      "category": "Histologie de la paroi",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "De quoi est constituée la muqueuse digestive ?",
+      "choices": [
+        {
+          "text": "D’un tissu conjonctif dense contenant le plexus de Meissner",
+          "correct": false
+        },
+        {
+          "text": "D’un épithélium de revêtement et d’un tissu conjonctif lâche sous-jacent, le chorion",
+          "correct": true
+        },
+        {
+          "text": "De tissu musculaire lisse organisé en couches circulaire et longitudinale",
+          "correct": false
+        },
+        {
+          "text": "D’une membrane séreuse à deux feuillets",
+          "correct": false
+        }
+      ],
+      "explanation": "La muqueuse associe un épithélium de revêtement et un chorion (tissu conjonctif lâche). La musculeuse est faite de muscle lisse, la sous-muqueuse de conjonctif dense."
+    },
+    {
+      "id": "bp14-030",
+      "category": "Histologie de la paroi",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que trouve-t-on dans la sous-muqueuse ?",
+      "choices": [
+        {
+          "text": "Le plexus myentérique d’Auerbach entre deux couches musculaires",
+          "correct": false
+        },
+        {
+          "text": "Les cellules gustatives regroupées en bourgeons du goût",
+          "correct": false
+        },
+        {
+          "text": "Les vaisseaux sanguins et lymphatiques de la muqueuse et le plexus nerveux de Meissner",
+          "correct": true
+        },
+        {
+          "text": "Les trois couches musculaires oblique, circulaire et longitudinale",
+          "correct": false
+        }
+      ],
+      "explanation": "La sous-muqueuse, tissu conjonctif dense, contient la vascularisation sanguine et lymphatique de la muqueuse et l’innervation : le plexus sous-muqueux de Meissner."
+    },
+    {
+      "id": "bp14-031",
+      "category": "Histologie de la paroi",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "De quel tissu est constituée la musculeuse du tube digestif ?",
+      "choices": [
+        {
+          "text": "De tissu musculaire cardiaque",
+          "correct": false
+        },
+        {
+          "text": "De tissu musculaire strié squelettique",
+          "correct": false
+        },
+        {
+          "text": "De tissu conjonctif lâche",
+          "correct": false
+        },
+        {
+          "text": "De tissu musculaire lisse",
+          "correct": true
+        }
+      ],
+      "explanation": "La musculeuse est constituée de muscle lisse, à contraction involontaire, responsable du brassage et du péristaltisme."
+    },
+    {
+      "id": "bp14-032",
+      "category": "Histologie de la paroi",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelles sont les trois couches de la musculeuse de l’estomac, de l’intérieur vers l’extérieur ?",
+      "choices": [
+        {
+          "text": "Oblique, circulaire, longitudinale",
+          "correct": true
+        },
+        {
+          "text": "Oblique, longitudinale, circulaire",
+          "correct": false
+        },
+        {
+          "text": "Longitudinale, circulaire, oblique",
+          "correct": false
+        },
+        {
+          "text": "Circulaire, oblique, longitudinale",
+          "correct": false
+        }
+      ],
+      "explanation": "L’estomac possède une couche oblique en plus : oblique (interne), circulaire (moyenne) et longitudinale (externe). Ces trois couches assurent un brassage puissant."
+    },
+    {
+      "id": "bp14-033",
+      "category": "Histologie de la paroi",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quand la couche externe du tube digestif s’appelle-t-elle séreuse plutôt qu’adventice ?",
+      "choices": [
+        {
+          "text": "Quand elle contient du muscle lisse",
+          "correct": false
+        },
+        {
+          "text": "Quand le segment est situé dans le péritoine",
+          "correct": true
+        },
+        {
+          "text": "Quand le segment est situé hors du péritoine",
+          "correct": false
+        },
+        {
+          "text": "Quand elle sécrète du mucus",
+          "correct": false
+        }
+      ],
+      "explanation": "La couche externe est une séreuse dans le péritoine et une adventice en dehors. Le péritoine est une membrane séreuse à deux feuillets qui recouvre la cavité abdominale et ses viscères."
+    },
+    {
+      "id": "bp14-034",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que contient la muqueuse de l’estomac ?",
+      "choices": [
+        {
+          "text": "Des bourgeons du goût regroupés en papilles",
+          "correct": false
+        },
+        {
+          "text": "Des lobules hexagonaux centrés sur une veine",
+          "correct": false
+        },
+        {
+          "text": "Des millions de cryptes qui se prolongent par des glandes gastriques à cellules sécrétrices",
+          "correct": true
+        },
+        {
+          "text": "Des villosités et des valvules conniventes qui augmentent la surface d’absorption",
+          "correct": false
+        }
+      ],
+      "explanation": "La muqueuse gastrique présente des millions d’invaginations, les cryptes, prolongées par les glandes gastriques qui contiennent des cellules sécrétrices spécifiques."
+    },
+    {
+      "id": "bp14-035",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est l’unité fonctionnelle du foie ?",
+      "choices": [
+        {
+          "text": "La crypte de Lieberkühn",
+          "correct": false
+        },
+        {
+          "text": "La villosité",
+          "correct": false
+        },
+        {
+          "text": "L’acinus pancréatique",
+          "correct": false
+        },
+        {
+          "text": "Le lobule hépatique",
+          "correct": true
+        }
+      ],
+      "explanation": "Le foie compte 50 000 à 100 000 lobules hépatiques hexagonaux, son unité fonctionnelle."
+    },
+    {
+      "id": "bp14-036",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Que trouve-t-on dans un espace porte (triade) aux angles du lobule hépatique ?",
+      "choices": [
+        {
+          "text": "Une branche de la veine porte, une branche de l’artère hépatique et un conduit biliaire",
+          "correct": true
+        },
+        {
+          "text": "Une branche de la veine porte, la veine cave inférieure et le canal cholédoque",
+          "correct": false
+        },
+        {
+          "text": "Une branche de l’artère hépatique, un acinus pancréatique et un plexus de Meissner",
+          "correct": false
+        },
+        {
+          "text": "La veine centrolobulaire, une veine sus-hépatique et un capillaire lymphatique",
+          "correct": false
+        }
+      ],
+      "explanation": "Chaque espace porte contient une branche de la veine porte, une branche de l’artère hépatique et un conduit biliaire. La veine centrolobulaire est au centre du lobule."
+    },
+    {
+      "id": "bp14-037",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qu’est-ce que l’espace de Disse ?",
+      "choices": [
+        {
+          "text": "La cavité où la vésicule biliaire stocke la bile",
+          "correct": false
+        },
+        {
+          "text": "La zone d’échanges entre le sang des sinusoïdes et les hépatocytes",
+          "correct": true
+        },
+        {
+          "text": "L’espace entre deux villosités intestinales",
+          "correct": false
+        },
+        {
+          "text": "La zone du pancréas où sont produites les hormones",
+          "correct": false
+        }
+      ],
+      "explanation": "L’espace de Disse sépare l’endothélium fenêtré des capillaires sinusoïdes et les hépatocytes : c’est la zone d’échanges entre le sang et les hépatocytes."
+    },
+    {
+      "id": "bp14-038",
+      "category": "Histologie des organes",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles associations entre cellule du foie et rôle sont exactes ?",
+      "choices": [
+        {
+          "text": "Cellule de Kupffer : macrophage",
+          "correct": true
+        },
+        {
+          "text": "Cellule étoilée (de Ito) : stockage de la vitamine A",
+          "correct": true
+        },
+        {
+          "text": "Hépatocyte : principale cellule du foie, polarisée",
+          "correct": true
+        },
+        {
+          "text": "Cellule de Kupffer : stockage de la bile",
+          "correct": false
+        }
+      ],
+      "explanation": "L’hépatocyte est la principale cellule du foie, polarisée (pôle sinusoïdal et pôle biliaire). Les cellules de Kupffer sont des macrophages, les cellules de Ito stockent la vitamine A."
+    },
+    {
+      "id": "bp14-039",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles cellules sécrètent les proenzymes (zymogènes) du suc pancréatique ?",
+      "choices": [
+        {
+          "text": "Les hépatocytes",
+          "correct": false
+        },
+        {
+          "text": "Les cellules canalaires et centroacineuses",
+          "correct": false
+        },
+        {
+          "text": "Les cellules acineuses",
+          "correct": true
+        },
+        {
+          "text": "Les cellules de Kupffer",
+          "correct": false
+        }
+      ],
+      "explanation": "Les cellules acineuses (90 % du volume du pancréas), organisées en acini, sécrètent les proenzymes. Les cellules canalaires et centroacineuses sécrètent l’eau et les ions bicarbonate (HCO₃⁻)."
+    },
+    {
+      "id": "bp14-040",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel est le rôle des ions bicarbonate (HCO₃⁻) sécrétés par les cellules canalaires du pancréas ?",
+      "choices": [
+        {
+          "text": "Activer la pepsine dans l’estomac",
+          "correct": false
+        },
+        {
+          "text": "Hydrolyser l’amidon en maltose",
+          "correct": false
+        },
+        {
+          "text": "Émulsionner les lipides comme les sels biliaires",
+          "correct": false
+        },
+        {
+          "text": "Neutraliser l’acidité du chyme arrivant de l’estomac",
+          "correct": true
+        }
+      ],
+      "explanation": "Les bicarbonates, basiques, neutralisent le chyme acide qui arrive de l’estomac : les enzymes pancréatiques travaillent à un pH proche de 8."
+    },
+    {
+      "id": "bp14-041",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles structures augmentent la surface d’échange de l’intestin grêle, de la plus grande à la plus petite ?",
+      "choices": [
+        {
+          "text": "Valvules conniventes → villosités → microvillosités",
+          "correct": true
+        },
+        {
+          "text": "Microvillosités → villosités → valvules conniventes",
+          "correct": false
+        },
+        {
+          "text": "Cryptes → valvules conniventes → villosités",
+          "correct": false
+        },
+        {
+          "text": "Villosités → valvules conniventes → microvillosités",
+          "correct": false
+        }
+      ],
+      "explanation": "Trois échelles de replis : les valvules conniventes (≈ 8 mm), qui portent les villosités (0,5 à 1 mm), elles-mêmes couvertes d’entérocytes à microvillosités (de l’ordre du micromètre)."
+    },
+    {
+      "id": "bp14-042",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que forment les microvillosités de la membrane apicale des entérocytes ?",
+      "choices": [
+        {
+          "text": "Les haustrations",
+          "correct": false
+        },
+        {
+          "text": "La bordure en brosse",
+          "correct": true
+        },
+        {
+          "text": "Les valvules conniventes",
+          "correct": false
+        },
+        {
+          "text": "Les cryptes de Lieberkühn",
+          "correct": false
+        }
+      ],
+      "explanation": "Les microvillosités de la membrane apicale des entérocytes forment la bordure en brosse, dernier niveau d’augmentation de la surface d’absorption."
+    },
+    {
+      "id": "bp14-043",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle surface d’échanges l’intestin grêle offre-t-il selon le cours ?",
+      "choices": [
+        {
+          "text": "Environ 30 cm²",
+          "correct": false
+        },
+        {
+          "text": "Environ 2 000 m²",
+          "correct": false
+        },
+        {
+          "text": "Environ 200 m², ou environ 30 m² selon des mesures récentes",
+          "correct": true
+        },
+        {
+          "text": "Environ 2 m², soit à peu près la surface de la peau",
+          "correct": false
+        }
+      ],
+      "explanation": "Grâce à ses replis à plusieurs échelles, l’intestin grêle offre une très grande surface d’échanges : environ 200 m² selon les ouvrages classiques, environ 30 m² selon des mesures récentes."
+    },
+    {
+      "id": "bp14-044",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment appelle-t-on les invaginations situées entre les villosités intestinales ?",
+      "choices": [
+        {
+          "text": "Les espaces portes",
+          "correct": false
+        },
+        {
+          "text": "Les acini",
+          "correct": false
+        },
+        {
+          "text": "Les valvules conniventes, replis circulaires de la muqueuse",
+          "correct": false
+        },
+        {
+          "text": "Les cryptes ou glandes de Lieberkühn",
+          "correct": true
+        }
+      ],
+      "explanation": "Les villosités sont séparées par des invaginations, les cryptes ou glandes de Lieberkühn. L’épithélium intestinal comporte 5 types cellulaires."
+    },
+    {
+      "id": "bp14-045",
+      "category": "Histologie des organes",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "En quoi la muqueuse du côlon diffère-t-elle de celle de l’intestin grêle ?",
+      "choices": [
+        {
+          "text": "Elle n’a ni valvules conniventes ni villosités, mais de nombreuses cryptes sécrétant beaucoup de mucus",
+          "correct": true
+        },
+        {
+          "text": "Elle possède davantage de villosités, plus longues et plus nombreuses, pour absorber les nutriments restants",
+          "correct": false
+        },
+        {
+          "text": "Elle est dépourvue de glandes de Lieberkühn et ne sécrète pas de mucus",
+          "correct": false
+        },
+        {
+          "text": "Elle est recouverte d’un épithélium stratifié pavimenteux comme l’œsophage",
+          "correct": false
+        }
+      ],
+      "explanation": "La muqueuse du côlon n’a ni valvules conniventes ni villosités ; ses glandes de Lieberkühn, profondes, sécrètent un abondant mucus."
+    },
+    {
+      "id": "bp14-046",
+      "category": "Innervation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment appelle-t-on l’ensemble des neurones des plexus de la paroi digestive ?",
+      "choices": [
+        {
+          "text": "Le système nerveux somatique",
+          "correct": false
+        },
+        {
+          "text": "Le système nerveux entérique",
+          "correct": true
+        },
+        {
+          "text": "Le système nerveux central",
+          "correct": false
+        },
+        {
+          "text": "Le système limbique",
+          "correct": false
+        }
+      ],
+      "explanation": "Les 200 à 600 millions de neurones des plexus de la paroi digestive forment le système nerveux entérique, surnommé « deuxième cerveau »."
+    },
+    {
+      "id": "bp14-047",
+      "category": "Innervation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où se situe le plexus sous-muqueux (de Meissner), et que contrôle-t-il ?",
+      "choices": [
+        {
+          "text": "Dans le bulbe rachidien ; il contrôle la déglutition volontaire",
+          "correct": false
+        },
+        {
+          "text": "Dans la séreuse ; il contrôle la sécrétion de bile par le foie",
+          "correct": false
+        },
+        {
+          "text": "Entre la muqueuse et la musculeuse ; il contrôle les sécrétions intestinales et la vascularisation locale",
+          "correct": true
+        },
+        {
+          "text": "Entre les couches musculaires longitudinale et circulaire ; il contrôle la motricité du tube digestif",
+          "correct": false
+        }
+      ],
+      "explanation": "Le plexus de Meissner, dans la sous-muqueuse, innerve l’épithélium, les cellules endocrines et les vaisseaux : il contrôle les sécrétions et la vascularisation locale."
+    },
+    {
+      "id": "bp14-048",
+      "category": "Innervation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où se situe le plexus myentérique (d’Auerbach), et quel est son rôle ?",
+      "choices": [
+        {
+          "text": "Autour du pylore uniquement ; il contrôle la vidange gastrique",
+          "correct": false
+        },
+        {
+          "text": "Dans le chorion des villosités ; il contrôle l’absorption",
+          "correct": false
+        },
+        {
+          "text": "Entre la muqueuse et la musculeuse ; il contrôle les sécrétions",
+          "correct": false
+        },
+        {
+          "text": "Entre les couches musculaires longitudinale et circulaire ; il contrôle la motricité",
+          "correct": true
+        }
+      ],
+      "explanation": "Le plexus d’Auerbach, entre les couches musculaires longitudinale et circulaire, est impliqué dans le contrôle moteur du tube digestif."
+    },
+    {
+      "id": "bp14-049",
+      "category": "Innervation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le système nerveux entérique est-il surnommé « deuxième cerveau » ?",
+      "choices": [
+        {
+          "text": "Parce que ses centaines de millions de neurones contrôlent de manière autonome certaines fonctions digestives",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’il commande à lui seul toutes les fonctions de l’organisme, y compris les mouvements volontaires",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’il commande les mouvements volontaires de la mastication",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’il remplace le cerveau pendant le sommeil",
+          "correct": false
+        }
+      ],
+      "explanation": "Ce réseau de plusieurs centaines de millions de neurones, logé tout le long du tube digestif, contrôle de façon autonome certaines fonctions et échange avec le système immunitaire, le microbiote et le système nerveux central."
+    },
+    {
+      "id": "bp14-050",
+      "category": "Innervation",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles affirmations sur les liens entre le cerveau et l’intestin sont exactes ?",
+      "choices": [
+        {
+          "text": "Un stress peut être transmis du cerveau à l’intestin et provoquer maux de ventre ou diarrhée",
+          "correct": true
+        },
+        {
+          "text": "Certaines maladies neurodégénératives comme Parkinson pourraient débuter dans le système nerveux entérique",
+          "correct": true
+        },
+        {
+          "text": "Le système nerveux entérique fonctionne sans aucune relation avec le système nerveux central",
+          "correct": false
+        },
+        {
+          "text": "Le système nerveux entérique n’a aucun lien avec le microbiote",
+          "correct": false
+        }
+      ],
+      "explanation": "Le système nerveux entérique échange avec le cerveau, le système immunitaire et le microbiote. De plus en plus de données suggèrent une origine intestinale de certaines maladies comme Parkinson."
+    },
+    {
+      "id": "bp14-051",
+      "category": "Innervation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel effet global le système parasympathique a-t-il sur les fonctions digestives ?",
+      "choices": [
+        {
+          "text": "Aucun effet",
+          "correct": false
+        },
+        {
+          "text": "Un effet activateur",
+          "correct": true
+        },
+        {
+          "text": "Un effet inhibiteur",
+          "correct": false
+        },
+        {
+          "text": "Un effet uniquement sur la déglutition volontaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Le parasympathique, surtout par le nerf vague (X), active globalement les fonctions digestives ; le sympathique, par les nerfs splanchniques, les inhibe."
+    },
+    {
+      "id": "bp14-052",
+      "category": "Innervation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel nerf est la principale origine de l’innervation parasympathique du tube digestif ?",
+      "choices": [
+        {
+          "text": "Le nerf trijumeau (V)",
+          "correct": false
+        },
+        {
+          "text": "Les nerfs splanchniques",
+          "correct": false
+        },
+        {
+          "text": "Le nerf vague (X, pneumogastrique)",
+          "correct": true
+        },
+        {
+          "text": "Le nerf hypoglosse (XII)",
+          "correct": false
+        }
+      ],
+      "explanation": "Le parasympathique digestif passe surtout par le nerf vague (X), et par les nerfs pelviens pour le côlon distal et le rectum. Les nerfs splanchniques sont sympathiques."
+    },
+    {
+      "id": "bp14-053",
+      "category": "Innervation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est l’origine et l’action du système sympathique sur le tube digestif ?",
+      "choices": [
+        {
+          "text": "Les nerfs pelviens, avec une action uniquement sur la déglutition",
+          "correct": false
+        },
+        {
+          "text": "Le nerf facial, avec une action sur la salivation seulement",
+          "correct": false
+        },
+        {
+          "text": "Le nerf vague, avec une action globalement activatrice",
+          "correct": false
+        },
+        {
+          "text": "Les nerfs splanchniques, avec une action globalement inhibitrice",
+          "correct": true
+        }
+      ],
+      "explanation": "Le sympathique, issu des nerfs splanchniques, inhibe globalement les fonctions digestives (motricité, sécrétions)."
+    },
+    {
+      "id": "bp14-054",
+      "category": "Innervation",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Comment les fibres du système nerveux autonome agissent-elles sur la digestion ?",
+      "choices": [
+        {
+          "text": "En agissant sur la contraction du muscle lisse",
+          "correct": true
+        },
+        {
+          "text": "En modifiant l’activité des plexus",
+          "correct": true
+        },
+        {
+          "text": "En modulant la sécrétion des hormones digestives",
+          "correct": true
+        },
+        {
+          "text": "En commandant directement les muscles de la langue",
+          "correct": false
+        }
+      ],
+      "explanation": "Les fibres sympathiques et parasympathiques modifient l’activité des plexus, la sécrétion des hormones digestives et la contraction du muscle lisse. La langue est commandée par le nerf hypoglosse."
+    },
+    {
+      "id": "bp14-055",
+      "category": "Vascularisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qu’est-ce qu’un système porte ?",
+      "choices": [
+        {
+          "text": "Une veine située entre deux réseaux de capillaires",
+          "correct": true
+        },
+        {
+          "text": "Une artère qui relie deux organes",
+          "correct": false
+        },
+        {
+          "text": "Un réseau de capillaires lymphatiques",
+          "correct": false
+        },
+        {
+          "text": "Un sphincter qui contrôle l’entrée d’un organe",
+          "correct": false
+        }
+      ],
+      "explanation": "Un système porte est une veine située entre deux réseaux de capillaires : la veine porte hépatique relie les capillaires du tube digestif aux sinusoïdes du foie."
+    },
+    {
+      "id": "bp14-056",
+      "category": "Vascularisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment se répartit l’apport sanguin du foie ?",
+      "choices": [
+        {
+          "text": "100 % par l’artère hépatique",
+          "correct": false
+        },
+        {
+          "text": "Environ 75 % par la veine porte et 25 % par l’artère hépatique",
+          "correct": true
+        },
+        {
+          "text": "Environ 25 % par la veine porte et 75 % par l’artère hépatique",
+          "correct": false
+        },
+        {
+          "text": "Environ 50 % par chacune",
+          "correct": false
+        }
+      ],
+      "explanation": "La veine porte apporte environ 75 % du sang du foie, riche en nutriments ; l’artère hépatique environ 25 %, riche en O₂. Les deux se mélangent dans les sinusoïdes."
+    },
+    {
+      "id": "bp14-057",
+      "category": "Vascularisation",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel trajet suit le sang dans le foie ?",
+      "choices": [
+        {
+          "text": "Veines sus-hépatiques → capillaires sinusoïdes → artère hépatique → veine cave supérieure",
+          "correct": false
+        },
+        {
+          "text": "Veine centrolobulaire → capillaires sinusoïdes → veine porte → aorte",
+          "correct": false
+        },
+        {
+          "text": "Capillaires sinusoïdes → veine centrolobulaire → veines sus-hépatiques → veine cave inférieure",
+          "correct": true
+        },
+        {
+          "text": "Capillaires sinusoïdes → canal cholédoque → veine porte → veine cave inférieure",
+          "correct": false
+        }
+      ],
+      "explanation": "Le sang mêlé (portal et artériel) traverse les sinusoïdes au contact des hépatocytes, gagne la veine centrolobulaire, puis les veines sus-hépatiques et la veine cave inférieure."
+    },
+    {
+      "id": "bp14-058",
+      "category": "Vascularisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est l’intérêt du passage des nutriments absorbés par le foie avant la circulation générale ?",
+      "choices": [
+        {
+          "text": "Le foie les renvoie directement dans l’intestin par la bile",
+          "correct": false
+        },
+        {
+          "text": "Le foie les digère une seconde fois grâce à ses enzymes digestives",
+          "correct": false
+        },
+        {
+          "text": "Le foie les transforme tous en glycogène",
+          "correct": false
+        },
+        {
+          "text": "Le foie peut les stocker, les transformer ou les détoxifier",
+          "correct": true
+        }
+      ],
+      "explanation": "Nutriments, médicaments et xénobiotiques absorbés passent d’abord par le foie, qui les stocke, les transforme ou les détoxifie ; les cellules de Kupffer éliminent les bactéries venues de l’intestin."
+    },
+    {
+      "id": "bp14-059",
+      "category": "Vascularisation",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quels nutriments absorbés ne passent pas d’abord par le foie ?",
+      "choices": [
+        {
+          "text": "Les lipides absorbés sous forme de chylomicrons, qui passent dans la lymphe",
+          "correct": true
+        },
+        {
+          "text": "Les vitamines B, qui passent par les veines sus-hépatiques",
+          "correct": false
+        },
+        {
+          "text": "Les acides aminés, qui passent dans la lymphe avant de rejoindre la circulation générale",
+          "correct": false
+        },
+        {
+          "text": "Le glucose, qui passe directement dans l’aorte",
+          "correct": false
+        }
+      ],
+      "explanation": "Exception au système porte : les lipides, absorbés sous forme de chylomicrons, empruntent la lymphe et ne traversent pas d’abord le foie."
+    },
+    {
+      "id": "bp14-060",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Où a lieu la digestion mécanique ?",
+      "choices": [
+        {
+          "text": "Uniquement dans l’estomac",
+          "correct": false
+        },
+        {
+          "text": "Dans la bouche, l’estomac et les intestins",
+          "correct": true
+        },
+        {
+          "text": "Dans le foie et le pancréas",
+          "correct": false
+        },
+        {
+          "text": "Uniquement dans la bouche",
+          "correct": false
+        }
+      ],
+      "explanation": "La digestion mécanique commence par la mastication dans la bouche, se poursuit par le brassage gastrique et continue dans l’intestin grêle et le côlon."
+    },
+    {
+      "id": "bp14-061",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’est-ce que le bol alimentaire ?",
+      "choices": [
+        {
+          "text": "Les selles stockées dans le rectum",
+          "correct": false
+        },
+        {
+          "text": "Le mélange du chyme et des sécrétions intestinales",
+          "correct": false
+        },
+        {
+          "text": "L’amas pâteux formé par les aliments mastiqués mélangés à la salive",
+          "correct": true
+        },
+        {
+          "text": "La bouillie acide formée dans l’estomac",
+          "correct": false
+        }
+      ],
+      "explanation": "La mastication mélange les aliments broyés à la salive et forme le bol alimentaire. Dans l’estomac, il devient le chyme."
+    },
+    {
+      "id": "bp14-062",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Combien de dents compte la denture définitive ?",
+      "choices": [
+        {
+          "text": "20",
+          "correct": false
+        },
+        {
+          "text": "36",
+          "correct": false
+        },
+        {
+          "text": "28",
+          "correct": false
+        },
+        {
+          "text": "32",
+          "correct": true
+        }
+      ],
+      "explanation": "La denture définitive compte 32 dents : 8 incisives, 4 canines, 8 prémolaires et 12 molaires. La denture de lait en compte 20."
+    },
+    {
+      "id": "bp14-063",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle est la composition de la denture de lait ?",
+      "choices": [
+        {
+          "text": "20 dents : 8 incisives, 4 canines et 8 molaires",
+          "correct": true
+        },
+        {
+          "text": "20 dents : 8 incisives, 4 canines, 4 prémolaires et 4 molaires",
+          "correct": false
+        },
+        {
+          "text": "24 dents : 8 incisives, 4 canines et 12 molaires",
+          "correct": false
+        },
+        {
+          "text": "32 dents : 8 incisives, 4 canines, 8 prémolaires et 12 molaires",
+          "correct": false
+        }
+      ],
+      "explanation": "La denture primaire compte 20 dents (8 incisives, 4 canines, 8 molaires), sans prémolaires."
+    },
+    {
+      "id": "bp14-064",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est la fonction de chaque type de dent ?",
+      "choices": [
+        {
+          "text": "Incisives : déchirer ; canines : broyer ; molaires : couper",
+          "correct": false
+        },
+        {
+          "text": "Incisives : couper ; canines : déchirer ; prémolaires et molaires : broyer",
+          "correct": true
+        },
+        {
+          "text": "Incisives : broyer ; canines : couper ; molaires : déchirer",
+          "correct": false
+        },
+        {
+          "text": "Toutes les dents broient les aliments de la même façon",
+          "correct": false
+        }
+      ],
+      "explanation": "Les incisives coupent, les canines déchirent, les prémolaires et les molaires broient."
+    },
+    {
+      "id": "bp14-065",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’est-ce que la déglutition ?",
+      "choices": [
+        {
+          "text": "L’évacuation du chyme vers le duodénum",
+          "correct": false
+        },
+        {
+          "text": "Le brassage des aliments dans l’estomac avant leur passage dans le duodénum",
+          "correct": false
+        },
+        {
+          "text": "L’action d’avaler : passage de la bouche à l’œsophage par le pharynx",
+          "correct": true
+        },
+        {
+          "text": "Le broyage des aliments par les dents",
+          "correct": false
+        }
+      ],
+      "explanation": "La déglutition est l’action d’avaler la salive ou les aliments : le bol passe de la bouche à l’œsophage par le pharynx."
+    },
+    {
+      "id": "bp14-066",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans quel ordre se déroulent les trois temps de la déglutition ?",
+      "choices": [
+        {
+          "text": "Phase pharyngée → phase orale → phase œsophagienne",
+          "correct": false
+        },
+        {
+          "text": "Phase orale → phase œsophagienne → phase pharyngée",
+          "correct": false
+        },
+        {
+          "text": "Phase œsophagienne → phase pharyngée → phase orale",
+          "correct": false
+        },
+        {
+          "text": "Phase orale → phase pharyngée → phase œsophagienne",
+          "correct": true
+        }
+      ],
+      "explanation": "La langue pousse le bol vers le pharynx (phase orale), le réflexe pharyngé protège les voies aériennes, puis les ondes péristaltiques conduisent le bol jusqu’à l’estomac."
+    },
+    {
+      "id": "bp14-067",
+      "category": "Digestion mécanique",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quels mécanismes protègent les voies aériennes pendant la phase pharyngée ?",
+      "choices": [
+        {
+          "text": "Le sphincter œsophagien supérieur reste fermé",
+          "correct": false
+        },
+        {
+          "text": "Les cordes vocales se ferment",
+          "correct": true
+        },
+        {
+          "text": "L’épiglotte s’abaisse",
+          "correct": true
+        },
+        {
+          "text": "Le voile du palais se relève",
+          "correct": true
+        }
+      ],
+      "explanation": "Pendant la phase pharyngée, réflexe, le voile du palais se relève, le larynx monte, l’épiglotte s’abaisse et les cordes vocales se ferment ; le sphincter œsophagien supérieur s’ouvre pour laisser passer le bol."
+    },
+    {
+      "id": "bp14-068",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle phase de la déglutition est une phase réflexe, qui débute quand le bolus arrive dans le pharynx ?",
+      "choices": [
+        {
+          "text": "La phase pharyngée",
+          "correct": true
+        },
+        {
+          "text": "La vidange gastrique",
+          "correct": false
+        },
+        {
+          "text": "La phase orale",
+          "correct": false
+        },
+        {
+          "text": "La mastication",
+          "correct": false
+        }
+      ],
+      "explanation": "La phase pharyngée est réflexe : elle commence à l’arrivée du bolus dans le pharynx et se termine à son passage dans le sphincter œsophagien supérieur."
+    },
+    {
+      "id": "bp14-069",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quels centres nerveux contrôlent la déglutition ?",
+      "choices": [
+        {
+          "text": "Le cervelet pour la déglutition volontaire et l’hypothalamus pour les réflexes",
+          "correct": false
+        },
+        {
+          "text": "Le cortex cérébral pour la déglutition volontaire et le bulbe rachidien pour les réflexes",
+          "correct": true
+        },
+        {
+          "text": "La moelle épinière lombaire pour toutes les étapes",
+          "correct": false
+        },
+        {
+          "text": "Uniquement le système nerveux entérique, sans intervention du cerveau",
+          "correct": false
+        }
+      ],
+      "explanation": "Le cortex cérébral contrôle la déglutition volontaire, le bulbe rachidien les mécanismes réflexes involontaires."
+    },
+    {
+      "id": "bp14-070",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qu’est-ce que le péristaltisme ?",
+      "choices": [
+        {
+          "text": "La relaxation réflexe de l’estomac à l’arrivée du bol alimentaire, pour augmenter son volume",
+          "correct": false
+        },
+        {
+          "text": "La sécrétion de mucus par les glandes de l’œsophage",
+          "correct": false
+        },
+        {
+          "text": "L’ensemble des contractions musculaires d’un organe creux qui font progresser son contenu d’amont en aval",
+          "correct": true
+        },
+        {
+          "text": "Le broyage des aliments par les dents et les muscles masticateurs",
+          "correct": false
+        }
+      ],
+      "explanation": "Le péristaltisme est une suite de contractions coordonnées qui fait avancer le contenu d’un organe creux, de l’œsophage jusqu’au côlon."
+    },
+    {
+      "id": "bp14-071",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que se passe-t-il quand le bol alimentaire arrive dans l’estomac ?",
+      "choices": [
+        {
+          "text": "La musculeuse se contracte pour refouler le bol vers l’œsophage",
+          "correct": false
+        },
+        {
+          "text": "Le pylore s’ouvre en grand pour vider immédiatement l’estomac",
+          "correct": false
+        },
+        {
+          "text": "L’estomac cesse toute contraction jusqu’au repas suivant",
+          "correct": false
+        },
+        {
+          "text": "Le fundus et la paroi gastrique se relâchent par réflexe pour augmenter le volume",
+          "correct": true
+        }
+      ],
+      "explanation": "La relaxation réflexe du fundus et de la paroi gastrique permet à l’estomac de s’adapter au volume du repas."
+    },
+    {
+      "id": "bp14-072",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment appelle-t-on la bouillie épaisse formée dans l’estomac par le brassage ?",
+      "choices": [
+        {
+          "text": "Le chyme",
+          "correct": true
+        },
+        {
+          "text": "Le mucus",
+          "correct": false
+        },
+        {
+          "text": "La bile",
+          "correct": false
+        },
+        {
+          "text": "Le bol alimentaire",
+          "correct": false
+        }
+      ],
+      "explanation": "Le brassage, assuré par les trois couches de la musculeuse, mélange le bol au suc gastrique : il devient une bouillie épaisse et acide, le chyme."
+    },
+    {
+      "id": "bp14-073",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment se fait la vidange gastrique ?",
+      "choices": [
+        {
+          "text": "En une seule fois, dès que le repas est terminé",
+          "correct": false
+        },
+        {
+          "text": "Par petites quantités d’environ 3 mL, grâce à l’ouverture intermittente du pylore",
+          "correct": true
+        },
+        {
+          "text": "Par le cardia, qui s’ouvre largement vers le duodénum à la fin de chaque repas",
+          "correct": false
+        },
+        {
+          "text": "Par petites quantités d’environ 300 mL, toutes les 30 minutes",
+          "correct": false
+        }
+      ],
+      "explanation": "Le chyme acide passe dans le duodénum par petites quantités (≈ 3 mL à la fois), à chaque ouverture du pylore."
+    },
+    {
+      "id": "bp14-074",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel mouvement de l’intestin grêle mélange le chyme avec les sécrétions pancréatiques, intestinales et la bile ?",
+      "choices": [
+        {
+          "text": "Les contractions propagées de grande amplitude",
+          "correct": false
+        },
+        {
+          "text": "La relaxation réflexe du fundus",
+          "correct": false
+        },
+        {
+          "text": "La segmentation, contraction des fibres musculaires circulaires",
+          "correct": true
+        },
+        {
+          "text": "Les contractions haustrales",
+          "correct": false
+        }
+      ],
+      "explanation": "La segmentation, due à la contraction des fibres circulaires, brasse le chyme avec les sécrétions sans le faire beaucoup progresser. Le péristaltisme, lui, le fait avancer."
+    },
+    {
+      "id": "bp14-075",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel est le rôle des contractions haustrales du côlon ?",
+      "choices": [
+        {
+          "text": "Pousser fortement le contenu vers l’anus, 3 à 4 fois par jour, surtout au réveil et après les repas",
+          "correct": false
+        },
+        {
+          "text": "Mélanger le chyme avec la bile dans le duodénum",
+          "correct": false
+        },
+        {
+          "text": "Évacuer le chyme de l’estomac vers le duodénum",
+          "correct": false
+        },
+        {
+          "text": "Brasser le contenu en freinant le transit, et favoriser la réabsorption d’eau et de sel",
+          "correct": true
+        }
+      ],
+      "explanation": "Les contractions haustrales, lentes et peu propulsives (environ toutes les 30 minutes), brassent le contenu, freinent le transit et favorisent la réabsorption hydrosodée."
+    },
+    {
+      "id": "bp14-076",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Que sont les contractions propagées de grande amplitude (CPGA) du côlon ?",
+      "choices": [
+        {
+          "text": "Des mouvements de masse puissants, 3 à 4 fois par jour, qui poussent le contenu vers l’anus",
+          "correct": true
+        },
+        {
+          "text": "Des contractions de la langue lors de la phase orale de la déglutition",
+          "correct": false
+        },
+        {
+          "text": "Des contractions de l’estomac qui forment le chyme",
+          "correct": false
+        },
+        {
+          "text": "Des contractions lentes toutes les 30 minutes qui freinent le transit",
+          "correct": false
+        }
+      ],
+      "explanation": "Les CPGA sont des mouvements de masse puissants (environ 20 minutes, 3 à 4 fois par jour, surtout au réveil et après les repas) qui poussent le contenu vers l’anus."
+    },
+    {
+      "id": "bp14-077",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Qu’est-ce que les haustrations du côlon ?",
+      "choices": [
+        {
+          "text": "Des replis circulaires de la muqueuse colique portant des villosités et des microvillosités",
+          "correct": false
+        },
+        {
+          "text": "Des bosselures de la paroi dues à trois bandelettes longitudinales plus courtes que le côlon",
+          "correct": true
+        },
+        {
+          "text": "Des sphincters qui séparent les segments du côlon",
+          "correct": false
+        },
+        {
+          "text": "Des glandes qui sécrètent les enzymes coliques",
+          "correct": false
+        }
+      ],
+      "explanation": "Les trois bandelettes longitudinales (ténias coliques), plus courtes que le côlon, le « froncent » et forment des bosselures, les haustrations."
+    },
+    {
+      "id": "bp14-078",
+      "category": "Digestion mécanique",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Où les selles sont-elles stockées avant la défécation ?",
+      "choices": [
+        {
+          "text": "Dans le côlon transverse",
+          "correct": false
+        },
+        {
+          "text": "Dans le cæcum",
+          "correct": false
+        },
+        {
+          "text": "Dans le rectum",
+          "correct": true
+        },
+        {
+          "text": "Dans l’appendice",
+          "correct": false
+        }
+      ],
+      "explanation": "Les selles sont stockées dans le rectum en attendant la défécation, c’est-à-dire leur passage par l’anus."
+    },
+    {
+      "id": "bp14-079",
+      "category": "Nerfs crâniens",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel nerf crânien commande les muscles masticateurs ?",
+      "choices": [
+        {
+          "text": "Le nerf vague (X)",
+          "correct": false
+        },
+        {
+          "text": "Le nerf facial (VII)",
+          "correct": false
+        },
+        {
+          "text": "Le nerf hypoglosse (XII)",
+          "correct": false
+        },
+        {
+          "text": "Le nerf trijumeau (V)",
+          "correct": true
+        }
+      ],
+      "explanation": "Le trijumeau (V), nerf mixte, assure la sensibilité de la face et de la bouche et commande les muscles masticateurs."
+    },
+    {
+      "id": "bp14-080",
+      "category": "Nerfs crâniens",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quel nerf crânien commande les mouvements de la langue ?",
+      "choices": [
+        {
+          "text": "Le nerf hypoglosse (XII)",
+          "correct": true
+        },
+        {
+          "text": "Le nerf glossopharyngien (IX)",
+          "correct": false
+        },
+        {
+          "text": "Le nerf trijumeau (V)",
+          "correct": false
+        },
+        {
+          "text": "Le nerf accessoire (XI)",
+          "correct": false
+        }
+      ],
+      "explanation": "L’hypoglosse (XII), nerf moteur, commande la langue et intervient dans la mastication et la déglutition."
+    },
+    {
+      "id": "bp14-081",
+      "category": "Nerfs crâniens",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels nerfs crâniens interviennent dans la salivation ?",
+      "choices": [
+        {
+          "text": "Le nerf glossopharyngien (IX)",
+          "correct": true
+        },
+        {
+          "text": "Le nerf facial (VII)",
+          "correct": true
+        },
+        {
+          "text": "Le nerf vestibulocochléaire (VIII)",
+          "correct": false
+        },
+        {
+          "text": "Le nerf oculomoteur (III)",
+          "correct": false
+        }
+      ],
+      "explanation": "Le facial (VII) innerve les glandes submandibulaires et sublinguales, le glossopharyngien (IX) la parotide. Les nerfs III et VIII n’ont pas de rôle digestif."
+    },
+    {
+      "id": "bp14-082",
+      "category": "Nerfs crâniens",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels rôles digestifs a le nerf vague (X) ?",
+      "choices": [
+        {
+          "text": "La satiété",
+          "correct": true
+        },
+        {
+          "text": "La perception des odeurs des aliments",
+          "correct": false
+        },
+        {
+          "text": "La motricité et les sécrétions digestives",
+          "correct": true
+        },
+        {
+          "text": "La déglutition",
+          "correct": true
+        }
+      ],
+      "explanation": "Le nerf vague intervient dans la déglutition, la motricité et les sécrétions digestives (parasympathique) et la satiété. L’odorat dépend du nerf olfactif (I)."
+    }
+  ],
+  "sources": [
+    {
+      "document": "Chapitre 14 système digestif.pdf"
+    }
+  ]
+}
