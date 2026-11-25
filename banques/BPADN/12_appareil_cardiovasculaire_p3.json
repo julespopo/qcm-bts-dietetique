@@ -1,0 +1,1651 @@
+{
+  "version": 1,
+  "title": "Chapitre 12 — L’appareil cardiovasculaire, partie 3",
+  "subject": "BPADN",
+  "chapter": "Chapitre 12 — L’appareil cardiovasculaire, partie 3",
+  "questions": [
+    {
+      "id": "bp12c-001",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle racine désigne les veines ?",
+      "choices": [
+        {
+          "text": "phléb(o)-",
+          "correct": true
+        },
+        {
+          "text": "angi(o)-",
+          "correct": false
+        },
+        {
+          "text": "capill-",
+          "correct": false
+        },
+        {
+          "text": "artér(i)-",
+          "correct": false
+        }
+      ],
+      "explanation": "Phléb(o)- et vein- désignent les veines (phlébite) ; artér(i)- les artères ; angi(o)- et vascul- les vaisseaux en général ; capill- signifie cheveu."
+    },
+    {
+      "id": "bp12c-002",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie le suffixe « -ole » ou « -ule » dans artériole ou veinule ?",
+      "choices": [
+        {
+          "text": "Dans le sang",
+          "correct": false
+        },
+        {
+          "text": "Petit",
+          "correct": true
+        },
+        {
+          "text": "Inflammation",
+          "correct": false
+        },
+        {
+          "text": "Rétrécissement",
+          "correct": false
+        }
+      ],
+      "explanation": "-ole et -ule signifient petit : l’artériole est une petite artère, la veinule une petite veine."
+    },
+    {
+      "id": "bp12c-003",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "D’où vient le nom « capillaire » ?",
+      "choices": [
+        {
+          "text": "De capill- = petit sac : le vaisseau se termine en cul-de-sac dans les tissus",
+          "correct": false
+        },
+        {
+          "text": "De capill- = rétrécissement",
+          "correct": false
+        },
+        {
+          "text": "De capill- = cheveu : le vaisseau est fin comme un cheveu",
+          "correct": true
+        },
+        {
+          "text": "De capill- = autour",
+          "correct": false
+        }
+      ],
+      "explanation": "Capill- signifie cheveu : les capillaires sont des vaisseaux aussi fins qu’un cheveu, d’un diamètre d’environ 5 à 10 µm."
+    },
+    {
+      "id": "bp12c-004",
+      "category": "Terminologie",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles associations entre terme et sens sont exactes ?",
+      "choices": [
+        {
+          "text": "Phlébite : inflammation d’une veine",
+          "correct": true
+        },
+        {
+          "text": "Volémie : volume sanguin",
+          "correct": true
+        },
+        {
+          "text": "Vasoconstriction : augmentation du diamètre d’un vaisseau",
+          "correct": false
+        },
+        {
+          "text": "Sténose artérielle : rétrécissement d’une artère",
+          "correct": true
+        }
+      ],
+      "explanation": "-ite = inflammation, -sténose = rétrécissement, -émie = dans le sang. La vasoconstriction diminue le diamètre du vaisseau ; c’est la vasodilatation qui l’augmente."
+    },
+    {
+      "id": "bp12c-005",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que désigne l’endothélium ?",
+      "choices": [
+        {
+          "text": "Les valvules des veines",
+          "correct": false
+        },
+        {
+          "text": "La couche externe de tissu conjonctif",
+          "correct": false
+        },
+        {
+          "text": "La couche de muscle lisse qui entoure la paroi de tous les vaisseaux",
+          "correct": false
+        },
+        {
+          "text": "La couche de cellules qui tapisse l’intérieur des vaisseaux",
+          "correct": true
+        }
+      ],
+      "explanation": "Endo- = dedans : l’endothélium, épithélium pavimenteux simple, tapisse l’intérieur des vaisseaux. Il forme l’intima avec une fine couche de conjonctif."
+    },
+    {
+      "id": "bp12c-006",
+      "category": "Paroi des vaisseaux",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelles sont les trois tuniques de la paroi d’une artère, de l’intérieur vers l’extérieur ?",
+      "choices": [
+        {
+          "text": "Intima → média → adventice",
+          "correct": true
+        },
+        {
+          "text": "Média → intima → adventice",
+          "correct": false
+        },
+        {
+          "text": "Adventice → média → intima",
+          "correct": false
+        },
+        {
+          "text": "Intima → adventice → média",
+          "correct": false
+        }
+      ],
+      "explanation": "De l’intérieur vers l’extérieur : l’intima (endothélium), la média (muscle lisse et fibres élastiques) puis l’adventice (tissu conjonctif)."
+    },
+    {
+      "id": "bp12c-007",
+      "category": "Paroi des vaisseaux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "De quoi est constituée l’intima ?",
+      "choices": [
+        {
+          "text": "De muscle strié squelettique",
+          "correct": false
+        },
+        {
+          "text": "D’un endothélium reposant sur une fine couche de conjonctif",
+          "correct": true
+        },
+        {
+          "text": "De tissu conjonctif riche en collagène",
+          "correct": false
+        },
+        {
+          "text": "De muscle lisse et de fibres élastiques disposés en couches circulaires",
+          "correct": false
+        }
+      ],
+      "explanation": "L’intima est formée d’un endothélium sur une fine couche de conjonctif : sa surface lisse facilite l’écoulement et limite la coagulation."
+    },
+    {
+      "id": "bp12c-008",
+      "category": "Paroi des vaisseaux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le rôle de la surface lisse de l’intima ?",
+      "choices": [
+        {
+          "text": "Stocker le sang en cas d’hémorragie",
+          "correct": false
+        },
+        {
+          "text": "Permettre la vasoconstriction",
+          "correct": false
+        },
+        {
+          "text": "Faciliter l’écoulement du sang et limiter la coagulation",
+          "correct": true
+        },
+        {
+          "text": "Ancrer solidement le vaisseau aux organes et aux tissus voisins",
+          "correct": false
+        }
+      ],
+      "explanation": "L’endothélium offre une surface lisse au sang : il facilite son écoulement et limite la formation de caillots."
+    },
+    {
+      "id": "bp12c-009",
+      "category": "Paroi des vaisseaux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "De quoi est constituée la média, et quel est son rôle ?",
+      "choices": [
+        {
+          "text": "De tissu conjonctif riche en collagène ; elle assure l’ancrage et la solidité du vaisseau",
+          "correct": false
+        },
+        {
+          "text": "De muscle strié squelettique ; elle permet la contraction volontaire du vaisseau",
+          "correct": false
+        },
+        {
+          "text": "D’un endothélium et d’une lame basale ; elle permet les échanges avec les tissus",
+          "correct": false
+        },
+        {
+          "text": "De muscle lisse et de fibres élastiques ; elle assure l’élasticité, la vasoconstriction et la vasodilatation",
+          "correct": true
+        }
+      ],
+      "explanation": "La média associe muscle lisse et fibres élastiques : elle donne au vaisseau son élasticité et règle son diamètre par vasoconstriction ou vasodilatation."
+    },
+    {
+      "id": "bp12c-010",
+      "category": "Paroi des vaisseaux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le rôle de l’adventice ?",
+      "choices": [
+        {
+          "text": "Assurer la solidité et l’ancrage du vaisseau ; elle contient des nerfs et de petits vaisseaux",
+          "correct": true
+        },
+        {
+          "text": "Empêcher le reflux du sang grâce à des replis",
+          "correct": false
+        },
+        {
+          "text": "Offrir une surface lisse qui limite la coagulation",
+          "correct": false
+        },
+        {
+          "text": "Régler le diamètre du vaisseau par contraction de son muscle lisse, comme la média des artérioles",
+          "correct": false
+        }
+      ],
+      "explanation": "L’adventice, tissu conjonctif riche en collagène, assure la solidité et l’ancrage du vaisseau ; elle contient des nerfs et de petits vaisseaux."
+    },
+    {
+      "id": "bp12c-011",
+      "category": "Paroi des vaisseaux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle continuité existe entre le cœur et les vaisseaux ?",
+      "choices": [
+        {
+          "text": "Le myocarde se prolonge dans la média de toutes les veines jusqu’aux capillaires",
+          "correct": false
+        },
+        {
+          "text": "L’endocarde et l’intima des vaisseaux forment un endothélium continu, du cœur aux capillaires",
+          "correct": true
+        },
+        {
+          "text": "Les valves cardiaques se prolongent par les valvules de toutes les artères",
+          "correct": false
+        },
+        {
+          "text": "L’épicarde se prolonge dans l’adventice de toutes les artères jusqu’aux artérioles",
+          "correct": false
+        }
+      ],
+      "explanation": "L’intima des vaisseaux et l’endocarde forment un endothélium continu, du cœur jusqu’aux capillaires."
+    },
+    {
+      "id": "bp12c-012",
+      "category": "Paroi des vaisseaux",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Combien de tuniques possède la paroi d’un capillaire ?",
+      "choices": [
+        {
+          "text": "Trois, comme les artères",
+          "correct": false
+        },
+        {
+          "text": "Quatre, pour résister à la pression",
+          "correct": false
+        },
+        {
+          "text": "Une seule : elle est réduite à un endothélium et sa lame basale",
+          "correct": true
+        },
+        {
+          "text": "Deux : une intima et une adventice, sans média car il n’a pas de muscle lisse",
+          "correct": false
+        }
+      ],
+      "explanation": "La paroi capillaire est réduite à un endothélium et sa lame basale (≈ 1 µm) : c’est ce qui permet les échanges."
+    },
+    {
+      "id": "bp12c-013",
+      "category": "Paroi des vaisseaux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment la média d’une veine se compare-t-elle à celle d’une artère de même calibre ?",
+      "choices": [
+        {
+          "text": "Elle est absente : la paroi veineuse est réduite à un endothélium",
+          "correct": false
+        },
+        {
+          "text": "Elle est plus épaisse et plus musclée : la veine supporte une pression plus élevée que l’artère",
+          "correct": false
+        },
+        {
+          "text": "Elle est identique : seules les valvules les distinguent",
+          "correct": false
+        },
+        {
+          "text": "Elle est plus fine et plus pauvre en muscle : la veine supporte une pression plus faible",
+          "correct": true
+        }
+      ],
+      "explanation": "La média des veines est fine et pauvre en muscle : leur paroi se laisse distendre et supporte une pression faible, à l’inverse des artères."
+    },
+    {
+      "id": "bp12c-014",
+      "category": "Structure et fonction",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans quel ordre le sang traverse-t-il les vaisseaux, du cœur gauche au cœur droit ?",
+      "choices": [
+        {
+          "text": "Artères élastiques → artères musculaires → artérioles → capillaires → veinules → veines",
+          "correct": true
+        },
+        {
+          "text": "Artérioles → artères élastiques → capillaires → artères musculaires → veinules → veines",
+          "correct": false
+        },
+        {
+          "text": "Artères élastiques → capillaires → artérioles → artères musculaires → veines → veinules",
+          "correct": false
+        },
+        {
+          "text": "Artères musculaires → artères élastiques → capillaires → artérioles → veines → veinules",
+          "correct": false
+        }
+      ],
+      "explanation": "Du cœur gauche au cœur droit : artères élastiques (aorte) → artères musculaires → artérioles → capillaires → veinules → veines."
+    },
+    {
+      "id": "bp12c-015",
+      "category": "Structure et fonction",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles associations entre vaisseau et fonction sont exactes ?",
+      "choices": [
+        {
+          "text": "Aorte : amortir et lisser le débit",
+          "correct": true
+        },
+        {
+          "text": "Veine : régler le débit de chaque organe",
+          "correct": false
+        },
+        {
+          "text": "Artère musculaire : distribuer le sang aux organes",
+          "correct": true
+        },
+        {
+          "text": "Capillaire : échanger",
+          "correct": true
+        }
+      ],
+      "explanation": "Aorte : amortir et lisser le débit ; artère musculaire : distribuer ; artériole : résister et régler le débit ; capillaire : échanger ; veine : ramener et stocker le sang."
+    },
+    {
+      "id": "bp12c-016",
+      "category": "Structure et fonction",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel vaisseau a la paroi la plus riche en fibres élastiques ?",
+      "choices": [
+        {
+          "text": "Le capillaire",
+          "correct": false
+        },
+        {
+          "text": "L’aorte (artère élastique)",
+          "correct": true
+        },
+        {
+          "text": "L’artériole, aux nombreuses couches de muscle",
+          "correct": false
+        },
+        {
+          "text": "La veine",
+          "correct": false
+        }
+      ],
+      "explanation": "L’aorte, artère élastique, est la plus riche en fibres élastiques : elle amortit et lisse le débit. Le capillaire n’en possède pas."
+    },
+    {
+      "id": "bp12c-017",
+      "category": "Structure et fonction",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quels vaisseaux ont la média la plus riche en muscle lisse, rapportée à leur calibre ?",
+      "choices": [
+        {
+          "text": "Les capillaires",
+          "correct": false
+        },
+        {
+          "text": "Les veines caves",
+          "correct": false
+        },
+        {
+          "text": "Les artères musculaires et les artérioles",
+          "correct": true
+        },
+        {
+          "text": "L’aorte et les grosses artères élastiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Artères moyennes (musculaires) et artérioles ont la média la plus riche en muscle lisse : elles distribuent le sang et règlent le débit. Le capillaire n’a pas de muscle."
+    },
+    {
+      "id": "bp12c-018",
+      "category": "Artères élastiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "En quoi consiste l’effet « réservoir » de l’aorte ?",
+      "choices": [
+        {
+          "text": "Elle se ferme en diastole pour empêcher le sang de revenir vers le ventricule gauche",
+          "correct": false
+        },
+        {
+          "text": "Elle se contracte activement en diastole grâce à son muscle lisse pour éjecter le sang vers les organes",
+          "correct": false
+        },
+        {
+          "text": "Elle stocke en permanence les deux tiers du volume sanguin, qu’elle libère en cas d’hémorragie",
+          "correct": false
+        },
+        {
+          "text": "Elle se distend en systole en stockant de l’énergie, puis revient sur elle-même en diastole et continue de pousser le sang",
+          "correct": true
+        }
+      ],
+      "explanation": "En systole, l’aorte reçoit brutalement ≈ 70 mL de sang : sa paroi élastique se distend et stocke de l’énergie. En diastole, elle revient sur elle-même et continue de pousser le sang."
+    },
+    {
+      "id": "bp12c-019",
+      "category": "Artères élastiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le sang circule-t-il de façon continue dans les capillaires alors que le cœur éjecte par à-coups ?",
+      "choices": [
+        {
+          "text": "Grâce à l’élasticité des grosses artères, qui restituent en diastole l’énergie stockée en systole",
+          "correct": true
+        },
+        {
+          "text": "Parce que le cœur éjecte du sang en continu, pendant la systole comme pendant la diastole",
+          "correct": false
+        },
+        {
+          "text": "Grâce à la pompe musculaire des mollets, qui pousse le sang vers les capillaires",
+          "correct": false
+        },
+        {
+          "text": "Parce que les capillaires possèdent un muscle lisse qui se contracte en rythme",
+          "correct": false
+        }
+      ],
+      "explanation": "L’éjection est discontinue (seulement en systole), mais l’effet réservoir des grosses artères élastiques transforme ces à-coups en un écoulement continu."
+    },
+    {
+      "id": "bp12c-020",
+      "category": "Artères élastiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi la pression aortique ne descend-elle pas à 0 pendant la diastole ?",
+      "choices": [
+        {
+          "text": "Parce que les valvules de l’aorte bloquent le sang dans le vaisseau",
+          "correct": false
+        },
+        {
+          "text": "Parce que la paroi élastique de l’aorte revient sur elle-même et continue de pousser le sang",
+          "correct": true
+        },
+        {
+          "text": "Parce que la pompe respiratoire comprime l’aorte à chaque expiration",
+          "correct": false
+        },
+        {
+          "text": "Parce que le ventricule gauche continue d’éjecter du sang pendant la diastole",
+          "correct": false
+        }
+      ],
+      "explanation": "Le retour élastique de la paroi aortique maintient la pression en diastole, autour de 80 mmHg."
+    },
+    {
+      "id": "bp12c-021",
+      "category": "Artères élastiques",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle est la pression aortique en diastole, selon le cours ?",
+      "choices": [
+        {
+          "text": "Environ 25 mmHg",
+          "correct": false
+        },
+        {
+          "text": "Environ 0 mmHg",
+          "correct": false
+        },
+        {
+          "text": "Environ 80 mmHg",
+          "correct": true
+        },
+        {
+          "text": "Environ 200 mmHg",
+          "correct": false
+        }
+      ],
+      "explanation": "Grâce à l’effet réservoir, la pression aortique reste autour de 80 mmHg en diastole."
+    },
+    {
+      "id": "bp12c-022",
+      "category": "Artères élastiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel volume de sang l’aorte reçoit-elle brutalement à chaque systole ?",
+      "choices": [
+        {
+          "text": "Environ 5 L",
+          "correct": false
+        },
+        {
+          "text": "Environ 7 mL",
+          "correct": false
+        },
+        {
+          "text": "Environ 700 mL",
+          "correct": false
+        },
+        {
+          "text": "Environ 70 mL",
+          "correct": true
+        }
+      ],
+      "explanation": "À chaque systole, l’aorte reçoit environ 70 mL, c’est-à-dire le volume d’éjection systolique vu en partie 2."
+    },
+    {
+      "id": "bp12c-023",
+      "category": "Artères élastiques",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans l’analogie du cours (pompe à main, ballon, tuyau), quel rôle joue l’aorte ?",
+      "choices": [
+        {
+          "text": "Le ballon intercalé, qui transforme les à-coups en jet continu",
+          "correct": true
+        },
+        {
+          "text": "Le tuyau d’arrosage, qui conduit l’eau sans la modifier",
+          "correct": false
+        },
+        {
+          "text": "Le robinet, qui règle le débit",
+          "correct": false
+        },
+        {
+          "text": "La pompe à main, qui donne des à-coups",
+          "correct": false
+        }
+      ],
+      "explanation": "Une pompe à main donne des à-coups ; un ballon intercalé donne un jet continu. L’aorte joue le rôle du ballon."
+    },
+    {
+      "id": "bp12c-024",
+      "category": "Artères élastiques",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Que se passe-t-il avec l’âge au niveau de l’aorte ?",
+      "choices": [
+        {
+          "text": "Le muscle lisse disparaît et l’aorte ne peut plus se contracter : la pression diastolique augmente",
+          "correct": false
+        },
+        {
+          "text": "Les fibres élastiques se raréfient et la paroi se rigidifie : l’aorte amortit moins et la pression systolique augmente",
+          "correct": true
+        },
+        {
+          "text": "Les fibres élastiques se multiplient et la paroi s’assouplit : l’aorte amortit mieux et la pression systolique diminue",
+          "correct": false
+        },
+        {
+          "text": "La lumière de l’aorte s’élargit : le sang circule plus vite et la pression diminue",
+          "correct": false
+        }
+      ],
+      "explanation": "Avec l’âge, l’aorte se rigidifie : elle amortit moins les à-coups, la pression systolique monte. C’est un lien avec l’hypertension (partie 5)."
+    },
+    {
+      "id": "bp12c-025",
+      "category": "Artérioles",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi appelle-t-on les artérioles les « robinets » de la circulation ?",
+      "choices": [
+        {
+          "text": "Parce qu’elles empêchent le sang de refluer grâce à leurs valvules",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’elles stockent la majeure partie du volume sanguin et le libèrent selon les besoins de l’organe",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’elles règlent le débit vers les capillaires de chaque organe en changeant de diamètre",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’elles permettent les échanges entre le sang et les cellules",
+          "correct": false
+        }
+      ],
+      "explanation": "Grâce au muscle lisse de leur média, les artérioles se contractent (vasoconstriction) ou se relâchent (vasodilatation) et règlent le débit vers les capillaires."
+    },
+    {
+      "id": "bp12c-026",
+      "category": "Artérioles",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que se passe-t-il lors d’une vasoconstriction artériolaire ?",
+      "choices": [
+        {
+          "text": "Les valvules se ferment et le sang ne peut plus passer",
+          "correct": false
+        },
+        {
+          "text": "Le muscle lisse se relâche, le diamètre augmente et le débit vers les capillaires augmente",
+          "correct": false
+        },
+        {
+          "text": "L’endothélium se détache et le vaisseau se bouche",
+          "correct": false
+        },
+        {
+          "text": "Le muscle lisse se contracte, le diamètre diminue et le débit vers les capillaires diminue",
+          "correct": true
+        }
+      ],
+      "explanation": "Vasoconstriction : le muscle se contracte, le diamètre diminue, le débit baisse. Vasodilatation : le muscle se relâche, le diamètre augmente, le débit augmente."
+    },
+    {
+      "id": "bp12c-027",
+      "category": "Artérioles",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans quels vaisseaux la pression sanguine chute-t-elle le plus ?",
+      "choices": [
+        {
+          "text": "Dans les artérioles, vaisseaux de résistance",
+          "correct": true
+        },
+        {
+          "text": "Dans les capillaires pulmonaires",
+          "correct": false
+        },
+        {
+          "text": "Dans les veines caves",
+          "correct": false
+        },
+        {
+          "text": "Dans l’aorte, juste à la sortie du ventricule gauche",
+          "correct": false
+        }
+      ],
+      "explanation": "Les artérioles sont les vaisseaux de résistance : c’est là que la pression chute le plus. Après elles, elle ne pulse presque plus."
+    },
+    {
+      "id": "bp12c-028",
+      "category": "Artérioles",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles affirmations sur les artérioles sont exactes ?",
+      "choices": [
+        {
+          "text": "Elles sont le lieu principal des échanges",
+          "correct": false
+        },
+        {
+          "text": "Elles règlent le débit vers les capillaires",
+          "correct": true
+        },
+        {
+          "text": "Ce sont des vaisseaux de résistance",
+          "correct": true
+        },
+        {
+          "text": "Leur média est riche en muscle lisse",
+          "correct": true
+        }
+      ],
+      "explanation": "Les artérioles, riches en muscle lisse, sont des vaisseaux de résistance qui règlent le débit ; les échanges se font dans les capillaires."
+    },
+    {
+      "id": "bp12c-029",
+      "category": "Artérioles",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Comment des organes montés en parallèle règlent-ils chacun leur débit ?",
+      "choices": [
+        {
+          "text": "En modifiant chacun la fréquence cardiaque de façon indépendante, selon leurs besoins",
+          "correct": false
+        },
+        {
+          "text": "En ouvrant ou fermant leurs artérioles par vasodilatation ou vasoconstriction",
+          "correct": true
+        },
+        {
+          "text": "En changeant l’épaisseur de la paroi de leurs capillaires",
+          "correct": false
+        },
+        {
+          "text": "En faisant varier le nombre de valvules dans leurs veines",
+          "correct": false
+        }
+      ],
+      "explanation": "Chaque organe reçoit sa propre branche artérielle : en ouvrant ou fermant ses artérioles, il règle son débit sans modifier celui des autres. Leur diamètre fixe aussi les résistances périphériques (partie 4)."
+    },
+    {
+      "id": "bp12c-030",
+      "category": "Capillaires",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles caractéristiques des capillaires favorisent les échanges ?",
+      "choices": [
+        {
+          "text": "Un sang très lent",
+          "correct": true
+        },
+        {
+          "text": "Une paroi réduite à un endothélium",
+          "correct": true
+        },
+        {
+          "text": "Une très grande surface totale",
+          "correct": true
+        },
+        {
+          "text": "Une média riche en muscle lisse",
+          "correct": false
+        }
+      ],
+      "explanation": "Paroi d’un seul endothélium, sang très lent et immense surface totale : trois conditions favorables aux échanges. Les capillaires n’ont pas de muscle."
+    },
+    {
+      "id": "bp12c-031",
+      "category": "Capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le diamètre d’un capillaire, et quelle en est la conséquence ?",
+      "choices": [
+        {
+          "text": "Environ 1 µm : aucune hématie ne peut y passer",
+          "correct": false
+        },
+        {
+          "text": "Environ 2,5 cm : le sang y circule très vite",
+          "correct": false
+        },
+        {
+          "text": "Environ 5 à 10 µm : les hématies y passent une par une",
+          "correct": true
+        },
+        {
+          "text": "Environ 5 à 10 mm : plusieurs hématies y passent de front",
+          "correct": false
+        }
+      ],
+      "explanation": "Le capillaire mesure environ 5 à 10 µm de diamètre : les hématies, d’environ 7 µm, y passent une par une."
+    },
+    {
+      "id": "bp12c-032",
+      "category": "Capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "À quelle vitesse le sang circule-t-il dans les capillaires ?",
+      "choices": [
+        {
+          "text": "Environ 30 cm/s, plus vite que dans l’aorte",
+          "correct": false
+        },
+        {
+          "text": "Il ne circule pas : il stagne",
+          "correct": false
+        },
+        {
+          "text": "Environ 3 m/s",
+          "correct": false
+        },
+        {
+          "text": "Environ 0,3 mm/s, très lentement",
+          "correct": true
+        }
+      ],
+      "explanation": "Le sang est très lent dans les capillaires (≈ 0,3 mm/s) : il laisse le temps aux échanges."
+    },
+    {
+      "id": "bp12c-033",
+      "category": "Capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le sang circule-t-il plus lentement dans les capillaires que dans l’aorte ?",
+      "choices": [
+        {
+          "text": "Parce que leur section totale, environ 1 000 fois celle de l’aorte, fait passer le même débit dans une section bien plus grande",
+          "correct": true
+        },
+        {
+          "text": "Parce que chaque capillaire est minuscule : le frottement contre sa paroi freine le sang bien plus que dans l’aorte",
+          "correct": false
+        },
+        {
+          "text": "Parce que les capillaires reçoivent beaucoup moins de sang que l’aorte",
+          "correct": false
+        },
+        {
+          "text": "Parce que la pression dans les capillaires est plus élevée que dans l’aorte",
+          "correct": false
+        }
+      ],
+      "explanation": "Un capillaire est minuscule, mais ils sont des milliards : leur section totale vaut environ 1 000 fois celle de l’aorte. Le même débit traverse une section plus grande, le sang ralentit, comme une rivière dans un delta."
+    },
+    {
+      "id": "bp12c-034",
+      "category": "Capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelles substances traversent la paroi des capillaires par diffusion ?",
+      "choices": [
+        {
+          "text": "Les hématies et les protéines du plasma vers les cellules",
+          "correct": false
+        },
+        {
+          "text": "O₂ et nutriments vers les cellules, CO₂ et déchets vers le sang",
+          "correct": true
+        },
+        {
+          "text": "Les plaquettes, pour former la lymphe",
+          "correct": false
+        },
+        {
+          "text": "Uniquement l’eau, dans les deux sens",
+          "correct": false
+        }
+      ],
+      "explanation": "O₂ et nutriments diffusent vers les cellules, CO₂ et déchets vers le sang. Les protéines et les cellules du sang restent dans le vaisseau, sauf dans les capillaires très perméables."
+    },
+    {
+      "id": "bp12c-035",
+      "category": "Capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que se passe-t-il côté artériel d’un capillaire ?",
+      "choices": [
+        {
+          "text": "La pression oncotique l’emporte : le liquide est réabsorbé dans le capillaire",
+          "correct": false
+        },
+        {
+          "text": "Les protéines du plasma sortent massivement vers les tissus",
+          "correct": false
+        },
+        {
+          "text": "La pression hydrostatique l’emporte : le liquide est filtré hors du capillaire",
+          "correct": true
+        },
+        {
+          "text": "Les deux pressions s’annulent : aucun liquide ne bouge",
+          "correct": false
+        }
+      ],
+      "explanation": "Côté artériel, la pression hydrostatique (pression du sang) dépasse la pression oncotique : il y a filtration. Côté veineux, c’est l’inverse : réabsorption."
+    },
+    {
+      "id": "bp12c-036",
+      "category": "Capillaires",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Comment évoluent les pressions le long d’un capillaire ?",
+      "choices": [
+        {
+          "text": "La pression oncotique diminue, la pression hydrostatique reste constante",
+          "correct": false
+        },
+        {
+          "text": "Les deux pressions augmentent de l’artériole à la veinule",
+          "correct": false
+        },
+        {
+          "text": "Les deux pressions restent constantes tout le long",
+          "correct": false
+        },
+        {
+          "text": "La pression hydrostatique diminue, la pression oncotique reste à peu près constante",
+          "correct": true
+        }
+      ],
+      "explanation": "La pression hydrostatique baisse le long du capillaire, tandis que la pression oncotique, due aux protéines du plasma (surtout l’albumine), reste à peu près constante : on passe de la filtration à la réabsorption."
+    },
+    {
+      "id": "bp12c-037",
+      "category": "Capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle protéine est surtout responsable de la pression oncotique du plasma ?",
+      "choices": [
+        {
+          "text": "L’albumine",
+          "correct": true
+        },
+        {
+          "text": "Le collagène",
+          "correct": false
+        },
+        {
+          "text": "La fibrine",
+          "correct": false
+        },
+        {
+          "text": "L’hémoglobine",
+          "correct": false
+        }
+      ],
+      "explanation": "La pression oncotique est due aux protéines du plasma, surtout l’albumine : elle retient le liquide dans le vaisseau."
+    },
+    {
+      "id": "bp12c-038",
+      "category": "Capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que devient le liquide filtré et non réabsorbé par les capillaires ?",
+      "choices": [
+        {
+          "text": "Il est éliminé par les reins dans l’urine",
+          "correct": false
+        },
+        {
+          "text": "Il est repris par les capillaires lymphatiques et forme la lymphe",
+          "correct": true
+        },
+        {
+          "text": "Il reste dans le liquide interstitiel et forme toujours un œdème visible",
+          "correct": false
+        },
+        {
+          "text": "Il retourne dans les artérioles",
+          "correct": false
+        }
+      ],
+      "explanation": "Environ 10 % du liquide filtré n’est pas réabsorbé : les capillaires lymphatiques le reprennent, c’est la lymphe."
+    },
+    {
+      "id": "bp12c-039",
+      "category": "Capillaires",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pourquoi une dénutrition peut-elle provoquer des œdèmes ?",
+      "choices": [
+        {
+          "text": "La dénutrition augmente la pression oncotique du plasma, qui attire alors l’eau des tissus vers le sang en excès",
+          "correct": false
+        },
+        {
+          "text": "La dénutrition détruit les capillaires lymphatiques, qui ne se forment plus",
+          "correct": false
+        },
+        {
+          "text": "La baisse des protéines du plasma diminue la pression oncotique : la filtration dépasse ce que la lymphe peut drainer",
+          "correct": true
+        },
+        {
+          "text": "La dénutrition augmente fortement la pression artérielle dans l’aorte",
+          "correct": false
+        }
+      ],
+      "explanation": "Quand les protéines du plasma diminuent (dénutrition, maladie du foie ou du rein), le liquide est moins retenu : la filtration dépasse le drainage lymphatique et un œdème apparaît."
+    },
+    {
+      "id": "bp12c-040",
+      "category": "Capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle part du liquide filtré par les capillaires forme la lymphe ?",
+      "choices": [
+        {
+          "text": "Environ 50 %",
+          "correct": false
+        },
+        {
+          "text": "Environ 90 %",
+          "correct": false
+        },
+        {
+          "text": "La totalité",
+          "correct": false
+        },
+        {
+          "text": "Environ 10 %",
+          "correct": true
+        }
+      ],
+      "explanation": "Environ 10 % du liquide filtré n’est pas réabsorbé côté veineux : il est repris par les capillaires lymphatiques."
+    },
+    {
+      "id": "bp12c-041",
+      "category": "Types de capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel type de capillaire, très étanche, se trouve dans le cerveau ?",
+      "choices": [
+        {
+          "text": "Le capillaire continu",
+          "correct": true
+        },
+        {
+          "text": "Le capillaire sinusoïde",
+          "correct": false
+        },
+        {
+          "text": "Le capillaire lymphatique",
+          "correct": false
+        },
+        {
+          "text": "Le capillaire fenestré",
+          "correct": false
+        }
+      ],
+      "explanation": "Le capillaire continu a un endothélium sans orifice : perméabilité faible. On le trouve dans les muscles, la peau, les poumons et le cerveau, où il est très étanche."
+    },
+    {
+      "id": "bp12c-042",
+      "category": "Types de capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est la particularité d’un capillaire fenestré ?",
+      "choices": [
+        {
+          "text": "Une média riche en muscle lisse",
+          "correct": false
+        },
+        {
+          "text": "Un endothélium percé de pores, très perméable aux petites molécules",
+          "correct": true
+        },
+        {
+          "text": "De larges espaces entre les cellules et une lame basale incomplète",
+          "correct": false
+        },
+        {
+          "text": "Un endothélium sans orifice, très étanche",
+          "correct": false
+        }
+      ],
+      "explanation": "Le capillaire fenestré a un endothélium percé de pores (fenestrations) : il laisse passer rapidement les petites molécules."
+    },
+    {
+      "id": "bp12c-043",
+      "category": "Types de capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Où trouve-t-on des capillaires fenestrés ?",
+      "choices": [
+        {
+          "text": "Dans le foie, la rate et la moelle osseuse",
+          "correct": false
+        },
+        {
+          "text": "Dans le cerveau et les muscles",
+          "correct": false
+        },
+        {
+          "text": "Dans l’intestin, le rein et les glandes endocrines",
+          "correct": true
+        },
+        {
+          "text": "Dans la peau et les poumons uniquement",
+          "correct": false
+        }
+      ],
+      "explanation": "Les capillaires fenestrés sont adaptés à l’absorption (intestin), à la filtration (rein) et à la sécrétion (glandes endocrines)."
+    },
+    {
+      "id": "bp12c-044",
+      "category": "Types de capillaires",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel type de capillaire laisse passer de grosses molécules et même des cellules ?",
+      "choices": [
+        {
+          "text": "Le capillaire du cerveau",
+          "correct": false
+        },
+        {
+          "text": "Le capillaire continu",
+          "correct": false
+        },
+        {
+          "text": "Le capillaire fenestré, percé de pores",
+          "correct": false
+        },
+        {
+          "text": "Le capillaire sinusoïde (discontinu)",
+          "correct": true
+        }
+      ],
+      "explanation": "Le sinusoïde a de larges espaces entre ses cellules et une lame basale incomplète : sa perméabilité est très élevée. On le trouve dans le foie, la rate et la moelle osseuse."
+    },
+    {
+      "id": "bp12c-045",
+      "category": "Types de capillaires",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Quelles associations entre type de capillaire et localisation sont exactes ?",
+      "choices": [
+        {
+          "text": "Sinusoïde : cerveau",
+          "correct": false
+        },
+        {
+          "text": "Continu : muscles, peau, poumons, cerveau",
+          "correct": true
+        },
+        {
+          "text": "Sinusoïde : foie, rate, moelle osseuse",
+          "correct": true
+        },
+        {
+          "text": "Fenestré : intestin, rein",
+          "correct": true
+        }
+      ],
+      "explanation": "Continu (étanche) : muscles, peau, poumons, cerveau ; fenestré : intestin, rein, glandes endocrines ; sinusoïde (très perméable) : foie, rate, moelle osseuse."
+    },
+    {
+      "id": "bp12c-046",
+      "category": "Veines",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles caractéristiques de structure ont les veines ?",
+      "choices": [
+        {
+          "text": "Une paroi réduite à un endothélium",
+          "correct": false
+        },
+        {
+          "text": "Une paroi fine et une média pauvre en muscle",
+          "correct": true
+        },
+        {
+          "text": "Une lumière large",
+          "correct": true
+        },
+        {
+          "text": "Des valvules, surtout dans les membres inférieurs",
+          "correct": true
+        }
+      ],
+      "explanation": "Les veines ont une paroi fine, facile à distendre, une lumière large (faible résistance) et des valvules qui imposent le sens vers le cœur."
+    },
+    {
+      "id": "bp12c-047",
+      "category": "Veines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle part du volume sanguin se trouve dans les veines au repos ?",
+      "choices": [
+        {
+          "text": "Environ deux tiers",
+          "correct": true
+        },
+        {
+          "text": "Environ un tiers",
+          "correct": false
+        },
+        {
+          "text": "Environ 10 %",
+          "correct": false
+        },
+        {
+          "text": "La quasi-totalité",
+          "correct": false
+        }
+      ],
+      "explanation": "Près des deux tiers du sang sont dans les veines : ce sont des vaisseaux capacitifs, des réservoirs de sang."
+    },
+    {
+      "id": "bp12c-048",
+      "category": "Veines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi les veines sont-elles qualifiées de vaisseaux capacitifs ?",
+      "choices": [
+        {
+          "text": "Parce qu’elles sont le lieu principal des échanges avec les cellules",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’elles contiennent près des deux tiers du sang et servent de réservoir",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’elles supportent les pressions les plus élevées de l’organisme",
+          "correct": false
+        },
+        {
+          "text": "Parce qu’elles sont capables de régler le débit de chaque organe",
+          "correct": false
+        }
+      ],
+      "explanation": "Les veines, à paroi fine et lumière large, stockent la majorité du sang. En cas d’hémorragie, leur constriction remet du sang en circulation."
+    },
+    {
+      "id": "bp12c-049",
+      "category": "Veines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que sont les valvules veineuses ?",
+      "choices": [
+        {
+          "text": "Des pores de l’endothélium qui permettent les échanges",
+          "correct": false
+        },
+        {
+          "text": "Des renflements du muscle lisse de la média qui propulsent le sang vers le cœur",
+          "correct": false
+        },
+        {
+          "text": "Des replis de l’intima qui ne laissent passer le sang que vers le cœur",
+          "correct": true
+        },
+        {
+          "text": "Les valves situées entre les cavités du cœur",
+          "correct": false
+        }
+      ],
+      "explanation": "Les valvules sont des replis de l’intima, surtout dans les membres inférieurs. Il ne faut pas les confondre avec les valves cardiaques, entre les cavités du cœur ou à leur sortie."
+    },
+    {
+      "id": "bp12c-050",
+      "category": "Veines",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que se passe-t-il au niveau des veines en cas d’hémorragie ?",
+      "choices": [
+        {
+          "text": "Elles se dilatent pour stocker encore plus de sang",
+          "correct": false
+        },
+        {
+          "text": "Leurs valvules s’ouvrent dans les deux sens",
+          "correct": false
+        },
+        {
+          "text": "Elles se transforment en artérioles",
+          "correct": false
+        },
+        {
+          "text": "Leur constriction remet du sang en circulation",
+          "correct": true
+        }
+      ],
+      "explanation": "Les veines contiennent un grand réservoir de sang : leur constriction en remet en circulation lors d’une hémorragie."
+    },
+    {
+      "id": "bp12c-051",
+      "category": "Retour veineux",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels mécanismes favorisent le retour veineux depuis les jambes ?",
+      "choices": [
+        {
+          "text": "La pompe musculaire des mollets",
+          "correct": true
+        },
+        {
+          "text": "Les valvules veineuses",
+          "correct": true
+        },
+        {
+          "text": "La station debout immobile prolongée",
+          "correct": false
+        },
+        {
+          "text": "La pompe respiratoire (inspiration)",
+          "correct": true
+        }
+      ],
+      "explanation": "Pompe musculaire, pompe respiratoire et valvules aident le sang à remonter. La station debout immobile fait au contraire stagner le sang."
+    },
+    {
+      "id": "bp12c-052",
+      "category": "Retour veineux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment fonctionne la pompe musculaire du mollet ?",
+      "choices": [
+        {
+          "text": "Les muscles qui se contractent compriment les veines, et les valvules imposent le sens vers le cœur",
+          "correct": true
+        },
+        {
+          "text": "Les valvules se contractent activement pour pousser le sang",
+          "correct": false
+        },
+        {
+          "text": "Le muscle lisse de la média des veines se contracte au rythme du cœur et pousse le sang vers le haut",
+          "correct": false
+        },
+        {
+          "text": "Les muscles du mollet aspirent le sang des artères vers les veines",
+          "correct": false
+        }
+      ],
+      "explanation": "Quand les muscles du mollet se contractent, ils compriment les veines profondes ; les valvules ne laissent passer le sang que vers le cœur."
+    },
+    {
+      "id": "bp12c-053",
+      "category": "Retour veineux",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Comment l’inspiration favorise-t-elle le retour veineux ?",
+      "choices": [
+        {
+          "text": "Les poumons envoient directement du sang dans les veines caves",
+          "correct": false
+        },
+        {
+          "text": "La pression baisse dans le thorax et « aspire » le sang des veines caves vers le cœur",
+          "correct": true
+        },
+        {
+          "text": "Le diaphragme ferme les valvules des veines des jambes",
+          "correct": false
+        },
+        {
+          "text": "La pression augmente dans le thorax et comprime les veines caves, ce qui pousse le sang vers le cœur",
+          "correct": false
+        }
+      ],
+      "explanation": "À l’inspiration, la pression baisse dans le thorax : le sang des veines caves est « aspiré » vers le cœur. C’est la pompe respiratoire."
+    },
+    {
+      "id": "bp12c-054",
+      "category": "Retour veineux",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels facteurs favorisent les varices et les jambes lourdes ?",
+      "choices": [
+        {
+          "text": "La sédentarité",
+          "correct": true
+        },
+        {
+          "text": "Des valvules défaillantes",
+          "correct": true
+        },
+        {
+          "text": "La marche régulière",
+          "correct": false
+        },
+        {
+          "text": "Une station debout prolongée",
+          "correct": true
+        }
+      ],
+      "explanation": "Valvules défaillantes, station debout prolongée et sédentarité font stagner le sang : varices, jambes lourdes, œdèmes des chevilles. La marche active au contraire la pompe musculaire."
+    },
+    {
+      "id": "bp12c-055",
+      "category": "Retour veineux",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le retour veineux depuis les jambes a-t-il besoin d’aides ?",
+      "choices": [
+        {
+          "text": "Parce que la pression dans les veines des jambes est plus forte que dans l’aorte",
+          "correct": false
+        },
+        {
+          "text": "Parce que le cœur droit ne reçoit aucun sang des jambes",
+          "correct": false
+        },
+        {
+          "text": "Parce que la pression dans les veines des jambes est trop faible pour faire remonter seule le sang",
+          "correct": true
+        },
+        {
+          "text": "Parce que les veines des jambes n’ont pas de paroi",
+          "correct": false
+        }
+      ],
+      "explanation": "La pression veineuse est trop faible pour vaincre seule la pesanteur : pompe musculaire, valvules et pompe respiratoire aident le sang à remonter."
+    },
+    {
+      "id": "bp12c-056",
+      "category": "Haute et basse pression",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Que comprend le système à haute pression ?",
+      "choices": [
+        {
+          "text": "Les veines caves et l’oreillette droite",
+          "correct": false
+        },
+        {
+          "text": "La circulation pulmonaire et l’oreillette gauche",
+          "correct": false
+        },
+        {
+          "text": "Les capillaires, les veines, le cœur droit et la circulation pulmonaire",
+          "correct": false
+        },
+        {
+          "text": "Le ventricule gauche en systole et les artères de la grande circulation",
+          "correct": true
+        }
+      ],
+      "explanation": "Le système à haute pression comprend le ventricule gauche en systole et les artères de la grande circulation : il distribue le sang à tous les organes."
+    },
+    {
+      "id": "bp12c-057",
+      "category": "Haute et basse pression",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels éléments appartiennent au système à basse pression ?",
+      "choices": [
+        {
+          "text": "La circulation pulmonaire",
+          "correct": true
+        },
+        {
+          "text": "L’aorte",
+          "correct": false
+        },
+        {
+          "text": "Les capillaires",
+          "correct": true
+        },
+        {
+          "text": "Les veines caves",
+          "correct": true
+        }
+      ],
+      "explanation": "Le système à basse pression comprend les capillaires, les veines, le cœur droit, la circulation pulmonaire et l’oreillette gauche. L’aorte appartient au système à haute pression."
+    },
+    {
+      "id": "bp12c-058",
+      "category": "Haute et basse pression",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le rôle du système à basse pression ?",
+      "choices": [
+        {
+          "text": "Échanger, stocker le sang et le ramener au cœur",
+          "correct": true
+        },
+        {
+          "text": "Amortir les à-coups de l’éjection ventriculaire",
+          "correct": false
+        },
+        {
+          "text": "Distribuer le sang sous pression à tous les organes",
+          "correct": false
+        },
+        {
+          "text": "Régler le débit de chaque organe",
+          "correct": false
+        }
+      ],
+      "explanation": "Le système à basse pression échange (capillaires), stocke (veines, réservoir) et ramène le sang au cœur. La distribution relève du système à haute pression."
+    },
+    {
+      "id": "bp12c-059",
+      "category": "Haute et basse pression",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment évolue la pression sanguine le long de la grande circulation ?",
+      "choices": [
+        {
+          "text": "Elle reste constante, car le débit est le même partout",
+          "correct": false
+        },
+        {
+          "text": "Elle diminue tout au long du trajet, surtout dans les artérioles",
+          "correct": true
+        },
+        {
+          "text": "Elle est la plus élevée dans les capillaires",
+          "correct": false
+        },
+        {
+          "text": "Elle augmente de l’aorte jusqu’aux veines caves",
+          "correct": false
+        }
+      ],
+      "explanation": "Le sang va toujours de la pression la plus forte vers la plus faible : la pression baisse tout au long du trajet, avec la chute la plus forte dans les artérioles."
+    },
+    {
+      "id": "bp12c-060",
+      "category": "Haute et basse pression",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle est la pression sanguine dans les capillaires, selon le cours ?",
+      "choices": [
+        {
+          "text": "Environ 120 mmHg, la plus élevée de l’organisme",
+          "correct": false
+        },
+        {
+          "text": "Environ 0 mmHg",
+          "correct": false
+        },
+        {
+          "text": "Environ 35 mmHg côté artériel, 15 mmHg côté veineux",
+          "correct": true
+        },
+        {
+          "text": "Environ 80 mmHg tout le long",
+          "correct": false
+        }
+      ],
+      "explanation": "Après la chute dans les artérioles, la pression est déjà basse dans les capillaires : environ 35 mmHg côté artériel et 15 mmHg côté veineux."
+    },
+    {
+      "id": "bp12c-061",
+      "category": "Haute et basse pression",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Après quels vaisseaux la pression sanguine ne pulse-t-elle presque plus ?",
+      "choices": [
+        {
+          "text": "Après les veines caves",
+          "correct": false
+        },
+        {
+          "text": "Avant l’aorte",
+          "correct": false
+        },
+        {
+          "text": "Après les artères élastiques seulement",
+          "correct": false
+        },
+        {
+          "text": "Après les artérioles",
+          "correct": true
+        }
+      ],
+      "explanation": "Les artérioles amortissent les dernières pulsations : en aval, dans les capillaires et les veines, la pression ne pulse presque plus."
+    },
+    {
+      "id": "bp12c-062",
+      "category": "Synthèse",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle structure correspond à la fonction « absorber, filtrer rapidement » ?",
+      "choices": [
+        {
+          "text": "Un endothélium percé de pores : capillaire fenestré",
+          "correct": true
+        },
+        {
+          "text": "Une paroi fine, une lumière large et des valvules : veine",
+          "correct": false
+        },
+        {
+          "text": "Une paroi riche en fibres élastiques : aorte",
+          "correct": false
+        },
+        {
+          "text": "Une média riche en muscle lisse, petit calibre : artériole",
+          "correct": false
+        }
+      ],
+      "explanation": "Les pores de l’endothélium du capillaire fenestré (intestin, rein) permettent l’absorption et la filtration rapides."
+    },
+    {
+      "id": "bp12c-063",
+      "category": "Synthèse",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle structure permet de lisser le débit et de maintenir la pression en diastole ?",
+      "choices": [
+        {
+          "text": "Une paroi fine à valvules, celle des veines",
+          "correct": false
+        },
+        {
+          "text": "Une paroi riche en fibres élastiques, celle de l’aorte et des grosses artères",
+          "correct": true
+        },
+        {
+          "text": "Une média riche en muscle lisse, celle des artérioles qui règlent le débit de chaque organe",
+          "correct": false
+        },
+        {
+          "text": "Une paroi réduite à un endothélium, celle des capillaires",
+          "correct": false
+        }
+      ],
+      "explanation": "Les fibres élastiques de l’aorte se distendent en systole et restituent l’énergie en diastole : c’est l’effet réservoir."
+    }
+  ],
+  "sources": [
+    {
+      "document": "Chapitre 12 partie 3.pdf"
+    }
+  ]
+}
