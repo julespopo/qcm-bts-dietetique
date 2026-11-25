@@ -1,0 +1,2067 @@
+{
+  "version": 1,
+  "title": "Chapitre 12 — L’appareil cardiovasculaire, partie 4",
+  "subject": "BPADN",
+  "chapter": "Chapitre 12 — L’appareil cardiovasculaire, partie 4",
+  "questions": [
+    {
+      "id": "bp12d-001",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie le préfixe « baro- » dans barorécepteur ?",
+      "choices": [
+        {
+          "text": "Pression",
+          "correct": true
+        },
+        {
+          "text": "Pouls",
+          "correct": false
+        },
+        {
+          "text": "Vaisseau",
+          "correct": false
+        },
+        {
+          "text": "Position",
+          "correct": false
+        }
+      ],
+      "explanation": "Baro- = pression : le barorécepteur est sensible à la pression (à l’étirement de la paroi artérielle). Sphygmo- = pouls, vaso- = vaisseau, stat- = position."
+    },
+    {
+      "id": "bp12d-002",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie le préfixe « ortho- » dans hypotension orthostatique ?",
+      "choices": [
+        {
+          "text": "Pression",
+          "correct": false
+        },
+        {
+          "text": "Droit",
+          "correct": true
+        },
+        {
+          "text": "Normal",
+          "correct": false
+        },
+        {
+          "text": "Au-dessous",
+          "correct": false
+        }
+      ],
+      "explanation": "Ortho- = droit et stat- = position : l’orthostatisme est la station debout. L’hypotension orthostatique survient en se levant."
+    },
+    {
+      "id": "bp12d-003",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que désigne le terme « volémie » ?",
+      "choices": [
+        {
+          "text": "Le volume de sang éjecté à chaque battement",
+          "correct": false
+        },
+        {
+          "text": "La quantité de sodium dans le sang",
+          "correct": false
+        },
+        {
+          "text": "Le volume de sang dans l’organisme",
+          "correct": true
+        },
+        {
+          "text": "Le volume d’urine émis par jour",
+          "correct": false
+        }
+      ],
+      "explanation": "-émie = dans le sang : la volémie est le volume sanguin. La natrémie est la concentration de sodium du sang ; le volume éjecté à chaque battement est le VES."
+    },
+    {
+      "id": "bp12d-004",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel appareil sert à mesurer la pression artérielle ?",
+      "choices": [
+        {
+          "text": "Le baromètre",
+          "correct": false
+        },
+        {
+          "text": "Le stéthoscope seul",
+          "correct": false
+        },
+        {
+          "text": "L’électrocardiographe",
+          "correct": false
+        },
+        {
+          "text": "Le tensiomètre (ou sphygmomanomètre)",
+          "correct": true
+        }
+      ],
+      "explanation": "Le tensiomètre automatique ou le sphygmomanomètre à brassard (avec un stéthoscope) mesurent la PA. -mètre = mesure, sphygmo- = pouls."
+    },
+    {
+      "id": "bp12d-005",
+      "category": "Terminologie",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles associations entre terme et sens sont exactes ?",
+      "choices": [
+        {
+          "text": "Natrémie : concentration de sodium dans le sang",
+          "correct": true
+        },
+        {
+          "text": "Vasodilatation : diminution du diamètre d’un vaisseau",
+          "correct": false
+        },
+        {
+          "text": "Normotendu : qui a une pression artérielle normale",
+          "correct": true
+        },
+        {
+          "text": "Chémorécepteur : récepteur sensible à des substances chimiques",
+          "correct": true
+        }
+      ],
+      "explanation": "Normo- = normal, -émie = dans le sang, -récepteur = qui reçoit. La vasodilatation augmente le diamètre du vaisseau ; c’est la vasoconstriction qui le diminue."
+    },
+    {
+      "id": "bp12d-006",
+      "category": "Terminologie",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "En pratique courante, que désignent « tension artérielle » et « pression artérielle » ?",
+      "choices": [
+        {
+          "text": "La même chose ; le terme scientifique est pression artérielle",
+          "correct": true
+        },
+        {
+          "text": "Deux mesures différentes : la tension est la PAS, la pression est la PAD",
+          "correct": false
+        },
+        {
+          "text": "La tension concerne les veines, la pression les artères",
+          "correct": false
+        },
+        {
+          "text": "La tension est mesurée au poignet, la pression au bras",
+          "correct": false
+        }
+      ],
+      "explanation": "Les deux termes sont employés indifféremment ; le terme scientifique est pression artérielle (PA)."
+    },
+    {
+      "id": "bp12d-007",
+      "category": "Rappels : système nerveux végétatif",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est le principal nerf parasympathique ?",
+      "choices": [
+        {
+          "text": "Le nerf phrénique (nerf du diaphragme)",
+          "correct": false
+        },
+        {
+          "text": "Le nerf X (nerf vague ou pneumogastrique)",
+          "correct": true
+        },
+        {
+          "text": "Le nerf optique",
+          "correct": false
+        },
+        {
+          "text": "Le nerf sciatique",
+          "correct": false
+        }
+      ],
+      "explanation": "Le nerf X, aussi appelé nerf vague ou pneumogastrique, est le principal nerf parasympathique. Il libère de l’acétylcholine."
+    },
+    {
+      "id": "bp12d-008",
+      "category": "Rappels : système nerveux végétatif",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel neurotransmetteur le nerf X libère-t-il sur le nœud sinusal ?",
+      "choices": [
+        {
+          "text": "L’adrénaline",
+          "correct": false
+        },
+        {
+          "text": "La dopamine",
+          "correct": false
+        },
+        {
+          "text": "L’acétylcholine (ACh)",
+          "correct": true
+        },
+        {
+          "text": "La sérotonine",
+          "correct": false
+        }
+      ],
+      "explanation": "Le nerf X libère de l’acétylcholine (ACh) sur le nœud sinusal, ce qui ralentit le cœur."
+    },
+    {
+      "id": "bp12d-009",
+      "category": "Rappels : système nerveux végétatif",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est l’effet du système sympathique sur le cœur ?",
+      "choices": [
+        {
+          "text": "Il n’a aucun effet sur le cœur",
+          "correct": false
+        },
+        {
+          "text": "Il ralentit le cœur et diminue sa contraction",
+          "correct": false
+        },
+        {
+          "text": "Il ralentit le cœur sans modifier sa contraction",
+          "correct": false
+        },
+        {
+          "text": "Il accélère le cœur et renforce sa contraction",
+          "correct": true
+        }
+      ],
+      "explanation": "Le sympathique (activité, stress) augmente la FC et la force de contraction, donc le VES. Le parasympathique (nerf X) ralentit le cœur."
+    },
+    {
+      "id": "bp12d-010",
+      "category": "Rappels : système nerveux végétatif",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Dans quel ordre se succèdent les éléments d’un arc réflexe ?",
+      "choices": [
+        {
+          "text": "Récepteur → voie sensitive → centre nerveux → voie motrice → effecteur",
+          "correct": true
+        },
+        {
+          "text": "Centre nerveux → récepteur → voie sensitive → effecteur → voie motrice",
+          "correct": false
+        },
+        {
+          "text": "Effecteur → voie sensitive → centre nerveux → voie motrice → récepteur",
+          "correct": false
+        },
+        {
+          "text": "Récepteur → voie motrice → centre nerveux → voie sensitive → effecteur",
+          "correct": false
+        }
+      ],
+      "explanation": "Le message part du récepteur, remonte par la voie sensitive au centre nerveux, qui commande l’effecteur par la voie motrice."
+    },
+    {
+      "id": "bp12d-011",
+      "category": "Rappels : système nerveux végétatif",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est l’action du nerf X sur le cœur ?",
+      "choices": [
+        {
+          "text": "Il augmente la force de contraction",
+          "correct": false
+        },
+        {
+          "text": "Il ralentit la fréquence cardiaque",
+          "correct": true
+        },
+        {
+          "text": "Il accélère la fréquence cardiaque",
+          "correct": false
+        },
+        {
+          "text": "Il provoque la vasoconstriction des coronaires",
+          "correct": false
+        }
+      ],
+      "explanation": "Le nerf X (parasympathique, repos) libère de l’ACh sur le nœud sinusal : la FC diminue."
+    },
+    {
+      "id": "bp12d-012",
+      "category": "Pression artérielle",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’est-ce que la pression artérielle ?",
+      "choices": [
+        {
+          "text": "Le nombre de battements du cœur par minute",
+          "correct": false
+        },
+        {
+          "text": "Le volume de sang éjecté par le cœur en une minute",
+          "correct": false
+        },
+        {
+          "text": "La force exercée par le sang sur la paroi des artères",
+          "correct": true
+        },
+        {
+          "text": "La vitesse du sang dans l’aorte",
+          "correct": false
+        }
+      ],
+      "explanation": "La PA est la force exercée par le sang sur la paroi des artères. Le volume par minute est le débit cardiaque, le nombre de battements la FC."
+    },
+    {
+      "id": "bp12d-013",
+      "category": "Pression artérielle",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Dans quelle unité exprime-t-on la pression artérielle ?",
+      "choices": [
+        {
+          "text": "En mL/100 mL",
+          "correct": false
+        },
+        {
+          "text": "En battements/min",
+          "correct": false
+        },
+        {
+          "text": "En L/min",
+          "correct": false
+        },
+        {
+          "text": "En mmHg (millimètres de mercure)",
+          "correct": true
+        }
+      ],
+      "explanation": "La PA s’exprime en mmHg et s’écrit PAS / PAD, par exemple 120/80 mmHg."
+    },
+    {
+      "id": "bp12d-014",
+      "category": "Pression artérielle",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quel moment mesure-t-on la pression artérielle systolique (PAS) ?",
+      "choices": [
+        {
+          "text": "Pendant l’éjection : c’est la valeur maximale",
+          "correct": true
+        },
+        {
+          "text": "Pendant le remplissage des oreillettes : c’est la moyenne",
+          "correct": false
+        },
+        {
+          "text": "Au repos complet du cœur : c’est la valeur de base",
+          "correct": false
+        },
+        {
+          "text": "Pendant la diastole : c’est la valeur minimale",
+          "correct": false
+        }
+      ],
+      "explanation": "La PAS est la valeur maximale, atteinte pendant l’éjection ventriculaire. La PAD est la valeur minimale, pendant la diastole ventriculaire."
+    },
+    {
+      "id": "bp12d-015",
+      "category": "Pression artérielle",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que représente la pression artérielle diastolique (PAD) ?",
+      "choices": [
+        {
+          "text": "La pression dans les veines",
+          "correct": false
+        },
+        {
+          "text": "La valeur minimale, pendant la diastole ventriculaire",
+          "correct": true
+        },
+        {
+          "text": "La moyenne des pressions sur un cycle",
+          "correct": false
+        },
+        {
+          "text": "La valeur maximale, pendant l’éjection",
+          "correct": false
+        }
+      ],
+      "explanation": "La PAD est la valeur minimale de la PA, mesurée pendant la diastole ventriculaire."
+    },
+    {
+      "id": "bp12d-016",
+      "category": "Pression artérielle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment estime-t-on la pression artérielle moyenne (PAM) ?",
+      "choices": [
+        {
+          "text": "PAM ≈ PAS − PAD",
+          "correct": false
+        },
+        {
+          "text": "PAM ≈ PAS + (PAS − PAD) / 3",
+          "correct": false
+        },
+        {
+          "text": "PAM ≈ PAD + (PAS − PAD) / 3",
+          "correct": true
+        },
+        {
+          "text": "PAM ≈ (PAS + PAD) / 2",
+          "correct": false
+        }
+      ],
+      "explanation": "PAM ≈ PAD + (PAS − PAD) / 3. La diastole dure plus longtemps que la systole, la moyenne est donc plus proche de la PAD."
+    },
+    {
+      "id": "bp12d-017",
+      "category": "Pression artérielle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Un patient a une PA de 120/80 mmHg. Quelle est sa PAM approximative ?",
+      "choices": [
+        {
+          "text": "≈ 40 mmHg",
+          "correct": false
+        },
+        {
+          "text": "≈ 100 mmHg",
+          "correct": false
+        },
+        {
+          "text": "≈ 107 mmHg",
+          "correct": false
+        },
+        {
+          "text": "≈ 93 mmHg",
+          "correct": true
+        }
+      ],
+      "explanation": "PAM ≈ 80 + (120 − 80) / 3 = 80 + 40 / 3 ≈ 93 mmHg. 100 mmHg serait la simple moyenne arithmétique, qui surestime la PAM."
+    },
+    {
+      "id": "bp12d-018",
+      "category": "Pression artérielle",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle est la valeur repère usuelle de la PA chez l’adulte ?",
+      "choices": [
+        {
+          "text": "Environ 120/80 mmHg",
+          "correct": true
+        },
+        {
+          "text": "Environ 160/100 mmHg",
+          "correct": false
+        },
+        {
+          "text": "Environ 140/90 mmHg",
+          "correct": false
+        },
+        {
+          "text": "Environ 90/60 mmHg",
+          "correct": false
+        }
+      ],
+      "explanation": "Le repère usuel chez l’adulte est autour de 120/80 mmHg. 140/90 mmHg est le seuil de l’HTA au cabinet."
+    },
+    {
+      "id": "bp12d-019",
+      "category": "Pression artérielle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment l’HTA est-elle définie au cabinet ?",
+      "choices": [
+        {
+          "text": "PAS ≥ 160 mmHg uniquement, quelle que soit la PAD",
+          "correct": false
+        },
+        {
+          "text": "PAS ≥ 140 mmHg et/ou PAD ≥ 90 mmHg, sur des mesures répétées",
+          "correct": true
+        },
+        {
+          "text": "PAS ≥ 120 mmHg et PAD ≥ 80 mmHg, sur une seule mesure",
+          "correct": false
+        },
+        {
+          "text": "PAD ≥ 90 mmHg uniquement, sur une seule mesure au cabinet",
+          "correct": false
+        }
+      ],
+      "explanation": "L’HTA est définie au cabinet par une PAS ≥ 140 mmHg et/ou une PAD ≥ 90 mmHg, sur des mesures répétées : une mesure isolée ne suffit pas."
+    },
+    {
+      "id": "bp12d-020",
+      "category": "Pression artérielle",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Parmi ces patients mesurés au cabinet (mesures répétées), lesquels sont hypertendus ?",
+      "choices": [
+        {
+          "text": "PA = 145/85 mmHg",
+          "correct": true
+        },
+        {
+          "text": "PA = 138/88 mmHg",
+          "correct": false
+        },
+        {
+          "text": "PA = 125/82 mmHg",
+          "correct": false
+        },
+        {
+          "text": "PA = 130/95 mmHg",
+          "correct": true
+        }
+      ],
+      "explanation": "HTA : PAS ≥ 140 et/ou PAD ≥ 90. 145/85 (PAS ≥ 140) et 130/95 (PAD ≥ 90) sont hypertendus ; 125/82 et 138/88 restent sous les deux seuils."
+    },
+    {
+      "id": "bp12d-021",
+      "category": "Mesure de la PA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Lors d’une mesure au brassard, à quoi correspond la PAS ?",
+      "choices": [
+        {
+          "text": "Au moment où le brassard est le plus gonflé",
+          "correct": false
+        },
+        {
+          "text": "Au moment où le pouls disparaît définitivement",
+          "correct": false
+        },
+        {
+          "text": "Au moment où le sang recommence à passer dans l’artère",
+          "correct": true
+        },
+        {
+          "text": "Au moment où l’écoulement redevient continu",
+          "correct": false
+        }
+      ],
+      "explanation": "Le brassard comprime l’artère humérale puis se dégonfle : la PAS correspond au retour du passage du sang, la PAD à l’écoulement redevenu continu."
+    },
+    {
+      "id": "bp12d-022",
+      "category": "Mesure de la PA",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle artère le brassard comprime-t-il lors d’une mesure au bras ?",
+      "choices": [
+        {
+          "text": "L’artère fémorale",
+          "correct": false
+        },
+        {
+          "text": "L’artère carotide",
+          "correct": false
+        },
+        {
+          "text": "L’artère radiale",
+          "correct": false
+        },
+        {
+          "text": "L’artère humérale",
+          "correct": true
+        }
+      ],
+      "explanation": "Le brassard placé au bras comprime l’artère humérale."
+    },
+    {
+      "id": "bp12d-023",
+      "category": "Mesure de la PA",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles conditions de mesure de la PA sont recommandées ?",
+      "choices": [
+        {
+          "text": "Patient assis",
+          "correct": true
+        },
+        {
+          "text": "Au repos depuis 5 minutes",
+          "correct": true
+        },
+        {
+          "text": "Juste après une montée d’escaliers",
+          "correct": false
+        },
+        {
+          "text": "Brassard adapté à la taille du bras",
+          "correct": true
+        }
+      ],
+      "explanation": "La PA se mesure chez un patient assis, au repos depuis 5 minutes, avec un brassard adapté. Un effort récent fausse la mesure à la hausse."
+    },
+    {
+      "id": "bp12d-024",
+      "category": "Mesure de la PA",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Qu’appelle-t-on l’effet « blouse blanche » ?",
+      "choices": [
+        {
+          "text": "Une PA plus élevée au cabinet qu’à la maison",
+          "correct": true
+        },
+        {
+          "text": "Une PA plus basse au cabinet qu’à la maison",
+          "correct": false
+        },
+        {
+          "text": "Une pâleur due à la vasoconstriction cutanée",
+          "correct": false
+        },
+        {
+          "text": "Une PA impossible à mesurer à l’hôpital",
+          "correct": false
+        }
+      ],
+      "explanation": "Le stress de la consultation élève souvent la PA au cabinet : c’est l’effet blouse blanche. L’automesure à domicile permet de le repérer."
+    },
+    {
+      "id": "bp12d-025",
+      "category": "Mesure de la PA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle est la « règle des 3 » de l’automesure recommandée par la HAS ?",
+      "choices": [
+        {
+          "text": "3 mesures par jour, 3 fois par semaine, pendant 3 semaines",
+          "correct": false
+        },
+        {
+          "text": "3 mesures le matin, 3 mesures le soir, 3 jours de suite",
+          "correct": true
+        },
+        {
+          "text": "1 mesure le matin, 1 le midi, 1 le soir, pendant 3 jours",
+          "correct": false
+        },
+        {
+          "text": "3 mesures à 3 minutes d’intervalle, une seule fois, au cabinet",
+          "correct": false
+        }
+      ],
+      "explanation": "Automesure HAS : 3 mesures le matin, 3 le soir, 3 jours de suite."
+    },
+    {
+      "id": "bp12d-026",
+      "category": "Mesure de la PA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le diététicien recueille-t-il les valeurs de PA dans le dossier du patient ?",
+      "choices": [
+        {
+          "text": "Parce qu’il doit adapter le traitement antihypertenseur",
+          "correct": false
+        },
+        {
+          "text": "Parce que la PA permet de calculer les besoins énergétiques",
+          "correct": false
+        },
+        {
+          "text": "Parce que l’HTA est un facteur de risque cardiovasculaire majeur sur lequel l’alimentation agit",
+          "correct": true
+        },
+        {
+          "text": "Parce qu’il est chargé de poser lui-même le diagnostic d’HTA à partir de ces valeurs",
+          "correct": false
+        }
+      ],
+      "explanation": "L’HTA est un facteur de risque cardiovasculaire majeur ; le sel, le poids et l’alcool font partie de sa prise en charge (lien BC1). Le diagnostic et le traitement relèvent du médecin."
+    },
+    {
+      "id": "bp12d-027",
+      "category": "Déterminants de la PA",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle relation relie la PA au débit cardiaque (DC) et aux résistances périphériques totales (RPT) ?",
+      "choices": [
+        {
+          "text": "PA = DC + RPT",
+          "correct": false
+        },
+        {
+          "text": "PA = DC / RPT",
+          "correct": false
+        },
+        {
+          "text": "PA = RPT / DC",
+          "correct": false
+        },
+        {
+          "text": "PA = DC × RPT",
+          "correct": true
+        }
+      ],
+      "explanation": "PA = DC × RPT, avec DC = FC × VES."
+    },
+    {
+      "id": "bp12d-028",
+      "category": "Déterminants de la PA",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "De quoi dépendent surtout les résistances périphériques totales (RPT) ?",
+      "choices": [
+        {
+          "text": "Du diamètre des artérioles",
+          "correct": true
+        },
+        {
+          "text": "De la fréquence cardiaque",
+          "correct": false
+        },
+        {
+          "text": "Du nombre de capillaires ouverts dans les poumons",
+          "correct": false
+        },
+        {
+          "text": "De la contraction des oreillettes",
+          "correct": false
+        }
+      ],
+      "explanation": "Les artérioles sont les vaisseaux de résistance : leur diamètre détermine surtout les RPT."
+    },
+    {
+      "id": "bp12d-029",
+      "category": "Déterminants de la PA",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles situations font augmenter la PA ?",
+      "choices": [
+        {
+          "text": "La volémie diminue",
+          "correct": false
+        },
+        {
+          "text": "La fréquence cardiaque augmente",
+          "correct": true
+        },
+        {
+          "text": "Les artérioles se dilatent",
+          "correct": false
+        },
+        {
+          "text": "Le volume d’éjection systolique augmente",
+          "correct": true
+        }
+      ],
+      "explanation": "PA = DC × RPT : FC ↑ ou VES ↑ font monter le DC, donc la PA. La vasodilatation (RPT ↓) et la baisse de volémie font baisser la PA."
+    },
+    {
+      "id": "bp12d-030",
+      "category": "Déterminants de la PA",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est l’effet d’une vasoconstriction des artérioles ?",
+      "choices": [
+        {
+          "text": "RPT ↓ → PA ↑",
+          "correct": false
+        },
+        {
+          "text": "RPT ↑ → PA ↑",
+          "correct": true
+        },
+        {
+          "text": "RPT ↓ → PA ↓",
+          "correct": false
+        },
+        {
+          "text": "RPT ↑ → PA ↓",
+          "correct": false
+        }
+      ],
+      "explanation": "La vasoconstriction diminue le diamètre des artérioles : les résistances augmentent et la PA monte."
+    },
+    {
+      "id": "bp12d-031",
+      "category": "Déterminants de la PA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi une hémorragie fait-elle baisser la PA ?",
+      "choices": [
+        {
+          "text": "La fréquence cardiaque diminue directement à cause de la perte de sang",
+          "correct": false
+        },
+        {
+          "text": "Les artérioles se contractent, ce qui fait chuter les résistances",
+          "correct": false
+        },
+        {
+          "text": "La volémie diminue, donc le retour veineux, le VES et le DC baissent",
+          "correct": true
+        },
+        {
+          "text": "Le sang devient plus visqueux, ce qui ralentit son écoulement",
+          "correct": false
+        }
+      ],
+      "explanation": "Moins de sang dans les vaisseaux : le retour veineux et le VES diminuent, donc le DC et la PA baissent. La déshydratation a le même effet."
+    },
+    {
+      "id": "bp12d-032",
+      "category": "Déterminants de la PA",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Sur quels paramètres l’organisme agit-il pour corriger la PA ?",
+      "choices": [
+        {
+          "text": "Le nombre de globules rouges",
+          "correct": false
+        },
+        {
+          "text": "Le volume d’éjection systolique",
+          "correct": true
+        },
+        {
+          "text": "Le diamètre des artérioles",
+          "correct": true
+        },
+        {
+          "text": "La fréquence cardiaque",
+          "correct": true
+        }
+      ],
+      "explanation": "L’organisme agit sur la FC, le VES, le diamètre des artérioles et la volémie : ce sont les cibles du baroréflexe, du SRAA et de la régulation locale."
+    },
+    {
+      "id": "bp12d-033",
+      "category": "Déterminants de la PA",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Un patient a une FC de 70 /min et un VES de 70 mL. Quel est son débit cardiaque ?",
+      "choices": [
+        {
+          "text": "≈ 140 mL/min",
+          "correct": false
+        },
+        {
+          "text": "≈ 49 L/min",
+          "correct": false
+        },
+        {
+          "text": "≈ 1 L/min",
+          "correct": false
+        },
+        {
+          "text": "≈ 4,9 L/min",
+          "correct": true
+        }
+      ],
+      "explanation": "DC = FC × VES = 70 × 70 mL = 4 900 mL/min ≈ 4,9 L/min, soit environ 5 L/min au repos."
+    },
+    {
+      "id": "bp12d-034",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "À quoi les barorécepteurs sont-ils sensibles ?",
+      "choices": [
+        {
+          "text": "À l’étirement de la paroi artérielle, donc à la PA",
+          "correct": true
+        },
+        {
+          "text": "Au taux de CO₂ du sang",
+          "correct": false
+        },
+        {
+          "text": "Au taux d’O₂ du sang",
+          "correct": false
+        },
+        {
+          "text": "À la concentration de sodium du sang",
+          "correct": false
+        }
+      ],
+      "explanation": "Les barorécepteurs sont des terminaisons nerveuses sensibles à l’étirement de la paroi, donc à la PA. L’O₂ et le CO₂ sont détectés par les chémorécepteurs."
+    },
+    {
+      "id": "bp12d-035",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Où se trouvent les barorécepteurs ?",
+      "choices": [
+        {
+          "text": "Dans les oreillettes et le nœud sinusal",
+          "correct": false
+        },
+        {
+          "text": "Dans le sinus carotidien et la crosse de l’aorte",
+          "correct": true
+        },
+        {
+          "text": "Dans le bulbe rachidien et l’hypothalamus",
+          "correct": false
+        },
+        {
+          "text": "Dans les artérioles des reins",
+          "correct": false
+        }
+      ],
+      "explanation": "Les barorécepteurs sont situés dans le sinus carotidien (à l’origine de la carotide interne) et dans la crosse de l’aorte."
+    },
+    {
+      "id": "bp12d-036",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi la position des barorécepteurs est-elle stratégique ?",
+      "choices": [
+        {
+          "text": "Ils sont placés dans les veines, là où le sang revient au cœur",
+          "correct": false
+        },
+        {
+          "text": "Ils sont dans le rein, qui règle seul la volémie",
+          "correct": false
+        },
+        {
+          "text": "Ils surveillent la pression du sang qui part vers le cerveau et vers tout l’organisme",
+          "correct": true
+        },
+        {
+          "text": "Ils sont au contact direct du nœud sinusal, qu’ils commandent sans passer par un nerf",
+          "correct": false
+        }
+      ],
+      "explanation": "Sinus carotidien et crosse de l’aorte : ils contrôlent la pression du sang envoyé au cerveau et à tout l’organisme."
+    },
+    {
+      "id": "bp12d-037",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est le centre nerveux du baroréflexe ?",
+      "choices": [
+        {
+          "text": "Le cervelet",
+          "correct": false
+        },
+        {
+          "text": "Le cortex cérébral",
+          "correct": false
+        },
+        {
+          "text": "La moelle épinière lombaire",
+          "correct": false
+        },
+        {
+          "text": "Le bulbe rachidien",
+          "correct": true
+        }
+      ],
+      "explanation": "Les centres cardiovasculaires du bulbe rachidien reçoivent les messages des barorécepteurs et commandent le cœur et les artérioles."
+    },
+    {
+      "id": "bp12d-038",
+      "category": "Baroréflexe",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles sont les voies motrices du baroréflexe ?",
+      "choices": [
+        {
+          "text": "Le nerf X (parasympathique)",
+          "correct": true
+        },
+        {
+          "text": "Les nerfs sympathiques",
+          "correct": true
+        },
+        {
+          "text": "Le nerf optique",
+          "correct": false
+        },
+        {
+          "text": "Les nerfs moteurs des muscles squelettiques",
+          "correct": false
+        }
+      ],
+      "explanation": "Le bulbe commande les effecteurs par le nerf X (parasympathique) et par les nerfs sympathiques."
+    },
+    {
+      "id": "bp12d-039",
+      "category": "Baroréflexe",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels sont les effecteurs du baroréflexe ?",
+      "choices": [
+        {
+          "text": "Les barorécepteurs",
+          "correct": false
+        },
+        {
+          "text": "Le myocarde",
+          "correct": true
+        },
+        {
+          "text": "Les artérioles",
+          "correct": true
+        },
+        {
+          "text": "Le nœud sinusal",
+          "correct": true
+        }
+      ],
+      "explanation": "Effecteurs : nœud sinusal (FC), myocarde (force de contraction) et artérioles (diamètre). Les barorécepteurs sont les récepteurs de l’arc réflexe."
+    },
+    {
+      "id": "bp12d-040",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel nerf sensitif transmet les messages des barorécepteurs de la crosse de l’aorte ?",
+      "choices": [
+        {
+          "text": "Le nerf X",
+          "correct": true
+        },
+        {
+          "text": "Le nerf phrénique",
+          "correct": false
+        },
+        {
+          "text": "Le nerf facial",
+          "correct": false
+        },
+        {
+          "text": "Un nerf sympathique",
+          "correct": false
+        }
+      ],
+      "explanation": "Les messages de la crosse de l’aorte remontent au bulbe par le nerf X, qui est aussi une voie motrice du baroréflexe."
+    },
+    {
+      "id": "bp12d-041",
+      "category": "Baroréflexe",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "La PA augmente brutalement. Quelles réponses le baroréflexe déclenche-t-il ?",
+      "choices": [
+        {
+          "text": "L’activité sympathique diminue",
+          "correct": true
+        },
+        {
+          "text": "La FC diminue",
+          "correct": true
+        },
+        {
+          "text": "L’activité du nerf X augmente",
+          "correct": true
+        },
+        {
+          "text": "Les artérioles se contractent",
+          "correct": false
+        }
+      ],
+      "explanation": "PA ↑ → barorécepteurs étirés → bulbe → nerf X ↑ (FC ↓) et sympathique ↓ (force ↓, vasodilatation). Les artérioles se dilatent : DC ↓ et RPT ↓."
+    },
+    {
+      "id": "bp12d-042",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quand la PA augmente, que se passe-t-il au niveau des barorécepteurs ?",
+      "choices": [
+        {
+          "text": "Ils cessent toute activité jusqu’au retour à la normale",
+          "correct": false
+        },
+        {
+          "text": "Ils sont plus étirés et envoient des messages plus fréquents",
+          "correct": true
+        },
+        {
+          "text": "Ils sont moins étirés et envoient des messages moins fréquents",
+          "correct": false
+        },
+        {
+          "text": "Ils libèrent de la rénine dans le sang",
+          "correct": false
+        }
+      ],
+      "explanation": "La paroi artérielle s’étire davantage : les barorécepteurs envoient des messages plus fréquents vers le bulbe rachidien."
+    },
+    {
+      "id": "bp12d-043",
+      "category": "Baroréflexe",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "La PA baisse brutalement (passage couché → debout). Quelles réponses observe-t-on ?",
+      "choices": [
+        {
+          "text": "L’activité du nerf X augmente",
+          "correct": false
+        },
+        {
+          "text": "L’activité sympathique diminue",
+          "correct": false
+        },
+        {
+          "text": "La FC augmente",
+          "correct": true
+        },
+        {
+          "text": "Les artérioles et les veines se contractent",
+          "correct": true
+        }
+      ],
+      "explanation": "PA ↓ → barorécepteurs moins étirés → nerf X ↓ et sympathique ↑ : FC ↑, force ↑, vasoconstriction. DC ↑ et RPT ↑ : la PA remonte."
+    },
+    {
+      "id": "bp12d-044",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi parle-t-on de rétrocontrôle négatif pour le baroréflexe ?",
+      "choices": [
+        {
+          "text": "Parce que la réponse amplifie la variation de départ",
+          "correct": false
+        },
+        {
+          "text": "Parce que le réflexe bloque l’activité du cœur",
+          "correct": false
+        },
+        {
+          "text": "Parce que la réponse s’oppose à la variation de départ",
+          "correct": true
+        },
+        {
+          "text": "Parce que le réflexe fait toujours baisser la PA",
+          "correct": false
+        }
+      ],
+      "explanation": "La réponse s’oppose à la variation : si la PA monte, le réflexe la fait baisser, et inversement. C’est le principe d’une régulation."
+    },
+    {
+      "id": "bp12d-045",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "En combien de temps le baroréflexe corrige-t-il une variation de PA ?",
+      "choices": [
+        {
+          "text": "En quelques heures",
+          "correct": false
+        },
+        {
+          "text": "En quelques semaines",
+          "correct": false
+        },
+        {
+          "text": "En quelques jours",
+          "correct": false
+        },
+        {
+          "text": "En quelques secondes",
+          "correct": true
+        }
+      ],
+      "explanation": "Le baroréflexe agit en quelques secondes. Le SRAA agit en quelques heures à quelques jours."
+    },
+    {
+      "id": "bp12d-046",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pourquoi le baroréflexe ne protège-t-il pas de l’HTA ?",
+      "choices": [
+        {
+          "text": "Il s’adapte en quelques jours à une PA durablement élevée",
+          "correct": true
+        },
+        {
+          "text": "Il ne fonctionne que lorsque la PA baisse",
+          "correct": false
+        },
+        {
+          "text": "Il est inactif chez l’adulte et ne fonctionne que chez l’enfant",
+          "correct": false
+        },
+        {
+          "text": "Il agit uniquement sur les veines, pas sur les artérioles",
+          "correct": false
+        }
+      ],
+      "explanation": "Le baroréflexe corrige les variations rapides mais se « recale » en quelques jours sur une PA durablement élevée. Le réglage à long terme passe par le rein et la volémie (SRAA)."
+    },
+    {
+      "id": "bp12d-047",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel volume de sang descend environ dans les veines des jambes quand on se lève ?",
+      "choices": [
+        {
+          "text": "Environ 50 mL",
+          "correct": false
+        },
+        {
+          "text": "Environ un demi-litre",
+          "correct": true
+        },
+        {
+          "text": "Environ 2 litres",
+          "correct": false
+        },
+        {
+          "text": "Environ 5 litres",
+          "correct": false
+        }
+      ],
+      "explanation": "En se levant, environ un demi-litre de sang descend dans les veines des jambes ; sans le baroréflexe, on ferait un malaise à chaque fois."
+    },
+    {
+      "id": "bp12d-048",
+      "category": "Baroréflexe",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles situations favorisent l’hypotension orthostatique ?",
+      "choices": [
+        {
+          "text": "L’âge avancé",
+          "correct": true
+        },
+        {
+          "text": "La déshydratation",
+          "correct": true
+        },
+        {
+          "text": "Certains médicaments",
+          "correct": true
+        },
+        {
+          "text": "Une alimentation riche en sel",
+          "correct": false
+        }
+      ],
+      "explanation": "Quand le baroréflexe est trop lent (personnes âgées, certains médicaments, déshydratation), le lever provoque une hypotension orthostatique : vertiges, chutes. Le sel tend au contraire à augmenter la volémie."
+    },
+    {
+      "id": "bp12d-049",
+      "category": "Baroréflexe",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi le massage sinocarotidien ralentit-il le cœur ?",
+      "choices": [
+        {
+          "text": "Il comprime le nœud sinusal, qui serait situé dans le cou, et bloque l’influx",
+          "correct": false
+        },
+        {
+          "text": "Il stimule directement les nerfs sympathiques",
+          "correct": false
+        },
+        {
+          "text": "Il étire les barorécepteurs du sinus carotidien, ce qui active le nerf X",
+          "correct": true
+        },
+        {
+          "text": "Il bloque le passage du sang vers le cerveau",
+          "correct": false
+        }
+      ],
+      "explanation": "Appuyer sur le sinus carotidien étire les barorécepteurs : le bulbe « croit » que la PA monte et active le nerf X, le cœur ralentit. C’est un geste médical sous surveillance."
+    },
+    {
+      "id": "bp12d-050",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Que signifie le sigle SRAA ?",
+      "choices": [
+        {
+          "text": "Système réflexe artériel autonome",
+          "correct": false
+        },
+        {
+          "text": "Système rénal d’absorption de l’azote",
+          "correct": false
+        },
+        {
+          "text": "Sécrétion rénale d’angiotensine et d’adrénaline",
+          "correct": false
+        },
+        {
+          "text": "Système rénine-angiotensine-aldostérone",
+          "correct": true
+        }
+      ],
+      "explanation": "SRAA = système rénine-angiotensine-aldostérone, régulation hormonale de la PA."
+    },
+    {
+      "id": "bp12d-051",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est l’élément déclencheur du SRAA ?",
+      "choices": [
+        {
+          "text": "Une baisse de la PA ou de la volémie",
+          "correct": true
+        },
+        {
+          "text": "Une hausse de la fréquence cardiaque",
+          "correct": false
+        },
+        {
+          "text": "Une hausse de la PA",
+          "correct": false
+        },
+        {
+          "text": "Un repas riche en sel",
+          "correct": false
+        }
+      ],
+      "explanation": "Le SRAA est activé par une baisse de la PA ou de la volémie : il fait remonter la PA."
+    },
+    {
+      "id": "bp12d-052",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel organe libère la rénine ?",
+      "choices": [
+        {
+          "text": "La corticosurrénale",
+          "correct": false
+        },
+        {
+          "text": "Le rein",
+          "correct": true
+        },
+        {
+          "text": "Le poumon",
+          "correct": false
+        },
+        {
+          "text": "Le foie",
+          "correct": false
+        }
+      ],
+      "explanation": "La rénine, une enzyme, est libérée par le rein."
+    },
+    {
+      "id": "bp12d-053",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel organe produit l’angiotensinogène ?",
+      "choices": [
+        {
+          "text": "Le poumon",
+          "correct": false
+        },
+        {
+          "text": "La corticosurrénale",
+          "correct": false
+        },
+        {
+          "text": "Le foie",
+          "correct": true
+        },
+        {
+          "text": "Le rein",
+          "correct": false
+        }
+      ],
+      "explanation": "L’angiotensinogène est une protéine produite par le foie ; la rénine le transforme en angiotensine I."
+    },
+    {
+      "id": "bp12d-054",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est l’ordre de la cascade du SRAA ?",
+      "choices": [
+        {
+          "text": "Angiotensinogène → angiotensine II → angiotensine I → aldostérone",
+          "correct": false
+        },
+        {
+          "text": "Angiotensine I → angiotensinogène → angiotensine II → aldostérone",
+          "correct": false
+        },
+        {
+          "text": "Aldostérone → angiotensinogène → angiotensine I → angiotensine II",
+          "correct": false
+        },
+        {
+          "text": "Angiotensinogène → angiotensine I → angiotensine II → aldostérone",
+          "correct": true
+        }
+      ],
+      "explanation": "La rénine transforme l’angiotensinogène (foie) en angiotensine I ; l’enzyme de conversion la transforme en angiotensine II, qui stimule la sécrétion d’aldostérone."
+    },
+    {
+      "id": "bp12d-055",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quelle enzyme transforme l’angiotensine I en angiotensine II, et où se trouve-t-elle surtout ?",
+      "choices": [
+        {
+          "text": "L’enzyme de conversion, surtout dans les vaisseaux des poumons",
+          "correct": true
+        },
+        {
+          "text": "L’aldostérone, surtout dans la corticosurrénale",
+          "correct": false
+        },
+        {
+          "text": "L’enzyme de conversion, surtout dans le foie",
+          "correct": false
+        },
+        {
+          "text": "La rénine, surtout dans le rein",
+          "correct": false
+        }
+      ],
+      "explanation": "L’enzyme de conversion, présente surtout dans les vaisseaux pulmonaires, transforme l’angiotensine I en angiotensine II."
+    },
+    {
+      "id": "bp12d-056",
+      "category": "SRAA",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels sont les effets de l’angiotensine II ?",
+      "choices": [
+        {
+          "text": "Elle déclenche la soif et la sécrétion d’ADH",
+          "correct": true
+        },
+        {
+          "text": "Elle provoque une vasoconstriction des artérioles",
+          "correct": true
+        },
+        {
+          "text": "Elle stimule la sécrétion d’aldostérone",
+          "correct": true
+        },
+        {
+          "text": "Elle fait baisser la PA",
+          "correct": false
+        }
+      ],
+      "explanation": "L’angiotensine II provoque une vasoconstriction (RPT ↑), stimule l’aldostérone, la soif et l’ADH (volémie ↑) : elle fait monter la PA."
+    },
+    {
+      "id": "bp12d-057",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle glande sécrète l’aldostérone ?",
+      "choices": [
+        {
+          "text": "L’hypophyse",
+          "correct": false
+        },
+        {
+          "text": "La corticosurrénale",
+          "correct": true
+        },
+        {
+          "text": "La thyroïde",
+          "correct": false
+        },
+        {
+          "text": "Le pancréas",
+          "correct": false
+        }
+      ],
+      "explanation": "L’aldostérone est sécrétée par la corticosurrénale, sous l’effet de l’angiotensine II."
+    },
+    {
+      "id": "bp12d-058",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est l’effet de l’aldostérone sur le rein ?",
+      "choices": [
+        {
+          "text": "Elle stimule la libération de rénine",
+          "correct": false
+        },
+        {
+          "text": "Elle augmente l’élimination de Na⁺ et d’eau",
+          "correct": false
+        },
+        {
+          "text": "Elle augmente la réabsorption de Na⁺ et d’eau",
+          "correct": true
+        },
+        {
+          "text": "Elle fait baisser la volémie",
+          "correct": false
+        }
+      ],
+      "explanation": "L’aldostérone fait réabsorber le Na⁺ et l’eau par le rein : la volémie augmente, donc la PA."
+    },
+    {
+      "id": "bp12d-059",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "En combien de temps le SRAA fait-il remonter la PA ?",
+      "choices": [
+        {
+          "text": "En quelques secondes",
+          "correct": false
+        },
+        {
+          "text": "En plusieurs mois",
+          "correct": false
+        },
+        {
+          "text": "En quelques minutes seulement",
+          "correct": false
+        },
+        {
+          "text": "En quelques heures à quelques jours",
+          "correct": true
+        }
+      ],
+      "explanation": "Le SRAA est une régulation hormonale lente (heures à jours), à la différence du baroréflexe (secondes)."
+    },
+    {
+      "id": "bp12d-060",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Comment agissent les IEC et les ARA II (sartans), médicaments antihypertenseurs ?",
+      "choices": [
+        {
+          "text": "Ils bloquent l’angiotensine II",
+          "correct": true
+        },
+        {
+          "text": "Ils augmentent la sécrétion d’aldostérone",
+          "correct": false
+        },
+        {
+          "text": "Ils stimulent la libération de rénine",
+          "correct": false
+        },
+        {
+          "text": "Ils activent les barorécepteurs",
+          "correct": false
+        }
+      ],
+      "explanation": "Les IEC (inhibiteurs de l’enzyme de conversion) et les ARA II (sartans) bloquent l’angiotensine II : moins de vasoconstriction et d’aldostérone, la PA baisse."
+    },
+    {
+      "id": "bp12d-061",
+      "category": "SRAA",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Quelle est la différence principale entre le baroréflexe et le SRAA ?",
+      "choices": [
+        {
+          "text": "Le baroréflexe fait monter la PA, le SRAA la fait toujours baisser",
+          "correct": false
+        },
+        {
+          "text": "Le baroréflexe est nerveux et rapide ; le SRAA est hormonal, plus lent, et agit sur la volémie",
+          "correct": true
+        },
+        {
+          "text": "Les deux sont nerveux, mais le SRAA agit uniquement sur le nœud sinusal",
+          "correct": false
+        },
+        {
+          "text": "Le baroréflexe est hormonal et lent ; le SRAA est nerveux et agit en quelques secondes",
+          "correct": false
+        }
+      ],
+      "explanation": "Baroréflexe : nerveux, quelques secondes, variations rapides. SRAA : hormonal, heures à jours, réglage à long terme par le rein et la volémie."
+    },
+    {
+      "id": "bp12d-062",
+      "category": "Sel et pression artérielle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi un apport élevé de sel peut-il augmenter la PA ?",
+      "choices": [
+        {
+          "text": "Le sel bloque la production d’angiotensine II",
+          "correct": false
+        },
+        {
+          "text": "Le sel dilate les artérioles, ce qui augmente les résistances",
+          "correct": false
+        },
+        {
+          "text": "Le Na⁺ retient l’eau dans le milieu extracellulaire, ce qui augmente la volémie",
+          "correct": true
+        },
+        {
+          "text": "Le sel provoque directement l’accélération du cœur",
+          "correct": false
+        }
+      ],
+      "explanation": "Le sodium retient l’eau dans le milieu extracellulaire : chez les personnes sensibles, la volémie augmente, donc la PA."
+    },
+    {
+      "id": "bp12d-063",
+      "category": "Sel et pression artérielle",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est le repère de l’OMS pour la consommation de sel ?",
+      "choices": [
+        {
+          "text": "Moins de 10 g de sel par jour",
+          "correct": false
+        },
+        {
+          "text": "Moins de 8 à 9 g de sel par jour",
+          "correct": false
+        },
+        {
+          "text": "Moins de 2 g de sel par jour",
+          "correct": false
+        },
+        {
+          "text": "Moins de 5 g de sel par jour",
+          "correct": true
+        }
+      ],
+      "explanation": "OMS : moins de 5 g de sel par jour, soit moins de 2 g de sodium. Les adultes français en consomment en moyenne 8 à 9 g."
+    },
+    {
+      "id": "bp12d-064",
+      "category": "Sel et pression artérielle",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Une étiquette indique 0,8 g de sodium par portion. Quelle quantité de sel cela représente-t-il ?",
+      "choices": [
+        {
+          "text": "2 g de sel",
+          "correct": true
+        },
+        {
+          "text": "0,8 g de sel",
+          "correct": false
+        },
+        {
+          "text": "0,32 g de sel",
+          "correct": false
+        },
+        {
+          "text": "8 g de sel",
+          "correct": false
+        }
+      ],
+      "explanation": "Sel (g) = sodium (g) × 2,5 : 0,8 × 2,5 = 2 g de sel."
+    },
+    {
+      "id": "bp12d-065",
+      "category": "Sel et pression artérielle",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Un plat préparé contient 1,2 g de sodium. Quelle part du repère OMS en sel représente-t-il ?",
+      "choices": [
+        {
+          "text": "6 g de sel, soit 120 % du repère de 5 g",
+          "correct": false
+        },
+        {
+          "text": "3 g de sel, soit 60 % du repère de 5 g",
+          "correct": true
+        },
+        {
+          "text": "0,48 g de sel, soit 10 % du repère de 5 g",
+          "correct": false
+        },
+        {
+          "text": "1,2 g de sel, soit 24 % du repère de 5 g",
+          "correct": false
+        }
+      ],
+      "explanation": "1,2 g de sodium × 2,5 = 3 g de sel ; 3 / 5 = 60 % du repère OMS."
+    },
+    {
+      "id": "bp12d-066",
+      "category": "Sel et pression artérielle",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels aliments apportent une grande part du sel consommé en France ?",
+      "choices": [
+        {
+          "text": "Les fruits frais",
+          "correct": false
+        },
+        {
+          "text": "Les fromages",
+          "correct": true
+        },
+        {
+          "text": "Le pain",
+          "correct": true
+        },
+        {
+          "text": "La charcuterie",
+          "correct": true
+        }
+      ],
+      "explanation": "Le pain, la charcuterie, les fromages et les plats préparés apportent une grande part du sel. Les fruits frais en contiennent très peu."
+    },
+    {
+      "id": "bp12d-067",
+      "category": "Sel et pression artérielle",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quelles sont les premières mesures hygiéno-diététiques de l’HTA ?",
+      "choices": [
+        {
+          "text": "Réduire l’alcool",
+          "correct": true
+        },
+        {
+          "text": "Supprimer toute activité physique",
+          "correct": false
+        },
+        {
+          "text": "Réduire le poids en cas de surpoids",
+          "correct": true
+        },
+        {
+          "text": "Réduire le sel",
+          "correct": true
+        }
+      ],
+      "explanation": "Réduction du sel, du poids et de l’alcool et pratique d’une activité physique sont les premières mesures hygiéno-diététiques de l’HTA."
+    },
+    {
+      "id": "bp12d-068",
+      "category": "Régulation locale",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels métabolites, produits par un tissu qui travaille, provoquent une vasodilatation locale ?",
+      "choices": [
+        {
+          "text": "O₂ en excès",
+          "correct": false
+        },
+        {
+          "text": "CO₂",
+          "correct": true
+        },
+        {
+          "text": "Ions K⁺",
+          "correct": true
+        },
+        {
+          "text": "Ions H⁺",
+          "correct": true
+        }
+      ],
+      "explanation": "Un tissu actif consomme l’O₂ (O₂ ↓) et produit CO₂, H⁺, K⁺, adénosine : ces métabolites dilatent ses artérioles et augmentent son débit."
+    },
+    {
+      "id": "bp12d-069",
+      "category": "Régulation locale",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quel est l’effet des métabolites locaux sur les artérioles d’un muscle à l’effort ?",
+      "choices": [
+        {
+          "text": "Une vasoconstriction qui réduit le débit du muscle",
+          "correct": false
+        },
+        {
+          "text": "Une libération de rénine par le muscle",
+          "correct": false
+        },
+        {
+          "text": "Une vasodilatation qui augmente le débit du muscle",
+          "correct": true
+        },
+        {
+          "text": "Une accélération du cœur sans effet sur les artérioles",
+          "correct": false
+        }
+      ],
+      "explanation": "Les métabolites dilatent les artérioles du muscle : le débit augmente là où il en a besoin."
+    },
+    {
+      "id": "bp12d-070",
+      "category": "Régulation locale",
+      "type": "single",
+      "difficulty": 1,
+      "prompt": "Quelle est la réponse des vaisseaux de la peau à la chaleur ?",
+      "choices": [
+        {
+          "text": "Une vasodilatation : la chaleur est conservée et la peau pâlit",
+          "correct": false
+        },
+        {
+          "text": "Aucune modification du débit cutané",
+          "correct": false
+        },
+        {
+          "text": "Une vasoconstriction : la chaleur est conservée et la peau pâlit",
+          "correct": false
+        },
+        {
+          "text": "Une vasodilatation : la chaleur est évacuée et la peau rougit",
+          "correct": true
+        }
+      ],
+      "explanation": "Chaleur → vasodilatation cutanée : plus de sang en surface, la chaleur est évacuée (peau rouge). Froid → vasoconstriction : chaleur conservée, peau pâle."
+    },
+    {
+      "id": "bp12d-071",
+      "category": "Régulation locale",
+      "type": "multiple",
+      "difficulty": 2,
+      "prompt": "Quels effets du froid sur la peau sont exacts ?",
+      "choices": [
+        {
+          "text": "Vasoconstriction des vaisseaux cutanés",
+          "correct": true
+        },
+        {
+          "text": "Débit sanguin cutané augmenté",
+          "correct": false
+        },
+        {
+          "text": "Chaleur conservée au centre du corps",
+          "correct": true
+        },
+        {
+          "text": "Peau pâle et extrémités froides",
+          "correct": true
+        }
+      ],
+      "explanation": "Le froid provoque une vasoconstriction cutanée : le sang reste au centre du corps, la peau pâlit et les extrémités sont froides (risque d’engelures)."
+    },
+    {
+      "id": "bp12d-072",
+      "category": "Régulation locale",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Quel est le rôle de la régulation locale du débit ?",
+      "choices": [
+        {
+          "text": "Répartir le débit cardiaque entre les organes selon leurs besoins",
+          "correct": true
+        },
+        {
+          "text": "Régler la fréquence cardiaque",
+          "correct": false
+        },
+        {
+          "text": "Maintenir la PA globale constante grâce au bulbe rachidien et au nerf X",
+          "correct": false
+        },
+        {
+          "text": "Régler la volémie par le rein",
+          "correct": false
+        }
+      ],
+      "explanation": "La régulation locale répartit le débit entre les organes montés en parallèle ; le baroréflexe et le SRAA maintiennent la PA globale."
+    },
+    {
+      "id": "bp12d-073",
+      "category": "Régulation locale",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Au cours d’un effort intense, comment évolue le débit sanguin des muscles squelettiques ?",
+      "choices": [
+        {
+          "text": "Il reste inchangé (0,75 L/min)",
+          "correct": false
+        },
+        {
+          "text": "Il est multiplié par environ 28 (0,75 → 21 L/min)",
+          "correct": true
+        },
+        {
+          "text": "Il est divisé par environ 3 (0,75 → 0,25 L/min)",
+          "correct": false
+        },
+        {
+          "text": "Il est multiplié par environ 3 (0,75 → 2,2 L/min)",
+          "correct": false
+        }
+      ],
+      "explanation": "Le débit musculaire passe de 0,75 à 21 L/min (× 28) grâce à la vasodilatation par les métabolites."
+    },
+    {
+      "id": "bp12d-074",
+      "category": "Régulation locale",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Au cours d’un effort intense, quel organe garde un débit sanguin constant ?",
+      "choices": [
+        {
+          "text": "La peau",
+          "correct": false
+        },
+        {
+          "text": "Les reins",
+          "correct": false
+        },
+        {
+          "text": "Le cerveau",
+          "correct": true
+        },
+        {
+          "text": "Le tube digestif",
+          "correct": false
+        }
+      ],
+      "explanation": "Le débit cérébral reste constant (0,75 L/min). Les reins et le tube digestif voient leur débit divisé par 3 ; la peau l’augmente pour évacuer la chaleur."
+    },
+    {
+      "id": "bp12d-075",
+      "category": "Régulation locale",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Pourquoi le débit du tube digestif et des reins diminue-t-il à l’effort ?",
+      "choices": [
+        {
+          "text": "Le nerf X y provoque une vasoconstriction qui ralentit le cœur",
+          "correct": false
+        },
+        {
+          "text": "Le débit cardiaque total diminue à l’effort, ce qui prive d’abord ces organes",
+          "correct": false
+        },
+        {
+          "text": "Les métabolites y provoquent une vasodilatation qui ralentit le sang",
+          "correct": false
+        },
+        {
+          "text": "Le système sympathique y provoque une vasoconstriction qui redirige le sang vers les muscles",
+          "correct": true
+        }
+      ],
+      "explanation": "Le sympathique contracte les artérioles digestives et rénales : le sang est redirigé vers les muscles. Le DC total passe de ≈ 5 à ≈ 25 L/min."
+    },
+    {
+      "id": "bp12d-076",
+      "category": "Régulation locale",
+      "type": "single",
+      "difficulty": 2,
+      "prompt": "Pourquoi conseille-t-on d’attendre après un repas copieux avant un effort intense ?",
+      "choices": [
+        {
+          "text": "Le débit digestif augmente après le repas : intestin et muscles se disputent le débit cardiaque",
+          "correct": true
+        },
+        {
+          "text": "Les métabolites de la digestion provoquent une vasoconstriction des muscles",
+          "correct": false
+        },
+        {
+          "text": "Le repas bloque le baroréflexe jusqu’à la fin de la digestion",
+          "correct": false
+        },
+        {
+          "text": "Le repas fait baisser la fréquence cardiaque pendant plusieurs heures",
+          "correct": false
+        }
+      ],
+      "explanation": "Après un repas, le débit digestif augmente (vasodilatation par les métabolites) : les deux territoires se disputent le débit cardiaque (lien BC2)."
+    },
+    {
+      "id": "bp12d-077",
+      "category": "Régulation locale",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Dans l’activité, le débit sanguin de la main passe de ≈ 2 (eau à 10 °C) à ≈ 30 mL/min/100 mL (eau à 42 °C). Que conclure ?",
+      "choices": [
+        {
+          "text": "Le débit est multiplié par 4 : les métabolites de la main dilatent ses artérioles",
+          "correct": false
+        },
+        {
+          "text": "Le débit est multiplié par 15 : la peau participe à la thermorégulation",
+          "correct": true
+        },
+        {
+          "text": "Le débit est multiplié par 15 : la peau règle la PA globale",
+          "correct": false
+        },
+        {
+          "text": "Le débit diminue au chaud pour conserver la chaleur",
+          "correct": false
+        }
+      ],
+      "explanation": "30 / 2 = 15. Chaud → vasodilatation cutanée, chaleur évacuée ; froid → vasoconstriction, chaleur conservée : la peau participe à la thermorégulation."
+    },
+    {
+      "id": "bp12d-078",
+      "category": "Régulation locale",
+      "type": "single",
+      "difficulty": 3,
+      "prompt": "Doc. 3 : en se levant, la PAS passe de 120 à ≈ 98 mmHg puis revient en ≈ 15 s, tandis que la FC passe de 65 à ≈ 82 /min. Quelle interprétation est exacte ?",
+      "choices": [
+        {
+          "text": "La volémie diminue par perte d’eau ; l’aldostérone rétablit la PA en 15 s",
+          "correct": false
+        },
+        {
+          "text": "Le retour veineux augmente, la PA chute ; le SRAA accélère le cœur et rétablit la PA en 15 s",
+          "correct": false
+        },
+        {
+          "text": "Le retour veineux baisse, la PA chute ; le baroréflexe (nerf X ↓, sympathique ↑) accélère le cœur et rétablit la PA",
+          "correct": true
+        },
+        {
+          "text": "Les métabolites des jambes dilatent les artérioles ; le nerf X ↑ accélère le cœur",
+          "correct": false
+        }
+      ],
+      "explanation": "Sang accumulé dans les jambes → retour veineux ↓ → VES ↓ → DC ↓ → PA ↓. Les barorécepteurs déclenchent nerf X ↓ et sympathique ↑ : FC ↑, vasoconstriction, PA rétablie en ≈ 15 s."
+    },
+    {
+      "id": "bp12d-079",
+      "category": "Synthèse",
+      "type": "multiple",
+      "difficulty": 3,
+      "prompt": "Associez chaque régulation à son action principale. Quelles associations sont exactes ?",
+      "choices": [
+        {
+          "text": "Baroréflexe : corrige en quelques secondes les variations rapides de PA",
+          "correct": true
+        },
+        {
+          "text": "Régulation locale : maintient la PA globale par le bulbe rachidien",
+          "correct": false
+        },
+        {
+          "text": "SRAA : règle la PA à long terme par la volémie",
+          "correct": true
+        },
+        {
+          "text": "Régulation locale : répartit le débit entre les organes",
+          "correct": true
+        }
+      ],
+      "explanation": "Les trois régulations agissent ensemble : baroréflexe (secondes), SRAA (heures, jours) et régulation locale (répartition du débit). Le bulbe rachidien est le centre du baroréflexe."
+    }
+  ],
+  "sources": [
+    {
+      "document": "Chapitre 12 partie 4.pdf"
+    }
+  ]
+}
